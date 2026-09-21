@@ -83,8 +83,10 @@ const places = [
   {market:"US-MW-DETROIT", place:"Detroit, Michigan", retailer:"Target, Meijer, Kroger", zip:"48201", audience:"Motor City families, Great Lakes weekends — Amber", message:"Great Lakes frontier — fuel your Motor City morning", peppers:"—", cheeses:"—", cue:"Lakeside, maple syrup"},
   {market:"US-MW-CLEVELAND", place:"Cleveland, Ohio", retailer:"Target, Giant Eagle", zip:"44101", audience:"Lake Erie families, steel mornings — Cory", message:"Steel frontier — 14g for cold mornings", peppers:"—", cheeses:"—", cue:"Snow, steel, maple oatmeal"},
   {market:"US-OH-CINCINNATI", place:"Cincinnati, Ohio 45202", retailer:"Kroger, Target", zip:"45202", audience:"River-valley families, Findlay Market regulars — Ali", message:"Pawpaw capital frontier — protein for Ohio River mornings", peppers:"—", cheeses:"—", cue:"Brick market halls, humid river valley — trillium and bluebells spring, coneflower summer, aster and goldenrod fall; Findlay Market ramps and morels, September pawpaws, black walnuts in December"},
-  {market:"US-OH-DAYTON", place:"Dayton, Ohio 45402", retailer:"Kroger, Target", zip:"45402", audience:"Miami Valley families, 2nd Street Market Saturdays — Adam", message:"Maple corridor frontier — protein for market mornings", peppers:"—", cheeses:"—", cue:"Brick downtown and market sheds — February maple sugaring, May strawberries, 2nd Street Market July corn, humid 15-hour summer evenings, crisp low-angle fall"},
-  {market:"US-OH-LEBANON", place:"Lebanon, Ohio 45036", retailer:"Kroger", zip:"45036", audience:"Warren County orchard families, market regulars — Ryan", message:"Orchard belt frontier — protein for harvest mornings", peppers:"—", cheeses:"—", cue:"Historic downtown and foraging woods, a few degrees cooler inland — Hidden Valley August peaches, Irons cider apples, November pumpkins, volatile spring, gray short winter days"},
+  {market:"US-OH-DAYTON", place:"Dayton, Ohio 45402", retailer:"Kroger, Target", zip:"45402", audience:"Miami Valley families, 2nd Street Market Saturdays — Adam", message:"Maple corridor frontier — protein for market mornings", peppers:"—", cheeses:"—", cue:"Brick downtown and market sheds — February maple sugaring, May strawberries, 2nd Street Market July corn, warm humid summer nights, crisp low-angle fall"},
+  // US-OH-LEBANON is a featured frontier, not a selectable market: Cincinnati and
+  // Dayton both resolve here via marketFeaturedFrontier. No places[] row, so the
+  // market picker never offers Lebanon on its own.
   {market:"US-MW-INDY", place:"Indianapolis, Indiana", retailer:"Target, Kroger, Meijer", zip:"46204", audience:"Race families, heartland brunch — Aaron", message:"Speedway frontier — hearty flapjacks for race day", peppers:"—", cheeses:"—", cue:"Checkered flag brunch"},
   {market:"US-NE-PHILLY", place:"Philadelphia, Pennsylvania", retailer:"Target, Acme, Whole Foods", zip:"19102", audience:"Liberty families, cheesesteak-adjacent brunch — Madison", message:"Liberty frontier — protein for Philly mornings", peppers:"—", cheeses:"—", cue:"Soft pretzel & maple nod"},
   {market:"US-NE-DC", place:"Washington, DC + NoVA", retailer:"Target, Giant, Whole Foods", zip:"20001", audience:"Capitol families, monument mornings — Eli", message:"Capital frontier — whole grains for the hustle", peppers:"—", cheeses:"—", cue:"Monument dawn, coffee & stack"},
@@ -229,7 +231,7 @@ const marketFeaturedFrontier = {
   "US-MW-CHI": "US-IL-HARVARD",
   "US-MW-CLEVELAND": "US-OH-BURTON",
   "US-OH-CINCINNATI": "US-OH-LEBANON",
-  "US-OH-DAYTON": "US-OH-DAYTON",
+  "US-OH-DAYTON": "US-OH-LEBANON",
   "US-OH-LEBANON": "US-OH-LEBANON",
   "US-CA-OCEANSIDE": "US-CA-OCEANSIDE",
   "US-MW-DEN": "US-CO-ELIZABETH",
@@ -328,6 +330,28 @@ try{ window.featuredFrontierFor = featuredFrontierFor; }catch(e){}
 /** @type {Object<string,number>} */
 var FRONTIER_MONTH_NAMES = {january:1,february:2,march:3,april:4,may:5,june:6,
   july:7,august:8,september:9,october:10,november:11,december:12};
+/** @type {Object<string,number>} */
+// season/holiday picker values -> representative month (that season's peak).
+// Shared by frontierSeasonLine + the recipe gallery so a Halloween pick resolves
+// to the October moment/card instead of degrading to null.
+var FRONTIER_SEASON_MONTHS = {spring:5,summer:7,fall:10,autumn:10,winter:12,
+  'new year':1,"valentine's day":2,easter:4,'memorial day':5,
+  'fourth of july':7,'labor day':9,halloween:10,thanksgiving:11,christmas:12,
+  'holiday season':12};
+/**
+ * @param {string} monthKey
+ * @returns {number|null}
+ */
+function frontierMonthNum(monthKey){
+  var s = String(monthKey == null ? '' : monthKey);
+  var dated = s.match(/(\d{4})-(\d{1,2})/);
+  if(dated) return parseInt(dated[2], 10);
+  var name = s.replace(/^Season:\s*/i, '').replace(/[’']/g, "'").trim().toLowerCase();
+  if(FRONTIER_MONTH_NAMES[name]) return FRONTIER_MONTH_NAMES[name];
+  if(FRONTIER_SEASON_MONTHS[name]) return FRONTIER_SEASON_MONTHS[name];
+  return null;
+}
+try{ window.KODIAK_frontierMonthNum = frontierMonthNum; }catch(e){}
 /**
  * @param {string} market
  * @param {string} monthKey
@@ -344,13 +368,8 @@ function frontierSeasonLine(market, monthKey){
     }
     if(!entry || !entry.frontier) return null;
     /** @type {number|null} */
-    let monthNum = null;
-    var m = String(monthKey).match(/(\d{4})-(\d{1,2})/);
-    if(m){ monthNum = parseInt(m[2], 10); }
-    else{
-      var name = String(monthKey).replace(/^Season:\s*/i, '').trim().toLowerCase();
-      if(FRONTIER_MONTH_NAMES[name]) monthNum = FRONTIER_MONTH_NAMES[name];
-    }
+    var monthNum = null;
+    try{ monthNum = (typeof frontierMonthNum === 'function') ? frontierMonthNum(monthKey) : null; }catch(e){ monthNum = null; }
     if(!monthNum) return null;
     const month = monthNum;
     var monthly = /** @type {Object<string, string>} */ (entry.monthly || {});

@@ -1,7 +1,8 @@
-"""Market-to-featured-frontier mapping contract (issue #257, 1:1 model).
+"""Market-to-featured-frontier mapping contract (issue #257).
 
-Every registry market resolves its OWN nearby frontier (no shared frontiers)
-with place + ingredients + seasons + farmers-market context as data
+Every registry market resolves its nearby frontier (only the declared
+Cincinnati+Dayton share of Lebanon is shared) with place + ingredients +
+seasons + farmers-market context as data
 (data/localization/market-featured-frontiers.json). That JSON is GENERATED from
 web/kodiak-posts-for-todays-frontier/js/data-core.js via
 scripts/build-frontier-mapping.py `--check` pins the agreement — data-core.js
@@ -59,6 +60,9 @@ def test_every_entry_has_place_ingredients_seasons_market_context() -> None:
     assert not failures, "mapping gaps:\n" + "\n".join(failures)
 
 
+ALLOWED_SHARES = {"US-OH-LEBANON": {"US-OH-CINCINNATI", "US-OH-DAYTON"}}
+
+
 def test_no_shared_frontiers_every_target_self_resolves() -> None:
     mapping = _load(MAPPING)["markets"]
     served: dict[str, list[str]] = {}
@@ -71,7 +75,26 @@ def test_no_shared_frontiers_every_target_self_resolves() -> None:
         if code != fk:
             served.setdefault(fk, []).append(code)
     shared = {k: v for k, v in served.items() if len(v) > 1}
-    assert not shared, f"shared frontiers are back: {shared}"
+    unexpected = {
+        k: v for k, v in shared.items() if set(v) != ALLOWED_SHARES.get(k, set())
+    }
+    assert not unexpected, f"shared frontiers are back: {unexpected}"
+
+
+def test_ohio_metro_pair_shares_lebanon_frontier() -> None:
+    # Lebanon is Cincinnati's + Dayton's featured frontier — never its own
+    # selectable market, and Dayton never self-resolves.
+    mapping = _load(MAPPING)["markets"]
+    for code in ("US-OH-CINCINNATI", "US-OH-DAYTON"):
+        entry = mapping[code]
+        assert entry["frontier_market"] == "US-OH-LEBANON", code
+        assert "Lebanon" in entry["place"], code
+    assert mapping["US-OH-LEBANON"]["frontier_market"] == "US-OH-LEBANON"
+    text = FRONTEND_DATA.read_text(encoding="utf-8")
+    places = re.findall(r'\{market:"(US-[A-Z0-9 -]+)"', text)
+    assert "US-OH-LEBANON" not in places, "Lebanon is selectable in the picker"
+    assert "US-OH-CINCINNATI" in places and "US-OH-DAYTON" in places
+    assert '"US-OH-DAYTON": "US-OH-LEBANON"' in text
 
 
 def test_sf_bay_links_bolinas_goat_cheese_via_own_entry() -> None:

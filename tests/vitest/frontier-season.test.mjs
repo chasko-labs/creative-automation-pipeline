@@ -54,15 +54,41 @@ describe('frontier season line', () => {
   it('returns null for unknown markets, seasons, and missing pairs', () => {
     const line = loadSeasonLine(STUB);
     expect(line('US-XX-NOWHERE', 'October')).toBeNull();
-    expect(line('US-MW-BOISE', 'Fall')).toBeNull();
     expect(line('US-MW-BOISE', '')).toBeNull();
+    expect(line('US-MW-BOISE', 'Froctober')).toBeNull();
     expect(loadSeasonLine(null)('US-MW-BOISE', 'October')).toBeNull();
     expect(loadSeasonLine([])('US-MW-BOISE', 'October')).toBeNull();
+  });
+
+  it('resolves seasons and holidays to their representative month', () => {
+    const line = loadSeasonLine(STUB);
+    const fall = line('US-MW-BOISE', 'Fall');
+    expect(fall.ingredient).toBe('winter squash');
+    expect(fall.moment).toBe('Thanksgiving / winter holidays');
+    // Halloween is October's seat: same October ingredient + moment.
+    const halloween = line('US-MW-BOISE', 'Halloween');
+    expect(halloween.ingredient).toBe('winter squash');
+    expect(halloween.moment).toBe('Thanksgiving / winter holidays');
+    expect(line('US-MW-BOISE', 'Spring').ingredient).toBeNull();
   });
 
   it('never names a moment outside its months', () => {
     const line = loadSeasonLine(STUB);
     const r = line('US-MW-BOISE', '2026-10');
     expect(r.text).not.toContain('harvest fair');
+  });
+
+  it('grounds Dayton/Cincinnati in the shared Lebanon calendar', () => {
+    const m = pairsSrc.match(/window\.KODIAK_FRONTIER_PAIRS\s*=\s*(\[[\s\S]*\]);/);
+    expect(m, 'web pairs book parses').not.toBeNull();
+    const line = loadSeasonLine(JSON.parse(m[1]));
+    for (const market of ['US-OH-DAYTON', 'US-OH-CINCINNATI']) {
+      const sept = line(market, 'September');
+      expect(sept.text).toContain('Lebanon');
+      const tween = line(market, 'Halloween');
+      expect(tween.ingredient).toBe('apples');
+      expect(tween.moment).toContain('Halloween');
+      expect(tween.text).not.toMatch(/15-hour/);
+    }
   });
 });

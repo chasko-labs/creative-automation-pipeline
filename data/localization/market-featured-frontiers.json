@@ -1,11 +1,11 @@
 {
   "$schema": "https://kodiakcakes.com/schema/market-featured-frontiers-v1.json",
   "metadata": {
-    "generated": "2026-09-21T04:31:05Z",
+    "generated": "2026-09-21T05:00:58Z",
     "source": "generated from web/kodiak-posts-for-todays-frontier/js/data-core.js via scripts/build-frontier-mapping.py — do not hand-edit",
     "markets": 80,
     "frontier_self_entries": 69,
-    "model": "1:1 — every market resolves its own nearby frontier; no shared frontiers"
+    "model": "each market resolves its nearby frontier; only the declared Cincinnati+Dayton share of Lebanon is shared"
   },
   "markets": {
     "US-CA-PESCADERO": {
@@ -291,8 +291,8 @@
     },
     "US-OH-DAYTON": {
       "market": "US-OH-DAYTON",
-      "frontier_market": "US-OH-DAYTON",
-      "place": "Dayton, Ohio 45402 — Miami Valley maple corridor",
+      "frontier_market": "US-OH-LEBANON",
+      "place": "Lebanon, Ohio 45036 — Warren County orchard belt",
       "ingredients": [
         {
           "name": "maple syrup",
@@ -313,7 +313,7 @@
           ]
         },
         {
-          "name": "tomatoes",
+          "name": "peaches",
           "months": [
             8
           ]
@@ -323,18 +323,27 @@
           "months": [
             10
           ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "black walnuts",
+          "months": [
+            12
+          ]
         }
       ],
-      "seasons": "Maple Feb; strawberries May; corn Jul; tomatoes Aug; apples Oct",
-      "farmers_market": "2nd Street Market (Saturdays)",
+      "seasons": "Maple Feb; strawberries May; corn Jul; peaches Aug; apples Oct; pumpkins Nov; black walnuts Dec",
+      "farmers_market": "Lebanon Farmers Market",
       "farmers_market_url": null,
-      "link_note": "Self-frontier market; no-retail gap served by subscription.",
+      "link_note": "Nearby rural counterpart to Dayton, Ohio 45402; subscription-credible.",
       "farms": [
-        "Downing Fruit Farm",
-        "Dohner Maple Products",
-        "Fulton Farms",
-        "Patchwork Gardens",
-        "Mile Creek Farm"
+        "Irons Fruit Farm",
+        "Hidden Valley Orchards"
       ]
     },
     "US-OH-LEBANON": {

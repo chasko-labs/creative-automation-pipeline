@@ -1491,6 +1491,1426 @@ window.KODIAK_RECIPE_I18N = {
       }
     }
   },
+  "US-CA-OCEANSIDE": {
+    "2026-01": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de jugo de mandarina"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de ralladura de mandarina"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de gajos de mandarina (satsuma, mandarina o pomelo)"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de mantequilla, para la plancha"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "15 minutos",
+          "serves": "8 tortitas"
+        },
+        "steps": [
+          "BATE la mezcla, el jugo de mandarina, la leche, los huevos y la ralladura hasta formar una masa; incorpora los gajos.",
+          "DEJA REPOSAR la masa durante 5 minutos.",
+          "COCINE 1/4 de taza de tortitas en mantequilla, 2 minutos por lado, hasta que estén doradas.",
+          "SIRVA caliente con gajos adicionales y miel."
+        ],
+        "title": "Flapjacks de mandarín y cítricos",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras de Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de suco de tangerina"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de raspas de tangerina"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de segmentos de tangerina (satsuma, tangerina ou toranja)"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de sopa de manteiga, para a chapa"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "15 minutos",
+          "serves": "8 panquecas"
+        },
+        "steps": [
+          "BATA a mistura, o suco de tangerina, o leite, os ovos e as raspas até formar uma massa; dobre os segmentos.",
+          "DESCANSE a massa por 5 minutos.",
+          "COZINHE 1/4 de xícara de panquecas na manteiga, 2 minutos de cada lado, até dourar.",
+          "Sirva quente com segmentos extras e mel."
+        ],
+        "title": "Panquecas cítricas de mandarim",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-02": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 Power Cup Kodiak de mantequilla y flapjack de arce"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de leche entera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cucharadas de ricota con leche entera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de ralladura de limón fresca"
+          },
+          {
+            "price": null,
+            "qty_name": "Honey, to top"
+          }
+        ],
+        "meta": {
+          "cook": "1,5 minutos",
+          "prep": "2 minutos",
+          "serves": "1"
+        },
+        "steps": [
+          "RETIRA la tapa de la taza Kodiak Cakes.",
+          "AGREGUE la leche, la ricota y la ralladura de limón a la taza para flapjack y revuelva con un tenedor hasta que se combinen.",
+          "CALIENTA en el microondas a temperatura alta durante 90 segundos.",
+          "CUBRA con miel y una cucharada de ricota, si lo desea."
+        ],
+        "title": "Copa Flapjack de ricotta y limón de una sola porción",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:5"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 copo elétrico Kodiak Buttermilk & Maple Flapjack"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de leite integral"
+          },
+          {
+            "price": null,
+            "qty_name": "3 colheres de sopa de ricota de leite integral"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de raspas de limão fresco"
+          },
+          {
+            "price": null,
+            "qty_name": "Honey, to top"
+          }
+        ],
+        "meta": {
+          "cook": "1,5 minutos",
+          "prep": "2 minutos",
+          "serves": "1"
+        },
+        "steps": [
+          "REMOVA a tampa do copo Kodiak Cakes.",
+          "ADICIONE o leite, a ricota e as raspas de limão à xícara de flapjack e mexa com um garfo até incorporar.",
+          "MICROONDAS em potência alta por 90 segundos.",
+          "Cubra com mel e um pouco de ricota, se desejar."
+        ],
+        "title": "Copo Flapjack de ricota com limão em dose única",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:5"
+          ],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-03": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra con 1 taza de mezcla de arándanos, moras y fresas"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° F y cubre una bandeja para hornear con papel pergamino; resérvala.",
+          "EN un tazón grande, mezcle la mezcla de Kodiak Cakes, los huevos, la vainilla y la leche hasta que estén bien combinados.",
+          "VIERTE la masa en la bandeja para hornear preparada y cubre con la mezcla de bayas.",
+          "HORNEA de 10 a 15 minutos, o hasta que cuaje y esté ligeramente dorado.",
+          "DEJE enfriar un poco, luego córtelo en 12 rebanadas y sirva con sirope de arce."
+        ],
+        "title": "Tortitas en sartén",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 xícaras de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de baun"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra com 1 xícara de mistura de mirtilos, amoras e morangos"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° F e forre uma assadeira com papel manteiga; reserve.",
+          "Em uma tigela grande, misture a mistura Kodiak Cakes, os ovos, a baunilha e o leite até incorporar bem.",
+          "DESPEJE a massa na assadeira preparada e cubra com frutas vermelhas misturadas.",
+          "Asse por 10-15 minutos ou até ficar firme e levemente dourado.",
+          "DEIXE esfriar um pouco, depois corte em 12 fatias e sirva com xarope de bordo."
+        ],
+        "title": "Panquecas em forma de folha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-04": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra con 1 taza de mezcla de arándanos, moras y fresas"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° F y cubre una bandeja para hornear con papel pergamino; resérvala.",
+          "EN un tazón grande, mezcle la mezcla de Kodiak Cakes, los huevos, la vainilla y la leche hasta que estén bien combinados.",
+          "VIERTE la masa en la bandeja para hornear preparada y cubre con la mezcla de bayas.",
+          "HORNEA de 10 a 15 minutos, o hasta que cuaje y esté ligeramente dorado.",
+          "DEJE enfriar un poco, luego córtelo en 12 rebanadas y sirva con sirope de arce."
+        ],
+        "title": "Tortitas en sartén",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 xícaras de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de baun"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra com 1 xícara de mistura de mirtilos, amoras e morangos"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° F e forre uma assadeira com papel manteiga; reserve.",
+          "Em uma tigela grande, misture a mistura Kodiak Cakes, os ovos, a baunilha e o leite até incorporar bem.",
+          "DESPEJE a massa na assadeira preparada e cubra com frutas vermelhas misturadas.",
+          "Asse por 10-15 minutos ou até ficar firme e levemente dourado.",
+          "DEIXE esfriar um pouco, depois corte em 12 fatias e sirva com xarope de bordo."
+        ],
+        "title": "Panquecas em forma de folha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-05": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra con 1 taza de mezcla de arándanos, moras y fresas"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° F y cubre una bandeja para hornear con papel pergamino; resérvala.",
+          "EN un tazón grande, mezcle la mezcla de Kodiak Cakes, los huevos, la vainilla y la leche hasta que estén bien combinados.",
+          "VIERTE la masa en la bandeja para hornear preparada y cubre con la mezcla de bayas.",
+          "HORNEA de 10 a 15 minutos, o hasta que cuaje y esté ligeramente dorado.",
+          "DEJE enfriar un poco, luego córtelo en 12 rebanadas y sirva con sirope de arce."
+        ],
+        "title": "Tortitas en sartén",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 xícaras de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de baun"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra com 1 xícara de mistura de mirtilos, amoras e morangos"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° F e forre uma assadeira com papel manteiga; reserve.",
+          "Em uma tigela grande, misture a mistura Kodiak Cakes, os ovos, a baunilha e o leite até incorporar bem.",
+          "DESPEJE a massa na assadeira preparada e cubra com frutas vermelhas misturadas.",
+          "Asse por 10-15 minutos ou até ficar firme e levemente dourado.",
+          "DEIXE esfriar um pouco, depois corte em 12 fatias e sirva com xarope de bordo."
+        ],
+        "title": "Panquecas em forma de folha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-06": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 waffles Kodiak Homestyle Power Waffles (o el sabor Power Waffle de su elección)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 plátano congelado"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de leche entera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 fecha"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "3 fresas congeladas"
+          }
+        ],
+        "meta": {
+          "cook": "5 minutos",
+          "prep": "5 minutos",
+          "serves": "1"
+        },
+        "steps": [
+          "TUESTA dos Power Waffles de Kodiak Cakes hasta que estén dorados y crujientes.",
+          "EN una licuadora de alta potencia, mezcle el plátano congelado, las fresas, la leche, el dátil y la vainilla hasta que quede suave y cremoso.",
+          "PON la mezcla de plátano y fresa entre los waffles tostados. ¡Disfruta! *Consejo profesional: ¿Prefieres que tu helado sea «espeso»? Recomendamos comenzar con el paso 2 y congelar el helado durante 30 minutos a una hora antes de tostar los gofres."
+        ],
+        "title": "Sándwich de helado para el desayuno",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 Kodiak Homestyle Power Waffles (ou o sabor Power Waffle de sua escolha)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 banana congelada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de leite integral"
+          },
+          {
+            "price": null,
+            "qty_name": "1 data"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá extrato de baunilha"
+          },
+          {
+            "price": null,
+            "qty_name": "3 morangos congelados"
+          }
+        ],
+        "meta": {
+          "cook": "5 minutos",
+          "prep": "5 minutos",
+          "serves": "1"
+        },
+        "steps": [
+          "TORRE dois Kodiak Cakes Power Waffles até ficarem dourados e crocantes.",
+          "Em um liquidificador de alta potência, bata banana congelada, morangos, leite, tâmaras e baunilha até ficar homogêneo e cremoso.",
+          "COLOQUE a mistura de banana e morango entre os waffles torrados. Aproveite! *Dica profissional: prefere seu sorvete no lado “grosso”? Recomendamos começar com a etapa 2 e congelar o sorvete por 30 minutos a uma hora antes de tostar os waffles."
+        ],
+        "title": "Sanduíche de sorvete de café da manhã",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-07": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de granos de maíz dulce frescos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 de taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de pimiento dulce cortado en cubitos (opcional)"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de mantequilla, para la plancha"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "15 minutos",
+          "serves": "8 tartas"
+        },
+        "steps": [
+          "BATE la mezcla, el huevo, la leche y la sal hasta formar una masa, luego agrega el maíz y la pimienta.",
+          "DEJA REPOSAR la masa durante 5 minutos para que la mezcla se hidrate.",
+          "COCINA 1/4 de taza en mantequilla a fuego medio, de 2 a 3 minutos por lado, hasta que estén doradas.",
+          "SIRVA caliente con mantequilla."
+        ],
+        "title": "Tortas de maíz dulce a la plancha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 xícara de Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 xícaras de grãos de milho doce frescos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ovo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 xícara de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de pimentão em cubos (opcional)"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de sopa de manteiga, para a chapa"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "15 minutos",
+          "serves": "8 bolos"
+        },
+        "steps": [
+          "BATA a mistura, o ovo, o leite e o sal até formar uma massa e acrescente o milho e a pimenta.",
+          "DESCANSE a massa por 5 minutos para que a mistura hidrate.",
+          "COZINHE 1/4 de xícara de colher de manteiga em fogo médio, 2-3 minutos de cada lado, até dourar.",
+          "SIRVA quente com manteiga."
+        ],
+        "title": "Bolos grelhados de milho doce",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-08": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 waffles poderosos de mantequilla y vainilla de Kodiak"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de aceite de oliva"
+          },
+          {
+            "price": null,
+            "qty_name": "1 calabacín pequeño, cortado en trozos de 1 pulgada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 mazorca de maíz, con los granos cortados"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimentón ahumado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de tomates cherry cortados por la mitad"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cebollas verdes en rodajas"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de arvejas congeladas (descongeladas)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 diente de ajo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de cilantro"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limones, uno cortado en 4 trozos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de yogur natural"
+          }
+        ],
+        "meta": {
+          "cook": "5",
+          "prep": "15",
+          "serves": "4"
+        },
+        "steps": [
+          "COLOCA los guisantes, el ajo, el cilantro y el jugo de una lima en un procesador de alimentos. Pulse hasta que se mezcle y forme una pasta espesa. Agregue sal al gusto. Vuelva a pulsar y reserve.",
+          "AGREGA el aceite de oliva a una sartén grande y calienta a fuego medio/alto. Agregue el calabacín, el maíz y el pimentón ahumado a la sartén y saltee hasta que estén dorados y suaves. Retira del fuego y agrega los tomates cherry y la cebolla verde. Agrega sal al gusto.",
+          "TUESTA los waffles según las instrucciones del paquete.",
+          "CUBRE cada gofre con 1/4 de taza de la mezcla de guisantes y 1/4 de la mezcla de verduras. Repite el procedimiento con el resto de los waffles.",
+          "SIRVE cada tostada de gofres con una cucharada de yogur y una rodaja de lima."
+        ],
+        "title": "Tostada de verduras de verano",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 waffles Kodiak Buttermilk e Vanilla Power"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de azeite"
+          },
+          {
+            "price": null,
+            "qty_name": "1 abobrinha pequena, cortada em pedaços de 1”"
+          },
+          {
+            "price": null,
+            "qty_name": "1 espiga de milho, grãos cortados de espiga"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de páprica defumada"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de tomate cereja, cortado pela metade"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cebolinhas, fatiadas"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de ervilhas congeladas (descongeladas)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 dente de alho"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de coentro"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limas, uma cortada em 4 fatias"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de iogurte natural"
+          }
+        ],
+        "meta": {
+          "cook": "5",
+          "prep": "15",
+          "serves": "4"
+        },
+        "steps": [
+          "COLOQUE as ervilhas, o alho, o coentro e o suco de um limão no processador de alimentos. Pulsar até formar uma pasta grossa. Adicione sal a gosto. Pulse novamente e reserve.",
+          "ADICIONE o azeite em uma frigideira grande e aqueça em médio/alto. Adicione a abobrinha, o milho e a páprica defumada na frigideira e refogue até dourar e ficar macio. Retire do fogo e acrescente o tomate cereja e a cebolinha. Adicione sal a gosto.",
+          "TORRE os waffles de acordo com as instruções da embalagem.",
+          "Cubra cada waffle com 1/4 de xícara da mistura de ervilha e 1/4 da mistura de vegetais. Repita com os waffles restantes.",
+          "SIRVA cada waffle tostada com uma colher de sopa de iogurte e uma rodela de limão."
+        ],
+        "title": "Tostada de vegetais de verão",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-09": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 waffles poderosos de mantequilla y vainilla de Kodiak"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de aceite de oliva"
+          },
+          {
+            "price": null,
+            "qty_name": "1 calabacín pequeño, cortado en trozos de 1 pulgada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 mazorca de maíz, con los granos cortados"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimentón ahumado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de tomates cherry cortados por la mitad"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cebollas verdes en rodajas"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de arvejas congeladas (descongeladas)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 diente de ajo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de cilantro"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limones, uno cortado en 4 trozos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de yogur natural"
+          }
+        ],
+        "meta": {
+          "cook": "5",
+          "prep": "15",
+          "serves": "4"
+        },
+        "steps": [
+          "COLOCA los guisantes, el ajo, el cilantro y el jugo de una lima en un procesador de alimentos. Pulse hasta que se mezcle y forme una pasta espesa. Agregue sal al gusto. Vuelva a pulsar y reserve.",
+          "AGREGA el aceite de oliva a una sartén grande y calienta a fuego medio/alto. Agregue el calabacín, el maíz y el pimentón ahumado a la sartén y saltee hasta que estén dorados y suaves. Retira del fuego y agrega los tomates cherry y la cebolla verde. Agrega sal al gusto.",
+          "TUESTA los waffles según las instrucciones del paquete.",
+          "CUBRE cada gofre con 1/4 de taza de la mezcla de guisantes y 1/4 de la mezcla de verduras. Repite el procedimiento con el resto de los waffles.",
+          "SIRVE cada tostada de gofres con una cucharada de yogur y una rodaja de lima."
+        ],
+        "title": "Tostada de verduras de verano",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 waffles Kodiak Buttermilk e Vanilla Power"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de azeite"
+          },
+          {
+            "price": null,
+            "qty_name": "1 abobrinha pequena, cortada em pedaços de 1”"
+          },
+          {
+            "price": null,
+            "qty_name": "1 espiga de milho, grãos cortados de espiga"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de páprica defumada"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de tomate cereja, cortado pela metade"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cebolinhas, fatiadas"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de ervilhas congeladas (descongeladas)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 dente de alho"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de coentro"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limas, uma cortada em 4 fatias"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de iogurte natural"
+          }
+        ],
+        "meta": {
+          "cook": "5",
+          "prep": "15",
+          "serves": "4"
+        },
+        "steps": [
+          "COLOQUE as ervilhas, o alho, o coentro e o suco de um limão no processador de alimentos. Pulsar até formar uma pasta grossa. Adicione sal a gosto. Pulse novamente e reserve.",
+          "ADICIONE o azeite em uma frigideira grande e aqueça em médio/alto. Adicione a abobrinha, o milho e a páprica defumada na frigideira e refogue até dourar e ficar macio. Retire do fogo e acrescente o tomate cereja e a cebolinha. Adicione sal a gosto.",
+          "TORRE os waffles de acordo com as instruções da embalagem.",
+          "Cubra cada waffle com 1/4 de xícara da mistura de ervilha e 1/4 da mistura de vegetais. Repita com os waffles restantes.",
+          "SIRVA cada waffle tostada com uma colher de sopa de iogurte e uma rodela de limão."
+        ],
+        "title": "Tostada de vegetais de verão",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-10": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de pulpa de caqui fuyu madura"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 taza de miel"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de mantequilla derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cucharadita de clavo"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "CALIENTA el horno a 375 °F y forra un molde para magdalenas de 12 tazas.",
+          "BATE la pulpa de caqui, los huevos, la miel, la mantequilla, la canela y el clavo hasta que quede suave.",
+          "INCORPORA la mezcla hasta que esté bien mezclada.",
+          "DIVIDA entre las tazas y hornee de 18 a 20 minutos, hasta que cuaje y se dore."
+        ],
+        "title": "Muffins de especias de caqui",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras de Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de polpa de caqui fuyu maduro"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 xícara de mel"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de manteiga derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 colher de chá de cravo"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "AQUEÇA o forno a 375F e forre uma forma de muffin de 12 xícaras.",
+          "BATA a polpa do caqui, os ovos, o mel, a manteiga, a canela e o cravo até ficar homogêneo.",
+          "MEXA na mistura apenas até incorporar.",
+          "DIVIDA entre as xícaras e leve ao forno por 18 a 20 minutos, até ficar firme e dourado."
+        ],
+        "title": "Muffins de especiarias de caqui",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-11": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 libra de mariscos cocidos (cangrejo Dungeness, colas de cangrejo, fletán picado o almejas picadas)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de hierbas frescas picadas (perejil, eneldo o cebollino)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de zumo de limón"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cucharadas de aceite neutro, para freír"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "20 minutos",
+          "serves": "8 tartas"
+        },
+        "steps": [
+          "ESCOJA los mariscos para obtener cáscara; si usa fletán o almejas crudas, cocínelas primero y córtelas.",
+          "INCORPORA los mariscos con la mezcla, el huevo, las hierbas, el jugo de limón, la sal y la pimienta; deja reposar 10 minutos para que la mezcla se hidrate y se una.",
+          "FORME 8 bizcochos pequeños y fríalos en aceite caliente, 3 minutos por lado, hasta que estén dorados y bien calientes.",
+          "SIRVA caliente con limón."
+        ],
+        "title": "Pasteles de mariscos salados",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1 libra de frutos do mar cozidos (caranguejo Dungeness, rabos de lagosta, linguado picado ou amêijoas picadas)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ovo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de sopa de ervas frescas picadas (salsa, endro ou cebolinha)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de suco de limão"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de pimenta preta"
+          },
+          {
+            "price": null,
+            "qty_name": "3 colheres de sopa de óleo neutro, para fritar"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "20 minutos",
+          "serves": "8 bolos"
+        },
+        "steps": [
+          "ESCOLHA os frutos do mar para obter casca; se estiver usando linguado cru ou amêijoas, cozinhe primeiro e pique.",
+          "DOBRE os frutos do mar com a mistura, ovo, ervas, suco de limão, sal e pimenta; descanse 10 minutos para que a mistura hidrate e grude.",
+          "FORME 8 bolinhos pequenos e frite na frigideira em óleo bem quente, 3 minutos de cada lado, até dourar e ficar bem quente.",
+          "SIRVA quente com limão."
+        ],
+        "title": "Bolos salgados de frutos do mar",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-12": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2-1/2 tazas de mezcla para flapjack y waffle Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de polvo de hornear"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar granulada"
+          },
+          {
+            "price": null,
+            "qty_name": "3 huevos grandes, a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de mantequilla derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de crema agria a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de suero de leche, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de frambuesas, ligeramente trituradas\r\n\r\n\r\n \r\n\r\nPara el glaseado:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza (2 barras) de mantequilla a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 libra de azúcar en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de chispas de chocolate blanco"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de crema espesa"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de frambuesas, por encima"
+          }
+        ],
+        "meta": {
+          "cook": "35",
+          "prep": "30",
+          "serves": "16"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350 °F. Engrasa los lados de tres moldes redondos para pasteles de 6 pulgadas y cubre cada uno con papel pergamino.",
+          "AGREGA la mezcla de Kodiak Cakes, el polvo de hornear y el azúcar a un tazón y bate para combinar.",
+          "EN otro tazón, agregue los huevos, la vainilla, la mantequilla, la crema agria y el suero de leche y mezcle hasta que quede suave.",
+          "AGREGUE los ingredientes húmedos a los ingredientes secos y mezcle para formar una masa suave. Incorpora las frambuesas machacadas.",
+          "DIVIDA la masa de manera uniforme entre los moldes para pasteles preparados y hornee en el horno precalentado durante 25-30 minutos, o hasta que al insertar un probador en el centro salga limpio.",
+          "DEJE que los pasteles se enfríen durante 10 minutos, luego pase un cuchillo por los bordes e invierta cada ronda sobre una rejilla para terminar de enfriarse.",
+          "MIENTRAS las capas del pastel se enfrían, prepara el glaseado: coloca las chispas de chocolate blanco en un recipiente apto para microondas y vierte la crema espesa por encima. Cocine en el microondas durante 45 segundos, retírelo y déjelo reposar durante 30 segundos. Bate hasta que todo el chocolate se derrita y se forme una ganache suave. Ponga a un lado.",
+          "COLOCA la mantequilla y la mitad del azúcar en polvo en un bol. Bátelos hasta formar un glaseado espeso. Agregue la mitad de la mezcla de ganache. Agrega el azúcar en polvo restante y luego la mezcla de ganache restante hasta que se forme un glaseado suave.",
+          "ESCARCHA el bizcocho con el glaseado de chocolate blanco, apilando cada capa con el glaseado en el medio.",
+          "TORTA TOP con frambuesas frescas.",
+          "GUARDE el pastel en un recipiente hermético en el refrigerador."
+        ],
+        "title": "Tarta de chocolate blanco y frambuesa",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2-1/2 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de fermento em pó"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de açúcar granulado"
+          },
+          {
+            "price": null,
+            "qty_name": "3 ovos grandes, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá extrato de baunilha"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de manteiga derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de creme de leite, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de leitelho, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de framboesas, levemente amassadas\r\n\r\n\r\n \r\n\r\nPara a cobertura:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara (2 palitos) de manteiga, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 kg de açúcar em pó"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de chocolate branco"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de creme de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de framboesas, por cima"
+          }
+        ],
+        "meta": {
+          "cook": "35",
+          "prep": "30",
+          "serves": "16"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° F. Unte as laterais de três formas redondas de 6” e forre cada uma com papel vegetal.",
+          "ADICIONE a mistura de bolos Kodiak, o fermento em pó e o açúcar em uma tigela e bata bem.",
+          "Em outra tigela, adicione os ovos, a baunilha, a manteiga, o creme de leite e o leitelho e misture até ficar homogêneo.",
+          "ADICIONE os ingredientes úmidos aos secos e bata até formar uma massa lisa. Junte as framboesas esmagadas.",
+          "DIVIDA a massa uniformemente entre as formas de bolo preparadas e leve ao forno pré-aquecido por 25-30 minutos ou até que um testador inserido no centro saia limpo.",
+          "DEIXE os bolos esfriarem por 10 minutos, depois passe uma faca nas bordas e inverta cada rodada em uma gradinha para terminar de esfriar.",
+          "ENQUANTO as camadas do bolo esfriam, faça a cobertura: coloque as gotas de chocolate branco em uma tigela própria para micro-ondas e despeje o creme de leite por cima. Microondas por 45 segundos, retire e deixe descansar por 30 segundos. Bata até que todo o chocolate derreta e forme um ganache homogêneo. Separe.",
+          "COLOQUE a manteiga e metade do açúcar de confeiteiro em uma tigela. Bata até formar uma cobertura grossa. Junte a metade da mistura de ganache. Junte o açúcar de confeiteiro restante e, em seguida, a mistura de ganache restante até formar uma cobertura lisa.",
+          "CONGELE o bolo com a cobertura de chocolate branco, empilhando cada camada com a cobertura no meio.",
+          "Bolo TOP com framboesas frescas.",
+          "GUARDE o bolo em um recipiente hermético na geladeira."
+        ],
+        "title": "Bolo de chocolate branco com framboesa",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    }
+  },
   "US-CA-PESCADERO": {
     "2026-01": {
       "es": {
@@ -44502,6 +45922,2967 @@ window.KODIAK_RECIPE_I18N = {
           ],
           "human_reviewed": false,
           "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    }
+  },
+  "US-OH-CINCINNATI": {
+    "2026-01": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela molida"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de leche entera, a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de mantequilla derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "2 plátanos maduros, machacados"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "4 oz de puré de manzana"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de puré de calabaza"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de harina para todo uso, si es necesario"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de chispas de chocolate, divididas \r\n\r\n\r\n \r\n\r\nIdeas para aderezar:"
+          },
+          {
+            "price": null,
+            "qty_name": "Chispas de chocolate"
+          },
+          {
+            "price": null,
+            "qty_name": "Bayas frescas"
+          },
+          {
+            "price": null,
+            "qty_name": "Manzanas en rodajas"
+          }
+        ],
+        "meta": {
+          "cook": "30 minutos",
+          "prep": "15 minutos",
+          "serves": "8"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° Fahrenheit y prepara una fuente para hornear de 9x13 pulgadas con aceite en aerosol antiadherente.",
+          "EN un tazón mediano, mezcle la mezcla de Kodiak Cakes, el azúcar moreno y la canela",
+          "MEZCLE la leche, la mantequilla, el huevo, los plátanos, la vainilla, el puré de manzana y el puré de calabaza. Esto hace una masa húmeda, pero no debe quedar líquida. Si la masa parece demasiado húmeda, añada la harina restante de 1 a 2 cucharadas a la vez hasta que alcance la consistencia deseada",
+          "INCORPORA 1/4 de taza de chispas de chocolate. Guarda el resto para cubrir el pastel",
+          "VIERTE la masa en la fuente para hornear preparada y agrega las chispas de chocolate restantes con cualquier otra combinación de ingredientes que desees.",
+          "HORNEA durante 25-30 minutos hasta que un palillo salga limpio y los bordes del bizcocho estén ligeramente dorados.",
+          "DEJE enfriar de 10 a 15 minutos en la fuente para hornear antes de cortarlo.",
+          "¡DISFRUTA para el desayuno, el almuerzo o la cena! *Guarde las sobras en un recipiente hermético en el refrigerador durante 5 a 7 días. ¡Recaliéntalas en el microondas durante 15 a 30 segundos antes de comerlas! *Consejo profesional: Para obtener aún más sabor a calabaza, sustituya los Power Cakes de mantequilla de Kodiak Cakes por los Pumpkin Power Cakes."
+        ],
+        "title": "Tarta de desayuno",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras de Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de açúcar mascavo"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de canela moída"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de leite integral, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de manteiga derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ovo, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "2 bananas maduras, amassadas"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá extrato de baunilha"
+          },
+          {
+            "price": null,
+            "qty_name": "4 onças de molho de maçã"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de purê de abóbora"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de farinha multiuso, se necessário"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de gotas de chocolate, divididas \r\n\r\n\r\n \r\n\r\nIdeias principais:"
+          },
+          {
+            "price": null,
+            "qty_name": "Pedaços de chocolate"
+          },
+          {
+            "price": null,
+            "qty_name": "Frutas frescas"
+          },
+          {
+            "price": null,
+            "qty_name": "Maçãs fatiadas"
+          }
+        ],
+        "meta": {
+          "cook": "30 minutos",
+          "prep": "15 minutos",
+          "serves": "8"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° Fahrenheit e prepare uma assadeira de 9x13” com spray de cozinha antiaderente.",
+          "Em uma tigela média, misture a mistura Kodiak Cakes, o açúcar mascavo e a canela",
+          "MISTURE o leite, a manteiga, o ovo, a banana, a baunilha, o molho de maçã e o purê de abóbora. Isso dá uma massa úmida, mas não deve ficar líquida. Se a massa parecer muito úmida, acrescente a farinha restante de 1 a 2 colheres de sopa de cada vez até atingir a consistência desejada.",
+          "DOBRE em 1/4 de xícara de gotas de chocolate. Guardando o resto para cobrir o bolo",
+          "DESPEJE a massa na assadeira preparada e adicione as gotas de chocolate restantes com qualquer outra combinação de cobertura que desejar.",
+          "Asse por 25-30 minutos até que um palito saia limpo e as bordas do bolo estejam levemente douradas.",
+          "DEIXE esfriar por 10-15 minutos na assadeira antes de fatiar.",
+          "APROVEITE para o café da manhã, almoço ou jantar! * Guarde as sobras em um recipiente hermético na geladeira por 5-7 dias. Reaqueça no micro-ondas por 15 a 30 segundos antes de começar! *Dica profissional: Para ainda mais sabor de abóbora, escolha Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        ],
+        "title": "bolo de café da manhã",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-02": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Barras de granola crujientes con mantequilla para galletas Kodiak"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de café instantáneo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de yogur griego"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de sirope de arce"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de mantequilla para galletas"
+          }
+        ],
+        "meta": {
+          "cook": "Más de 60 minutos",
+          "prep": "5 minutos",
+          "serves": "1"
+        },
+        "steps": [
+          "EN un tazón pequeño, mezcle el café instantáneo, el yogur griego y el sirope de arce hasta que quede suave. Ponga a un lado.",
+          "SACA una barra crujiente de Kodiak Cakes del paquete y desmenúzala en el fondo de un plato pequeño.",
+          "VIERTA la mezcla de café y yogur sobre el crumble y alise uniformemente.",
+          "ROMPE la segunda barra crujiente en cuatro trozos iguales y presiónalos suavemente en el yogur hasta que estén completamente cubiertos.",
+          "CALIENTA en el microondas la mantequilla para galletas durante 20 a 30 segundos, o hasta que se derrita y se pueda verter. Rocíe uniformemente por encima.",
+          "CUBRA y refrigere durante al menos 1 hora para que cuaje. Disfruta."
+        ],
+        "title": "Tarta de queso japonesa",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Kodiak Cookie Butter Crunchy Granola Bars"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de café instantâneo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de iogurte grego"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de xarope de bordo"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de manteiga de biscoito"
+          }
+        ],
+        "meta": {
+          "cook": "Mais de 60 minutos",
+          "prep": "5 minutos",
+          "serves": "1"
+        },
+        "steps": [
+          "Em uma tigela pequena, misture o café instantâneo, o iogurte grego e o xarope de bordo até ficar homogêneo. Reserve.",
+          "REMOVA uma barra crocante Kodiak Cakes da embalagem e esfarele-a no fundo de um prato pequeno.",
+          "COLOQUE a mistura de café e iogurte sobre o crumble e alise uniformemente.",
+          "QUEBRE a segunda barra crocante em quatro pedaços iguais e pressione-os suavemente no iogurte até que estejam totalmente cobertos.",
+          "MICROONDAS a manteiga do biscoito por 20—30 segundos ou até derreter e despejar. Regue uniformemente por cima.",
+          "Cubra e leve à geladeira por pelo menos 1 hora para endurecer. Aproveite."
+        ],
+        "title": "Cheesecake japonês",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:1"
+          ],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-03": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de puerros en rodajas finas (o rampas silvestres), bien limpios"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de mantequilla y más para la sartén"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 de taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de parmesano rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "20 minutos",
+          "serves": "8 tortitas"
+        },
+        "steps": [
+          "SUAVIZA los puerros en la mantequilla a fuego medio, de 6 a 8 minutos, hasta que estén tiernos; deja enfriar un poco.",
+          "BATE la mezcla, los huevos, la leche, el parmesano, la sal y la pimienta hasta formar una masa e incorpora los puerros.",
+          "COCINE 1/4 de taza de cucharadas en mantequilla, de 2 a 3 minutos por lado, hasta que estén doradas.",
+          "SIRVA caliente."
+        ],
+        "title": "Tortitas de puerro y queso",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 xícara de Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 xícaras de alho-poró em fatias finas (ou rampas selvagens), bem limpo"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de sopa de manteiga e mais para a panela"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 xícara de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de parmesão ralado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de pimenta preta"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "20 minutos",
+          "serves": "8 panquecas"
+        },
+        "steps": [
+          "AMOLEÇA o alho-poró na manteiga em fogo médio, 6-8 minutos, até ficar macio; esfrie um pouco.",
+          "BATA a mistura, os ovos, o leite, o parmesão, o sal e a pimenta até formar uma massa e acrescente o alho-poró.",
+          "COZINHE 1/4 de xícara de colher na manteiga, 2-3 minutos de cada lado, até dourar.",
+          "SIRVA quente."
+        ],
+        "title": "Panquecas de alho-poró e queijo",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-04": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 1/2 tazas de champiñones picados (cremini, maitake, shiitake u ostra)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de queso cheddar afilado rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 de taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de aceite de oliva"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "CALIENTA el horno a 375 °F y forra un molde para magdalenas de 12 tazas.",
+          "DORAR los champiñones en una sartén seca durante 5 minutos hasta que se doren, luego enfriar un poco.",
+          "BATE los huevos, la leche, el aceite, la sal y la pimienta; agrega la mezcla hasta que estén combinados, luego agrega los champiñones y el queso cheddar.",
+          "DIVIDA entre las tazas y hornee de 20 a 22 minutos, hasta que estén doradas y cuajadas."
+        ],
+        "title": "Muffins de champiñones y queso cheddar",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras de Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1 1/2 xícaras de cogumelos picados (cremini, maitake, shiitake ou ostra)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de queijo cheddar picado"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 xícara de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de azeite"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de pimenta preta"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "AQUEÇA o forno a 375F e forre uma forma de muffin de 12 xícaras.",
+          "SALGUE os cogumelos em uma frigideira seca por 5 minutos até dourar e depois esfrie um pouco.",
+          "BATA os ovos, o leite, o azeite, o sal e a pimenta; junte a mistura apenas até incorporar e, em seguida, acrescente os cogumelos e o queijo cheddar.",
+          "DIVIDA entre as xícaras e leve ao forno por 20-22 minutos, até dourar e endurecer."
+        ],
+        "title": "Muffins de cheddar com cogumelos",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-05": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra con 1 taza de mezcla de arándanos, moras y fresas"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° F y cubre una bandeja para hornear con papel pergamino; resérvala.",
+          "EN un tazón grande, mezcle la mezcla de Kodiak Cakes, los huevos, la vainilla y la leche hasta que estén bien combinados.",
+          "VIERTE la masa en la bandeja para hornear preparada y cubre con la mezcla de bayas.",
+          "HORNEA de 10 a 15 minutos, o hasta que cuaje y esté ligeramente dorado.",
+          "DEJE enfriar un poco, luego córtelo en 12 rebanadas y sirva con sirope de arce."
+        ],
+        "title": "Tortitas en sartén",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 xícaras de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de baun"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra com 1 xícara de mistura de mirtilos, amoras e morangos"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° F e forre uma assadeira com papel manteiga; reserve.",
+          "Em uma tigela grande, misture a mistura Kodiak Cakes, os ovos, a baunilha e o leite até incorporar bem.",
+          "DESPEJE a massa na assadeira preparada e cubra com frutas vermelhas misturadas.",
+          "Asse por 10-15 minutos ou até ficar firme e levemente dourado.",
+          "DEIXE esfriar um pouco, depois corte em 12 fatias e sirva com xarope de bordo."
+        ],
+        "title": "Panquecas em forma de folha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-06": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra con 1 taza de mezcla de arándanos, moras y fresas"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° F y cubre una bandeja para hornear con papel pergamino; resérvala.",
+          "EN un tazón grande, mezcle la mezcla de Kodiak Cakes, los huevos, la vainilla y la leche hasta que estén bien combinados.",
+          "VIERTE la masa en la bandeja para hornear preparada y cubre con la mezcla de bayas.",
+          "HORNEA de 10 a 15 minutos, o hasta que cuaje y esté ligeramente dorado.",
+          "DEJE enfriar un poco, luego córtelo en 12 rebanadas y sirva con sirope de arce."
+        ],
+        "title": "Tortitas en sartén",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 xícaras de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de baun"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra com 1 xícara de mistura de mirtilos, amoras e morangos"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° F e forre uma assadeira com papel manteiga; reserve.",
+          "Em uma tigela grande, misture a mistura Kodiak Cakes, os ovos, a baunilha e o leite até incorporar bem.",
+          "DESPEJE a massa na assadeira preparada e cubra com frutas vermelhas misturadas.",
+          "Asse por 10-15 minutos ou até ficar firme e levemente dourado.",
+          "DEIXE esfriar um pouco, depois corte em 12 fatias e sirva com xarope de bordo."
+        ],
+        "title": "Panquecas em forma de folha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-07": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de granos de maíz dulce frescos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 de taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de pimiento dulce cortado en cubitos (opcional)"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de mantequilla, para la plancha"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "15 minutos",
+          "serves": "8 tartas"
+        },
+        "steps": [
+          "BATE la mezcla, el huevo, la leche y la sal hasta formar una masa, luego agrega el maíz y la pimienta.",
+          "DEJA REPOSAR la masa durante 5 minutos para que la mezcla se hidrate.",
+          "COCINA 1/4 de taza en mantequilla a fuego medio, de 2 a 3 minutos por lado, hasta que estén doradas.",
+          "SIRVA caliente con mantequilla."
+        ],
+        "title": "Tortas de maíz dulce a la plancha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 xícara de Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 xícaras de grãos de milho doce frescos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ovo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 xícara de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de pimentão em cubos (opcional)"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de sopa de manteiga, para a chapa"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "15 minutos",
+          "serves": "8 bolos"
+        },
+        "steps": [
+          "BATA a mistura, o ovo, o leite e o sal até formar uma massa e acrescente o milho e a pimenta.",
+          "DESCANSE a massa por 5 minutos para que a mistura hidrate.",
+          "COZINHE 1/4 de xícara de colher de manteiga em fogo médio, 2-3 minutos de cada lado, até dourar.",
+          "SIRVA quente com manteiga."
+        ],
+        "title": "Bolos grelhados de milho doce",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-08": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de flapjack puffs de mantequilla y vainilla, calentados"
+          },
+          {
+            "price": null,
+            "qty_name": "1 melocotón cortado en cubitos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de yogur natural"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "CALIENTA las bocanadas según las instrucciones del paquete.",
+          "COLOQUE CAPAS con yogur y duraznos en un vaso y sirva de una vez."
+        ],
+        "title": "Parfait Flapjack Puff",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 xícara de Buttermilk e Vanilla Flapjack Puffs, aquecidos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 pêssego, cortado em cubos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de iogurte natural"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "AQUEÇA os puffs de acordo com as instruções da embalagem.",
+          "CUBRA com iogurte e pêssegos em um copo e sirva imediatamente."
+        ],
+        "title": "Flapjack Puff Parfait",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-09": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2-1/2 tazas de mezcla para flapjack y waffle Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de polvo de hornear"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar granulada"
+          },
+          {
+            "price": null,
+            "qty_name": "3 huevos grandes, a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de mantequilla derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de crema agria a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de suero de leche, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de frambuesas, ligeramente trituradas\r\n\r\n\r\n \r\n\r\nPara el glaseado:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza (2 barras) de mantequilla a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 libra de azúcar en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de chispas de chocolate blanco"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de crema espesa"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de frambuesas, por encima"
+          }
+        ],
+        "meta": {
+          "cook": "35",
+          "prep": "30",
+          "serves": "16"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350 °F. Engrasa los lados de tres moldes redondos para pasteles de 6 pulgadas y cubre cada uno con papel pergamino.",
+          "AGREGA la mezcla de Kodiak Cakes, el polvo de hornear y el azúcar a un tazón y bate para combinar.",
+          "EN otro tazón, agregue los huevos, la vainilla, la mantequilla, la crema agria y el suero de leche y mezcle hasta que quede suave.",
+          "AGREGUE los ingredientes húmedos a los ingredientes secos y mezcle para formar una masa suave. Incorpora las frambuesas machacadas.",
+          "DIVIDA la masa de manera uniforme entre los moldes para pasteles preparados y hornee en el horno precalentado durante 25-30 minutos, o hasta que al insertar un probador en el centro salga limpio.",
+          "DEJE que los pasteles se enfríen durante 10 minutos, luego pase un cuchillo por los bordes e invierta cada ronda sobre una rejilla para terminar de enfriarse.",
+          "MIENTRAS las capas del pastel se enfrían, prepara el glaseado: coloca las chispas de chocolate blanco en un recipiente apto para microondas y vierte la crema espesa por encima. Cocine en el microondas durante 45 segundos, retírelo y déjelo reposar durante 30 segundos. Bate hasta que todo el chocolate se derrita y se forme una ganache suave. Ponga a un lado.",
+          "COLOCA la mantequilla y la mitad del azúcar en polvo en un bol. Bátelos hasta formar un glaseado espeso. Agregue la mitad de la mezcla de ganache. Agrega el azúcar en polvo restante y luego la mezcla de ganache restante hasta que se forme un glaseado suave.",
+          "ESCARCHA el bizcocho con el glaseado de chocolate blanco, apilando cada capa con el glaseado en el medio.",
+          "TORTA TOP con frambuesas frescas.",
+          "GUARDE el pastel en un recipiente hermético en el refrigerador."
+        ],
+        "title": "Tarta de chocolate blanco y frambuesa",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2-1/2 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de fermento em pó"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de açúcar granulado"
+          },
+          {
+            "price": null,
+            "qty_name": "3 ovos grandes, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá extrato de baunilha"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de manteiga derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de creme de leite, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de leitelho, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de framboesas, levemente amassadas\r\n\r\n\r\n \r\n\r\nPara a cobertura:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara (2 palitos) de manteiga, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 kg de açúcar em pó"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de chocolate branco"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de creme de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de framboesas, por cima"
+          }
+        ],
+        "meta": {
+          "cook": "35",
+          "prep": "30",
+          "serves": "16"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° F. Unte as laterais de três formas redondas de 6” e forre cada uma com papel vegetal.",
+          "ADICIONE a mistura de bolos Kodiak, o fermento em pó e o açúcar em uma tigela e bata bem.",
+          "Em outra tigela, adicione os ovos, a baunilha, a manteiga, o creme de leite e o leitelho e misture até ficar homogêneo.",
+          "ADICIONE os ingredientes úmidos aos secos e bata até formar uma massa lisa. Junte as framboesas esmagadas.",
+          "DIVIDA a massa uniformemente entre as formas de bolo preparadas e leve ao forno pré-aquecido por 25-30 minutos ou até que um testador inserido no centro saia limpo.",
+          "DEIXE os bolos esfriarem por 10 minutos, depois passe uma faca nas bordas e inverta cada rodada em uma gradinha para terminar de esfriar.",
+          "ENQUANTO as camadas do bolo esfriam, faça a cobertura: coloque as gotas de chocolate branco em uma tigela própria para micro-ondas e despeje o creme de leite por cima. Microondas por 45 segundos, retire e deixe descansar por 30 segundos. Bata até que todo o chocolate derreta e forme um ganache homogêneo. Separe.",
+          "COLOQUE a manteiga e metade do açúcar de confeiteiro em uma tigela. Bata até formar uma cobertura grossa. Junte a metade da mistura de ganache. Junte o açúcar de confeiteiro restante e, em seguida, a mistura de ganache restante até formar uma cobertura lisa.",
+          "CONGELE o bolo com a cobertura de chocolate branco, empilhando cada camada com a cobertura no meio.",
+          "Bolo TOP com framboesas frescas.",
+          "GUARDE o bolo em um recipiente hermético na geladeira."
+        ],
+        "title": "Bolo de chocolate branco com framboesa",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-10": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Palitos de tostadas francesas con canela, calentados"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de mantequilla de manzana"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "CALIENTA los palitos según las instrucciones del paquete.",
+          "SIRVA con mantequilla de manzana para mojar."
+        ],
+        "title": "Salsas de manzana con canela en rama",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Palitos de torrada francesa com canela, aquecidos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de manteiga de maçã"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "AQUEÇA os palitos de acordo com as instruções da embalagem.",
+          "SIRVA com manteiga de maçã para molhar."
+        ],
+        "title": "Molhos de maçã em pau de canela",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-11": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Pumpkin Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "Bote de avena arrollada con proteína Kodiak de 1/2 taza"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de puré de calabaza"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de crema agria"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de aceite de aguacate (u otro aceite de cocina neutro)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de leche entera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "Pepitas, para arriba"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "10 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 375° Fahrenheit. Cubra un molde para magdalenas de 12 tazas con moldes para magdalenas.",
+          "COLOQUE la mezcla para flapjack, la avena, el azúcar moreno, el huevo, el puré de calabaza, la crema agria, la leche y la vainilla en un tazón grande y mezcle para formar una masa suave. Deje reposar durante cinco minutos para que los granos absorban el líquido.",
+          "DIVIDA la masa entre los moldes para magdalenas preparados, usando una cuchara para agregar aproximadamente 1/4 de taza de masa a cada forro.",
+          "CUBRE cada forro relleno de masa con una pizca de avena y pepitas.",
+          "HORNEA en el horno precalentado durante 13-15 minutos, o hasta que esté ligeramente dorado por encima.",
+          "RETIRAR del horno y dejar enfriar sobre una rejilla. Almacene en un recipiente hermético."
+        ],
+        "title": "Muffins de calabaza y avena",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de vasilha de aveia em flocos Kodiak Protein"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de açúcar mascavo"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ovo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de purê de abóbora"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de creme de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de óleo de abacate (ou outro óleo de cozinha neutro)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de leite integral"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá extrato de baunilha"
+          },
+          {
+            "price": null,
+            "qty_name": "Pepitas, por cima"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "10 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 375° Fahrenheit. Forre uma forma de muffin de 12 xícaras com forminhas de cupcake.",
+          "COLOQUE a mistura de flapjack, aveia, açúcar mascavo, ovo, purê de abóbora, creme de leite, leite e baunilha em uma tigela grande e bata até formar uma massa lisa. Deixe descansar por cinco minutos para que os grãos absorvam o líquido.",
+          "DIVIDA a massa entre as formas de muffin preparadas, usando uma colher para adicionar cerca de 1/4 de xícara de massa em cada forro.",
+          "Cubra cada forro cheio de massa com uma pitada de aveia e pepitas.",
+          "Asse no forno pré-aquecido por 13-15 minutos ou até dourar levemente por cima.",
+          "RETIRE do forno e deixe esfriar sobre uma gradinha. Armazene em um recipiente hermético."
+        ],
+        "title": "Muffins de abóbora e aveia",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-12": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "3 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharaditas de ajo en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "Hojuelas de pimiento rojo, al gusto"
+          },
+          {
+            "price": null,
+            "qty_name": "Pimienta negra, al gusto"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharaditas de mostaza seca en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos, ligeramente batidos"
+          },
+          {
+            "price": null,
+            "qty_name": "16 onzas de queso cheddar fuerte, recién rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1 1/2 libras de salchicha de pavo molida (se puede sustituir por salchicha de cerdo o pollo)"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "10 minutos",
+          "serves": "10"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350 °F y cubre dos bandejas para hornear con papel pergamino.",
+          "EN un tazón grande, mezcle la mezcla de Kodiak Cakes y las especias (ajo, hojuelas de pimiento rojo, pimienta negra, sal y mostaza en polvo).",
+          "AGREGUE los huevos, el queso cheddar y las salchichas molidas y mezcle bien con las manos o con una espátula. La mezcla debe quedar un poco pegajosa pero lo suficientemente firme como para formar bolas.",
+          "ENROLLE la mezcla en bolas de 1 pulgada y colóquelas en las bandejas para hornear preparadas con una separación de aproximadamente 1 pulgada (aproximadamente 40-45 bolas de salchicha en total).",
+          "HORNEA en el horno precalentado durante 20-25 minutos, o hasta que las bolas de salchicha estén doradas y bien cocidas (temperatura interna de 165 °F para salchichas de cerdo o pollo).",
+          "RETIRAR del horno y dejar enfriar un poco antes de servir."
+        ],
+        "title": "Bolas de salchicha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "3 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de chá de alho em pó"
+          },
+          {
+            "price": null,
+            "qty_name": "Flocos de pimenta vermelha, a gosto"
+          },
+          {
+            "price": null,
+            "qty_name": "Pimenta preta, a gosto"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 colher de chá de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de chá de mostarda seca em pó"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos levemente batidos"
+          },
+          {
+            "price": null,
+            "qty_name": "16 onças de queijo cheddar picante, recém-ralado"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 libras de linguiça de perú moída (pode substituir por linguiça de porco ou frango)"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "10 minutos",
+          "serves": "10"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° F e forre duas assadeiras com papel manteiga.",
+          "Em uma tigela grande, misture a mistura de bolos Kodiak e os temperos (alho, pimenta vermelha em flocos, pimenta preta, sal e mostarda em pó).",
+          "ADICIONE os ovos, o queijo cheddar e a linguiça moída e misture bem com as mãos ou uma espátula. A mistura deve ficar levemente pegajosa, mas firme o suficiente para formar bolas.",
+          "ENROLE a mistura em bolas de 1 polegada e coloque-as nas assadeiras preparadas com cerca de 1 polegada de distância (cerca de 40-45 bolas de salsicha no total).",
+          "Asse no forno pré-aquecido por 20-25 minutos ou até que as bolas de salsicha estejam douradas e cozidas (temperatura interna de 165° F para linguiça de porco ou frango).",
+          "RETIRE do forno e deixe esfriar um pouco antes de servir."
+        ],
+        "title": "Bolas de salsicha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    }
+  },
+  "US-OH-DAYTON": {
+    "2026-01": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela molida"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de leche entera, a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de mantequilla derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "2 plátanos maduros, machacados"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "4 oz de puré de manzana"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de puré de calabaza"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de harina para todo uso, si es necesario"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de chispas de chocolate, divididas \r\n\r\n\r\n \r\n\r\nIdeas para aderezar:"
+          },
+          {
+            "price": null,
+            "qty_name": "Chispas de chocolate"
+          },
+          {
+            "price": null,
+            "qty_name": "Bayas frescas"
+          },
+          {
+            "price": null,
+            "qty_name": "Manzanas en rodajas"
+          }
+        ],
+        "meta": {
+          "cook": "30 minutos",
+          "prep": "15 minutos",
+          "serves": "8"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° Fahrenheit y prepara una fuente para hornear de 9x13 pulgadas con aceite en aerosol antiadherente.",
+          "EN un tazón mediano, mezcle la mezcla de Kodiak Cakes, el azúcar moreno y la canela",
+          "MEZCLE la leche, la mantequilla, el huevo, los plátanos, la vainilla, el puré de manzana y el puré de calabaza. Esto hace una masa húmeda, pero no debe quedar líquida. Si la masa parece demasiado húmeda, añada la harina restante de 1 a 2 cucharadas a la vez hasta que alcance la consistencia deseada",
+          "INCORPORA 1/4 de taza de chispas de chocolate. Guarda el resto para cubrir el pastel",
+          "VIERTE la masa en la fuente para hornear preparada y agrega las chispas de chocolate restantes con cualquier otra combinación de ingredientes que desees.",
+          "HORNEA durante 25-30 minutos hasta que un palillo salga limpio y los bordes del bizcocho estén ligeramente dorados.",
+          "DEJE enfriar de 10 a 15 minutos en la fuente para hornear antes de cortarlo.",
+          "¡DISFRUTA para el desayuno, el almuerzo o la cena! *Guarde las sobras en un recipiente hermético en el refrigerador durante 5 a 7 días. ¡Recaliéntalas en el microondas durante 15 a 30 segundos antes de comerlas! *Consejo profesional: Para obtener aún más sabor a calabaza, sustituya los Power Cakes de mantequilla de Kodiak Cakes por los Pumpkin Power Cakes."
+        ],
+        "title": "Tarta de desayuno",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras de Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de açúcar mascavo"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de canela moída"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de leite integral, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de manteiga derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ovo, temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "2 bananas maduras, amassadas"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá extrato de baunilha"
+          },
+          {
+            "price": null,
+            "qty_name": "4 onças de molho de maçã"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de purê de abóbora"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de farinha multiuso, se necessário"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de gotas de chocolate, divididas \r\n\r\n\r\n \r\n\r\nIdeias principais:"
+          },
+          {
+            "price": null,
+            "qty_name": "Pedaços de chocolate"
+          },
+          {
+            "price": null,
+            "qty_name": "Frutas frescas"
+          },
+          {
+            "price": null,
+            "qty_name": "Maçãs fatiadas"
+          }
+        ],
+        "meta": {
+          "cook": "30 minutos",
+          "prep": "15 minutos",
+          "serves": "8"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° Fahrenheit e prepare uma assadeira de 9x13” com spray de cozinha antiaderente.",
+          "Em uma tigela média, misture a mistura Kodiak Cakes, o açúcar mascavo e a canela",
+          "MISTURE o leite, a manteiga, o ovo, a banana, a baunilha, o molho de maçã e o purê de abóbora. Isso dá uma massa úmida, mas não deve ficar líquida. Se a massa parecer muito úmida, acrescente a farinha restante de 1 a 2 colheres de sopa de cada vez até atingir a consistência desejada.",
+          "DOBRE em 1/4 de xícara de gotas de chocolate. Guardando o resto para cobrir o bolo",
+          "DESPEJE a massa na assadeira preparada e adicione as gotas de chocolate restantes com qualquer outra combinação de cobertura que desejar.",
+          "Asse por 25-30 minutos até que um palito saia limpo e as bordas do bolo estejam levemente douradas.",
+          "DEIXE esfriar por 10-15 minutos na assadeira antes de fatiar.",
+          "APROVEITE para o café da manhã, almoço ou jantar! * Guarde as sobras em um recipiente hermético na geladeira por 5-7 dias. Reaqueça no micro-ondas por 15 a 30 segundos antes de começar! *Dica profissional: Para ainda mais sabor de abóbora, escolha Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        ],
+        "title": "bolo de café da manhã",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-02": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Bote de avena arrollada Kodiak Classic de 1 taza"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cucharadita de polvo de hornear"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "Una pizca de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1 plátano"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup cottage cheese"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cucharadas de leche\r\n\r\n\r\n \r\n\r\nAderezos opcionales:"
+          },
+          {
+            "price": null,
+            "qty_name": "Bayas frescas"
+          },
+          {
+            "price": null,
+            "qty_name": "Mantequilla"
+          },
+          {
+            "price": null,
+            "qty_name": "Sirope de arce"
+          }
+        ],
+        "meta": {
+          "cook": "10 minutos",
+          "prep": "10 minutos",
+          "serves": "2"
+        },
+        "steps": [
+          "AGREGUE la avena, el polvo de hornear, la canela y la sal de Kodiak Cakes a una licuadora. Mezcle hasta que parezca una harina gruesa. Vierte en un bol y reserva.",
+          "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
+          "AGREGUE los ingredientes secos nuevamente a la licuadora y mezcle hasta que se combinen.",
+          "PRECALIENTA una sartén o plancha a fuego medio-alto. Engrase cuando esté listo para empezar a cocinar.",
+          "COLOQUE aproximadamente 1/4 de taza de masa a la vez en la sartén y cocine hasta que comiencen a formarse burbujas en la parte superior antes de voltearla. Repite el proceso con el resto de la masa.",
+          "¡AÑADE tus ingredientes favoritos y disfruta!"
+        ],
+        "title": "Oatmeal Cottage Cheese Pancakes",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 xícara de vasilha de aveia em flocos Kodiak Classic"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 colher de chá de fermento em pó"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "Uma pitada de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1 banana"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de queijo cottage"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de baun"
+          },
+          {
+            "price": null,
+            "qty_name": "3 colheres de sopa de leite\r\n\r\n\r\n \r\n\r\nCoberturas opcionais:"
+          },
+          {
+            "price": null,
+            "qty_name": "Frutas frescas"
+          },
+          {
+            "price": null,
+            "qty_name": "Manteiga"
+          },
+          {
+            "price": null,
+            "qty_name": "Xarope de ácer"
+          }
+        ],
+        "meta": {
+          "cook": "10 minutos",
+          "prep": "10 minutos",
+          "serves": "2"
+        },
+        "steps": [
+          "ADICIONE a aveia, o fermento, a canela e o sal Kodiak Cakes no liquidificador. Misture até ficar parecido com uma farinha grossa. Despeje em uma tigela e reserve.",
+          "ADICIONE a banana, os ovos, o queijo cottage, a baunilha e o leite no mesmo liquidificador. Misture até ficar homogêneo.",
+          "ADICIONE os ingredientes secos de volta ao liquidificador e misture até incorporar.",
+          "PRÉ-AQUEÇA uma frigideira ou chapa em fogo médio-alto. Unte quando estiver pronto para começar a cozinhar.",
+          "Coloque cerca de 1/4 de xícara de massa por vez na frigideira e cozinhe até que as bolhas comecem a se formar por cima antes de virar. Repita com o restante da massa.",
+          "ADICIONE suas coberturas favoritas e divirta-se!"
+        ],
+        "title": "Panquecas de queijo cottage com aveia",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-03": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1/2 taza de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup blended cottage cheese"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de coco rallado sin azúcar\r\n\r\n\r\n \r\n\r\nBatido proteico de piña:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de yogur griego natural"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de trozos de piña muy maduros\r\n\r\n\r\n \r\n\r\nAderezo:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de mango cortado en cubitos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de piña cortada en cubitos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de chips de coco tostados"
+          },
+          {
+            "price": null,
+            "qty_name": "1 maracuyá, partido por la mitad (opcional, pero recomendado)"
+          },
+          {
+            "price": null,
+            "qty_name": "Sirope de arce, para servir (opcional)"
+          }
+        ],
+        "meta": {
+          "cook": "10",
+          "prep": "10",
+          "serves": "1"
+        },
+        "steps": [
+          "COLOCA la mezcla de Kodiak Cakes en un bol mediano.",
+          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
+          "PARA hacer el batidor proteico de piña, mezcla el yogur griego y los trozos de piña muy maduros en un recipiente alto. Mezcle con una batidora de inmersión hasta que esté completamente suave y cremoso. Refrigere hasta que esté listo para servir.",
+          "CALIENTA una sartén o plancha antiadherente ligeramente engrasada a fuego medio.",
+          "PON la masa en la sartén para hacer de 3 a 4 tortitas pequeñas. Cocine de 2 a 3 minutos por lado, o hasta que estén dorados y bien cocidos.",
+          "APILE los panqueques en un plato para servir. Cubra con generosas cucharadas del batidor proteico de piña.",
+          "COLOCA el mango y la piña cortados en cubitos por encima. Espolvorea con los chips de coco tostados y coloca la maracuyá sobre todo, si lo usas.",
+          "ROCÍE con sirope de arce, si lo desea. Sirva inmediatamente."
+        ],
+        "title": "Tortitas de proteínas tropicales",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:2",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de mistura de flapjack e waffle Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de queijo cottage misturado"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ovo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de coco ralado sem açúcar\r\n\r\n\r\n \r\n\r\nChicote de proteína de abacaxi:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de iogurte grego puro"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de pedaços de abacaxi bem maduros\r\n\r\n\r\n \r\n\r\nCobertura:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de manga em cubos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de abacaxi em cubos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de chips de coco torrados"
+          },
+          {
+            "price": null,
+            "qty_name": "1 maracujá, cortado pela metade (opcional, mas recomendado)"
+          },
+          {
+            "price": null,
+            "qty_name": "Xarope de bordo, para servir (opcional)"
+          }
+        ],
+        "meta": {
+          "cook": "10",
+          "prep": "10",
+          "serves": "1"
+        },
+        "steps": [
+          "COLOQUE a mistura de bolos Kodiak em uma tigela média.",
+          "MISTURE o queijo cottage com um liquidificador de imersão até ficar completamente homogêneo. Adicione à tigela junto com o ovo e o leite. Mexa até incorporar bem e, em seguida, acrescente o coco ralado. Deixe a massa descansar por 5 minutos.",
+          "PARA fazer o chicote de proteína de abacaxi, misture o iogurte grego e os pedaços de abacaxi bem maduros em um recipiente alto. Bata com um liquidificador de imersão até ficar completamente homogêneo e cremoso. Leve à geladeira até a hora de servir.",
+          "AQUEÇA uma frigideira ou chapa antiaderente levemente untada em fogo médio.",
+          "Coloque a massa na frigideira para fazer de 3 a 4 panquecas pequenas. Cozinhe por 2—3 minutos de cada lado ou até dourar e ficar cozido.",
+          "EMPILHE as panquecas em um prato de servir. Cubra com porções generosas do chicote de proteína de abacaxi.",
+          "ARRUME a manga e o abacaxi em cubos por cima. Polvilhe com as lascas de coco torradas e coloque o maracujá sobre tudo, se for usar.",
+          "Regue com xarope de bordo, se desejar. Sirva imediatamente."
+        ],
+        "title": "Panquecas de proteína tropical",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-04": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tazas de verduras abundantes y picadas para cocinar (verduras de primavera, verduras de invierno, berza o col rizada)"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de parmesano rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cucharadas de aceite neutro, para freír"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de microvegetales frescos, para servir"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "25 minutos",
+          "serves": "10 buñuelos"
+        },
+        "steps": [
+          "BLANQUEE las verduras durante 2 minutos en agua hirviendo con sal, enfríelas en agua helada y luego séquelas completamente con una toalla.",
+          "PICA bien las verduras exprimidas y bate con la mezcla, los huevos, el parmesano, la sal y la pimienta hasta obtener una masa firme.",
+          "CALIENTA el aceite a fuego medio; saca 1/4 de taza de montículos, aplánalos y fríe de 3 a 4 minutos por lado hasta que estén crujientes y dorados.",
+          "SIRVA caliente cubierto con microvegetales frescos."
+        ],
+        "title": "Buñuelos de verduras saladas",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 xícara de Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "3 xícaras de verduras saudáveis picadas (verduras de primavera, verduras de inverno, couve ou couve)"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de parmesão ralado"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de pimenta preta"
+          },
+          {
+            "price": null,
+            "qty_name": "3 colheres de sopa de óleo neutro, para fritar"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de microverduras frescas, para servir"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "25 minutos",
+          "serves": "10 bolinhos"
+        },
+        "steps": [
+          "ESCALDE as verduras por 2 minutos em água fervente com sal, leve à geladeira em água gelada e esprema completamente em uma toalha.",
+          "PIQUE bem as verduras espremidas e bata com a mistura, os ovos, o parmesão, o sal e a pimenta até obter uma massa dura.",
+          "AQUEÇA o óleo em fogo médio; retire os montinhos de 1/4 de xícara, alise e frite 3-4 minutos de cada lado até ficarem crocantes e dourados.",
+          "SIRVA quente coberto com microverduras frescas."
+        ],
+        "title": "Bolinhos de verduras salgadas",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-05": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 paquetes de avena Kodiak Berries & Cream Peak"
+          },
+          {
+            "price": null,
+            "qty_name": "1 plátano maduro"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de leche entera"
+          },
+          {
+            "price": null,
+            "qty_name": "Sirope de arce, para cubrir"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de bayas (fresas en rodajas, arándanos, frambuesas, moras), por encima"
+          }
+        ],
+        "meta": {
+          "cook": "4 minutos",
+          "prep": "13 minutos",
+          "serves": "2"
+        },
+        "steps": [
+          "COLOCA el contenido de los paquetes de avena en una licuadora de alta velocidad junto con el plátano y la leche.",
+          "LICÚA a alta velocidad hasta que quede suave. Deje reposar la masa durante 10 minutos.",
+          "PRECALIENTA una plancha para gofres.",
+          "ENGRASE la plancha para gofres y vierta 1/3 de taza de masa en cada sección de gofres.",
+          "CIERRE la plancha para gofres y cocine de 1 a 1 ½ minutos, o hasta que estén doradas. Repite el procedimiento con el resto de la masa.",
+          "SIRVA gofres cubiertos con sirope de arce y bayas."
+        ],
+        "title": "Waffles de avena y bayas",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 pacotes de aveia Kodiak Berries & Cream Peak"
+          },
+          {
+            "price": null,
+            "qty_name": "1 banana madura"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de leite integral"
+          },
+          {
+            "price": null,
+            "qty_name": "Xarope de bordo, por cima"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de frutas vermelhas (morangos fatiados, mirtilos, framboesas, amoras), por cima"
+          }
+        ],
+        "meta": {
+          "cook": "4 minutos",
+          "prep": "13 minutos",
+          "serves": "2"
+        },
+        "steps": [
+          "COLOQUE o conteúdo dos pacotes de aveia no liquidificador de alta velocidade junto com a banana e o leite.",
+          "MISTURE em alta velocidade até ficar homogêneo. Deixe a massa descansar por 10 minutos.",
+          "PRÉ-AQUEÇA um ferro para waffles.",
+          "LUBRIFIQUE o ferro para waffles e despeje 1/3 de xícara de massa em cada seção de waffle.",
+          "FECHE o ferro para waffles e cozinhe por 1 a 1 minuto e meio ou até dourar. Repita com a massa restante.",
+          "SIRVA waffles cobertos com xarope de bordo e frutas vermelhas."
+        ],
+        "title": "Waffles de aveia com frutas vermelhas",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-06": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra con 1 taza de mezcla de arándanos, moras y fresas"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° F y cubre una bandeja para hornear con papel pergamino; resérvala.",
+          "EN un tazón grande, mezcle la mezcla de Kodiak Cakes, los huevos, la vainilla y la leche hasta que estén bien combinados.",
+          "VIERTE la masa en la bandeja para hornear preparada y cubre con la mezcla de bayas.",
+          "HORNEA de 10 a 15 minutos, o hasta que cuaje y esté ligeramente dorado.",
+          "DEJE enfriar un poco, luego córtelo en 12 rebanadas y sirva con sirope de arce."
+        ],
+        "title": "Tortitas en sartén",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 xícaras de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá de baun"
+          },
+          {
+            "price": null,
+            "qty_name": "Cubra com 1 xícara de mistura de mirtilos, amoras e morangos"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "5 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° F e forre uma assadeira com papel manteiga; reserve.",
+          "Em uma tigela grande, misture a mistura Kodiak Cakes, os ovos, a baunilha e o leite até incorporar bem.",
+          "DESPEJE a massa na assadeira preparada e cubra com frutas vermelhas misturadas.",
+          "Asse por 10-15 minutos ou até ficar firme e levemente dourado.",
+          "DEIXE esfriar um pouco, depois corte em 12 fatias e sirva com xarope de bordo."
+        ],
+        "title": "Panquecas em forma de folha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-07": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de granos de maíz dulce frescos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 de taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de pimiento dulce cortado en cubitos (opcional)"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de mantequilla, para la plancha"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "15 minutos",
+          "serves": "8 tartas"
+        },
+        "steps": [
+          "BATE la mezcla, el huevo, la leche y la sal hasta formar una masa, luego agrega el maíz y la pimienta.",
+          "DEJA REPOSAR la masa durante 5 minutos para que la mezcla se hidrate.",
+          "COCINA 1/4 de taza en mantequilla a fuego medio, de 2 a 3 minutos por lado, hasta que estén doradas.",
+          "SIRVA caliente con mantequilla."
+        ],
+        "title": "Tortas de maíz dulce a la plancha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 xícara de Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 xícaras de grãos de milho doce frescos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ovo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 xícara de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de pimentão em cubos (opcional)"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de sopa de manteiga, para a chapa"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "15 minutos",
+          "serves": "8 bolos"
+        },
+        "steps": [
+          "BATA a mistura, o ovo, o leite e o sal até formar uma massa e acrescente o milho e a pimenta.",
+          "DESCANSE a massa por 5 minutos para que a mistura hidrate.",
+          "COZINHE 1/4 de xícara de colher de manteiga em fogo médio, 2-3 minutos de cada lado, até dourar.",
+          "SIRVA quente com manteiga."
+        ],
+        "title": "Bolos grelhados de milho doce",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-08": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de aceite de oliva virgen extra"
+          },
+          {
+            "price": null,
+            "qty_name": "2 dientes de ajo picados"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de tomates cherry"
+          },
+          {
+            "price": null,
+            "qty_name": "Sal y pimienta al gusto"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de albahaca picada en trozos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de queso parmesano rallado"
+          }
+        ],
+        "meta": {
+          "cook": "10",
+          "prep": "40",
+          "serves": "2"
+        },
+        "steps": [
+          "PREPARA los fideos:",
+          "COLOCA la mezcla de Kodiak Cakes sobre una superficie de trabajo limpia y haz un hueco en el centro.",
+          "ROMPE los dos huevos en los pasteles Kodiak, mezcla bien y usa un tenedor para mezclar lentamente el huevo con la mezcla.",
+          "UNA VEZ que se forme una masa peluda, usa tus manos para trabajar la mezcla hasta formar una bola de masa firme. Amasa la bola de masa durante cinco minutos, hasta que quede suave y flexible. Cúbrala con film transparente y déjela reposar durante 20 minutos.",
+          "EXTIENDE la masa lo más fina que puedas y usa un cortador de pizza o un cuchillo para cortar en tiras de 1/8 pulgadas de ancho. Mezcle los fideos con un poco de la mezcla de Kodiak Cakes para que no se peguen. Cubra hasta que esté listo para usar. Pasta de verano sencilla:",
+          "LLENA una olla con 6 tazas de agua y una pizca grande de sal. Llevar a ebullición.",
+          "MIENTRAS el agua empiece a hervir, calienta el aceite de oliva en una sartén ancha a fuego medio/alto. Agregue los tomates cherry y saltee hasta que empiecen a formar ampollas, de 3 a 4 minutos. Agrega el ajo y cocina durante 30 segundos. Agrega sal y pimienta al gusto. Retirar del fuego y reservar.",
+          "AGREGA la pasta al agua hirviendo y cocina durante 3-4 minutos, o hasta que los fideos floten y estén completamente cocidos.",
+          "ESCURRE la pasta y agrega los fideos a la mezcla de tomate. Mezcle con unas pinzas hasta que la pasta esté cubierta uniformemente por el aceite.",
+          "SIRVE la pasta cubierta con albahaca fresca y queso parmesano. *Nota: Los fideos frescos deben cocinarse dentro de las 24 horas. Guárdelos en el refrigerador, tapados, si no los usa inmediatamente."
+        ],
+        "title": "Pasta de verano sencilla",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 xícara de mistura de flapjack e waffle Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de sopa de azeite de oliva extra virgem"
+          },
+          {
+            "price": null,
+            "qty_name": "2 dentes de alho picados"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de tomate cereja"
+          },
+          {
+            "price": null,
+            "qty_name": "Sal e pimenta, a gosto"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de manjericão, picado grosseiramente"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de queijo parmesão ralado"
+          }
+        ],
+        "meta": {
+          "cook": "10",
+          "prep": "40",
+          "serves": "2"
+        },
+        "steps": [
+          "FAÇA o macarrão:",
+          "COLOQUE a mistura Kodiak Cakes em uma superfície de trabalho limpa e faça um buraco no centro.",
+          "QUEBRE os dois ovos no Kodiak Cakes, misture bem e use um garfo para misturar lentamente o ovo na mistura.",
+          "ASSIM QUE uma massa desgrenhada se formar, use as mãos para transformar a mistura em uma bola de massa firme. Sove a bola de massa por cinco minutos, até ficar lisa e flexível. Cubra com filme plástico e deixe descansar por 20 minutos.",
+          "ABRA a massa o mais fino possível e use um cortador de pizza ou faca para cortar em tiras de 1/8” de largura. Misture o macarrão com um pouco da mistura de bolos Kodiak para que não grudem. Cubra até a hora de usar. Macarrão simples de verão:",
+          "ENCHA uma panela com 6 xícaras de água e uma pitada grande de sal. Leve para ferver.",
+          "Enquanto a água está fervendo, aqueça o azeite em uma frigideira grande em fogo médio/alto. Adicione os tomates cereja e refogue até começarem a formar bolhas, 3-4 minutos. Adicione o alho e cozinhe por 30 segundos. Adicione sal e pimenta a gosto. Retire do fogo e reserve.",
+          "ADICIONE o macarrão à água fervente e cozinhe por 3-4 minutos ou até que o macarrão flutue e esteja totalmente cozido.",
+          "ESCORRA o macarrão e acrescente o macarrão à mistura de tomate. Misture com uma pinça até que a massa esteja coberta uniformemente com o óleo.",
+          "SIRVA o macarrão coberto com manjericão fresco e queijo parmesão. * Nota: O macarrão fresco deve ser cozido em 24 horas. Guarde na geladeira, tampado, se não estiver usando imediatamente."
+        ],
+        "title": "Macarrão simples de verão",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-09": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 waffles poderosos de mantequilla y vainilla de Kodiak"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de aceite de oliva"
+          },
+          {
+            "price": null,
+            "qty_name": "1 calabacín pequeño, cortado en trozos de 1 pulgada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 mazorca de maíz, con los granos cortados"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimentón ahumado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de tomates cherry cortados por la mitad"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cebollas verdes en rodajas"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de arvejas congeladas (descongeladas)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 diente de ajo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de cilantro"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limones, uno cortado en 4 trozos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de yogur natural"
+          }
+        ],
+        "meta": {
+          "cook": "5",
+          "prep": "15",
+          "serves": "4"
+        },
+        "steps": [
+          "COLOCA los guisantes, el ajo, el cilantro y el jugo de una lima en un procesador de alimentos. Pulse hasta que se mezcle y forme una pasta espesa. Agregue sal al gusto. Vuelva a pulsar y reserve.",
+          "AGREGA el aceite de oliva a una sartén grande y calienta a fuego medio/alto. Agregue el calabacín, el maíz y el pimentón ahumado a la sartén y saltee hasta que estén dorados y suaves. Retira del fuego y agrega los tomates cherry y la cebolla verde. Agrega sal al gusto.",
+          "TUESTA los waffles según las instrucciones del paquete.",
+          "CUBRE cada gofre con 1/4 de taza de la mezcla de guisantes y 1/4 de la mezcla de verduras. Repite el procedimiento con el resto de los waffles.",
+          "SIRVE cada tostada de gofres con una cucharada de yogur y una rodaja de lima."
+        ],
+        "title": "Tostada de verduras de verano",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 waffles Kodiak Buttermilk e Vanilla Power"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de sopa de azeite"
+          },
+          {
+            "price": null,
+            "qty_name": "1 abobrinha pequena, cortada em pedaços de 1”"
+          },
+          {
+            "price": null,
+            "qty_name": "1 espiga de milho, grãos cortados de espiga"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 colher de chá de páprica defumada"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de tomate cereja, cortado pela metade"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cebolinhas, fatiadas"
+          },
+          {
+            "price": null,
+            "qty_name": "1 xícara de ervilhas congeladas (descongeladas)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 dente de alho"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de coentro"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limas, uma cortada em 4 fatias"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de iogurte natural"
+          }
+        ],
+        "meta": {
+          "cook": "5",
+          "prep": "15",
+          "serves": "4"
+        },
+        "steps": [
+          "COLOQUE as ervilhas, o alho, o coentro e o suco de um limão no processador de alimentos. Pulsar até formar uma pasta grossa. Adicione sal a gosto. Pulse novamente e reserve.",
+          "ADICIONE o azeite em uma frigideira grande e aqueça em médio/alto. Adicione a abobrinha, o milho e a páprica defumada na frigideira e refogue até dourar e ficar macio. Retire do fogo e acrescente o tomate cereja e a cebolinha. Adicione sal a gosto.",
+          "TORRE os waffles de acordo com as instruções da embalagem.",
+          "Cubra cada waffle com 1/4 de xícara da mistura de ervilha e 1/4 da mistura de vegetais. Repita com os waffles restantes.",
+          "SIRVA cada waffle tostada com uma colher de sopa de iogurte e uma rodela de limão."
+        ],
+        "title": "Tostada de vegetais de verão",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-10": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 paquetes del paquete variado Oatmeal Packet"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tazas de manzanas en rodajas"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de mantequilla derretida"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "CALIENTA el horno a 375 grados Fahrenheit. Coloque las manzanas en una fuente para hornear.",
+          "REVUELVE el contenido seco del paquete con la mantequilla y esparce sobre las manzanas.",
+          "HORNEA 25 minutos hasta que burbujee. Descansa 10 minutos antes de servir."
+        ],
+        "title": "Crisp de manzana con variedad de avena",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 pacotes do Oatmeal Packet Variety Pack"
+          },
+          {
+            "price": null,
+            "qty_name": "3 xícaras de maçãs fatiadas"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de sopa de manteiga derretida"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "AQUEÇA o forno a 375 graus Fahrenheit. Coloque as maçãs em uma assadeira.",
+          "MEXA o conteúdo seco do pacote com a manteiga e espalhe sobre as maçãs.",
+          "Asse por 25 minutos até borbulhar. Descanse 10 minutos antes de servir."
+        ],
+        "title": "Variedade de aveia Apple Crisp",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-11": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Pumpkin Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "Bote de avena arrollada con proteína Kodiak de 1/2 taza"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de puré de calabaza"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de crema agria"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de aceite de aguacate (u otro aceite de cocina neutro)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de leche entera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "Pepitas, para arriba"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "10 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 375° Fahrenheit. Cubra un molde para magdalenas de 12 tazas con moldes para magdalenas.",
+          "COLOQUE la mezcla para flapjack, la avena, el azúcar moreno, el huevo, el puré de calabaza, la crema agria, la leche y la vainilla en un tazón grande y mezcle para formar una masa suave. Deje reposar durante cinco minutos para que los granos absorban el líquido.",
+          "DIVIDA la masa entre los moldes para magdalenas preparados, usando una cuchara para agregar aproximadamente 1/4 de taza de masa a cada forro.",
+          "CUBRE cada forro relleno de masa con una pizca de avena y pepitas.",
+          "HORNEA en el horno precalentado durante 13-15 minutos, o hasta que esté ligeramente dorado por encima.",
+          "RETIRAR del horno y dejar enfriar sobre una rejilla. Almacene en un recipiente hermético."
+        ],
+        "title": "Muffins de calabaza y avena",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 xícaras Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de vasilha de aveia em flocos Kodiak Protein"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de açúcar mascavo"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ovo grande"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de purê de abóbora"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 xícara de creme de leite"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 xícara de óleo de abacate (ou outro óleo de cozinha neutro)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 xícara de leite integral"
+          },
+          {
+            "price": null,
+            "qty_name": "1 colher de chá extrato de baunilha"
+          },
+          {
+            "price": null,
+            "qty_name": "Pepitas, por cima"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "10 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 375° Fahrenheit. Forre uma forma de muffin de 12 xícaras com forminhas de cupcake.",
+          "COLOQUE a mistura de flapjack, aveia, açúcar mascavo, ovo, purê de abóbora, creme de leite, leite e baunilha em uma tigela grande e bata até formar uma massa lisa. Deixe descansar por cinco minutos para que os grãos absorvam o líquido.",
+          "DIVIDA a massa entre as formas de muffin preparadas, usando uma colher para adicionar cerca de 1/4 de xícara de massa em cada forro.",
+          "Cubra cada forro cheio de massa com uma pitada de aveia e pepitas.",
+          "Asse no forno pré-aquecido por 13-15 minutos ou até dourar levemente por cima.",
+          "RETIRE do forno e deixe esfriar sobre uma gradinha. Armazene em um recipiente hermético."
+        ],
+        "title": "Muffins de abóbora e aveia",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-12": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "3 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharaditas de ajo en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "Hojuelas de pimiento rojo, al gusto"
+          },
+          {
+            "price": null,
+            "qty_name": "Pimienta negra, al gusto"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharaditas de mostaza seca en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos, ligeramente batidos"
+          },
+          {
+            "price": null,
+            "qty_name": "16 onzas de queso cheddar fuerte, recién rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1 1/2 libras de salchicha de pavo molida (se puede sustituir por salchicha de cerdo o pollo)"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "10 minutos",
+          "serves": "10"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350 °F y cubre dos bandejas para hornear con papel pergamino.",
+          "EN un tazón grande, mezcle la mezcla de Kodiak Cakes y las especias (ajo, hojuelas de pimiento rojo, pimienta negra, sal y mostaza en polvo).",
+          "AGREGUE los huevos, el queso cheddar y las salchichas molidas y mezcle bien con las manos o con una espátula. La mezcla debe quedar un poco pegajosa pero lo suficientemente firme como para formar bolas.",
+          "ENROLLE la mezcla en bolas de 1 pulgada y colóquelas en las bandejas para hornear preparadas con una separación de aproximadamente 1 pulgada (aproximadamente 40-45 bolas de salchicha en total).",
+          "HORNEA en el horno precalentado durante 20-25 minutos, o hasta que las bolas de salchicha estén doradas y bien cocidas (temperatura interna de 165 °F para salchichas de cerdo o pollo).",
+          "RETIRAR del horno y dejar enfriar un poco antes de servir."
+        ],
+        "title": "Bolas de salchicha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "pt": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "3 xícaras Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de chá de alho em pó"
+          },
+          {
+            "price": null,
+            "qty_name": "Flocos de pimenta vermelha, a gosto"
+          },
+          {
+            "price": null,
+            "qty_name": "Pimenta preta, a gosto"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 colher de chá de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "2 colheres de chá de mostarda seca em pó"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ovos levemente batidos"
+          },
+          {
+            "price": null,
+            "qty_name": "16 onças de queijo cheddar picante, recém-ralado"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 libras de linguiça de perú moída (pode substituir por linguiça de porco ou frango)"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "10 minutos",
+          "serves": "10"
+        },
+        "steps": [
+          "PRÉ-AQUEÇA o forno a 350° F e forre duas assadeiras com papel manteiga.",
+          "Em uma tigela grande, misture a mistura de bolos Kodiak e os temperos (alho, pimenta vermelha em flocos, pimenta preta, sal e mostarda em pó).",
+          "ADICIONE os ovos, o queijo cheddar e a linguiça moída e misture bem com as mãos ou uma espátula. A mistura deve ficar levemente pegajosa, mas firme o suficiente para formar bolas.",
+          "ENROLE a mistura em bolas de 1 polegada e coloque-as nas assadeiras preparadas com cerca de 1 polegada de distância (cerca de 40-45 bolas de salsicha no total).",
+          "Asse no forno pré-aquecido por 20-25 minutos ou até que as bolas de salsicha estejam douradas e cozidas (temperatura interna de 165° F para linguiça de porco ou frango).",
+          "RETIRE do forno e deixe esfriar um pouco antes de servir."
+        ],
+        "title": "Bolas de salsicha",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "pt",
           "machine_translated": true,
           "providers": [
             "aws_translate"

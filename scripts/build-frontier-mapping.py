@@ -3,7 +3,8 @@
 Single source of truth is web/kodiak-posts-for-todays-frontier/js/data-core.js
 (places[] + featuredFrontierDetail + marketFeaturedFrontier). The backend JSON
 is a generated mirror so the two can never drift: every market resolves its own
-nearby frontier (1:1, no shared frontiers), every frontier target self-resolves.
+nearby frontier (only the declared Cincinnati+Dayton share of Lebanon is shared),
+every frontier target self-resolves.
 
 Ingredient months are integers 1-12 parsed from each entry's own seasons text;
 entries whose seasons are unconfirmed keep months:null + a research-dispatch
@@ -258,8 +259,17 @@ def build() -> dict:
     for code, entry in markets.items():
         if code != entry["frontier_market"]:
             shared.setdefault(entry["frontier_market"], []).append(code)
+    # Declared shares: Cincinnati + Dayton intentionally resolve to the Lebanon
+    # orchard belt (one metro pair, not an accident). Anything else sharing a
+    # frontier is still a bug.
     dupes = {k: v for k, v in shared.items() if len(v) > 1}
-    assert not dupes, f"shared frontiers slipped back in: {dupes}"
+    allowed = {"US-OH-LEBANON": {"US-OH-CINCINNATI", "US-OH-DAYTON"}}
+    bad = {
+        k: v
+        for k, v in dupes.items()
+        if set(v) != allowed.get(k, set())
+    }
+    assert not bad, f"shared frontiers slipped back in: {bad}"
 
     # deterministic stamp: data-core.js mtime, so committed output regenerates
     # byte-identical until the source actually changes.
@@ -274,8 +284,8 @@ def build() -> dict:
             "via scripts/build-frontier-mapping.py \u2014 do not hand-edit",
             "markets": len([k for k in markets if k in mapping]),
             "frontier_self_entries": len([k for k in markets if k not in mapping]),
-            "model": "1:1 \u2014 every market resolves its own nearby frontier; "
-            "no shared frontiers",
+            "model": "each market resolves its nearby frontier; "
+            "only the declared Cincinnati+Dayton share of Lebanon is shared",
         },
         "markets": markets,
     }

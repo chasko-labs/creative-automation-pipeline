@@ -445,7 +445,17 @@
     try { s = /** @type {HTMLInputElement|null} */ (document.getElementById('seasonalSelect')); } catch (e) { s = null; }
     var v = (s && s.value) ? String(s.value).trim().toLowerCase() : '';
     if (!v) return '';   // "Season: any" — no month filter
-    return MONTH_TO_KEY[v] || null;   // seasons/holidays -> null (no such cards)
+    if (MONTH_TO_KEY[v]) return MONTH_TO_KEY[v];
+    // seasons/holidays resolve to their representative month card via the
+    // shared data-core.js map — a Halloween pick shows the October card.
+    try{
+      var numFn = (typeof window !== 'undefined') ? window.KODIAK_frontierMonthNum : null;
+      if(typeof numFn === 'function'){
+        var n = numFn(v);
+        if(n) return '2026-' + (n < 10 ? '0' : '') + n;
+      }
+    }catch(e){}
+    return null;   // unknown value — no such cards
   }
 
   function renderGallery() {
@@ -472,7 +482,7 @@
     var monthKey = selectedMonthKey();
     if (monthKey === null) {
       body.appendChild(el('p', 'rc-gallery-empty',
-        'Holiday and season cards are not built yet — pick a month to see its card.'));
+        'No card for this market and season yet.'));
       return;
     }
     /** @type {Object<string, MonthCard>} */

@@ -151,6 +151,28 @@
             7,
             8
           ]
+        },
+        {
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "available_ingredients": [
+            "muscadine grapes",
+            "pecans"
+          ],
+          "favorite_flavors": [
+            "muscadine",
+            "pecan"
+          ],
+          "source": "pairs monthly calendar (muscadine Sep, pecans Oct) + Birmingham fall-entry pattern",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest",
+          "seasons": [
+            "FALL_HARVEST"
+          ],
+          "months": [
+            9,
+            10
+          ]
         }
       ],
       "research_todo": false
@@ -220,6 +242,7 @@
           "months": [
             1,
             2,
+            3,
             4,
             10,
             12
@@ -303,7 +326,8 @@
           "available_ingredients": [
             "raspberries",
             "peaches",
-            "sweet corn"
+            "sweet corn",
+            "summer squash"
           ],
           "favorite_flavors": [
             "peach",
@@ -319,7 +343,8 @@
           ],
           "months": [
             6,
-            7
+            7,
+            8
           ]
         }
       ],
@@ -3116,6 +3141,7 @@
           ],
           "months": [
             6,
+            7,
             8
           ]
         },
@@ -3167,6 +3193,46 @@
           "months": [
             11,
             12
+          ]
+        },
+        {
+          "moment": "Spring asparagus season (May)",
+          "available_ingredients": [
+            "asparagus"
+          ],
+          "favorite_flavors": [
+            "asparagus",
+            "spring greens"
+          ],
+          "source": "Ohio State University Extension Ohio produce availability calendar pattern",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest peak",
+          "seasons": [
+            "SPRING"
+          ],
+          "months": [
+            5
+          ]
+        },
+        {
+          "moment": "Deep-winter storage baking (Jan)",
+          "available_ingredients": [
+            "storage apples"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "maple"
+          ],
+          "source": "Ohio State University Extension storage-crop guidance pattern (Cleveland entry)",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "storage-crop; January gap fill, proposed",
+          "seasons": [
+            "DEEP_WINTER"
+          ],
+          "months": [
+            1
           ]
         }
       ],
@@ -9993,6 +10059,7 @@
           ],
           "months": [
             9,
+            10,
             11
           ]
         },
@@ -10072,6 +10139,7 @@
           ],
           "months": [
             6,
+            7,
             8
           ]
         },
@@ -10097,6 +10165,29 @@
           "months": [
             3,
             5
+          ]
+        },
+        {
+          "moment": "Late-winter lowland citrus + early asparagus (Feb-Apr)",
+          "available_ingredients": [
+            "citrus (from lowland San Diego County)",
+            "asparagus"
+          ],
+          "favorite_flavors": [
+            "citrus",
+            "asparagus"
+          ],
+          "source": "pairs monthly calendar (citrus Feb, asparagus Apr lowland entries)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "lowland coastal crop; proposed",
+          "seasons": [
+            "DEEP_WINTER",
+            "SPRING"
+          ],
+          "months": [
+            2,
+            4
           ]
         }
       ],
@@ -12293,6 +12384,630 @@
           ],
           "months": [
             5
+          ]
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-OH-CINCINNATI",
+      "metro_location": {
+        "retailer": "Kroger",
+        "name": null,
+        "address": "confirm — US-OH-CINCINNATI",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Ohio; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Lebanon, OH",
+        "market": "US-OH-LEBANON",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; Cincinnati and Dayton share the Lebanon orchard belt. Lebanon Farmers Market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Kroger",
+        "Target"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "ramps",
+        "2026-04": "morel mushrooms",
+        "2026-05": "strawberries",
+        "2026-06": "strawberries (late)",
+        "2026-07": "sweet corn",
+        "2026-08": "peaches",
+        "2026-09": "pawpaws",
+        "2026-10": "apples",
+        "2026-11": "pumpkins",
+        "2026-12": "black walnuts"
+      },
+      "monthly_ingredient_notes": {
+        "source": "data-core.js frontier detail US-OH-LEBANON (Warren County orchard belt: Irons Fruit Farm, Hidden Valley Orchards) + US-OH-CINCINNATI (Findlay Market river city); Ohio State University Extension Ohio produce availability calendar pattern"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Late-winter sap run (late-Feb to Mar)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple"
+          ],
+          "source": "data-core.js Lebanon detail (Maple Feb); cleveland.com NE Ohio maple pattern",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "value-added; sap runs during the winter-to-spring freeze/thaw",
+          "seasons": [
+            "DEEP_WINTER",
+            "MAPLE"
+          ],
+          "months": [
+            2,
+            3
+          ]
+        },
+        {
+          "moment": "Findlay Market spring opening — ramps + morels (Mar-Apr)",
+          "available_ingredients": [
+            "ramps",
+            "morel mushrooms"
+          ],
+          "favorite_flavors": [
+            "wild leek",
+            "savory mushroom"
+          ],
+          "source": "data-core.js Cincinnati detail (Ramps Mar; morels Apr)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest; Findlay Market year-round anchor",
+          "seasons": [
+            "SPRING",
+            "MAPLE"
+          ],
+          "months": [
+            3,
+            4
+          ]
+        },
+        {
+          "moment": "Strawberry season (May-Jun)",
+          "available_ingredients": [
+            "strawberries",
+            "strawberries (late)"
+          ],
+          "favorite_flavors": [
+            "strawberry"
+          ],
+          "source": "data-core.js Lebanon detail (strawberries May)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest peak",
+          "seasons": [
+            "SPRING"
+          ],
+          "months": [
+            5,
+            6
+          ]
+        },
+        {
+          "moment": "Sweet corn + Hidden Valley peach season (Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "peaches"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "peach"
+          ],
+          "source": "data-core.js Lebanon detail (corn Jul; peaches Aug)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest peak",
+          "seasons": [
+            "HIGH_SUMMER",
+            "LATE_SUMMER"
+          ],
+          "months": [
+            7,
+            8
+          ]
+        },
+        {
+          "moment": "Pawpaw season (Sep)",
+          "available_ingredients": [
+            "pawpaws"
+          ],
+          "favorite_flavors": [
+            "pawpaw",
+            "tropical custard"
+          ],
+          "source": "data-core.js Cincinnati detail (pawpaws Sep)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest; Ohio River Valley orchards",
+          "seasons": [
+            "FALL_HARVEST"
+          ],
+          "months": [
+            9
+          ]
+        },
+        {
+          "moment": "Halloween cider + pumpkin-patch weekends (Oct)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "pumpkin spice"
+          ],
+          "source": "data-core.js Lebanon detail (Irons cider apples; November pumpkins; Hidden Valley Orchards)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Irons Fruit Farm cider apples + Hidden Valley Orchards pumpkin patch; Halloween anchor moment",
+          "seasons": [
+            "FALL_HARVEST"
+          ],
+          "months": [
+            10
+          ]
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "pumpkins",
+            "storage apples",
+            "black walnuts"
+          ],
+          "favorite_flavors": [
+            "pumpkin spice",
+            "black walnut",
+            "maple"
+          ],
+          "source": "data-core.js Lebanon detail (pumpkins Nov; black walnuts Dec)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added",
+          "seasons": [
+            "WINTER_HOLIDAYS",
+            "DEEP_WINTER"
+          ],
+          "months": [
+            11,
+            12
+          ]
+        },
+        {
+          "moment": "Deep-winter storage baking (Jan)",
+          "available_ingredients": [
+            "storage apples"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "maple"
+          ],
+          "source": "Ohio State University Extension storage-crop guidance pattern (Cleveland entry)",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "storage-crop; January gap fill, proposed",
+          "seasons": [
+            "DEEP_WINTER"
+          ],
+          "months": [
+            1
+          ]
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-OH-DAYTON",
+      "metro_location": {
+        "retailer": "Kroger",
+        "name": null,
+        "address": "confirm — US-OH-DAYTON",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Ohio; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Lebanon, OH",
+        "market": "US-OH-LEBANON",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map; Cincinnati and Dayton share the Lebanon orchard belt. Lebanon Farmers Market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Kroger",
+        "Target"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "maple syrup (late run)",
+        "2026-04": "spring greens (high tunnel)",
+        "2026-05": "strawberries",
+        "2026-06": "strawberries (late)",
+        "2026-07": "sweet corn",
+        "2026-08": "tomatoes",
+        "2026-09": "tomatoes (late harvest)",
+        "2026-10": "apples",
+        "2026-11": "pumpkins",
+        "2026-12": "black walnuts"
+      },
+      "monthly_ingredient_notes": {
+        "source": "data-core.js frontier detail US-OH-LEBANON (Warren County orchard belt: Irons Fruit Farm, Hidden Valley Orchards) + US-OH-DAYTON (Miami Valley maple corridor: 2nd Street Market, Dohner Maple Products); Ohio State University Extension Ohio produce availability calendar pattern"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Miami Valley sap run + Dohner maple (late-Feb to Mar)",
+          "available_ingredients": [
+            "maple syrup",
+            "maple syrup (late run)"
+          ],
+          "favorite_flavors": [
+            "maple"
+          ],
+          "source": "data-core.js Dayton detail (Maple Feb; Dohner Maple Products); cleveland.com NE Ohio maple pattern",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "value-added; sap runs during the winter-to-spring freeze/thaw",
+          "seasons": [
+            "DEEP_WINTER",
+            "MAPLE"
+          ],
+          "months": [
+            2,
+            3
+          ]
+        },
+        {
+          "moment": "2nd Street Market strawberry opening (May-Jun)",
+          "available_ingredients": [
+            "strawberries",
+            "strawberries (late)"
+          ],
+          "favorite_flavors": [
+            "strawberry"
+          ],
+          "source": "data-core.js Dayton detail (strawberries May)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest peak; 2nd Street Market Saturdays",
+          "seasons": [
+            "SPRING"
+          ],
+          "months": [
+            5,
+            6
+          ]
+        },
+        {
+          "moment": "2nd Street Market sweet corn + tomato season (Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "tomato"
+          ],
+          "source": "data-core.js Dayton detail (corn Jul; tomatoes Aug)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest peak",
+          "seasons": [
+            "HIGH_SUMMER"
+          ],
+          "months": [
+            7,
+            8
+          ]
+        },
+        {
+          "moment": "Halloween cider + pumpkin-patch weekends (Oct)",
+          "available_ingredients": [
+            "apples",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "pumpkin spice"
+          ],
+          "source": "data-core.js Lebanon detail (Irons cider apples; Hidden Valley Orchards pumpkin patch)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Irons Fruit Farm cider apples + Hidden Valley Orchards pumpkin patch on the shared Lebanon frontier; Halloween anchor moment",
+          "seasons": [
+            "FALL_HARVEST"
+          ],
+          "months": [
+            10
+          ]
+        },
+        {
+          "moment": "Apple and cider season (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "tomatoes (late harvest)",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "pumpkin spice"
+          ],
+          "source": "data-core.js Dayton detail (apples Oct)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest; orchard weekends",
+          "seasons": [
+            "FALL_HARVEST"
+          ],
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "moment": "Deep-winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "pumpkins",
+            "storage apples",
+            "black walnuts"
+          ],
+          "favorite_flavors": [
+            "pumpkin spice",
+            "black walnut",
+            "maple"
+          ],
+          "source": "data-core.js Lebanon detail (pumpkins Nov; black walnuts Dec)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "storage / value-added",
+          "seasons": [
+            "WINTER_HOLIDAYS",
+            "DEEP_WINTER"
+          ],
+          "months": [
+            11,
+            12
+          ]
+        },
+        {
+          "moment": "Deep-winter storage baking (Jan)",
+          "available_ingredients": [
+            "storage apples"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "maple"
+          ],
+          "source": "Ohio State University Extension storage-crop guidance pattern (Cleveland entry)",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "storage-crop; January gap fill, proposed",
+          "seasons": [
+            "DEEP_WINTER"
+          ],
+          "months": [
+            1
+          ]
+        },
+        {
+          "moment": "High-tunnel spring greens (Apr)",
+          "available_ingredients": [
+            "spring greens (high tunnel)"
+          ],
+          "favorite_flavors": [
+            "spring greens"
+          ],
+          "source": "pairs monthly calendar (spring greens high-tunnel April entry)",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "growing-method attribution, not a named event; proposed",
+          "seasons": [
+            "SPRING"
+          ],
+          "months": [
+            4
+          ]
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-CA-OCEANSIDE",
+      "metro_location": {
+        "retailer": "Target",
+        "name": null,
+        "address": "confirm — US-CA-OCEANSIDE",
+        "hours": null,
+        "phone": null,
+        "note": "seeded batch Oceanside; metro storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Oceanside, CA",
+        "market": "US-CA-OCEANSIDE",
+        "farmers_market_url": null,
+        "note": "self frontier: North County coast markets serve the metro directly (Oceanside Morning Farmers Market Thu 9-1 + Thursday Sunset Market). Market URL pending (not fabricated)"
+      },
+      "retailers": [
+        "Target",
+        "Vons",
+        "Whole Foods"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "Satsuma mandarins",
+        "2026-02": "citrus (Temecula/Valley Center)",
+        "2026-03": "strawberries (early)",
+        "2026-04": "strawberries (peak)",
+        "2026-05": "strawberries (late spring)",
+        "2026-06": "strawberries",
+        "2026-07": "sweet corn",
+        "2026-08": "heirloom tomatoes",
+        "2026-09": "heirloom tomatoes (late harvest)",
+        "2026-10": "persimmons",
+        "2026-11": "Dungeness crab",
+        "2026-12": "pomegranates"
+      },
+      "monthly_ingredient_notes": {
+        "source": "data-core.js frontier detail US-CA-OCEANSIDE (Satsuma mandarins Jan; strawberries Jun peak; corn Jul; tomatoes Aug; persimmons Oct; crab Nov; pomegranates Dec; farms: Cyclops Farms, Chino Farm, Temecula citrus growers, Valley Center orchards); San Diego County spring strawberry season pattern"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Winter citrus season (Jan-Feb)",
+          "available_ingredients": [
+            "Satsuma mandarins",
+            "citrus (Temecula/Valley Center)"
+          ],
+          "favorite_flavors": [
+            "citrus",
+            "mandarin"
+          ],
+          "source": "data-core.js Oceanside detail (Mandarins Jan)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "fresh-harvest; proposed",
+          "seasons": [
+            "DEEP_WINTER"
+          ],
+          "months": [
+            1,
+            2
+          ]
+        },
+        {
+          "moment": "Spring strawberry season (Mar-Jun)",
+          "available_ingredients": [
+            "strawberries (early)",
+            "strawberries (peak)",
+            "strawberries (late spring)",
+            "strawberries"
+          ],
+          "favorite_flavors": [
+            "strawberry"
+          ],
+          "source": "data-core.js Oceanside detail (strawberries Jun peak); San Diego County spring strawberry season",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest peak",
+          "seasons": [
+            "SPRING"
+          ],
+          "months": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "moment": "Chino Farm sweet corn + tomato season (Jul-Aug)",
+          "available_ingredients": [
+            "sweet corn",
+            "heirloom tomatoes"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "tomato"
+          ],
+          "source": "data-core.js Oceanside detail (corn Jul; tomatoes Aug)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest peak",
+          "seasons": [
+            "HIGH_SUMMER"
+          ],
+          "months": [
+            7,
+            8
+          ]
+        },
+        {
+          "moment": "Late-harvest tomatoes (Sep)",
+          "available_ingredients": [
+            "heirloom tomatoes (late harvest)"
+          ],
+          "favorite_flavors": [
+            "tomato"
+          ],
+          "source": "pairs monthly calendar (late-harvest September entry)",
+          "confidence": "low",
+          "status": "proposed",
+          "note": "tail of harvest; proposed",
+          "seasons": [
+            "FALL_HARVEST"
+          ],
+          "months": [
+            9
+          ]
+        },
+        {
+          "moment": "Persimmon season (Oct)",
+          "available_ingredients": [
+            "persimmons"
+          ],
+          "favorite_flavors": [
+            "persimmon",
+            "cinnamon"
+          ],
+          "source": "data-core.js Oceanside detail (persimmons Oct)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest",
+          "seasons": [
+            "FALL_HARVEST"
+          ],
+          "months": [
+            10
+          ]
+        },
+        {
+          "moment": "Dungeness crab opening (Nov)",
+          "available_ingredients": [
+            "Dungeness crab"
+          ],
+          "favorite_flavors": [
+            "crab",
+            "citrus butter"
+          ],
+          "source": "data-core.js Oceanside detail (crab Nov)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "season opener; pairs with Thanksgiving tables",
+          "seasons": [
+            "FALL_HARVEST",
+            "THANKSGIVING"
+          ],
+          "months": [
+            11
+          ]
+        },
+        {
+          "moment": "Holiday citrus + pomegranate markets (Dec)",
+          "available_ingredients": [
+            "pomegranates",
+            "citrus (Temecula/Valley Center)"
+          ],
+          "favorite_flavors": [
+            "pomegranate",
+            "citrus"
+          ],
+          "source": "data-core.js Oceanside detail (pomegranates Dec)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "fresh-harvest; Sunset Market holiday crowds",
+          "seasons": [
+            "WINTER_HOLIDAYS"
+          ],
+          "months": [
+            12
           ]
         }
       ],
