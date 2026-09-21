@@ -37,14 +37,18 @@ describe('market-to-featured-frontier mapping (#257)', () => {
     expect(for_('US-XX-NOWHERE')).toBeNull();
   });
 
-  it('no shared frontiers — every target serves exactly one market', () => {
+  it('only the declared Cincinnati+Dayton share of Lebanon is shared', () => {
     const pairs = [...dataCore.matchAll(/"(US-[A-Z0-9\- ]+)": "(US-[A-Z0-9\-]+)"/g)]
       .map((m) => [m[1], m[2]]);
     expect(pairs.length).toBeGreaterThan(70);
-    const counts = {};
-    for (const [, v] of pairs) counts[v] = (counts[v] || 0) + 1;
-    const shared = Object.entries(counts).filter(([, n]) => n > 1);
-    expect(shared, 'shared frontiers').toEqual([]);
+    const served = {};
+    for (const [k, v] of pairs) {
+      if (k !== v) served[v] = (served[v] || []).concat(k);
+    }
+    const shared = Object.entries(served).filter(([, ks]) => ks.length > 1);
+    expect(shared.length).toBe(1);
+    expect(shared[0][0]).toBe('US-OH-LEBANON');
+    expect([...shared[0][1]].sort()).toEqual(['US-OH-CINCINNATI', 'US-OH-DAYTON']);
     for (const [k, v] of pairs) {
       expect(dataCore).toMatch(new RegExp('"' + v + '": \\{place:'));
     }

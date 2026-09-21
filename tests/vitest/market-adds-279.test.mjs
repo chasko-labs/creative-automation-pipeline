@@ -15,14 +15,20 @@ const finder = JSON.parse(readFileSync(
 
 // #279 — Bay Area normalization: SF + San Jose urban markets, Pescadero +
 // Castroville rural featured frontiers. 73 -> 75 places with full companions.
+// Ohio (Cincinnati/Dayton/Lebanon) + Oceanside adds took it to 79; Lebanon
+// then left the picker (shared Cincinnati+Dayton frontier, not a market):
+// 79 -> 78 places.
 describe('bay area markets (#279)', () => {
-  it('places holds 75 unique markets including the Bay Area adds', () => {
+  it('places holds 78 unique markets including the Bay Area adds', () => {
     const ids = core.match(/\{market:"([^"]*)"/g).map(s => s.slice(9, -1));
-    expect(ids.length).toBe(75);
+    expect(ids.length).toBe(78);
     expect(new Set(ids).size).toBe(ids.length);
     expect(core).toMatch(/market:"US-W-SF"/);
     expect(core).toMatch(/market:"US-W-SANJOSE"/);
     expect(core).toMatch(/market:"US-CA-CASTROVILLE"/);
+    expect(core).toMatch(/market:"US-OH-CINCINNATI"/);
+    expect(core).toMatch(/market:"US-OH-DAYTON"/);
+    expect(core).not.toMatch(/\{market:"US-OH-LEBANON"/);
   });
 
   it('urban markets pair to their own nearby rural featured frontiers', () => {
