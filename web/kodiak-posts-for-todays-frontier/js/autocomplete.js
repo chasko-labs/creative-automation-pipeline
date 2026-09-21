@@ -56,8 +56,18 @@
     var parts = [];
     var m = currentMarketLabel(); if(m) parts.push('market: ' + m);
     var s = currentSeasonLabel(); if(s) parts.push('season: ' + s);
+    // Ecology / locality cue from the data model (places[].cue) — e.g., trillium/bluebells/coneflower/aster for Ohio River valley.
+    // This is the plant ecology that helps the image prompt accurately represent the locality for the time of year / festivity,
+    // and it comes from the schema (data-core.js places, built from regional-scoreboard), not a hardcoded string in code.
+    // Seasonal moments supplement monthly_ingredients (favorite_flavors) — they do not override the ingredient.
     try{
       var code = currentMarketCode();
+      var marketEntry = markets().find(function(entry){ return entry.market===code; });
+      if(marketEntry && marketEntry.cue){
+        // Use a short, season-relevant slice of the cue so the prompt stays stunning, not vague (full cue can be long)
+        // The cue already names the ecology (trillium/bluebells etc.) appropriate for the market; we keep it verbatim.
+        parts.push('ecology: ' + marketEntry.cue);
+      }
       var rich = (typeof frontierSeasonLine === 'function' && code && s)
         ? frontierSeasonLine(code, s) : null;
       if(rich){
@@ -66,7 +76,6 @@
           var flav = (rich.favorite_flavors && rich.favorite_flavors.length) ? ' (' + rich.favorite_flavors.join(', ') + ')' : '';
           parts.push('in-season: ' + rich.ingredient + flav);
         }
-        // Stunning prompt needs plant/ingredient flavor, not just zip/month — ensures September brings pawpaws with tropical custard detail
       }
     }catch(e){}
     var prods = currentProducts(); if(prods.length) parts.push('products: ' + prods.join(', '));
