@@ -724,6 +724,11 @@
 .rc-artzone--plate{width:3.0in;height:1.65in}
 .rc-artzone__base{position:absolute;inset:0;background:transparent}    /* no base coat: art and sketches sit on the paper tone */
 .rc-artzone__art{position:absolute;inset:0;width:100%;height:100%;color:var(--rc-ink);display:block;object-fit:contain;object-position:center}   /* contain, never stretch: cutout art keeps its drawn proportions, paper tone fills the rest */
+/* lazy-generate skeleton: paper-tone shimmer holding layout until the zone scrolls into view and its render lands */
+.rc-artzone__skeleton{background:linear-gradient(100deg,transparent 20%,var(--rc-ink-2) 50%,transparent 80%);background-size:200% 100%;opacity:.25;animation:rc-skel 1.6s linear infinite}
+@keyframes rc-skel{from{background-position:180% 0}to{background-position:-80% 0}}
+/* generation status line: quiet archival ink under the zone, removed on swap */
+.rc-art-status{margin-top:4px;font:500 8.5pt/1.4 "museo-sans",sans-serif;color:var(--rc-ink-2);letter-spacing:.02em}
 
 /* tip note — thin archival line, body text */
 .rc-tip{margin:0.1in 0 0;padding:0.06in 0.08in;border-left:1px solid var(--rc-ink-2);

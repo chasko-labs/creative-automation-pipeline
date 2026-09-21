@@ -718,5 +718,545 @@
   "season": "Fourth of July",
   "dish": "bars",
   "seed": 910120
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Fall",
+  "dish": "waffle",
+  "seed": 910121
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Fall",
+  "dish": "muffin",
+  "seed": 910122
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Fall",
+  "dish": "oatmeal-cup",
+  "seed": 910123
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Fall",
+  "dish": "brownie",
+  "seed": 910124
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Fall",
+  "dish": "bars",
+  "seed": 910125
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Halloween",
+  "dish": "waffle",
+  "seed": 910126
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Halloween",
+  "dish": "muffin",
+  "seed": 910127
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Halloween",
+  "dish": "oatmeal-cup",
+  "seed": 910128
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Halloween",
+  "dish": "brownie",
+  "seed": 910129
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Halloween",
+  "dish": "bars",
+  "seed": 910130
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Thanksgiving",
+  "dish": "waffle",
+  "seed": 910131
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Thanksgiving",
+  "dish": "muffin",
+  "seed": 910132
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Thanksgiving",
+  "dish": "oatmeal-cup",
+  "seed": 910133
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Thanksgiving",
+  "dish": "brownie",
+  "seed": 910134
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Thanksgiving",
+  "dish": "bars",
+  "seed": 910135
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Christmas",
+  "dish": "waffle",
+  "seed": 910136
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Christmas",
+  "dish": "muffin",
+  "seed": 910137
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Christmas",
+  "dish": "oatmeal-cup",
+  "seed": 910138
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Christmas",
+  "dish": "brownie",
+  "seed": 910139
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Christmas",
+  "dish": "bars",
+  "seed": 910140
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Easter",
+  "dish": "waffle",
+  "seed": 910141
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Easter",
+  "dish": "muffin",
+  "seed": 910142
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Easter",
+  "dish": "oatmeal-cup",
+  "seed": 910143
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Easter",
+  "dish": "brownie",
+  "seed": 910144
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Easter",
+  "dish": "bars",
+  "seed": 910145
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Fourth of July",
+  "dish": "waffle",
+  "seed": 910146
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Fourth of July",
+  "dish": "muffin",
+  "seed": 910147
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Fourth of July",
+  "dish": "oatmeal-cup",
+  "seed": 910148
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Fourth of July",
+  "dish": "brownie",
+  "seed": 910149
+ },
+ {
+  "market": "US-SE-ATL",
+  "season": "Fourth of July",
+  "dish": "bars",
+  "seed": 910150
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Fall",
+  "dish": "waffle",
+  "seed": 910151
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Fall",
+  "dish": "muffin",
+  "seed": 910152
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Fall",
+  "dish": "oatmeal-cup",
+  "seed": 910153
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Fall",
+  "dish": "brownie",
+  "seed": 910154
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Fall",
+  "dish": "bars",
+  "seed": 910155
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Halloween",
+  "dish": "waffle",
+  "seed": 910156
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Halloween",
+  "dish": "muffin",
+  "seed": 910157
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Halloween",
+  "dish": "oatmeal-cup",
+  "seed": 910158
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Halloween",
+  "dish": "brownie",
+  "seed": 910159
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Halloween",
+  "dish": "bars",
+  "seed": 910160
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Thanksgiving",
+  "dish": "waffle",
+  "seed": 910161
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Thanksgiving",
+  "dish": "muffin",
+  "seed": 910162
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Thanksgiving",
+  "dish": "oatmeal-cup",
+  "seed": 910163
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Thanksgiving",
+  "dish": "brownie",
+  "seed": 910164
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Thanksgiving",
+  "dish": "bars",
+  "seed": 910165
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Christmas",
+  "dish": "waffle",
+  "seed": 910166
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Christmas",
+  "dish": "muffin",
+  "seed": 910167
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Christmas",
+  "dish": "oatmeal-cup",
+  "seed": 910168
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Christmas",
+  "dish": "brownie",
+  "seed": 910169
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Christmas",
+  "dish": "bars",
+  "seed": 910170
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Easter",
+  "dish": "waffle",
+  "seed": 910171
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Easter",
+  "dish": "muffin",
+  "seed": 910172
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Easter",
+  "dish": "oatmeal-cup",
+  "seed": 910173
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Easter",
+  "dish": "brownie",
+  "seed": 910174
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Easter",
+  "dish": "bars",
+  "seed": 910175
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Fourth of July",
+  "dish": "waffle",
+  "seed": 910176
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Fourth of July",
+  "dish": "muffin",
+  "seed": 910177
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Fourth of July",
+  "dish": "oatmeal-cup",
+  "seed": 910178
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Fourth of July",
+  "dish": "brownie",
+  "seed": 910179
+ },
+ {
+  "market": "US-GA-SENOIA",
+  "season": "Fourth of July",
+  "dish": "bars",
+  "seed": 910180
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Fall",
+  "dish": "waffle",
+  "seed": 910181
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Fall",
+  "dish": "muffin",
+  "seed": 910182
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Fall",
+  "dish": "oatmeal-cup",
+  "seed": 910183
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Fall",
+  "dish": "brownie",
+  "seed": 910184
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Fall",
+  "dish": "bars",
+  "seed": 910185
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Halloween",
+  "dish": "waffle",
+  "seed": 910186
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Halloween",
+  "dish": "muffin",
+  "seed": 910187
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Halloween",
+  "dish": "oatmeal-cup",
+  "seed": 910188
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Halloween",
+  "dish": "brownie",
+  "seed": 910189
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Halloween",
+  "dish": "bars",
+  "seed": 910190
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Thanksgiving",
+  "dish": "waffle",
+  "seed": 910191
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Thanksgiving",
+  "dish": "muffin",
+  "seed": 910192
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Thanksgiving",
+  "dish": "oatmeal-cup",
+  "seed": 910193
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Thanksgiving",
+  "dish": "brownie",
+  "seed": 910194
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Thanksgiving",
+  "dish": "bars",
+  "seed": 910195
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Christmas",
+  "dish": "waffle",
+  "seed": 910196
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Christmas",
+  "dish": "muffin",
+  "seed": 910197
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Christmas",
+  "dish": "oatmeal-cup",
+  "seed": 910198
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Christmas",
+  "dish": "brownie",
+  "seed": 910199
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Christmas",
+  "dish": "bars",
+  "seed": 910200
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Easter",
+  "dish": "waffle",
+  "seed": 910201
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Easter",
+  "dish": "muffin",
+  "seed": 910202
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Easter",
+  "dish": "oatmeal-cup",
+  "seed": 910203
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Easter",
+  "dish": "brownie",
+  "seed": 910204
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Easter",
+  "dish": "bars",
+  "seed": 910205
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Fourth of July",
+  "dish": "waffle",
+  "seed": 910206
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Fourth of July",
+  "dish": "muffin",
+  "seed": 910207
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Fourth of July",
+  "dish": "oatmeal-cup",
+  "seed": 910208
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Fourth of July",
+  "dish": "brownie",
+  "seed": 910209
+ },
+ {
+  "market": "US-MW-WASATCH",
+  "season": "Fourth of July",
+  "dish": "bars",
+  "seed": 910210
  }
 ]

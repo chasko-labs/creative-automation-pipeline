@@ -1171,6 +1171,88 @@ def _handle_extend(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     return entry
 
 
+_RECIPE_ART_ZONES = ("raw_ingredient", "technique", "finished_plate")
+_RECIPE_ART_WALL_S = 25.0
+
+
+def _recipe_catalog_name(recipe_id: str) -> str | None:
+    """Recipe display name for a catalog id, or None when unknown."""
+    try:
+        from ._datapaths import data_path
+
+        recs = json.loads(data_path("recipes", "kodiak-recipes.json").read_text())
+    except Exception:
+        return None
+    want = str(recipe_id or "").strip().lower()
+    if not want:
+        return None
+    for rec in recs:
+        if not isinstance(rec, dict):
+            continue
+        if str(rec.get("id") or "").strip().lower() == want:
+            name = str(rec.get("name") or "").strip()
+            return name or None
+    for rec in recs:
+        if not isinstance(rec, dict):
+            continue
+        if str(rec.get("name") or "").strip().lower() == want:
+            return str(rec.get("name") or "").strip() or None
+    return None
+
+
+def _handle_recipe_art(data: dict[str, Any]) -> dict[str, Any]:
+    """Serve or generate ONE recipe-card sketch zone.
+
+    Request fields: recipe_id (catalog id), zone (raw_ingredient | technique
+    | finished_plate). Seeded path first: the first art_slug_candidates hit
+    in the DAM returns its permanent site URL with seeded True. Otherwise ONE
+    generate_recipe_art run (deterministic seed from recipe_id + zone) behind
+    a 25s wall, uploaded to the DAM recipe-art prefix — the next request for
+    the same cell serves seeded. Any failure (unknown recipe/zone, wall
+    timeout, gate reject, upload miss) returns ok False and the frontend
+    keeps its placeholder: a missing drawing is never an error here.
+    """
+    from . import dam as _dam
+    from . import recipe_art as _ra
+
+    zone = str(data.get("zone") or "").strip()
+    if zone not in _RECIPE_ART_ZONES:
+        return {"ok": False, "error": f"unknown art zone: {zone!r}"}
+    name = _recipe_catalog_name(data.get("recipe_id"))
+    if name is None:
+        return {"ok": False, "error": "unknown recipe_id"}
+    for slug in _ra.art_slug_candidates(name):
+        if _dam.recipe_art_exists(slug, zone):
+            return {
+                "ok": True,
+                "url": _dam.recipe_art_site_url(slug, zone),
+                "seeded": True,
+                "zone": zone,
+            }
+    import zlib
+
+    seed = zlib.crc32(f"{data.get('recipe_id')}|{zone}".encode()) % (2**31)
+    out_dir = Path(f"/tmp/recipe-art-{uuid4().hex}")
+    pool = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+    fut = pool.submit(_ra.generate_recipe_art, name, zone, seed=seed, out_dir=out_dir)
+    try:
+        try:
+            local = fut.result(timeout=_RECIPE_ART_WALL_S)
+        except Exception as e:  # noqa: BLE001 — timeout or worker fault
+            print(f"[generate] recipe-art {zone} walled: {type(e).__name__}", file=sys.stderr)
+            local = None
+    finally:
+        # Never block on a leaked worker — same rule as the outer wall.
+        pool.shutdown(wait=False)
+    if local is None:
+        return {"ok": False, "error": "generation unavailable"}
+    slug = _ra.art_slug_candidates(name)[0]
+    url = _dam.upload_recipe_art(Path(str(local)), slug, zone)
+    if not url:
+        return {"ok": False, "error": "publish failed"}
+    return {"ok": True, "url": url, "seeded": False, "zone": zone}
+
+
 def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """Fast interactive path (default): ONE 1x1 control-structure hero, under 30s.
 
@@ -1668,6 +1750,10 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
             # Standalone tall/wide extend of an already-rendered hero. One
             # outpaint call fits the wall alone — no worker thread needed.
             return _response(200, _handle_extend(data, prompt))
+        if mode == "recipe-art":
+            # One recipe-card sketch zone: seeded DAM url when published,
+            # otherwise one walled generation that publishes itself.
+            return _response(200, _handle_recipe_art(data))
 
         # OUTER WALL: run the entire generate ladder in a worker thread and WAIT only
         # GENERATE_WALL_TIMEOUT_S. The per-rung budget gates inside generate_hero handle

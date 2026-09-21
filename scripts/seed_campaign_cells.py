@@ -37,6 +37,9 @@ MARKET_CUE = {
     "US-OH-DAYTON": "brick downtown and market sheds, Miami Valley maple country light",
     "US-OH-LEBANON": "historic downtown and orchard rows, Warren County harvest light",
     "US-CA-OCEANSIDE": "mission-revival downtown and pier, coastal marine-layer morning light",
+    "US-SE-ATL": "Georgia peach and pecan country, Southern porch light, pine skyline",
+    "US-GA-SENOIA": "Coweta farm country, brick main street, peach rows and pecan groves",
+    "US-MW-WASATCH": "Wasatch valley floor with crimson sumac, elk at dawn, Weber River, first frost light",
 }
 
 SEASON_ANCHOR = {

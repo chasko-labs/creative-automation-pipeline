@@ -137,13 +137,92 @@
     return svg;
   }
 
-  // one art zone: white base coat + (real image OR placeholder svg). never empty.
+  // request body for one lazy art-zone generation. pure: id + zone in, mode body out.
+  // tested via window.KODIAK_recipeArtBody.
   /**
-   * @param {{css: string, dataZone: string}} zone
+   * @param {string|null} recipeId
+   * @param {string} artKey
+   * @returns {{mode: string, recipe_id: string, zone: string}|null}
+   */
+  function recipeArtBody(recipeId, artKey) {
+    var id = (recipeId == null) ? '' : String(recipeId).trim();
+    if (!id) return null;
+    return { mode: 'recipe-art', recipe_id: id, zone: artKey };
+  }
+  try { window.KODIAK_recipeArtBody = recipeArtBody; } catch (e) {}
+  /** @type {string} */
+  var ART_GEN_STATUS = 'generating image using SDXL on Amazon Bedrock';
+  // one in-flight generation per zone node — a re-observed node never double-fires.
+  function artGenKey(recipeId, artKey) { return String(recipeId) + '|' + String(artKey); }
+  /** @type {Object<string, boolean>} */
+  var artGenFired = {};
+  // swap a skeleton+status pair for the generated image. failure keeps the
+  // placeholder: a missing drawing is never an error on the card face.
+  /**
+   * @param {HTMLElement} wrap
+   * @param {string} recipeId
+   * @param {string} artKey
+   */
+  function fireArtGen(wrap, recipeId, artKey) {
+    var key = artGenKey(recipeId, artKey);
+    if (artGenFired[key]) return;
+    artGenFired[key] = true;
+    var body = recipeArtBody(recipeId, artKey);
+    if (!body) return;
+    fetch('/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    }).then(function (resp) { return resp.json(); }).then(function (json) {
+      if (!json || json.ok !== true || !json.url) throw new Error('no-url');
+      var img = document.createElement('img');
+      img.setAttribute('class', 'rc-artzone__art');
+      img.setAttribute('src', String(json.url));
+      img.setAttribute('alt', '');
+      img.setAttribute('loading', 'eager');
+      img.setAttribute('aria-hidden', 'true');
+      img.addEventListener('error', function () {
+        if (img.parentNode) { img.parentNode.replaceChild(makePlaceholderArt(), img); }
+      });
+      var skel = wrap.querySelector('.rc-artzone__skeleton');
+      if (skel) { wrap.replaceChild(img, skel); }
+      var st = wrap.querySelector('.rc-art-status');
+      if (st) { st.parentNode.removeChild(st); }
+    }).catch(function () {
+      var skel = wrap.querySelector('.rc-artzone__skeleton');
+      if (skel) { wrap.replaceChild(makePlaceholderArt(), skel); }
+      var st = wrap.querySelector('.rc-art-status');
+      if (st) { st.parentNode.removeChild(st); }
+    });
+  }
+  // observe one skeleton zone: generation fires only when it scrolls into
+  // view, so below-fold zones cost zero requests until seen. no
+  // IntersectionObserver (old browser, tests) degrades to immediate fetch.
+  /**
+   * @param {HTMLElement} wrap
+   * @param {string} recipeId
+   * @param {string} artKey
+   */
+  function observeArtZone(wrap, recipeId, artKey) {
+    if (typeof IntersectionObserver === 'undefined') { fireArtGen(wrap, recipeId, artKey); return; }
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { seen.disconnect(); fireArtGen(wrap, recipeId, artKey); }
+      });
+    }, { rootMargin: '200px' });
+    seen.observe(wrap);
+  }
+  // one art zone: white base coat + (real image OR lazy-generate skeleton OR
+  // placeholder svg). never empty. gen carries {recipeId} when the card names
+  // a catalog recipe and the zone has no URL yet — those zones generate on
+  // scroll instead of showing the pending mark.
+  /**
+   * @param {{css: string, dataZone: string, artKey: string}} zone
    * @param {string|null} artUrl
+   * @param {{recipeId: string|null}|null} gen
    * @returns {HTMLElement}
    */
-  function makeArtZone(zone, artUrl) {
+  function makeArtZone(zone, artUrl, gen) {
     var wrap = el('div', 'rc-artzone ' + zone.css);
     wrap.setAttribute('data-zone', zone.dataZone);
     var base = el('div', 'rc-artzone__base');                  // white base coat behind the art
@@ -160,6 +239,14 @@
         if (img.parentNode) { img.parentNode.replaceChild(makePlaceholderArt(), img); }
       });
       wrap.appendChild(img);
+    } else if (gen && gen.recipeId) {
+      var skel = el('div', 'rc-artzone__art rc-artzone__skeleton');
+      skel.setAttribute('aria-hidden', 'true');
+      wrap.appendChild(skel);
+      var st = el('div', 'rc-art-status', ART_GEN_STATUS);
+      st.setAttribute('aria-hidden', 'true');
+      wrap.appendChild(st);
+      observeArtZone(wrap, gen.recipeId, zone.artKey);
     } else {
       wrap.appendChild(makePlaceholderArt());
     }
@@ -231,7 +318,10 @@
       (card.colLabels && card.colLabels.ingredients) || 'ingredients'));
     var ul = el('ul', 'rc-ingredients');
     // missing art is an empty RecipeArt — all three zones optional, so the cast is total.
+    // gen carries the catalog recipe id so empty zones lazy-generate on scroll
+    // instead of sitting on the pending mark; cards without a recipe id keep it.
     var art = card.art || /** @type {RecipeArt} */ ({});
+    var gen = (card.recipe && card.recipe.id) ? { recipeId: String(card.recipe.id) } : null;
     (card.ingredients || []).forEach(function (ing) {
       var li = el('li', 'rc-ing');
       li.appendChild(el('span', 'rc-ing__name', (ing && ing.qty_name) ? String(ing.qty_name) : ''));
@@ -241,19 +331,19 @@
       ul.appendChild(li);
     });
     left.appendChild(ul);
-    left.appendChild(makeArtZone(ART_ZONES[0], art[ART_ZONES[0].artKey] || null));
+    left.appendChild(makeArtZone(ART_ZONES[0], art[ART_ZONES[0].artKey] || null, gen));
     cols.appendChild(left);
 
     // right: technique drawing first, then the steps heading + list, then
     // the finished drawing: the column reads top-to-bottom as see-make-plate.
     var right = el('section', 'recipe-card-column recipe-card-execution');
-    right.appendChild(makeArtZone(ART_ZONES[1], art[ART_ZONES[1].artKey] || null));
+    right.appendChild(makeArtZone(ART_ZONES[1], art[ART_ZONES[1].artKey] || null, gen));
     right.appendChild(el('h4', 'rc-col-heading',
       (card.colLabels && card.colLabels.steps) || 'steps'));
     var ol = el('ol', 'rc-steps');
     (card.steps || []).forEach(function (step) { ol.appendChild(makeStepLi(step)); });
     right.appendChild(ol);
-    right.appendChild(makeArtZone(ART_ZONES[2], art[ART_ZONES[2].artKey] || null));
+    right.appendChild(makeArtZone(ART_ZONES[2], art[ART_ZONES[2].artKey] || null, gen));
     cols.appendChild(right);
 
     rc.appendChild(cols);
