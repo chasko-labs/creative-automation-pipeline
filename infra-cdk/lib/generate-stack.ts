@@ -129,10 +129,31 @@ export class GenerateStack extends cdk.Stack {
                 ],
               },
               {
+                // Recipe-card sketch zones (mode=recipe-art) render on Stable
+                // Image Core in us-west-2 — same region as the art-director
+                // import, direct foundation-model ARN (Core has no
+                // inference-profile form). Without this the handler degrades
+                // to ok:false and every card keeps its placeholder.
+                Sid: "BedrockInvokeStableImageCore",
+                Effect: "Allow",
+                Action: "bedrock:InvokeModel",
+                Resource:
+                  "arn:aws:bedrock:us-west-2::foundation-model/stability.stable-image-core-v1:1",
+              },
+              {
                 Sid: "DamRendersReadWrite",
                 Effect: "Allow",
                 Action: ["s3:PutObject", "s3:GetObject"],
                 Resource: `arn:aws:s3:::${damBucketName}/brands/kodiak/renders/*`,
+              },
+              // Recipe-card sketch prefix. dam.recipe_art_exists HEADs and
+              // upload_recipe_art PUTs brands/kodiak/recipe-art/* — scoped
+              // grant of its own, not a widening of the renders statement.
+              {
+                Sid: "DamRecipeArtReadWrite",
+                Effect: "Allow",
+                Action: ["s3:PutObject", "s3:GetObject"],
+                Resource: `arn:aws:s3:::${damBucketName}/brands/kodiak/recipe-art/*`,
               },
               // User-upload library prefix. asset_library.py writes uploads to
               // brands/kodiak/library/* -- the DamRendersReadWrite statement

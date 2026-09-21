@@ -125,6 +125,58 @@ let skuList = [
   };
   setTimeout(function(){ if(typeof window.updateLocalFlavor==='function') window.updateLocalFlavor(); }, 800);
   document.addEventListener('change', /** @param {Event} e */ (e)=>{ const t = e.target instanceof Element ? e.target : null; if(t && (t.id==='locality' || t.id==='seasonalSelect') && typeof window.updateLocalFlavor==='function') window.updateLocalFlavor(); });
+  // Resting showcase repaint (top level so tests share it): the static
+  // #previewHero ships Park City copy. When another market is selected, the
+  // resting words repaint from that market's row + frontier — Utah copy never
+  // renders under an Ohio (or any non-Park-City) market. Park City markets
+  // keep the shipped example untouched. Pure data half tested in
+  // preview-extend.test.mjs via KODIAK_restingCopyFor.
+  const RESTING_HOME = ['US-MW-PARKCITY-84098', 'US-MW-WASATCH'];
+  const restingRow = (marketId)=>{
+    try{
+      const rows = (typeof places !== 'undefined' && Array.isArray(places)) ? places : [];
+      return rows.find(r=>r && r.market === marketId) || null;
+    }catch(e){ return null; }
+  };
+  const restingCopyFor = (marketId)=>{
+    if(!marketId || RESTING_HOME.indexOf(marketId) >= 0) return null;
+    const row = restingRow(marketId);
+    if(!row || (!row.message && !row.cue)) return null;
+    let frontier = '';
+    try{ const f = (typeof featuredFrontierFor === 'function') ? featuredFrontierFor(marketId) : null;
+      frontier = (f && (f.place || f.frontier_market)) ? String(f.place || f.frontier_market) : '';
+    }catch(e){}
+    const place = String(row.place || marketId);
+    const lede = place + ' — ' + String(row.message || '') +
+      (row.cue ? ' ' + String(row.cue) : '') +
+      (frontier ? ' Featured frontier: ' + frontier + '.' : '');
+    return { place, title: place + ' preview', lede, enLine: String(row.message || row.cue || '') };
+  };
+  try{ window.KODIAK_restingCopyFor = restingCopyFor; }catch(e){}
+  function repaintRestingShowcase(){
+    try{
+      const sel = document.getElementById('locality');
+      const hero = document.getElementById('previewHero');
+      if(!sel || !hero) return;
+      const copy = restingCopyFor(sel.value);
+      if(!copy) return;
+      hero.querySelectorAll('.ff-figcap-lede').forEach(n=>{ n.textContent = copy.lede; });
+      hero.querySelectorAll('.render-set').forEach(n=>{ n.setAttribute('aria-label', copy.title + ' — five export sizes'); });
+      hero.querySelectorAll('.render-tile img').forEach(img=>{
+        const alt = img.getAttribute('alt') || '';
+        img.setAttribute('alt', alt.replace(/ — Park City example$/, ' — ' + copy.place + ' preview'));
+      });
+      hero.querySelectorAll('.loc-line').forEach(n=>{
+        const lang = n.querySelector('.loc-langtag');
+        const txt = n.querySelector('.loc-txt');
+        if(lang && txt && /english/i.test(lang.textContent || '')){ txt.textContent = copy.enLine; }
+        else if(n.parentNode){ n.parentNode.removeChild(n); }
+      });
+    }catch(e){}
+  }
+  try{ window.KODIAK_repaintRestingShowcase = repaintRestingShowcase; }catch(e){}
+  document.addEventListener('change', /** @param {Event} e */ (e)=>{ const t = e.target instanceof Element ? e.target : null; if(t && t.id==='locality'){ try{ repaintRestingShowcase(); }catch(_e){} } });
+  setTimeout(function(){ try{ repaintRestingShowcase(); }catch(e){} }, 900);
 
   // === Platform -> ratio -> dimension matrix ===
   // Authoritative source: data/platforms/platform-matrix.json (offline-tolerant multi-path fetch,

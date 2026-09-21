@@ -78,4 +78,18 @@ describe('preview extend helpers', () => {
     expect(d.product).toBe('power-cakes');
     expect(d.theme).toBe(null);
   });
+
+  it('repaints resting copy from the market row, never Utah under Ohio', () => {
+    globalThis.places = [
+      { market: 'US-OH-LEBANON', place: 'Lebanon, Ohio 45036', message: 'Orchard belt frontier', cue: 'Hidden Valley peaches' },
+    ];
+    globalThis.featuredFrontierFor = () => ({ place: 'Lebanon, Ohio 45036' });
+    const copy = window.KODIAK_restingCopyFor('US-OH-LEBANON');
+    expect(copy.title).toBe('Lebanon, Ohio 45036 preview');
+    expect(copy.lede).toContain('Orchard belt frontier');
+    expect(copy.lede).not.toContain('Wasatch');
+    expect(copy.lede).not.toContain('Oakley');
+    expect(window.KODIAK_restingCopyFor('US-MW-PARKCITY-84098')).toBe(null);
+    expect(window.KODIAK_restingCopyFor('US-XX-NOWHERE')).toBe(null);
+  });
 });

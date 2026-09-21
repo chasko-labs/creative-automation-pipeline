@@ -74,7 +74,10 @@ def parse_months(text: str) -> list[int] | None:
                 if m not in found:
                     found.append(m)
     for name, num in MONTHS.items():
-        if re.search(r"\b" + name + r"\b", low) and len(name) > 3 and num not in found:
+        # No length guard: \b already blocks "mar" matching "market", and the
+        # guard was silently voiding every researched 3-letter abbreviation
+        # (Feb/Mar/Apr/...) into "seasons unconfirmed".
+        if re.search(r"\b" + name + r"\b", low) and num not in found:
             found.append(num)
     return sorted(found) if found else None
 

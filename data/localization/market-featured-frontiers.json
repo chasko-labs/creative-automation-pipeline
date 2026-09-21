@@ -1,7 +1,7 @@
 {
   "$schema": "https://kodiakcakes.com/schema/market-featured-frontiers-v1.json",
   "metadata": {
-    "generated": "2026-09-20T23:35:23Z",
+    "generated": "2026-09-21T04:31:05Z",
     "source": "generated from web/kodiak-posts-for-todays-frontier/js/data-core.js via scripts/build-frontier-mapping.py — do not hand-edit",
     "markets": 80,
     "frontier_self_entries": 69,
@@ -234,50 +234,59 @@
     },
     "US-OH-CINCINNATI": {
       "market": "US-OH-CINCINNATI",
-      "frontier_market": "US-OH-CINCINNATI",
-      "place": "Cincinnati, Ohio 45202 — Findlay Market river city",
+      "frontier_market": "US-OH-LEBANON",
+      "place": "Lebanon, Ohio 45036 — Warren County orchard belt",
       "ingredients": [
         {
-          "name": "ramps",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
-        },
-        {
-          "name": "morel mushrooms",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "name": "maple syrup",
+          "months": [
+            2
+          ]
         },
         {
           "name": "strawberries",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            5
+          ]
         },
         {
           "name": "sweet corn",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            7
+          ]
         },
         {
-          "name": "pawpaws",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "name": "peaches",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            11
+          ]
         },
         {
           "name": "black walnuts",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            12
+          ]
         }
       ],
-      "seasons": "Ramps Mar; morels Apr; strawberries May; corn Jul; pawpaws Sep; black walnuts Dec",
-      "farmers_market": "Findlay Market, year-round",
+      "seasons": "Maple Feb; strawberries May; corn Jul; peaches Aug; apples Oct; pumpkins Nov; black walnuts Dec",
+      "farmers_market": "Lebanon Farmers Market",
       "farmers_market_url": null,
-      "link_note": "Self-frontier market; no-retail gap served by subscription.",
+      "link_note": "Nearby rural counterpart to Cincinnati, Ohio 45202; subscription-credible.",
       "farms": [
-        "Ohio River Valley orchards"
-      ],
-      "coops": [
-        "Big Table Farm Co-op (Cincinnati)",
-        "Turner Farm (Cincinnati)"
+        "Irons Fruit Farm",
+        "Hidden Valley Orchards"
       ]
     },
     "US-OH-DAYTON": {
@@ -287,28 +296,33 @@
       "ingredients": [
         {
           "name": "maple syrup",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            2
+          ]
         },
         {
           "name": "strawberries",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            5
+          ]
         },
         {
           "name": "sweet corn",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            7
+          ]
         },
         {
           "name": "tomatoes",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            8
+          ]
         },
         {
           "name": "apples",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            10
+          ]
         }
       ],
       "seasons": "Maple Feb; strawberries May; corn Jul; tomatoes Aug; apples Oct",
@@ -321,9 +335,6 @@
         "Fulton Farms",
         "Patchwork Gardens",
         "Mile Creek Farm"
-      ],
-      "coops": [
-        "Mission of Mary Cooperative (Dayton)"
       ]
     },
     "US-OH-LEBANON": {
@@ -333,38 +344,45 @@
       "ingredients": [
         {
           "name": "maple syrup",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            2
+          ]
         },
         {
           "name": "strawberries",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            5
+          ]
         },
         {
           "name": "sweet corn",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            7
+          ]
         },
         {
           "name": "peaches",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            8
+          ]
         },
         {
           "name": "apples",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            10
+          ]
         },
         {
           "name": "pumpkins",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            11
+          ]
         },
         {
           "name": "black walnuts",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            12
+          ]
         }
       ],
       "seasons": "Maple Feb; strawberries May; corn Jul; peaches Aug; apples Oct; pumpkins Nov; black walnuts Dec",
@@ -383,33 +401,39 @@
       "ingredients": [
         {
           "name": "Satsuma mandarins",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            1
+          ]
         },
         {
           "name": "strawberries",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            6
+          ]
         },
         {
           "name": "sweet corn",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            7
+          ]
         },
         {
           "name": "heirloom tomatoes",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            8
+          ]
         },
         {
           "name": "persimmons",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            10
+          ]
         },
         {
           "name": "Dungeness crab",
-          "months": null,
-          "note": "seasons unconfirmed — research dispatch"
+          "months": [
+            11
+          ]
         }
       ],
       "seasons": "Mandarins Jan; strawberries Jun; corn Jul; tomatoes Aug; persimmons Oct; crab Nov; pomegranates Dec",
@@ -421,10 +445,6 @@
         "Chino Farm",
         "Temecula citrus growers",
         "Valley Center orchards"
-      ],
-      "coops": [
-        "Yasukochi Family Farms CSA (Oceanside)",
-        "Community Roots Farm farm-share (Oceanside)"
       ]
     },
     "US-MW-DEN": {
@@ -1423,10 +1443,6 @@
         "Dickey Farms (Musella)",
         "Pearson Farm (Fort Valley)",
         "Durham's Produce (Newnan)"
-      ],
-      "coops": [
-        "Serenbe Farms CSA (Chattahoochee Hills)",
-        "180 Degree Farm (Sharpsburg)"
       ]
     },
     "US-SE-BIRMINGHAM": {
@@ -3692,10 +3708,6 @@
         "Dickey Farms (Musella)",
         "Pearson Farm (Fort Valley)",
         "Durham's Produce (Newnan)"
-      ],
-      "coops": [
-        "Serenbe Farms CSA (Chattahoochee Hills)",
-        "180 Degree Farm (Sharpsburg)"
       ]
     },
     "US-TN-LEIPERSFORK": {
