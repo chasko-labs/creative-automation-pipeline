@@ -69,7 +69,9 @@ def _build_prompt(context_prefix: str, base_message: str, lang: str) -> str:
     return (
         f"{context_prefix}\n\n"
         "TASK: rewrite the base marketing message below for this market. "
-        "Keep the Kodiak voice (rugged, warm, protein-forward, frontier). "
+        "Keep the Kodiak voice (rugged, warm, protein-forward, agricultural/market frontier — "
+        "farm stands, orchards, and local markets; NEVER military: no recruit, cadet, enlist, "
+        "platoon, mission, or drill language). "
         f"Keep it under {HEADLINE_MAX_CHARS} characters — this is a headline/overlay caption. "
         "Do NOT describe imagery, do NOT add text-in-image or logo instructions "
         "(the image layer stays text-free per cr-1). "

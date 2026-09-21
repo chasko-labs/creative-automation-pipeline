@@ -237,7 +237,7 @@ STABILITY_CONTROL_MODEL = os.getenv(
 # painterly style head dominate the seed photo's texture (0.7 kept too much
 # photographic gloss). Product identity is safe: the packshot composites via
 # Pillow from the real DAM asset, never from restyled pixels.
-STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.6"))
+STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.45"))
 # Style sandwich (character-consistency pattern): frozen style head + varying subject
 # + frozen detail tail. Nova (or the brief fallback) supplies ONLY the subject; the
 # frozen ends keep every restyle/outpaint on-brand no matter what the subject says.
@@ -260,22 +260,20 @@ STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.6"))
 # neutral daylight (not a sunset).
 KODIAK_PALETTE = os.getenv(
     "KODIAK_PALETTE",
-    "graded in a warm earthy color scheme dominated by deep roasted bear-brown and "
-    "soft parchment cream across the whole image, with muted sage and olive-green "
-    "undertones for cool balance (not a green forest scene), and only a single small "
-    "blaze-orange accent detail; warm neutral daylight, not an orange sunset sky; "
-    "high tonal contrast, natural and understated, no oversaturated stock color",
+    "warm natural daylight with soft cream and parchment highlights, gentle bear-brown "
+    "shadows, and a single small blaze-orange accent detail; muted, photographic and "
+    "understated, no oversaturated color, no large green or brown flat color blocks, "
+    "no camouflage pattern",
 )
 STYLE_HEAD = os.getenv(
     "KODIAK_STYLE_HEAD",
     # no brand token in the image prompt: the model renders any brand word it
     # sees as packaging glyphs and garbles it ("KODA CAKTS"). brand identity
     # ships via the composited real DAM packshot/logo (Pillow), never pixels.
-    # control-structure/outpaint accept no negative prompt or style preset, so
-    # photo-suppression lives inline: matte painterly medium, never photographic.
-    "Matte frontier illustration in warm gouache and pencil texture with visible "
-    "brushwork, flat natural daylight, no lens blur, no glossy highlights, no "
-    "skin pores, not a photograph, "
+    # Photographic editorial is the default: real light, real food, no painterly
+    # flat color blocks or camo-like patches. Palette is light-biased.
+    "Soft natural-light photographic editorial, documentary food photography, "
+    "shallow depth of field, real kitchen and market setting, photographic detail, "
     f"{KODIAK_PALETTE}. Subject: ",
 )
 STYLE_TAIL = os.getenv(
@@ -1460,18 +1458,29 @@ def _stability_outpaint(
 
 
 def _pillow_outpaint_fallback(base_png: Path, target_w: int, target_h: int, out_path: Path) -> Path:
-    """Smart cover-fit of the 1x1 hero to a taller ratio when outpaint is unavailable.
+    """Cover-fit with ratio-aware focal offset so fallback tiles are visually distinct.
 
-    PART B fallback — cover-fit keeps the subject centered and fills the taller frame
-    without letterbox bars (some crop of the long edge is accepted). The caller marks
-    provenance engine "pillow-outpaint-fallback" so the response never claims a GenAI
-    extend happened when it did not.
+    PART B fallback — cover-fit fills the frame without letterbox bars. Centering
+    shifts per ratio so four pillow tiles are not four identical center crops
+    (distinct focal regions = distinct local flavor). The caller still marks
+    provenance engine "pillow-outpaint-fallback" so the response never claims a
+    GenAI extend happened when it did not.
     """
+    # Per-ratio focal centering: 4x5 favors lower food, 9x16 center, 16x9 upper scene
+    centering = (0.5, 0.5)
+    if target_w == 1080 and target_h == 1350:  # 4x5 portrait
+        centering = (0.5, 0.62)
+    elif target_w == 1080 and target_h == 1920:  # 9x16 vertical
+        centering = (0.5, 0.45)
+    elif target_w == 1920 and target_h == 1080:  # 16x9 landscape
+        centering = (0.5, 0.38)
+    elif target_w == 1200 and target_h == 630:  # blog
+        centering = (0.5, 0.40)
     fitted = ImageOps.fit(
         Image.open(base_png).convert("RGB"),
         (target_w, target_h),
         method=Image.BICUBIC,
-        centering=(0.5, 0.5),
+        centering=centering,
     )
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fitted.save(out_path, "PNG")
@@ -2594,6 +2603,17 @@ def generate_hero(
             print(f"[generate] staged seed fetch failed: {e}", file=sys.stderr)
     if seed is None:
         photo_key = _resolve_dam_photo(product_id)
+        # Taco-closeup guard: a food-closeup seed (taco/waffle close-up) preserves
+        # the wrong composition for a market/season brief (pawpaws, market hall).
+        # When the brief carries frontier/seasonal ingredient cues, skip the sku-mapped
+        # food close-up and fall through to the neutral scene seed so the restyle
+        # can actually show the local ingredient instead of repainting tacos.
+        _food_closeup_needles = ("taco", "waffle_breakfast", "pickles")
+        if photo_key and any(n in photo_key.lower() for n in _food_closeup_needles):
+            brief_lower = (brief_msg or "").lower()
+            if any(kw in brief_lower for kw in ("pawpaw", "market", "frontier", "season:", "ecology:")):
+                print("[generate] sku-mapped taco/close-up skipped for market/season brief -> disk asset", file=sys.stderr)
+                photo_key = None
         if photo_key:
             try:
                 from .dam import fetch_dam_key

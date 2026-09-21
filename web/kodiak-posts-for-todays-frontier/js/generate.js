@@ -374,7 +374,8 @@ let skuList = [
    */
   const tileEngineMark = (engine)=>{
     if(engine==='stability-outpaint') return {text:' · composed', cls:'rt-live'};
-    if(engine==='pillow-outpaint-fallback') return {text:' · placeholder', cls:'rt-pad'};
+    if(engine==='pillow-outpaint-fallback') return {text:' · cover-pad', cls:'rt-pad'};
+    if(engine==='primary') return {text:'', cls:''};
     return {text:'', cls:''};
   };
   try{ window.KODIAK_tileEngineMark = tileEngineMark; }catch(e){}
@@ -1137,8 +1138,8 @@ let skuList = [
             }catch(e){}
           };
           // Every delivered state gets a mark: a live outpaint says composed, a
-          // server-side pad says placeholder, and a failed extend (the
-          // server-side pad stays in place) says placeholder too — a pad is
+          // server-side pad says cover-pad (distinct crop), and a failed extend
+          // (the server-side pad stays in place) says cover-pad too — a pad is
           // never left bare. Supersedes the initial rt-eng mark, never dupes it.
           const setTileMark = (ratio, text, cls)=>{
             try{
@@ -1170,7 +1171,7 @@ let skuList = [
               });
             }catch(e){}
             const mark = tileEngineMark(engine);
-            setTileMark(ratio, mark.text || ' · placeholder', mark.cls || 'rt-pad');
+            setTileMark(ratio, mark.text || ' · cover-pad', mark.cls || 'rt-pad');
           };
           await Promise.all(targets.map(async (r)=>{
             const ratio = r.ratio;
@@ -1187,7 +1188,7 @@ let skuList = [
             // Retries exhausted or a bad response: the server-side pad is the
             // delivered tile — label it instead of leaving it bare or stuck
             // on "composing".
-            setTileMark(ratio, ' · placeholder', 'rt-pad');
+            setTileMark(ratio, ' · cover-pad', 'rt-pad');
           }));
         }catch(e){}
       };

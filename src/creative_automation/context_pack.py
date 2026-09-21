@@ -314,7 +314,7 @@ def _render(pack: dict) -> str:
     if ret.get("frontier_sister"):
         lines.append(
             f"RETAILERS: {', '.join(ret.get('retailers') or []) or '(none on file)'}; "
-            f"frontier sister: {ret['frontier_sister']}"
+            f"agricultural/market frontier sister (farm/orchard, not military): {ret['frontier_sister']}"
         )
     else:
         lines.append("RETAILERS: no retailer-frontier pair seeded for this market")
