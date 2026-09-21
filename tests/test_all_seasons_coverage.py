@@ -74,12 +74,22 @@ def test_all_options_resolve_ingredient_and_moment() -> None:
 
 
 def test_all_76_markets_cover_all_months_and_moments() -> None:
-    """Durable full-matrix check: every of the 76 pairs × 26 seasons has distinct hero.
+    """Durable full-matrix check: every of the 76 pairs × 26 seasons has distinct seasonal ingredient.
 
     26 = 12 months + 4 seasons (Winter/Spring/Summer/Fall/Autumn alias) + 10
-    holidays. Months resolve to monthly_ingredients[2026-MM]; holidays/seasons
-    resolve to seasonal_moments[].available_ingredients[0] distinct per season.
-    This is the 76×26=1976 distinct hero contract, not a 12-month check.
+    holidays. Months resolve to retailer-frontier-pairs.monthly_ingredients[2026-MM];
+    holidays/seasons resolve to retailer-frontier-pairs.seasonal_moments[].available_ingredients[0]
+    distinct per season (design token: available_ingredients[0], not generic).
+    This is the 76×26=1976 distinct seasonal-ingredient contract, not a 12-month check.
+
+    Behavior on gap: the pipeline's three-tier fallback (curated frontier calendar
+    → CLIMATE_WIN → ARCHETYPES) accounts for missing entries without throwing — it
+    returns a shoulder/olde line with source `frontier`/`archetype` and never
+    fabricates a farm name. This test surfaces the gap via the contract so data
+    can be repaired (e.g., ATL March auto-patched), rather than letting a vague
+    brief reach the prompt. Failures here raise AssertionError with the market
+    and season listed, which the caller can catch and handle as a data-repair
+    signal.
     """
     pairs = _pairs()
     assert len(pairs) == 76, f"frontier pairs count drift: {len(pairs)} != 76"
@@ -87,18 +97,18 @@ def test_all_76_markets_cover_all_months_and_moments() -> None:
     for code, entry in pairs.items():
         monthly = entry.get("monthly_ingredients") or {}
         moments = entry.get("seasonal_moments") or []
-        # Build hero per OPTIONS: months -> monthly, holidays/seasons -> moment hero
-        heroes: list[str] = []
+        # Build seasonal ingredient per OPTIONS: months -> monthly_ingredients, holidays/seasons -> available_ingredients[0]
+        seasonal_ingredients: list[str] = []
         for opt in OPTIONS:
             if opt in MONTHS:
                 month = MONTHS.index(opt) + 1
-                hero = monthly.get(f"2026-{month:02d}")
-                if not hero:
-                    failures.append(f"{code} {opt}: no monthly ingredient")
+                ingredient = monthly.get(f"2026-{month:02d}")
+                if not ingredient:
+                    failures.append(f"{code} {opt}: no monthly_ingredients for {opt}")
                     continue
-                heroes.append(hero.strip().lower())
+                seasonal_ingredients.append(ingredient.strip().lower())
             else:
-                # holiday/season: find moment whose header matches opt (case-insensitive)
+                # holiday/season: find seasonal_moments entry whose moment header matches opt (case-insensitive)
                 # e.g., "Halloween — pumpkins + caramel (Halloween)" header "Halloween"
                 want = opt.lower()
                 found = None
@@ -115,17 +125,17 @@ def test_all_76_markets_cover_all_months_and_moments() -> None:
                             found = mo
                             break
                 if not found:
-                    failures.append(f"{code} {opt}: no seasonal moment for {opt}")
+                    failures.append(f"{code} {opt}: no seasonal_moments for {opt}")
                     continue
                 ing0 = str((found.get("available_ingredients") or [""])[0]).strip().lower()
                 if not ing0:
-                    failures.append(f"{code} {opt}: moment has no available_ingredients")
+                    failures.append(f"{code} {opt}: seasonal_moments has no available_ingredients for {opt}")
                     continue
-                heroes.append(ing0)
-        # Distinctness: 26 seasons must map to 26 distinct hero strings per market
-        if len(heroes) == 26 and len(set(heroes)) != 26:
-            dup = [h for h in set(heroes) if heroes.count(h) > 1]
-            failures.append(f"{code}: not 26 distinct heroes — dups {dup[:3]}")
+                seasonal_ingredients.append(ing0)
+        # Distinctness: 26 seasons must map to 26 distinct seasonal ingredient strings per market
+        if len(seasonal_ingredients) == 26 and len(set(seasonal_ingredients)) != 26:
+            dup = [h for h in set(seasonal_ingredients) if seasonal_ingredients.count(h) > 1]
+            failures.append(f"{code}: not 26 distinct seasonal ingredients — dups {dup[:3]}")
     assert not failures, "season gaps (full 76 distinct 26):\n" + "\n".join(failures[:50])
 
 
