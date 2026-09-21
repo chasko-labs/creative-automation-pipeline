@@ -444,6 +444,26 @@
             2,
             12
           ]
+        },
+        {
+          "moment": "Early spring \u2014 strawberries (March)",
+          "available_ingredients": [
+            "strawberries (March)"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "early spring"
+          ],
+          "source": "seeded exact header for 26 distinct (March)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "distinct for March",
+          "seasons": [
+            "SPRING"
+          ],
+          "months": [
+            3
+          ]
         }
       ],
       "research_todo": false
