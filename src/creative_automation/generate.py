@@ -242,9 +242,17 @@ STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.35")
 # oranges every time — small ±0.06 range on top of the 0.35 base, keyed by brief hash.
 def _control_for_brief(brief_msg: str | None) -> float:
     base = STABILITY_CONTROL_STRENGTH
+    if os.getenv("KODIAK_DETERMINISTIC") == "1":
+        h = hash(brief_msg or "") & 0xFF
+        jitter = (h / 255.0 - 0.5) * 0.12  # -0.06 .. +0.06 deterministic for tests
+        return max(0.2, min(0.6, base + jitter))
+    import random
+
+    # Dynamic per-campaign: base jitter + small per-invocation random so same brief varies
     h = hash(brief_msg or "") & 0xFF
-    jitter = (h / 255.0 - 0.5) * 0.12  # -0.06 .. +0.06
-    return max(0.2, min(0.6, base + jitter))
+    base_jitter = (h / 255.0 - 0.5) * 0.12
+    dyn_jitter = random.uniform(-0.03, 0.03)
+    return max(0.2, min(0.6, base + base_jitter + dyn_jitter))
 # Style sandwich (character-consistency pattern): frozen style head + varying subject
 # + frozen detail tail. Nova (or the brief fallback) supplies ONLY the subject; the
 # frozen ends keep every restyle/outpaint on-brand no matter what the subject says.
@@ -2720,14 +2728,22 @@ def generate_hero(
                         candidates.append(_fb)
             except Exception:
                 pass
-        # Hash the actual brief (your campaign idea + market/season) so the same brief
-        # repeats predictably but a different brief (pumpkins vs peaches vs your free-text)
-        # actually changes the seed — fixes "same thing each time, ignoring brief".
+        # Dynamic per-campaign: every invocation picks a fresh seed among the SKU's pool
+        # so the same brief does not lock to one Community Kitchen frame — campaign images
+        # are meant to be varied. Recipe stays deterministic via market|month|ingredient
+        # rotation (recipe_card.py), so ingredients remain stable while campaigns vary.
+        # Deterministic mode (KODIAK_DETERMINISTIC=1) keeps hash-based pick for tests.
         photo_key = None
         if candidates:
-            h = hash((brief_msg or "") + product_id) & 0xFFFFFFFF
-            photo_key = candidates[h % len(candidates)]
-            print(f"[generate] brief-aware seed pick {photo_key} from {len(candidates)} candidates", file=sys.stderr)
+            if os.getenv("KODIAK_DETERMINISTIC") == "1":
+                h = hash((brief_msg or "") + product_id) & 0xFFFFFFFF
+                photo_key = candidates[h % len(candidates)]
+                print(f"[generate] brief-aware seed pick {photo_key} from {len(candidates)} candidates (deterministic)", file=sys.stderr)
+            else:
+                import random
+
+                photo_key = random.choice(candidates)
+                print(f"[generate] dynamic seed pick {photo_key} from {len(candidates)} candidates", file=sys.stderr)
         if photo_key:
             try:
                 from .dam import fetch_dam_key

@@ -9,6 +9,22 @@ output_*/
 
 # editor / agent config
 .kiro/
+.agents/
+.claude/
+.codex/
+.muse/
+.venv/
+.pytest_cache/
+.ruff_cache/
+attic/
+conversation-*.txt
+input_assets/character-poc/
+input_assets/sprint2-ingredients/
+static/
+tests/browser/
+cdk.out/
+test-results/
+output_kodiak*/
 
 # node (only infra-cdk uses node; its own .gitignore handles cdk.out/compiled)
 node_modules/
