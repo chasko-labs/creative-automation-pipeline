@@ -36,6 +36,21 @@ approved on the free local box. Local proves, cloud scales.
     is the clock driver. Verify with the coverage audit pattern, eyeball a
     sample per character for drift, commit + push everything including renders.
 
+## modesty gate — kid-safe Girl Scout art (every sheet, pre-phase 2)
+
+Ground: the Girl Scout Promise — On my honor, I will try: to serve God
+and my country, to help people at all times, and to live by the Girl
+Scout Law. Artwork carries that honor: kid-safe, always.
+
+Bar: full-length shirts, zero midriff showing. High necklines.
+Full-length pants or skirts. Athletic wear only as shorts-over-tights:
+tights or leggings layer under every short, no exceptions. Blades never
+open and never raised — closed/folded knives held down at the side only.
+
+Gate: eyeball every sheet pass/fail against this bar before it leaves
+proof-of-concept. Failures re-render words-only (never settings) until
+they pass. No pass, no phase 2.
+
 ## what comes back to Bryan per phase
 
 - phase 1: approved character sheet PNG + seed + exported workflow.
