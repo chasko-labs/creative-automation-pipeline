@@ -261,9 +261,10 @@ STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.35")
 KODIAK_PALETTE = os.getenv(
     "KODIAK_PALETTE",
     "warm natural daylight with soft cream and parchment highlights, gentle bear-brown "
-    "shadows, and a single small blaze-orange accent detail; muted, photographic and "
+    "shadows, and a single small warm amber highlight detail; muted, photographic and "
     "understated, no oversaturated color, no large green or brown flat color blocks, "
-    "no camouflage pattern",
+    "no camouflage pattern, no citrus fruit, no oranges, no clementines, no tangerines "
+    "unless the ingredient explicitly is citrus",
 )
 STYLE_HEAD = os.getenv(
     "KODIAK_STYLE_HEAD",
@@ -281,9 +282,16 @@ STYLE_TAIL = os.getenv(
     # explicit anti-gibberish: control-structure preserves seed structure, so
     # text-shaped regions in the seed photo restyle into fake lettering unless
     # told otherwise. every surface blank and unmarked, no exceptions.
+    # also fruit-accuracy guard: SDXL defaults to citrus (oranges) whenever the
+    # prompt has warm orange/palette tokens — we must explicitly exclude unless
+    # the brief says citrus.
     ". Absolutely no text of any kind — no words, no letters, no numbers, no "
     "logos, no labels, no signage, no packaging copy, no readable or garbled "
-    "lettering. All packaging, paper, tags, and surfaces blank and unmarked.",
+    "lettering. All packaging, paper, tags, and surfaces blank and unmarked. "
+    "Fruit accuracy: only the ingredient named in the brief — if the brief says "
+    "peaches, show peaches (fuzzy stone fruit, not oranges); if pumpkins, show "
+    "pumpkins; if apples, show apples; never substitute citrus oranges/clementines "
+    "for another fruit.",
 )
 # Brand tokens scrubbed out of every stability-bound prompt (proven 2026-09-10:
 # the word in the prompt renders as hallucinated pack copy). Applied to the
