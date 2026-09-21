@@ -18,10 +18,10 @@
         "phone": "(404) 253-3544"
       },
       "frontier_sister": {
-        "place": "Sandersville, GA",
-        "market": "US-SE-SANDERSVILLE",
-        "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-        "note": "Sandersville downtown farmers market — central Georgia (Washington County), kaolin-belt farm community; frontier gap sister to metro Atlanta Publix. Registered as first-class market US-SE-SANDERSVILLE in store-finder-markets.json + market-languages.json + local-flavor.json."
+        "place": "Senoia, GA",
+        "market": "US-GA-SENOIA",
+        "farmers_market_url": null,
+        "note": "frontier sister per data-core.js pairing map (single source of truth); re-pointed from Sandersville to match the mapping. Senoia Farmers Market URL pending (not fabricated)"
       },
       "retailers": [
         "Publix",

@@ -1,6 +1,6 @@
 """Context-pack builder (agentcore A2) — offline RAG assembly from done artifacts.
 
-Atlanta (US-SE-ATL) is the reference market: Publix + Sandersville frontier sister +
+Atlanta (US-SE-ATL) is the reference market: Publix + Senoia frontier sister +
 September muscadine grapes, es/ko languages, a food-subject cluster match, and real
 Kodiak sample prompts. Every assertion here is a contract the generation units (B1/B4)
 lean on, so a regression in any stitched source fails loudly.
@@ -38,7 +38,7 @@ def test_atlanta_pack_stitches_retailer_and_frontier():
     pack = build_context_pack(_atlanta_brief(), month="2026-09")
     assert pack["market"] == "US-SE-ATL"
     assert "Publix" in pack["retailers"]["retailers"]
-    assert pack["retailers"]["frontier_sister"] == "Sandersville, GA"
+    assert pack["retailers"]["frontier_sister"] == "Senoia, GA"
 
 
 def test_atlanta_september_ingredient_not_fabricated():

@@ -7,7 +7,7 @@ Two PO prompts, encoded end to end over run_campaign (D1):
      retailers include Costco. Asserts multi-platform + multi-language fan-out, recipe
      cards referencing the Pescadero September ingredient, and a subscription variant.
 
-  B) ATLANTA — Publix (Plaza Midtown, 950 W Peachtree St NW) + Sandersville frontier
+  B) ATLANTA — Publix (Plaza Midtown, 950 W Peachtree St NW) + Senoia frontier
      sister. Market US-SE-ATL, month 2026-09. Asserts recipe cards reference muscadine
      grapes, a Publix retailer-lockup PLAN entry exists carrying the Atlanta store
      address, and assets are iso-named + safety-clean.

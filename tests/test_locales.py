@@ -13,8 +13,9 @@ def test_atlanta_pair_fully_populated():
     assert pair.metro_location["retailer"] == "Publix"
     assert "950 W Peachtree St NW" in pair.metro_location["address"]
     assert pair.metro_location["phone"] == "(404) 253-3544"
-    assert pair.frontier_sister["place"] == "Sandersville, GA"
-    assert "sandersvillega.org" in pair.frontier_sister["farmers_market_url"]
+    assert pair.frontier_sister["place"] == "Senoia, GA"
+    assert pair.frontier_sister["market"] == "US-GA-SENOIA"
+    assert pair.frontier_sister["farmers_market_url"] is None
     assert "Publix" in pair.retailers
     assert pair.research_todo is False
 
@@ -23,7 +24,7 @@ def test_atlanta_september_ingredient():
     got = resolve_this_month("US-SE-ATL", ym="2026-09")
     assert got is not None
     assert got["ingredient"] == "muscadine grapes"
-    assert got["frontier_sister"] == "Sandersville, GA"
+    assert got["frontier_sister"] == "Senoia, GA"
 
 
 def test_unfilled_month_is_none_not_fabricated():
