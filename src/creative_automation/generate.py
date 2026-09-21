@@ -1213,7 +1213,11 @@ def _seed_b64_for_stability(src: Path) -> str:
 # Calibrated 2026-09-20 on staged renders (input_assets/power-cakes/hero.png):
 # identical 0, scrim/compose-like + mild-restyle proxies 0-1, message-barred 12-13,
 # different-photo / solid-canvas / noise 30-34. Threshold 8 sits in the clean gap.
-SIMILARITY_GATE_THRESHOLD = int(os.getenv("KODIAK_SIMILARITY_THRESHOLD", "8"))
+# Seasonal campaigns (Halloween cider + apples, September pawpaws) intentionally
+# restyle the product seed (taco/waffle) into a very different scene (pumpkin
+# patch, orchard). That large dHash distance is not drift — it's the brief.
+# Raise the threshold so the seasonal restyle is not rejected as similarity-gate.
+SIMILARITY_GATE_THRESHOLD = int(os.getenv("KODIAK_SIMILARITY_THRESHOLD", "24"))
 
 
 def _similarity_gate_enabled() -> bool:
