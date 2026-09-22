@@ -727,6 +727,42 @@ def test_catalog_carries_no_synthetic_placeholders():
     assert bad == [], bad
 
 
+def test_september_serves_carry_local_heroes():
+    # Visual QA (contact sheet 2026-09-22): ~75/79 September composed
+    # cards rendered the flat brand block because winners carried remote
+    # CDN heroes the offline panel never fetches. The 16 September
+    # winners with live brand photos were localized; drafts and
+    # photo-less records keep the brand block honestly.
+    from pathlib import Path
+
+    from creative_automation.recipe_card import _recipe_by_id
+
+    repo = Path(__file__).resolve().parent.parent
+    for rid in (
+        "apple-cinnamon-compote",
+        "avocado-pancakes",
+        "berry-oatmeal-waffles",
+        "breakfast-cake",
+        "breakfast-egg-muffins",
+        "burrata-bruschetta",
+        "campfire-baked-apple-oats",
+        "cookie-dough-hummus",
+        "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
+        "hot-honey-air-fryer-chicken-bites",
+        "orange-cardamom-pancakes",
+        "pumpkin-oat-muffins",
+        "savory-dutch-baby",
+        "single-serve-maple-pecan-muffin",
+        "summer-vegetable-tostada",
+        "sweet-potato-pancakes",
+    ):
+        recipe = _recipe_by_id(rid)
+        assert recipe is not None, rid
+        src = recipe.get("image") or ""
+        assert not str(src).startswith(("http://", "https://")), rid
+        assert (repo / src).is_file(), f"{rid}: missing {src}"
+
+
 def test_conjunction_split_month_serves_each_named_item():
     # El Paso September proves the word-order match end to end: without it
     # September pins cornbread alone (ingredient-featured); with it the
