@@ -429,3 +429,29 @@ def test_tampa_mango_to_new_crop():
     # Florida peninsula: mango Jul, new-crop strawberries Nov
     assert "mango" in local_flavor_for("US-SE-TAMPA", month=7)["produce"]
     assert "strawberries (new crop)" in local_flavor_for("US-SE-TAMPA", month=11)["produce"]
+
+
+def test_cleveland_mushrooms_to_honey():
+    # Ohio: cultivated mushrooms Apr, honey Dec, Geauga maple Mar-Apr
+    assert "mushrooms" in local_flavor_for("US-MW-CLEVELAND", month=4)["produce"]
+    assert "local honey" in local_flavor_for("US-MW-CLEVELAND", month=12)["produce"]
+    assert "Geauga maple" in local_flavor_for("US-MW-CLEVELAND", month=3)["produce"]
+
+
+def test_dc_apple_butter_to_squash():
+    # Mid-Atlantic: apple butter Oct, winter squash Dec
+    assert "apple butter" in local_flavor_for("US-NE-DC", month=10)["produce"]
+    assert "winter squash" in local_flavor_for("US-NE-DC", month=12)["produce"]
+
+
+def test_jackson_blueberries_to_butternut():
+    # Mississippi: blueberries May-Jun, butternut Dec
+    assert "blueberries" in local_flavor_for("US-SE-JACKSON", month=5)["produce"]
+    assert "butternut squash" in local_flavor_for("US-SE-JACKSON", month=12)["produce"]
+
+
+def test_okc_pecans_to_okra():
+    # Oklahoma: stored pecans Jan, okra Sep, sweet potatoes Dec
+    assert "stored pecans" in local_flavor_for("US-SW-OKC", month=1)["produce"]
+    assert "okra" in local_flavor_for("US-SW-OKC", month=9)["produce"]
+    assert "sweet potatoes" in local_flavor_for("US-SW-OKC", month=12)["produce"]

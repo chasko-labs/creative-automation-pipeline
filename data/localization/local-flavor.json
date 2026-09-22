@@ -510,6 +510,72 @@
             9,
             10
           ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "mushrooms",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "heirloom tomatoes",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "pears",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "local honey",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -1690,6 +1756,54 @@
             8,
             9
           ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "honey",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "apple butter",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -2620,6 +2734,55 @@
             8,
             9
           ]
+        },
+        {
+          "name": "collards",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "sweet potatoes (storage)",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            5,
+            6
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "butternut squash",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -3263,6 +3426,107 @@
             7,
             8,
             9
+          ]
+        },
+        {
+          "name": "stored pecans",
+          "months": [
+            1,
+            12
+          ]
+        },
+        {
+          "name": "winter greens",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "cool-season greens",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            4,
+            5
+          ]
+        },
+        {
+          "name": "lettuce",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "spring onions",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            6,
+            7
+          ]
+        },
+        {
+          "name": "watermelon",
+          "months": [
+            7,
+            8
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "okra",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            11,
+            12
           ]
         }
       ]
