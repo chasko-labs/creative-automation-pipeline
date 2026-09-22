@@ -104,6 +104,37 @@ def test_pairing_table_covers_all_seasons_with_reasons():
         assert pairing["reason"], f"no pairing reason for {season}"
 
 
+def test_pairing_recipe_ids_are_real_catalog_records():
+    # Every curated pairing must resolve to a record in
+    # data/recipes/kodiak-recipes.json — a dangling id renders a card
+    # for a recipe that does not exist.
+    import json
+    from pathlib import Path
+
+    catalog = {
+        r["id"]
+        for r in json.loads(
+            (
+                Path(__file__).parents[1]
+                / "data"
+                / "recipes"
+                / "kodiak-recipes.json"
+            ).read_text(encoding="utf-8")
+        )
+    }
+    tables = {
+        **sp.SEASON_RECIPE_PAIRINGS,
+        **sp.HOLIDAY_RECIPE_PAIRINGS,
+        "default": sp.DEFAULT_PAIRING,
+    }
+    missing = {
+        key: entry["recipe_id"]
+        for key, entry in tables.items()
+        if entry["recipe_id"] not in catalog
+    }
+    assert not missing, f"pairings pointing outside the catalog: {missing}"
+
+
 def test_pairing_table_entries_are_distinct_and_default_is_last_resort():
     ids = {sp.pairing_for_season(s)["recipe_id"] for s in ("spring", "summer", "fall", "winter")}
     assert len(ids) == 4, f"season pairings are not distinct: {ids}"
