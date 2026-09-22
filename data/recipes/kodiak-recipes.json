@@ -8704,8 +8704,8 @@
       "Drizzle the icing over the top of the butternut squash oatmeal bars.",
       "Store in an airtight container."
     ],
-    "prepTime": "5",
-    "cookTime": "25",
+    "prepTime": "5 mins",
+    "cookTime": "25 mins",
     "yield": "12",
     "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/butternut-squash-oatmeal-bars.jpg"
   },
@@ -10302,8 +10302,8 @@
       "pagination"
     ],
     "yield": "12",
-    "prepTime": "10",
-    "cookTime": "12"
+    "prepTime": "10 mins",
+    "cookTime": "12 mins"
   },
   {
     "id": "apple-cinnamon-compote-pancakes",
@@ -10683,8 +10683,8 @@
       "pagination"
     ],
     "yield": "4",
-    "prepTime": "15",
-    "cookTime": "40"
+    "prepTime": "15 mins",
+    "cookTime": "40 mins"
   },
   {
     "id": "avocado-waffle-toast",
@@ -10848,8 +10848,8 @@
       "sitemap_blogs_1",
       "pagination"
     ],
-    "prepTime": "15",
-    "cookTime": "12",
+    "prepTime": "15 mins",
+    "cookTime": "12 mins",
     "yield": "12"
   },
   {
@@ -12882,8 +12882,8 @@
       "sitemap_blogs_1",
       "pagination"
     ],
-    "prepTime": "5",
-    "cookTime": "5",
+    "prepTime": "5 mins",
+    "cookTime": "5 mins",
     "yield": "2"
   },
   {
@@ -16804,8 +16804,8 @@
       "sitemap_blogs_1",
       "pagination"
     ],
-    "prepTime": "10",
-    "cookTime": "5",
+    "prepTime": "10 mins",
+    "cookTime": "5 mins",
     "yield": "2"
   },
   {

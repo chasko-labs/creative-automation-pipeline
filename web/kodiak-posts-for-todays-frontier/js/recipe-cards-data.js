@@ -15696,9 +15696,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-CA-PESCADERO",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -22493,9 +22493,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-BOISE",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -29795,9 +29795,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-CHI",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -36726,9 +36726,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-CLEVELAND",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -49526,9 +49526,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-DESMOINES",
       "meta": {
-        "cook": "5",
+        "cook": "5 mins",
         "est_cost": null,
-        "prep": "10",
+        "prep": "10 mins",
         "serves": "2"
       },
       "month": "2026-03",
@@ -50705,9 +50705,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-DESMOINES",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -57157,9 +57157,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-DETROIT",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -64494,9 +64494,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-FARGO",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -66646,9 +66646,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-FARGO",
       "meta": {
-        "cook": "25",
+        "cook": "25 mins",
         "est_cost": null,
-        "prep": "5",
+        "prep": "5 mins",
         "serves": "12"
       },
       "month": "2026-09",
@@ -71135,9 +71135,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-INDY",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -84296,9 +84296,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-KC",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -91501,9 +91501,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-MILWAUKEE",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -100248,9 +100248,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-MINNEAPOLIS2",
       "meta": {
-        "cook": "25",
+        "cook": "25 mins",
         "est_cost": null,
-        "prep": "5",
+        "prep": "5 mins",
         "serves": "12"
       },
       "month": "2026-09",
@@ -104656,9 +104656,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-MISSOULA",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -111008,9 +111008,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-OMAHA",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -130949,9 +130949,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-STL",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -138430,9 +138430,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-TC",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -141241,9 +141241,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-TC",
       "meta": {
-        "cook": "5",
+        "cook": "5 mins",
         "est_cost": null,
-        "prep": "10",
+        "prep": "10 mins",
         "serves": "2"
       },
       "month": "2026-10",
@@ -151463,9 +151463,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-MW-WASATCH-SLC",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -158331,9 +158331,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-NE-BALTIMORE",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -165636,9 +165636,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-NE-BOS",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -169058,9 +169058,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-NE-BOS",
       "meta": {
-        "cook": "5",
+        "cook": "5 mins",
         "est_cost": null,
-        "prep": "10",
+        "prep": "10 mins",
         "serves": "2"
       },
       "month": "2026-11",
@@ -172519,9 +172519,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-NE-BURLINGTON",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -178805,9 +178805,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-NE-DC",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -186079,9 +186079,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-NE-HARTFORD",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -192194,9 +192194,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-NE-NYC",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -199095,9 +199095,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -205078,9 +205078,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-NE-PROVIDENCE",
       "meta": {
-        "cook": "25",
+        "cook": "25 mins",
         "est_cost": null,
-        "prep": "5",
+        "prep": "5 mins",
         "serves": "12"
       },
       "month": "2026-02",
@@ -206757,9 +206757,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-NE-PROVIDENCE",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -274904,9 +274904,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-SE-BIRMINGHAM",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -288486,9 +288486,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-SE-COAST",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -315463,9 +315463,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-SE-LOU",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-03",
@@ -404594,9 +404594,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-SW-SANTA FE",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -439048,9 +439048,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-BEND",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -466781,9 +466781,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-PDX",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -472382,9 +472382,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-RENO",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-03",
@@ -479191,9 +479191,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-SACRAMENTO",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-03",
@@ -486925,9 +486925,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-SANJOSE",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -493871,9 +493871,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-SD",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -501465,9 +501465,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-SEA",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-05",
@@ -514702,9 +514702,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-SPOKANE",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",
@@ -520840,9 +520840,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-VEGAS",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-03",
@@ -528153,9 +528153,9 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-YAKIMA",
       "meta": {
-        "cook": "40",
+        "cook": "40 mins",
         "est_cost": null,
-        "prep": "15",
+        "prep": "15 mins",
         "serves": "4"
       },
       "month": "2026-04",

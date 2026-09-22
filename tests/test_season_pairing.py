@@ -9,6 +9,8 @@ Contract under test:
     over season whenever it matches.
   - Every pairing carries its reason in card provenance.
 """
+import re
+
 import pytest
 
 from creative_automation import season_pairing as sp
@@ -673,8 +675,10 @@ def test_holiday_stubs_enriched_from_brand_pages():
         assert len(recipe.get("ingredients") or []) >= 5, rid
         assert len(recipe.get("instructions") or []) >= 3, rid
         assert mix in (recipe.get("product") or ""), rid
-        assert (recipe.get("prepTime") or "").isdigit(), rid
-        assert (recipe.get("cookTime") or "").isdigit(), rid
+        # registry convention (seed_recipe_card_meta.py): "N mins" strings,
+        # bare numbers only where the source gives bare numbers.
+        assert re.match(r"^\d+( mins)?$", recipe.get("prepTime") or ""), rid
+        assert re.match(r"^\d+( mins)?$", recipe.get("cookTime") or ""), rid
         src = recipe.get("image") or ""
         assert not str(src).startswith(("http://", "https://")), rid
         assert (repo / src).is_file(), f"{rid}: missing {src}"
