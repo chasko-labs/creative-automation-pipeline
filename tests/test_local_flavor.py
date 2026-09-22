@@ -324,3 +324,30 @@ def test_san_diego_citrus_to_cider():
     assert "citrus (lowland)" in local_flavor_for("US-W-SD", month=2)["produce"]
     assert "peaches" in local_flavor_for("US-W-SD", month=7)["produce"]
     assert "apple cider" in local_flavor_for("US-W-SD", month=12)["produce"]
+
+
+def test_santa_fe_pinon_to_ristras():
+    # High desert follow-through: pinon Jan storage, ristras Dec
+    assert "pinon" in local_flavor_for("US-SW-SANTA FE", month=1)["produce"]
+    assert "red chile ristras" in local_flavor_for("US-SW-SANTA FE", month=12)["produce"]
+    assert "pecans" in local_flavor_for("US-SW-SANTA FE", month=11)["produce"]
+
+
+def test_lowcountry_okra_to_peanuts():
+    # Lowcountry: okra Jul, boiled peanuts Oct, storage sweets to close
+    assert "okra" in local_flavor_for("US-SE-COAST", month=7)["produce"]
+    assert "boiled peanuts" in local_flavor_for("US-SE-COAST", month=10)["produce"]
+    assert "sweet potatoes" in local_flavor_for("US-SE-COAST", month=12)["produce"]
+
+
+def test_louisville_strawberries_to_ham():
+    # Kentucky: strawberries May, country ham Dec
+    assert "strawberries" in local_flavor_for("US-SE-LOU", month=5)["produce"]
+    assert "country ham" in local_flavor_for("US-SE-LOU", month=12)["produce"]
+
+
+def test_san_antonio_1015_to_citrus():
+    # South Texas: 1015 onions Apr, citrus Dec, winter greens both ends
+    assert "1015 Texas Sweet onions" in local_flavor_for("US-SC-SANANTONIO", month=4)["produce"]
+    assert "citrus" in local_flavor_for("US-SC-SANANTONIO", month=12)["produce"]
+    assert "winter greens" in local_flavor_for("US-SC-SANANTONIO", month=1)["produce"]
