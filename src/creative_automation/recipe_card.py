@@ -611,8 +611,29 @@ def _pick_recipe_detail(
             for f in (r.get("featured_for") or [])
             if f and _featured_names(f, norm_ingredient)
         )
+        # Several recipes may curate the same ingredient (e.g. two mushroom
+        # cards). Dedupe by id; a lone curated recipe keeps the legacy
+        # lowest-id winner exactly, while genuine alternatives rotate
+        # deterministically per market+month like overlap rotation does —
+        # without market context the lowest id still wins (stable, tested).
+        uniq = sorted({rid: r for rid, r in pinned}.items())
+        if len(uniq) > 1 and (market or month):
+            digest = hashlib.sha256(
+                f"{market}|{month}|{ingredient}".encode("utf-8")
+            ).hexdigest()
+            recipe = uniq[int(digest, 16) % len(uniq)][1]
+            return recipe, {
+                "season": resolved["season"],
+                "source": "ingredient-rotation",
+                "recipe_id": recipe.get("id"),
+                "reason": (
+                    f"featured rotation: {recipe.get('id')} chosen deterministically "
+                    f"for {market}|{month} among recipes curating the ingredient "
+                    "in featured_for"
+                ),
+            }
         if pinned:
-            recipe = pinned[0][1]
+            recipe = uniq[0][1]
             return recipe, {
                 "season": resolved["season"],
                 "source": "ingredient-featured",

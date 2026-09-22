@@ -874,6 +874,9 @@
   {
     "id": "savory-scrambled-pancakes",
     "name": "Savory Scrambled Pancakes",
+    "featured_for": [
+      "mushroom"
+    ],
     "category": "breakfast",
     "course": "breakfast & brunch",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",

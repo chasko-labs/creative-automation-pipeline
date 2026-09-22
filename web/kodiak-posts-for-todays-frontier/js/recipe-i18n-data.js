@@ -7997,55 +7997,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — بروتين لحدودك"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster) — بروتين لحدودك"
+            "qty_name": "3/4 cup water — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1 cup shredded sharp cheddar — بروتين لحدودك"
+            "qty_name": "2 tablespoons butter, divided"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/2 small onion, chopped — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "1 small bell pepper, chopped (seeds and stem removed) — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup olive oil — بروتين لحدودك"
+            "qty_name": "1/2 cup mushrooms, sliced — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — بروتين لحدودك"
+            "qty_name": "Salt and pepper, to taste — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — بروتين لحدودك"
+            "qty_name": "Hot sauce or maple syrup (optional) — بروتين لحدودك"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": null,
-          "serves": null
+          "cook": "8 mins — بروتين لحدودك",
+          "prep": "10 mins — بروتين لحدودك",
+          "serves": "4 — بروتين لحدودك"
         },
         "steps": [
-          "HEAT the oven to 375F and line a 12-cup muffin tin. — بروتين لحدودك",
-          "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly. — بروتين لحدودك",
-          "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-          "DIVIDE among the cups and bake 20-22 minutes, until golden and set. — بروتين لحدودك"
+          "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside. — بروتين لحدودك",
+          "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+          "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened. — بروتين لحدودك",
+          "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+          "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through. — بروتين لحدودك",
+          "SERVE with hot sauce or maple syrup! — بروتين لحدودك"
         ],
-        "title": "Mushroom Cheddar Muffins — بروتين لحدودك",
+        "title": "Savory Scrambled Pancakes — بروتين لحدودك",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "step:3"
+            "ingredient:3",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "ar",
@@ -8059,55 +8061,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster) — proteína para tu frontera"
+            "qty_name": "3/4 cup water — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup shredded sharp cheddar — proteína para tu frontera"
+            "qty_name": "2 tablespoons butter, divided"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/2 small onion, chopped — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "1 small bell pepper, chopped (seeds and stem removed) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup olive oil — proteína para tu frontera"
+            "qty_name": "1/2 cup mushrooms, sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+            "qty_name": "Salt and pepper, to taste — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+            "qty_name": "Hot sauce or maple syrup (optional) — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": null,
-          "serves": null
+          "cook": "8 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "HEAT the oven to 375F and line a 12-cup muffin tin. — proteína para tu frontera",
-          "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly. — proteína para tu frontera",
-          "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-          "DIVIDE among the cups and bake 20-22 minutes, until golden and set. — proteína para tu frontera"
+          "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside. — proteína para tu frontera",
+          "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+          "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened. — proteína para tu frontera",
+          "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+          "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through. — proteína para tu frontera",
+          "SERVE with hot sauce or maple syrup! — proteína para tu frontera"
         ],
-        "title": "Mushroom Cheddar Muffins — proteína para tu frontera",
+        "title": "Savory Scrambled Pancakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "step:3"
+            "ingredient:3",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -27066,7 +27070,7 @@ window.KODIAK_RECIPE_I18N = {
           },
           {
             "price": null,
-            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — proteína para tu frontera"
+            "qty_name": "2 cups snap peas, strings removed, thinly sliced — proteína para tu frontera"
           },
           {
             "price": null,
@@ -27075,6 +27079,10 @@ window.KODIAK_RECIPE_I18N = {
           {
             "price": null,
             "qty_name": "1/2 cup grated parmesan — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons chopped dill — proteína para tu frontera"
           },
           {
             "price": null,
@@ -27087,24 +27095,20 @@ window.KODIAK_RECIPE_I18N = {
           {
             "price": null,
             "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup fresh microgreens, to serve — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "15 mins — proteína para tu frontera",
-          "prep": "25 mins — proteína para tu frontera",
-          "serves": "10 fritters — proteína para tu frontera"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — proteína para tu frontera",
-          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
-          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — proteína para tu frontera",
-          "SERVE hot topped with fresh microgreens. — proteína para tu frontera"
+          "BLANCH the sliced peas 1 minute in salted boiling water, chill in ice water, then pat completely dry. — proteína para tu frontera",
+          "WHISK the mix, eggs, parmesan, dill, salt, and pepper with the dry peas into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3 minutes per side until crisp and golden. — proteína para tu frontera",
+          "DRAIN briefly on a rack and serve warm with lemon. — proteína para tu frontera"
         ],
-        "title": "Savory Greens Fritters — proteína para tu frontera",
+        "title": "Snap Pea Herb Fritters — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
@@ -27127,7 +27131,7 @@ window.KODIAK_RECIPE_I18N = {
           },
           {
             "price": null,
-            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — atsʼíís bá áłchíní bighan"
+            "qty_name": "2 cups snap peas, strings removed, thinly sliced — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
@@ -27136,6 +27140,10 @@ window.KODIAK_RECIPE_I18N = {
           {
             "price": null,
             "qty_name": "1/2 cup grated parmesan — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons chopped dill — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
@@ -27148,24 +27156,20 @@ window.KODIAK_RECIPE_I18N = {
           {
             "price": null,
             "qty_name": "3 tablespoons neutral oil, for frying — atsʼíís bá áłchíní bighan"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup fresh microgreens, to serve — atsʼíís bá áłchíní bighan"
           }
         ],
         "meta": {
-          "cook": "15 mins — atsʼíís bá áłchíní bighan",
-          "prep": "25 mins — atsʼíís bá áłchíní bighan",
-          "serves": "10 fritters — atsʼíís bá áłchíní bighan"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — atsʼíís bá áłchíní bighan",
-          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
-          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — atsʼíís bá áłchíní bighan",
-          "SERVE hot topped with fresh microgreens. — atsʼíís bá áłchíní bighan"
+          "BLANCH the sliced peas 1 minute in salted boiling water, chill in ice water, then pat completely dry. — atsʼíís bá áłchíní bighan",
+          "WHISK the mix, eggs, parmesan, dill, salt, and pepper with the dry peas into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3 minutes per side until crisp and golden. — atsʼíís bá áłchíní bighan",
+          "DRAIN briefly on a rack and serve warm with lemon. — atsʼíís bá áłchíní bighan"
         ],
-        "title": "Savory Greens Fritters — atsʼíís bá áłchíní bighan",
+        "title": "Snap Pea Herb Fritters — atsʼíís bá áłchíní bighan",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
@@ -43568,55 +43572,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster) — proteína para tu frontera"
+            "qty_name": "3/4 cup water — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup shredded sharp cheddar — proteína para tu frontera"
+            "qty_name": "2 tablespoons butter, divided"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/2 small onion, chopped — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "1 small bell pepper, chopped (seeds and stem removed) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup olive oil — proteína para tu frontera"
+            "qty_name": "1/2 cup mushrooms, sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+            "qty_name": "Salt and pepper, to taste — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+            "qty_name": "Hot sauce or maple syrup (optional) — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": null,
-          "serves": null
+          "cook": "8 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "HEAT the oven to 375F and line a 12-cup muffin tin. — proteína para tu frontera",
-          "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly. — proteína para tu frontera",
-          "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-          "DIVIDE among the cups and bake 20-22 minutes, until golden and set. — proteína para tu frontera"
+          "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside. — proteína para tu frontera",
+          "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+          "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened. — proteína para tu frontera",
+          "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+          "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through. — proteína para tu frontera",
+          "SERVE with hot sauce or maple syrup! — proteína para tu frontera"
         ],
-        "title": "Mushroom Cheddar Muffins — proteína para tu frontera",
+        "title": "Savory Scrambled Pancakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "step:3"
+            "ingredient:3",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -43630,55 +43636,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster) — 为你的边疆提供蛋白质"
+            "qty_name": "3/4 cup water — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 cup shredded sharp cheddar — 为你的边疆提供蛋白质"
+            "qty_name": "2 tablespoons butter, divided"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/2 small onion, chopped — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "1 small bell pepper, chopped (seeds and stem removed) — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup olive oil — 为你的边疆提供蛋白质"
+            "qty_name": "1/2 cup mushrooms, sliced — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — 为你的边疆提供蛋白质"
+            "qty_name": "Salt and pepper, to taste — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — 为你的边疆提供蛋白质"
+            "qty_name": "Hot sauce or maple syrup (optional) — 为你的边疆提供蛋白质"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": null,
-          "serves": null
+          "cook": "8 mins — 为你的边疆提供蛋白质",
+          "prep": "10 mins — 为你的边疆提供蛋白质",
+          "serves": "4 — 为你的边疆提供蛋白质"
         },
         "steps": [
-          "HEAT the oven to 375F and line a 12-cup muffin tin. — 为你的边疆提供蛋白质",
-          "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly. — 为你的边疆提供蛋白质",
-          "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-          "DIVIDE among the cups and bake 20-22 minutes, until golden and set. — 为你的边疆提供蛋白质"
+          "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside. — 为你的边疆提供蛋白质",
+          "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+          "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened. — 为你的边疆提供蛋白质",
+          "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+          "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through. — 为你的边疆提供蛋白质",
+          "SERVE with hot sauce or maple syrup! — 为你的边疆提供蛋白质"
         ],
-        "title": "Mushroom Cheddar Muffins — 为你的边疆提供蛋白质",
+        "title": "Savory Scrambled Pancakes — 为你的边疆提供蛋白质",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "step:3"
+            "ingredient:3",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "zh",
@@ -44658,55 +44666,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster) — proteína para tu frontera"
+            "qty_name": "3/4 cup water — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup shredded sharp cheddar — proteína para tu frontera"
+            "qty_name": "2 tablespoons butter, divided"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/2 small onion, chopped — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "1 small bell pepper, chopped (seeds and stem removed) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup olive oil — proteína para tu frontera"
+            "qty_name": "1/2 cup mushrooms, sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+            "qty_name": "Salt and pepper, to taste — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+            "qty_name": "Hot sauce or maple syrup (optional) — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": null,
-          "serves": null
+          "cook": "8 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "HEAT the oven to 375F and line a 12-cup muffin tin. — proteína para tu frontera",
-          "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly. — proteína para tu frontera",
-          "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-          "DIVIDE among the cups and bake 20-22 minutes, until golden and set. — proteína para tu frontera"
+          "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside. — proteína para tu frontera",
+          "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+          "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened. — proteína para tu frontera",
+          "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+          "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through. — proteína para tu frontera",
+          "SERVE with hot sauce or maple syrup! — proteína para tu frontera"
         ],
-        "title": "Mushroom Cheddar Muffins — proteína para tu frontera",
+        "title": "Savory Scrambled Pancakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "step:3"
+            "ingredient:3",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -44720,55 +44730,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster) — 为你的边疆提供蛋白质"
+            "qty_name": "3/4 cup water — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 cup shredded sharp cheddar — 为你的边疆提供蛋白质"
+            "qty_name": "2 tablespoons butter, divided"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/2 small onion, chopped — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "1 small bell pepper, chopped (seeds and stem removed) — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup olive oil — 为你的边疆提供蛋白质"
+            "qty_name": "1/2 cup mushrooms, sliced — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — 为你的边疆提供蛋白质"
+            "qty_name": "Salt and pepper, to taste — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — 为你的边疆提供蛋白质"
+            "qty_name": "Hot sauce or maple syrup (optional) — 为你的边疆提供蛋白质"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": null,
-          "serves": null
+          "cook": "8 mins — 为你的边疆提供蛋白质",
+          "prep": "10 mins — 为你的边疆提供蛋白质",
+          "serves": "4 — 为你的边疆提供蛋白质"
         },
         "steps": [
-          "HEAT the oven to 375F and line a 12-cup muffin tin. — 为你的边疆提供蛋白质",
-          "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly. — 为你的边疆提供蛋白质",
-          "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-          "DIVIDE among the cups and bake 20-22 minutes, until golden and set. — 为你的边疆提供蛋白质"
+          "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside. — 为你的边疆提供蛋白质",
+          "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+          "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened. — 为你的边疆提供蛋白质",
+          "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+          "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through. — 为你的边疆提供蛋白质",
+          "SERVE with hot sauce or maple syrup! — 为你的边疆提供蛋白质"
         ],
-        "title": "Mushroom Cheddar Muffins — 为你的边疆提供蛋白质",
+        "title": "Savory Scrambled Pancakes — 为你的边疆提供蛋白质",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "step:3"
+            "ingredient:3",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "zh",
@@ -44784,55 +44796,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster) — proteína para tu frontera"
+            "qty_name": "3/4 cup water — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup shredded sharp cheddar — proteína para tu frontera"
+            "qty_name": "2 tablespoons butter, divided"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/2 small onion, chopped — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "1 small bell pepper, chopped (seeds and stem removed) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup olive oil — proteína para tu frontera"
+            "qty_name": "1/2 cup mushrooms, sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+            "qty_name": "Salt and pepper, to taste — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+            "qty_name": "Hot sauce or maple syrup (optional) — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": null,
-          "serves": null
+          "cook": "8 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "HEAT the oven to 375F and line a 12-cup muffin tin. — proteína para tu frontera",
-          "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly. — proteína para tu frontera",
-          "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-          "DIVIDE among the cups and bake 20-22 minutes, until golden and set. — proteína para tu frontera"
+          "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside. — proteína para tu frontera",
+          "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+          "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened. — proteína para tu frontera",
+          "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+          "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through. — proteína para tu frontera",
+          "SERVE with hot sauce or maple syrup! — proteína para tu frontera"
         ],
-        "title": "Mushroom Cheddar Muffins — proteína para tu frontera",
+        "title": "Savory Scrambled Pancakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "step:3"
+            "ingredient:3",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -44846,55 +44860,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster) — 为你的边疆提供蛋白质"
+            "qty_name": "3/4 cup water — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 cup shredded sharp cheddar — 为你的边疆提供蛋白质"
+            "qty_name": "2 tablespoons butter, divided"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/2 small onion, chopped — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "1 small bell pepper, chopped (seeds and stem removed) — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup olive oil — 为你的边疆提供蛋白质"
+            "qty_name": "1/2 cup mushrooms, sliced — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — 为你的边疆提供蛋白质"
+            "qty_name": "Salt and pepper, to taste — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — 为你的边疆提供蛋白质"
+            "qty_name": "Hot sauce or maple syrup (optional) — 为你的边疆提供蛋白质"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": null,
-          "serves": null
+          "cook": "8 mins — 为你的边疆提供蛋白质",
+          "prep": "10 mins — 为你的边疆提供蛋白质",
+          "serves": "4 — 为你的边疆提供蛋白质"
         },
         "steps": [
-          "HEAT the oven to 375F and line a 12-cup muffin tin. — 为你的边疆提供蛋白质",
-          "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly. — 为你的边疆提供蛋白质",
-          "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-          "DIVIDE among the cups and bake 20-22 minutes, until golden and set. — 为你的边疆提供蛋白质"
+          "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside. — 为你的边疆提供蛋白质",
+          "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+          "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened. — 为你的边疆提供蛋白质",
+          "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+          "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through. — 为你的边疆提供蛋白质",
+          "SERVE with hot sauce or maple syrup! — 为你的边疆提供蛋白质"
         ],
-        "title": "Mushroom Cheddar Muffins — 为你的边疆提供蛋白质",
+        "title": "Savory Scrambled Pancakes — 为你的边疆提供蛋白质",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "step:3"
+            "ingredient:3",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "zh",
@@ -84105,64 +84121,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — proteína para tu frontera"
+            "qty_name": "1 cup cornmeal — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup brown sugar — proteína para tu frontera"
+            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "1 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup pumpkin purée — proteína para tu frontera"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup sour cream — proteína para tu frontera"
+            "qty_name": "1/4 cup honey"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — proteína para tu frontera"
+            "qty_name": "1/4 cup melted butter"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup whole milk"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Pepitas, to top — proteína para tu frontera"
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "15 mins — proteína para tu frontera",
+          "cook": "20 mins — proteína para tu frontera",
           "prep": "10 mins — proteína para tu frontera",
-          "serves": "12 — proteína para tu frontera"
+          "serves": "12 muffins — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — proteína para tu frontera",
-          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
-          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — proteína para tu frontera",
-          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — proteína para tu frontera",
-          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — proteína para tu frontera",
-          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — proteína para tu frontera"
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
+          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL briefly and serve warm. — proteína para tu frontera"
         ],
-        "title": "Pumpkin Oat Muffins — proteína para tu frontera",
+        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:4",
-            "ingredient:8",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
             "step:2"
           ],
           "human_reviewed": false,
@@ -84177,64 +84186,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup cornmeal — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup brown sugar — 为你的边疆提供蛋白质"
+            "qty_name": "2 tablespoons red chile powder — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "1 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup pumpkin purée — 为你的边疆提供蛋白质"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup sour cream — 为你的边疆提供蛋白质"
+            "qty_name": "1/4 cup honey"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — 为你的边疆提供蛋白质"
+            "qty_name": "1/4 cup melted butter"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup whole milk"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon vanilla extract — 为你的边疆提供蛋白质"
-          },
-          {
-            "price": null,
-            "qty_name": "Pepitas, to top — 为你的边疆提供蛋白质"
+            "qty_name": "1 teaspoon salt — 为你的边疆提供蛋白质"
           }
         ],
         "meta": {
-          "cook": "15 mins — 为你的边疆提供蛋白质",
+          "cook": "20 mins — 为你的边疆提供蛋白质",
           "prep": "10 mins — 为你的边疆提供蛋白质",
-          "serves": "12 — 为你的边疆提供蛋白质"
+          "serves": "12 muffins — 为你的边疆提供蛋白质"
         },
         "steps": [
-          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — 为你的边疆提供蛋白质",
-          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
-          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — 为你的边疆提供蛋白质",
-          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — 为你的边疆提供蛋白质",
-          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — 为你的边疆提供蛋白质",
-          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — 为你的边疆提供蛋白质"
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — 为你的边疆提供蛋白质",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — 为你的边疆提供蛋白质",
+          "BAKE 18-20 minutes, until a tester comes out clean. — 为你的边疆提供蛋白质",
+          "COOL briefly and serve warm. — 为你的边疆提供蛋白质"
         ],
-        "title": "Pumpkin Oat Muffins — 为你的边疆提供蛋白质",
+        "title": "Red Chile Cornbread Muffins — 为你的边疆提供蛋白质",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
             "ingredient:4",
-            "ingredient:8",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
             "step:2"
           ],
           "human_reviewed": false,
@@ -88713,64 +88715,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — Protein für deine Frontier"
+            "qty_name": "1 cup cornmeal — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup brown sugar — Protein für deine Frontier"
+            "qty_name": "2 tablespoons red chile powder — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "1 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup pumpkin purée — Protein für deine Frontier"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup sour cream — Protein für deine Frontier"
+            "qty_name": "1/4 cup honey"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — Protein für deine Frontier"
+            "qty_name": "1/4 cup melted butter"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup whole milk"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon vanilla extract — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "Pepitas, to top — Protein für deine Frontier"
+            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
           }
         ],
         "meta": {
-          "cook": "15 mins — Protein für deine Frontier",
+          "cook": "20 mins — Protein für deine Frontier",
           "prep": "10 mins — Protein für deine Frontier",
-          "serves": "12 — Protein für deine Frontier"
+          "serves": "12 muffins — Protein für deine Frontier"
         },
         "steps": [
-          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — Protein für deine Frontier",
-          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
-          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — Protein für deine Frontier",
-          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — Protein für deine Frontier",
-          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — Protein für deine Frontier",
-          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — Protein für deine Frontier"
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — Protein für deine Frontier",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — Protein für deine Frontier",
+          "BAKE 18-20 minutes, until a tester comes out clean. — Protein für deine Frontier",
+          "COOL briefly and serve warm. — Protein für deine Frontier"
         ],
-        "title": "Pumpkin Oat Muffins — Protein für deine Frontier",
+        "title": "Red Chile Cornbread Muffins — Protein für deine Frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
             "ingredient:4",
-            "ingredient:8",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
             "step:2"
           ],
           "human_reviewed": false,
@@ -88785,64 +88780,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — proteína para tu frontera"
+            "qty_name": "1 cup cornmeal — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup brown sugar — proteína para tu frontera"
+            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "1 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup pumpkin purée — proteína para tu frontera"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup sour cream — proteína para tu frontera"
+            "qty_name": "1/4 cup honey"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — proteína para tu frontera"
+            "qty_name": "1/4 cup melted butter"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup whole milk"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Pepitas, to top — proteína para tu frontera"
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "15 mins — proteína para tu frontera",
+          "cook": "20 mins — proteína para tu frontera",
           "prep": "10 mins — proteína para tu frontera",
-          "serves": "12 — proteína para tu frontera"
+          "serves": "12 muffins — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — proteína para tu frontera",
-          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
-          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — proteína para tu frontera",
-          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — proteína para tu frontera",
-          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — proteína para tu frontera",
-          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — proteína para tu frontera"
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
+          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL briefly and serve warm. — proteína para tu frontera"
         ],
-        "title": "Pumpkin Oat Muffins — proteína para tu frontera",
+        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:4",
-            "ingredient:8",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
             "step:2"
           ],
           "human_reviewed": false,

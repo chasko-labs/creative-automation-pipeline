@@ -35998,52 +35998,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+          "qty_name": "3/4 cup water"
         },
         {
           "price": null,
-          "qty_name": "1 cup shredded sharp cheddar"
+          "qty_name": "2 tablespoons butter, divided"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/2 small onion, chopped"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup milk"
+          "qty_name": "1 small bell pepper, chopped (seeds and stem removed)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1/2 cup mushrooms, sliced"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "Salt and pepper, to taste"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "Hot sauce or maple syrup (optional)"
         }
       ],
       "lang": "en",
       "market": "US-MW-CLEVELAND",
       "meta": {
-        "cook": null,
+        "cook": "8 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "4"
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mushroom-cheddar-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "mushroom-cheddar-muffins-draft",
+          "reason": "featured rotation: savory-scrambled-pancakes chosen deterministically for US-MW-CLEVELAND|2026-04 among recipes curating the ingredient in featured_for",
+          "recipe_id": "savory-scrambled-pancakes",
           "season": "spring",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "mushrooms (cultivated)"
@@ -36052,15 +36052,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "mushroom-cheddar-muffins-draft",
-        "name": "Mushroom Cheddar Muffins"
+        "id": "savory-scrambled-pancakes",
+        "name": "Savory Scrambled Pancakes"
       },
       "render": {
         "canvas": {
@@ -36568,13 +36566,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 375F and line a 12-cup muffin tin.",
-        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
-        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
+        "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside.",
+        "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+        "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened.",
+        "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+        "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through.",
+        "SERVE with hot sauce or maple syrup!"
       ],
       "substrate": "kraft",
-      "title": "Mushroom Cheddar Muffins",
+      "title": "Savory Scrambled Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -123064,7 +123064,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+          "qty_name": "2 cups snap peas, strings removed, thinly sliced"
         },
         {
           "price": null,
@@ -123073,6 +123073,10 @@ window.KODIAK_RECIPE_CARDS = {
         {
           "price": null,
           "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chopped dill"
         },
         {
           "price": null,
@@ -123085,27 +123089,23 @@ window.KODIAK_RECIPE_CARDS = {
         {
           "price": null,
           "qty_name": "3 tablespoons neutral oil, for frying"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup fresh microgreens, to serve"
         }
       ],
       "lang": "en",
       "market": "US-MW-PHX2",
       "meta": {
-        "cook": "15 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "25 mins",
-        "serves": "10 fritters"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: savory-greens-fritters-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "savory-greens-fritters-draft",
+          "reason": "featured rotation: snap-pea-herb-fritters-draft chosen deterministically for US-MW-PHX2|2026-03 among recipes curating the ingredient in featured_for",
+          "recipe_id": "snap-pea-herb-fritters-draft",
           "season": "spring",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "spring greens and snap peas"
@@ -123114,13 +123114,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "savory-greens-fritters-draft",
-        "name": "Savory Greens Fritters"
+        "id": "snap-pea-herb-fritters-draft",
+        "name": "Snap Pea Herb Fritters"
       },
       "render": {
         "canvas": {
@@ -123581,13 +123583,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
-        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
-        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
-        "SERVE hot topped with fresh microgreens."
+        "BLANCH the sliced peas 1 minute in salted boiling water, chill in ice water, then pat completely dry.",
+        "WHISK the mix, eggs, parmesan, dill, salt, and pepper with the dry peas into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3 minutes per side until crisp and golden.",
+        "DRAIN briefly on a rack and serve warm with lemon."
       ],
       "substrate": "kraft",
-      "title": "Savory Greens Fritters",
+      "title": "Snap Pea Herb Fritters",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -196210,10 +196212,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mushroom-cheddar-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: mushroom-cheddar-muffins-draft chosen deterministically for US-NE-PHILLY|2026-01 among recipes curating the ingredient in featured_for",
           "recipe_id": "mushroom-cheddar-muffins-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "mushrooms"
@@ -196803,10 +196805,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mushroom-cheddar-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: mushroom-cheddar-muffins-draft chosen deterministically for US-NE-PHILLY|2026-02 among recipes curating the ingredient in featured_for",
           "recipe_id": "mushroom-cheddar-muffins-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "cremini mushrooms"
@@ -197354,52 +197356,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+          "qty_name": "3/4 cup water"
         },
         {
           "price": null,
-          "qty_name": "1 cup shredded sharp cheddar"
+          "qty_name": "2 tablespoons butter, divided"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/2 small onion, chopped"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup milk"
+          "qty_name": "1 small bell pepper, chopped (seeds and stem removed)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1/2 cup mushrooms, sliced"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "Salt and pepper, to taste"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "Hot sauce or maple syrup (optional)"
         }
       ],
       "lang": "en",
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": null,
+        "cook": "8 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "4"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mushroom-cheddar-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "mushroom-cheddar-muffins-draft",
+          "reason": "featured rotation: savory-scrambled-pancakes chosen deterministically for US-NE-PHILLY|2026-03 among recipes curating the ingredient in featured_for",
+          "recipe_id": "savory-scrambled-pancakes",
           "season": "spring",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "shiitake mushrooms"
@@ -197408,15 +197410,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "mushroom-cheddar-muffins-draft",
-        "name": "Mushroom Cheddar Muffins"
+        "id": "savory-scrambled-pancakes",
+        "name": "Savory Scrambled Pancakes"
       },
       "render": {
         "canvas": {
@@ -197927,13 +197927,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 375F and line a 12-cup muffin tin.",
-        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
-        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
+        "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside.",
+        "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+        "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened.",
+        "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+        "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through.",
+        "SERVE with hot sauce or maple syrup!"
       ],
       "substrate": "kraft",
-      "title": "Mushroom Cheddar Muffins",
+      "title": "Savory Scrambled Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -200964,10 +200966,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mushroom-cheddar-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: mushroom-cheddar-muffins-draft chosen deterministically for US-NE-PHILLY|2026-09 among recipes curating the ingredient in featured_for",
           "recipe_id": "mushroom-cheddar-muffins-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "portabella mushrooms"
@@ -202119,52 +202121,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+          "qty_name": "3/4 cup water"
         },
         {
           "price": null,
-          "qty_name": "1 cup shredded sharp cheddar"
+          "qty_name": "2 tablespoons butter, divided"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/2 small onion, chopped"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup milk"
+          "qty_name": "1 small bell pepper, chopped (seeds and stem removed)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1/2 cup mushrooms, sliced"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "Salt and pepper, to taste"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "Hot sauce or maple syrup (optional)"
         }
       ],
       "lang": "en",
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": null,
+        "cook": "8 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "4"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mushroom-cheddar-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "mushroom-cheddar-muffins-draft",
+          "reason": "featured rotation: savory-scrambled-pancakes chosen deterministically for US-NE-PHILLY|2026-11 among recipes curating the ingredient in featured_for",
+          "recipe_id": "savory-scrambled-pancakes",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "oyster mushrooms"
@@ -202173,15 +202175,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "mushroom-cheddar-muffins-draft",
-        "name": "Mushroom Cheddar Muffins"
+        "id": "savory-scrambled-pancakes",
+        "name": "Savory Scrambled Pancakes"
       },
       "render": {
         "canvas": {
@@ -202692,13 +202692,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 375F and line a 12-cup muffin tin.",
-        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
-        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
+        "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside.",
+        "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+        "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened.",
+        "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+        "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through.",
+        "SERVE with hot sauce or maple syrup!"
       ],
       "substrate": "kraft",
-      "title": "Mushroom Cheddar Muffins",
+      "title": "Savory Scrambled Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -202712,52 +202714,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 1/2 cups chopped mushrooms (cremini, maitake, shiitake, or oyster)"
+          "qty_name": "3/4 cup water"
         },
         {
           "price": null,
-          "qty_name": "1 cup shredded sharp cheddar"
+          "qty_name": "2 tablespoons butter, divided"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/2 small onion, chopped"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup milk"
+          "qty_name": "1 small bell pepper, chopped (seeds and stem removed)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1/2 cup mushrooms, sliced"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "Salt and pepper, to taste"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "Hot sauce or maple syrup (optional)"
         }
       ],
       "lang": "en",
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": null,
+        "cook": "8 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "4"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mushroom-cheddar-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "mushroom-cheddar-muffins-draft",
+          "reason": "featured rotation: savory-scrambled-pancakes chosen deterministically for US-NE-PHILLY|2026-12 among recipes curating the ingredient in featured_for",
+          "recipe_id": "savory-scrambled-pancakes",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "maitake mushrooms"
@@ -202766,15 +202768,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "mushroom-cheddar-muffins-draft",
-        "name": "Mushroom Cheddar Muffins"
+        "id": "savory-scrambled-pancakes",
+        "name": "Savory Scrambled Pancakes"
       },
       "render": {
         "canvas": {
@@ -203285,13 +203285,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 375F and line a 12-cup muffin tin.",
-        "SEAR the mushrooms in a dry skillet 5 minutes until browned, then cool slightly.",
-        "WHISK the eggs, milk, oil, salt, and pepper; stir in the mix just until combined, then fold in the mushrooms and cheddar.",
-        "DIVIDE among the cups and bake 20-22 minutes, until golden and set."
+        "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside.",
+        "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
+        "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened.",
+        "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
+        "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through.",
+        "SERVE with hot sauce or maple syrup!"
       ],
       "substrate": "kraft",
-      "title": "Mushroom Cheddar Muffins",
+      "title": "Savory Scrambled Pancakes",
       "variant": "hero-plus-layout"
     }
   },
@@ -218500,10 +218502,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mushroom-cheddar-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: mushroom-cheddar-muffins-draft chosen deterministically for US-OH-CINCINNATI|2026-04 among recipes curating the ingredient in featured_for",
           "recipe_id": "mushroom-cheddar-muffins-draft",
           "season": "spring",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "morel mushrooms"
@@ -235473,10 +235475,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: fig-honey-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: fig-honey-muffins-draft chosen deterministically for US-SC-AUSTIN|2026-09 among recipes curating the ingredient in featured_for",
           "recipe_id": "fig-honey-muffins-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "wine grapes and figs"
@@ -250649,10 +250651,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mandarin-citrus-flapjacks-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: mandarin-citrus-flapjacks-draft chosen deterministically for US-SC-HOUSTON|2026-12 among recipes curating the ingredient in featured_for",
           "recipe_id": "mandarin-citrus-flapjacks-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "winter greens and satsuma citrus"
@@ -290666,10 +290668,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: boiled-peanut-oat-bites-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: boiled-peanut-oat-bites-draft chosen deterministically for US-SE-COAST|2026-10 among recipes curating the ingredient in featured_for",
           "recipe_id": "boiled-peanut-oat-bites-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "boiled peanuts"
@@ -379065,60 +379067,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+          "qty_name": "1 cup cornmeal"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2 tablespoons red chile powder"
         },
         {
           "price": null,
-          "qty_name": "1 large egg"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup pumpkin purée"
+          "qty_name": "2 large eggs"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup sour cream"
+          "qty_name": "1/4 cup honey"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+          "qty_name": "1/4 cup melted butter"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "Pepitas, to top"
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "lang": "en",
       "market": "US-SW-LASCRUCES",
       "meta": {
-        "cook": "15 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "12"
+        "serves": "12 muffins"
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: pumpkin-oat-muffins lists the in-season ingredient in featured_for",
-          "recipe_id": "pumpkin-oat-muffins",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-LASCRUCES|2026-10 among recipes curating the ingredient in featured_for",
+          "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "red chile and pumpkins"
@@ -379132,8 +379126,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "pumpkin-oat-muffins",
-        "name": "Pumpkin Oat Muffins"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "render": {
         "canvas": {
@@ -379669,15 +379663,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
-        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
-        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
-        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
-        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
-        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Pumpkin Oat Muffins",
+      "title": "Red Chile Cornbread Muffins",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -399750,60 +399743,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+          "qty_name": "1 cup cornmeal"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2 tablespoons red chile powder"
         },
         {
           "price": null,
-          "qty_name": "1 large egg"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup pumpkin purée"
+          "qty_name": "2 large eggs"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup sour cream"
+          "qty_name": "1/4 cup honey"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+          "qty_name": "1/4 cup melted butter"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "Pepitas, to top"
+          "qty_name": "1 teaspoon salt"
         }
       ],
       "lang": "en",
       "market": "US-SW-ROSWELL",
       "meta": {
-        "cook": "15 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "12"
+        "serves": "12 muffins"
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: pumpkin-oat-muffins lists the in-season ingredient in featured_for",
-          "recipe_id": "pumpkin-oat-muffins",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-ROSWELL|2026-10 among recipes curating the ingredient in featured_for",
+          "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "red chile and pumpkins"
@@ -399817,8 +399802,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "pumpkin-oat-muffins",
-        "name": "Pumpkin Oat Muffins"
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
       },
       "render": {
         "canvas": {
@@ -400285,15 +400270,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
-        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
-        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
-        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
-        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
-        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
       ],
       "substrate": "kraft",
-      "title": "Pumpkin Oat Muffins",
+      "title": "Red Chile Cornbread Muffins",
       "variant": "hero-plus-layout"
     },
     "2026-11": {

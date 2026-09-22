@@ -253,6 +253,31 @@ def test_product_only_overlap_falls_to_season_table():
     assert recipe["id"] == pairing["recipe_id"]
 
 
+def test_featured_rotation_splits_repeat_ingredient_months():
+    # QA sweep: all six PHILLY mushroom months showed the same card. When two
+    # curated recipes name the ingredient, market+month context rotates
+    # between them deterministically; without context the lowest id wins.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    winners = set()
+    for month in ("2026-01", "2026-02", "2026-03", "2026-09", "2026-11", "2026-12"):
+        recipe, pairing = pick_recipe_with_provenance(
+            "mushrooms", "Buttermilk Power Cakes",
+            market="US-NE-PHILLY", month=month,
+        )
+        assert pairing["source"] == "ingredient-rotation"
+        winners.add(recipe["id"])
+        again, _ = pick_recipe_with_provenance(
+            "mushrooms", "Buttermilk Power Cakes",
+            market="US-NE-PHILLY", month=month,
+        )
+        assert again["id"] == recipe["id"]
+    assert winners == {
+        "mushroom-cheddar-muffins-draft",
+        "savory-scrambled-pancakes",
+    }
+
+
 def test_bare_chile_routes_to_chile_cornbread():
     # Santa Fe August ("Chimayó chile and melons") names neither "green chile"
     # nor "red chile" as a phrase, so it fell to an overlap winner
