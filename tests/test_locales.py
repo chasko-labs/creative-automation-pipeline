@@ -27,6 +27,22 @@ def test_atlanta_september_ingredient():
     assert got["frontier_sister"] == "Senoia, GA"
 
 
+def test_pairs_and_flavor_layers_answer_different_questions():
+    # Layer contract (see resolve_this_month / local_flavor_for docstrings):
+    # Atlanta May cooks Vidalia onions (recipe ingredient) while the
+    # sourcing line lists Coweta peaches/butterbeans. Different answers
+    # by design — neither layer overrides the other.
+    from creative_automation.local_flavor import local_flavor_for
+
+    got = resolve_this_month("US-SE-ATL", ym="2026-05")
+    assert got is not None
+    assert got["ingredient"] == "Vidalia onions"
+    flavor = local_flavor_for("US-SE-ATL", month=5)
+    assert flavor["matched"] is True
+    assert "Coweta peaches" in flavor["produce"]
+    assert "Vidalia onions" not in flavor["produce"]
+
+
 def test_unfilled_month_is_none_not_fabricated():
     pair = resolve_pair("US-SE-ATL")
     # October 2026 was backfilled to pecans; 2027 has no authored months, so an

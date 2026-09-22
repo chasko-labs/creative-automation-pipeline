@@ -84,6 +84,13 @@ def resolve_this_month(
 
     Returns None when the market has no seeded pair. When the month has no
     ingredient filled yet, ingredient is None (caller decides fallback).
+
+    Layer contract: this is the RECIPE ingredient (what the card cooks).
+    The Local-flavor island sourcing line comes from local_flavor.json via
+    local_flavor_for() and answers a different question (where to source
+    it). The two layers may name different produce for the same month by
+    design — e.g. Atlanta May cooks Vidalia onions while the sourcing line
+    lists Coweta peaches/butterbeans. Neither overrides the other.
     """
     pair = resolve_pair(market, path)
     if pair is None:

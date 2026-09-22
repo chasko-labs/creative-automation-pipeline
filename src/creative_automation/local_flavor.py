@@ -119,6 +119,11 @@ def local_flavor_for(
 
     When nothing is in season this month, produce is [] but source/place still
     resolve so the caller can render the sourcing line without a fabricated item.
+
+    Layer contract: this is the SOURCING line (where to buy it), not the
+    recipe ingredient — that comes from retailer-frontier-pairs via
+    locales.resolve_this_month(). The two may name different produce for
+    the same month by design; neither overrides the other.
     """
     m = month if month is not None else _current_month()
     if not 1 <= int(m) <= 12:
