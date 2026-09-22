@@ -611,6 +611,25 @@ let skuList = [
     const card = /** @type {HTMLDetailsElement|null} */ (document.getElementById('previewCard'));
     if(card && !card.open){ card.open = true; }
   }
+  // Closed-card fold guard: a closed #previewCard must not lay out its .body
+  // (author display rules beat the UA closed-details rule, so the ~1991px body
+  // paints clipped under card overflow). Inline display + hidden win over any
+  // author rule; the toggle listener re-syncs on every open/close so
+  // openPreviewCard() on Create and the resting renderDefaultHero content show
+  // correctly when reopened.
+  function syncPreviewCardBody(){
+    const card = /** @type {HTMLDetailsElement|null} */ (document.getElementById('previewCard'));
+    if(!card) return;
+    const body = card.querySelector(':scope > .body');
+    if(!body) return;
+    if(card.open){ body.hidden = false; body.style.display = ''; }
+    else { body.hidden = true; body.style.display = 'none'; }
+  }
+  try{
+    const __previewCard = document.getElementById('previewCard');
+    if(__previewCard){ __previewCard.addEventListener('toggle', syncPreviewCardBody); }
+    syncPreviewCardBody();
+  }catch(e){}
 
   // Render per-platform messaging copy — an accordion of native <details>, one per platform.
   // Consumes /generate and /campaigns/platform-copy response entries without dropping
