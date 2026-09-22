@@ -21862,78 +21862,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-BOISE",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "spring",
           "source": "ingredient-overlap"
         },
@@ -21949,8 +21969,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -22427,17 +22447,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -27466,78 +27499,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-CHI",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -27553,8 +27606,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -28039,17 +28092,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -32043,31 +32109,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "4 honey crisp apples"
+          "qty_name": "Apple Cinnamon Compote"
         },
         {
           "price": null,
-          "qty_name": "4 packets Kodiak Maple & Brown Sugar Oatmeal"
+          "qty_name": "1-1/2 pounds apples"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup brown sugar"
+          "qty_name": "1-1/4 cup water"
         },
         {
           "price": null,
-          "qty_name": "4 tablespoons softened butter"
+          "qty_name": "1 tablespoon brown sugar"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 teaspoons cinnamon"
+          "qty_name": "1/2 cup plus 1 tablespoon honey"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "whipped cream"
+          "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "4 teaspoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons unsalted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, for serving (optional)"
         }
       ],
       "lang": "en",
@@ -32075,14 +32161,14 @@ window.KODIAK_RECIPE_CARDS = {
       "meta": {
         "cook": "35 mins",
         "est_cost": null,
-        "prep": "30 mins",
+        "prep": "20 mins",
         "serves": "4"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: campfire-baked-apple-oats chosen deterministically for US-MW-CHI|2026-09 among recipes naming the ingredient",
-          "recipe_id": "campfire-baked-apple-oats",
+          "reason": "ingredient rotation: apple-cinnamon-compote chosen deterministically for US-MW-CHI|2026-09 among recipes naming the ingredient",
+          "recipe_id": "apple-cinnamon-compote",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -32098,8 +32184,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "campfire-baked-apple-oats",
-        "name": "Campfire Baked Apple Oats"
+        "id": "apple-cinnamon-compote",
+        "name": "Apple Cinnamon Compote"
       },
       "render": {
         "canvas": {
@@ -32584,15 +32670,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GET a steady fire going and let it burn down until you have a nice bed of warm coals for cooking.",
-        "IN a bowl, combine Kodiak Cakes oatmeal, brown sugar, butter, cinnamon, and a pinch of salt. Set aside.",
-        "CAREFULLY hollow out the apples using a spoon. Take your time and be sure not to go all the way through the bottom—this helps keep the juices inside during cooking.",
-        "SPOON the prepared filling into each apple. Wrap each one tightly in parchment paper and then in foil, leaving a small opening at the top for venting.",
-        "USING tongs, place the wrapped apples in the bed of hot coals. Cook for about 30 minutes, rotating occasionally for even cooking.",
-        "USE tongs to carefully remove the apples from the fire. Let them cool for 5–10 minutes. Serve warm with a dollop of whipped cream."
+        "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
       ],
       "substrate": "kraft",
-      "title": "Campfire Baked Apple Oats",
+      "title": "Apple Cinnamon Compote",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -34318,78 +34399,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-CLEVELAND",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -34405,8 +34506,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -34914,17 +35015,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -39055,78 +39169,30 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 Snickerdoodle Protein Balls, crumbled"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "1 cup plain yogurt"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
-        },
-        {
-          "price": null,
-          "qty_name": "1 egg, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "2 ripe bananas, mashed"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "4 oz applesauce"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
-        },
-        {
-          "price": null,
-          "qty_name": "Chocolate chips"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh Berries"
-        },
-        {
-          "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1/2 apple, diced"
         }
       ],
       "lang": "en",
       "market": "US-MW-CLEVELAND",
       "meta": {
-        "cook": "30 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: breakfast-cake chosen deterministically for US-MW-CLEVELAND|2026-09 among recipes naming the ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient rotation: snickerdoodle-ball-sundae-draft chosen deterministically for US-MW-CLEVELAND|2026-09 among recipes naming the ingredient",
+          "recipe_id": "snickerdoodle-ball-sundae-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -39137,13 +39203,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "snickerdoodle-ball-sundae-draft",
+        "name": "Snickerdoodle Ball Sundae"
       },
       "render": {
         "canvas": {
@@ -39651,17 +39719,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "LAYER yogurt, diced apple, and crumbled balls in two glasses.",
+        "SERVE at once."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Snickerdoodle Ball Sundae",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -42565,78 +42627,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-DEN",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "spring",
           "source": "ingredient-overlap"
         },
@@ -42652,8 +42734,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -43145,17 +43227,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -48296,78 +48391,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-DESMOINES",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -48383,8 +48498,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -48890,17 +49005,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -53005,34 +53133,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 Cinnamon Oat & Apple Breakfast Bars, crumbled"
+          "qty_name": "Pie dough:"
         },
         {
           "price": null,
-          "qty_name": "3 cups sliced apples"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon butter, melted"
+          "qty_name": "1/2 teaspoons salt"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon cinnamon"
+          "qty_name": "1 cup (2 sticks) butter, cold"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup ice water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon vinegar"
+        },
+        {
+          "price": null,
+          "qty_name": "Filling:"
+        },
+        {
+          "price": null,
+          "qty_name": "8 granny smith apples, peeled and sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup flour"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon ground nutmeg"
+        },
+        {
+          "price": null,
+          "qty_name": "Other:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg white"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "A pinch of salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons coarse sugar for topping"
         }
       ],
       "lang": "en",
       "market": "US-MW-DESMOINES",
       "meta": {
-        "cook": null,
+        "cook": "60 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "60+",
+        "serves": "10"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cinnamon-oat-apple-bar-crisp-draft chosen deterministically for US-MW-DESMOINES|2026-09 among recipes naming the ingredient",
-          "recipe_id": "cinnamon-oat-apple-bar-crisp-draft",
+          "reason": "ingredient rotation: apple-pie chosen deterministically for US-MW-DESMOINES|2026-09 among recipes naming the ingredient",
+          "recipe_id": "apple-pie",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -53043,15 +53235,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "cinnamon-oat-apple-bar-crisp-draft",
-        "name": "Cinnamon Oat Apple Bar Crisp"
+        "id": "apple-pie",
+        "name": "Apple Pie"
       },
       "render": {
         "canvas": {
@@ -53557,12 +53747,28 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 375 degrees Fahrenheit. Toss the apples with butter and cinnamon in a baking dish.",
-        "SCATTER the crumbled bars over the top without stirring.",
-        "BAKE 20-25 minutes until bubbling. Rest 5 minutes before serving."
+        "IN a large bowl, combine Kodiak Cakes mix and salt.",
+        "WORK the cold, cubed butter into the mix by hand or using a pastry cutter until crumbly.",
+        "MIX in ice water and vinegar until a dough is formed. If the mixture is crumbly, add 1 tbsp. water at a time only until the dough comes together.",
+        "DIVIDE the dough into two pieces and flatten into discs. Wrap in plastic and refrigerate for at least 3 hours.",
+        "MEANWHILE, combine the apples, granulated sugar, brown sugar, lemon juice, flour, vanilla, cinnamon, and nutmeg.",
+        "ON a floured surface, roll one disc of dough about 1/8-inch to 1/4-inch thick.",
+        "TRANSFER the dough into a 9-inch pie pan and brush the bottom of the dough with egg white to create a barrier between the crust and the fruit filling.",
+        "FILL with apple mixture.",
+        "ROLL out the second disc of pie dough and cut into about twelve 1-inch strips. For thin strips, cut the 1-inch strips in half.",
+        "FORM the lattice by arranging half of the strips horizontally across the pie. Place the remaining strips vertically while threading under and over every other horizontal strip.",
+        "USE scissors to cut all except 1-inch of excess dough from the rim of the pan.",
+        "FOLD the extra dough under itself at the rim to form a crust and press with a fork or crimp.",
+        "(Optional) Use leaf pie-cutters to create shapes out of the excess dough to decorate the top of the pie.",
+        "FREEZE the pie for 15-20 minutes.",
+        "PREHEAT oven to 425° F.",
+        "CRACK the egg into a small bowl, add a pinch of salt, and whisk to break up the yolk and the white.",
+        "BRUSH the egg over the pie dough and sprinkle lightly with coarse sugar.",
+        "BAKE the pie at 425° F for 20 minutes.",
+        "REDUCE the temperature to 350° F and continue to bake for 40-45 minutes or until the apple filling begins to bubble and the crust is golden."
       ],
       "substrate": "kraft",
-      "title": "Cinnamon Oat Apple Bar Crisp",
+      "title": "Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -55336,78 +55542,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-DETROIT",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -55423,8 +55649,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -55927,17 +56153,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -60004,34 +60243,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 Cinnamon Oat & Apple Breakfast Bars, crumbled"
+          "qty_name": "Pie dough:"
         },
         {
           "price": null,
-          "qty_name": "3 cups sliced apples"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon butter, melted"
+          "qty_name": "1/2 teaspoons salt"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon cinnamon"
+          "qty_name": "1 cup (2 sticks) butter, cold"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup ice water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon vinegar"
+        },
+        {
+          "price": null,
+          "qty_name": "Filling:"
+        },
+        {
+          "price": null,
+          "qty_name": "8 granny smith apples, peeled and sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup flour"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon ground nutmeg"
+        },
+        {
+          "price": null,
+          "qty_name": "Other:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg white"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "A pinch of salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons coarse sugar for topping"
         }
       ],
       "lang": "en",
       "market": "US-MW-DETROIT",
       "meta": {
-        "cook": null,
+        "cook": "60 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "60+",
+        "serves": "10"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cinnamon-oat-apple-bar-crisp-draft chosen deterministically for US-MW-DETROIT|2026-09 among recipes naming the ingredient",
-          "recipe_id": "cinnamon-oat-apple-bar-crisp-draft",
+          "reason": "ingredient rotation: apple-pie chosen deterministically for US-MW-DETROIT|2026-09 among recipes naming the ingredient",
+          "recipe_id": "apple-pie",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -60042,15 +60345,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "cinnamon-oat-apple-bar-crisp-draft",
-        "name": "Cinnamon Oat Apple Bar Crisp"
+        "id": "apple-pie",
+        "name": "Apple Pie"
       },
       "render": {
         "canvas": {
@@ -60553,12 +60854,28 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 375 degrees Fahrenheit. Toss the apples with butter and cinnamon in a baking dish.",
-        "SCATTER the crumbled bars over the top without stirring.",
-        "BAKE 20-25 minutes until bubbling. Rest 5 minutes before serving."
+        "IN a large bowl, combine Kodiak Cakes mix and salt.",
+        "WORK the cold, cubed butter into the mix by hand or using a pastry cutter until crumbly.",
+        "MIX in ice water and vinegar until a dough is formed. If the mixture is crumbly, add 1 tbsp. water at a time only until the dough comes together.",
+        "DIVIDE the dough into two pieces and flatten into discs. Wrap in plastic and refrigerate for at least 3 hours.",
+        "MEANWHILE, combine the apples, granulated sugar, brown sugar, lemon juice, flour, vanilla, cinnamon, and nutmeg.",
+        "ON a floured surface, roll one disc of dough about 1/8-inch to 1/4-inch thick.",
+        "TRANSFER the dough into a 9-inch pie pan and brush the bottom of the dough with egg white to create a barrier between the crust and the fruit filling.",
+        "FILL with apple mixture.",
+        "ROLL out the second disc of pie dough and cut into about twelve 1-inch strips. For thin strips, cut the 1-inch strips in half.",
+        "FORM the lattice by arranging half of the strips horizontally across the pie. Place the remaining strips vertically while threading under and over every other horizontal strip.",
+        "USE scissors to cut all except 1-inch of excess dough from the rim of the pan.",
+        "FOLD the extra dough under itself at the rim to form a crust and press with a fork or crimp.",
+        "(Optional) Use leaf pie-cutters to create shapes out of the excess dough to decorate the top of the pie.",
+        "FREEZE the pie for 15-20 minutes.",
+        "PREHEAT oven to 425° F.",
+        "CRACK the egg into a small bowl, add a pinch of salt, and whisk to break up the yolk and the white.",
+        "BRUSH the egg over the pie dough and sprinkle lightly with coarse sugar.",
+        "BAKE the pie at 425° F for 20 minutes.",
+        "REDUCE the temperature to 350° F and continue to bake for 40-45 minutes or until the apple filling begins to bubble and the crust is golden."
       ],
       "substrate": "kraft",
-      "title": "Cinnamon Oat Apple Bar Crisp",
+      "title": "Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -68747,78 +69064,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-INDY",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -68834,8 +69171,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -69339,17 +69676,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -73438,31 +73788,19 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 can garbanzo beans rinsed and drained"
+          "qty_name": "2 Cinnamon Oat & Apple Breakfast Bars, crumbled"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup almond butter"
+          "qty_name": "3 cups sliced apples"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup real maple syrup"
+          "qty_name": "1 tablespoon butter, melted"
         },
         {
           "price": null,
-          "qty_name": "2 teaspoons vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "1-3 cup mini chocolate chips\r\n\r\n\r\n \r\n\r\nDippers:"
-        },
-        {
-          "price": null,
-          "qty_name": "Kodiak Crunchy Granola Bars"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh cut fruit (strawberries, apples, etc.)"
+          "qty_name": "1/2 teaspoon cinnamon"
         }
       ],
       "lang": "en",
@@ -73470,14 +73808,14 @@ window.KODIAK_RECIPE_CARDS = {
       "meta": {
         "cook": null,
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "8"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cookie-dough-hummus chosen deterministically for US-MW-INDY|2026-09 among recipes naming the ingredient",
-          "recipe_id": "cookie-dough-hummus",
+          "reason": "ingredient rotation: cinnamon-oat-apple-bar-crisp-draft chosen deterministically for US-MW-INDY|2026-09 among recipes naming the ingredient",
+          "recipe_id": "cinnamon-oat-apple-bar-crisp-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -73488,13 +73826,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "cookie-dough-hummus",
-        "name": "Cookie Dough Hummus"
+        "id": "cinnamon-oat-apple-bar-crisp-draft",
+        "name": "Cinnamon Oat Apple Bar Crisp"
       },
       "render": {
         "canvas": {
@@ -73998,12 +74338,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "IN a blender or food processor, combine the chickpeas, almond butter, maple syrup, and vanilla extract. Blend until smooth and creamy.",
-        "TRANSFER the mixture to a bowl and stir in the mini chocolate chips.",
-        "ENJOY immediately with preferred dippers (we're partial to Chocolate Chip Crunchy Granola Bars 😉), or store in an airtight container in the refrigerator for up to 5 days."
+        "HEAT the oven to 375 degrees Fahrenheit. Toss the apples with butter and cinnamon in a baking dish.",
+        "SCATTER the crumbled bars over the top without stirring.",
+        "BAKE 20-25 minutes until bubbling. Rest 5 minutes before serving."
       ],
       "substrate": "kraft",
-      "title": "Cookie Dough Hummus",
+      "title": "Cinnamon Oat Apple Bar Crisp",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -82561,78 +82901,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-KC",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -82648,8 +83008,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -83116,17 +83476,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -86995,26 +87368,78 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Cinnamon French Toast Sticks, heated"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup apple butter"
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
         }
       ],
       "lang": "en",
       "market": "US-MW-KC",
       "meta": {
-        "cook": null,
+        "cook": "30 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "15 mins",
+        "serves": "8"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cinnamon-stick-apple-dippers-draft chosen deterministically for US-MW-KC|2026-09 among recipes naming the ingredient",
-          "recipe_id": "cinnamon-stick-apple-dippers-draft",
+          "reason": "ingredient rotation: breakfast-cake chosen deterministically for US-MW-KC|2026-09 among recipes naming the ingredient",
+          "recipe_id": "breakfast-cake",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -87025,15 +87450,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "cinnamon-stick-apple-dippers-draft",
-        "name": "Cinnamon Stick Apple Dippers"
+        "id": "breakfast-cake",
+        "name": "Breakfast Cake"
       },
       "render": {
         "canvas": {
@@ -87500,11 +87923,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sticks per package directions.",
-        "SERVE with apple butter for dipping."
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
       ],
       "substrate": "kraft",
-      "title": "Cinnamon Stick Apple Dippers",
+      "title": "Breakfast Cake",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -89178,78 +89607,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-MILWAUKEE",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -89265,8 +89714,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -89753,17 +90202,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -93740,78 +94202,46 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "4 honey crisp apples"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "4 packets Kodiak Maple & Brown Sugar Oatmeal"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1/3 cup brown sugar"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "4 tablespoons softened butter"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1-1/2 teaspoons cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "4 oz applesauce"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
-        },
-        {
-          "price": null,
-          "qty_name": "Chocolate chips"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh Berries"
-        },
-        {
-          "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "whipped cream"
         }
       ],
       "lang": "en",
       "market": "US-MW-MILWAUKEE",
       "meta": {
-        "cook": "30 mins",
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "30 mins",
+        "serves": "4"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: breakfast-cake chosen deterministically for US-MW-MILWAUKEE|2026-09 among recipes naming the ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient rotation: campfire-baked-apple-oats chosen deterministically for US-MW-MILWAUKEE|2026-09 among recipes naming the ingredient",
+          "recipe_id": "campfire-baked-apple-oats",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -93827,8 +94257,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "campfire-baked-apple-oats",
+        "name": "Campfire Baked Apple Oats"
       },
       "render": {
         "canvas": {
@@ -94315,17 +94745,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "GET a steady fire going and let it burn down until you have a nice bed of warm coals for cooking.",
+        "IN a bowl, combine Kodiak Cakes oatmeal, brown sugar, butter, cinnamon, and a pinch of salt. Set aside.",
+        "CAREFULLY hollow out the apples using a spoon. Take your time and be sure not to go all the way through the bottom—this helps keep the juices inside during cooking.",
+        "SPOON the prepared filling into each apple. Wrap each one tightly in parchment paper and then in foil, leaving a small opening at the top for venting.",
+        "USING tongs, place the wrapped apples in the bed of hot coals. Cook for about 30 minutes, rotating occasionally for even cooking.",
+        "USE tongs to carefully remove the apples from the fire. Let them cool for 5–10 minutes. Serve warm with a dollop of whipped cream."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Campfire Baked Apple Oats",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -102899,78 +103327,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-MISSOULA",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -102986,8 +103434,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -103471,17 +103919,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -106891,30 +107352,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Peanut Butter Chocolate Chip Oatmeal Cup"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup milk"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 apple, diced"
+          "qty_name": "1⁄4 cup shortening"
+        },
+        {
+          "price": null,
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄4 cup of ice water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
+        },
+        {
+          "price": null,
+          "qty_name": "Filling:"
+        },
+        {
+          "price": null,
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄4 teaspoon ground cloves"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄4 teaspoon ground allspice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-MISSOULA",
       "meta": {
-        "cook": null,
+        "cook": "60",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: pb-chip-oatmeal-apple-bowl-draft chosen deterministically for US-MW-MISSOULA|2026-09 among recipes naming the ingredient",
-          "recipe_id": "pb-chip-oatmeal-apple-bowl-draft",
+          "reason": "ingredient rotation: caramel-apple-pie chosen deterministically for US-MW-MISSOULA|2026-09 among recipes naming the ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -106925,15 +107454,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "pb-chip-oatmeal-apple-bowl-draft",
-        "name": "PB Chip Oatmeal Apple Bowl"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -107417,11 +107944,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREPARE the cup with milk per package directions.",
-        "STIR in the diced apple and serve at once."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "PB Chip Oatmeal Apple Bowl",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -107998,78 +108544,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-MISSOULA",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "fall",
           "source": "ingredient-overlap"
         },
@@ -108085,8 +108651,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -108570,17 +109136,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -109151,78 +109730,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-OMAHA",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -109238,8 +109837,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -109750,17 +110349,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -116845,78 +117457,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-PARKCITY-84098",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -116932,8 +117564,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -117378,17 +118010,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -121071,15 +121716,11 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Peanut Butter Chocolate Chip Oatmeal Cup"
+          "qty_name": "Cinnamon French Toast Sticks, heated"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup milk"
-        },
-        {
-          "price": null,
-          "qty_name": "1 apple, diced"
+          "qty_name": "1/4 cup apple butter"
         }
       ],
       "lang": "en",
@@ -121093,8 +121734,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: pb-chip-oatmeal-apple-bowl-draft chosen deterministically for US-MW-PARKCITY-84098|2026-10 among recipes naming the ingredient",
-          "recipe_id": "pb-chip-oatmeal-apple-bowl-draft",
+          "reason": "ingredient rotation: cinnamon-stick-apple-dippers-draft chosen deterministically for US-MW-PARKCITY-84098|2026-10 among recipes naming the ingredient",
+          "recipe_id": "cinnamon-stick-apple-dippers-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -121112,8 +121753,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "pb-chip-oatmeal-apple-bowl-draft",
-        "name": "PB Chip Oatmeal Apple Bowl"
+        "id": "cinnamon-stick-apple-dippers-draft",
+        "name": "Cinnamon Stick Apple Dippers"
       },
       "render": {
         "canvas": {
@@ -121558,11 +122199,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREPARE the cup with milk per package directions.",
-        "STIR in the diced apple and serve at once."
+        "HEAT the sticks per package directions.",
+        "SERVE with apple butter for dipping."
       ],
       "substrate": "kraft",
-      "title": "PB Chip Oatmeal Apple Bowl",
+      "title": "Cinnamon Stick Apple Dippers",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -129137,78 +129778,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-STL",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -129224,8 +129885,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -129720,17 +130381,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -133795,46 +134469,26 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "4 honey crisp apples"
+          "qty_name": "Cinnamon French Toast Sticks, heated"
         },
         {
           "price": null,
-          "qty_name": "4 packets Kodiak Maple & Brown Sugar Oatmeal"
-        },
-        {
-          "price": null,
-          "qty_name": "1/3 cup brown sugar"
-        },
-        {
-          "price": null,
-          "qty_name": "4 tablespoons softened butter"
-        },
-        {
-          "price": null,
-          "qty_name": "1-1/2 teaspoons cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon salt"
-        },
-        {
-          "price": null,
-          "qty_name": "whipped cream"
+          "qty_name": "1/4 cup apple butter"
         }
       ],
       "lang": "en",
       "market": "US-MW-STL",
       "meta": {
-        "cook": "35 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "30 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: campfire-baked-apple-oats chosen deterministically for US-MW-STL|2026-09 among recipes naming the ingredient",
-          "recipe_id": "campfire-baked-apple-oats",
+          "reason": "ingredient rotation: cinnamon-stick-apple-dippers-draft chosen deterministically for US-MW-STL|2026-09 among recipes naming the ingredient",
+          "recipe_id": "cinnamon-stick-apple-dippers-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -133845,13 +134499,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "campfire-baked-apple-oats",
-        "name": "Campfire Baked Apple Oats"
+        "id": "cinnamon-stick-apple-dippers-draft",
+        "name": "Cinnamon Stick Apple Dippers"
       },
       "render": {
         "canvas": {
@@ -134346,15 +135002,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "GET a steady fire going and let it burn down until you have a nice bed of warm coals for cooking.",
-        "IN a bowl, combine Kodiak Cakes oatmeal, brown sugar, butter, cinnamon, and a pinch of salt. Set aside.",
-        "CAREFULLY hollow out the apples using a spoon. Take your time and be sure not to go all the way through the bottom—this helps keep the juices inside during cooking.",
-        "SPOON the prepared filling into each apple. Wrap each one tightly in parchment paper and then in foil, leaving a small opening at the top for venting.",
-        "USING tongs, place the wrapped apples in the bed of hot coals. Cook for about 30 minutes, rotating occasionally for even cooking.",
-        "USE tongs to carefully remove the apples from the fire. Let them cool for 5–10 minutes. Serve warm with a dollop of whipped cream."
+        "HEAT the sticks per package directions.",
+        "SERVE with apple butter for dipping."
       ],
       "substrate": "kraft",
-      "title": "Campfire Baked Apple Oats",
+      "title": "Cinnamon Stick Apple Dippers",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -136095,78 +136747,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-TC",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -136182,8 +136854,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -136673,17 +137345,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -140656,15 +141341,11 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 packets from the Oatmeal Packet Variety Pack"
+          "qty_name": "2 Peanut Butter Crunchy Bars"
         },
         {
           "price": null,
-          "qty_name": "3 cups sliced apples"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons butter, melted"
+          "qty_name": "2 apples, thinly sliced"
         }
       ],
       "lang": "en",
@@ -140678,8 +141359,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: oatmeal-variety-apple-crisp-draft chosen deterministically for US-MW-TC|2026-09 among recipes naming the ingredient",
-          "recipe_id": "oatmeal-variety-apple-crisp-draft",
+          "reason": "ingredient rotation: peanut-butter-crunchy-apple-nachos-draft chosen deterministically for US-MW-TC|2026-09 among recipes naming the ingredient",
+          "recipe_id": "peanut-butter-crunchy-apple-nachos-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -140697,8 +141378,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "oatmeal-variety-apple-crisp-draft",
-        "name": "Oatmeal Variety Apple Crisp"
+        "id": "peanut-butter-crunchy-apple-nachos-draft",
+        "name": "Peanut Butter Crunchy Apple Nachos"
       },
       "render": {
         "canvas": {
@@ -141188,12 +141869,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 375 degrees Fahrenheit. Layer the apples in a baking dish.",
-        "STIR the dry packet contents with the butter and scatter over the apples.",
-        "BAKE 25 minutes until bubbling. Rest 10 minutes before serving."
+        "MELT the bars 20 seconds, stirring once.",
+        "FAN the apple slices on a plate and drizzle with the melted bars."
       ],
       "substrate": "kraft",
-      "title": "Oatmeal Variety Apple Crisp",
+      "title": "Peanut Butter Crunchy Apple Nachos",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -143478,78 +144158,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-WASATCH",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -143565,8 +144265,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -144050,17 +144750,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -147408,78 +148121,34 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "2 Cinnamon Oat & Apple Breakfast Bars, crumbled"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "3 cups sliced apples"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1 tablespoon butter, melted"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
-        },
-        {
-          "price": null,
-          "qty_name": "1 egg, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "2 ripe bananas, mashed"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "4 oz applesauce"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
-        },
-        {
-          "price": null,
-          "qty_name": "Chocolate chips"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh Berries"
-        },
-        {
-          "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1/2 teaspoon cinnamon"
         }
       ],
       "lang": "en",
       "market": "US-MW-WASATCH",
       "meta": {
-        "cook": "30 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: breakfast-cake chosen deterministically for US-MW-WASATCH|2026-09 among recipes naming the ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient rotation: cinnamon-oat-apple-bar-crisp-draft chosen deterministically for US-MW-WASATCH|2026-09 among recipes naming the ingredient",
+          "recipe_id": "cinnamon-oat-apple-bar-crisp-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -147490,13 +148159,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "cinnamon-oat-apple-bar-crisp-draft",
+        "name": "Cinnamon Oat Apple Bar Crisp"
       },
       "render": {
         "canvas": {
@@ -147980,17 +148651,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "HEAT the oven to 375 degrees Fahrenheit. Toss the apples with butter and cinnamon in a baking dish.",
+        "SCATTER the crumbled bars over the top without stirring.",
+        "BAKE 20-25 minutes until bubbling. Rest 5 minutes before serving."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Cinnamon Oat Apple Bar Crisp",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -149687,78 +150353,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-MW-WASATCH-SLC",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -149774,8 +150460,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -150268,17 +150954,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -156588,78 +157287,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-NE-BALTIMORE",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -156675,8 +157394,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -157152,17 +157871,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -161644,15 +162376,11 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Honey Oat & Almond Overnight Oats cup"
+          "qty_name": "Cinnamon French Toast Sticks, heated"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup milk"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 apple, diced"
+          "qty_name": "1/4 cup apple butter"
         }
       ],
       "lang": "en",
@@ -161666,8 +162394,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: honey-almond-overnight-jars-draft chosen deterministically for US-NE-BALTIMORE|2026-10 among recipes naming the ingredient",
-          "recipe_id": "honey-almond-overnight-jars-draft",
+          "reason": "ingredient rotation: cinnamon-stick-apple-dippers-draft chosen deterministically for US-NE-BALTIMORE|2026-10 among recipes naming the ingredient",
+          "recipe_id": "cinnamon-stick-apple-dippers-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -161685,8 +162413,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "honey-almond-overnight-jars-draft",
-        "name": "Honey Almond Overnight Jars"
+        "id": "cinnamon-stick-apple-dippers-draft",
+        "name": "Cinnamon Stick Apple Dippers"
       },
       "render": {
         "canvas": {
@@ -162162,11 +162890,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STIR the milk into the cup, cover, and refrigerate overnight.",
-        "TOP with diced apple and serve chilled."
+        "HEAT the sticks per package directions.",
+        "SERVE with apple butter for dipping."
       ],
       "substrate": "kraft",
-      "title": "Honey Almond Overnight Jars",
+      "title": "Cinnamon Stick Apple Dippers",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -163295,78 +164023,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-NE-BOS",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -163382,8 +164130,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -163871,17 +164619,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -167858,23 +168619,43 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Apple Cinnamon Compote"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 pounds apples"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1-1/4 cup water"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon brown sugar"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup plus 1 tablespoon honey"
+          "qty_name": "1⁄4 cup of ice water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
+        },
+        {
+          "price": null,
+          "qty_name": "Filling:"
+        },
+        {
+          "price": null,
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
@@ -167882,42 +168663,54 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "1 1/2 cup water"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "4 teaspoons honey"
+          "qty_name": "1 cup caramel sauce (jarred)"
         },
         {
           "price": null,
-          "qty_name": "4 tablespoons unsalted butter"
+          "qty_name": "Crumble:"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, for serving (optional)"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-NE-BOS",
       "meta": {
-        "cook": "35 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "4"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: apple-cinnamon-compote chosen deterministically for US-NE-BOS|2026-09 among recipes naming the ingredient",
-          "recipe_id": "apple-cinnamon-compote",
+          "reason": "ingredient rotation: caramel-apple-pie chosen deterministically for US-NE-BOS|2026-09 among recipes naming the ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -167933,8 +168726,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "apple-cinnamon-compote",
-        "name": "Apple Cinnamon Compote"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -168422,10 +169215,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Apple Cinnamon Compote",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -170738,78 +171551,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-NE-BURLINGTON",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -170825,8 +171658,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -171321,17 +172154,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -177061,78 +177907,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-NE-DC",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -177148,8 +178014,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -177626,17 +178492,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -181552,78 +182431,46 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "4 honey crisp apples"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "4 packets Kodiak Maple & Brown Sugar Oatmeal"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1/3 cup brown sugar"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "4 tablespoons softened butter"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1-1/2 teaspoons cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "4 oz applesauce"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
-        },
-        {
-          "price": null,
-          "qty_name": "Chocolate chips"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh Berries"
-        },
-        {
-          "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "whipped cream"
         }
       ],
       "lang": "en",
       "market": "US-NE-DC",
       "meta": {
-        "cook": "30 mins",
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "30 mins",
+        "serves": "4"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: breakfast-cake chosen deterministically for US-NE-DC|2026-09 among recipes naming the ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient rotation: campfire-baked-apple-oats chosen deterministically for US-NE-DC|2026-09 among recipes naming the ingredient",
+          "recipe_id": "campfire-baked-apple-oats",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -181639,8 +182486,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "campfire-baked-apple-oats",
+        "name": "Campfire Baked Apple Oats"
       },
       "render": {
         "canvas": {
@@ -182117,17 +182964,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "GET a steady fire going and let it burn down until you have a nice bed of warm coals for cooking.",
+        "IN a bowl, combine Kodiak Cakes oatmeal, brown sugar, butter, cinnamon, and a pinch of salt. Set aside.",
+        "CAREFULLY hollow out the apples using a spoon. Take your time and be sure not to go all the way through the bottom—this helps keep the juices inside during cooking.",
+        "SPOON the prepared filling into each apple. Wrap each one tightly in parchment paper and then in foil, leaving a small opening at the top for venting.",
+        "USING tongs, place the wrapped apples in the bed of hot coals. Cook for about 30 minutes, rotating occasionally for even cooking.",
+        "USE tongs to carefully remove the apples from the fire. Let them cool for 5–10 minutes. Serve warm with a dollop of whipped cream."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Campfire Baked Apple Oats",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -183825,78 +184670,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-NE-HARTFORD",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -183912,8 +184777,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -184380,17 +185245,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -188254,15 +189132,19 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Honey Oat & Almond Overnight Oats cup"
+          "qty_name": "4 cups sliced apples"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup milk"
+          "qty_name": "2 tablespoons melted butter"
         },
         {
           "price": null,
-          "qty_name": "1/2 apple, diced"
+          "qty_name": "1 tablespoon brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 1/2 cups Salted Caramel Granola"
         }
       ],
       "lang": "en",
@@ -188276,8 +189158,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: honey-almond-overnight-jars-draft chosen deterministically for US-NE-HARTFORD|2026-09 among recipes naming the ingredient",
-          "recipe_id": "honey-almond-overnight-jars-draft",
+          "reason": "ingredient rotation: salted-caramel-granola-crisp-draft chosen deterministically for US-NE-HARTFORD|2026-09 among recipes naming the ingredient",
+          "recipe_id": "salted-caramel-granola-crisp-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -188295,8 +189177,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "honey-almond-overnight-jars-draft",
-        "name": "Honey Almond Overnight Jars"
+        "id": "salted-caramel-granola-crisp-draft",
+        "name": "Salted Caramel Granola Crisp"
       },
       "render": {
         "canvas": {
@@ -188763,11 +189645,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STIR the milk into the cup, cover, and refrigerate overnight.",
-        "TOP with diced apple and serve chilled."
+        "HEAT the oven to 375 degrees Fahrenheit. Toss the apples with butter and brown sugar in a baking dish.",
+        "SCATTER the granola evenly over the top without stirring.",
+        "BAKE 25-30 minutes until the apples bubble and the topping is crisp. Rest 10 minutes before serving."
       ],
       "substrate": "kraft",
-      "title": "Honey Almond Overnight Jars",
+      "title": "Salted Caramel Granola Crisp",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -190413,78 +191296,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-NE-NYC",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -190500,8 +191403,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -190988,17 +191891,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -194997,46 +195913,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 can garbanzo beans rinsed and drained"
+          "qty_name": "Pie dough:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup almond butter"
+          "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup real maple syrup"
+          "qty_name": "1/2 teaspoons salt"
         },
         {
           "price": null,
-          "qty_name": "2 teaspoons vanilla extract"
+          "qty_name": "1 cup (2 sticks) butter, cold"
         },
         {
           "price": null,
-          "qty_name": "1-3 cup mini chocolate chips\r\n\r\n\r\n \r\n\r\nDippers:"
+          "qty_name": "1/2 cup ice water"
         },
         {
           "price": null,
-          "qty_name": "Kodiak Crunchy Granola Bars"
+          "qty_name": "1 tablespoon vinegar"
         },
         {
           "price": null,
-          "qty_name": "Fresh cut fruit (strawberries, apples, etc.)"
+          "qty_name": "Filling:"
+        },
+        {
+          "price": null,
+          "qty_name": "8 granny smith apples, peeled and sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup flour"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon ground nutmeg"
+        },
+        {
+          "price": null,
+          "qty_name": "Other:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg white"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "A pinch of salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons coarse sugar for topping"
         }
       ],
       "lang": "en",
       "market": "US-NE-NYC",
       "meta": {
-        "cook": null,
+        "cook": "60 mins",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "8"
+        "prep": "60+",
+        "serves": "10"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cookie-dough-hummus chosen deterministically for US-NE-NYC|2026-09 among recipes naming the ingredient",
-          "recipe_id": "cookie-dough-hummus",
+          "reason": "ingredient rotation: apple-pie chosen deterministically for US-NE-NYC|2026-09 among recipes naming the ingredient",
+          "recipe_id": "apple-pie",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -195052,8 +196020,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "cookie-dough-hummus",
-        "name": "Cookie Dough Hummus"
+        "id": "apple-pie",
+        "name": "Apple Pie"
       },
       "render": {
         "canvas": {
@@ -195540,12 +196508,28 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "IN a blender or food processor, combine the chickpeas, almond butter, maple syrup, and vanilla extract. Blend until smooth and creamy.",
-        "TRANSFER the mixture to a bowl and stir in the mini chocolate chips.",
-        "ENJOY immediately with preferred dippers (we're partial to Chocolate Chip Crunchy Granola Bars 😉), or store in an airtight container in the refrigerator for up to 5 days."
+        "IN a large bowl, combine Kodiak Cakes mix and salt.",
+        "WORK the cold, cubed butter into the mix by hand or using a pastry cutter until crumbly.",
+        "MIX in ice water and vinegar until a dough is formed. If the mixture is crumbly, add 1 tbsp. water at a time only until the dough comes together.",
+        "DIVIDE the dough into two pieces and flatten into discs. Wrap in plastic and refrigerate for at least 3 hours.",
+        "MEANWHILE, combine the apples, granulated sugar, brown sugar, lemon juice, flour, vanilla, cinnamon, and nutmeg.",
+        "ON a floured surface, roll one disc of dough about 1/8-inch to 1/4-inch thick.",
+        "TRANSFER the dough into a 9-inch pie pan and brush the bottom of the dough with egg white to create a barrier between the crust and the fruit filling.",
+        "FILL with apple mixture.",
+        "ROLL out the second disc of pie dough and cut into about twelve 1-inch strips. For thin strips, cut the 1-inch strips in half.",
+        "FORM the lattice by arranging half of the strips horizontally across the pie. Place the remaining strips vertically while threading under and over every other horizontal strip.",
+        "USE scissors to cut all except 1-inch of excess dough from the rim of the pan.",
+        "FOLD the extra dough under itself at the rim to form a crust and press with a fork or crimp.",
+        "(Optional) Use leaf pie-cutters to create shapes out of the excess dough to decorate the top of the pie.",
+        "FREEZE the pie for 15-20 minutes.",
+        "PREHEAT oven to 425° F.",
+        "CRACK the egg into a small bowl, add a pinch of salt, and whisk to break up the yolk and the white.",
+        "BRUSH the egg over the pie dough and sprinkle lightly with coarse sugar.",
+        "BAKE the pie at 425° F for 20 minutes.",
+        "REDUCE the temperature to 350° F and continue to bake for 40-45 minutes or until the apple filling begins to bubble and the crust is golden."
       ],
       "substrate": "kraft",
-      "title": "Cookie Dough Hummus",
+      "title": "Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -202663,66 +203647,30 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Apple Cinnamon Compote"
+          "qty_name": "1 Honey Oat & Almond Overnight Oats cup"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 pounds apples"
+          "qty_name": "1/2 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1-1/4 cup water"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon brown sugar"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup plus 1 tablespoon honey"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
-        },
-        {
-          "price": null,
-          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
-        },
-        {
-          "price": null,
-          "qty_name": "1 1/2 cup water"
-        },
-        {
-          "price": null,
-          "qty_name": "4 teaspoons honey"
-        },
-        {
-          "price": null,
-          "qty_name": "4 tablespoons unsalted butter"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, for serving (optional)"
+          "qty_name": "1/2 apple, diced"
         }
       ],
       "lang": "en",
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "35 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: apple-cinnamon-compote chosen deterministically for US-NE-PHILLY|2026-10 among recipes naming the ingredient",
-          "recipe_id": "apple-cinnamon-compote",
+          "reason": "ingredient rotation: honey-almond-overnight-jars-draft chosen deterministically for US-NE-PHILLY|2026-10 among recipes naming the ingredient",
+          "recipe_id": "honey-almond-overnight-jars-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -202733,13 +203681,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "apple-cinnamon-compote",
-        "name": "Apple Cinnamon Compote"
+        "id": "honey-almond-overnight-jars-draft",
+        "name": "Honey Almond Overnight Jars"
       },
       "render": {
         "canvas": {
@@ -203250,10 +204200,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
+        "STIR the milk into the cup, cover, and refrigerate overnight.",
+        "TOP with diced apple and serve chilled."
       ],
       "substrate": "kraft",
-      "title": "Apple Cinnamon Compote",
+      "title": "Honey Almond Overnight Jars",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -204455,78 +205406,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-NE-PROVIDENCE",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -204542,8 +205513,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -205020,17 +205991,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -208939,31 +209923,15 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 can garbanzo beans rinsed and drained"
+          "qty_name": "2 packets from the Oatmeal Packet Variety Pack"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup almond butter"
+          "qty_name": "3 cups sliced apples"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup real maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "2 teaspoons vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "1-3 cup mini chocolate chips\r\n\r\n\r\n \r\n\r\nDippers:"
-        },
-        {
-          "price": null,
-          "qty_name": "Kodiak Crunchy Granola Bars"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh cut fruit (strawberries, apples, etc.)"
+          "qty_name": "2 tablespoons butter, melted"
         }
       ],
       "lang": "en",
@@ -208971,14 +209939,14 @@ window.KODIAK_RECIPE_CARDS = {
       "meta": {
         "cook": null,
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "8"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cookie-dough-hummus chosen deterministically for US-NE-PROVIDENCE|2026-09 among recipes naming the ingredient",
-          "recipe_id": "cookie-dough-hummus",
+          "reason": "ingredient rotation: oatmeal-variety-apple-crisp-draft chosen deterministically for US-NE-PROVIDENCE|2026-09 among recipes naming the ingredient",
+          "recipe_id": "oatmeal-variety-apple-crisp-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -208989,13 +209957,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "cookie-dough-hummus",
-        "name": "Cookie Dough Hummus"
+        "id": "oatmeal-variety-apple-crisp-draft",
+        "name": "Oatmeal Variety Apple Crisp"
       },
       "render": {
         "canvas": {
@@ -209472,12 +210442,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "IN a blender or food processor, combine the chickpeas, almond butter, maple syrup, and vanilla extract. Blend until smooth and creamy.",
-        "TRANSFER the mixture to a bowl and stir in the mini chocolate chips.",
-        "ENJOY immediately with preferred dippers (we're partial to Chocolate Chip Crunchy Granola Bars 😉), or store in an airtight container in the refrigerator for up to 5 days."
+        "HEAT the oven to 375 degrees Fahrenheit. Layer the apples in a baking dish.",
+        "STIR the dry packet contents with the butter and scatter over the apples.",
+        "BAKE 25 minutes until bubbling. Rest 10 minutes before serving."
       ],
       "substrate": "kraft",
-      "title": "Cookie Dough Hummus",
+      "title": "Oatmeal Variety Apple Crisp",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -216133,26 +217103,46 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 Peanut Butter Crunchy Bars"
+          "qty_name": "4 honey crisp apples"
         },
         {
           "price": null,
-          "qty_name": "2 apples, thinly sliced"
+          "qty_name": "4 packets Kodiak Maple & Brown Sugar Oatmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons softened butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "whipped cream"
         }
       ],
       "lang": "en",
       "market": "US-NE-RALEIGH",
       "meta": {
-        "cook": null,
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30 mins",
+        "serves": "4"
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: peanut-butter-crunchy-apple-nachos-draft chosen deterministically for US-NE-RALEIGH|2026-10 among recipes naming the ingredient",
-          "recipe_id": "peanut-butter-crunchy-apple-nachos-draft",
+          "reason": "ingredient rotation: campfire-baked-apple-oats chosen deterministically for US-NE-RALEIGH|2026-10 among recipes naming the ingredient",
+          "recipe_id": "campfire-baked-apple-oats",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -216163,15 +217153,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "peanut-butter-crunchy-apple-nachos-draft",
-        "name": "Peanut Butter Crunchy Apple Nachos"
+        "id": "campfire-baked-apple-oats",
+        "name": "Campfire Baked Apple Oats"
       },
       "render": {
         "canvas": {
@@ -216647,11 +217635,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MELT the bars 20 seconds, stirring once.",
-        "FAN the apple slices on a plate and drizzle with the melted bars."
+        "GET a steady fire going and let it burn down until you have a nice bed of warm coals for cooking.",
+        "IN a bowl, combine Kodiak Cakes oatmeal, brown sugar, butter, cinnamon, and a pinch of salt. Set aside.",
+        "CAREFULLY hollow out the apples using a spoon. Take your time and be sure not to go all the way through the bottom—this helps keep the juices inside during cooking.",
+        "SPOON the prepared filling into each apple. Wrap each one tightly in parchment paper and then in foil, leaving a small opening at the top for venting.",
+        "USING tongs, place the wrapped apples in the bed of hot coals. Cook for about 30 minutes, rotating occasionally for even cooking.",
+        "USE tongs to carefully remove the apples from the fire. Let them cool for 5–10 minutes. Serve warm with a dollop of whipped cream."
       ],
       "substrate": "kraft",
-      "title": "Peanut Butter Crunchy Apple Nachos",
+      "title": "Campfire Baked Apple Oats",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -217794,78 +218786,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-OH-CINCINNATI",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -217881,8 +218893,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -218404,17 +219416,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -223172,11 +224197,15 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Cinnamon French Toast Sticks, heated"
+          "qty_name": "1 Peanut Butter Chocolate Chip Oatmeal Cup"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup apple butter"
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 apple, diced"
         }
       ],
       "lang": "en",
@@ -223190,8 +224219,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cinnamon-stick-apple-dippers-draft chosen deterministically for US-OH-CINCINNATI|2026-10 among recipes naming the ingredient",
-          "recipe_id": "cinnamon-stick-apple-dippers-draft",
+          "reason": "ingredient rotation: pb-chip-oatmeal-apple-bowl-draft chosen deterministically for US-OH-CINCINNATI|2026-10 among recipes naming the ingredient",
+          "recipe_id": "pb-chip-oatmeal-apple-bowl-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -223209,8 +224238,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "cinnamon-stick-apple-dippers-draft",
-        "name": "Cinnamon Stick Apple Dippers"
+        "id": "pb-chip-oatmeal-apple-bowl-draft",
+        "name": "PB Chip Oatmeal Apple Bowl"
       },
       "render": {
         "canvas": {
@@ -223732,11 +224761,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sticks per package directions.",
-        "SERVE with apple butter for dipping."
+        "PREPARE the cup with milk per package directions.",
+        "STIR in the diced apple and serve at once."
       ],
       "substrate": "kraft",
-      "title": "Cinnamon Stick Apple Dippers",
+      "title": "PB Chip Oatmeal Apple Bowl",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -224972,78 +226001,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -225059,8 +226108,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -225581,17 +226630,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -260040,78 +261102,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-SE-ASHEVILLE",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -260127,8 +261209,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -260648,17 +261730,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -264271,78 +265366,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-SE-ASHEVILLE",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "fall",
           "source": "ingredient-overlap"
         },
@@ -264358,8 +265473,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -264879,17 +265994,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -264903,78 +266031,34 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "2 Cinnamon Oat & Apple Breakfast Bars, crumbled"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "3 cups sliced apples"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1 tablespoon butter, melted"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
-        },
-        {
-          "price": null,
-          "qty_name": "1 egg, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "2 ripe bananas, mashed"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "4 oz applesauce"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
-        },
-        {
-          "price": null,
-          "qty_name": "Chocolate chips"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh Berries"
-        },
-        {
-          "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1/2 teaspoon cinnamon"
         }
       ],
       "lang": "en",
       "market": "US-SE-ASHEVILLE",
       "meta": {
-        "cook": "30 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: breakfast-cake chosen deterministically for US-SE-ASHEVILLE|2026-10 among recipes naming the ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient rotation: cinnamon-oat-apple-bar-crisp-draft chosen deterministically for US-SE-ASHEVILLE|2026-10 among recipes naming the ingredient",
+          "recipe_id": "cinnamon-oat-apple-bar-crisp-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -264985,13 +266069,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "cinnamon-oat-apple-bar-crisp-draft",
+        "name": "Cinnamon Oat Apple Bar Crisp"
       },
       "render": {
         "canvas": {
@@ -265511,17 +266597,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "HEAT the oven to 375 degrees Fahrenheit. Toss the apples with butter and cinnamon in a baking dish.",
+        "SCATTER the crumbled bars over the top without stirring.",
+        "BAKE 20-25 minutes until bubbling. Rest 5 minutes before serving."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Cinnamon Oat Apple Bar Crisp",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -285003,11 +286084,15 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 Peanut Butter Crunchy Bars"
+          "qty_name": "3 Snickerdoodle Protein Balls, crumbled"
         },
         {
           "price": null,
-          "qty_name": "2 apples, thinly sliced"
+          "qty_name": "1 cup plain yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 apple, diced"
         }
       ],
       "lang": "en",
@@ -285021,8 +286106,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: peanut-butter-crunchy-apple-nachos-draft chosen deterministically for US-SE-CHARLOTTE|2026-10 among recipes naming the ingredient",
-          "recipe_id": "peanut-butter-crunchy-apple-nachos-draft",
+          "reason": "ingredient rotation: snickerdoodle-ball-sundae-draft chosen deterministically for US-SE-CHARLOTTE|2026-10 among recipes naming the ingredient",
+          "recipe_id": "snickerdoodle-ball-sundae-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -285040,8 +286125,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "peanut-butter-crunchy-apple-nachos-draft",
-        "name": "Peanut Butter Crunchy Apple Nachos"
+        "id": "snickerdoodle-ball-sundae-draft",
+        "name": "Snickerdoodle Ball Sundae"
       },
       "render": {
         "canvas": {
@@ -285516,11 +286601,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MELT the bars 20 seconds, stirring once.",
-        "FAN the apple slices on a plate and drizzle with the melted bars."
+        "LAYER yogurt, diced apple, and crumbled balls in two glasses.",
+        "SERVE at once."
       ],
       "substrate": "kraft",
-      "title": "Peanut Butter Crunchy Apple Nachos",
+      "title": "Snickerdoodle Ball Sundae",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -314272,78 +315357,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-SE-LOU",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -314359,8 +315464,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -314843,17 +315948,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -318820,26 +319938,46 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 Peanut Butter Crunchy Bars"
+          "qty_name": "4 honey crisp apples"
         },
         {
           "price": null,
-          "qty_name": "2 apples, thinly sliced"
+          "qty_name": "4 packets Kodiak Maple & Brown Sugar Oatmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons softened butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "whipped cream"
         }
       ],
       "lang": "en",
       "market": "US-SE-LOU",
       "meta": {
-        "cook": null,
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30 mins",
+        "serves": "4"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: peanut-butter-crunchy-apple-nachos-draft chosen deterministically for US-SE-LOU|2026-09 among recipes naming the ingredient",
-          "recipe_id": "peanut-butter-crunchy-apple-nachos-draft",
+          "reason": "ingredient rotation: campfire-baked-apple-oats chosen deterministically for US-SE-LOU|2026-09 among recipes naming the ingredient",
+          "recipe_id": "campfire-baked-apple-oats",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -318850,15 +319988,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "peanut-butter-crunchy-apple-nachos-draft",
-        "name": "Peanut Butter Crunchy Apple Nachos"
+        "id": "campfire-baked-apple-oats",
+        "name": "Campfire Baked Apple Oats"
       },
       "render": {
         "canvas": {
@@ -319341,11 +320477,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "MELT the bars 20 seconds, stirring once.",
-        "FAN the apple slices on a plate and drizzle with the melted bars."
+        "GET a steady fire going and let it burn down until you have a nice bed of warm coals for cooking.",
+        "IN a bowl, combine Kodiak Cakes oatmeal, brown sugar, butter, cinnamon, and a pinch of salt. Set aside.",
+        "CAREFULLY hollow out the apples using a spoon. Take your time and be sure not to go all the way through the bottom—this helps keep the juices inside during cooking.",
+        "SPOON the prepared filling into each apple. Wrap each one tightly in parchment paper and then in foil, leaving a small opening at the top for venting.",
+        "USING tongs, place the wrapped apples in the bed of hot coals. Cook for about 30 minutes, rotating occasionally for even cooking.",
+        "USE tongs to carefully remove the apples from the fire. Let them cool for 5–10 minutes. Serve warm with a dollop of whipped cream."
       ],
       "substrate": "kraft",
-      "title": "Peanut Butter Crunchy Apple Nachos",
+      "title": "Campfire Baked Apple Oats",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -332485,78 +333625,30 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "2 packets from the Oatmeal Packet Variety Pack"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "3 cups sliced apples"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
-        },
-        {
-          "price": null,
-          "qty_name": "1 egg, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "2 ripe bananas, mashed"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "4 oz applesauce"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
-        },
-        {
-          "price": null,
-          "qty_name": "Chocolate chips"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh Berries"
-        },
-        {
-          "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "2 tablespoons butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-SE-NASH",
       "meta": {
-        "cook": "30 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: breakfast-cake chosen deterministically for US-SE-NASH|2026-09 among recipes naming the ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient rotation: oatmeal-variety-apple-crisp-draft chosen deterministically for US-SE-NASH|2026-09 among recipes naming the ingredient",
+          "recipe_id": "oatmeal-variety-apple-crisp-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -332567,13 +333659,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "oatmeal-variety-apple-crisp-draft",
+        "name": "Oatmeal Variety Apple Crisp"
       },
       "render": {
         "canvas": {
@@ -333062,17 +334156,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "HEAT the oven to 375 degrees Fahrenheit. Layer the apples in a baking dish.",
+        "STIR the dry packet contents with the butter and scatter over the apples.",
+        "BAKE 25 minutes until bubbling. Rest 10 minutes before serving."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Oatmeal Variety Apple Crisp",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -362040,78 +363129,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-SW-CLOUDCROFT",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -362127,8 +363236,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -362622,17 +363731,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -403023,78 +404145,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-SW-SANTA FE",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -403110,8 +404252,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -403530,17 +404672,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -419292,78 +420447,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-SW-TULAROSA",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "summer",
           "source": "ingredient-overlap"
         },
@@ -419379,8 +420554,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -419877,17 +421052,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -441879,78 +443067,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-W-BEND",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "fall",
           "source": "ingredient-overlap"
         },
@@ -441966,8 +443174,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -442460,17 +443668,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -443602,78 +444823,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-W-BOULDER",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -443689,8 +444930,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -444199,17 +445440,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -464487,78 +465741,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-W-PDX",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -464574,8 +465848,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -465051,17 +466325,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -492019,78 +493306,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-W-SD",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -492106,8 +493413,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -492619,17 +493926,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -496787,26 +498107,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Cinnamon French Toast Sticks, heated"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup apple butter"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄4 cup shortening"
+        },
+        {
+          "price": null,
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄4 cup of ice water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
+        },
+        {
+          "price": null,
+          "qty_name": "Filling:"
+        },
+        {
+          "price": null,
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon cornstarch"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄4 teaspoon ground cloves"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄4 teaspoon ground allspice"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-W-SD",
       "meta": {
-        "cook": null,
+        "cook": "60",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cinnamon-stick-apple-dippers-draft chosen deterministically for US-W-SD|2026-09 among recipes naming the ingredient",
-          "recipe_id": "cinnamon-stick-apple-dippers-draft",
+          "reason": "ingredient rotation: caramel-apple-pie chosen deterministically for US-W-SD|2026-09 among recipes naming the ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -496817,15 +498209,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "cinnamon-stick-apple-dippers-draft",
-        "name": "Cinnamon Stick Apple Dippers"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -497337,11 +498727,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sticks per package directions.",
-        "SERVE with apple butter for dipping."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Cinnamon Stick Apple Dippers",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -499155,78 +500564,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-W-SEA",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -499242,8 +500671,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -499723,17 +501152,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -512950,78 +514392,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-W-SPOKANE",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -513037,8 +514499,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -513518,17 +514980,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -526407,78 +527882,98 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup brown sugar"
+          "qty_name": "2-1⁄2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon ground cinnamon"
+          "qty_name": "1⁄4 cup shortening"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk, room temperature"
+          "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
         },
         {
           "price": null,
-          "qty_name": "1 Tablespoon butter, melted"
+          "qty_name": "1⁄4 cup of ice water"
         },
         {
           "price": null,
-          "qty_name": "1 egg, room temperature"
+          "qty_name": "1 egg, beaten (optional, used over for crust decor)"
         },
         {
           "price": null,
-          "qty_name": "2 ripe bananas, mashed"
+          "qty_name": "Filling:"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "5 Granny Smith apples, peeled, cored, and sliced"
         },
         {
           "price": null,
-          "qty_name": "4 oz applesauce"
+          "qty_name": "1⁄2 cup brown sugar, packed"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup of pumpkin purée"
+          "qty_name": "1 tablespoon cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup all-purpose flour, if needed"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "1⁄4 teaspoon ground cloves"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips"
+          "qty_name": "1⁄4 teaspoon ground allspice"
         },
         {
           "price": null,
-          "qty_name": "Fresh Berries"
+          "qty_name": "2 teaspoons vanilla"
         },
         {
           "price": null,
-          "qty_name": "Sliced apples"
+          "qty_name": "1 cup caramel sauce (jarred)"
+        },
+        {
+          "price": null,
+          "qty_name": "Crumble:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄2 cup brown sugar, packed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1⁄3 cup butter, melted"
         }
       ],
       "lang": "en",
       "market": "US-W-YAKIMA",
       "meta": {
-        "cook": "30 mins",
+        "cook": "60",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8"
+        "prep": "60",
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
-          "recipe_id": "breakfast-cake",
+          "reason": "ingredient overlap: caramel-apple-pie has the best token overlap with the in-season ingredient",
+          "recipe_id": "caramel-apple-pie",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -526494,8 +527989,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "breakfast-cake",
-        "name": "Breakfast Cake"
+        "id": "caramel-apple-pie",
+        "name": "Caramel Apple Pie"
       },
       "render": {
         "canvas": {
@@ -526973,17 +528468,30 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
-        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
-        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
-        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
-        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
-        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
-        "LET cool for 10-15 minutes in the baking dish before slicing.",
-        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+        "CRUST:",
+        "PLACE the Kodiak Cakes mix in the food processor bowl fitted with an 's' blade.",
+        "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+        "WITH the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a consistent dough.",
+        "DIVIDE the dough in 3⁄4” and 1⁄4” portions. Wrap up the quarter portion and set aside.",
+        "ROLL the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1.5-2” larger in circumference than your pie dish.",
+        "PLACE the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1⁄2”.",
+        "CUT the dough about 1⁄2” in from the rim.",
+        "SET aside and make the pie filling.",
+        "FILLING:",
+        "ADD the sliced apples, brown sugar, cornstarch, cinnamon, cloves, allspice, and vanilla to a large bowl and toss together until the apples are coated. Add the caramel sauce and toss until well distributed.",
+        "SPOON the filling into the dough-filled pie dish and pack down so there are no large spaces between apple slices.",
+        "SET aside.",
+        "CRUMBLE:",
+        "PREHEAT the oven to 375 °F.",
+        "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+        "SPRINKLE the crumbles evenly over the top of the apples.",
+        "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+        "PLACE a tin foil tent over the top of the pie.",
+        "BAKE in the preheated oven for 45 minutes. Remove the tin foil and bake for an additional 15-20 minutes, or until the filling is bubbling.",
+        "REMOVE and let cool. Serve warm with additional caramel sauce, if desired."
       ],
       "substrate": "kraft",
-      "title": "Breakfast Cake",
+      "title": "Caramel Apple Pie",
       "variant": "hero-plus-layout"
     },
     "2026-02": {

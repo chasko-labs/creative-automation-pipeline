@@ -779,6 +779,31 @@ def test_september_serves_carry_local_heroes():
         assert (repo / src).is_file(), f"{rid}: missing {src}"
 
 
+def test_apple_pies_enriched_from_brand_pages():
+    # apple-pie and caramel-apple-pie were one-line records (caramel had
+    # no ingredient lines at all and the vague "Kodiak Cakes" mix).
+    # Filled from the brand's blog pages: 20 ingredient lines and 19/21
+    # steps each, Buttermilk mix on both, on-disk photos. Times kept
+    # source-verbatim, including apple-pie's "60+" prep (60-plus, not a
+    # typo for 60).
+    from pathlib import Path
+
+    from creative_automation.recipe_card import _recipe_by_id
+
+    repo = Path(__file__).resolve().parent.parent
+    for rid in ("apple-pie", "caramel-apple-pie"):
+        recipe = _recipe_by_id(rid)
+        assert recipe is not None, rid
+        assert len(recipe.get("ingredients") or []) >= 4, rid
+        assert len(recipe.get("instructions") or []) >= 3, rid
+        assert "Buttermilk" in (recipe.get("product") or ""), rid
+        assert re.match(r"^\d+\+?( mins)?$", recipe.get("prepTime") or ""), rid
+        assert re.match(r"^\d+\+?( mins)?$", recipe.get("cookTime") or ""), rid
+        src = recipe.get("image") or ""
+        assert not str(src).startswith(("http://", "https://")), rid
+        assert (repo / src).is_file(), f"{rid}: missing {src}"
+
+
 def test_conjunction_split_month_serves_each_named_item():
     # "green and red chile" contains the words "green" and "chile" but not
     # the contiguous phrase "green chile". The word-level fallback match
