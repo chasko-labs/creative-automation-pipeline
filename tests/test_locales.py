@@ -49,6 +49,17 @@ def test_sf_and_pescadero_pairs_present_and_mapped():
     assert sf.ingredient_for("2026-04") == "artichokes"
 
 
+def test_next_year_unfilled_month_degrades_gracefully():
+    # pairs data is authored per calendar year; a future year with no authored
+    # months keeps the pair but yields no ingredient — callers fall back,
+    # nothing raises.
+    got = resolve_this_month("US-SE-ATL", ym="2027-09")
+    assert got is not None
+    assert got["market"] == "US-SE-ATL"
+    assert got["month"] == "2027-09"
+    assert got["ingredient"] is None
+
+
 def test_unknown_market_returns_none():
     assert resolve_pair("US-XX-NOWHERE") is None
     assert resolve_this_month("US-XX-NOWHERE") is None
