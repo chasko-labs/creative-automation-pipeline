@@ -41,6 +41,11 @@ describe('one-screen load: brainstorm collapse', () => {
     const tag = index.slice(index.lastIndexOf('<details', index.indexOf('id="previewCard"')), index.indexOf('id="previewCard"'));
     expect(tag).not.toMatch(/\bopen\b/);
     expect(generate).toMatch(/function openPreviewCard\(\)/);
+    // fold guard: a closed card must not lay out its ~2000px body (author
+    // display rules beat the UA closed-details rule, so the guard hides it
+    // and re-syncs on every toggle).
+    expect(generate).toMatch(/function syncPreviewCardBody\(\)/);
+    expect(generate).toMatch(/addEventListener\('toggle', syncPreviewCardBody\)/);
   });
 
   it('nests reach, market, season, direction, products, and staged assets inside', () => {

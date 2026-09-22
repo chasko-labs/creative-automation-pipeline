@@ -620,7 +620,7 @@ let skuList = [
   function syncPreviewCardBody(){
     const card = /** @type {HTMLDetailsElement|null} */ (document.getElementById('previewCard'));
     if(!card) return;
-    const body = card.querySelector(':scope > .body');
+    const body = /** @type {HTMLElement|null} */ (card.querySelector(':scope > .body'));
     if(!body) return;
     if(card.open){ body.hidden = false; body.style.display = ''; }
     else { body.hidden = true; body.style.display = 'none'; }
