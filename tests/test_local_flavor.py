@@ -455,3 +455,28 @@ def test_okc_pecans_to_okra():
     assert "stored pecans" in local_flavor_for("US-SW-OKC", month=1)["produce"]
     assert "okra" in local_flavor_for("US-SW-OKC", month=9)["produce"]
     assert "sweet potatoes" in local_flavor_for("US-SW-OKC", month=12)["produce"]
+
+
+def test_hartford_maple_to_honey():
+    # Connecticut: maple Feb, honey Dec
+    assert "maple syrup" in local_flavor_for("US-NE-HARTFORD", month=2)["produce"]
+    assert "honey" in local_flavor_for("US-NE-HARTFORD", month=12)["produce"]
+
+
+def test_providence_cider_to_squash():
+    # Rhode Island: fresh cider Oct, winter squash Dec
+    assert "fresh cider" in local_flavor_for("US-NE-PROVIDENCE", month=10)["produce"]
+    assert "winter squash" in local_flavor_for("US-NE-PROVIDENCE", month=12)["produce"]
+
+
+def test_yakima_cherries_to_concord():
+    # Yakima Valley: cherries Jun peak, Concord grapes Oct
+    assert "cherries" in local_flavor_for("US-W-YAKIMA", month=6)["produce"]
+    assert "Concord grapes" in local_flavor_for("US-W-YAKIMA", month=10)["produce"]
+
+
+def test_pdx_leeks_to_hazelnuts():
+    # Willamette: leeks Mar, hazelnuts Nov, squash Dec
+    assert "leeks" in local_flavor_for("US-W-PDX", month=3)["produce"]
+    assert "hazelnuts" in local_flavor_for("US-W-PDX", month=11)["produce"]
+    assert "winter squash" in local_flavor_for("US-W-PDX", month=12)["produce"]
