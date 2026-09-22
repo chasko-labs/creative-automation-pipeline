@@ -95,6 +95,9 @@ describe('header untouched', () => {
     expect(index).toMatch(/mountPaperboardCards\(\s*'[^']*#generateCampaignSection[^']*#aboutTool/);
     expect(index).not.toMatch(/mountSheenRim/);
   });
+  it('engine boot stays behind the lab flag (demo path is CSS-only)', () => {
+    expect(index).toMatch(/ember3d/);
+  });
 });
 
 // Backlog: the about art band must sit flush on the About tool card, no gap.
