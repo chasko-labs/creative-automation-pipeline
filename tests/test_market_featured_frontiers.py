@@ -40,6 +40,22 @@ def test_mapping_covers_every_registry_market() -> None:
     )
 
 
+def test_api_registry_matches_frontend_finder() -> None:
+    # src/creative_automation resolves store-finder from the repo-root copy
+    # while the page ships the web copy; the sets must not drift or markets
+    # silently lose retailer/locality data on one surface.
+    web_finder = (
+        REPO_ROOT / "web" / "kodiak-posts-for-todays-frontier" / "data"
+        / "localization" / "store-finder-markets.json"
+    )
+    root_codes = {m["market"] for m in _load(REGISTRY)["markets"]}
+    web_codes = {m["market"] for m in _load(web_finder)["markets"]}
+    assert root_codes == web_codes, (
+        f"root-only: {sorted(root_codes - web_codes)} "
+        f"web-only: {sorted(web_codes - root_codes)}"
+    )
+
+
 def test_every_entry_has_place_ingredients_seasons_market_context() -> None:
     failures = []
     for code, entry in _load(MAPPING)["markets"].items():
