@@ -299,3 +299,28 @@ def test_detroit_blueberries_to_dry_beans():
     # Michigan: blueberries Jul, dry beans Dec
     assert "blueberries" in local_flavor_for("US-MW-DETROIT", month=7)["produce"]
     assert "Michigan dry beans" in local_flavor_for("US-MW-DETROIT", month=12)["produce"]
+
+
+def test_chicago_maple_to_cranberries():
+    # Illinois arc: maple Mar, cranberries Dec
+    assert "maple syrup" in local_flavor_for("US-MW-CHI", month=3)["produce"]
+    assert "cranberries" in local_flavor_for("US-MW-CHI", month=12)["produce"]
+
+
+def test_des_moines_rhubarb_to_honey():
+    # Iowa: rhubarb Apr, honey Dec; Marion corn covers high summer
+    assert "rhubarb" in local_flavor_for("US-MW-DESMOINES", month=4)["produce"]
+    assert "local honey" in local_flavor_for("US-MW-DESMOINES", month=12)["produce"]
+
+
+def test_indy_maple_to_popcorn():
+    # Indiana: maple Mar, Indiana-grown popcorn Dec
+    assert "maple syrup" in local_flavor_for("US-MW-INDY", month=3)["produce"]
+    assert "popcorn (Indiana-grown)" in local_flavor_for("US-MW-INDY", month=12)["produce"]
+
+
+def test_san_diego_citrus_to_cider():
+    # Julian halo: lowland citrus Feb, apple cider Dec, peaches Jul peak
+    assert "citrus (lowland)" in local_flavor_for("US-W-SD", month=2)["produce"]
+    assert "peaches" in local_flavor_for("US-W-SD", month=7)["produce"]
+    assert "apple cider" in local_flavor_for("US-W-SD", month=12)["produce"]
