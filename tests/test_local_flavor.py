@@ -20,15 +20,15 @@ def test_known_market_in_season_month():
 
 
 def test_known_market_out_of_season_month():
-    # Boston January: deep winter, nothing scheduled yet — the honest empty
-    # shape (was Las Cruces January until storage onions/pecans were seeded;
-    # the contract is source + place resolve with produce []).
-    got = local_flavor_for("US-NE-BOS", month=1)
+    # Fargo January: deep winter, nothing scheduled yet — the honest empty
+    # shape (was Las Cruces, then Boston January until each was seeded; the
+    # contract is source + place resolve with produce []).
+    got = local_flavor_for("US-MW-FARGO", month=1)
     assert got["matched"] is True
     assert got["produce"] == []
     # source + months still resolve so the UI can render the sourcing line
     assert got["source"]
-    assert "Boston" in got["place"]
+    assert "Fargo" in got["place"]
 
 
 def test_default_fallback_for_unknown_market():
@@ -245,3 +245,32 @@ def test_phoenix_desert_two_citrus_peaks():
     assert "citrus (oranges and grapefruit)" in local_flavor_for("US-SW-PHX", month=1)["produce"]
     assert "dates" in local_flavor_for("US-SW-PHX", month=8)["produce"]
     assert "citrus (mandarins and grapefruit)" in local_flavor_for("US-SW-PHX", month=12)["produce"]
+
+
+def test_boston_oysters_to_cranberries():
+    # Massachusetts arc: aquaculture oysters Mar, cranberries Nov
+    assert "oysters" in local_flavor_for("US-NE-BOS", month=3)["produce"]
+    assert "cranberries" in local_flavor_for("US-NE-BOS", month=11)["produce"]
+    assert "oysters" not in local_flavor_for("US-NE-BOS", month=11)["produce"]
+
+
+def test_nyc_cherries_and_extended_onions():
+    # Hudson Valley: sweet cherries Jun; black-dirt onions run Jul-Sep
+    assert "sweet cherries" in local_flavor_for("US-NE-NYC", month=6)["produce"]
+    assert "black-dirt onions" in local_flavor_for("US-NE-NYC", month=7)["produce"]
+    assert "fresh cider" in local_flavor_for("US-NE-NYC", month=10)["produce"]
+
+
+def test_asheville_ramps_and_sourwood():
+    # Blue Ridge: ramps Apr, sourwood honey Jan storage and Jul fresh
+    assert "ramps" in local_flavor_for("US-SE-ASHEVILLE", month=4)["produce"]
+    jan = local_flavor_for("US-SE-ASHEVILLE", month=1)
+    assert "sourwood honey" in jan["produce"]
+    assert "mountain apples" not in jan["produce"]
+
+
+def test_spokane_cherries_to_honey():
+    # Inland NW: cherries Jun, Green Bluff peaches from Aug, honey Dec
+    assert "cherries" in local_flavor_for("US-W-SPOKANE", month=6)["produce"]
+    assert "peaches" in local_flavor_for("US-W-SPOKANE", month=8)["produce"]
+    assert "local honey" in local_flavor_for("US-W-SPOKANE", month=12)["produce"]

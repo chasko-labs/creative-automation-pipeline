@@ -989,6 +989,66 @@
             9,
             10
           ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "oysters",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "cranberries",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -1085,6 +1145,7 @@
         {
           "name": "black-dirt onions",
           "months": [
+            7,
             8,
             9
           ]
@@ -1094,6 +1155,72 @@
           "months": [
             8,
             9
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "sweet cherries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "fresh cider",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "storage onions",
+          "months": [
+            12
           ]
         }
       ]
@@ -1316,6 +1443,56 @@
           "months": [
             9,
             10
+          ]
+        },
+        {
+          "name": "sourwood honey",
+          "months": [
+            1,
+            7
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "cold-hardy greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "ramps",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11,
+            12
           ]
         }
       ]
@@ -2576,8 +2753,70 @@
         {
           "name": "peaches",
           "months": [
+            8,
             9,
             10
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "storage pears",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "cherries",
+          "months": [
+            6
+          ],
+          "peak": 6
+        },
+        {
+          "name": "apricots",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "local honey",
+          "months": [
+            12
           ]
         }
       ]
