@@ -543,20 +543,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   /* never wrap: single line, fluid size scales against the plate (cqi) so it fills near-full plate width on desktop and shrinks on narrow screens instead of wrapping. 4.4cqi is the driver (41 chars * ~0.55em gin cap-width => <=4.44cqi keeps the ~41-char title inside 100cqi at one line, no clip); floor 12px holds one line at 375px mobile; ceiling raised to 72px so the title can grow to fill wide desktop plates instead of capping at 30px and leaving dead space on the right. */
   white-space:nowrap;overflow:hidden;text-overflow:clip;
   font-size:clamp(12px, 4.4cqi, 34px)}
-/* === Status console, frontier art deco ===
-   The status strip keeps its exact layout; a chevron band along its top edge
-   gives the Zigzag Moderne read with zero layout cost — interlocking triangles
-   in blaze over a pine baseline, drifting slowly like a marquee chase.
-   Reduced-motion holds it still. Token var()s only, no glow, no new palette. */
-.ff-timeline{position:relative}
-.ff-timeline::before{content:"";position:absolute;top:3px;left:16px;right:16px;height:10px;pointer-events:none;opacity:.9;
-  background:
-    linear-gradient(135deg,var(--colors-brand-blaze-orange) 25%,transparent 25%) -8px 0/16px 10px repeat-x,
-    linear-gradient(225deg,var(--colors-brand-blaze-orange) 25%,transparent 25%) -8px 0/16px 10px repeat-x,
-    linear-gradient(0deg,var(--colors-brand-frontier-green) 2px,transparent 2px) 0 8px/100% 2px no-repeat;
-  animation:ff-chevronchase 12s linear infinite}
-@keyframes ff-chevronchase{to{background-position:32px 0,32px 0,0 8px}}
-@media(prefers-reduced-motion:reduce){.ff-timeline::before{animation:none}}
+/* Status console rizz (frontier art deco) lives here when it earns its place;
+   the strip itself stays calm: no band, no extra air, layout untouched. */
 
 /* C+D+E+F. control row — [market button] [seasonal menu] [featured-frontier + languages inline], one responsive row */
 /* rizz-1: align-items:center (was stretch) so the .ff-detail block's tall wrapped
@@ -895,7 +883,7 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 .ff-about-art{margin:0;line-height:0}
 /* the band sits flush on the About tool card — the .card top margin would float it */
 .ff-about-art+.ff-about{margin-top:0}
-.ff-about-art .ff-about-range{width:100%;height:var(--spacing-xl,32px);display:block}
+.ff-about-art .ff-about-range{width:100%;height:var(--spacing-2xl,48px);display:block}
 /* forest treeline divider - mirrors .ff-ridge, uses the conifer --forest silhouette */
 .ff-forest{height:var(--spacing-xl,32px);background:var(--forest) no-repeat center/100% var(--spacing-xl,32px);margin:var(--spacing-sm) 0 0}
 /* preview filenames line — hidden until populated */
@@ -1653,9 +1641,8 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 #brainstormAll[open] .ff-assetrow{background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);
   border-radius:var(--radii-md);padding:10px 12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
 #brainstormAll[open] .ff-brainstorm{display:flex;flex-direction:column;gap:var(--spacing-md,16px)}
-/* compressed load rhythm — each rule trims one load-view block.
-   timeline top padding holds the deco chevron band (10px + 3px offset). */
-.ff-timeline{padding:16px 12px 6px;margin-bottom:var(--spacing-xs,4px)}
+/* compressed load rhythm — each rule trims one load-view block */
+.ff-timeline{padding:8px 12px 6px;margin-bottom:var(--spacing-xs,4px)}
 .ff-setup{gap:var(--spacing-sm,8px)}
 .ff-setup-heading{font-size:15px}
 .body{padding:12px 16px}

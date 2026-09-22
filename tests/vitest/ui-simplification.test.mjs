@@ -86,16 +86,6 @@ describe('header untouched', () => {
   });
 });
 
-// Status console rizz: frontier art-deco chevron band, layout untouched,
-// still under reduced motion.
-describe('status console deco', () => {
-  it('rides a token-pure chevron band above the strip', () => {
-    expect(css).toMatch(/\.ff-timeline::before\{[^}]*linear-gradient\(135deg,var\(--colors-brand-blaze-orange\)/);
-    expect(css).toMatch(/@keyframes ff-chevronchase/);
-    expect(css).toMatch(/@media\(prefers-reduced-motion:reduce\)\{\.ff-timeline::before\{animation:none\}\}/);
-  });
-});
-
 // Backlog: the about art band must sit flush on the About tool card, no gap.
 describe('flush about art', () => {
   it('kills the card top margin where the band meets the tool', () => {

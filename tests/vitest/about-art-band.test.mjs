@@ -26,12 +26,10 @@ describe('about art band', () => {
     expect(body).not.toMatch(/<svg/);
   });
 
-  it('sawtooth treeline carries a full tooth row (bottom-anchored, flush)', () => {
+  it('pines stand between the peaks (more than the original seven)', () => {
     const band = index.slice(index.indexOf('class="ff-about-art"'), index.indexOf('id="aboutTool"'));
-    const teeth = band.match(/<path d="M\d+ 32 L\d+ \d+ L\d+ 32 Z"/g) || [];
-    expect(teeth.length).toBeGreaterThanOrEqual(8);
-    expect(band).toMatch(/viewBox="0 0 640 32"/);
-    expect(band).toMatch(/preserveAspectRatio="xMidYMax slice"/);
+    const pines = band.match(/<path d="M\d+ 1(0|1)\d l\d/g) || [];
+    expect(pines.length).toBeGreaterThan(7);
   });
 
   it('band is full-bleed with a spacing-token cap height', () => {
