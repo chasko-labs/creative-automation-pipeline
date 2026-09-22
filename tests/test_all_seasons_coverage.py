@@ -74,13 +74,16 @@ def test_all_options_resolve_ingredient_and_moment() -> None:
 
 
 def test_all_76_markets_cover_all_months_and_moments() -> None:
-    """Durable full-matrix check: every of the 76 pairs × 26 seasons has distinct seasonal ingredient.
+    """Durable full-matrix check: every pair × 26 seasons has distinct seasonal ingredient.
 
     26 = 12 months + 4 seasons (Winter/Spring/Summer/Fall/Autumn alias) + 10
     holidays. Months resolve to retailer-frontier-pairs.monthly_ingredients[2026-MM];
     holidays/seasons resolve to retailer-frontier-pairs.seasonal_moments[].available_ingredients[0]
     distinct per season (design token: available_ingredients[0], not generic).
-    This is the 76×26=1976 distinct seasonal-ingredient contract, not a 12-month check.
+    This is the N×26 distinct seasonal-ingredient contract (76×26=1976 at last
+    count), not a 12-month check. The count floor is >= 76 so researched
+    additions (e.g. El Paso / Santa Fe pairs) extend the matrix instead of
+    tripping the assertion; every listed pair is coverage-checked below.
 
     Behavior on gap: the pipeline's three-tier fallback (curated frontier calendar
     → CLIMATE_WIN → ARCHETYPES) accounts for missing entries without throwing — it
@@ -92,7 +95,7 @@ def test_all_76_markets_cover_all_months_and_moments() -> None:
     signal.
     """
     pairs = _pairs()
-    assert len(pairs) == 76, f"frontier pairs count drift: {len(pairs)} != 76"
+    assert len(pairs) >= 76, f"frontier pairs lost entries: {len(pairs)} < 76"
     failures: list[str] = []
     for code, entry in pairs.items():
         monthly = entry.get("monthly_ingredients") or {}
@@ -136,7 +139,9 @@ def test_all_76_markets_cover_all_months_and_moments() -> None:
         if len(seasonal_ingredients) == 26 and len(set(seasonal_ingredients)) != 26:
             dup = [h for h in set(seasonal_ingredients) if seasonal_ingredients.count(h) > 1]
             failures.append(f"{code}: not 26 distinct seasonal ingredients — dups {dup[:3]}")
-    assert not failures, "season gaps (full 76 distinct 26):\n" + "\n".join(failures[:50])
+    assert not failures, (
+        f"season gaps (full {len(pairs)} distinct 26):\n" + "\n".join(failures[:50])
+    )
 
 
 def test_target_markets_have_baked_preview_translations() -> None:
