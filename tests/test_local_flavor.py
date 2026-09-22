@@ -379,3 +379,28 @@ def test_sacramento_cherries_to_walnuts():
     assert "cherries" in local_flavor_for("US-W-SACRAMENTO", month=5)["produce"]
     assert "walnuts" in local_flavor_for("US-W-SACRAMENTO", month=11)["produce"]
     assert "mandarins" in local_flavor_for("US-W-SACRAMENTO", month=12)["produce"]
+
+
+def test_omaha_strawberries_to_popcorn():
+    # Nebraska: strawberries Jun, Nebraska popcorn Dec
+    assert "strawberries" in local_flavor_for("US-MW-OMAHA", month=6)["produce"]
+    assert "popcorn (Nebraska)" in local_flavor_for("US-MW-OMAHA", month=12)["produce"]
+
+
+def test_baltimore_cherries_to_squash():
+    # Maryland: sweet cherries Jun, winter squash Dec
+    assert "sweet cherries" in local_flavor_for("US-NE-BALTIMORE", month=6)["produce"]
+    assert "winter squash" in local_flavor_for("US-NE-BALTIMORE", month=12)["produce"]
+
+
+def test_nashville_blueberries_to_sorghum():
+    # Tennessee: blueberries May-Jun, sorghum syrup Dec
+    assert "blueberries" in local_flavor_for("US-SE-NASH", month=5)["produce"]
+    assert "sorghum syrup" in local_flavor_for("US-SE-NASH", month=12)["produce"]
+
+
+def test_dallas_peaches_to_pecans():
+    # North Texas: peaches Jul, pecans Nov, winter greens Dec
+    assert "peaches" in local_flavor_for("US-SC-DALLAS", month=7)["produce"]
+    assert "pecans" in local_flavor_for("US-SC-DALLAS", month=11)["produce"]
+    assert "winter greens" in local_flavor_for("US-SC-DALLAS", month=12)["produce"]
