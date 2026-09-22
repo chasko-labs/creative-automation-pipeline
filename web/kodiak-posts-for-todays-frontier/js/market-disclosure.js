@@ -280,7 +280,10 @@
     'US-W-BEND':{lat:44.0582,lon:-121.3153}, 'US-W-BOULDER':{lat:40.0150,lon:-105.2705},
     'US-CA-PESCADERO':{lat:37.2547,lon:-122.3833}, 'US-WA-NEAHBAY':{lat:48.3686,lon:-124.6244},
     'US-W-SANJOSE':{lat:37.3382,lon:-121.8863}, 'US-CA-CASTROVILLE':{lat:36.7656,lon:-121.7588},
-    'US-SW-TULAROSA':{lat:33.0742,lon:-106.0192}
+    'US-SW-TULAROSA':{lat:33.0742,lon:-106.0192},
+    'US-OH-CINCINNATI':{lat:39.1031,lon:-84.5120}, 'US-OH-DAYTON':{lat:39.7589,lon:-84.1916},
+    'US-CA-OCEANSIDE':{lat:33.1959,lon:-117.3795}, 'US-MW-WASATCH':{lat:40.6461,lon:-111.498},
+    'US-SW-LASCRUCES':{lat:32.3199,lon:-106.7637}
   };
   var marketCoords = {}; // market code -> {lat, lon}; seeded offline-first, enriched by JSON if present
   Object.keys(GEO_FALLBACK).forEach(function(mk){ marketCoords[mk] = {lat:GEO_FALLBACK[mk].lat, lon:GEO_FALLBACK[mk].lon}; });

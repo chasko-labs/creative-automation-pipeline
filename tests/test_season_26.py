@@ -242,3 +242,21 @@ def test_dropdown_audit_every_option_resolves_or_is_pruned():
         opt for opt in options if sp.pairing_for_season(opt)["source"] != "season-table"
     ]
     assert unpairable == [], f"options landing on static-default must be pruned: {unpairable}"
+
+
+# --------------------------------------------------------------------------- #
+# geo fallback: every picker market resolves offline ("my location")
+# --------------------------------------------------------------------------- #
+
+def test_every_place_has_offline_geo_fallback():
+    # market-disclosure.js seeds GEO_FALLBACK for offline/file:// use; the
+    # finder JSON enriches it when online. A picker market without built-in
+    # coords can never win "my location" offline.
+    root = Path(__file__).parents[1]
+    web = root / "web" / "kodiak-posts-for-todays-frontier"
+    disclosure = (web / "js" / "market-disclosure.js").read_text(encoding="utf-8")
+    have = set(re.findall(r"'(US-[^']+)':\{lat:", disclosure))
+    core = (web / "js" / "data-core.js").read_text(encoding="utf-8")
+    places = set(re.findall(r'\{market:"([^"]*)"', core))
+    missing = sorted(places - have)
+    assert not missing, f"picker markets without offline geo fallback: {missing}"
