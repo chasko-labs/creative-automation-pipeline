@@ -34,6 +34,18 @@ export async function run(page, { baseUrl } = {}) {
   assert(badResponses.length === 0,
     `no preview/data 404s on clean load (${badResponses.join("; ") || "none"})`);
 
+  // Lazy tiles below the fold have not fetched at load time; bring them into
+  // view so decode can happen before the broken-image assert. A 404 or a
+  // corrupt file still fails (badResponses above; never decodes below).
+  await page.evaluate(() => {
+    document.querySelectorAll("#preview img").forEach((im) => im.scrollIntoView({ block: "nearest" }));
+  });
+  await page.waitForFunction(
+    () => [...document.querySelectorAll("#preview img")].every((im) => im.complete),
+    null, { timeout: 10000 },
+  );
+  await page.waitForTimeout(400);
+
   const heroes = await page.evaluate(() => [...document.querySelectorAll("#preview img")].map((im) => ({
     src: im.getAttribute("src"),
     decoded: im.complete && im.naturalWidth > 0,
