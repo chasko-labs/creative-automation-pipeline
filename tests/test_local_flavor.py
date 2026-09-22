@@ -19,16 +19,30 @@ def test_known_market_in_season_month():
     assert "Albertsons Las Cruces" in got["source"]
 
 
-def test_known_market_out_of_season_month():
-    # Fargo January: deep winter, nothing scheduled yet — the honest empty
-    # shape (was Las Cruces, then Boston January until each was seeded; the
-    # contract is source + place resolve with produce []).
-    got = local_flavor_for("US-MW-FARGO", month=1)
-    assert got["matched"] is True
-    assert got["produce"] == []
-    # source + months still resolve so the UI can render the sourcing line
-    assert got["source"]
-    assert "Fargo" in got["place"]
+def test_full_sourcing_coverage_all_markets_all_months():
+    # Campaign completion proof: every picker market resolves non-empty
+    # produce in every month (was the migrating out-of-season empty-shape
+    # test — Las Cruces, Boston, Fargo January in turn — until the last gap
+    # closed and no empty cell remained).
+    import json
+    from pathlib import Path
+
+    repo = Path(__file__).resolve().parent.parent
+    markets = [
+        m["market"]
+        for m in json.loads(
+            (repo / "data" / "localization" / "store-finder-markets.json").read_text(
+                encoding="utf-8"
+            )
+        )["markets"]
+    ]
+    empty = [
+        (market, month)
+        for market in markets
+        for month in range(1, 13)
+        if not local_flavor_for(market, month=month)["produce"]
+    ]
+    assert not empty, f"sourcing gaps (full {len(markets)}x12): {empty[:10]}"
 
 
 def test_default_fallback_for_unknown_market():
@@ -586,3 +600,27 @@ def test_sandersville_turnips_to_vidalia():
     # Georgia follow-through: turnips Feb, early Vidalia Apr
     assert "turnips" in local_flavor_for("US-SE-SANDERSVILLE", month=2)["produce"]
     assert "Vidalia onions (early)" in local_flavor_for("US-SE-SANDERSVILLE", month=4)["produce"]
+
+
+def test_missoula_cherries_to_honey():
+    # Bitterroot: Flathead cherries Jul peak, honey Dec
+    assert "Flathead cherries" in local_flavor_for("US-MW-MISSOULA", month=7)["produce"]
+    assert "local honey" in local_flavor_for("US-MW-MISSOULA", month=12)["produce"]
+
+
+def test_fargo_maple_to_carrots():
+    # Red River: maple Mar, storage carrots Dec
+    assert "maple syrup" in local_flavor_for("US-MW-FARGO", month=3)["produce"]
+    assert "storage carrots" in local_flavor_for("US-MW-FARGO", month=12)["produce"]
+
+
+def test_anchorage_salmon_to_birch():
+    # Cook Inlet: salmon through summer runs, birch syrup Dec
+    assert "salmon" in local_flavor_for("US-W-ANCHORAGE", month=7)["produce"]
+    assert "birch syrup" in local_flavor_for("US-W-ANCHORAGE", month=12)["produce"]
+
+
+def test_florida_mango_to_carambola():
+    # Peninsula: mango May, carambola Oct
+    assert "mango" in local_flavor_for("US-SE-FL", month=5)["produce"]
+    assert "carambola" in local_flavor_for("US-SE-FL", month=10)["produce"]

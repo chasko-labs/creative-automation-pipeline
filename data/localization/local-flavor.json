@@ -955,6 +955,66 @@
             9,
             10
           ]
+        },
+        {
+          "name": "storage potatoes",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "cold-storage carrots",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "potatoes",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "local honey",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "storage carrots",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -1379,6 +1439,67 @@
           "months": [
             8,
             9
+          ]
+        },
+        {
+          "name": "storage root vegetables",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "storage honey",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "Flathead cherries",
+          "months": [
+            7
+          ],
+          "peak": 7
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "apples (storage)",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "local honey",
+          "months": [
+            12
           ]
         }
       ]
@@ -3257,6 +3378,24 @@
             11,
             12
           ]
+        },
+        {
+          "name": "mango",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "avocado (Florida)",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "carambola",
+          "months": [
+            10
+          ]
         }
       ]
     },
@@ -4798,6 +4937,94 @@
           "months": [
             8,
             9
+          ]
+        },
+        {
+          "name": "storage potatoes",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "salmon",
+          "months": [
+            1,
+            2,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "storage carrots",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "storage cabbage",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "root vegetables",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "storage root vegetables",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            5,
+            6
+          ]
+        },
+        {
+          "name": "greenhouse greens",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "salad greens",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "summer berries",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "root harvest",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "storage potatoes and carrots",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "storage root vegetables and salmon",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "birch syrup",
+          "months": [
+            12
           ]
         }
       ]
