@@ -3,15 +3,25 @@
 308 catalog records have no description and at most one ingredient line.
 Each brand page address was fetched and checked for a brand recipe data block.
 
-## Counts
+## Counts (corrected: first version overstated the dead)
 
 - 122 enrichable: live brand recipe page with full data block
-  (ingredients, steps, times, yield, dish photo). Listed below.
-- 182 dead: taxonomy and category addresses that return errors
-  (for example /scones and /donuts). No brand source exists; leave them.
+  (ingredients, steps, times, yield, dish photo), each schema parsed
+  and validated. Listed below.
+- 154 unknown: the brand site started refusing requests halfway
+  through triage (first 154 catalog-order requests: 122 enrichable;
+  last 154: all errors). These were never actually checked — do NOT
+  treat them as dead.
+- 28 likely dead: errors from before the block began, all taxonomy
+  or category addresses (for example /scones and /donuts). Probably
+  genuine 404s, but re-verify on the slow re-run before acting.
 - 4 structural: flapjacks-buttermilk, muffins, quick-breads
   (product and collection pages, not recipes) and pancake-bites
   (points at the blog index). Leave them.
+
+Re-triage the 154 unknown + 28 likely-dead slowly (pauses between
+requests, back off on the first refused request) before enriching
+past the 122 confirmed ids. Do not hammer the brand site.
 
 ## Priority
 
