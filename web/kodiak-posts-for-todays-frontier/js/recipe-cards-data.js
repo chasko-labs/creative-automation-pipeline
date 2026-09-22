@@ -401391,6 +401391,6049 @@ window.KODIAK_RECIPE_CARDS = {
       "variant": "hero-plus-layout"
     }
   },
+  "US-SW-SANTA FE": {
+    "2026-01": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "apples (storage) and piñon",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon ground cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1 Tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "2 ripe bananas, mashed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "4 oz applesauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup of pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup all-purpose flour, if needed"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Chocolate chips"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh Berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced apples"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "30 mins",
+        "est_cost": null,
+        "prep": "15 mins",
+        "serves": "8"
+      },
+      "month": "2026-01",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: breakfast-cake has the best token overlap with the in-season ingredient",
+          "recipe_id": "breakfast-cake",
+          "season": "winter",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "apples (storage) and piñon"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "breakfast-cake",
+        "name": "Breakfast Cake"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "winter",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray.",
+        "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon",
+        "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+        "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake",
+        "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire.",
+        "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown.",
+        "LET cool for 10-15 minutes in the baking dish before slicing.",
+        "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes."
+      ],
+      "substrate": "kraft",
+      "title": "Breakfast Cake",
+      "variant": "hero-plus-layout"
+    },
+    "2026-02": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "cool-season greens",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "25 mins",
+        "serves": "10 fritters"
+      },
+      "month": "2026-02",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: savory-greens-fritters-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "savory-greens-fritters-draft",
+          "season": "winter",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "cool-season greens"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "savory-greens-fritters-draft",
+        "name": "Savory Greens Fritters"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "winter",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
+      ],
+      "substrate": "kraft",
+      "title": "Savory Greens Fritters",
+      "variant": "hero-plus-layout"
+    },
+    "2026-03": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "spring spinach and onions",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "25 mins",
+        "serves": "10 fritters"
+      },
+      "month": "2026-03",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: savory-greens-fritters-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "savory-greens-fritters-draft",
+          "season": "spring",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "spring spinach and onions"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "savory-greens-fritters-draft",
+        "name": "Savory Greens Fritters"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "spring",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
+      ],
+      "substrate": "kraft",
+      "title": "Savory Greens Fritters",
+      "variant": "hero-plus-layout"
+    },
+    "2026-04": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "radishes and asparagus",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups shredded radishes"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sliced scallion"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "12 mins",
+        "est_cost": null,
+        "prep": "20 mins",
+        "serves": "12 fritters"
+      },
+      "month": "2026-04",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: skillet-radish-fritters-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "skillet-radish-fritters-draft",
+          "season": "spring",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "radishes and asparagus"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "skillet-radish-fritters-draft",
+        "name": "Skillet Radish Fritters"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "spring",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "TOSS the shredded radishes with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, scallion, remaining salt, and pepper into a batter and fold in the radishes.",
+        "FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
+      ],
+      "substrate": "kraft",
+      "title": "Skillet Radish Fritters",
+      "variant": "hero-plus-layout"
+    },
+    "2026-05": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "strawberries and spring greens",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "25 mins",
+        "serves": "10 fritters"
+      },
+      "month": "2026-05",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: savory-greens-fritters-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "savory-greens-fritters-draft",
+          "season": "spring",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "strawberries and spring greens"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "savory-greens-fritters-draft",
+        "name": "Savory Greens Fritters"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "spring",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
+      ],
+      "substrate": "kraft",
+      "title": "Savory Greens Fritters",
+      "variant": "hero-plus-layout"
+    },
+    "2026-06": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "sweet corn (early) and squash",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "12 mins",
+        "est_cost": null,
+        "prep": "15 mins",
+        "serves": "8 cakes"
+      },
+      "month": "2026-06",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: sweet-corn-griddle-cakes-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "sweet-corn-griddle-cakes-draft",
+          "season": "summer",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "sweet corn (early) and squash"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "sweet-corn-griddle-cakes-draft",
+        "name": "Sweet Corn Griddle Cakes"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "summer",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
+      ],
+      "substrate": "kraft",
+      "title": "Sweet Corn Griddle Cakes",
+      "variant": "hero-plus-layout"
+    },
+    "2026-07": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "tomatoes and sweet corn",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "5",
+        "est_cost": null,
+        "prep": "15",
+        "serves": "4"
+      },
+      "month": "2026-07",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: summer-vegetable-tostada has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-vegetable-tostada",
+          "season": "summer",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "tomatoes and sweet corn"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "summer-vegetable-tostada",
+        "name": "Summer Vegetable Tostada"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "summer",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
+      ],
+      "substrate": "kraft",
+      "title": "Summer Vegetable Tostada",
+      "variant": "hero-plus-layout"
+    },
+    "2026-08": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "Chimayó chile and melons",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-08",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "season": "summer",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "Chimayó chile and melons"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "summer",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
+      ],
+      "substrate": "kraft",
+      "title": "Red Chile Cornbread Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-09": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "green chile and apples",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-09",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "season": "fall",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "green chile and apples"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "fall",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
+      ],
+      "substrate": "kraft",
+      "title": "Red Chile Cornbread Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-10": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "piñon (roast) and pumpkins",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12"
+      },
+      "month": "2026-10",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: pumpkin-oat-muffins lists the in-season ingredient in featured_for",
+          "recipe_id": "pumpkin-oat-muffins",
+          "season": "fall",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "piñon (roast) and pumpkins"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "pumpkin-oat-muffins",
+        "name": "Pumpkin Oat Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "fall",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
+      ],
+      "substrate": "kraft",
+      "title": "Pumpkin Oat Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-11": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "pecans and winter squash",
+      "ingredients": [
+        {
+          "price": "$2.75",
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": "$2.00",
+          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+        },
+        {
+          "price": "$0.70",
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": "$0.30",
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": "$1.65",
+          "qty_name": "1/3 cup honey or sugar"
+        },
+        {
+          "price": "$0.75",
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": "$0.20",
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": "$0.05",
+          "qty_name": "1/2 teaspoon salt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": "$8.40",
+        "prep": "15 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-11",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: winter-squash-morning-muffins-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "winter-squash-morning-muffins-draft",
+          "season": "fall",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "pecans and winter squash"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "winter-squash-morning-muffins-draft",
+        "name": "Winter Squash Morning Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "fall",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
+        "COOL 5 minutes in the tin before turning out."
+      ],
+      "substrate": "kraft",
+      "title": "Winter Squash Morning Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-12": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-NM-CHIMAYO",
+      "ingredient": "red chile ristras and posole",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-SANTA FE",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-12",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "season": "winter",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "red chile ristras and posole"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "winter",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pumpkin pie (Thanksgiving)",
+            "pecans and winter squash",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "turkey",
+            "pumpkin",
+            "pecan",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + biscochitos (Winter)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "biscochito",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + tomatoes (Summer)",
+            "sweet corn (early) and squash",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "tomato",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + piñon (Fall)",
+            "green chile and apples",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "posole + black-eyed peas (New Year)",
+            "apples (storage) and piñon"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "posole",
+            "black-eyed pea",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + piñon brittle (Valentine)",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pinon",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)",
+            "strawberries and spring greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile cheeseburgers + corn (Fourth)",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + apples (Labor Day)",
+            "green chile and apples"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "apple",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)",
+            "piñon (roast) and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + biscochitos (Christmas)",
+            "red chile ristras and posole"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "biscochito",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + piñon (Holiday season)",
+            "apples (storage) and piñon",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pinon",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "asparagus + radishes (Spring)",
+            "radishes and asparagus",
+            "spring spinach and onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "asparagus",
+            "radish",
+            "spring"
+          ],
+          "moment": "Spring — first greens (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "melons + Chimayó chile (Summer)",
+            "Chimayó chile and melons",
+            "tomatoes and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "melon",
+            "chimayo",
+            "summer"
+          ],
+          "moment": "Summer — valley orchard (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + asparagus (Easter)",
+            "radishes and asparagus"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "asparagus",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ristras + apples (Fall)",
+            "green chile and apples",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "apple",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage apples + squash (Winter)",
+            "cool-season greens",
+            "pecans and winter squash"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "apple",
+            "squash",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "early spinach (March)",
+            "spring spinach and onions",
+            "cool-season greens"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "spinach",
+            "spring"
+          ],
+          "moment": "Early spring — spinach (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Northern New Mexico high-desert seasonal patterns: Chimayó valley orchards and native chile, Santa Fe piñon roast, posole/biscochito holiday traditions (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
+      ],
+      "substrate": "kraft",
+      "title": "Red Chile Cornbread Muffins",
+      "variant": "hero-plus-layout"
+    }
+  },
   "US-SW-TIMBERON": {
     "2026-01": {
       "art": {

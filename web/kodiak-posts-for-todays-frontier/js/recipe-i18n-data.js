@@ -89117,6 +89117,1638 @@ window.KODIAK_RECIPE_I18N = {
       }
     }
   },
+  "US-SW-SANTA FE": {
+    "2026-01": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup brown sugar — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon ground cinnamon — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk, room temperature"
+          },
+          {
+            "price": null,
+            "qty_name": "1 Tablespoon butter, melted"
+          },
+          {
+            "price": null,
+            "qty_name": "1 egg, room temperature"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ripe bananas, mashed — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "4 oz applesauce — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup of pumpkin purée — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup all-purpose flour, if needed"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas: — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Chocolate chips — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Fresh Berries — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Sliced apples — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "30 mins — proteína para tu frontera",
+          "prep": "15 mins — proteína para tu frontera",
+          "serves": "8 — proteína para tu frontera"
+        },
+        "steps": [
+          "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray. — proteína para tu frontera",
+          "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon — proteína para tu frontera",
+          "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+          "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake — proteína para tu frontera",
+          "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire. — proteína para tu frontera",
+          "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown. — proteína para tu frontera",
+          "LET cool for 10-15 minutes in the baking dish before slicing. — proteína para tu frontera",
+          "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes. — proteína para tu frontera"
+        ],
+        "title": "Breakfast Cake — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:11",
+            "step:3"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup brown sugar — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon ground cinnamon — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk, room temperature"
+          },
+          {
+            "price": null,
+            "qty_name": "1 Tablespoon butter, melted"
+          },
+          {
+            "price": null,
+            "qty_name": "1 egg, room temperature"
+          },
+          {
+            "price": null,
+            "qty_name": "2 ripe bananas, mashed — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "4 oz applesauce — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup of pumpkin purée — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup all-purpose flour, if needed"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup chocolate chips, divided \r\n\r\n\r\n \r\n\r\nTopping Ideas: — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "Chocolate chips — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "Fresh Berries — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "Sliced apples — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "30 mins — atsʼíís bá áłchíní bighan",
+          "prep": "15 mins — atsʼíís bá áłchíní bighan",
+          "serves": "8 — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "PREHEAT the oven to 350° Fahrenheit and prepare a 9x13” baking dish with non-stick cooking spray. — atsʼíís bá áłchíní bighan",
+          "IN a medium sized mixing bowl, whisk together the Kodiak Cakes mix, brown sugar, and cinnamon — atsʼíís bá áłchíní bighan",
+          "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+          "FOLD in 1/4 cup chocolate chips. Saving the rest to top the cake — atsʼíís bá áłchíní bighan",
+          "POUR the batter into the prepared baking dish and add the remaining chocolate chips with any other topping combo you desire. — atsʼíís bá áłchíní bighan",
+          "BAKE for 25-30 minutes until a toothpick comes out clean and the edges of your cake are slightly golden brown. — atsʼíís bá áłchíní bighan",
+          "LET cool for 10-15 minutes in the baking dish before slicing. — atsʼíís bá áłchíní bighan",
+          "ENJOY for breakfast, lunch or dinner! *Store leftovers in an airtight container in the refrigerator for 5-7 days. Reheat in the microwave for 15-30 seconds before digging in! *Pro Tip: For even more pumpkin flavor, sub-out Kodiak Cakes Buttermilk Power Cakes for Pumpkin Power Cakes. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Breakfast Cake — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:11",
+            "step:3"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-02": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "25 mins — proteína para tu frontera",
+          "serves": "10 fritters — proteína para tu frontera"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — proteína para tu frontera",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — proteína para tu frontera",
+          "SERVE hot topped with fresh microgreens. — proteína para tu frontera"
+        ],
+        "title": "Savory Greens Fritters — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — atsʼíís bá áłchíní bighan",
+          "prep": "25 mins — atsʼíís bá áłchíní bighan",
+          "serves": "10 fritters — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — atsʼíís bá áłchíní bighan",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — atsʼíís bá áłchíní bighan",
+          "SERVE hot topped with fresh microgreens. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Savory Greens Fritters — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-03": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "25 mins — proteína para tu frontera",
+          "serves": "10 fritters — proteína para tu frontera"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — proteína para tu frontera",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — proteína para tu frontera",
+          "SERVE hot topped with fresh microgreens. — proteína para tu frontera"
+        ],
+        "title": "Savory Greens Fritters — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — atsʼíís bá áłchíní bighan",
+          "prep": "25 mins — atsʼíís bá áłchíní bighan",
+          "serves": "10 fritters — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — atsʼíís bá áłchíní bighan",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — atsʼíís bá áłchíní bighan",
+          "SERVE hot topped with fresh microgreens. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Savory Greens Fritters — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-04": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cups shredded radishes — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sliced scallion — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt, divided — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "12 mins — proteína para tu frontera",
+          "prep": "20 mins — proteína para tu frontera",
+          "serves": "12 fritters — proteína para tu frontera"
+        },
+        "steps": [
+          "TOSS the shredded radishes with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — proteína para tu frontera",
+          "WHISK the mix, eggs, scallion, remaining salt, and pepper into a batter and fold in the radishes.",
+          "FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden. — proteína para tu frontera",
+          "DRAIN on a rack and serve hot. — proteína para tu frontera"
+        ],
+        "title": "Skillet Radish Fritters — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cups shredded radishes — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sliced scallion — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt, divided — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "12 mins — atsʼíís bá áłchíní bighan",
+          "prep": "20 mins — atsʼíís bá áłchíní bighan",
+          "serves": "12 fritters — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "TOSS the shredded radishes with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — atsʼíís bá áłchíní bighan",
+          "WHISK the mix, eggs, scallion, remaining salt, and pepper into a batter and fold in the radishes.",
+          "FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden. — atsʼíís bá áłchíní bighan",
+          "DRAIN on a rack and serve hot. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Skillet Radish Fritters — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-05": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "25 mins — proteína para tu frontera",
+          "serves": "10 fritters — proteína para tu frontera"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — proteína para tu frontera",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — proteína para tu frontera",
+          "SERVE hot topped with fresh microgreens. — proteína para tu frontera"
+        ],
+        "title": "Savory Greens Fritters — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — atsʼíís bá áłchíní bighan",
+          "prep": "25 mins — atsʼíís bá áłchíní bighan",
+          "serves": "10 fritters — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — atsʼíís bá áłchíní bighan",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — atsʼíís bá áłchíní bighan",
+          "SERVE hot topped with fresh microgreens. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Savory Greens Fritters — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-06": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cups fresh sweet corn kernels — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup diced sweet pepper (optional) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons butter, for the griddle"
+          }
+        ],
+        "meta": {
+          "cook": "12 mins — proteína para tu frontera",
+          "prep": "15 mins — proteína para tu frontera",
+          "serves": "8 cakes — proteína para tu frontera"
+        },
+        "steps": [
+          "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+          "REST the batter 5 minutes so the mix hydrates. — proteína para tu frontera",
+          "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+          "SERVE hot with butter."
+        ],
+        "title": "Sweet Corn Griddle Cakes — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:7",
+            "step:1",
+            "step:3",
+            "step:4"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cups fresh sweet corn kernels — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup diced sweet pepper (optional) — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon salt — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons butter, for the griddle"
+          }
+        ],
+        "meta": {
+          "cook": "12 mins — atsʼíís bá áłchíní bighan",
+          "prep": "15 mins — atsʼíís bá áłchíní bighan",
+          "serves": "8 cakes — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+          "REST the batter 5 minutes so the mix hydrates. — atsʼíís bá áłchíní bighan",
+          "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+          "SERVE hot with butter."
+        ],
+        "title": "Sweet Corn Griddle Cakes — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:7",
+            "step:1",
+            "step:3",
+            "step:4"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-07": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon olive oil — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small zucchini, cut into 1” pieces — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ear corn, kernels cut from cob — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon smoked paprika — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup cherry tomatoes, halved — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 green onions, sliced — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup frozen peas(defrosted) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 garlic clove — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup cilantro — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limes, one cut into 4 wedges — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup plain yogurt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "5 — proteína para tu frontera",
+          "prep": "15 — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
+        },
+        "steps": [
+          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — proteína para tu frontera",
+          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — proteína para tu frontera",
+          "TOAST the waffles according to package directions. — proteína para tu frontera",
+          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — proteína para tu frontera",
+          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — proteína para tu frontera"
+        ],
+        "title": "Summer Vegetable Tostada — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon olive oil — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small zucchini, cut into 1” pieces — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ear corn, kernels cut from cob — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon smoked paprika — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup cherry tomatoes, halved — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 green onions, sliced — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup frozen peas(defrosted) — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 garlic clove — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup cilantro — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limes, one cut into 4 wedges — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup plain yogurt — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "5 — atsʼíís bá áłchíní bighan",
+          "prep": "15 — atsʼíís bá áłchíní bighan",
+          "serves": "4 — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — atsʼíís bá áłchíní bighan",
+          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — atsʼíís bá áłchíní bighan",
+          "TOAST the waffles according to package directions. — atsʼíís bá áłchíní bighan",
+          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — atsʼíís bá áłchíní bighan",
+          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Summer Vegetable Tostada — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-08": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
+          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL briefly and serve warm. — proteína para tu frontera"
+        ],
+        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — atsʼíís bá áłchíní bighan",
+          "prep": "10 mins — atsʼíís bá áłchíní bighan",
+          "serves": "12 muffins — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — atsʼíís bá áłchíní bighan",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — atsʼíís bá áłchíní bighan",
+          "BAKE 18-20 minutes, until a tester comes out clean. — atsʼíís bá áłchíní bighan",
+          "COOL briefly and serve warm. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Red Chile Cornbread Muffins — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-09": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
+          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL briefly and serve warm. — proteína para tu frontera"
+        ],
+        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — atsʼíís bá áłchíní bighan",
+          "prep": "10 mins — atsʼíís bá áłchíní bighan",
+          "serves": "12 muffins — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — atsʼíís bá áłchíní bighan",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — atsʼíís bá áłchíní bighan",
+          "BAKE 18-20 minutes, until a tester comes out clean. — atsʼíís bá áłchíní bighan",
+          "COOL briefly and serve warm. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Red Chile Cornbread Muffins — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-10": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup brown sugar — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin purée — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sour cream — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Pepitas, to top — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 — proteína para tu frontera"
+        },
+        "steps": [
+          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — proteína para tu frontera",
+          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — proteína para tu frontera",
+          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — proteína para tu frontera",
+          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — proteína para tu frontera",
+          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — proteína para tu frontera"
+        ],
+        "title": "Pumpkin Oat Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:8",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup brown sugar — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin purée — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sour cream — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "Pepitas, to top — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — atsʼíís bá áłchíní bighan",
+          "prep": "10 mins — atsʼíís bá áłchíní bighan",
+          "serves": "12 — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — atsʼíís bá áłchíní bighan",
+          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — atsʼíís bá áłchíní bighan",
+          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — atsʼíís bá áłchíní bighan",
+          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — atsʼíís bá áłchíní bighan",
+          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Pumpkin Oat Muffins — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:8",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-11": {
+      "es": {
+        "ingredients": [
+          {
+            "price": "$2.75",
+            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": "$2.00",
+            "qty_name": "1 cup mashed roasted winter squash (butternut or acorn) — proteína para tu frontera"
+          },
+          {
+            "price": "$0.70",
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": "$0.30",
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": "$1.65",
+            "qty_name": "1/3 cup honey or sugar"
+          },
+          {
+            "price": "$0.75",
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": "$0.20",
+            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
+          },
+          {
+            "price": "$0.05",
+            "qty_name": "1/2 teaspoon salt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "15 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+          "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL 5 minutes in the tin before turning out. — proteína para tu frontera"
+        ],
+        "title": "Winter Squash Morning Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": "$2.75",
+            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": "$2.00",
+            "qty_name": "1 cup mashed roasted winter squash (butternut or acorn) — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": "$0.70",
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": "$0.30",
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": "$1.65",
+            "qty_name": "1/3 cup honey or sugar"
+          },
+          {
+            "price": "$0.75",
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": "$0.20",
+            "qty_name": "1 teaspoon cinnamon — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": "$0.05",
+            "qty_name": "1/2 teaspoon salt — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — atsʼíís bá áłchíní bighan",
+          "prep": "15 mins — atsʼíís bá áłchíní bighan",
+          "serves": "12 muffins — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — atsʼíís bá áłchíní bighan",
+          "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+          "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean. — atsʼíís bá áłchíní bighan",
+          "COOL 5 minutes in the tin before turning out. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Winter Squash Morning Muffins — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-12": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
+          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL briefly and serve warm. — proteína para tu frontera"
+        ],
+        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "nv": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — atsʼíís bá áłchíní bighan"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — atsʼíís bá áłchíní bighan"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — atsʼíís bá áłchíní bighan",
+          "prep": "10 mins — atsʼíís bá áłchíní bighan",
+          "serves": "12 muffins — atsʼíís bá áłchíní bighan"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — atsʼíís bá áłchíní bighan",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — atsʼíís bá áłchíní bighan",
+          "BAKE 18-20 minutes, until a tester comes out clean. — atsʼíís bá áłchíní bighan",
+          "COOL briefly and serve warm. — atsʼíís bá áłchíní bighan"
+        ],
+        "title": "Red Chile Cornbread Muffins — atsʼíís bá áłchíní bighan",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "nv",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    }
+  },
   "US-SW-TIMBERON": {
     "2026-01": {
       "de": {

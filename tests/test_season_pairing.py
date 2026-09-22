@@ -253,6 +253,22 @@ def test_product_only_overlap_falls_to_season_table():
     assert recipe["id"] == pairing["recipe_id"]
 
 
+def test_bare_chile_routes_to_chile_cornbread():
+    # Santa Fe August ("Chimayó chile and melons") names neither "green chile"
+    # nor "red chile" as a phrase, so it fell to an overlap winner
+    # (waffle-mac grilled cheese). Bare "chile" curation covers native-chile
+    # variants; audit shows all whole-word "chile" monthlies are genuine
+    # chile months, so nothing else is captured.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "Chimayó chile and melons", "Buttermilk Power Cakes",
+        market="US-SW-SANTA FE", month="2026-08",
+    )
+    assert recipe["id"] == "red-chile-cornbread-muffins-draft"
+    assert pairing["source"] == "ingredient-featured"
+
+
 def test_empty_ingredient_with_product_serves_season_table():
     # Unseeded-market months (El Paso) carry no ingredient; the builder always
     # passes a product, which must not divert the documented empty-input
