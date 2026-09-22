@@ -91501,69 +91501,93 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — proteína para tu frontera"
+            "qty_name": "1 (14.75-oz) can salmon, drained — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon olive oil — proteína para tu frontera"
+            "qty_name": "2 scallions, thinly sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 small zucchini, cut into 1” pieces — proteína para tu frontera"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 ear corn, kernels cut from cob — proteína para tu frontera"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon smoked paprika — proteína para tu frontera"
+            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup cherry tomatoes, halved — proteína para tu frontera"
+            "qty_name": "1 tablespoon Dijon mustard — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 green onions, sliced — proteína para tu frontera"
+            "qty_name": "1 tablespoon chopped fresh dill — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup frozen peas(defrosted) — proteína para tu frontera"
+            "qty_name": "1 tablespoon fresh lemon juice — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 garlic clove — proteína para tu frontera"
+            "qty_name": "Salt, to taste — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup cilantro — proteína para tu frontera"
+            "qty_name": "Freshly ground black pepper, to taste — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 limes, one cut into 4 wedges — proteína para tu frontera"
+            "qty_name": "2 tablespoons olive oil (for cooking) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain yogurt — proteína para tu frontera"
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "5 — proteína para tu frontera",
-          "prep": "15 — proteína para tu frontera",
+          "cook": "8 — proteína para tu frontera",
+          "prep": "10 — proteína para tu frontera",
           "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — proteína para tu frontera",
-          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — proteína para tu frontera",
-          "TOAST the waffles according to package directions. — proteína para tu frontera",
-          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — proteína para tu frontera",
-          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — proteína para tu frontera"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — proteína para tu frontera",
+          "FORM the mixture into 4–5 evenly sized patties. — proteína para tu frontera",
+          "HEAT the olive oil in a large skillet over medium heat. — proteína para tu frontera",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — proteína para tu frontera",
+          "TRANSFER the patties to a plate lined with paper towels. — proteína para tu frontera",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — proteína para tu frontera",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Summer Vegetable Tostada — proteína para tu frontera",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:12",
+            "step:1",
+            "step:8"
+          ],
           "human_reviewed": false,
           "lang": "es",
           "machine_translated": true,
@@ -91576,69 +91600,93 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — protina para sa iyong frontier"
+            "qty_name": "1 (14.75-oz) can salmon, drained — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon olive oil — protina para sa iyong frontier"
+            "qty_name": "2 scallions, thinly sliced — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1 small zucchini, cut into 1” pieces — protina para sa iyong frontier"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 ear corn, kernels cut from cob — protina para sa iyong frontier"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon smoked paprika — protina para sa iyong frontier"
+            "qty_name": "1/4 cup plain Greek yogurt — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup cherry tomatoes, halved — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon Dijon mustard — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "2 green onions, sliced — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon chopped fresh dill — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1 cup frozen peas(defrosted) — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon fresh lemon juice — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1 garlic clove — protina para sa iyong frontier"
+            "qty_name": "Salt, to taste — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup cilantro — protina para sa iyong frontier"
+            "qty_name": "Freshly ground black pepper, to taste — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "2 limes, one cut into 4 wedges — protina para sa iyong frontier"
+            "qty_name": "2 tablespoons olive oil (for cooking) — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain yogurt — protina para sa iyong frontier"
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — protina para sa iyong frontier"
           }
         ],
         "meta": {
-          "cook": "5 — protina para sa iyong frontier",
-          "prep": "15 — protina para sa iyong frontier",
+          "cook": "8 — protina para sa iyong frontier",
+          "prep": "10 — protina para sa iyong frontier",
           "serves": "4 — protina para sa iyong frontier"
         },
         "steps": [
-          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — protina para sa iyong frontier",
-          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — protina para sa iyong frontier",
-          "TOAST the waffles according to package directions. — protina para sa iyong frontier",
-          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — protina para sa iyong frontier",
-          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — protina para sa iyong frontier"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — protina para sa iyong frontier",
+          "FORM the mixture into 4–5 evenly sized patties. — protina para sa iyong frontier",
+          "HEAT the olive oil in a large skillet over medium heat. — protina para sa iyong frontier",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — protina para sa iyong frontier",
+          "TRANSFER the patties to a plate lined with paper towels. — protina para sa iyong frontier",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — protina para sa iyong frontier",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Summer Vegetable Tostada — protina para sa iyong frontier",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — protina para sa iyong frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:12",
+            "step:1",
+            "step:8"
+          ],
           "human_reviewed": false,
           "lang": "tl",
           "machine_translated": true,
@@ -91653,46 +91701,92 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 (14.75-oz) can salmon, drained — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga) — proteína para tu frontera"
+            "qty_name": "2 scallions, thinly sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt, divided — proteína para tu frontera"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+            "qty_name": "1 tablespoon Dijon mustard — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon chopped fresh dill — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon fresh lemon juice — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Salt, to taste — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Freshly ground black pepper, to taste — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons olive oil (for cooking) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "15 mins — proteína para tu frontera",
-          "prep": "25 mins — proteína para tu frontera",
-          "serves": "10 fritters — proteína para tu frontera"
+          "cook": "8 — proteína para tu frontera",
+          "prep": "10 — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — proteína para tu frontera",
-          "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
-          "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden. — proteína para tu frontera",
-          "DRAIN on a rack and serve hot. — proteína para tu frontera"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — proteína para tu frontera",
+          "FORM the mixture into 4–5 evenly sized patties. — proteína para tu frontera",
+          "HEAT the olive oil in a large skillet over medium heat. — proteína para tu frontera",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — proteína para tu frontera",
+          "TRANSFER the patties to a plate lined with paper towels. — proteína para tu frontera",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — proteína para tu frontera",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Storage Root Fritters — proteína para tu frontera",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:3",
-            "step:2"
+            "ingredient:12",
+            "step:1",
+            "step:8"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -91706,46 +91800,92 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — protina para sa iyong frontier"
+            "qty_name": "1 (14.75-oz) can salmon, drained — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga) — protina para sa iyong frontier"
+            "qty_name": "2 scallions, thinly sliced — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt, divided — protina para sa iyong frontier"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — protina para sa iyong frontier"
+            "qty_name": "1/4 cup plain Greek yogurt — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "3 tablespoons neutral oil, for frying — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon Dijon mustard — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon chopped fresh dill — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon fresh lemon juice — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Salt, to taste — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Freshly ground black pepper, to taste — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons olive oil (for cooking) — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — protina para sa iyong frontier"
           }
         ],
         "meta": {
-          "cook": "15 mins — protina para sa iyong frontier",
-          "prep": "25 mins — protina para sa iyong frontier",
-          "serves": "10 fritters — protina para sa iyong frontier"
+          "cook": "8 — protina para sa iyong frontier",
+          "prep": "10 — protina para sa iyong frontier",
+          "serves": "4 — protina para sa iyong frontier"
         },
         "steps": [
-          "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — protina para sa iyong frontier",
-          "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
-          "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden. — protina para sa iyong frontier",
-          "DRAIN on a rack and serve hot. — protina para sa iyong frontier"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — protina para sa iyong frontier",
+          "FORM the mixture into 4–5 evenly sized patties. — protina para sa iyong frontier",
+          "HEAT the olive oil in a large skillet over medium heat. — protina para sa iyong frontier",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — protina para sa iyong frontier",
+          "TRANSFER the patties to a plate lined with paper towels. — protina para sa iyong frontier",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — protina para sa iyong frontier",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Storage Root Fritters — protina para sa iyong frontier",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — protina para sa iyong frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
             "ingredient:3",
-            "step:2"
+            "ingredient:12",
+            "step:1",
+            "step:8"
           ],
           "human_reviewed": false,
           "lang": "tl",
@@ -92225,69 +92365,93 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — proteína para tu frontera"
+            "qty_name": "1 (14.75-oz) can salmon, drained — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon olive oil — proteína para tu frontera"
+            "qty_name": "2 scallions, thinly sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 small zucchini, cut into 1” pieces — proteína para tu frontera"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 ear corn, kernels cut from cob — proteína para tu frontera"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon smoked paprika — proteína para tu frontera"
+            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup cherry tomatoes, halved — proteína para tu frontera"
+            "qty_name": "1 tablespoon Dijon mustard — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 green onions, sliced — proteína para tu frontera"
+            "qty_name": "1 tablespoon chopped fresh dill — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup frozen peas(defrosted) — proteína para tu frontera"
+            "qty_name": "1 tablespoon fresh lemon juice — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 garlic clove — proteína para tu frontera"
+            "qty_name": "Salt, to taste — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup cilantro — proteína para tu frontera"
+            "qty_name": "Freshly ground black pepper, to taste — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 limes, one cut into 4 wedges — proteína para tu frontera"
+            "qty_name": "2 tablespoons olive oil (for cooking) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain yogurt — proteína para tu frontera"
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "5 — proteína para tu frontera",
-          "prep": "15 — proteína para tu frontera",
+          "cook": "8 — proteína para tu frontera",
+          "prep": "10 — proteína para tu frontera",
           "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — proteína para tu frontera",
-          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — proteína para tu frontera",
-          "TOAST the waffles according to package directions. — proteína para tu frontera",
-          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — proteína para tu frontera",
-          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — proteína para tu frontera"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — proteína para tu frontera",
+          "FORM the mixture into 4–5 evenly sized patties. — proteína para tu frontera",
+          "HEAT the olive oil in a large skillet over medium heat. — proteína para tu frontera",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — proteína para tu frontera",
+          "TRANSFER the patties to a plate lined with paper towels. — proteína para tu frontera",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — proteína para tu frontera",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Summer Vegetable Tostada — proteína para tu frontera",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:12",
+            "step:1",
+            "step:8"
+          ],
           "human_reviewed": false,
           "lang": "es",
           "machine_translated": true,
@@ -92300,69 +92464,93 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — protina para sa iyong frontier"
+            "qty_name": "1 (14.75-oz) can salmon, drained — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon olive oil — protina para sa iyong frontier"
+            "qty_name": "2 scallions, thinly sliced — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1 small zucchini, cut into 1” pieces — protina para sa iyong frontier"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 ear corn, kernels cut from cob — protina para sa iyong frontier"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon smoked paprika — protina para sa iyong frontier"
+            "qty_name": "1/4 cup plain Greek yogurt — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup cherry tomatoes, halved — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon Dijon mustard — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "2 green onions, sliced — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon chopped fresh dill — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1 cup frozen peas(defrosted) — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon fresh lemon juice — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1 garlic clove — protina para sa iyong frontier"
+            "qty_name": "Salt, to taste — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup cilantro — protina para sa iyong frontier"
+            "qty_name": "Freshly ground black pepper, to taste — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "2 limes, one cut into 4 wedges — protina para sa iyong frontier"
+            "qty_name": "2 tablespoons olive oil (for cooking) — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain yogurt — protina para sa iyong frontier"
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — protina para sa iyong frontier"
           }
         ],
         "meta": {
-          "cook": "5 — protina para sa iyong frontier",
-          "prep": "15 — protina para sa iyong frontier",
+          "cook": "8 — protina para sa iyong frontier",
+          "prep": "10 — protina para sa iyong frontier",
           "serves": "4 — protina para sa iyong frontier"
         },
         "steps": [
-          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — protina para sa iyong frontier",
-          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — protina para sa iyong frontier",
-          "TOAST the waffles according to package directions. — protina para sa iyong frontier",
-          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — protina para sa iyong frontier",
-          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — protina para sa iyong frontier"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — protina para sa iyong frontier",
+          "FORM the mixture into 4–5 evenly sized patties. — protina para sa iyong frontier",
+          "HEAT the olive oil in a large skillet over medium heat. — protina para sa iyong frontier",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — protina para sa iyong frontier",
+          "TRANSFER the patties to a plate lined with paper towels. — protina para sa iyong frontier",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — protina para sa iyong frontier",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Summer Vegetable Tostada — protina para sa iyong frontier",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — protina para sa iyong frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:12",
+            "step:1",
+            "step:8"
+          ],
           "human_reviewed": false,
           "lang": "tl",
           "machine_translated": true,
@@ -92377,46 +92565,92 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 (14.75-oz) can salmon, drained — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga) — proteína para tu frontera"
+            "qty_name": "2 scallions, thinly sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt, divided — proteína para tu frontera"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+            "qty_name": "1 tablespoon Dijon mustard — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon chopped fresh dill — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon fresh lemon juice — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Salt, to taste — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Freshly ground black pepper, to taste — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons olive oil (for cooking) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "15 mins — proteína para tu frontera",
-          "prep": "25 mins — proteína para tu frontera",
-          "serves": "10 fritters — proteína para tu frontera"
+          "cook": "8 — proteína para tu frontera",
+          "prep": "10 — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — proteína para tu frontera",
-          "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
-          "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden. — proteína para tu frontera",
-          "DRAIN on a rack and serve hot. — proteína para tu frontera"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — proteína para tu frontera",
+          "FORM the mixture into 4–5 evenly sized patties. — proteína para tu frontera",
+          "HEAT the olive oil in a large skillet over medium heat. — proteína para tu frontera",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — proteína para tu frontera",
+          "TRANSFER the patties to a plate lined with paper towels. — proteína para tu frontera",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — proteína para tu frontera",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Storage Root Fritters — proteína para tu frontera",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:3",
-            "step:2"
+            "ingredient:12",
+            "step:1",
+            "step:8"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -92430,46 +92664,92 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — protina para sa iyong frontier"
+            "qty_name": "1 (14.75-oz) can salmon, drained — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga) — protina para sa iyong frontier"
+            "qty_name": "2 scallions, thinly sliced — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt, divided — protina para sa iyong frontier"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — protina para sa iyong frontier"
+            "qty_name": "1/4 cup plain Greek yogurt — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "3 tablespoons neutral oil, for frying — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon Dijon mustard — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon chopped fresh dill — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon fresh lemon juice — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Salt, to taste — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Freshly ground black pepper, to taste — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons olive oil (for cooking) — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — protina para sa iyong frontier"
           }
         ],
         "meta": {
-          "cook": "15 mins — protina para sa iyong frontier",
-          "prep": "25 mins — protina para sa iyong frontier",
-          "serves": "10 fritters — protina para sa iyong frontier"
+          "cook": "8 — protina para sa iyong frontier",
+          "prep": "10 — protina para sa iyong frontier",
+          "serves": "4 — protina para sa iyong frontier"
         },
         "steps": [
-          "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — protina para sa iyong frontier",
-          "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
-          "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden. — protina para sa iyong frontier",
-          "DRAIN on a rack and serve hot. — protina para sa iyong frontier"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — protina para sa iyong frontier",
+          "FORM the mixture into 4–5 evenly sized patties. — protina para sa iyong frontier",
+          "HEAT the olive oil in a large skillet over medium heat. — protina para sa iyong frontier",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — protina para sa iyong frontier",
+          "TRANSFER the patties to a plate lined with paper towels. — protina para sa iyong frontier",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — protina para sa iyong frontier",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Storage Root Fritters — protina para sa iyong frontier",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — protina para sa iyong frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
             "ingredient:3",
-            "step:2"
+            "ingredient:12",
+            "step:1",
+            "step:8"
           ],
           "human_reviewed": false,
           "lang": "tl",
@@ -92701,46 +92981,92 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 (14.75-oz) can salmon, drained — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga) — proteína para tu frontera"
+            "qty_name": "2 scallions, thinly sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt, divided — proteína para tu frontera"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+            "qty_name": "1 tablespoon Dijon mustard — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon chopped fresh dill — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon fresh lemon juice — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Salt, to taste — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Freshly ground black pepper, to taste — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons olive oil (for cooking) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "15 mins — proteína para tu frontera",
-          "prep": "25 mins — proteína para tu frontera",
-          "serves": "10 fritters — proteína para tu frontera"
+          "cook": "8 — proteína para tu frontera",
+          "prep": "10 — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — proteína para tu frontera",
-          "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
-          "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden. — proteína para tu frontera",
-          "DRAIN on a rack and serve hot. — proteína para tu frontera"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — proteína para tu frontera",
+          "FORM the mixture into 4–5 evenly sized patties. — proteína para tu frontera",
+          "HEAT the olive oil in a large skillet over medium heat. — proteína para tu frontera",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — proteína para tu frontera",
+          "TRANSFER the patties to a plate lined with paper towels. — proteína para tu frontera",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — proteína para tu frontera",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Storage Root Fritters — proteína para tu frontera",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:3",
-            "step:2"
+            "ingredient:12",
+            "step:1",
+            "step:8"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -92754,46 +93080,92 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — protina para sa iyong frontier"
+            "qty_name": "1 (14.75-oz) can salmon, drained — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga) — protina para sa iyong frontier"
+            "qty_name": "2 scallions, thinly sliced — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt, divided — protina para sa iyong frontier"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon black pepper — protina para sa iyong frontier"
+            "qty_name": "1/4 cup plain Greek yogurt — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "3 tablespoons neutral oil, for frying — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon Dijon mustard — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon chopped fresh dill — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon fresh lemon juice — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Salt, to taste — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Freshly ground black pepper, to taste — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons olive oil (for cooking) — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — protina para sa iyong frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — protina para sa iyong frontier"
           }
         ],
         "meta": {
-          "cook": "15 mins — protina para sa iyong frontier",
-          "prep": "25 mins — protina para sa iyong frontier",
-          "serves": "10 fritters — protina para sa iyong frontier"
+          "cook": "8 — protina para sa iyong frontier",
+          "prep": "10 — protina para sa iyong frontier",
+          "serves": "4 — protina para sa iyong frontier"
         },
         "steps": [
-          "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — protina para sa iyong frontier",
-          "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
-          "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden. — protina para sa iyong frontier",
-          "DRAIN on a rack and serve hot. — protina para sa iyong frontier"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — protina para sa iyong frontier",
+          "FORM the mixture into 4–5 evenly sized patties. — protina para sa iyong frontier",
+          "HEAT the olive oil in a large skillet over medium heat. — protina para sa iyong frontier",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — protina para sa iyong frontier",
+          "TRANSFER the patties to a plate lined with paper towels. — protina para sa iyong frontier",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — protina para sa iyong frontier",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Storage Root Fritters — protina para sa iyong frontier",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — protina para sa iyong frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
             "ingredient:3",
-            "step:2"
+            "ingredient:12",
+            "step:1",
+            "step:8"
           ],
           "human_reviewed": false,
           "lang": "tl",
@@ -99218,7 +99590,11 @@ window.KODIAK_RECIPE_I18N = {
           },
           {
             "price": null,
-            "qty_name": "1-1/3 cups milk"
+            "qty_name": "1/2 cup mandarin juice — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
@@ -99226,19 +99602,11 @@ window.KODIAK_RECIPE_I18N = {
           },
           {
             "price": null,
-            "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes) — proteína para tu frontera"
+            "qty_name": "1 tablespoon mandarin zest — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons honey"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon olive oil — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 teaspoon salt — proteína para tu frontera"
+            "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit) — proteína para tu frontera"
           },
           {
             "price": null,
@@ -99246,27 +99614,26 @@ window.KODIAK_RECIPE_I18N = {
           }
         ],
         "meta": {
-          "cook": "30 mins — proteína para tu frontera",
-          "prep": "10 mins — proteína para tu frontera",
-          "serves": "8 flapjacks plus topper — proteína para tu frontera"
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "15 mins — proteína para tu frontera",
+          "serves": "8 flapjacks — proteína para tu frontera"
         },
         "steps": [
-          "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
-          "WHISK the mix, milk, and eggs into a batter.",
+          "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+          "REST the batter 5 minutes. — proteína para tu frontera",
           "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
-          "SERVE the flapjacks with the warm roasted grapes spooned over. — proteína para tu frontera"
+          "SERVE hot with extra segments and honey."
         ],
-        "title": "Roasted Grape Flapjack Topper — proteína para tu frontera",
+        "title": "Mandarin Citrus Flapjacks — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:2",
             "ingredient:3",
-            "ingredient:5",
-            "ingredient:8",
+            "ingredient:4",
+            "ingredient:7",
             "step:1",
-            "step:2",
-            "step:3"
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -99284,7 +99651,11 @@ window.KODIAK_RECIPE_I18N = {
           },
           {
             "price": null,
-            "qty_name": "1-1/3 cups milk"
+            "qty_name": "1/2 cup mandarin juice — 당신의 프론티어를 위한 단백질"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
@@ -99292,19 +99663,11 @@ window.KODIAK_RECIPE_I18N = {
           },
           {
             "price": null,
-            "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes) — 당신의 프론티어를 위한 단백질"
+            "qty_name": "1 tablespoon mandarin zest — 당신의 프론티어를 위한 단백질"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons honey"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon olive oil — 당신의 프론티어를 위한 단백질"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 teaspoon salt — 당신의 프론티어를 위한 단백질"
+            "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit) — 당신의 프론티어를 위한 단백질"
           },
           {
             "price": null,
@@ -99312,27 +99675,26 @@ window.KODIAK_RECIPE_I18N = {
           }
         ],
         "meta": {
-          "cook": "30 mins — 당신의 프론티어를 위한 단백질",
-          "prep": "10 mins — 당신의 프론티어를 위한 단백질",
-          "serves": "8 flapjacks plus topper — 당신의 프론티어를 위한 단백질"
+          "cook": "15 mins — 당신의 프론티어를 위한 단백질",
+          "prep": "15 mins — 당신의 프론티어를 위한 단백질",
+          "serves": "8 flapjacks — 당신의 프론티어를 위한 단백질"
         },
         "steps": [
-          "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
-          "WHISK the mix, milk, and eggs into a batter.",
+          "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+          "REST the batter 5 minutes. — 당신의 프론티어를 위한 단백질",
           "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
-          "SERVE the flapjacks with the warm roasted grapes spooned over. — 당신의 프론티어를 위한 단백질"
+          "SERVE hot with extra segments and honey."
         ],
-        "title": "Roasted Grape Flapjack Topper — 당신의 프론티어를 위한 단백질",
+        "title": "Mandarin Citrus Flapjacks — 당신의 프론티어를 위한 단백질",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
             "ingredient:3",
-            "ingredient:5",
-            "ingredient:8",
+            "ingredient:4",
+            "ingredient:7",
             "step:1",
-            "step:2",
-            "step:3"
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "ko",
@@ -114400,69 +114762,93 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — proteína para tu frontera"
+            "qty_name": "1 (14.75-oz) can salmon, drained — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon olive oil — proteína para tu frontera"
+            "qty_name": "2 scallions, thinly sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 small zucchini, cut into 1” pieces — proteína para tu frontera"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 ear corn, kernels cut from cob — proteína para tu frontera"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon smoked paprika — proteína para tu frontera"
+            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup cherry tomatoes, halved — proteína para tu frontera"
+            "qty_name": "1 tablespoon Dijon mustard — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 green onions, sliced — proteína para tu frontera"
+            "qty_name": "1 tablespoon chopped fresh dill — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup frozen peas(defrosted) — proteína para tu frontera"
+            "qty_name": "1 tablespoon fresh lemon juice — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 garlic clove — proteína para tu frontera"
+            "qty_name": "Salt, to taste — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup cilantro — proteína para tu frontera"
+            "qty_name": "Freshly ground black pepper, to taste — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 limes, one cut into 4 wedges — proteína para tu frontera"
+            "qty_name": "2 tablespoons olive oil (for cooking) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain yogurt — proteína para tu frontera"
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "5 — proteína para tu frontera",
-          "prep": "15 — proteína para tu frontera",
+          "cook": "8 — proteína para tu frontera",
+          "prep": "10 — proteína para tu frontera",
           "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — proteína para tu frontera",
-          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — proteína para tu frontera",
-          "TOAST the waffles according to package directions. — proteína para tu frontera",
-          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — proteína para tu frontera",
-          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — proteína para tu frontera"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — proteína para tu frontera",
+          "FORM the mixture into 4–5 evenly sized patties. — proteína para tu frontera",
+          "HEAT the olive oil in a large skillet over medium heat. — proteína para tu frontera",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — proteína para tu frontera",
+          "TRANSFER the patties to a plate lined with paper towels. — proteína para tu frontera",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — proteína para tu frontera",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Summer Vegetable Tostada — proteína para tu frontera",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:12",
+            "step:1",
+            "step:8"
+          ],
           "human_reviewed": false,
           "lang": "es",
           "machine_translated": true,
@@ -114475,69 +114861,93 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — protein cho biên cương của bạn"
+            "qty_name": "1 (14.75-oz) can salmon, drained — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon olive oil — protein cho biên cương của bạn"
+            "qty_name": "2 scallions, thinly sliced — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 small zucchini, cut into 1” pieces — protein cho biên cương của bạn"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "1 ear corn, kernels cut from cob — protein cho biên cương của bạn"
+            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon smoked paprika — protein cho biên cương của bạn"
+            "qty_name": "1/4 cup plain Greek yogurt — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup cherry tomatoes, halved — protein cho biên cương của bạn"
+            "qty_name": "1 tablespoon Dijon mustard — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "2 green onions, sliced — protein cho biên cương của bạn"
+            "qty_name": "1 tablespoon chopped fresh dill — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 cup frozen peas(defrosted) — protein cho biên cương của bạn"
+            "qty_name": "1 tablespoon fresh lemon juice — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 garlic clove — protein cho biên cương của bạn"
+            "qty_name": "Salt, to taste — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup cilantro — protein cho biên cương của bạn"
+            "qty_name": "Freshly ground black pepper, to taste — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "2 limes, one cut into 4 wedges — protein cho biên cương của bạn"
+            "qty_name": "2 tablespoons olive oil (for cooking) — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain yogurt — protein cho biên cương của bạn"
+            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain Greek yogurt — protein cho biên cương của bạn"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small clove garlic, finely minced — protein cho biên cương của bạn"
+          },
+          {
+            "price": null,
+            "qty_name": "1 squeeze fresh lemon juice — protein cho biên cương của bạn"
+          },
+          {
+            "price": null,
+            "qty_name": "Pinch of salt — protein cho biên cương của bạn"
           }
         ],
         "meta": {
-          "cook": "5 — protein cho biên cương của bạn",
-          "prep": "15 — protein cho biên cương của bạn",
+          "cook": "8 — protein cho biên cương của bạn",
+          "prep": "10 — protein cho biên cương của bạn",
           "serves": "4 — protein cho biên cương của bạn"
         },
         "steps": [
-          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — protein cho biên cương của bạn",
-          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — protein cho biên cương của bạn",
-          "TOAST the waffles according to package directions. — protein cho biên cương của bạn",
-          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — protein cho biên cương của bạn",
-          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — protein cho biên cương của bạn"
+          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — protein cho biên cương của bạn",
+          "FORM the mixture into 4–5 evenly sized patties. — protein cho biên cương của bạn",
+          "HEAT the olive oil in a large skillet over medium heat. — protein cho biên cương của bạn",
+          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — protein cho biên cương của bạn",
+          "TRANSFER the patties to a plate lined with paper towels. — protein cho biên cương của bạn",
+          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — protein cho biên cương của bạn",
+          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
         ],
-        "title": "Summer Vegetable Tostada — protein cho biên cương của bạn",
+        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — protein cho biên cương của bạn",
         "translation": {
           "allergen_check": "unsupported-lang",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:12",
+            "step:1",
+            "step:8"
+          ],
           "human_reviewed": false,
           "lang": "vi",
           "machine_translated": true,

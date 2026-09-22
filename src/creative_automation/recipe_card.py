@@ -572,11 +572,26 @@ def _pick_recipe_detail(
         # (Cincy/Dayton Lebanan qualifiers), SoCal (Julian/ Oceanside), Georgia.
         _paren_re = re.compile(r"\s*\([^)]*\)")
         norm_ingredient = _paren_re.sub("", ingredient).strip().lower()
+        # Whole-word featured match (optional plural s): a bare substring
+        # test lets "salmon" claim "salmonberries" and "grape" claim
+        # "grapefruit", routing berry/citrus months to fish/grape cards.
+        # Word boundaries keep the established plural-tolerant curation
+        # ("grape" still matches "muscadine grapes", "date" matches "dates")
+        # while refusing fish-in-berry and grape-in-grapefruit collisions.
+        def _featured_names(feature: str, haystack: str) -> bool:
+            f = _paren_re.sub("", str(feature)).strip().lower()
+            if not f or not haystack:
+                return False
+            return (
+                re.search(r"(?<![a-z])" + re.escape(f) + r"s?(?![a-z])", haystack)
+                is not None
+            )
+
         pinned = sorted(
             (r.get("id", ""), r)
             for r in recipes
             for f in (r.get("featured_for") or [])
-            if f and _paren_re.sub("", str(f)).strip().lower() in norm_ingredient
+            if f and _featured_names(f, norm_ingredient)
         )
         if pinned:
             recipe = pinned[0][1]

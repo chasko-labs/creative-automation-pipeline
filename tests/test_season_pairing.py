@@ -182,6 +182,47 @@ def test_featured_curation_source_label():
     assert pairing["reason"]
 
 
+def test_featured_match_is_whole_word_salmon_not_salmonberry():
+    # QA sweep (79x12): "summer berries and salmon (fresh run)" tied 2-2 on
+    # tokens and lost to yogurt-pie on the id tie-break while a salmon-specific
+    # recipe sat in the catalog. Featuring "salmon" must route fish months to
+    # the patties without hijacking "salmonberries" (a berry) to fish.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "summer berries and salmon (fresh run)", None,
+        market="US-W-ANCHORAGE", month="2026-07",
+    )
+    assert recipe["id"] == "crispy-salmon-patties-with-lemon-dill-yogurt-sauce"
+    assert pairing["source"] == "ingredient-featured"
+
+    berry, berry_pairing = pick_recipe_with_provenance(
+        "salmonberries", None, market="US-WA-NEAHBAY", month="2026-05",
+    )
+    assert berry["id"] == "huckleberry-flapjack-topper-draft"
+    assert berry_pairing["source"] == "ingredient-featured"
+
+
+def test_featured_match_refuses_grape_in_grapefruit():
+    # Bare-substring featured matching routed "grapefruit (Rio Red)" to the
+    # roasted-grape topper. Whole-word matching refuses it, and the explicit
+    # grapefruit curation lands the citrus flapjacks; plural-tolerant forms
+    # ("grape" in "muscadine grapes") keep working.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "grapefruit (Rio Red)", None, market="US-W-LA", month="2026-12",
+    )
+    assert recipe["id"] == "mandarin-citrus-flapjacks-draft"
+    assert pairing["source"] == "ingredient-featured"
+
+    greens, greens_pairing = pick_recipe_with_provenance(
+        "microgreens", None, market="US-W-BEND", month="2026-03",
+    )
+    assert greens["id"] == "savory-greens-fritters-draft"
+    assert greens_pairing["source"] == "ingredient-featured"
+
+
 def test_overlap_source_label_without_market_context():
     from creative_automation.recipe_card import pick_recipe_with_provenance
 

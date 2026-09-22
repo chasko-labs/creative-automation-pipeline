@@ -409948,68 +409948,84 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon olive oil"
+          "qty_name": "2 scallions, thinly sliced"
         },
         {
           "price": null,
-          "qty_name": "1 small zucchini, cut into 1” pieces"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 ear corn, kernels cut from cob"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon smoked paprika"
+          "qty_name": "1/4 cup plain Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup cherry tomatoes, halved"
+          "qty_name": "1 tablespoon Dijon mustard"
         },
         {
           "price": null,
-          "qty_name": "2 green onions, sliced"
+          "qty_name": "1 tablespoon chopped fresh dill"
         },
         {
           "price": null,
-          "qty_name": "1 cup frozen peas(defrosted)"
+          "qty_name": "1 tablespoon fresh lemon juice"
         },
         {
           "price": null,
-          "qty_name": "1 garlic clove"
+          "qty_name": "Salt, to taste"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup cilantro"
+          "qty_name": "Freshly ground black pepper, to taste"
         },
         {
           "price": null,
-          "qty_name": "2 limes, one cut into 4 wedges"
+          "qty_name": "2 tablespoons olive oil (for cooking)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup plain yogurt"
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "lang": "en",
       "market": "US-W-ANCHORAGE",
       "meta": {
-        "cook": "5",
+        "cook": "8",
         "est_cost": null,
-        "prep": "15",
+        "prep": "10",
         "serves": "4"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: summer-vegetable-tostada has the best token overlap with the in-season ingredient",
-          "recipe_id": "summer-vegetable-tostada",
+          "reason": "ingredient-curated: crispy-salmon-patties-with-lemon-dill-yogurt-sauce lists the in-season ingredient in featured_for",
+          "recipe_id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
           "season": "winter",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "storage potatoes and salmon (frozen/smoked)"
@@ -410023,8 +410039,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "summer-vegetable-tostada",
-        "name": "Summer Vegetable Tostada"
+        "id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
+        "name": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
       },
       "render": {
         "canvas": {
@@ -410527,14 +410543,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
-        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
-        "TOAST the waffles according to package directions.",
-        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
-        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Summer Vegetable Tostada",
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -410548,44 +410567,84 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
         },
         {
           "price": null,
-          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+          "qty_name": "2 scallions, thinly sliced"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt, divided"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "1/4 cup plain Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons neutral oil, for frying"
+          "qty_name": "1 tablespoon Dijon mustard"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped fresh dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons olive oil (for cooking)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "lang": "en",
       "market": "US-W-ANCHORAGE",
       "meta": {
-        "cook": "15 mins",
+        "cook": "8",
         "est_cost": null,
-        "prep": "25 mins",
-        "serves": "10 fritters"
+        "prep": "10",
+        "serves": "4"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: storage-root-fritters-draft has the best token overlap with the in-season ingredient",
-          "recipe_id": "storage-root-fritters-draft",
+          "reason": "ingredient-curated: crispy-salmon-patties-with-lemon-dill-yogurt-sauce lists the in-season ingredient in featured_for",
+          "recipe_id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
           "season": "winter",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "storage carrots and salmon"
@@ -410599,8 +410658,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "storage-root-fritters-draft",
-        "name": "Storage Root Fritters"
+        "id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
+        "name": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
       },
       "render": {
         "canvas": {
@@ -411103,13 +411162,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
-        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
-        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
-        "DRAIN on a rack and serve hot."
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Storage Root Fritters",
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -413439,68 +413502,84 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon olive oil"
+          "qty_name": "2 scallions, thinly sliced"
         },
         {
           "price": null,
-          "qty_name": "1 small zucchini, cut into 1” pieces"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 ear corn, kernels cut from cob"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon smoked paprika"
+          "qty_name": "1/4 cup plain Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup cherry tomatoes, halved"
+          "qty_name": "1 tablespoon Dijon mustard"
         },
         {
           "price": null,
-          "qty_name": "2 green onions, sliced"
+          "qty_name": "1 tablespoon chopped fresh dill"
         },
         {
           "price": null,
-          "qty_name": "1 cup frozen peas(defrosted)"
+          "qty_name": "1 tablespoon fresh lemon juice"
         },
         {
           "price": null,
-          "qty_name": "1 garlic clove"
+          "qty_name": "Salt, to taste"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup cilantro"
+          "qty_name": "Freshly ground black pepper, to taste"
         },
         {
           "price": null,
-          "qty_name": "2 limes, one cut into 4 wedges"
+          "qty_name": "2 tablespoons olive oil (for cooking)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup plain yogurt"
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "lang": "en",
       "market": "US-W-ANCHORAGE",
       "meta": {
-        "cook": "5",
+        "cook": "8",
         "est_cost": null,
-        "prep": "15",
+        "prep": "10",
         "serves": "4"
       },
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: summer-vegetable-tostada has the best token overlap with the in-season ingredient",
-          "recipe_id": "summer-vegetable-tostada",
+          "reason": "ingredient-curated: crispy-salmon-patties-with-lemon-dill-yogurt-sauce lists the in-season ingredient in featured_for",
+          "recipe_id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
           "season": "summer",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "summer berries and salmon (fresh run)"
@@ -413514,8 +413593,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "summer-vegetable-tostada",
-        "name": "Summer Vegetable Tostada"
+        "id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
+        "name": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
       },
       "render": {
         "canvas": {
@@ -414018,14 +414097,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
-        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
-        "TOAST the waffles according to package directions.",
-        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
-        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Summer Vegetable Tostada",
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -414039,44 +414121,84 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
         },
         {
           "price": null,
-          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+          "qty_name": "2 scallions, thinly sliced"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt, divided"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "1/4 cup plain Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons neutral oil, for frying"
+          "qty_name": "1 tablespoon Dijon mustard"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped fresh dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons olive oil (for cooking)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "lang": "en",
       "market": "US-W-ANCHORAGE",
       "meta": {
-        "cook": "15 mins",
+        "cook": "8",
         "est_cost": null,
-        "prep": "25 mins",
-        "serves": "10 fritters"
+        "prep": "10",
+        "serves": "4"
       },
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: storage-root-fritters-draft has the best token overlap with the in-season ingredient",
-          "recipe_id": "storage-root-fritters-draft",
+          "reason": "ingredient-curated: crispy-salmon-patties-with-lemon-dill-yogurt-sauce lists the in-season ingredient in featured_for",
+          "recipe_id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
           "season": "summer",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "giant cabbage, carrots, potatoes and salmon"
@@ -414090,8 +414212,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "storage-root-fritters-draft",
-        "name": "Storage Root Fritters"
+        "id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
+        "name": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
       },
       "render": {
         "canvas": {
@@ -414594,13 +414716,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
-        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
-        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
-        "DRAIN on a rack and serve hot."
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Storage Root Fritters",
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -415764,44 +415890,84 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
         },
         {
           "price": null,
-          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+          "qty_name": "2 scallions, thinly sliced"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt, divided"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "1/4 cup plain Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons neutral oil, for frying"
+          "qty_name": "1 tablespoon Dijon mustard"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped fresh dill"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Salt, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "Freshly ground black pepper, to taste"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons olive oil (for cooking)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "lang": "en",
       "market": "US-W-ANCHORAGE",
       "meta": {
-        "cook": "15 mins",
+        "cook": "8",
         "est_cost": null,
-        "prep": "25 mins",
-        "serves": "10 fritters"
+        "prep": "10",
+        "serves": "4"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: storage-root-fritters-draft has the best token overlap with the in-season ingredient",
-          "recipe_id": "storage-root-fritters-draft",
+          "reason": "ingredient-curated: crispy-salmon-patties-with-lemon-dill-yogurt-sauce lists the in-season ingredient in featured_for",
+          "recipe_id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "storage root vegetables and salmon"
@@ -415815,8 +415981,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "storage-root-fritters-draft",
-        "name": "Storage Root Fritters"
+        "id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
+        "name": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
       },
       "render": {
         "canvas": {
@@ -416319,13 +416485,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
-        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
-        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
-        "DRAIN on a rack and serve hot."
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Storage Root Fritters",
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -444171,7 +444341,11 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1-1/3 cups milk"
+          "qty_name": "1/2 cup mandarin juice"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
@@ -444179,19 +444353,11 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+          "qty_name": "1 tablespoon mandarin zest"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons honey"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon olive oil"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
         },
         {
           "price": null,
@@ -444201,16 +444367,16 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-W-LA",
       "meta": {
-        "cook": "30 mins",
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "8 flapjacks plus topper"
+        "prep": "15 mins",
+        "serves": "8 flapjacks"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: roasted-grape-flapjack-topper-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "roasted-grape-flapjack-topper-draft",
+          "reason": "ingredient-curated: mandarin-citrus-flapjacks-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "mandarin-citrus-flapjacks-draft",
           "season": "winter",
           "source": "ingredient-featured"
         },
@@ -444226,8 +444392,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "roasted-grape-flapjack-topper-draft",
-        "name": "Roasted Grape Flapjack Topper"
+        "id": "mandarin-citrus-flapjacks-draft",
+        "name": "Mandarin Citrus Flapjacks"
       },
       "render": {
         "canvas": {
@@ -444705,13 +444871,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
-        "WHISK the mix, milk, and eggs into a batter.",
+        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
+        "REST the batter 5 minutes.",
         "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
-        "SERVE the flapjacks with the warm roasted grapes spooned over."
+        "SERVE hot with extra segments and honey."
       ],
       "substrate": "kraft",
-      "title": "Roasted Grape Flapjack Topper",
+      "title": "Mandarin Citrus Flapjacks",
       "variant": "hero-plus-layout"
     }
   },
@@ -513009,68 +513175,84 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+          "qty_name": "1 (14.75-oz) can salmon, drained"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon olive oil"
+          "qty_name": "2 scallions, thinly sliced"
         },
         {
           "price": null,
-          "qty_name": "1 small zucchini, cut into 1” pieces"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 ear corn, kernels cut from cob"
+          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon smoked paprika"
+          "qty_name": "1/4 cup plain Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup cherry tomatoes, halved"
+          "qty_name": "1 tablespoon Dijon mustard"
         },
         {
           "price": null,
-          "qty_name": "2 green onions, sliced"
+          "qty_name": "1 tablespoon chopped fresh dill"
         },
         {
           "price": null,
-          "qty_name": "1 cup frozen peas(defrosted)"
+          "qty_name": "1 tablespoon fresh lemon juice"
         },
         {
           "price": null,
-          "qty_name": "1 garlic clove"
+          "qty_name": "Salt, to taste"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup cilantro"
+          "qty_name": "Freshly ground black pepper, to taste"
         },
         {
           "price": null,
-          "qty_name": "2 limes, one cut into 4 wedges"
+          "qty_name": "2 tablespoons olive oil (for cooking)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup plain yogurt"
+          "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small clove garlic, finely minced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 squeeze fresh lemon juice"
+        },
+        {
+          "price": null,
+          "qty_name": "Pinch of salt"
         }
       ],
       "lang": "en",
       "market": "US-WA-NEAHBAY",
       "meta": {
-        "cook": "5",
+        "cook": "8",
         "est_cost": null,
-        "prep": "15",
+        "prep": "10",
         "serves": "4"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: summer-vegetable-tostada has the best token overlap with the in-season ingredient",
-          "recipe_id": "summer-vegetable-tostada",
+          "reason": "ingredient-curated: crispy-salmon-patties-with-lemon-dill-yogurt-sauce lists the in-season ingredient in featured_for",
+          "recipe_id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
           "season": "winter",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "smoked salmon"
@@ -513084,8 +513266,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "summer-vegetable-tostada",
-        "name": "Summer Vegetable Tostada"
+        "id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
+        "name": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce"
       },
       "render": {
         "canvas": {
@@ -513577,14 +513759,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
-        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
-        "TOAST the waffles according to package directions.",
-        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
-        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
+        "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
+        "LET the mixture rest for 10 minutes so the grains can absorb the moisture.",
+        "FORM the mixture into 4–5 evenly sized patties.",
+        "HEAT the olive oil in a large skillet over medium heat.",
+        "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp.",
+        "TRANSFER the patties to a plate lined with paper towels.",
+        "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth.",
+        "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
       ],
       "substrate": "kraft",
-      "title": "Summer Vegetable Tostada",
+      "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -515941,10 +516126,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-06",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: crispy-salmon-patties-with-lemon-dill-yogurt-sauce chosen deterministically for US-WA-NEAHBAY|2026-06 among recipes naming the ingredient",
+          "reason": "ingredient-curated: crispy-salmon-patties-with-lemon-dill-yogurt-sauce lists the in-season ingredient in featured_for",
           "recipe_id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
           "season": "summer",
-          "source": "ingredient-rotation"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "salmon"
@@ -516549,10 +516734,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: crispy-salmon-patties-with-lemon-dill-yogurt-sauce has the best token overlap with the in-season ingredient",
+          "reason": "ingredient-curated: crispy-salmon-patties-with-lemon-dill-yogurt-sauce lists the in-season ingredient in featured_for",
           "recipe_id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
           "season": "summer",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "coho salmon"
@@ -517714,10 +517899,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: crispy-salmon-patties-with-lemon-dill-yogurt-sauce has the best token overlap with the in-season ingredient",
+          "reason": "ingredient-curated: crispy-salmon-patties-with-lemon-dill-yogurt-sauce lists the in-season ingredient in featured_for",
           "recipe_id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "coho salmon (late)"

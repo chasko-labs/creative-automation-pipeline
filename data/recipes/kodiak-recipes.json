@@ -5160,6 +5160,9 @@
   {
     "id": "crispy-salmon-patties-with-lemon-dill-yogurt-sauce",
     "name": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce",
+    "featured_for": [
+      "salmon"
+    ],
     "category": "sides & snacks",
     "course": "sides & snacks",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
@@ -17865,7 +17868,8 @@
       "greens",
       "chard",
       "kale",
-      "collards"
+      "collards",
+      "microgreens"
     ],
     "category": "sides & snacks",
     "course": "sides & snacks",
@@ -19239,7 +19243,8 @@
       "kumquat",
       "satsuma",
       "mandarin",
-      "tangerine"
+      "tangerine",
+      "grapefruit"
     ]
   },
   {
