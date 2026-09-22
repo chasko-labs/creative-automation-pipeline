@@ -113,6 +113,100 @@
             9
           ],
           "peak": 9
+        },
+        {
+          "name": "stored onions",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            1,
+            11
+          ]
+        },
+        {
+          "name": "cool-season greens",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring onions",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "onions",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "early greens",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "sweet onions",
+          "months": [
+            5,
+            6
+          ]
+        },
+        {
+          "name": "squash",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "melons",
+          "months": [
+            6,
+            7
+          ]
+        },
+        {
+          "name": "early green chile",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "red chile",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "red chile ristras",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "dried red chile",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -665,6 +759,73 @@
           "months": [
             9,
             10
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "cold-storage potatoes",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "months": [
+            3
+          ],
+          "peak": 3
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "raspberries",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "cranberries",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "wild rice",
+          "months": [
+            12
           ]
         }
       ]
@@ -1321,6 +1482,63 @@
             4,
             5
           ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            1,
+            3
+          ],
+          "peak": 3
+        },
+        {
+          "name": "cabbage",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "watermelon",
+          "months": [
+            6
+          ],
+          "peak": 6
+        },
+        {
+          "name": "green peanuts",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "peppers",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "boiled peanuts",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "satsuma citrus",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -1744,6 +1962,86 @@
             9,
             10,
             11
+          ]
+        },
+        {
+          "name": "citrus (oranges and grapefruit)",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "citrus",
+          "months": [
+            2,
+            3
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "apricots",
+          "months": [
+            5
+          ],
+          "peak": 5
+        },
+        {
+          "name": "melons",
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "dates",
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "heat-set peppers",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "olives",
+          "months": [
+            10,
+            11
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "citrus (mandarins and grapefruit)",
+          "months": [
+            12
           ]
         }
       ]

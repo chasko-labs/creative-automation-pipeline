@@ -20,13 +20,15 @@ def test_known_market_in_season_month():
 
 
 def test_known_market_out_of_season_month():
-    # January (1) is outside the Hatch green chile Aug-Sep window
-    got = local_flavor_for("US-SW-LASCRUCES", month=1)
+    # Boston January: deep winter, nothing scheduled yet — the honest empty
+    # shape (was Las Cruces January until storage onions/pecans were seeded;
+    # the contract is source + place resolve with produce []).
+    got = local_flavor_for("US-NE-BOS", month=1)
     assert got["matched"] is True
     assert got["produce"] == []
     # source + months still resolve so the UI can render the sourcing line
     assert got["source"]
-    assert got["months"] == [8, 9]
+    assert "Boston" in got["place"]
 
 
 def test_default_fallback_for_unknown_market():
@@ -213,3 +215,33 @@ def test_tularosa_pistachio_harvest_september():
     jun = local_flavor_for("US-SW-TULAROSA", month=6)
     assert "cherries" in jun["produce"]
     assert "pistachios" not in jun["produce"]
+
+
+def test_jax_winter_strawberry_and_satsuma():
+    # Florida winter growing season: strawberries Jan, satsuma Dec
+    jan = local_flavor_for("US-SE-JAX", month=1)
+    assert "strawberries" in jan["produce"]
+    dec = local_flavor_for("US-SE-JAX", month=12)
+    assert "satsuma citrus" in dec["produce"]
+
+
+def test_las_cruces_onion_to_ristra_arc():
+    # Upper Rio Grande arc: sweet onions May, dried red chile Dec
+    may = local_flavor_for("US-SW-LASCRUCES", month=5)
+    assert "sweet onions" in may["produce"]
+    dec = local_flavor_for("US-SW-LASCRUCES", month=12)
+    assert "dried red chile" in dec["produce"]
+
+
+def test_twin_cities_maple_to_wild_rice():
+    # Minnesota arc: maple Mar, wild rice Dec; summer berries in between
+    assert "maple syrup" in local_flavor_for("US-MW-TC", month=3)["produce"]
+    assert "wild rice" in local_flavor_for("US-MW-TC", month=12)["produce"]
+    assert "raspberries" in local_flavor_for("US-MW-TC", month=7)["produce"]
+
+
+def test_phoenix_desert_two_citrus_peaks():
+    # Salt River desert: winter citrus both ends, dates through late summer
+    assert "citrus (oranges and grapefruit)" in local_flavor_for("US-SW-PHX", month=1)["produce"]
+    assert "dates" in local_flavor_for("US-SW-PHX", month=8)["produce"]
+    assert "citrus (mandarins and grapefruit)" in local_flavor_for("US-SW-PHX", month=12)["produce"]
