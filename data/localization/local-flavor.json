@@ -99,6 +99,54 @@
             8,
             9
           ]
+        },
+        {
+          "name": "storage root vegetables",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "storage honey",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "dairy butter",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "storage winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "local honey",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -903,6 +951,54 @@
             7,
             8,
             9
+          ]
+        },
+        {
+          "name": "ranch beef",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "storage root vegetables",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "storage honey",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "ranch dairy butter",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "storage winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "ranch lamb",
+          "months": [
+            12
           ]
         }
       ]
@@ -4443,6 +4539,54 @@
             8,
             9
           ]
+        },
+        {
+          "name": "storage potatoes",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "storage onions",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "microgreens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "root vegetables",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "grass-fed beef",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -4466,6 +4610,54 @@
             7,
             8,
             9
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "storage onions",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "storage honey",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "cold-frame greens",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "pinto beans",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "local honey",
+          "months": [
+            12
           ]
         }
       ]

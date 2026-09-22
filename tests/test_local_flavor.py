@@ -507,3 +507,28 @@ def test_phx2_cantaloupe_to_citrus():
     # Southeast Valley: cantaloupe Jun, mandarins Dec
     assert "cantaloupe" in local_flavor_for("US-MW-PHX2", month=6)["produce"]
     assert "citrus (mandarins and grapefruit)" in local_flavor_for("US-MW-PHX2", month=12)["produce"]
+
+
+def test_park_city_storage_to_honey():
+    # Wasatch resort shoulder: storage roots Jan, local honey Dec
+    assert "storage root vegetables" in local_flavor_for("US-MW-PARKCITY-84098", month=1)["produce"]
+    assert "local honey" in local_flavor_for("US-MW-PARKCITY-84098", month=12)["produce"]
+
+
+def test_jackson_hole_beef_to_lamb():
+    # Teton valley ranch arc: beef Jan, lamb Dec
+    assert "ranch beef" in local_flavor_for("US-MW-JACKSONHOLE", month=1)["produce"]
+    assert "ranch lamb" in local_flavor_for("US-MW-JACKSONHOLE", month=12)["produce"]
+
+
+def test_bend_microgreens_to_beef():
+    # High desert: microgreens Mar, grass-fed beef Dec
+    assert "microgreens" in local_flavor_for("US-W-BEND", month=3)["produce"]
+    assert "grass-fed beef" in local_flavor_for("US-W-BEND", month=12)["produce"]
+
+
+def test_boulder_rhubarb_to_pinto():
+    # Front Range: rhubarb May, pinto beans Nov, honey Dec
+    assert "rhubarb" in local_flavor_for("US-W-BOULDER", month=5)["produce"]
+    assert "pinto beans" in local_flavor_for("US-W-BOULDER", month=11)["produce"]
+    assert "local honey" in local_flavor_for("US-W-BOULDER", month=12)["produce"]
