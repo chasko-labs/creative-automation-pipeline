@@ -196,9 +196,10 @@ let skuList = [
   // already-versioned URLs pass through untouched.
   const withVersion = (url)=>{
     try{
-      if(!url || /^(https?:|data:|blob:)/i.test(url) || url.indexOf('?v=') >= 0) return url;
+      if(!url || /^(https?:|data:|blob:)/i.test(url) || /(^|[?&])v=/.test(url)) return url;
       const v = (typeof window !== 'undefined' && window.KODIAK_VERSION) || '';
-      return v ? (url + '?v=' + encodeURIComponent(v)) : url;
+      if(!v) return url;
+      return url + (url.indexOf('?') >= 0 ? '&v=' : '?v=') + encodeURIComponent(v);
     }catch(e){ return url; }
   };
   const marketHeroPicks = (marketId, month)=>{

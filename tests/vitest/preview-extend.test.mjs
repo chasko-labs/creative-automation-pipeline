@@ -116,6 +116,22 @@ describe('preview extend helpers', () => {
     expect(plain.blog).toBe('input_assets/campaign-web/US-OH-LEBANON/fall-waffle.jpg');
   });
 
+  it('appends the version with & when the art url already has a query', () => {
+    globalThis.KODIAK_TILE_ORDER = ['blog', '1x1'];
+    globalThis.KODIAK_CAMPAIGN_ART = {
+      season_months: { fall: [9, 10, 11] },
+      markets: { 'US-OH-LEBANON': { seasons: { fall: {
+        waffle: 'input_assets/campaign-web/US-OH-LEBANON/fall-waffle.jpg?crop=1',
+        muffin: 'input_assets/campaign-web/US-OH-LEBANON/fall-muffin.jpg?v=old',
+      } }, extras: {} } },
+    };
+    globalThis.KODIAK_VERSION = '0.1.012-test';
+    const picks = window.KODIAK_marketHeroPicks('US-OH-LEBANON', 10);
+    expect(picks.blog).toBe('input_assets/campaign-web/US-OH-LEBANON/fall-waffle.jpg?crop=1&v=0.1.012-test');
+    expect(picks['1x1']).toBe('input_assets/campaign-web/US-OH-LEBANON/fall-muffin.jpg?v=old');
+    delete globalThis.KODIAK_VERSION;
+  });
+
   it('repaints resting copy from the market row, never Utah under Ohio', () => {
     globalThis.places = [
       { market: 'US-OH-LEBANON', place: 'Lebanon, Ohio 45036', message: 'Orchard belt frontier', cue: 'Hidden Valley peaches' },
