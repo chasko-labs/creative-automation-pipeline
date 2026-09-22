@@ -47,12 +47,17 @@ describe('bay area markets (#279)', () => {
     expect(disclosure).toMatch(/'US-CA-CASTROVILLE':\{lat:36\.7656,lon:-121\.7588\}/);
   });
 
-  it('language + store-finder companions cover all 76', () => {
-    expect(langs.markets.length).toBe(76);
-    expect(langs.metadata.total_markets).toBe(76);
-    expect(finder.markets.length).toBe(76);
+  it('language + store-finder companions cover all 79', () => {
+    expect(langs.markets.length).toBe(79);
+    expect(langs.metadata.total_markets).toBe(79);
+    expect(finder.markets.length).toBe(79);
+    expect(finder.metadata.total_markets).toBe(79);
     for (const m of ['US-W-SF', 'US-W-SANJOSE', 'US-CA-CASTROVILLE']) {
       expect(langs.markets.map(x => x.market)).toContain(m);
     }
+    for (const m of ['US-OH-CINCINNATI', 'US-OH-DAYTON', 'US-CA-OCEANSIDE']) {
+      expect(finder.markets.map(x => x.market)).toContain(m);
+    }
+    expect(new Set(finder.markets.map(x => x.market))).toEqual(new Set(langs.markets.map(x => x.market)));
   });
 });

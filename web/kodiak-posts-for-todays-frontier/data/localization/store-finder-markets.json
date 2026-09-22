@@ -6,12 +6,12 @@
     "counts": {
       "seeded_regions": 18,
       "synthesized_new": 50,
-      "total_markets": 76,
+      "total_markets": 79,
       "bay_area_frontier_added": 1,
       "total": 71
     },
     "locator_url": "https://kodiakcakes.com/pages/store-locator",
-    "total_markets": 76
+    "total_markets": 79
   },
   "markets": [
     {
@@ -859,6 +859,36 @@
         "lat": 36.7656,
         "lon": -121.7588
       }
+    },
+    {
+      "market": "US-OH-CINCINNATI",
+      "place": "Cincinnati, Ohio 45202",
+      "audience": "River-valley families, Findlay Market regulars",
+      "message": "Pawpaw capital frontier \u2014 protein for Ohio River mornings",
+      "cue": "Brick market halls, humid river valley \u2014 trillium and bluebells spring, coneflower summer, aster and goldenrod fall; Findlay Market ramps and morels, September pawpaws, black walnuts in December",
+      "retailer": "Kroger, Target",
+      "zip": "45202",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-OH-DAYTON",
+      "place": "Dayton, Ohio 45402",
+      "audience": "Miami Valley families, 2nd Street Market Saturdays",
+      "message": "Maple corridor frontier \u2014 protein for market mornings",
+      "cue": "Brick downtown and market sheds, Miami Valley humid bottomland \u2014 trillium and bluebells spring, coneflower summer, aster and goldenrod fall; February maple sugaring, May strawberries, 2nd Street Market July corn, pawpaws in September",
+      "retailer": "Kroger, Target",
+      "zip": "45402",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-CA-OCEANSIDE",
+      "place": "Oceanside, California 92054",
+      "audience": "North County market families, Thursday-night crowds",
+      "message": "Sunset Market frontier \u2014 protein for Pier View Way evenings",
+      "cue": "Pier and mission-revival downtown \u2014 Buena Vista Lagoon flyway (night-heron, egrets), marine layer mornings, Santa Ana fall; Thursday Sunset Market five blocks, morning market mandarins, Chalk Dudleya summer, Goldenbush fall",
+      "retailer": "Target, Vons, Whole Foods",
+      "zip": "92054",
+      "brand": "KODIAK"
     }
   ]
 }
