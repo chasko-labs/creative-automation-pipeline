@@ -710,6 +710,19 @@ def test_served_stubs_enriched_from_brand_pages():
         assert (repo / src).is_file(), f"{rid}: missing {src}"
 
 
+def test_catalog_carries_no_synthetic_placeholders():
+    # Fifteen frontier-synthetic records (fake blog URLs, one placeholder
+    # ingredient, no image, never served) were deleted from both mirrors.
+    # Guards re-introduction: placeholder ids must never ship again.
+    import json
+    from pathlib import Path
+
+    repo = Path(__file__).resolve().parent.parent
+    cat = json.loads((repo / "data" / "recipes" / "kodiak-recipes.json").read_text())
+    bad = [r["id"] for r in cat if r["id"].startswith("frontier-synthetic")]
+    assert bad == [], bad
+
+
 def test_conjunction_split_month_serves_each_named_item():
     # El Paso September proves the word-order match end to end: without it
     # September pins cornbread alone (ingredient-featured); with it the
