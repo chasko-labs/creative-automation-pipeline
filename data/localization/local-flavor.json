@@ -1783,6 +1783,68 @@
             7,
             8
           ]
+        },
+        {
+          "name": "kale",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "winter greens",
+          "months": [
+            1,
+            12
+          ]
+        },
+        {
+          "name": "cabbage",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring onions",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "wine grapes",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "figs",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10,
+            11
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "citrus",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -2035,6 +2097,60 @@
             6,
             7,
             8
+          ]
+        },
+        {
+          "name": "turnips",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "winter greens",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "Vidalia onions",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "muscadine grapes",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "collards",
+          "months": [
+            12
           ]
         }
       ]
@@ -2882,6 +2998,99 @@
             11,
             12
           ]
+        },
+        {
+          "name": "stored pecans",
+          "months": [
+            1,
+            12
+          ]
+        },
+        {
+          "name": "winter greens",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "cool-season greens",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "onions",
+          "months": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "lettuce",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "squash",
+          "months": [
+            5,
+            6
+          ]
+        },
+        {
+          "name": "melons",
+          "months": [
+            6,
+            7
+          ]
+        },
+        {
+          "name": "green chile",
+          "months": [
+            7,
+            8,
+            9
+          ],
+          "peak": 8
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "red chile",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "dried red chile",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -3394,6 +3603,72 @@
             6,
             7,
             8
+          ]
+        },
+        {
+          "name": "citrus (mandarins)",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "leafy greens",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "cherries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "apricots",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "peppers",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "walnuts",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "mandarins",
+          "months": [
+            12
           ]
         }
       ]

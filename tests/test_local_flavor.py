@@ -351,3 +351,31 @@ def test_san_antonio_1015_to_citrus():
     assert "1015 Texas Sweet onions" in local_flavor_for("US-SC-SANANTONIO", month=4)["produce"]
     assert "citrus" in local_flavor_for("US-SC-SANANTONIO", month=12)["produce"]
     assert "winter greens" in local_flavor_for("US-SC-SANANTONIO", month=1)["produce"]
+
+
+def test_atlanta_vidalia_to_collards():
+    # Georgia flagship: Vidalia Apr, muscadine Sep, collards Dec
+    assert "Vidalia onions" in local_flavor_for("US-SE-ATL", month=4)["produce"]
+    assert "muscadine grapes" in local_flavor_for("US-SE-ATL", month=9)["produce"]
+    assert "collards" in local_flavor_for("US-SE-ATL", month=12)["produce"]
+
+
+def test_austin_figs_to_citrus():
+    # Hill Country: figs Sep, citrus Dec, kale Jan
+    assert "figs" in local_flavor_for("US-SC-AUSTIN", month=9)["produce"]
+    assert "citrus" in local_flavor_for("US-SC-AUSTIN", month=12)["produce"]
+    assert "kale" in local_flavor_for("US-SC-AUSTIN", month=1)["produce"]
+
+
+def test_roswell_chile_arc_to_dried():
+    # Pecos Valley: green chile Aug peak, dried red chile Dec
+    assert "green chile" in local_flavor_for("US-SW-ROSWELL", month=8)["produce"]
+    assert "dried red chile" in local_flavor_for("US-SW-ROSWELL", month=12)["produce"]
+    assert "stored pecans" in local_flavor_for("US-SW-ROSWELL", month=1)["produce"]
+
+
+def test_sacramento_cherries_to_walnuts():
+    # Central Valley: cherries May, walnuts Nov, mandarins Dec
+    assert "cherries" in local_flavor_for("US-W-SACRAMENTO", month=5)["produce"]
+    assert "walnuts" in local_flavor_for("US-W-SACRAMENTO", month=11)["produce"]
+    assert "mandarins" in local_flavor_for("US-W-SACRAMENTO", month=12)["produce"]
