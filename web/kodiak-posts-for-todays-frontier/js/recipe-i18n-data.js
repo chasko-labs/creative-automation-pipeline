@@ -75236,6 +75236,1596 @@ window.KODIAK_RECIPE_I18N = {
       }
     }
   },
+  "US-SE-SANDERSVILLE": {
+    "2026-01": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — Protein für deine Frontier",
+          "prep": "25 mins — Protein für deine Frontier",
+          "serves": "10 fritters — Protein für deine Frontier"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — Protein für deine Frontier",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — Protein für deine Frontier",
+          "SERVE hot topped with fresh microgreens. — Protein für deine Frontier"
+        ],
+        "title": "Savory Greens Fritters — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "25 mins — proteína para tu frontera",
+          "serves": "10 fritters — proteína para tu frontera"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — proteína para tu frontera",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — proteína para tu frontera",
+          "SERVE hot topped with fresh microgreens. — proteína para tu frontera"
+        ],
+        "title": "Savory Greens Fritters — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-02": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt, divided — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — Protein für deine Frontier",
+          "prep": "25 mins — Protein für deine Frontier",
+          "serves": "10 fritters — Protein für deine Frontier"
+        },
+        "steps": [
+          "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — Protein für deine Frontier",
+          "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+          "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden. — Protein für deine Frontier",
+          "DRAIN on a rack and serve hot. — Protein für deine Frontier"
+        ],
+        "title": "Storage Root Fritters — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt, divided — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "25 mins — proteína para tu frontera",
+          "serves": "10 fritters — proteína para tu frontera"
+        },
+        "steps": [
+          "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — proteína para tu frontera",
+          "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+          "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden. — proteína para tu frontera",
+          "DRAIN on a rack and serve hot. — proteína para tu frontera"
+        ],
+        "title": "Storage Root Fritters — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-03": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cups milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — Protein für deine Frontier",
+          "prep": "5 mins — Protein für deine Frontier",
+          "serves": "12 — Protein für deine Frontier"
+        },
+        "steps": [
+          "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside. — Protein für deine Frontier",
+          "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+          "POUR the batter onto the prepared baking sheet and top with mixed berries. — Protein für deine Frontier",
+          "BAKE for 10-15 minutes, or until set and lightly golden. — Protein für deine Frontier",
+          "LET cool slightly, then slice into 12 slices and serve with maple syrup. — Protein für deine Frontier"
+        ],
+        "title": "Sheet Pan Pancakes — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:2",
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cups milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "12 — proteína para tu frontera"
+        },
+        "steps": [
+          "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside. — proteína para tu frontera",
+          "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+          "POUR the batter onto the prepared baking sheet and top with mixed berries. — proteína para tu frontera",
+          "BAKE for 10-15 minutes, or until set and lightly golden. — proteína para tu frontera",
+          "LET cool slightly, then slice into 12 slices and serve with maple syrup. — proteína para tu frontera"
+        ],
+        "title": "Sheet Pan Pancakes — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:2",
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-04": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon olive oil — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small zucchini, cut into 1” pieces — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ear corn, kernels cut from cob — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon smoked paprika — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup cherry tomatoes, halved — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 green onions, sliced — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup frozen peas(defrosted) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 garlic clove — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup cilantro — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limes, one cut into 4 wedges — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup plain yogurt — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "5 — Protein für deine Frontier",
+          "prep": "15 — Protein für deine Frontier",
+          "serves": "4 — Protein für deine Frontier"
+        },
+        "steps": [
+          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — Protein für deine Frontier",
+          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — Protein für deine Frontier",
+          "TOAST the waffles according to package directions. — Protein für deine Frontier",
+          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — Protein für deine Frontier",
+          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — Protein für deine Frontier"
+        ],
+        "title": "Summer Vegetable Tostada — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon olive oil — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small zucchini, cut into 1” pieces — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ear corn, kernels cut from cob — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon smoked paprika — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup cherry tomatoes, halved — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 green onions, sliced — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup frozen peas(defrosted) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 garlic clove — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup cilantro — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limes, one cut into 4 wedges — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup plain yogurt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "5 — proteína para tu frontera",
+          "prep": "15 — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
+        },
+        "steps": [
+          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — proteína para tu frontera",
+          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — proteína para tu frontera",
+          "TOAST the waffles according to package directions. — proteína para tu frontera",
+          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — proteína para tu frontera",
+          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — proteína para tu frontera"
+        ],
+        "title": "Summer Vegetable Tostada — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-05": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon olive oil — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small zucchini, cut into 1” pieces — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ear corn, kernels cut from cob — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon smoked paprika — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup cherry tomatoes, halved — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 green onions, sliced — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup frozen peas(defrosted) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 garlic clove — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup cilantro — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limes, one cut into 4 wedges — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup plain yogurt — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "5 — Protein für deine Frontier",
+          "prep": "15 — Protein für deine Frontier",
+          "serves": "4 — Protein für deine Frontier"
+        },
+        "steps": [
+          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — Protein für deine Frontier",
+          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — Protein für deine Frontier",
+          "TOAST the waffles according to package directions. — Protein für deine Frontier",
+          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — Protein für deine Frontier",
+          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — Protein für deine Frontier"
+        ],
+        "title": "Summer Vegetable Tostada — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon olive oil — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 small zucchini, cut into 1” pieces — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ear corn, kernels cut from cob — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon smoked paprika — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup cherry tomatoes, halved — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 green onions, sliced — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup frozen peas(defrosted) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 garlic clove — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup cilantro — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 limes, one cut into 4 wedges — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup plain yogurt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "5 — proteína para tu frontera",
+          "prep": "15 — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
+        },
+        "steps": [
+          "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside. — proteína para tu frontera",
+          "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste. — proteína para tu frontera",
+          "TOAST the waffles according to package directions. — proteína para tu frontera",
+          "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles. — proteína para tu frontera",
+          "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge. — proteína para tu frontera"
+        ],
+        "title": "Summer Vegetable Tostada — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-06": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Fiber Brownies: — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup granulated sugar — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 (15 ounce) can black beans, rinsed and drained — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup butter, melted"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons vegetable oil — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract \r\n\r\n\r\n \r\n\r\nBreakfast Brownie Parfaits: — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "4 cups vanilla Greek yogurt — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "4 cups Fiber Brownie cubes — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Chocolate Granola — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1-2 cups fresh blackberries, raspberries, strawberries, or blueberries, optional — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "30 — Protein für deine Frontier",
+          "prep": "20 — Protein für deine Frontier",
+          "serves": "8 — Protein für deine Frontier"
+        },
+        "steps": [
+          "PREHEAT the oven to 350°F. Grease a 9 x 9-inch baking pan. — Protein für deine Frontier",
+          "ADD the black beans, eggs, melted butter, vegetable oil, milk, and vanilla to a blender. Blend until completely smooth.",
+          "PLACE the Kodiak Cakes Dark Chocolate Power Cakes mix and sugar in a large mixing bowl. Whisk together to combine. — Protein für deine Frontier",
+          "POUR the blended black bean mixture into the dry ingredients and whisk until a smooth batter forms. — Protein für deine Frontier",
+          "SPREAD the batter evenly into the prepared baking pan. — Protein für deine Frontier",
+          "BAKE for 25-30 minutes, or until the center is set and a toothpick inserted into the center comes out with a few moist crumbs. Cool completely. — Protein für deine Frontier",
+          "CUT the cooled brownies into 1-inch cubes. — Protein für deine Frontier",
+          "TO assemble the parfaits, layer vanilla Greek yogurt, Fiber Brownie cubes, and Kodiak Cakes Chocolate Granola in individual glasses or jars. — Protein für deine Frontier",
+          "REPEAT the layers as desired and finish with brownie cubes and a sprinkle of granola. 10. Top with fresh berries or other fruit, if desired. Serve immediately. — Protein für deine Frontier"
+        ],
+        "title": "Breakfast Brownie Parfait — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:8",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Fiber Brownies: — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup granulated sugar — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 (15 ounce) can black beans, rinsed and drained — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup butter, melted"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons vegetable oil — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract \r\n\r\n\r\n \r\n\r\nBreakfast Brownie Parfaits: — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "4 cups vanilla Greek yogurt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "4 cups Fiber Brownie cubes — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Chocolate Granola — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1-2 cups fresh blackberries, raspberries, strawberries, or blueberries, optional — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "30 — proteína para tu frontera",
+          "prep": "20 — proteína para tu frontera",
+          "serves": "8 — proteína para tu frontera"
+        },
+        "steps": [
+          "PREHEAT the oven to 350°F. Grease a 9 x 9-inch baking pan. — proteína para tu frontera",
+          "ADD the black beans, eggs, melted butter, vegetable oil, milk, and vanilla to a blender. Blend until completely smooth.",
+          "PLACE the Kodiak Cakes Dark Chocolate Power Cakes mix and sugar in a large mixing bowl. Whisk together to combine. — proteína para tu frontera",
+          "POUR the blended black bean mixture into the dry ingredients and whisk until a smooth batter forms. — proteína para tu frontera",
+          "SPREAD the batter evenly into the prepared baking pan. — proteína para tu frontera",
+          "BAKE for 25-30 minutes, or until the center is set and a toothpick inserted into the center comes out with a few moist crumbs. Cool completely. — proteína para tu frontera",
+          "CUT the cooled brownies into 1-inch cubes. — proteína para tu frontera",
+          "TO assemble the parfaits, layer vanilla Greek yogurt, Fiber Brownie cubes, and Kodiak Cakes Chocolate Granola in individual glasses or jars. — proteína para tu frontera",
+          "REPEAT the layers as desired and finish with brownie cubes and a sprinkle of granola. 10. Top with fresh berries or other fruit, if desired. Serve immediately. — proteína para tu frontera"
+        ],
+        "title": "Breakfast Brownie Parfait — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:8",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-07": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 Peach Overnight Oats cup — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup whole milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ripe peach, diced — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain yogurt — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "STIR the milk into the oats cup, cover, and refrigerate overnight.",
+          "IN the morning, layer the soaked oats with yogurt and diced peach in a glass. — Protein für deine Frontier",
+          "SERVE chilled. — Protein für deine Frontier"
+        ],
+        "title": "Peach Overnight Oats Parfait — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:2",
+            "step:1"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 Peach Overnight Oats cup — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup whole milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 ripe peach, diced — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup plain yogurt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "STIR the milk into the oats cup, cover, and refrigerate overnight.",
+          "IN the morning, layer the soaked oats with yogurt and diced peach in a glass. — proteína para tu frontera",
+          "SERVE chilled. — proteína para tu frontera"
+        ],
+        "title": "Peach Overnight Oats Parfait — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:2",
+            "step:1"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-08": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/3 cups milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon olive oil — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 teaspoon salt — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons butter, for the griddle"
+          }
+        ],
+        "meta": {
+          "cook": "30 mins — Protein für deine Frontier",
+          "prep": "10 mins — Protein für deine Frontier",
+          "serves": "8 flapjacks plus topper — Protein für deine Frontier"
+        },
+        "steps": [
+          "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+          "WHISK the mix, milk, and eggs into a batter.",
+          "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+          "SERVE the flapjacks with the warm roasted grapes spooned over. — Protein für deine Frontier"
+        ],
+        "title": "Roasted Grape Flapjack Topper — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:2",
+            "ingredient:3",
+            "ingredient:5",
+            "ingredient:8",
+            "step:1",
+            "step:2",
+            "step:3"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/3 cups milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon olive oil — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons butter, for the griddle"
+          }
+        ],
+        "meta": {
+          "cook": "30 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "8 flapjacks plus topper — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+          "WHISK the mix, milk, and eggs into a batter.",
+          "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+          "SERVE the flapjacks with the warm roasted grapes spooned over. — proteína para tu frontera"
+        ],
+        "title": "Roasted Grape Flapjack Topper — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:2",
+            "ingredient:3",
+            "ingredient:5",
+            "ingredient:8",
+            "step:1",
+            "step:2",
+            "step:3"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-09": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup brown sugar — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin purée — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sour cream — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Pepitas, to top — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — Protein für deine Frontier",
+          "prep": "10 mins — Protein für deine Frontier",
+          "serves": "12 — Protein für deine Frontier"
+        },
+        "steps": [
+          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — Protein für deine Frontier",
+          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — Protein für deine Frontier",
+          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — Protein für deine Frontier",
+          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — Protein für deine Frontier",
+          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — Protein für deine Frontier"
+        ],
+        "title": "Pumpkin Oat Muffins — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:8",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup brown sugar — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin purée — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sour cream — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Pepitas, to top — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 — proteína para tu frontera"
+        },
+        "steps": [
+          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — proteína para tu frontera",
+          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — proteína para tu frontera",
+          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — proteína para tu frontera",
+          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — proteína para tu frontera",
+          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — proteína para tu frontera"
+        ],
+        "title": "Pumpkin Oat Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:8",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-10": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup water — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon cinnamon — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter, to top and grease pan"
+          },
+          {
+            "price": null,
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "5 mins — Protein für deine Frontier",
+          "prep": "5 mins — Protein für deine Frontier",
+          "serves": "4 — Protein für deine Frontier"
+        },
+        "steps": [
+          "REMOVE the skin from the sweet potato and discard. — Protein für deine Frontier",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — Protein für deine Frontier",
+          "HEAT a skillet over medium heat. — Protein für deine Frontier",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — Protein für deine Frontier",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        ],
+        "title": "Sweet Potato Pancakes — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:7",
+            "step:4",
+            "step:6"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup water — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter, to top and grease pan"
+          },
+          {
+            "price": null,
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "5 mins — proteína para tu frontera",
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
+        },
+        "steps": [
+          "REMOVE the skin from the sweet potato and discard. — proteína para tu frontera",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — proteína para tu frontera",
+          "HEAT a skillet over medium heat. — proteína para tu frontera",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — proteína para tu frontera",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        ],
+        "title": "Sweet Potato Pancakes — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:7",
+            "step:4",
+            "step:6"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-11": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 packets Kodiak Chocolate Chip Oatmeal Packets — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup chopped pecans — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 teaspoon baking powder — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons maple syrup — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin puree — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "36 pecan halves"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — Protein für deine Frontier",
+          "prep": "10 mins — Protein für deine Frontier",
+          "serves": "12 — Protein für deine Frontier"
+        },
+        "steps": [
+          "PREHEAT the oven to 350° F. Coat a mini muffin tin with cooking spray or butter.",
+          "PLACE the contents of the oatmeal packets in a mixing bowl along with the power cakes mix, chopped pecans, and baking powder. Whisk to combine. — Protein für deine Frontier",
+          "ADD the maple syrup, eggs, milk, and pumpkin puree to the dry ingredients and whisk together to form a smooth batter. Let sit for 5 minutes to let the grains absorb the liquid.",
+          "STIR again and fill each mini muffin tin 7/8 full with batter. This recipe should fill about 36 mini muffin tins. Top each muffin with a pecan half.",
+          "BAKE in the preheated oven for 12-15 minutes, or until golden brown on top and puffed. — Protein für deine Frontier",
+          "REMOVE and let cool for 10 minutes. Run a butter knife around the edge of each mini muffin and remove from the pan. Store in an airtight container."
+        ],
+        "title": "Pumpkin Oat Energy Bites — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:6",
+            "ingredient:7",
+            "ingredient:9",
+            "step:1",
+            "step:3",
+            "step:4",
+            "step:6"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "4 packets Kodiak Chocolate Chip Oatmeal Packets — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup chopped pecans — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 teaspoon baking powder — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons maple syrup — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin puree — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "36 pecan halves"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 — proteína para tu frontera"
+        },
+        "steps": [
+          "PREHEAT the oven to 350° F. Coat a mini muffin tin with cooking spray or butter.",
+          "PLACE the contents of the oatmeal packets in a mixing bowl along with the power cakes mix, chopped pecans, and baking powder. Whisk to combine. — proteína para tu frontera",
+          "ADD the maple syrup, eggs, milk, and pumpkin puree to the dry ingredients and whisk together to form a smooth batter. Let sit for 5 minutes to let the grains absorb the liquid.",
+          "STIR again and fill each mini muffin tin 7/8 full with batter. This recipe should fill about 36 mini muffin tins. Top each muffin with a pecan half.",
+          "BAKE in the preheated oven for 12-15 minutes, or until golden brown on top and puffed. — proteína para tu frontera",
+          "REMOVE and let cool for 10 minutes. Run a butter knife around the edge of each mini muffin and remove from the pan. Store in an airtight container."
+        ],
+        "title": "Pumpkin Oat Energy Bites — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:6",
+            "ingredient:7",
+            "ingredient:9",
+            "step:1",
+            "step:3",
+            "step:4",
+            "step:6"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-12": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — Protein für deine Frontier",
+          "prep": "25 mins — Protein für deine Frontier",
+          "serves": "10 fritters — Protein für deine Frontier"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — Protein für deine Frontier",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — Protein für deine Frontier",
+          "SERVE hot topped with fresh microgreens. — Protein für deine Frontier"
+        ],
+        "title": "Savory Greens Fritters — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "25 mins — proteína para tu frontera",
+          "serves": "10 fritters — proteína para tu frontera"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — proteína para tu frontera",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — proteína para tu frontera",
+          "SERVE hot topped with fresh microgreens. — proteína para tu frontera"
+        ],
+        "title": "Savory Greens Fritters — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    }
+  },
   "US-SE-TAMPA": {
     "2026-01": {
       "es": {

@@ -21,7 +21,10 @@ def _places():
 def test_metro_header_resolves_to_place():
     places = _places()
     pairs = json.loads(PAIRS.read_text())["pairs"]
-    assert len(pairs) == 76
+    # Floor, not pin: the coverage contract (test_all_seasons_coverage) states
+    # researched additions extend the matrix past 76 (Sandersville seeded
+    # 2026-09; El Paso / Santa Fe pending), so every listed pair is checked.
+    assert len(pairs) >= 76, f"frontier pairs lost entries: {len(pairs)} < 76"
     for p in pairs:
         metro = p.get("metro_location") or {}
         code = metro.get("market") or p["market"]

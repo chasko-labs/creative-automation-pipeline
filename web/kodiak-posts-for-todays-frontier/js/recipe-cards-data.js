@@ -340482,6 +340482,6183 @@ window.KODIAK_RECIPE_CARDS = {
       "variant": "hero-plus-layout"
     }
   },
+  "US-SE-SANDERSVILLE": {
+    "2026-01": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "collards",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "25 mins",
+        "serves": "10 fritters"
+      },
+      "month": "2026-01",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: savory-greens-fritters-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "savory-greens-fritters-draft",
+          "season": "winter",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "collards"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "savory-greens-fritters-draft",
+        "name": "Savory Greens Fritters"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "winter",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
+      ],
+      "substrate": "kraft",
+      "title": "Savory Greens Fritters",
+      "variant": "hero-plus-layout"
+    },
+    "2026-02": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "turnips",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 cups shredded storage root vegetables (turnips, carrots, potatoes, rutabaga)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt, divided"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "25 mins",
+        "serves": "10 fritters"
+      },
+      "month": "2026-02",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: storage-root-fritters-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "storage-root-fritters-draft",
+          "season": "winter",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "turnips"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "storage-root-fritters-draft",
+        "name": "Storage Root Fritters"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "winter",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "TOSS the shredded roots with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
+        "WHISK the mix, eggs, remaining salt, and pepper into a batter and fold in the roots.",
+        "FRY 1/4-cup flattened mounds in hot oil, 3-4 minutes per side, until crisp and golden.",
+        "DRAIN on a rack and serve hot."
+      ],
+      "substrate": "kraft",
+      "title": "Storage Root Fritters",
+      "variant": "hero-plus-layout"
+    },
+    "2026-03": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "strawberries (early)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "Top with 1 cup mix of blueberries, blackberries, and strawberries"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "5 mins",
+        "serves": "12"
+      },
+      "month": "2026-03",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: sheet-pan-pancakes has the best token overlap with the in-season ingredient",
+          "recipe_id": "sheet-pan-pancakes",
+          "season": "spring",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "strawberries (early)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "sheet-pan-pancakes",
+        "name": "Sheet Pan Pancakes"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "spring",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "PREHEAT oven to 350° F and line a baking sheet with parchment paper; set aside.",
+        "IN a large bowl, mix Kodiak Cakes mix, eggs, vanilla, and milk until well combined.",
+        "POUR the batter onto the prepared baking sheet and top with mixed berries.",
+        "BAKE for 10-15 minutes, or until set and lightly golden.",
+        "LET cool slightly, then slice into 12 slices and serve with maple syrup."
+      ],
+      "substrate": "kraft",
+      "title": "Sheet Pan Pancakes",
+      "variant": "hero-plus-layout"
+    },
+    "2026-04": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "Vidalia onions (early)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "5",
+        "est_cost": null,
+        "prep": "15",
+        "serves": "4"
+      },
+      "month": "2026-04",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: summer-vegetable-tostada has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-vegetable-tostada",
+          "season": "spring",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "Vidalia onions (early)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "summer-vegetable-tostada",
+        "name": "Summer Vegetable Tostada"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "spring",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
+      ],
+      "substrate": "kraft",
+      "title": "Summer Vegetable Tostada",
+      "variant": "hero-plus-layout"
+    },
+    "2026-05": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "Vidalia onions",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small zucchini, cut into 1” pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ear corn, kernels cut from cob"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon smoked paprika"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cherry tomatoes, halved"
+        },
+        {
+          "price": null,
+          "qty_name": "2 green onions, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup frozen peas(defrosted)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 garlic clove"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup cilantro"
+        },
+        {
+          "price": null,
+          "qty_name": "2 limes, one cut into 4 wedges"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup plain yogurt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "5",
+        "est_cost": null,
+        "prep": "15",
+        "serves": "4"
+      },
+      "month": "2026-05",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: summer-vegetable-tostada has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-vegetable-tostada",
+          "season": "spring",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "Vidalia onions"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "summer-vegetable-tostada",
+        "name": "Summer Vegetable Tostada"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "spring",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "PLACE the peas, garlic, cilantro, and the juice of one lime in a food processor. Pulse until blended into a thick paste. Add salt to taste. Pulse again and set aside.",
+        "ADD the olive oil to a large skillet and heat to medium/high. Add the zucchini, corn, and smoked paprika to the skillet and sauté until golden and soft. Remove from the heat and toss in the cherry tomatoes and green onion. Add salt to taste.",
+        "TOAST the waffles according to package directions.",
+        "TOP each waffle with 1/4 cup of the pea mixture and 1/4 of the vegetable mixture. Repeat with remaining waffles.",
+        "SERVE each waffle tostada with a tablespoon of yogurt and a lime wedge."
+      ],
+      "substrate": "kraft",
+      "title": "Summer Vegetable Tostada",
+      "variant": "hero-plus-layout"
+    },
+    "2026-06": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "blueberries",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "Fiber Brownies:"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup granulated sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 (15 ounce) can black beans, rinsed and drained"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons vegetable oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract \r\n\r\n\r\n \r\n\r\nBreakfast Brownie Parfaits:"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups vanilla Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups Fiber Brownie cubes"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Chocolate Granola"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 cups fresh blackberries, raspberries, strawberries, or blueberries, optional"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "30",
+        "est_cost": null,
+        "prep": "20",
+        "serves": "8"
+      },
+      "month": "2026-06",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient rotation: breakfast-brownie-parfait chosen deterministically for US-SE-SANDERSVILLE|2026-06 among recipes naming the ingredient",
+          "recipe_id": "breakfast-brownie-parfait",
+          "season": "summer",
+          "source": "ingredient-rotation"
+        },
+        "values_from_source": [
+          "blueberries"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "breakfast-brownie-parfait",
+        "name": "Breakfast Brownie Parfait"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "summer",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "PREHEAT the oven to 350°F. Grease a 9 x 9-inch baking pan.",
+        "ADD the black beans, eggs, melted butter, vegetable oil, milk, and vanilla to a blender. Blend until completely smooth.",
+        "PLACE the Kodiak Cakes Dark Chocolate Power Cakes mix and sugar in a large mixing bowl. Whisk together to combine.",
+        "POUR the blended black bean mixture into the dry ingredients and whisk until a smooth batter forms.",
+        "SPREAD the batter evenly into the prepared baking pan.",
+        "BAKE for 25-30 minutes, or until the center is set and a toothpick inserted into the center comes out with a few moist crumbs. Cool completely.",
+        "CUT the cooled brownies into 1-inch cubes.",
+        "TO assemble the parfaits, layer vanilla Greek yogurt, Fiber Brownie cubes, and Kodiak Cakes Chocolate Granola in individual glasses or jars.",
+        "REPEAT the layers as desired and finish with brownie cubes and a sprinkle of granola. 10. Top with fresh berries or other fruit, if desired. Serve immediately."
+      ],
+      "substrate": "kraft",
+      "title": "Breakfast Brownie Parfait",
+      "variant": "hero-plus-layout"
+    },
+    "2026-07": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "peaches",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 Peach Overnight Oats cup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe peach, diced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain yogurt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": null,
+        "est_cost": null,
+        "prep": null,
+        "serves": null
+      },
+      "month": "2026-07",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient rotation: peach-overnight-oats-parfait-draft chosen deterministically for US-SE-SANDERSVILLE|2026-07 among recipes naming the ingredient",
+          "recipe_id": "peach-overnight-oats-parfait-draft",
+          "season": "summer",
+          "source": "ingredient-rotation"
+        },
+        "values_from_source": [
+          "peaches"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "times",
+          "serves",
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "peach-overnight-oats-parfait-draft",
+        "name": "Peach Overnight Oats Parfait"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "summer",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "STIR the milk into the oats cup, cover, and refrigerate overnight.",
+        "IN the morning, layer the soaked oats with yogurt and diced peach in a glass.",
+        "SERVE chilled."
+      ],
+      "substrate": "kraft",
+      "title": "Peach Overnight Oats Parfait",
+      "variant": "hero-plus-layout"
+    },
+    "2026-08": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "muscadine grapes",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/3 cups milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups halved grapes (muscadine, wine grapes, or table grapes)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "30 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "8 flapjacks plus topper"
+      },
+      "month": "2026-08",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: roasted-grape-flapjack-topper-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "roasted-grape-flapjack-topper-draft",
+          "season": "summer",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "muscadine grapes"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "roasted-grape-flapjack-topper-draft",
+        "name": "Roasted Grape Flapjack Topper"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "summer",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 425F; toss the grapes with the honey, oil, and salt and roast 20-25 minutes, until jammy.",
+        "WHISK the mix, milk, and eggs into a batter.",
+        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
+        "SERVE the flapjacks with the warm roasted grapes spooned over."
+      ],
+      "substrate": "kraft",
+      "title": "Roasted Grape Flapjack Topper",
+      "variant": "hero-plus-layout"
+    },
+    "2026-09": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "butterbeans",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12"
+      },
+      "month": "2026-09",
+      "provenance": {
+        "pairing": {
+          "reason": "fall harvest pairing: pumpkin is the fall-curated ingredient",
+          "recipe_id": "pumpkin-oat-muffins",
+          "season": "fall",
+          "source": "season-table"
+        },
+        "values_from_source": [
+          "butterbeans"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "pumpkin-oat-muffins",
+        "name": "Pumpkin Oat Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "fall",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
+      ],
+      "substrate": "kraft",
+      "title": "Pumpkin Oat Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-10": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "sweet potatoes",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "5 mins",
+        "est_cost": null,
+        "prep": "5 mins",
+        "serves": "4"
+      },
+      "month": "2026-10",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
+          "recipe_id": "sweet-potato-pancakes",
+          "season": "fall",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "sweet potatoes"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "sweet-potato-pancakes",
+        "name": "Sweet Potato Pancakes"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "fall",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+      ],
+      "substrate": "kraft",
+      "title": "Sweet Potato Pancakes",
+      "variant": "hero-plus-layout"
+    },
+    "2026-11": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "pecans",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "4 packets Kodiak Chocolate Chip Oatmeal Packets"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup chopped pecans"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin puree"
+        },
+        {
+          "price": null,
+          "qty_name": "36 pecan halves"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12"
+      },
+      "month": "2026-11",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient rotation: pumpkin-oat-energy-bites chosen deterministically for US-SE-SANDERSVILLE|2026-11 among recipes naming the ingredient",
+          "recipe_id": "pumpkin-oat-energy-bites",
+          "season": "fall",
+          "source": "ingredient-rotation"
+        },
+        "values_from_source": [
+          "pecans"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "pumpkin-oat-energy-bites",
+        "name": "Pumpkin Oat Energy Bites"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "fall",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "PREHEAT the oven to 350° F. Coat a mini muffin tin with cooking spray or butter.",
+        "PLACE the contents of the oatmeal packets in a mixing bowl along with the power cakes mix, chopped pecans, and baking powder. Whisk to combine.",
+        "ADD the maple syrup, eggs, milk, and pumpkin puree to the dry ingredients and whisk together to form a smooth batter. Let sit for 5 minutes to let the grains absorb the liquid.",
+        "STIR again and fill each mini muffin tin 7/8 full with batter. This recipe should fill about 36 mini muffin tins. Top each muffin with a pecan half.",
+        "BAKE in the preheated oven for 12-15 minutes, or until golden brown on top and puffed.",
+        "REMOVE and let cool for 10 minutes. Run a butter knife around the edge of each mini muffin and remove from the pan. Store in an airtight container."
+      ],
+      "substrate": "kraft",
+      "title": "Pumpkin Oat Energy Bites",
+      "variant": "hero-plus-layout"
+    },
+    "2026-12": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-SE-SANDERSVILLE",
+      "ingredient": "collards (holiday greens)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SE-SANDERSVILLE",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "25 mins",
+        "serves": "10 fritters"
+      },
+      "month": "2026-12",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: savory-greens-fritters-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "savory-greens-fritters-draft",
+          "season": "winter",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "collards (holiday greens)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "savory-greens-fritters-draft",
+        "name": "Savory Greens Fritters"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "winter",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "sweet potato",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + citrus (Winter)",
+            "collards (holiday greens)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "citrus",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + watermelon (Summer)",
+            "blueberries",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "watermelon",
+            "blueberry",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "muscadine + pecans (Fall)",
+            "sweet potatoes",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "muscadine",
+            "pecan",
+            "sweet potato",
+            "fall"
+          ],
+          "moment": "Fall muscadine + pecan harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + hog jowl (New Year)",
+            "collards",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)",
+            "strawberries (early)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet corn + Vidalia grill (Memorial Day)",
+            "Vidalia onions",
+            "blueberries"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "corn",
+            "vidalia",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "watermelon + field peas (Fourth)",
+            "peaches",
+            "butterbeans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "watermelon",
+            "field pea",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "butterbeans + tomatoes (Labor Day)",
+            "muscadine grapes",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "butterbean",
+            "tomato",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet potatoes + caramel (Halloween)",
+            "pecans",
+            "muscadine grapes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "sweet potato",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pecan pralines + chocolate (Christmas)",
+            "collards (holiday greens)",
+            "pecans"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "praline",
+            "pecan",
+            "chocolate",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + pecan pie (Holiday season)",
+            "storage pecans + citrus (Winter)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "pecan",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "Vidalia onions + strawberries (Spring)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "vidalia",
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Spring — first Vidalia (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peaches + blackberries (Summer)",
+            "blueberries",
+            "peaches"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peach",
+            "blackberry",
+            "summer"
+          ],
+          "moment": "Summer — high summer orchard (Summer)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring greens (Easter)",
+            "strawberries (early)",
+            "turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "greens",
+            "strawberry",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "peanuts + muscadine (Fall)",
+            "butterbeans",
+            "sweet potatoes"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "peanut",
+            "muscadine",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "collards + turnips (Winter)",
+            "pecans",
+            "collards"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "collard",
+            "turnip",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "strawberries (March)",
+            "strawberries (early)",
+            "Vidalia onions (early)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "strawberry",
+            "spring"
+          ],
+          "moment": "Early spring — strawberries (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Georgia Grown seasonal availability, middle-Georgia row-crop and orchard patterns (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
+      ],
+      "substrate": "kraft",
+      "title": "Savory Greens Fritters",
+      "variant": "hero-plus-layout"
+    }
+  },
   "US-SE-TAMPA": {
     "2026-01": {
       "art": {
