@@ -38,6 +38,14 @@ def test_contract_sample_rows_intact():
         assert snippet in text, f"contract sample changed: {snippet[:40]}"
 
 
+def test_schema_card_counts_match_data():
+    import json as _json
+
+    langs = _json.loads((ROOT / "data" / "localization" / "market-languages.json").read_text())
+    text = PAGE.read_text(encoding="utf-8")
+    assert f"{len(langs['markets'])} markets, top home languages" in text
+
+
 def test_schema_card_names_sources():
     text = PAGE.read_text(encoding="utf-8")
     for snippet in [
