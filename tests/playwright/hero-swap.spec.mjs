@@ -53,6 +53,28 @@ test("resting hero is Park City, Cincinnati select swaps five distinct tiles", a
   expect(lede).not.toMatch(/Wasatch/);
 });
 
+test("oceanside select swaps five distinct tiles", async ({ page }) => {
+  await page.goto(page_url);
+  await page.waitForSelector("#previewHero .render-tile img", { state: "attached" });
+
+  await page.evaluate(() => {
+    const sel = document.getElementById("locality");
+    sel.value = "US-CA-OCEANSIDE";
+    sel.dispatchEvent(new Event("change", { bubbles: true }));
+  });
+  await page.waitForFunction(
+    () =>
+      [...document.querySelectorAll("#previewHero .render-tile img")].every((i) =>
+        (i.getAttribute("src") || "").includes("campaign-web/US-CA-OCEANSIDE/"),
+      ),
+    null,
+    { timeout: 10000 },
+  );
+
+  const swapped = await tileSrcs(page);
+  expect(new Set(swapped).size).toBe(5);
+});
+
 test("market without campaign art keeps the resting example", async ({ page }) => {
   await page.goto(page_url);
   await page.waitForSelector("#previewHero .render-tile img", { state: "attached" });
