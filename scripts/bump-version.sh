@@ -29,6 +29,8 @@ set -euo pipefail
 #       - <script src="glimmer-proxy.js?v=..."> (cache-bust query)
 #   web/kodiak-posts-for-todays-frontier/webmcp.json   "version"
 #   web/kodiak-posts-for-todays-frontier/llms.txt      version doc line
+#   web/kodiak-posts-for-todays-frontier/pipeline.html <meta name="kodiak-version" ...>
+#   web/kodiak-posts-for-todays-frontier/infrastructure.html (same meta)
 #
 # Usage:
 #   ./scripts/bump-version.sh            # stamp with existing semver 0.1.012
@@ -48,7 +50,9 @@ WEB_SRC="${WEB_SRC:-$REPO_ROOT/web/kodiak-posts-for-todays-frontier}"
 INDEX="$WEB_SRC/index.html"
 WEBMCP="$WEB_SRC/webmcp.json"
 LLMS="$WEB_SRC/llms.txt"
-SINKS=("$INDEX" "$WEBMCP" "$LLMS")
+PIPELINE="$WEB_SRC/pipeline.html"
+INFRA="$WEB_SRC/infrastructure.html"
+SINKS=("$INDEX" "$WEBMCP" "$LLMS" "$PIPELINE" "$INFRA")
 
 # A version-shaped token: MAJOR.MINOR.PATCH, -buildid, -YYYYMMDD (the optional
 # leading v is captured separately in the replace so it is preserved, never doubled).
