@@ -8668,8 +8668,8 @@
     "id": "butternut-squash-oatmeal-bars",
     "name": "Butternut Squash Oatmeal Bars",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "KODIAK\u00ae Maple & Brown Sugar Oatmeal Packets",
+    "base": "3 packets Kodiak Maple & Brown Sugar Peak Oatmeal Packets; 2/3 cup butternut squash pur\u00e9e; 1/4 cup maple syrup; 1/2 cup almond butter; 1/4 cup milk; 1/2 teaspoons cinnamon; 1 cup powdered sugar; 1-2 tablespoons milk",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/butternut-squash-oatmeal-bars",
     "localize": {
       "peppers": "\u2014",
@@ -8683,7 +8683,31 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "ingredients": [
+      "3 packets Kodiak Maple & Brown Sugar Peak Oatmeal Packets",
+      "2/3 cup butternut squash pur\u00e9e",
+      "1/4 cup maple syrup",
+      "1/2 cup almond butter",
+      "1/4 cup milk",
+      "1/2 teaspoons cinnamon",
+      "1 cup powdered sugar",
+      "1-2 tablespoons milk"
+    ],
+    "instructions": [
+      "Preheat the oven to 350\u00b0 F. Line a 8x8\u201d baking pan with parchment paper.",
+      "Place the contents of the oatmeal packets in a mixing bowl along with the butternut squash pur\u00e9e, maple syrup, almond butter, milk, and cinnamon. Mix until well combined.",
+      "Spoon the mixture into the prepared baking pan and carefully spread out until evenly distributed and smooth on top.",
+      "Bake in the preheated oven for 20 to 25 minutes, or until cooked through. Remove from the oven and let cool completely.",
+      "Once cool, remove from the pan and place on a cutting board. Cut into 12 bars.",
+      "Place the powdered sugar and milk in a small mixing bowl. Whisk together until smooth, adding more or less milk, to achieve the desired consistency.",
+      "Drizzle the icing over the top of the butternut squash oatmeal bars.",
+      "Store in an airtight container."
+    ],
+    "prepTime": "5",
+    "cookTime": "25",
+    "yield": "12",
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/butternut-squash-oatmeal-bars.jpg"
   },
   {
     "id": "holiday-sugar-cookies",
@@ -9784,8 +9808,8 @@
     "id": "grilled-peaches-and-granola",
     "name": "Grilled Peaches & Granola",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Cinnamon Oat Power Cakes Flapjack & Waffle Mix",
+    "base": "2 cups oats; 1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix; 1/2 cup nuts, seeds, or coconut flakes; 1/4 cup maple syrup; 1/4 cup oil; 1/2 teaspoon cinnamon; 4 peaches, pitted and cut in half; 2 cups vanilla ice cream",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/grilled-peaches-and-granola",
     "localize": {
       "peppers": "\u2014",
@@ -9800,7 +9824,27 @@
       "q"
     ],
     "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
-    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/grilled-peaches-and-granola.jpg"
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/grilled-peaches-and-granola.jpg",
+    "ingredients": [
+      "2 cups oats",
+      "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix",
+      "1/2 cup nuts, seeds, or coconut flakes",
+      "1/4 cup maple syrup",
+      "1/4 cup oil",
+      "1/2 teaspoon cinnamon",
+      "4 peaches, pitted and cut in half",
+      "2 cups vanilla ice cream"
+    ],
+    "instructions": [
+      "Preheat oven to 350\u00b0 F.",
+      "Mix all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
+      "Bake for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
+      "Brush maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
+      "Divide grilled peaches, ice cream, and granola into 4 bowls and serve."
+    ],
+    "prepTime": "5",
+    "cookTime": "25",
+    "yield": "6"
   },
   {
     "id": "kodiak-cakes-blueberry-yogurt-muffins",
@@ -10590,7 +10634,7 @@
     "name": "Asparagus And Goat Cheese Frittata",
     "category": "oats",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "1/4 cup olive oil; 1 small red onion, sliced; 12 asparagus stalks, bottoms trimmed; 10 large eggs; 3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1/2 teaspoon baking powder; 1/4 teaspoon salt; 1/4 teaspoon cracked black pepper; 1 tablespoon fresh chives, chopped; 1/4 cup goat cheese crumbles",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/asparagus-and-goat-cheese-frittata",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10610,9 +10654,27 @@
     ],
     "example_localization": {},
     "course": "breakfast & brunch",
-    "image": null,
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/asparagus-and-goat-cheese-frittata.jpg",
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "1/4 cup olive oil",
+      "1 small red onion, sliced",
+      "12 asparagus stalks, bottoms trimmed",
+      "10 large eggs",
+      "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1/2 teaspoon baking powder",
+      "1/4 teaspoon salt",
+      "1/4 teaspoon cracked black pepper",
+      "1 tablespoon fresh chives, chopped",
+      "1/4 cup goat cheese crumbles"
+    ],
+    "instructions": [
+      "Preheat the oven to 350\u00b0 F and coat a standard pie dish with butter or baking spray.",
+      "In a pan over medium heat, saut\u00e9 the red onion in the olive oil until soft, then remove from heat.",
+      "In the same pan, saut\u00e9 the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+      "Place the saut\u00e9ed onions and asparagus into the prepared baking dish and spread evenly.",
+      "Add the eggs, Kodiak mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+      "Pour the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+      "Bake for 35\u201340 minutes, or until the center is set and cooked through."
     ],
     "dietary": [],
     "tags": [
@@ -10621,8 +10683,8 @@
       "pagination"
     ],
     "yield": "4",
-    "prepTime": "15 mins",
-    "cookTime": "40 mins"
+    "prepTime": "15",
+    "cookTime": "40"
   },
   {
     "id": "avocado-waffle-toast",
@@ -14739,8 +14801,8 @@
     "id": "high-protein-nuts-seeds-power-oatmeal",
     "name": "High Protein Nuts Seeds Power Oatmeal",
     "category": "oats",
-    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "product": "KODIAK\u00ae Classic Rolled Oats Canister",
+    "base": "1/2 cup Kodiak Classic Rolled Oats Canister; 3/4 cup water; 1 tablespoon nut butter of choice (ex: peanut butter, almond butter, sunflower butter, etc.); 2-3 tablespoons nuts and/or seeds (ex: almonds, walnuts, pepitas, chia seeds, etc)",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/high-protein-nuts-seeds-power-oatmeal",
     "localize": {
       "peppers": "Hatch green chile",
@@ -14760,16 +14822,28 @@
     ],
     "example_localization": {},
     "course": "breakfast & brunch",
-    "image": null,
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/high-protein-nuts-seeds-power-oatmeal.jpg",
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "1/2 cup Kodiak Classic Rolled Oats Canister",
+      "3/4 cup water",
+      "1 tablespoon nut butter of choice (ex: peanut butter, almond butter, sunflower butter, etc.)",
+      "2-3 tablespoons nuts and/or seeds (ex: almonds, walnuts, pepitas, chia seeds, etc)"
+    ],
+    "instructions": [
+      "Measure oatmeal into a bowl.",
+      "Add about 3/4 cup water or milk until oatmeal is covered.",
+      "Stir well and microwave for 90 seconds.",
+      "Top the heated oatmeal cup with nut butter, nuts, and seeds."
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "prepTime": "2",
+    "cookTime": "1",
+    "yield": "1"
   },
   {
     "id": "holiday-chocolate-chip-cookie-jar",
@@ -16683,8 +16757,8 @@
     "id": "pumpkin-flapjacks-with-whipped-pumpkin-maple-butter-cranberries-and-walnuts",
     "name": "Pumpkin Flapjacks With Whipped Pumpkin Maple Butter Cranberries And Walnuts",
     "category": "flapjacks",
-    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "product": "Pumpkin Power Cakes Flapjack & Waffle Mix",
+    "base": "2 tablespoon butter, softened; 1 tablespoon pumpkin pur\u00e9e; 1 tablespoon maple syrup; 1/4 cup fresh or dried cranberries; 1 tablespoon sugar; 1 cup Kodiak Pumpkin Power Cakes Flapjack and Waffle Mix; 1 cup water; 1/4 cup walnuts",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/pumpkin-flapjacks-with-whipped-pumpkin-maple-butter-cranberries-and-walnuts",
     "localize": {
       "peppers": "Hatch green chile",
@@ -16704,16 +16778,35 @@
     ],
     "example_localization": {},
     "course": "breakfast & brunch",
-    "image": null,
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/pumpkin-flapjacks-with-whipped-pumpkin-maple-butter-cranberries-and-walnuts.jpg",
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "2 tablespoon butter, softened",
+      "1 tablespoon pumpkin pur\u00e9e",
+      "1 tablespoon maple syrup",
+      "1/4 cup fresh or dried cranberries",
+      "1 tablespoon sugar",
+      "1 cup Kodiak Pumpkin Power Cakes Flapjack and Waffle Mix",
+      "1 cup water",
+      "1/4 cup walnuts"
+    ],
+    "instructions": [
+      "Place the butter in a small bowl and whip with a fork until fluffy.",
+      "Stir in pumpkin pur\u00e9e and maple syrup.",
+      "In a separate bowl, toss cranberries in sugar.",
+      "In a mixing bowl, stir Kodiak mix and water together until combined.",
+      "Pour 1/4 cup of batter onto a heated and greased pan or griddle. Cook on medium-high heat or 375\u00b0 F until bubbles form on the top.",
+      "Flip and continue to cook until golden.",
+      "Top with whipped pumpkin-maple butter, cranberries, and walnuts."
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "prepTime": "10",
+    "cookTime": "5",
+    "yield": "2"
   },
   {
     "id": "pumpkin-ghost-doughnut-holes-with-maple-glaze",

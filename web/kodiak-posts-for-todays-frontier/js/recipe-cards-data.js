@@ -15654,15 +15654,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-CA-PESCADERO",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -16172,7 +16208,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -22409,15 +22451,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-BOISE",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -22918,7 +22996,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -28536,54 +28620,54 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/3 cup cottage cheese"
+          "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "2 eggs"
+          "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon milk of choice"
+          "qty_name": "1 cup peanut butter (no sugar added)"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/2 cup melted unsalted butter"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup Greek yogurt"
+          "qty_name": "1/4 cup real maple syrup"
         },
         {
           "price": null,
-          "qty_name": "dollop of smooth peanut butter (optional)"
+          "qty_name": "2/3 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon of maple syrup (optional)\r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+          "qty_name": "3 cups fresh mashed raspberries (measured after mashing)"
         },
         {
           "price": null,
-          "qty_name": "Sliced fruit (bananas or strawberries)"
+          "qty_name": "Optional: 1 tablespoon real maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple Syrup"
+          "qty_name": "Optional: drizzle with melted peanut butter"
         }
       ],
       "lang": "en",
       "market": "US-MW-CHI",
       "meta": {
-        "cook": "15 mins",
+        "cook": "25",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "1"
+        "prep": "20",
+        "serves": "30"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: dark-chocolate-protein-stack chosen deterministically for US-MW-CHI|2026-03 among recipes naming the ingredient",
-          "recipe_id": "dark-chocolate-protein-stack",
+          "reason": "ingredient rotation: fiber-packed-pb-j-snack-bars chosen deterministically for US-MW-CHI|2026-03 among recipes naming the ingredient",
+          "recipe_id": "fiber-packed-pb-j-snack-bars",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -28599,8 +28683,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "dark-chocolate-protein-stack",
-        "name": "Dark Chocolate Protein Stack"
+        "id": "fiber-packed-pb-j-snack-bars",
+        "name": "Fiber-Packed PB&J Snack Bars"
       },
       "render": {
         "canvas": {
@@ -29085,15 +29169,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "IN a blender, combine cottage cheese, eggs, and milk. Blend until smooth.",
-        "IN a medium bowl, mix the cottage cheese mixture with the Kodiak Cakes mix until well combined.",
-        "SCOOP about a 1/4 cup of batter onto a preheated and greased skillet to make 3 pancakes.",
-        "ALLOW to cook until bubbles form, then flip and finish cooking.",
-        "MEANWHILE, combine Greek yogurt, peanut butter, and maple syrup in a bowl until smooth.",
-        "LAYER the flapjacks with the peanut butter yogurt mixture and add desired toppings. Enjoy!"
+        "PREHEAT oven to 350°F and line a 13x18” sheet pan with parchment paper.",
+        "IN a large bowl, mix peanut butter, butter, maple syrup, and milk until smooth.",
+        "ADD Kodiak Cakes mix and oats, stirring until a thick, slightly crumbly dough forms.",
+        "PRESS about ⅔ of the mixture firmly into the pan to create an even base layer.",
+        "CAREFULLY spread mashed raspberries evenly over the base then crumble the remaining dough over the top.",
+        "BAKE for 20–25 minutes, until the top is set and lightly golden. Let cool completely before slicing into 30 bars.",
+        "STORE in an airtight container in the refrigerator for up to 5 days."
       ],
       "substrate": "kraft",
-      "title": "Dark Chocolate Protein Stack",
+      "title": "Fiber-Packed PB&J Snack Bars",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -29668,15 +29753,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-CHI",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -30185,7 +30306,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -34811,62 +34938,30 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister"
+          "qty_name": "Buttermilk French Toast Sticks, heated"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cinnamon"
+          "qty_name": "1/2 cup mixed berries"
         },
         {
           "price": null,
-          "qty_name": "1/8 teaspoon turmeric powder"
-        },
-        {
-          "price": null,
-          "qty_name": "1/8 teaspoon ground ginger"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup water"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons fresh blueberries"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon chopped walnuts"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon shelled pumpkin seeds"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon chia seed"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon nut butter"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, if desired"
+          "qty_name": "2 tablespoons maple syrup"
         }
       ],
       "lang": "en",
       "market": "US-MW-CLEVELAND",
       "meta": {
-        "cook": "2 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "1"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: anti-inflammatory-oatmeal chosen deterministically for US-MW-CLEVELAND|2026-02 among recipes naming the ingredient",
-          "recipe_id": "anti-inflammatory-oatmeal",
+          "reason": "ingredient rotation: french-toast-stick-dippers-draft chosen deterministically for US-MW-CLEVELAND|2026-02 among recipes naming the ingredient",
+          "recipe_id": "french-toast-stick-dippers-draft",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -34877,13 +34972,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "anti-inflammatory-oatmeal",
-        "name": "Anti-Inflammatory Oatmeal"
+        "id": "french-toast-stick-dippers-draft",
+        "name": "French Toast Stick Dippers"
       },
       "render": {
         "canvas": {
@@ -35391,12 +35488,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine.",
-        "STIR in the water and a microwave on high for 1.5 to 2 minutes.",
-        "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
+        "HEAT the sticks per package directions.",
+        "WARM the berries with syrup 2 minutes and serve alongside for dipping."
       ],
       "substrate": "kraft",
-      "title": "Anti-Inflammatory Oatmeal",
+      "title": "French Toast Stick Dippers",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -36588,15 +36684,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-CLEVELAND",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -37128,7 +37260,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -49354,7 +49492,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "2 tablespoon butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup fresh or dried cranberries"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Pumpkin Power Cakes Flapjack and Waffle Mix"
         },
         {
           "price": null,
@@ -49362,42 +49520,22 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
-        },
-        {
-          "price": null,
-          "qty_name": "Butter, to top and grease pan"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1/4 cup walnuts"
         }
       ],
       "lang": "en",
       "market": "US-MW-DESMOINES",
       "meta": {
-        "cook": "5 mins",
+        "cook": "5",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "10",
+        "serves": "2"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sweet-potato-pancakes chosen deterministically for US-MW-DESMOINES|2026-03 among recipes naming the ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient rotation: pumpkin-flapjacks-with-whipped-pumpkin-maple-butter-cranberries-and-walnuts chosen deterministically for US-MW-DESMOINES|2026-03 among recipes naming the ingredient",
+          "recipe_id": "pumpkin-flapjacks-with-whipped-pumpkin-maple-butter-cranberries-and-walnuts",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -49413,8 +49551,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "pumpkin-flapjacks-with-whipped-pumpkin-maple-butter-cranberries-and-walnuts",
+        "name": "Pumpkin Flapjacks With Whipped Pumpkin Maple Butter Cranberries And Walnuts"
       },
       "render": {
         "canvas": {
@@ -49920,15 +50058,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PLACE the butter in a small bowl and whip with a fork until fluffy.",
+        "STIR in pumpkin purée and maple syrup.",
+        "IN a separate bowl, toss cranberries in sugar.",
+        "IN a mixing bowl, stir Kodiak Cakes mix and water together until combined.",
+        "POUR 1/4 cup of batter onto a heated and greased pan or griddle. Cook on medium-high heat or 375° F until bubbles form on the top.",
+        "FLIP and continue to cook until golden.",
+        "TOP with whipped pumpkin-maple butter, cranberries, and walnuts."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Pumpkin Flapjacks With Whipped Pumpkin Maple Butter Cranberries And Walnuts",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -50524,15 +50663,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-DESMOINES",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -51062,7 +51237,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -56345,46 +56526,54 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 can garbanzo beans rinsed and drained"
+          "qty_name": "1/3 cup cottage cheese"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup almond butter"
+          "qty_name": "2 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup real maple syrup"
+          "qty_name": "1 tablespoon milk of choice"
         },
         {
           "price": null,
-          "qty_name": "2 teaspoons vanilla extract"
+          "qty_name": "1/3 cup Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1-3 cup mini chocolate chips\r\n\r\n\r\n \r\n\r\nDippers:"
+          "qty_name": "1/3 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "Kodiak Crunchy Granola Bars"
+          "qty_name": "dollop of smooth peanut butter (optional)"
         },
         {
           "price": null,
-          "qty_name": "Fresh cut fruit (strawberries, apples, etc.)"
+          "qty_name": "1 teaspoon of maple syrup (optional)\r\n\r\n\r\n \r\n\r\nTopping Ideas:"
+        },
+        {
+          "price": null,
+          "qty_name": "Sliced fruit (bananas or strawberries)"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple Syrup"
         }
       ],
       "lang": "en",
       "market": "US-MW-DETROIT",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "8"
+        "prep": "10 mins",
+        "serves": "1"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cookie-dough-hummus chosen deterministically for US-MW-DETROIT|2026-03 among recipes naming the ingredient",
-          "recipe_id": "cookie-dough-hummus",
+          "reason": "ingredient rotation: dark-chocolate-protein-stack chosen deterministically for US-MW-DETROIT|2026-03 among recipes naming the ingredient",
+          "recipe_id": "dark-chocolate-protein-stack",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -56400,8 +56589,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "cookie-dough-hummus",
-        "name": "Cookie Dough Hummus"
+        "id": "dark-chocolate-protein-stack",
+        "name": "Dark Chocolate Protein Stack"
       },
       "render": {
         "canvas": {
@@ -56904,12 +57093,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "IN a blender or food processor, combine the chickpeas, almond butter, maple syrup, and vanilla extract. Blend until smooth and creamy.",
-        "TRANSFER the mixture to a bowl and stir in the mini chocolate chips.",
-        "ENJOY immediately with preferred dippers (we're partial to Chocolate Chip Crunchy Granola Bars 😉), or store in an airtight container in the refrigerator for up to 5 days."
+        "IN a blender, combine cottage cheese, eggs, and milk. Blend until smooth.",
+        "IN a medium bowl, mix the cottage cheese mixture with the Kodiak Cakes mix until well combined.",
+        "SCOOP about a 1/4 cup of batter onto a preheated and greased skillet to make 3 pancakes.",
+        "ALLOW to cook until bubbles form, then flip and finish cooking.",
+        "MEANWHILE, combine Greek yogurt, peanut butter, and maple syrup in a bowl until smooth.",
+        "LAYER the flapjacks with the peanut butter yogurt mixture and add desired toppings. Enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Cookie Dough Hummus",
+      "title": "Dark Chocolate Protein Stack",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -56923,15 +57115,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-DETROIT",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -57458,7 +57686,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -63148,42 +63382,54 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Kodiak Chocolate Chip & Maple Flapjack Cup"
+          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small banana (overripe), mashed"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon walnuts, chopped"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons water"
+          "qty_name": "1-1/2 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon butter, to top"
+          "qty_name": "Juice and zest of two medium oranges"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon Maple syrup, to top"
+          "qty_name": "1/4 cup real maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 teaspoons vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup dried cranberries"
         }
       ],
       "lang": "en",
       "market": "US-MW-FARGO",
       "meta": {
-        "cook": "2",
+        "cook": "21",
         "est_cost": null,
-        "prep": "8",
-        "serves": "1"
+        "prep": "15",
+        "serves": "30"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: single-serve-banana-bread-pancakes chosen deterministically for US-MW-FARGO|2026-03 among recipes naming the ingredient",
-          "recipe_id": "single-serve-banana-bread-pancakes",
+          "reason": "ingredient rotation: cranberry-orange-yogurt-muffins chosen deterministically for US-MW-FARGO|2026-03 among recipes naming the ingredient",
+          "recipe_id": "cranberry-orange-yogurt-muffins",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -63199,8 +63445,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "single-serve-banana-bread-pancakes",
-        "name": "Single-Serve Banana Bread Pancakes"
+        "id": "cranberry-orange-yogurt-muffins",
+        "name": "Cranberry Orange Yogurt Muffins"
       },
       "render": {
         "canvas": {
@@ -63654,16 +63900,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the lid from the flapjack cup.",
-        "ADD the mashed banana, walnuts, and water to the cup and stir to form a slightly chunky batter.",
-        "LET rest for 5 minutes.",
-        "HEAT a frying pan over medium heat.",
-        "GREASE, then add the batter - this recipe makes one large or 3 smaller pancakes. Cook batter until bubbles appear on top and the top is no longer glossy.",
-        "FLIP the pancake(s) and cook for 20-30 seconds on the other side.",
-        "SERVE topped with butter and maple syrup. *On the run? Cook your pancake right in your Flapjack Cup for approximately 1 minute in the microwave before hitting the road."
+        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
+        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
+        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
+        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
+        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
+        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Single-Serve Banana Bread Pancakes",
+      "title": "Cranberry Orange Yogurt Muffins",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -64207,15 +64452,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-FARGO",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -64693,7 +64974,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -66325,16 +66612,44 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "squash"
+          "qty_name": "3 packets Kodiak Maple & Brown Sugar Peak Oatmeal Packets"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup butternut squash purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup almond butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoons cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 tablespoons milk"
         }
       ],
       "lang": "en",
       "market": "US-MW-FARGO",
       "meta": {
-        "cook": null,
+        "cook": "25",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5",
+        "serves": "12"
       },
       "month": "2026-09",
       "provenance": {
@@ -66351,8 +66666,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
@@ -66812,7 +67125,16 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "PREHEAT the oven to 350° F. Line a 8x8” baking pan with parchment paper.",
+        "PLACE the contents of the oatmeal packets in a mixing bowl along with the butternut squash purée, maple syrup, almond butter, milk, and cinnamon. Mix until well combined.",
+        "SPOON the mixture into the prepared baking pan and carefully spread out until evenly distributed and smooth on top.",
+        "BAKE in the preheated oven for 20 to 25 minutes, or until cooked through. Remove from the oven and let cool completely.",
+        "ONCE cool, remove from the pan and place on a cutting board. Cut into 12 bars.",
+        "PLACE the powdered sugar and milk in a small mixing bowl. Whisk together until smooth, adding more or less milk, to achieve the desired consistency.",
+        "DRIZZLE the icing over the top of the butternut squash oatmeal bars.",
+        "STORE in an airtight container."
+      ],
       "substrate": "kraft",
       "title": "Butternut Squash Oatmeal Bars",
       "variant": "hero-plus-layout"
@@ -69617,46 +69939,38 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 can garbanzo beans rinsed and drained"
+          "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal packets"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup almond butter"
+          "qty_name": "1 ripe banana"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup real maple syrup"
+          "qty_name": "3/4 cup whole milk"
         },
         {
           "price": null,
-          "qty_name": "2 teaspoons vanilla extract"
+          "qty_name": "Maple syrup, to top"
         },
         {
           "price": null,
-          "qty_name": "1-3 cup mini chocolate chips\r\n\r\n\r\n \r\n\r\nDippers:"
-        },
-        {
-          "price": null,
-          "qty_name": "Kodiak Crunchy Granola Bars"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh cut fruit (strawberries, apples, etc.)"
+          "qty_name": "1/2 cup berries (sliced strawberries, blueberries, raspberries, blackberries), to top"
         }
       ],
       "lang": "en",
       "market": "US-MW-INDY",
       "meta": {
-        "cook": null,
+        "cook": "4 mins",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "8"
+        "prep": "13 mins",
+        "serves": "2"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cookie-dough-hummus chosen deterministically for US-MW-INDY|2026-03 among recipes naming the ingredient",
-          "recipe_id": "cookie-dough-hummus",
+          "reason": "ingredient rotation: berry-oatmeal-waffles chosen deterministically for US-MW-INDY|2026-03 among recipes naming the ingredient",
+          "recipe_id": "berry-oatmeal-waffles",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -69672,8 +69986,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "cookie-dough-hummus",
-        "name": "Cookie Dough Hummus"
+        "id": "berry-oatmeal-waffles",
+        "name": "Berry Oatmeal Waffles"
       },
       "render": {
         "canvas": {
@@ -70177,12 +70491,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "IN a blender or food processor, combine the chickpeas, almond butter, maple syrup, and vanilla extract. Blend until smooth and creamy.",
-        "TRANSFER the mixture to a bowl and stir in the mini chocolate chips.",
-        "ENJOY immediately with preferred dippers (we're partial to Chocolate Chip Crunchy Granola Bars 😉), or store in an airtight container in the refrigerator for up to 5 days."
+        "PLACE the contents of the oatmeal packets in a high-speed blender along with the banana and milk.",
+        "BLEND at high speed until smooth. Let the batter rest for 10 minutes.",
+        "PREHEAT a waffle iron.",
+        "GREASE the waffle iron and pour 1/3 cup of batter into each waffle section.",
+        "CLOSE the waffle iron and cook for 1 to 1-½ minutes, or until golden brown. Repeat with remaining batter.",
+        "SERVE waffles topped with maple syrup and berries."
       ],
       "substrate": "kraft",
-      "title": "Cookie Dough Hummus",
+      "title": "Berry Oatmeal Waffles",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -70776,15 +71093,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-INDY",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -71312,7 +71665,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -83330,42 +83689,66 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal Packets"
+          "qty_name": "1 cup Kodiak Classic Rolled Oats Canister"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "1-1/2 teaspoon baking powder"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons butter, melted"
+          "qty_name": "1/2 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon maple syrup"
+          "qty_name": "Pinch of salt"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup whole milk"
+          "qty_name": "1 banana"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup berries (blueberries, raspberries, blackberries), to top"
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple Syrup"
         }
       ],
       "lang": "en",
       "market": "US-MW-KC",
       "meta": {
-        "cook": "16 mins",
+        "cook": "10 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "6"
+        "serves": "2"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: berry-baked-oatmeal-bars chosen deterministically for US-MW-KC|2026-03 among recipes naming the ingredient",
-          "recipe_id": "berry-baked-oatmeal-bars",
+          "reason": "ingredient rotation: oatmeal-cottage-cheese-pancakes chosen deterministically for US-MW-KC|2026-03 among recipes naming the ingredient",
+          "recipe_id": "oatmeal-cottage-cheese-pancakes",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -83381,8 +83764,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "berry-baked-oatmeal-bars",
-        "name": "Berry Baked Oatmeal Bars"
+        "id": "oatmeal-cottage-cheese-pancakes",
+        "name": "Oatmeal Cottage Cheese Pancakes"
       },
       "render": {
         "canvas": {
@@ -83849,17 +84232,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Line a loaf pan with parchment paper.",
-        "PLACE the contents of the oatmeal packets in a high-speed blender along with the egg, butter, maple syrup, and milk",
-        "PULSE several times to break up the oats a bit. Let the batter rest for 10 minutes.",
-        "SPOON the batter evenly into the parchment lined loaf pan.",
-        "PLACE the berries evenly over the top of the oat mixture, breaking them into halves if they are large.",
-        "BAKE for 15-18 minutes or until golden brown and cooked through.",
-        "LET cool completely. Remove from pan and cut into 6 slices.",
-        "STORE in an airtight container. *Pro Tip: This recipe can be doubled and baked in an 8x8\" or 9x9\" baking pan to make 12 servings."
+        "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
+        "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
+        "ADD the dry ingredients back into the blender and mix until combined.",
+        "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking.",
+        "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter.",
+        "ADD your favorite toppings and enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Berry Baked Oatmeal Bars",
+      "title": "Oatmeal Cottage Cheese Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -83873,15 +84254,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-KC",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -84372,7 +84789,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -89913,34 +90336,38 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1-1/2 cup cottage cheese"
+          "qty_name": "1 box (6 packages) Kodiak Chocolate Chip Crunchy Granola Bars"
         },
         {
           "price": null,
-          "qty_name": "2 bananas (save one half for topping)"
+          "qty_name": "1/2 cup almond butter"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoon maple syrup"
+          "qty_name": "1 cup fresh raspberries"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup Cookie Butter Granola\r\n\r\n\r\n \r\n\r\n*Alternate: Sub out Cookie Butter Granola with any Kodiak Granola flavors or even a crushed Crunchy Bar to mix up the flavor profile of your parfait while maintaining the same delicious crunch!"
+          "qty_name": "1-2/3 cups plain Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons maple syrup"
         }
       ],
       "lang": "en",
       "market": "US-MW-MILWAUKEE",
       "meta": {
-        "cook": "5 mins",
+        "cook": "60+",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "2"
+        "prep": "15",
+        "serves": "10"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: banana-parfait chosen deterministically for US-MW-MILWAUKEE|2026-03 among recipes naming the ingredient",
-          "recipe_id": "banana-parfait",
+          "reason": "ingredient rotation: chocolate-raspberry-frozen-yogurt-bars chosen deterministically for US-MW-MILWAUKEE|2026-03 among recipes naming the ingredient",
+          "recipe_id": "chocolate-raspberry-frozen-yogurt-bars",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -89956,8 +90383,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "banana-parfait",
-        "name": "Banana Parfait"
+        "id": "chocolate-raspberry-frozen-yogurt-bars",
+        "name": "Chocolate Raspberry Frozen Yogurt Bars"
       },
       "render": {
         "canvas": {
@@ -90444,12 +90871,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ADD cottage cheese, 1-1/2 bananas, and maple syrup in a blender. Combine until smooth. Set aside.",
-        "SLICE the remaining banana.",
-        "BETWEEN two serving glasses, layer the banana mixture, Kodiak Cakes granola, and sliced bananas and serve!"
+        "KEEPING the Kodiak Cakes Crunchy Bars in their packaging, smash each package with a rolling pin to roughly crush up the bars.",
+        "EMPTY each package into a bowl and add the peanut butter. Mix with a rubber spatula until well combined.",
+        "LINE a 9x9-inch baking pan with parchment paper.",
+        "SCOOP the granola bar mixture into the lined baking pan and press into a single layer.",
+        "PLACE the raspberries evenly over the top of the granola mixture.",
+        "PLACE the yogurt and maple syrup in a small bowl and whisk until smooth. Pour over the top of the pressed granola and raspberries and smooth evenly.",
+        "PLACE in the freezer for at least four hours or overnight.",
+        "ONCE frozen, lift the parchment out of the pan and the bars sheet on a cutting board. Cut into 10 slices.",
+        "STORE bars in an airtight container in the freezer."
       ],
       "substrate": "kraft",
-      "title": "Banana Parfait",
+      "title": "Chocolate Raspberry Frozen Yogurt Bars",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -91026,15 +91459,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-MILWAUKEE",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -91545,7 +92014,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -96600,66 +97075,38 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Chocolate:"
+          "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal packets"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 ripe banana"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup water"
+          "qty_name": "3/4 cup whole milk"
         },
         {
           "price": null,
-          "qty_name": "2 teaspoons melted coconut oil"
+          "qty_name": "Maple syrup, to top"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons cocoa powder"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon honey or maple syrup\r\n\r\n\r\n \r\n\r\nVanilla:"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon vanilla\r\n\r\n\r\n \r\n\r\nRaspberry:"
-        },
-        {
-          "price": null,
-          "qty_name": "2 teaspoon melted coconut oil"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 cup mashed fresh raspberries"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablepoon honey or maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "*Optional: beet root powder for coloring"
+          "qty_name": "1/2 cup berries (sliced strawberries, blueberries, raspberries, blackberries), to top"
         }
       ],
       "lang": "en",
       "market": "US-MW-MINNEAPOLIS2",
       "meta": {
-        "cook": "10 mins",
+        "cook": "4 mins",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "4"
+        "prep": "13 mins",
+        "serves": "2"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: neapolitan-waffle chosen deterministically for US-MW-MINNEAPOLIS2|2026-03 among recipes naming the ingredient",
-          "recipe_id": "neapolitan-waffle",
+          "reason": "ingredient rotation: berry-oatmeal-waffles chosen deterministically for US-MW-MINNEAPOLIS2|2026-03 among recipes naming the ingredient",
+          "recipe_id": "berry-oatmeal-waffles",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -96675,8 +97122,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "neapolitan-waffle",
-        "name": "Neapolitan Waffles"
+        "id": "berry-oatmeal-waffles",
+        "name": "Berry Oatmeal Waffles"
       },
       "render": {
         "canvas": {
@@ -97126,16 +97573,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT your waffle iron to medium-high heat.",
-        "IN one bowl, combine Kodiak Cakes Buttermilk mix and cocoa powder, then add water, coconut oil, and honey. Add to a piping bag and set aside.",
-        "IN a second bowl, combine Kodiak Cakes Buttermilk mix with water, vanilla, and coconut oil. Add to a piping bag and set aside.",
-        "IN a third bowl, combine Kodiak Cakes Buttermilk mix with water, coconut oil, fresh mashed raspberries, honey, and optional beet root powder. Add to a piping bag and set aside.",
-        "PREP your waffle iron with non-stick spray, and in the preheated iron, carefully pipe each flavor into 3 equal parts and shut the lid.",
-        "ONCE cooked, repeat step 5 with remaining batter.",
-        "SERVE warm with your favorite toppings like whipped cream and strawberries. Enjoy!"
+        "PLACE the contents of the oatmeal packets in a high-speed blender along with the banana and milk.",
+        "BLEND at high speed until smooth. Let the batter rest for 10 minutes.",
+        "PREHEAT a waffle iron.",
+        "GREASE the waffle iron and pour 1/3 cup of batter into each waffle section.",
+        "CLOSE the waffle iron and cook for 1 to 1-½ minutes, or until golden brown. Repeat with remaining batter.",
+        "SERVE waffles topped with maple syrup and berries."
       ],
       "substrate": "kraft",
-      "title": "Neapolitan Waffles",
+      "title": "Berry Oatmeal Waffles",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -99768,16 +100214,44 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "squash"
+          "qty_name": "3 packets Kodiak Maple & Brown Sugar Peak Oatmeal Packets"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup butternut squash purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup almond butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoons cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 tablespoons milk"
         }
       ],
       "lang": "en",
       "market": "US-MW-MINNEAPOLIS2",
       "meta": {
-        "cook": null,
+        "cook": "25",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5",
+        "serves": "12"
       },
       "month": "2026-09",
       "provenance": {
@@ -99794,8 +100268,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
@@ -100251,7 +100723,16 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "PREHEAT the oven to 350° F. Line a 8x8” baking pan with parchment paper.",
+        "PLACE the contents of the oatmeal packets in a mixing bowl along with the butternut squash purée, maple syrup, almond butter, milk, and cinnamon. Mix until well combined.",
+        "SPOON the mixture into the prepared baking pan and carefully spread out until evenly distributed and smooth on top.",
+        "BAKE in the preheated oven for 20 to 25 minutes, or until cooked through. Remove from the oven and let cool completely.",
+        "ONCE cool, remove from the pan and place on a cutting board. Cut into 12 bars.",
+        "PLACE the powdered sugar and milk in a small mixing bowl. Whisk together until smooth, adding more or less milk, to achieve the desired consistency.",
+        "DRIZZLE the icing over the top of the butternut squash oatmeal bars.",
+        "STORE in an airtight container."
+      ],
       "substrate": "kraft",
       "title": "Butternut Squash Oatmeal Bars",
       "variant": "hero-plus-layout"
@@ -104133,15 +104614,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-MISSOULA",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -104649,7 +105166,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -109834,38 +110357,66 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal packets"
+          "qty_name": "1 cup Kodiak Classic Rolled Oats Canister"
         },
         {
           "price": null,
-          "qty_name": "1 ripe banana"
+          "qty_name": "1-1/2 teaspoon baking powder"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk"
+          "qty_name": "1/2 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top"
+          "qty_name": "Pinch of salt"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup berries (sliced strawberries, blueberries, raspberries, blackberries), to top"
+          "qty_name": "1 banana"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple Syrup"
         }
       ],
       "lang": "en",
       "market": "US-MW-OMAHA",
       "meta": {
-        "cook": "4 mins",
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": "13 mins",
+        "prep": "10 mins",
         "serves": "2"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: berry-oatmeal-waffles chosen deterministically for US-MW-OMAHA|2026-03 among recipes naming the ingredient",
-          "recipe_id": "berry-oatmeal-waffles",
+          "reason": "ingredient rotation: oatmeal-cottage-cheese-pancakes chosen deterministically for US-MW-OMAHA|2026-03 among recipes naming the ingredient",
+          "recipe_id": "oatmeal-cottage-cheese-pancakes",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -109881,8 +110432,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "berry-oatmeal-waffles",
-        "name": "Berry Oatmeal Waffles"
+        "id": "oatmeal-cottage-cheese-pancakes",
+        "name": "Oatmeal Cottage Cheese Pancakes"
       },
       "render": {
         "canvas": {
@@ -110393,15 +110944,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the contents of the oatmeal packets in a high-speed blender along with the banana and milk.",
-        "BLEND at high speed until smooth. Let the batter rest for 10 minutes.",
-        "PREHEAT a waffle iron.",
-        "GREASE the waffle iron and pour 1/3 cup of batter into each waffle section.",
-        "CLOSE the waffle iron and cook for 1 to 1-½ minutes, or until golden brown. Repeat with remaining batter.",
-        "SERVE waffles topped with maple syrup and berries."
+        "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
+        "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
+        "ADD the dry ingredients back into the blender and mix until combined.",
+        "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking.",
+        "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter.",
+        "ADD your favorite toppings and enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Berry Oatmeal Waffles",
+      "title": "Oatmeal Cottage Cheese Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -110415,15 +110966,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-OMAHA",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -110958,7 +111545,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -118907,16 +119500,44 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "2 cups oats"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup nuts, seeds, or coconut flakes"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "4 peaches, pitted and cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups vanilla ice cream"
         }
       ],
       "lang": "en",
       "market": "US-MW-PARKCITY-84098",
       "meta": {
-        "cook": null,
+        "cook": "25",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5",
+        "serves": "6"
       },
       "month": "2026-07",
       "provenance": {
@@ -118933,8 +119554,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
@@ -119385,7 +120004,13 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "PREHEAT oven to 350° F.",
+        "MIX all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
+        "BAKE for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
+        "BRUSH maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
+        "DIVIDE grilled peaches, ice cream, and granola into 4 bowls and serve."
+      ],
       "substrate": "kraft",
       "title": "Grilled Peaches & Granola",
       "variant": "hero-plus-layout"
@@ -129696,38 +130321,62 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 box (6 packages) Kodiak Chocolate Chip Crunchy Granola Bars"
+          "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup almond butter"
+          "qty_name": "1/4 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1 cup fresh raspberries"
+          "qty_name": "1/8 teaspoon turmeric powder"
         },
         {
           "price": null,
-          "qty_name": "1-2/3 cups plain Greek yogurt"
+          "qty_name": "1/8 teaspoon ground ginger"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons maple syrup"
+          "qty_name": "3/4 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons fresh blueberries"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped walnuts"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon shelled pumpkin seeds"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon chia seed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon nut butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, if desired"
         }
       ],
       "lang": "en",
       "market": "US-MW-STL",
       "meta": {
-        "cook": "60+",
+        "cook": "2 mins",
         "est_cost": null,
-        "prep": "15",
-        "serves": "10"
+        "prep": "5 mins",
+        "serves": "1"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: chocolate-raspberry-frozen-yogurt-bars chosen deterministically for US-MW-STL|2026-03 among recipes naming the ingredient",
-          "recipe_id": "chocolate-raspberry-frozen-yogurt-bars",
+          "reason": "ingredient rotation: anti-inflammatory-oatmeal chosen deterministically for US-MW-STL|2026-03 among recipes naming the ingredient",
+          "recipe_id": "anti-inflammatory-oatmeal",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -129743,8 +130392,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "chocolate-raspberry-frozen-yogurt-bars",
-        "name": "Chocolate Raspberry Frozen Yogurt Bars"
+        "id": "anti-inflammatory-oatmeal",
+        "name": "Anti-Inflammatory Oatmeal"
       },
       "render": {
         "canvas": {
@@ -130239,18 +130888,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KEEPING the Kodiak Cakes Crunchy Bars in their packaging, smash each package with a rolling pin to roughly crush up the bars.",
-        "EMPTY each package into a bowl and add the peanut butter. Mix with a rubber spatula until well combined.",
-        "LINE a 9x9-inch baking pan with parchment paper.",
-        "SCOOP the granola bar mixture into the lined baking pan and press into a single layer.",
-        "PLACE the raspberries evenly over the top of the granola mixture.",
-        "PLACE the yogurt and maple syrup in a small bowl and whisk until smooth. Pour over the top of the pressed granola and raspberries and smooth evenly.",
-        "PLACE in the freezer for at least four hours or overnight.",
-        "ONCE frozen, lift the parchment out of the pan and the bars sheet on a cutting board. Cut into 10 slices.",
-        "STORE bars in an airtight container in the freezer."
+        "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine.",
+        "STIR in the water and a microwave on high for 1.5 to 2 minutes.",
+        "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
       ],
       "substrate": "kraft",
-      "title": "Chocolate Raspberry Frozen Yogurt Bars",
+      "title": "Anti-Inflammatory Oatmeal",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -130264,15 +130907,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-STL",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -130791,7 +131470,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -132534,16 +133219,44 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "2 cups oats"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup nuts, seeds, or coconut flakes"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "4 peaches, pitted and cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups vanilla ice cream"
         }
       ],
       "lang": "en",
       "market": "US-MW-STL",
       "meta": {
-        "cook": null,
+        "cook": "25",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5",
+        "serves": "6"
       },
       "month": "2026-08",
       "provenance": {
@@ -132560,8 +133273,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
@@ -133062,7 +133773,13 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "PREHEAT oven to 350° F.",
+        "MIX all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
+        "BAKE for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
+        "BRUSH maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
+        "DIVIDE grilled peaches, ice cream, and granola into 4 bowls and serve."
+      ],
       "substrate": "kraft",
       "title": "Grilled Peaches & Granola",
       "variant": "hero-plus-layout"
@@ -136542,35 +137259,27 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "8 Kodiak Chocolate Chip Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "2/3 cup plain full-fat Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/4 cup peanut butter"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "2 tablespoons maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "1 banana, sliced into rounds"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
-        },
-        {
-          "price": null,
-          "qty_name": "Butter, to top and grease pan"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "2 tablespoons mini chocolate chips"
         }
       ],
       "lang": "en",
@@ -136584,8 +137293,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sweet-potato-pancakes chosen deterministically for US-MW-TC|2026-03 among recipes naming the ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient rotation: protein-packed-banana-nut-waffles chosen deterministically for US-MW-TC|2026-03 among recipes naming the ingredient",
+          "recipe_id": "protein-packed-banana-nut-waffles",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -136601,8 +137310,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "protein-packed-banana-nut-waffles",
+        "name": "Protein-Packed Banana Nut Waffles"
       },
       "render": {
         "canvas": {
@@ -137092,15 +137801,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "TOAST the waffles until lightly golden brown. Layer on a platter.",
+        "PLACE the Greek yogurt, nut butter, and maple syrup in a mixing bowl. Whisk together until smooth.",
+        "SPOON dollops of the protein whip over the top of the toasted waffles.",
+        "ADD banana slices and mini chocolate chips to the top of the waffles.",
+        "DRIZZLE with maple syrup, if desired."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Protein-Packed Banana Nut Waffles",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -137680,15 +138388,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-TC",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -138202,7 +138946,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -140457,16 +141207,44 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "2 tablespoon butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup fresh or dried cranberries"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Pumpkin Power Cakes Flapjack and Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup walnuts"
         }
       ],
       "lang": "en",
       "market": "US-MW-TC",
       "meta": {
-        "cook": null,
+        "cook": "5",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10",
+        "serves": "2"
       },
       "month": "2026-10",
       "provenance": {
@@ -140483,8 +141261,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
@@ -140981,7 +141757,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PLACE the butter in a small bowl and whip with a fork until fluffy.",
+        "STIR in pumpkin purée and maple syrup.",
+        "IN a separate bowl, toss cranberries in sugar.",
+        "IN a mixing bowl, stir Kodiak Cakes mix and water together until combined.",
+        "POUR 1/4 cup of batter onto a heated and greased pan or griddle. Cook on medium-high heat or 375° F until bubbles form on the top.",
+        "FLIP and continue to cook until golden.",
+        "TOP with whipped pumpkin-maple butter, cranberries, and walnuts."
       ],
       "substrate": "kraft",
       "title": "Pumpkin Flapjacks With Whipped Pumpkin Maple Butter Cranberries And Walnuts",
@@ -150639,15 +151421,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-MW-WASATCH-SLC",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -151164,7 +151982,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -156352,54 +157176,50 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 packet Kodiak Dark Chocolate Sea Salt Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister"
+          "qty_name": "1/4 teaspoon baking powder"
         },
         {
           "price": null,
-          "qty_name": "1 cup peanut butter (no sugar added)"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup melted unsalted butter"
+          "qty_name": "1/2 ripe banana, mashed"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup real maple syrup"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup milk"
+          "qty_name": "1 tablespoon oil (avocado, light olive oil, etc)"
         },
         {
           "price": null,
-          "qty_name": "3 cups fresh mashed raspberries (measured after mashing)"
+          "qty_name": "1 tablespoon milk"
         },
         {
           "price": null,
-          "qty_name": "Optional: 1 tablespoon real maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "Optional: drizzle with melted peanut butter"
+          "qty_name": "Chocolate chips (optional)"
         }
       ],
       "lang": "en",
       "market": "US-NE-BALTIMORE",
       "meta": {
-        "cook": "25",
+        "cook": "1.5",
         "est_cost": null,
-        "prep": "20",
-        "serves": "30"
+        "prep": "5",
+        "serves": "1"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: fiber-packed-pb-j-snack-bars chosen deterministically for US-NE-BALTIMORE|2026-02 among recipes naming the ingredient",
-          "recipe_id": "fiber-packed-pb-j-snack-bars",
+          "reason": "ingredient rotation: dark-chocolate-banana-bread-mug-cake chosen deterministically for US-NE-BALTIMORE|2026-02 among recipes naming the ingredient",
+          "recipe_id": "dark-chocolate-banana-bread-mug-cake",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -156415,8 +157235,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "fiber-packed-pb-j-snack-bars",
-        "name": "Fiber-Packed PB&J Snack Bars"
+        "id": "dark-chocolate-banana-bread-mug-cake",
+        "name": "Dark Chocolate Banana Bread Mug Cake"
       },
       "render": {
         "canvas": {
@@ -156892,16 +157712,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT oven to 350°F and line a 13x18” sheet pan with parchment paper.",
-        "IN a large bowl, mix peanut butter, butter, maple syrup, and milk until smooth.",
-        "ADD Kodiak Cakes mix and oats, stirring until a thick, slightly crumbly dough forms.",
-        "PRESS about ⅔ of the mixture firmly into the pan to create an even base layer.",
-        "CAREFULLY spread mashed raspberries evenly over the base then crumble the remaining dough over the top.",
-        "BAKE for 20–25 minutes, until the top is set and lightly golden. Let cool completely before slicing into 30 bars.",
-        "STORE in an airtight container in the refrigerator for up to 5 days."
+        "PLACE the contents of the overnight oats packet and the baking powder in a large mug. Whisk together with a fork.",
+        "ADD the maple syrup, mashed banana, egg, oil, and milk, and stir in with a fork to form a smooth batter. Let sit for five minutes, then stir again.",
+        "SPRINKLE chocolate chips on top of the batter, if desired.",
+        "MICROWAVE the mug for 90 seconds.",
+        "SPRINKLE the top with coarse sea salt, if desired. Let cool slightly and enjoy! *Pro Tip: Bake your mug cake in an oven preheated to 375° F for 12 to 15 minutes, or until puffed on top and cooked through."
       ],
       "substrate": "kraft",
-      "title": "Fiber-Packed PB&J Snack Bars",
+      "title": "Dark Chocolate Banana Bread Mug Cake",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -157471,15 +158289,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-NE-BALTIMORE",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -157979,7 +158833,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -163035,38 +163895,62 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal packets"
+          "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister"
         },
         {
           "price": null,
-          "qty_name": "1 ripe banana"
+          "qty_name": "1/4 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk"
+          "qty_name": "1/8 teaspoon turmeric powder"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top"
+          "qty_name": "1/8 teaspoon ground ginger"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup berries (sliced strawberries, blueberries, raspberries, blackberries), to top"
+          "qty_name": "3/4 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons fresh blueberries"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon chopped walnuts"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon shelled pumpkin seeds"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon chia seed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon nut butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, if desired"
         }
       ],
       "lang": "en",
       "market": "US-NE-BOS",
       "meta": {
-        "cook": "4 mins",
+        "cook": "2 mins",
         "est_cost": null,
-        "prep": "13 mins",
-        "serves": "2"
+        "prep": "5 mins",
+        "serves": "1"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: berry-oatmeal-waffles chosen deterministically for US-NE-BOS|2026-02 among recipes naming the ingredient",
-          "recipe_id": "berry-oatmeal-waffles",
+          "reason": "ingredient rotation: anti-inflammatory-oatmeal chosen deterministically for US-NE-BOS|2026-02 among recipes naming the ingredient",
+          "recipe_id": "anti-inflammatory-oatmeal",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -163082,8 +163966,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "berry-oatmeal-waffles",
-        "name": "Berry Oatmeal Waffles"
+        "id": "anti-inflammatory-oatmeal",
+        "name": "Anti-Inflammatory Oatmeal"
       },
       "render": {
         "canvas": {
@@ -163571,15 +164455,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the contents of the oatmeal packets in a high-speed blender along with the banana and milk.",
-        "BLEND at high speed until smooth. Let the batter rest for 10 minutes.",
-        "PREHEAT a waffle iron.",
-        "GREASE the waffle iron and pour 1/3 cup of batter into each waffle section.",
-        "CLOSE the waffle iron and cook for 1 to 1-½ minutes, or until golden brown. Repeat with remaining batter.",
-        "SERVE waffles topped with maple syrup and berries."
+        "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine.",
+        "STIR in the water and a microwave on high for 1.5 to 2 minutes.",
+        "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
       ],
       "substrate": "kraft",
-      "title": "Berry Oatmeal Waffles",
+      "title": "Anti-Inflammatory Oatmeal",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -164713,15 +165594,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-NE-BOS",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -165233,7 +166150,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -168101,16 +169024,44 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "2 tablespoon butter, softened"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup fresh or dried cranberries"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Pumpkin Power Cakes Flapjack and Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup walnuts"
         }
       ],
       "lang": "en",
       "market": "US-NE-BOS",
       "meta": {
-        "cook": null,
+        "cook": "5",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10",
+        "serves": "2"
       },
       "month": "2026-11",
       "provenance": {
@@ -168127,8 +169078,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
@@ -168623,7 +169572,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PLACE the butter in a small bowl and whip with a fork until fluffy.",
+        "STIR in pumpkin purée and maple syrup.",
+        "IN a separate bowl, toss cranberries in sugar.",
+        "IN a mixing bowl, stir Kodiak Cakes mix and water together until combined.",
+        "POUR 1/4 cup of batter onto a heated and greased pan or griddle. Cook on medium-high heat or 375° F until bubbles form on the top.",
+        "FLIP and continue to cook until golden.",
+        "TOP with whipped pumpkin-maple butter, cranberries, and walnuts."
       ],
       "substrate": "kraft",
       "title": "Pumpkin Flapjacks With Whipped Pumpkin Maple Butter Cranberries And Walnuts",
@@ -169209,23 +170164,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Classic Rolled Oats Canister"
-        },
-        {
-          "price": null,
-          "qty_name": "1-1/2 teaspoon baking powder"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 teaspoon cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "Pinch of salt"
-        },
-        {
-          "price": null,
-          "qty_name": "1 banana"
+          "qty_name": "1 box Kodiak Blueberry Muffin Mix"
         },
         {
           "price": null,
@@ -169233,42 +170172,38 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1/2 cup cottage cheese"
+          "qty_name": "3/4 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla"
+          "qty_name": "1/4 cup milk of choice"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
+          "qty_name": "1 cup fresh (or frozen) mixed berries"
         },
         {
           "price": null,
-          "qty_name": "Fresh berries"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Butter"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple Syrup"
+          "qty_name": "1 teaspoon vanilla extract"
         }
       ],
       "lang": "en",
       "market": "US-NE-BURLINGTON",
       "meta": {
-        "cook": "10 mins",
+        "cook": "18 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "2"
+        "serves": "12"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: oatmeal-cottage-cheese-pancakes chosen deterministically for US-NE-BURLINGTON|2026-01 among recipes naming the ingredient",
-          "recipe_id": "oatmeal-cottage-cheese-pancakes",
+          "reason": "ingredient rotation: mixed-berry-muffins chosen deterministically for US-NE-BURLINGTON|2026-01 among recipes naming the ingredient",
+          "recipe_id": "mixed-berry-muffins",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -169284,8 +170219,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "oatmeal-cottage-cheese-pancakes",
-        "name": "Oatmeal Cottage Cheese Pancakes"
+        "id": "mixed-berry-muffins",
+        "name": "Mixed Berry Muffins"
       },
       "render": {
         "canvas": {
@@ -169780,15 +170715,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
-        "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
-        "ADD the dry ingredients back into the blender and mix until combined.",
-        "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking.",
-        "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter.",
-        "ADD your favorite toppings and enjoy!"
+        "PREHEAT oven to 350°F. Line a muffin tin with paper liners.",
+        "IN a bowl, whisk together the eggs, Greek yogurt, milk, maple syrup, and vanilla until smooth.",
+        "ADD the Kodiak Cakes mix and gently stir until just combined.",
+        "FOLD in the fresh berries gently. If using strawberries, chop them into small pieces first.",
+        "SCOOP the batter evenly into the prepared muffin tin (12).",
+        "BAKE for 14-19 minutes, or until a toothpick comes out clean and the tops are lightly golden.",
+        "LET cool for a few minutes before serving."
       ],
       "substrate": "kraft",
-      "title": "Oatmeal Cottage Cheese Pancakes",
+      "title": "Mixed Berry Muffins",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -171541,15 +172477,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-NE-BURLINGTON",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -172068,7 +173040,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -177221,54 +178199,54 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 cup plain Greek yogurt"
+          "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 cup nut milk"
+          "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup chia seeds"
+          "qty_name": "1 cup peanut butter (no sugar added)"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon maple syrup"
+          "qty_name": "1/2 cup melted unsalted butter"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup berries of choice"
+          "qty_name": "1/4 cup real maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup walnuts"
+          "qty_name": "2/3 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup pumpkin seeds (pepitas)"
+          "qty_name": "3 cups fresh mashed raspberries (measured after mashing)"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon ground flax seed"
+          "qty_name": "Optional: 1 tablespoon real maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Blueberry Vanilla Granola"
+          "qty_name": "Optional: drizzle with melted peanut butter"
         }
       ],
       "lang": "en",
       "market": "US-NE-DC",
       "meta": {
-        "cook": null,
+        "cook": "25",
         "est_cost": null,
-        "prep": "60+",
-        "serves": "4"
+        "prep": "20",
+        "serves": "30"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: berry-chia-pudding chosen deterministically for US-NE-DC|2026-03 among recipes naming the ingredient",
-          "recipe_id": "berry-chia-pudding",
+          "reason": "ingredient rotation: fiber-packed-pb-j-snack-bars chosen deterministically for US-NE-DC|2026-03 among recipes naming the ingredient",
+          "recipe_id": "fiber-packed-pb-j-snack-bars",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -177284,8 +178262,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "berry-chia-pudding",
-        "name": "Berry Chia Pudding"
+        "id": "fiber-packed-pb-j-snack-bars",
+        "name": "Fiber-Packed PB&J Snack Bars"
       },
       "render": {
         "canvas": {
@@ -177762,13 +178740,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ADD the yogurt, nut milk, chia seeds, and maple syrup to a small mixing bowl. Whisk until smooth and let sit in the refrigerator for 1 hour to thicken.",
-        "ONCE the pudding has thickened, whisk again and divide between 2-4 small bowls.",
-        "LAYER between or top the pudding with the berries, walnuts, pumpkin seeds, flaxseed, and granola - evenly dividing between containers.",
-        "SERVE, or store covered in refrigerator. Will keep for several days in the refrigerator. *Pro-Tip: Prep your pudding before bed and let it sit in the refrigerator overnight."
+        "PREHEAT oven to 350°F and line a 13x18” sheet pan with parchment paper.",
+        "IN a large bowl, mix peanut butter, butter, maple syrup, and milk until smooth.",
+        "ADD Kodiak Cakes mix and oats, stirring until a thick, slightly crumbly dough forms.",
+        "PRESS about ⅔ of the mixture firmly into the pan to create an even base layer.",
+        "CAREFULLY spread mashed raspberries evenly over the base then crumble the remaining dough over the top.",
+        "BAKE for 20–25 minutes, until the top is set and lightly golden. Let cool completely before slicing into 30 bars.",
+        "STORE in an airtight container in the refrigerator for up to 5 days."
       ],
       "substrate": "kraft",
-      "title": "Berry Chia Pudding",
+      "title": "Fiber-Packed PB&J Snack Bars",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -177782,15 +178763,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-NE-DC",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -178291,7 +179308,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -183381,15 +184404,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Kodiak Maple & Brown Sugar Oatmeal Cup"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons Kodiak Buttermilk Power Cakes"
-        },
-        {
-          "price": null,
-          "qty_name": "1/4 teaspoon baking powder"
+          "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal Packets"
         },
         {
           "price": null,
@@ -183397,42 +184412,34 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon avocado oil"
+          "qty_name": "2 tablespoons butter, melted"
         },
         {
           "price": null,
-          "qty_name": "5 tablespoons milk"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon pecans, chopped (reserve a few to top muffin)"
+          "qty_name": "2/3 cup whole milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon butter, melted"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons powdered sugar"
+          "qty_name": "1/4 cup berries (blueberries, raspberries, blackberries), to top"
         }
       ],
       "lang": "en",
       "market": "US-NE-HARTFORD",
       "meta": {
-        "cook": "2 mins",
+        "cook": "16 mins",
         "est_cost": null,
-        "prep": "8 mins",
-        "serves": "1"
+        "prep": "10 mins",
+        "serves": "6"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: single-serve-maple-pecan-muffin chosen deterministically for US-NE-HARTFORD|2026-02 among recipes naming the ingredient",
-          "recipe_id": "single-serve-maple-pecan-muffin",
+          "reason": "ingredient rotation: berry-baked-oatmeal-bars chosen deterministically for US-NE-HARTFORD|2026-02 among recipes naming the ingredient",
+          "recipe_id": "berry-baked-oatmeal-bars",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -183448,8 +184455,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "single-serve-maple-pecan-muffin",
-        "name": "Single-Serve Maple Pecan Muffin"
+        "id": "berry-baked-oatmeal-bars",
+        "name": "Berry Baked Oatmeal Bars"
       },
       "render": {
         "canvas": {
@@ -183916,17 +184923,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the lid from the oatmeal cup.",
-        "ADD the power cakes mix and baking powder to the cup and stir with a fork to combine.",
-        "ADD the egg, oil, and 2 tablespoons of the milk to the cup and stir until a smooth batter forms.",
-        "ADD the remaining 3 tablespoons of milk and stir until fully combined. Let sit for 5 minutes.",
-        "STIR again and sprinkle the top with chopped pecans. Microwave for 90 seconds.",
-        "LET cool slightly. Make maple butter glaze:",
-        "PLACE the melted butter, maple syrup, and powdered sugar in a small bowl and whisk together until a smooth icing forms.",
-        "DRIZZLE the glaze over the top of the muffin and sprinkle with a few pecan pieces. Enjoy!"
+        "PREHEAT the oven to 350° F. Line a loaf pan with parchment paper.",
+        "PLACE the contents of the oatmeal packets in a high-speed blender along with the egg, butter, maple syrup, and milk",
+        "PULSE several times to break up the oats a bit. Let the batter rest for 10 minutes.",
+        "SPOON the batter evenly into the parchment lined loaf pan.",
+        "PLACE the berries evenly over the top of the oat mixture, breaking them into halves if they are large.",
+        "BAKE for 15-18 minutes or until golden brown and cooked through.",
+        "LET cool completely. Remove from pan and cut into 6 slices.",
+        "STORE in an airtight container. *Pro Tip: This recipe can be doubled and baked in an 8x8\" or 9x9\" baking pan to make 12 servings."
       ],
       "substrate": "kraft",
-      "title": "Single-Serve Maple Pecan Muffin",
+      "title": "Berry Baked Oatmeal Bars",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -185030,15 +186037,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-NE-HARTFORD",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -185529,7 +186572,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -189963,23 +191012,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Classic Rolled Oats Canister"
+          "qty_name": "4 packets Kodiak Chocolate Chip Oatmeal Packets"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 teaspoon baking powder"
+          "qty_name": "1/3 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon cinnamon"
+          "qty_name": "1/4 cup chopped pecans"
         },
         {
           "price": null,
-          "qty_name": "Pinch of salt"
+          "qty_name": "1/4 teaspoon baking powder"
         },
         {
           "price": null,
-          "qty_name": "1 banana"
+          "qty_name": "2 tablespoons maple syrup"
         },
         {
           "price": null,
@@ -189987,42 +191036,30 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1/2 cup cottage cheese"
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla"
+          "qty_name": "1/2 cup pumpkin puree"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh berries"
-        },
-        {
-          "price": null,
-          "qty_name": "Butter"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple Syrup"
+          "qty_name": "36 pecan halves"
         }
       ],
       "lang": "en",
       "market": "US-NE-NYC",
       "meta": {
-        "cook": "10 mins",
+        "cook": "15 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "2"
+        "serves": "12"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: oatmeal-cottage-cheese-pancakes chosen deterministically for US-NE-NYC|2026-02 among recipes naming the ingredient",
-          "recipe_id": "oatmeal-cottage-cheese-pancakes",
+          "reason": "ingredient rotation: pumpkin-oat-energy-bites chosen deterministically for US-NE-NYC|2026-02 among recipes naming the ingredient",
+          "recipe_id": "pumpkin-oat-energy-bites",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -190038,8 +191075,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "oatmeal-cottage-cheese-pancakes",
-        "name": "Oatmeal Cottage Cheese Pancakes"
+        "id": "pumpkin-oat-energy-bites",
+        "name": "Pumpkin Oat Energy Bites"
       },
       "render": {
         "canvas": {
@@ -190526,15 +191563,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
-        "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
-        "ADD the dry ingredients back into the blender and mix until combined.",
-        "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking.",
-        "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter.",
-        "ADD your favorite toppings and enjoy!"
+        "PREHEAT the oven to 350° F. Coat a mini muffin tin with cooking spray or butter.",
+        "PLACE the contents of the oatmeal packets in a mixing bowl along with the power cakes mix, chopped pecans, and baking powder. Whisk to combine.",
+        "ADD the maple syrup, eggs, milk, and pumpkin puree to the dry ingredients and whisk together to form a smooth batter. Let sit for 5 minutes to let the grains absorb the liquid.",
+        "STIR again and fill each mini muffin tin 7/8 full with batter. This recipe should fill about 36 mini muffin tins. Top each muffin with a pecan half.",
+        "BAKE in the preheated oven for 12-15 minutes, or until golden brown on top and puffed.",
+        "REMOVE and let cool for 10 minutes. Run a butter knife around the edge of each mini muffin and remove from the pan. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Oatmeal Cottage Cheese Pancakes",
+      "title": "Pumpkin Oat Energy Bites",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -191115,15 +192152,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-NE-NYC",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -191634,7 +192707,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -197974,15 +199053,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -198517,7 +199632,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -203923,50 +205044,50 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "3 packets Kodiak Maple & Brown Sugar Peak Oatmeal Packets"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "2/3 cup butternut squash purée"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/4 cup maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1/2 cup almond butter"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 teaspoons cinnamon"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 cup powdered sugar"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1-2 tablespoons milk"
         }
       ],
       "lang": "en",
       "market": "US-NE-PROVIDENCE",
       "meta": {
-        "cook": "5 mins",
+        "cook": "25",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "5",
+        "serves": "12"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sweet-potato-pancakes chosen deterministically for US-NE-PROVIDENCE|2026-02 among recipes naming the ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient rotation: butternut-squash-oatmeal-bars chosen deterministically for US-NE-PROVIDENCE|2026-02 among recipes naming the ingredient",
+          "recipe_id": "butternut-squash-oatmeal-bars",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -203982,8 +205103,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "butternut-squash-oatmeal-bars",
+        "name": "Butternut Squash Oatmeal Bars"
       },
       "render": {
         "canvas": {
@@ -204460,15 +205581,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Line a 8x8” baking pan with parchment paper.",
+        "PLACE the contents of the oatmeal packets in a mixing bowl along with the butternut squash purée, maple syrup, almond butter, milk, and cinnamon. Mix until well combined.",
+        "SPOON the mixture into the prepared baking pan and carefully spread out until evenly distributed and smooth on top.",
+        "BAKE in the preheated oven for 20 to 25 minutes, or until cooked through. Remove from the oven and let cool completely.",
+        "ONCE cool, remove from the pan and place on a cutting board. Cut into 12 bars.",
+        "PLACE the powdered sugar and milk in a small mixing bowl. Whisk together until smooth, adding more or less milk, to achieve the desired consistency.",
+        "DRIZZLE the icing over the top of the butternut squash oatmeal bars.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Butternut Squash Oatmeal Bars",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -205592,15 +206715,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-NE-PROVIDENCE",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -206101,7 +207260,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -217263,58 +218428,50 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "3 ripe bananas, mashed"
+          "qty_name": "2 cups oats"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1-1/4 cups milk"
+          "qty_name": "1/2 cup nuts, seeds, or coconut flakes"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup almond butter"
+          "qty_name": "1/4 cup maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup real maple syrup"
+          "qty_name": "1/4 cup oil"
         },
         {
           "price": null,
-          "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/2 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister"
+          "qty_name": "4 peaches, pitted and cut in half"
         },
         {
           "price": null,
-          "qty_name": "1  cup chopped walnuts"
-        },
-        {
-          "price": null,
-          "qty_name": "4 tablespoons chia seeds"
-        },
-        {
-          "price": null,
-          "qty_name": "4 tablespoons ground flax seed"
+          "qty_name": "2 cups vanilla ice cream"
         }
       ],
       "lang": "en",
       "market": "US-OH-CINCINNATI",
       "meta": {
-        "cook": "14",
+        "cook": "25",
         "est_cost": null,
-        "prep": "15",
-        "serves": "24"
+        "prep": "5",
+        "serves": "6"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: fiber-packed-banana-oat-breakfast-cookies chosen deterministically for US-OH-CINCINNATI|2026-02 among recipes naming the ingredient",
-          "recipe_id": "fiber-packed-banana-oat-breakfast-cookies",
+          "reason": "ingredient rotation: grilled-peaches-and-granola chosen deterministically for US-OH-CINCINNATI|2026-02 among recipes naming the ingredient",
+          "recipe_id": "grilled-peaches-and-granola",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -217330,8 +218487,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "fiber-packed-banana-oat-breakfast-cookies",
-        "name": "Fiber-Packed Banana Oat Breakfast Cookies"
+        "id": "grilled-peaches-and-granola",
+        "name": "Grilled Peaches & Granola"
       },
       "render": {
         "canvas": {
@@ -217853,16 +219010,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT oven to 350°F and line a baking sheet with parchment paper.",
-        "IN a large bowl, mash bananas until mostly smooth.",
-        "ADD eggs, maple syrup, nut butter, and milk. Whisk until fully combined.",
-        "STIR in Kodiak Cakes Power Cakes mix, Kodiak Cakes rolled oats, chia seeds, and ground flaxseed until a thick dough forms.",
-        "FOLD in chopped walnuts. If the dough feels too thick, add an additional tablespoon of milk as needed. Let the dough rest for 2–3 minutes to hydrate.",
-        "SCOOP dough with a cookie scoop onto the prepared baking sheet and lightly press to shape. Bake for 9 - 14 mins , until set and lightly golden. Cool before serving.",
-        "STORE in an airtight container in the refrigerator for up to 4–5 days or freeze for longer storage."
+        "PREHEAT oven to 350° F.",
+        "MIX all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
+        "BAKE for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
+        "BRUSH maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
+        "DIVIDE grilled peaches, ice cream, and granola into 4 bowls and serve."
       ],
       "substrate": "kraft",
-      "title": "Fiber-Packed Banana Oat Breakfast Cookies",
+      "title": "Grilled Peaches & Granola",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -224450,50 +225605,66 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 packet Kodiak Dark Chocolate Sea Salt Overnight Oats"
+          "qty_name": "Chocolate:"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon baking powder"
+          "qty_name": "2/3 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon maple syrup"
+          "qty_name": "1/2 cup water"
         },
         {
           "price": null,
-          "qty_name": "1/2 ripe banana, mashed"
+          "qty_name": "2 teaspoons melted coconut oil"
         },
         {
           "price": null,
-          "qty_name": "1 large egg"
+          "qty_name": "2 tablespoons cocoa powder"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon oil (avocado, light olive oil, etc)"
+          "qty_name": "1 tablespoon honey or maple syrup\r\n\r\n\r\n \r\n\r\nVanilla:"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon milk"
+          "qty_name": "3/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "Chocolate chips (optional)"
+          "qty_name": "1 teaspoon vanilla\r\n\r\n\r\n \r\n\r\nRaspberry:"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoon melted coconut oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup mashed fresh raspberries"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablepoon honey or maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "*Optional: beet root powder for coloring"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": "1.5",
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": "5",
-        "serves": "1"
+        "prep": "10 mins",
+        "serves": "4"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: dark-chocolate-banana-bread-mug-cake chosen deterministically for US-OH-DAYTON|2026-02 among recipes naming the ingredient",
-          "recipe_id": "dark-chocolate-banana-bread-mug-cake",
+          "reason": "ingredient rotation: neapolitan-waffle chosen deterministically for US-OH-DAYTON|2026-02 among recipes naming the ingredient",
+          "recipe_id": "neapolitan-waffle",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -224509,8 +225680,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "dark-chocolate-banana-bread-mug-cake",
-        "name": "Dark Chocolate Banana Bread Mug Cake"
+        "id": "neapolitan-waffle",
+        "name": "Neapolitan Waffles"
       },
       "render": {
         "canvas": {
@@ -225031,14 +226202,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the contents of the overnight oats packet and the baking powder in a large mug. Whisk together with a fork.",
-        "ADD the maple syrup, mashed banana, egg, oil, and milk, and stir in with a fork to form a smooth batter. Let sit for five minutes, then stir again.",
-        "SPRINKLE chocolate chips on top of the batter, if desired.",
-        "MICROWAVE the mug for 90 seconds.",
-        "SPRINKLE the top with coarse sea salt, if desired. Let cool slightly and enjoy! *Pro Tip: Bake your mug cake in an oven preheated to 375° F for 12 to 15 minutes, or until puffed on top and cooked through."
+        "PREHEAT your waffle iron to medium-high heat.",
+        "IN one bowl, combine Kodiak Cakes Buttermilk mix and cocoa powder, then add water, coconut oil, and honey. Add to a piping bag and set aside.",
+        "IN a second bowl, combine Kodiak Cakes Buttermilk mix with water, vanilla, and coconut oil. Add to a piping bag and set aside.",
+        "IN a third bowl, combine Kodiak Cakes Buttermilk mix with water, coconut oil, fresh mashed raspberries, honey, and optional beet root powder. Add to a piping bag and set aside.",
+        "PREP your waffle iron with non-stick spray, and in the preheated iron, carefully pipe each flavor into 3 equal parts and shut the lid.",
+        "ONCE cooked, repeat step 5 with remaining batter.",
+        "SERVE warm with your favorite toppings like whipped cream and strawberries. Enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Dark Chocolate Banana Bread Mug Cake",
+      "title": "Neapolitan Waffles",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -273689,15 +274862,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-SE-BIRMINGHAM",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -274216,7 +275425,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -282677,16 +283892,44 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "2 cups oats"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup nuts, seeds, or coconut flakes"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "4 peaches, pitted and cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups vanilla ice cream"
         }
       ],
       "lang": "en",
       "market": "US-SE-CHARLOTTE",
       "meta": {
-        "cook": null,
+        "cook": "25",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5",
+        "serves": "6"
       },
       "month": "2026-08",
       "provenance": {
@@ -282703,8 +283946,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
@@ -283185,7 +284426,13 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "PREHEAT oven to 350° F.",
+        "MIX all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
+        "BAKE for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
+        "BRUSH maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
+        "DIVIDE grilled peaches, ice cream, and granola into 4 bowls and serve."
+      ],
       "substrate": "kraft",
       "title": "Grilled Peaches & Granola",
       "variant": "hero-plus-layout"
@@ -287197,15 +288444,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-SE-COAST",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -287748,7 +289031,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -287765,16 +289054,44 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "peaches"
+          "qty_name": "2 cups oats"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup nuts, seeds, or coconut flakes"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "4 peaches, pitted and cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups vanilla ice cream"
         }
       ],
       "lang": "en",
       "market": "US-SE-COAST",
       "meta": {
-        "cook": null,
+        "cook": "25",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5",
+        "serves": "6"
       },
       "month": "2026-05",
       "provenance": {
@@ -287791,8 +289108,6 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
@@ -288317,7 +289632,13 @@ window.KODIAK_RECIPE_CARDS = {
         "technique_sketch",
         "finished_plate_sketch"
       ],
-      "steps": [],
+      "steps": [
+        "PREHEAT oven to 350° F.",
+        "MIX all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
+        "BAKE for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
+        "BRUSH maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
+        "DIVIDE grilled peaches, ice cream, and granola into 4 bowls and serve."
+      ],
       "substrate": "kraft",
       "title": "Grilled Peaches & Granola",
       "variant": "hero-plus-layout"
@@ -314100,15 +315421,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-SE-LOU",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-03",
@@ -314615,7 +315972,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -366447,24 +367810,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
         }
       ],
       "lang": "en",
       "market": "US-SW-CLOUDCROFT",
       "meta": {
-        "cook": null,
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "12"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: high-protein-nuts-seeds-power-oatmeal has the best token overlap with the in-season ingredient",
-          "recipe_id": "high-protein-nuts-seeds-power-oatmeal",
+          "reason": "fall harvest pairing: pumpkin is the fall-curated ingredient",
+          "recipe_id": "pumpkin-oat-muffins",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "season-table"
         },
         "values_from_source": [
           "pinon nuts (harvest)"
@@ -366473,15 +367872,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "high-protein-nuts-seeds-power-oatmeal",
-        "name": "High Protein Nuts Seeds Power Oatmeal"
+        "id": "pumpkin-oat-muffins",
+        "name": "Pumpkin Oat Muffins"
       },
       "render": {
         "canvas": {
@@ -366975,10 +368372,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "High Protein Nuts Seeds Power Oatmeal",
+      "title": "Pumpkin Oat Muffins",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -403150,46 +404552,58 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/4 cup olive oil"
         },
         {
           "price": null,
-          "qty_name": "2 cups shredded radishes"
+          "qty_name": "1 small red onion, sliced"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup sliced scallion"
+          "qty_name": "10 large eggs"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt, divided"
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "1/2 teaspoon baking powder"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons neutral oil, for frying"
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-SW-SANTA FE",
       "meta": {
-        "cook": "12 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "12 fritters"
+        "prep": "15",
+        "serves": "4"
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: skillet-radish-fritters-draft has the best token overlap with the in-season ingredient",
-          "recipe_id": "skillet-radish-fritters-draft",
+          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
           "source": "ingredient-overlap"
         },
@@ -403205,8 +404619,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "skillet-radish-fritters-draft",
-        "name": "Skillet Radish Fritters"
+        "id": "asparagus-and-goat-cheese-frittata",
+        "name": "Asparagus And Goat Cheese Frittata"
       },
       "render": {
         "canvas": {
@@ -403625,13 +405039,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TOSS the shredded radishes with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
-        "WHISK the mix, eggs, scallion, remaining salt, and pepper into a batter and fold in the radishes.",
-        "FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden.",
-        "DRAIN on a rack and serve hot."
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
-      "title": "Skillet Radish Fritters",
+      "title": "Asparagus And Goat Cheese Frittata",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -437589,15 +439006,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-W-BEND",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -438114,7 +439567,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -465280,15 +466739,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-W-PDX",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -465788,7 +467283,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -470839,15 +472340,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-W-RENO",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-03",
@@ -471352,7 +472889,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -477606,15 +479149,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-W-SACRAMENTO",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-03",
@@ -478158,7 +479737,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -482403,54 +483988,62 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 cup plain Greek yogurt"
+          "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister"
         },
         {
           "price": null,
-          "qty_name": "1 cup nut milk"
+          "qty_name": "1/4 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup chia seeds"
+          "qty_name": "1/8 teaspoon turmeric powder"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon maple syrup"
+          "qty_name": "1/8 teaspoon ground ginger"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup berries of choice"
+          "qty_name": "3/4 cup water"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup walnuts"
+          "qty_name": "2 tablespoons fresh blueberries"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup pumpkin seeds (pepitas)"
+          "qty_name": "1 tablespoon chopped walnuts"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon ground flax seed"
+          "qty_name": "1 tablespoon shelled pumpkin seeds"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Blueberry Vanilla Granola"
+          "qty_name": "1 teaspoon chia seed"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon nut butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, if desired"
         }
       ],
       "lang": "en",
       "market": "US-W-SACRAMENTO",
       "meta": {
-        "cook": null,
+        "cook": "2 mins",
         "est_cost": null,
-        "prep": "60+",
-        "serves": "4"
+        "prep": "5 mins",
+        "serves": "1"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: berry-chia-pudding chosen deterministically for US-W-SACRAMENTO|2026-11 among recipes naming the ingredient",
-          "recipe_id": "berry-chia-pudding",
+          "reason": "ingredient rotation: anti-inflammatory-oatmeal chosen deterministically for US-W-SACRAMENTO|2026-11 among recipes naming the ingredient",
+          "recipe_id": "anti-inflammatory-oatmeal",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -482466,8 +484059,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "berry-chia-pudding",
-        "name": "Berry Chia Pudding"
+        "id": "anti-inflammatory-oatmeal",
+        "name": "Anti-Inflammatory Oatmeal"
       },
       "render": {
         "canvas": {
@@ -482987,13 +484580,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ADD the yogurt, nut milk, chia seeds, and maple syrup to a small mixing bowl. Whisk until smooth and let sit in the refrigerator for 1 hour to thicken.",
-        "ONCE the pudding has thickened, whisk again and divide between 2-4 small bowls.",
-        "LAYER between or top the pudding with the berries, walnuts, pumpkin seeds, flaxseed, and granola - evenly dividing between containers.",
-        "SERVE, or store covered in refrigerator. Will keep for several days in the refrigerator. *Pro-Tip: Prep your pudding before bed and let it sit in the refrigerator overnight."
+        "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine.",
+        "STIR in the water and a microwave on high for 1.5 to 2 minutes.",
+        "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
       ],
       "substrate": "kraft",
-      "title": "Berry Chia Pudding",
+      "title": "Anti-Inflammatory Oatmeal",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -485291,15 +486883,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-W-SANJOSE",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -485809,7 +487437,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -492195,15 +493829,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-W-SD",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -492739,7 +494409,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -499747,15 +501423,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-W-SEA",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-05",
@@ -500259,7 +501971,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -512942,15 +514660,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-W-SPOKANE",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -513454,7 +515208,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -519038,15 +520798,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-W-VEGAS",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-03",
@@ -519549,7 +521345,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",
@@ -526309,15 +528111,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1/4 cup olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 small red onion, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "12 asparagus stalks, bottoms trimmed"
+        },
+        {
+          "price": null,
+          "qty_name": "10 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon cracked black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon fresh chives, chopped"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup goat cheese crumbles"
         }
       ],
       "lang": "en",
       "market": "US-W-YAKIMA",
       "meta": {
-        "cook": "40 mins",
+        "cook": "40",
         "est_cost": null,
-        "prep": "15 mins",
+        "prep": "15",
         "serves": "4"
       },
       "month": "2026-04",
@@ -526819,7 +528657,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
+        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
+        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
+        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+        "BAKE for 35–40 minutes, or until the center is set and cooked through."
       ],
       "substrate": "kraft",
       "title": "Asparagus And Goat Cheese Frittata",

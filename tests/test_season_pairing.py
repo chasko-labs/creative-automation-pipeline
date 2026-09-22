@@ -680,6 +680,36 @@ def test_holiday_stubs_enriched_from_brand_pages():
         assert (repo / src).is_file(), f"{rid}: missing {src}"
 
 
+def test_served_stubs_enriched_from_brand_pages():
+    # Matrix audit: 7 content-free stubs were winning real month cells
+    # (asparagus frittata alone served 36). Six had live brand blog
+    # pages with full Recipe schema (savory-waffles' page is gone, so it
+    # stays a stub rather than being invented); flapjacks-buttermilk is
+    # a product taxonomy page, not a recipe. Enriched the five with
+    # real ingredients, steps, correct mixes, and local heroes.
+    from pathlib import Path
+
+    from creative_automation.recipe_card import _recipe_by_id
+
+    repo = Path(__file__).resolve().parent.parent
+    expected = {
+        "asparagus-and-goat-cheese-frittata": "Buttermilk",
+        "grilled-peaches-and-granola": "Cinnamon Oat",
+        "pumpkin-flapjacks-with-whipped-pumpkin-maple-butter-cranberries-and-walnuts": "Pumpkin",
+        "butternut-squash-oatmeal-bars": "Maple & Brown Sugar",
+        "high-protein-nuts-seeds-power-oatmeal": "Classic Rolled Oats",
+    }
+    for rid, mix in expected.items():
+        recipe = _recipe_by_id(rid)
+        assert recipe is not None, rid
+        assert len(recipe.get("ingredients") or []) >= 4, rid
+        assert len(recipe.get("instructions") or []) >= 3, rid
+        assert mix in (recipe.get("product") or ""), rid
+        src = recipe.get("image") or ""
+        assert not str(src).startswith(("http://", "https://")), rid
+        assert (repo / src).is_file(), f"{rid}: missing {src}"
+
+
 def test_conjunction_split_month_serves_each_named_item():
     # El Paso September proves the word-order match end to end: without it
     # September pins cornbread alone (ingredient-featured); with it the
