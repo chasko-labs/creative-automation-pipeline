@@ -82,12 +82,18 @@ describe('infinite wallpaper', () => {
   });
 });
 
-// The header navbar is out of scope for the simplification: no sign host, no
-// engine boot, headline plate untouched.
+// The header navbar is out of scope for the simplification: no sign host in
+// the header, headline plate untouched. The ambient engine boots ONLY behind
+// the three feature stages (paperboard spot-gloss); the retired navbar sign
+// stays out.
 describe('header untouched', () => {
   it('carries no sign wiring', () => {
     expect(index).not.toMatch(/frontierSign/);
-    expect(index).not.toMatch(/kodiak-ember/);
+    expect(index).not.toMatch(/#kodiak-sheen-rim/);
+  });
+  it('engine boot is scoped to the three feature stages', () => {
+    expect(index).toMatch(/mountPaperboardCards\(\s*'[^']*#generateCampaignSection[^']*#aboutTool/);
+    expect(index).not.toMatch(/mountSheenRim/);
   });
 });
 
