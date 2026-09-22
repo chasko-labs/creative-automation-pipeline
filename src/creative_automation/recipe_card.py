@@ -445,6 +445,27 @@ def render_recipe_card_data(
     return str(_compose_card(hero, text_blocks, out_root / iso_name))
 
 
+# Serving/garnish suggestions are display truth, not matching truth: a recipe
+# served "over lettuce" or "with maple syrup (optional)" must not outrank
+# recipes built on the in-season ingredient (lettuce months routing to
+# salmon patties via a "for serving" line). Both overlap scoring and the
+# rotation strong-match use this filtered field set.
+_SERVING_LINE_RE = re.compile(
+    r"for serving|to serve|for garnish|as garnish|\(optional\)", re.IGNORECASE
+)
+
+
+def _matchable_fields(recipe: dict) -> list[str]:
+    fields = [str(recipe.get("name", "") or "")]
+    fields += [
+        str(x)
+        for x in recipe.get("ingredients", []) or []
+        if not _SERVING_LINE_RE.search(str(x))
+    ]
+    fields += [str(x) for x in recipe.get("tags", []) or []]
+    return fields
+
+
 def _names_ingredient(recipe: dict, ingredient: str) -> bool:
     """True when the recipe genuinely names the ingredient (substring,
     case-insensitive) in its name, ingredient lines, or tags — the strong
@@ -452,10 +473,7 @@ def _names_ingredient(recipe: dict, ingredient: str) -> bool:
     low = (ingredient or "").lower().strip()
     if not low:
         return False
-    fields = [str(recipe.get("name", "") or "")]
-    fields += [str(x) for x in recipe.get("ingredients", []) or []]
-    fields += [str(x) for x in recipe.get("tags", []) or []]
-    return low in " ".join(fields).lower()
+    return low in " ".join(_matchable_fields(recipe)).lower()
 
 
 def _recipe_by_id(recipe_id: str) -> dict | None:
@@ -632,6 +650,7 @@ def _pick_recipe_detail(
         }
 
     scored: list[tuple[int, int, str, dict]] = []
+    hays: dict[str, str] = {}
     for r in recipes:
         hay = " ".join(
             str(r.get(k, "") or "")
@@ -639,15 +658,24 @@ def _pick_recipe_detail(
         )
         loc = r.get("localize", {}) or {}
         hay += " " + " ".join(str(v) for v in loc.values())
-        hay += " " + " ".join(str(x) for x in r.get("ingredients", []) or [])
-        hay += " " + " ".join(str(x) for x in r.get("tags", []) or [])
+        # name/ingredients/tags via the serving-line-filtered field set so
+        # garnish suggestions never outvote the built-on ingredient.
+        hay += " " + " ".join(_matchable_fields(r))
+        hays[r.get("id", "")] = hay
         overlap = len(subject & _tokens(hay))
         has_image = 1 if r.get("image") else 0
         scored.append((overlap, has_image, r.get("id", ""), r))
 
     scored.sort(key=lambda x: (x[0], x[1], x[2]), reverse=True)
-    best_overlap, _hi, _id, best = scored[0]
-    if best_overlap == 0:
+    best_overlap, _hi, _best_id, best = scored[0]
+    # Product-only overlap is no match: every catalog recipe carries the
+    # product token, so "buttermilk" alone would crown an arbitrary winner
+    # (white-chocolate-raspberry-cake won 45 such cells: passionfruit,
+    # oysters, lettuce, and empty-ingredient months). Only ingredient tokens
+    # count toward a real match; otherwise the season table serves the pick.
+    product_tokens = _tokens(product) if product else set()
+    real_overlap = len((subject - product_tokens) & _tokens(hays[_best_id]))
+    if best_overlap == 0 or real_overlap == 0:
         # no token match — season-indexed pairing table first, static default as
         # last resort. Never fabricated: both point at real catalog records.
         table_recipe = _season_fallback_recipe(season, month)

@@ -223,6 +223,49 @@ def test_featured_match_refuses_grape_in_grapefruit():
     assert greens_pairing["source"] == "ingredient-featured"
 
 
+def test_serving_line_never_outvotes_ingredient():
+    # QA sweep: "radishes and lettuce" routed to salmon patties via a
+    # "Butter lettuce ..., for serving (optional)" line. Serving/garnish
+    # suggestions are display truth, not matching truth.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "radishes and lettuce", "Buttermilk Power Cakes",
+        market="US-SW-ALBQ", month="2026-04",
+    )
+    assert recipe["id"] == "skillet-radish-fritters-draft"
+    assert pairing["source"] == "ingredient-overlap"
+
+
+def test_product_only_overlap_falls_to_season_table():
+    # Every catalog recipe carries the product token, so "buttermilk" alone
+    # crowned an arbitrary winner (white-chocolate-raspberry-cake took 45
+    # such cells: passionfruit, oysters, lettuce). Only ingredient tokens
+    # count; otherwise the curated season table serves the pick.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "leaf lettuce", "Buttermilk Power Cakes",
+        market="US-CA-CASTROVILLE", month="2026-06",
+    )
+    assert recipe is not None
+    assert pairing["source"] == "season-table"
+    assert recipe["id"] == pairing["recipe_id"]
+
+
+def test_empty_ingredient_with_product_serves_season_table():
+    # Unseeded-market months (El Paso) carry no ingredient; the builder always
+    # passes a product, which must not divert the documented empty-input
+    # season-table path into an arbitrary overlap winner.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "", "Buttermilk Power Cakes", market="US-SW-EL PASO", month="2026-01",
+    )
+    assert recipe is not None
+    assert pairing["source"] == "season-table"
+
+
 def test_overlap_source_label_without_market_context():
     from creative_automation.recipe_card import pick_recipe_with_provenance
 

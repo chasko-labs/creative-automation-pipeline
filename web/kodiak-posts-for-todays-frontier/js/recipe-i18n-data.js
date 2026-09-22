@@ -587,92 +587,86 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 (14.75-oz) can salmon, drained — proteína para tu frontera"
+            "qty_name": "12 tablespoons (3/4 cup) butter, softened"
           },
           {
             "price": null,
-            "qty_name": "2 scallions, thinly sliced — proteína para tu frontera"
+            "qty_name": "1 cup brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "3 eggs"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1/4 teaspoon almond extract"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
+            "qty_name": "1-1/2 teaspoons vanilla, divided — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon Dijon mustard — proteína para tu frontera"
+            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon chopped fresh dill — proteína para tu frontera"
+            "qty_name": "3 cups frozen cherries, halved — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon fresh lemon juice — proteína para tu frontera"
+            "qty_name": "2 tablespoons cornstarch — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Salt, to taste — proteína para tu frontera"
+            "qty_name": "Juice of 1/2 lemon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Freshly ground black pepper, to taste — proteína para tu frontera"
+            "qty_name": "1/4 cup maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons olive oil (for cooking) — proteína para tu frontera"
+            "qty_name": "1 cup powdered sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+            "qty_name": "1/4 teaspoon vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 small clove garlic, finely minced — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 squeeze fresh lemon juice — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch of salt — proteína para tu frontera"
+            "qty_name": "2-3 tablespoons water — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "8 — proteína para tu frontera",
-          "prep": "10 — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "cook": "35 mins — proteína para tu frontera",
+          "prep": "20 mins — proteína para tu frontera",
+          "serves": "15 — proteína para tu frontera"
         },
         "steps": [
-          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
-          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — proteína para tu frontera",
-          "FORM the mixture into 4–5 evenly sized patties. — proteína para tu frontera",
-          "HEAT the olive oil in a large skillet over medium heat. — proteína para tu frontera",
-          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — proteína para tu frontera",
-          "TRANSFER the patties to a plate lined with paper towels. — proteína para tu frontera",
-          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — proteína para tu frontera",
-          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
+          "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper. — proteína para tu frontera",
+          "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+          "BEAT in the eggs, one at a time.",
+          "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes. — proteína para tu frontera",
+          "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes. — proteína para tu frontera",
+          "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat. — proteína para tu frontera",
+          "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly. — proteína para tu frontera",
+          "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top. — proteína para tu frontera",
+          "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown. — proteína para tu frontera",
+          "REMOVE from oven and let cool. — proteína para tu frontera",
+          "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing. — proteína para tu frontera",
+          "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices. — proteína para tu frontera",
+          "STORE in an airtight container. — proteína para tu frontera"
         ],
-        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — proteína para tu frontera",
+        "title": "Cherry Pie Bars — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
+            "ingredient:1",
             "ingredient:3",
-            "ingredient:12",
-            "step:1",
-            "step:8"
+            "ingredient:4",
+            "step:2",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -686,92 +680,86 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 (14.75-oz) can salmon, drained — 为你的边疆提供蛋白质"
+            "qty_name": "12 tablespoons (3/4 cup) butter, softened"
           },
           {
             "price": null,
-            "qty_name": "2 scallions, thinly sliced — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup brown sugar — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "3 eggs"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
+            "qty_name": "1/4 teaspoon almond extract"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — 为你的边疆提供蛋白质"
+            "qty_name": "1-1/2 teaspoons vanilla, divided — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon Dijon mustard — 为你的边疆提供蛋白质"
+            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon chopped fresh dill — 为你的边疆提供蛋白质"
+            "qty_name": "3 cups frozen cherries, halved — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon fresh lemon juice — 为你的边疆提供蛋白质"
+            "qty_name": "2 tablespoons cornstarch — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "Salt, to taste — 为你的边疆提供蛋白质"
+            "qty_name": "Juice of 1/2 lemon — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "Freshly ground black pepper, to taste — 为你的边疆提供蛋白质"
+            "qty_name": "1/4 cup maple syrup — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons olive oil (for cooking) — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup powdered sugar — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+            "qty_name": "1/4 teaspoon vanilla extract — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — 为你的边疆提供蛋白质"
-          },
-          {
-            "price": null,
-            "qty_name": "1 small clove garlic, finely minced — 为你的边疆提供蛋白质"
-          },
-          {
-            "price": null,
-            "qty_name": "1 squeeze fresh lemon juice — 为你的边疆提供蛋白质"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch of salt — 为你的边疆提供蛋白质"
+            "qty_name": "2-3 tablespoons water — 为你的边疆提供蛋白质"
           }
         ],
         "meta": {
-          "cook": "8 — 为你的边疆提供蛋白质",
-          "prep": "10 — 为你的边疆提供蛋白质",
-          "serves": "4 — 为你的边疆提供蛋白质"
+          "cook": "35 mins — 为你的边疆提供蛋白质",
+          "prep": "20 mins — 为你的边疆提供蛋白质",
+          "serves": "15 — 为你的边疆提供蛋白质"
         },
         "steps": [
-          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
-          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — 为你的边疆提供蛋白质",
-          "FORM the mixture into 4–5 evenly sized patties. — 为你的边疆提供蛋白质",
-          "HEAT the olive oil in a large skillet over medium heat. — 为你的边疆提供蛋白质",
-          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — 为你的边疆提供蛋白质",
-          "TRANSFER the patties to a plate lined with paper towels. — 为你的边疆提供蛋白质",
-          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — 为你的边疆提供蛋白质",
-          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
+          "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper. — 为你的边疆提供蛋白质",
+          "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+          "BEAT in the eggs, one at a time.",
+          "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes. — 为你的边疆提供蛋白质",
+          "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes. — 为你的边疆提供蛋白质",
+          "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat. — 为你的边疆提供蛋白质",
+          "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly. — 为你的边疆提供蛋白质",
+          "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top. — 为你的边疆提供蛋白质",
+          "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown. — 为你的边疆提供蛋白质",
+          "REMOVE from oven and let cool. — 为你的边疆提供蛋白质",
+          "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing. — 为你的边疆提供蛋白质",
+          "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices. — 为你的边疆提供蛋白质",
+          "STORE in an airtight container. — 为你的边疆提供蛋白质"
         ],
-        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — 为你的边疆提供蛋白质",
+        "title": "Cherry Pie Bars — 为你的边疆提供蛋白质",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
+            "ingredient:1",
             "ingredient:3",
-            "ingredient:12",
-            "step:1",
-            "step:8"
+            "ingredient:4",
+            "step:2",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "zh",
@@ -2921,88 +2909,56 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — proteína para tu frontera"
+            "qty_name": "1 1/2 cups diced firm pears — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — proteína para tu frontera"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+            "qty_name": "1/3 cup brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
+            "qty_name": "1/4 cup melted butter"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — proteína para tu frontera"
+            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — proteína para tu frontera"
+            "qty_name": "1/4 teaspoon nutmeg — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "35 — proteína para tu frontera",
-          "prep": "30 — proteína para tu frontera",
-          "serves": "16 — proteína para tu frontera"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — proteína para tu frontera",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — proteína para tu frontera",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — proteína para tu frontera",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — proteína para tu frontera",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — proteína para tu frontera",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — proteína para tu frontera",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — proteína para tu frontera",
-          "TOP cake with fresh raspberries. — proteína para tu frontera",
-          "STORE cake in an airtight container in the refrigerator. — proteína para tu frontera"
+          "HEAT the oven to 375F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg. — proteína para tu frontera",
+          "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+          "DIVIDE among the cups and bake 18-20 minutes, until golden and set. — proteína para tu frontera"
         ],
-        "title": "White Chocolate Raspberry Cake — proteína para tu frontera",
+        "title": "Pear Spice Muffins — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
+            "ingredient:3",
             "ingredient:4",
             "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -3016,88 +2972,56 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para sua fronteira"
+            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — proteína para sua fronteira"
+            "qty_name": "1 1/2 cups diced firm pears — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — proteína para sua fronteira"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — proteína para sua fronteira"
+            "qty_name": "1/3 cup brown sugar — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
+            "qty_name": "1/4 cup melted butter"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — proteína para sua fronteira"
+            "qty_name": "1 teaspoon cinnamon — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — proteína para sua fronteira"
+            "qty_name": "1/4 teaspoon nutmeg — proteína para sua fronteira"
           }
         ],
         "meta": {
-          "cook": "35 — proteína para sua fronteira",
-          "prep": "30 — proteína para sua fronteira",
-          "serves": "16 — proteína para sua fronteira"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — proteína para sua fronteira",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — proteína para sua fronteira",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — proteína para sua fronteira",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — proteína para sua fronteira",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — proteína para sua fronteira",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — proteína para sua fronteira",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — proteína para sua fronteira",
-          "TOP cake with fresh raspberries. — proteína para sua fronteira",
-          "STORE cake in an airtight container in the refrigerator. — proteína para sua fronteira"
+          "HEAT the oven to 375F and line a 12-cup muffin tin. — proteína para sua fronteira",
+          "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg. — proteína para sua fronteira",
+          "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+          "DIVIDE among the cups and bake 18-20 minutes, until golden and set. — proteína para sua fronteira"
         ],
-        "title": "White Chocolate Raspberry Cake — proteína para sua fronteira",
+        "title": "Pear Spice Muffins — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
+            "ingredient:3",
             "ingredient:4",
             "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "pt",
@@ -6313,64 +6237,66 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1/3 cup cottage cheese"
           },
           {
             "price": null,
-            "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister — proteína para tu frontera"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "1 cup peanut butter (no sugar added)"
+            "qty_name": "1 tablespoon milk of choice"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup melted unsalted butter"
+            "qty_name": "1/3 cup Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup real maple syrup — proteína para tu frontera"
+            "qty_name": "1/3 cup Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "dollop of smooth peanut butter (optional)"
           },
           {
             "price": null,
-            "qty_name": "3 cups fresh mashed raspberries (measured after mashing) — proteína para tu frontera"
+            "qty_name": "1 teaspoon of maple syrup (optional)\r\n\r\n\r\n \r\n\r\nTopping Ideas: — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Optional: 1 tablespoon real maple syrup — proteína para tu frontera"
+            "qty_name": "Sliced fruit (bananas or strawberries) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Optional: drizzle with melted peanut butter"
+            "qty_name": "Maple Syrup — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "25 — proteína para tu frontera",
-          "prep": "20 — proteína para tu frontera",
-          "serves": "30 — proteína para tu frontera"
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "1 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT oven to 350°F and line a 13x18” sheet pan with parchment paper. — proteína para tu frontera",
-          "IN a large bowl, mix peanut butter, butter, maple syrup, and milk until smooth.",
-          "ADD Kodiak Cakes mix and oats, stirring until a thick, slightly crumbly dough forms. — proteína para tu frontera",
-          "PRESS about ⅔ of the mixture firmly into the pan to create an even base layer. — proteína para tu frontera",
-          "CAREFULLY spread mashed raspberries evenly over the base then crumble the remaining dough over the top. — proteína para tu frontera",
-          "BAKE for 20–25 minutes, until the top is set and lightly golden. Let cool completely before slicing into 30 bars. — proteína para tu frontera",
-          "STORE in an airtight container in the refrigerator for up to 5 days. — proteína para tu frontera"
+          "IN a blender, combine cottage cheese, eggs, and milk. Blend until smooth.",
+          "IN a medium bowl, mix the cottage cheese mixture with the Kodiak Cakes mix until well combined.",
+          "SCOOP about a 1/4 cup of batter onto a preheated and greased skillet to make 3 pancakes. — proteína para tu frontera",
+          "ALLOW to cook until bubbles form, then flip and finish cooking. — proteína para tu frontera",
+          "MEANWHILE, combine Greek yogurt, peanut butter, and maple syrup in a bowl until smooth.",
+          "LAYER the flapjacks with the peanut butter yogurt mixture and add desired toppings. Enjoy!"
         ],
-        "title": "Fiber-Packed PB&J Snack Bars — proteína para tu frontera",
+        "title": "Dark Chocolate Protein Stack — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
+            "ingredient:1",
+            "ingredient:2",
             "ingredient:3",
-            "ingredient:4",
             "ingredient:6",
-            "ingredient:9",
-            "step:2"
+            "step:1",
+            "step:2",
+            "step:5",
+            "step:6"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -6384,64 +6310,66 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — białko na twoją granicę"
+            "qty_name": "1/3 cup cottage cheese"
           },
           {
             "price": null,
-            "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister — białko na twoją granicę"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "1 cup peanut butter (no sugar added)"
+            "qty_name": "1 tablespoon milk of choice"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup melted unsalted butter"
+            "qty_name": "1/3 cup Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix — białko na twoją granicę"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup real maple syrup — białko na twoją granicę"
+            "qty_name": "1/3 cup Greek yogurt — białko na twoją granicę"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "dollop of smooth peanut butter (optional)"
           },
           {
             "price": null,
-            "qty_name": "3 cups fresh mashed raspberries (measured after mashing) — białko na twoją granicę"
+            "qty_name": "1 teaspoon of maple syrup (optional)\r\n\r\n\r\n \r\n\r\nTopping Ideas: — białko na twoją granicę"
           },
           {
             "price": null,
-            "qty_name": "Optional: 1 tablespoon real maple syrup — białko na twoją granicę"
+            "qty_name": "Sliced fruit (bananas or strawberries) — białko na twoją granicę"
           },
           {
             "price": null,
-            "qty_name": "Optional: drizzle with melted peanut butter"
+            "qty_name": "Maple Syrup — białko na twoją granicę"
           }
         ],
         "meta": {
-          "cook": "25 — białko na twoją granicę",
-          "prep": "20 — białko na twoją granicę",
-          "serves": "30 — białko na twoją granicę"
+          "cook": "15 mins — białko na twoją granicę",
+          "prep": "10 mins — białko na twoją granicę",
+          "serves": "1 — białko na twoją granicę"
         },
         "steps": [
-          "PREHEAT oven to 350°F and line a 13x18” sheet pan with parchment paper. — białko na twoją granicę",
-          "IN a large bowl, mix peanut butter, butter, maple syrup, and milk until smooth.",
-          "ADD Kodiak Cakes mix and oats, stirring until a thick, slightly crumbly dough forms. — białko na twoją granicę",
-          "PRESS about ⅔ of the mixture firmly into the pan to create an even base layer. — białko na twoją granicę",
-          "CAREFULLY spread mashed raspberries evenly over the base then crumble the remaining dough over the top. — białko na twoją granicę",
-          "BAKE for 20–25 minutes, until the top is set and lightly golden. Let cool completely before slicing into 30 bars. — białko na twoją granicę",
-          "STORE in an airtight container in the refrigerator for up to 5 days. — białko na twoją granicę"
+          "IN a blender, combine cottage cheese, eggs, and milk. Blend until smooth.",
+          "IN a medium bowl, mix the cottage cheese mixture with the Kodiak Cakes mix until well combined.",
+          "SCOOP about a 1/4 cup of batter onto a preheated and greased skillet to make 3 pancakes. — białko na twoją granicę",
+          "ALLOW to cook until bubbles form, then flip and finish cooking. — białko na twoją granicę",
+          "MEANWHILE, combine Greek yogurt, peanut butter, and maple syrup in a bowl until smooth.",
+          "LAYER the flapjacks with the peanut butter yogurt mixture and add desired toppings. Enjoy!"
         ],
-        "title": "Fiber-Packed PB&J Snack Bars — białko na twoją granicę",
+        "title": "Dark Chocolate Protein Stack — białko na twoją granicę",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
+            "ingredient:1",
+            "ingredient:2",
             "ingredient:3",
-            "ingredient:4",
             "ingredient:6",
-            "ingredient:9",
-            "step:2"
+            "step:1",
+            "step:2",
+            "step:5",
+            "step:6"
           ],
           "human_reviewed": false,
           "lang": "pl",
@@ -7799,30 +7727,66 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Buttermilk French Toast Sticks, heated — بروتين لحدودك"
+            "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup mixed berries — بروتين لحدودك"
+            "qty_name": "1/4 teaspoon cinnamon — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons maple syrup — بروتين لحدودك"
+            "qty_name": "1/8 teaspoon turmeric powder — بروتين لحدودك"
+          },
+          {
+            "price": null,
+            "qty_name": "1/8 teaspoon ground ginger — بروتين لحدودك"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup water — بروتين لحدودك"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons fresh blueberries — بروتين لحدودك"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon chopped walnuts — بروتين لحدودك"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon shelled pumpkin seeds — بروتين لحدودك"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon chia seed — بروتين لحدودك"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon nut butter"
+          },
+          {
+            "price": null,
+            "qty_name": "Maple syrup, if desired — بروتين لحدودك"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": null,
-          "serves": null
+          "cook": "2 mins — بروتين لحدودك",
+          "prep": "5 mins — بروتين لحدودك",
+          "serves": "1 — بروتين لحدودك"
         },
         "steps": [
-          "HEAT the sticks per package directions. — بروتين لحدودك",
-          "WARM the berries with syrup 2 minutes and serve alongside for dipping. — بروتين لحدودك"
+          "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine. — بروتين لحدودك",
+          "STIR in the water and a microwave on high for 1.5 to 2 minutes. — بروتين لحدودك",
+          "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
         ],
-        "title": "French Toast Stick Dippers — بروتين لحدودك",
+        "title": "Anti-Inflammatory Oatmeal — بروتين لحدودك",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:10",
+            "step:3"
+          ],
           "human_reviewed": false,
           "lang": "ar",
           "machine_translated": true,
@@ -7835,30 +7799,66 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Buttermilk French Toast Sticks, heated — proteína para tu frontera"
+            "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup mixed berries — proteína para tu frontera"
+            "qty_name": "1/4 teaspoon cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons maple syrup — proteína para tu frontera"
+            "qty_name": "1/8 teaspoon turmeric powder — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/8 teaspoon ground ginger — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup water — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons fresh blueberries — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon chopped walnuts — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon shelled pumpkin seeds — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon chia seed — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon nut butter"
+          },
+          {
+            "price": null,
+            "qty_name": "Maple syrup, if desired — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": null,
-          "serves": null
+          "cook": "2 mins — proteína para tu frontera",
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "1 — proteína para tu frontera"
         },
         "steps": [
-          "HEAT the sticks per package directions. — proteína para tu frontera",
-          "WARM the berries with syrup 2 minutes and serve alongside for dipping. — proteína para tu frontera"
+          "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine. — proteína para tu frontera",
+          "STIR in the water and a microwave on high for 1.5 to 2 minutes. — proteína para tu frontera",
+          "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
         ],
-        "title": "French Toast Stick Dippers — proteína para tu frontera",
+        "title": "Anti-Inflammatory Oatmeal — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
-          "allergen_fallback_lines": [],
+          "allergen_fallback_lines": [
+            "ingredient:10",
+            "step:3"
+          ],
           "human_reviewed": false,
           "lang": "es",
           "machine_translated": true,
@@ -10995,63 +10995,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — protein za vašu granicu"
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — protein za vašu granicu"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon pumpkin spice — protein za vašu granicu"
+            "qty_name": "1 cup water — protein za vašu granicu"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup pumpkin purée — protein za vašu granicu"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protein za vašu granicu"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup maple syrup — protein za vašu granicu"
+            "qty_name": "1 teaspoon cinnamon — protein za vašu granicu"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup almond butter"
+            "qty_name": "1 teaspoon vanilla extract — protein za vašu granicu"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup walnuts\r\n\r\n\r\n \r\n\r\nGlaze (optional) — protein za vašu granicu"
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — protein za vašu granicu"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup confectioners sugar — protein za vašu granicu"
+            "qty_name": "Butter, to top and grease pan"
           },
           {
             "price": null,
-            "qty_name": "1-2 tablespoons vanilla extract — protein za vašu granicu"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cup milk of choice"
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — protein za vašu granicu"
           }
         ],
         "meta": {
-          "cook": "20 mins — protein za vašu granicu",
-          "prep": "10 mins — protein za vašu granicu",
-          "serves": "12 — protein za vašu granicu"
+          "cook": "5 mins — protein za vašu granicu",
+          "prep": "5 mins — protein za vašu granicu",
+          "serves": "4 — protein za vašu granicu"
         },
         "steps": [
-          "PREHEAT oven to 350° F. — protein za vašu granicu",
-          "IN a bowl, whisk together Kodiak Cakes mix and pumpkin spice. Set aside. — protein za vašu granicu",
-          "IN a separate bowl, mix pumpkin puree, maple syrup and almond butter until smooth.",
-          "ADD the wet ingredients to the dry ingredients, stirring to fully combine. — protein za vašu granicu",
-          "GENTLY fold in the walnuts. — protein za vašu granicu",
-          "ROLL dough into 1-inch balls and place on a parchment-lined baking sheet. — protein za vašu granicu",
-          "BAKE for 15-20 minutes, or until set and lightly golden on the bottom. — protein za vašu granicu",
-          "LET cool slightly before digging in. Enjoy! — protein za vašu granicu"
+          "REMOVE the skin from the sweet potato and discard. — protein za vašu granicu",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — protein za vašu granicu",
+          "HEAT a skillet over medium heat. — protein za vašu granicu",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — protein za vašu granicu",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
         ],
-        "title": "Pumpkin Protein Balls — protein za vašu granicu",
+        "title": "Sweet Potato Pancakes — protein za vašu granicu",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:5",
-            "ingredient:9",
-            "step:3"
+            "ingredient:7",
+            "step:4",
+            "step:6"
           ],
           "human_reviewed": false,
           "lang": "bs",
@@ -11065,63 +11059,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon pumpkin spice — proteína para tu frontera"
+            "qty_name": "1 cup water — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup pumpkin purée — proteína para tu frontera"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup maple syrup — proteína para tu frontera"
+            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup almond butter"
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup walnuts\r\n\r\n\r\n \r\n\r\nGlaze (optional) — proteína para tu frontera"
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup confectioners sugar — proteína para tu frontera"
+            "qty_name": "Butter, to top and grease pan"
           },
           {
             "price": null,
-            "qty_name": "1-2 tablespoons vanilla extract — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cup milk of choice"
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "20 mins — proteína para tu frontera",
-          "prep": "10 mins — proteína para tu frontera",
-          "serves": "12 — proteína para tu frontera"
+          "cook": "5 mins — proteína para tu frontera",
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT oven to 350° F. — proteína para tu frontera",
-          "IN a bowl, whisk together Kodiak Cakes mix and pumpkin spice. Set aside. — proteína para tu frontera",
-          "IN a separate bowl, mix pumpkin puree, maple syrup and almond butter until smooth.",
-          "ADD the wet ingredients to the dry ingredients, stirring to fully combine. — proteína para tu frontera",
-          "GENTLY fold in the walnuts. — proteína para tu frontera",
-          "ROLL dough into 1-inch balls and place on a parchment-lined baking sheet. — proteína para tu frontera",
-          "BAKE for 15-20 minutes, or until set and lightly golden on the bottom. — proteína para tu frontera",
-          "LET cool slightly before digging in. Enjoy! — proteína para tu frontera"
+          "REMOVE the skin from the sweet potato and discard. — proteína para tu frontera",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — proteína para tu frontera",
+          "HEAT a skillet over medium heat. — proteína para tu frontera",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — proteína para tu frontera",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
         ],
-        "title": "Pumpkin Protein Balls — proteína para tu frontera",
+        "title": "Sweet Potato Pancakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:5",
-            "ingredient:9",
-            "step:3"
+            "ingredient:7",
+            "step:4",
+            "step:6"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -12463,66 +12451,49 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/3 cup cottage cheese"
+            "qty_name": "1 can garbanzo beans rinsed and drained — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "2 eggs"
+            "qty_name": "1/2 cup almond butter"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon milk of choice"
+            "qty_name": "1/2 cup real maple syrup — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix — بروتين لحدودك"
+            "qty_name": "2 teaspoons vanilla extract — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup Greek yogurt — بروتين لحدودك"
+            "qty_name": "1-3 cup mini chocolate chips\r\n\r\n\r\n \r\n\r\nDippers: — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "dollop of smooth peanut butter (optional)"
+            "qty_name": "Kodiak Crunchy Granola Bars — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon of maple syrup (optional)\r\n\r\n\r\n \r\n\r\nTopping Ideas: — بروتين لحدودك"
-          },
-          {
-            "price": null,
-            "qty_name": "Sliced fruit (bananas or strawberries) — بروتين لحدودك"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple Syrup — بروتين لحدودك"
+            "qty_name": "Fresh cut fruit (strawberries, apples, etc.) — بروتين لحدودك"
           }
         ],
         "meta": {
-          "cook": "15 mins — بروتين لحدودك",
-          "prep": "10 mins — بروتين لحدودك",
-          "serves": "1 — بروتين لحدودك"
+          "cook": null,
+          "prep": "5 mins — بروتين لحدودك",
+          "serves": "8 — بروتين لحدودك"
         },
         "steps": [
-          "IN a blender, combine cottage cheese, eggs, and milk. Blend until smooth.",
-          "IN a medium bowl, mix the cottage cheese mixture with the Kodiak Cakes mix until well combined.",
-          "SCOOP about a 1/4 cup of batter onto a preheated and greased skillet to make 3 pancakes. — بروتين لحدودك",
-          "ALLOW to cook until bubbles form, then flip and finish cooking. — بروتين لحدودك",
-          "MEANWHILE, combine Greek yogurt, peanut butter, and maple syrup in a bowl until smooth.",
-          "LAYER the flapjacks with the peanut butter yogurt mixture and add desired toppings. Enjoy!"
+          "IN a blender or food processor, combine the chickpeas, almond butter, maple syrup, and vanilla extract. Blend until smooth and creamy.",
+          "TRANSFER the mixture to a bowl and stir in the mini chocolate chips. — بروتين لحدودك",
+          "ENJOY immediately with preferred dippers (we're partial to Chocolate Chip Crunchy Granola Bars 😉), or store in an airtight container in the refrigerator for up to 5 days. — بروتين لحدودك"
         ],
-        "title": "Dark Chocolate Protein Stack — بروتين لحدودك",
+        "title": "Cookie Dough Hummus — بروتين لحدودك",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:1",
             "ingredient:2",
-            "ingredient:3",
-            "ingredient:6",
-            "step:1",
-            "step:2",
-            "step:5",
-            "step:6"
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "ar",
@@ -12536,66 +12507,49 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/3 cup cottage cheese"
+            "qty_name": "1 can garbanzo beans rinsed and drained — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 eggs"
+            "qty_name": "1/2 cup almond butter"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon milk of choice"
+            "qty_name": "1/2 cup real maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "2 teaspoons vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup Greek yogurt — proteína para tu frontera"
+            "qty_name": "1-3 cup mini chocolate chips\r\n\r\n\r\n \r\n\r\nDippers: — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "dollop of smooth peanut butter (optional)"
+            "qty_name": "Kodiak Crunchy Granola Bars — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon of maple syrup (optional)\r\n\r\n\r\n \r\n\r\nTopping Ideas: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Sliced fruit (bananas or strawberries) — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple Syrup — proteína para tu frontera"
+            "qty_name": "Fresh cut fruit (strawberries, apples, etc.) — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "15 mins — proteína para tu frontera",
-          "prep": "10 mins — proteína para tu frontera",
-          "serves": "1 — proteína para tu frontera"
+          "cook": null,
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "8 — proteína para tu frontera"
         },
         "steps": [
-          "IN a blender, combine cottage cheese, eggs, and milk. Blend until smooth.",
-          "IN a medium bowl, mix the cottage cheese mixture with the Kodiak Cakes mix until well combined.",
-          "SCOOP about a 1/4 cup of batter onto a preheated and greased skillet to make 3 pancakes. — proteína para tu frontera",
-          "ALLOW to cook until bubbles form, then flip and finish cooking. — proteína para tu frontera",
-          "MEANWHILE, combine Greek yogurt, peanut butter, and maple syrup in a bowl until smooth.",
-          "LAYER the flapjacks with the peanut butter yogurt mixture and add desired toppings. Enjoy!"
+          "IN a blender or food processor, combine the chickpeas, almond butter, maple syrup, and vanilla extract. Blend until smooth and creamy.",
+          "TRANSFER the mixture to a bowl and stir in the mini chocolate chips. — proteína para tu frontera",
+          "ENJOY immediately with preferred dippers (we're partial to Chocolate Chip Crunchy Granola Bars 😉), or store in an airtight container in the refrigerator for up to 5 days. — proteína para tu frontera"
         ],
-        "title": "Dark Chocolate Protein Stack — proteína para tu frontera",
+        "title": "Cookie Dough Hummus — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:1",
             "ingredient:2",
-            "ingredient:3",
-            "ingredient:6",
-            "step:1",
-            "step:2",
-            "step:5",
-            "step:6"
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -13811,61 +13765,49 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 Kodiak Chocolate Chip & Maple Flapjack Cup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon salt — proteína para tu frontera"
+            "qty_name": "1 small banana (overripe), mashed — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3 eggs"
+            "qty_name": "1 tablespoon walnuts, chopped — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1-1/2 cup Greek yogurt — proteína para tu frontera"
+            "qty_name": "3 tablespoons water — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Juice and zest of two medium oranges — proteína para tu frontera"
+            "qty_name": "1 tablespoon butter, to top"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup real maple syrup — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1-1/2 teaspoons vanilla — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1-1/4 cup whole milk"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup dried cranberries — proteína para tu frontera"
+            "qty_name": "1 tablespoon Maple syrup, to top — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "21 — proteína para tu frontera",
-          "prep": "15 — proteína para tu frontera",
-          "serves": "30 — proteína para tu frontera"
+          "cook": "2 — proteína para tu frontera",
+          "prep": "8 — proteína para tu frontera",
+          "serves": "1 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT oven to 350°F and line a muffin tin with liners or grease well. — proteína para tu frontera",
-          "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
-          "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries. — proteína para tu frontera",
-          "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full. — proteína para tu frontera",
-          "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean. — proteína para tu frontera",
-          "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through. — proteína para tu frontera"
+          "REMOVE the lid from the flapjack cup. — proteína para tu frontera",
+          "ADD the mashed banana, walnuts, and water to the cup and stir to form a slightly chunky batter. — proteína para tu frontera",
+          "LET rest for 5 minutes. — proteína para tu frontera",
+          "HEAT a frying pan over medium heat. — proteína para tu frontera",
+          "GREASE, then add the batter - this recipe makes one large or 3 smaller pancakes. Cook batter until bubbles appear on top and the top is no longer glossy. — proteína para tu frontera",
+          "FLIP the pancake(s) and cook for 20-30 seconds on the other side. — proteína para tu frontera",
+          "SERVE topped with butter and maple syrup. *On the run? Cook your pancake right in your Flapjack Cup for approximately 1 minute in the microwave before hitting the road."
         ],
-        "title": "Cranberry Orange Yogurt Muffins — proteína para tu frontera",
+        "title": "Single-Serve Banana Bread Pancakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:3",
-            "ingredient:8",
-            "step:2"
+            "ingredient:5",
+            "step:7"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -13879,61 +13821,49 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — तपाईंको सीमाको लागि प्रोटिन"
+            "qty_name": "1 Kodiak Chocolate Chip & Maple Flapjack Cup — तपाईंको सीमाको लागि प्रोटिन"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon salt — तपाईंको सीमाको लागि प्रोटिन"
+            "qty_name": "1 small banana (overripe), mashed — तपाईंको सीमाको लागि प्रोटिन"
           },
           {
             "price": null,
-            "qty_name": "3 eggs"
+            "qty_name": "1 tablespoon walnuts, chopped — तपाईंको सीमाको लागि प्रोटिन"
           },
           {
             "price": null,
-            "qty_name": "1-1/2 cup Greek yogurt — तपाईंको सीमाको लागि प्रोटिन"
+            "qty_name": "3 tablespoons water — तपाईंको सीमाको लागि प्रोटिन"
           },
           {
             "price": null,
-            "qty_name": "Juice and zest of two medium oranges — तपाईंको सीमाको लागि प्रोटिन"
+            "qty_name": "1 tablespoon butter, to top"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup real maple syrup — तपाईंको सीमाको लागि प्रोटिन"
-          },
-          {
-            "price": null,
-            "qty_name": "1-1/2 teaspoons vanilla — तपाईंको सीमाको लागि प्रोटिन"
-          },
-          {
-            "price": null,
-            "qty_name": "1-1/4 cup whole milk"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup dried cranberries — तपाईंको सीमाको लागि प्रोटिन"
+            "qty_name": "1 tablespoon Maple syrup, to top — तपाईंको सीमाको लागि प्रोटिन"
           }
         ],
         "meta": {
-          "cook": "21 — तपाईंको सीमाको लागि प्रोटिन",
-          "prep": "15 — तपाईंको सीमाको लागि प्रोटिन",
-          "serves": "30 — तपाईंको सीमाको लागि प्रोटिन"
+          "cook": "2 — तपाईंको सीमाको लागि प्रोटिन",
+          "prep": "8 — तपाईंको सीमाको लागि प्रोटिन",
+          "serves": "1 — तपाईंको सीमाको लागि प्रोटिन"
         },
         "steps": [
-          "PREHEAT oven to 350°F and line a muffin tin with liners or grease well. — तपाईंको सीमाको लागि प्रोटिन",
-          "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
-          "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries. — तपाईंको सीमाको लागि प्रोटिन",
-          "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full. — तपाईंको सीमाको लागि प्रोटिन",
-          "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean. — तपाईंको सीमाको लागि प्रोटिन",
-          "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through. — तपाईंको सीमाको लागि प्रोटिन"
+          "REMOVE the lid from the flapjack cup. — तपाईंको सीमाको लागि प्रोटिन",
+          "ADD the mashed banana, walnuts, and water to the cup and stir to form a slightly chunky batter. — तपाईंको सीमाको लागि प्रोटिन",
+          "LET rest for 5 minutes. — तपाईंको सीमाको लागि प्रोटिन",
+          "HEAT a frying pan over medium heat. — तपाईंको सीमाको लागि प्रोटिन",
+          "GREASE, then add the batter - this recipe makes one large or 3 smaller pancakes. Cook batter until bubbles appear on top and the top is no longer glossy. — तपाईंको सीमाको लागि प्रोटिन",
+          "FLIP the pancake(s) and cook for 20-30 seconds on the other side. — तपाईंको सीमाको लागि प्रोटिन",
+          "SERVE topped with butter and maple syrup. *On the run? Cook your pancake right in your Flapjack Cup for approximately 1 minute in the microwave before hitting the road."
         ],
-        "title": "Cranberry Orange Yogurt Muffins — तपाईंको सीमाको लागि प्रोटिन",
+        "title": "Single-Serve Banana Bread Pancakes — तपाईंको सीमाको लागि प्रोटिन",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:3",
-            "ingredient:8",
-            "step:2"
+            "ingredient:5",
+            "step:7"
           ],
           "human_reviewed": false,
           "lang": "ne",
@@ -15275,53 +15205,44 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
+            "qty_name": "1 can garbanzo beans rinsed and drained — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup nut milk"
+            "qty_name": "1/2 cup almond butter"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup chia seeds — proteína para tu frontera"
+            "qty_name": "1/2 cup real maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon maple syrup — proteína para tu frontera"
+            "qty_name": "2 teaspoons vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup berries of choice — proteína para tu frontera"
+            "qty_name": "1-3 cup mini chocolate chips\r\n\r\n\r\n \r\n\r\nDippers: — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup walnuts — proteína para tu frontera"
+            "qty_name": "Kodiak Crunchy Granola Bars — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup pumpkin seeds (pepitas) — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon ground flax seed — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cup Kodiak Blueberry Vanilla Granola — proteína para tu frontera"
+            "qty_name": "Fresh cut fruit (strawberries, apples, etc.) — proteína para tu frontera"
           }
         ],
         "meta": {
           "cook": null,
-          "prep": "60+ — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "8 — proteína para tu frontera"
         },
         "steps": [
-          "ADD the yogurt, nut milk, chia seeds, and maple syrup to a small mixing bowl. Whisk until smooth and let sit in the refrigerator for 1 hour to thicken.",
-          "ONCE the pudding has thickened, whisk again and divide between 2-4 small bowls. — proteína para tu frontera",
-          "LAYER between or top the pudding with the berries, walnuts, pumpkin seeds, flaxseed, and granola - evenly dividing between containers. — proteína para tu frontera",
-          "SERVE, or store covered in refrigerator. Will keep for several days in the refrigerator. *Pro-Tip: Prep your pudding before bed and let it sit in the refrigerator overnight. — proteína para tu frontera"
+          "IN a blender or food processor, combine the chickpeas, almond butter, maple syrup, and vanilla extract. Blend until smooth and creamy.",
+          "TRANSFER the mixture to a bowl and stir in the mini chocolate chips. — proteína para tu frontera",
+          "ENJOY immediately with preferred dippers (we're partial to Chocolate Chip Crunchy Granola Bars 😉), or store in an airtight container in the refrigerator for up to 5 days. — proteína para tu frontera"
         ],
-        "title": "Berry Chia Pudding — proteína para tu frontera",
+        "title": "Cookie Dough Hummus — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
@@ -15340,53 +15261,44 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
+            "qty_name": "1 can garbanzo beans rinsed and drained — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
           },
           {
             "price": null,
-            "qty_name": "1 cup nut milk"
+            "qty_name": "1/2 cup almond butter"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup chia seeds — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
+            "qty_name": "1/2 cup real maple syrup — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon maple syrup — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
+            "qty_name": "2 teaspoons vanilla extract — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup berries of choice — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
+            "qty_name": "1-3 cup mini chocolate chips\r\n\r\n\r\n \r\n\r\nDippers: — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup walnuts — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
+            "qty_name": "Kodiak Crunchy Granola Bars — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup pumpkin seeds (pepitas) — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon ground flax seed — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cup Kodiak Blueberry Vanilla Granola — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
+            "qty_name": "Fresh cut fruit (strawberries, apples, etc.) — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
           }
         ],
         "meta": {
           "cook": null,
-          "prep": "60+ — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း",
-          "serves": "4 — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
+          "prep": "5 mins — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း",
+          "serves": "8 — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
         },
         "steps": [
-          "ADD the yogurt, nut milk, chia seeds, and maple syrup to a small mixing bowl. Whisk until smooth and let sit in the refrigerator for 1 hour to thicken.",
-          "ONCE the pudding has thickened, whisk again and divide between 2-4 small bowls. — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း",
-          "LAYER between or top the pudding with the berries, walnuts, pumpkin seeds, flaxseed, and granola - evenly dividing between containers. — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း",
-          "SERVE, or store covered in refrigerator. Will keep for several days in the refrigerator. *Pro-Tip: Prep your pudding before bed and let it sit in the refrigerator overnight. — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
+          "IN a blender or food processor, combine the chickpeas, almond butter, maple syrup, and vanilla extract. Blend until smooth and creamy.",
+          "TRANSFER the mixture to a bowl and stir in the mini chocolate chips. — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း",
+          "ENJOY immediately with preferred dippers (we're partial to Chocolate Chip Crunchy Granola Bars 😉), or store in an airtight container in the refrigerator for up to 5 days. — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း"
         ],
-        "title": "Berry Chia Pudding — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း",
+        "title": "Cookie Dough Hummus — သင့်နယ်နိမိတ်အတွက် ပရိုတင်း",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
@@ -18297,80 +18209,52 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Pancakes: — proteína para tu frontera"
+            "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal Packets — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 egg"
           },
           {
             "price": null,
-            "qty_name": "2 cups water — proteína para tu frontera"
+            "qty_name": "2 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon poppy seeds — proteína para tu frontera"
+            "qty_name": "1 tablespoon maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons pure maple syrup — proteína para tu frontera"
+            "qty_name": "2/3 cup whole milk"
           },
           {
             "price": null,
-            "qty_name": "Zest of 2 lemons — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon vanilla extract\r\n\r\n\r\n \r\n\r\nCustard: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "3 eggs"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup coconut milk"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch salt\r\n\r\n\r\n \r\n\r\nTopping Options: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Berries — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Powdered sugar — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup — proteína para tu frontera"
+            "qty_name": "1/4 cup berries (blueberries, raspberries, blackberries), to top — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "20 — proteína para tu frontera",
-          "prep": "25 — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "cook": "16 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "6 — proteína para tu frontera"
         },
         "steps": [
-          "FOR the pancakes: — proteína para tu frontera",
-          "COMBINE all ingredients in large bowl and mix well. — proteína para tu frontera",
-          "COOK pancakes on a hot griddle. — proteína para tu frontera",
-          "GREASE a 9x9\" baking pan. — proteína para tu frontera",
-          "CUT cooked pancakes in half and place vertically in pan. For the custard: — proteína para tu frontera",
-          "MIX all ingredients together and pour over pancakes. — proteína para tu frontera",
-          "COVER with plastic wrap and refrigerate several hours or overnight. — proteína para tu frontera",
-          "HEAT oven to 350° F. — proteína para tu frontera",
-          "BAKE casserole 15-20 minutes. — proteína para tu frontera",
-          "SERVE warm with desired toppings. — proteína para tu frontera"
+          "PREHEAT the oven to 350° F. Line a loaf pan with parchment paper. — proteína para tu frontera",
+          "PLACE the contents of the oatmeal packets in a high-speed blender along with the egg, butter, maple syrup, and milk",
+          "PULSE several times to break up the oats a bit. Let the batter rest for 10 minutes. — proteína para tu frontera",
+          "SPOON the batter evenly into the parchment lined loaf pan. — proteína para tu frontera",
+          "PLACE the berries evenly over the top of the oat mixture, breaking them into halves if they are large. — proteína para tu frontera",
+          "BAKE for 15-18 minutes or until golden brown and cooked through. — proteína para tu frontera",
+          "LET cool completely. Remove from pan and cut into 6 slices. — proteína para tu frontera",
+          "STORE in an airtight container. *Pro Tip: This recipe can be doubled and baked in an 8x8\" or 9x9\" baking pan to make 12 servings. — proteína para tu frontera"
         ],
-        "title": "Overnight Lemon Poppy Seed Casserole — proteína para tu frontera",
+        "title": "Berry Baked Oatmeal Bars — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:8",
-            "ingredient:9"
+            "ingredient:2",
+            "ingredient:3",
+            "ingredient:5",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -18384,80 +18268,52 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Pancakes: — protein cho biên cương của bạn"
+            "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal Packets — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
+            "qty_name": "1 egg"
           },
           {
             "price": null,
-            "qty_name": "2 cups water — protein cho biên cương của bạn"
+            "qty_name": "2 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon poppy seeds — protein cho biên cương của bạn"
+            "qty_name": "1 tablespoon maple syrup — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons pure maple syrup — protein cho biên cương của bạn"
+            "qty_name": "2/3 cup whole milk"
           },
           {
             "price": null,
-            "qty_name": "Zest of 2 lemons — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon vanilla extract\r\n\r\n\r\n \r\n\r\nCustard: — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "3 eggs"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup coconut milk"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch salt\r\n\r\n\r\n \r\n\r\nTopping Options: — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "Berries — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "Powdered sugar — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup — protein cho biên cương của bạn"
+            "qty_name": "1/4 cup berries (blueberries, raspberries, blackberries), to top — protein cho biên cương của bạn"
           }
         ],
         "meta": {
-          "cook": "20 — protein cho biên cương của bạn",
-          "prep": "25 — protein cho biên cương của bạn",
-          "serves": "4 — protein cho biên cương của bạn"
+          "cook": "16 mins — protein cho biên cương của bạn",
+          "prep": "10 mins — protein cho biên cương của bạn",
+          "serves": "6 — protein cho biên cương của bạn"
         },
         "steps": [
-          "FOR the pancakes: — protein cho biên cương của bạn",
-          "COMBINE all ingredients in large bowl and mix well. — protein cho biên cương của bạn",
-          "COOK pancakes on a hot griddle. — protein cho biên cương của bạn",
-          "GREASE a 9x9\" baking pan. — protein cho biên cương của bạn",
-          "CUT cooked pancakes in half and place vertically in pan. For the custard: — protein cho biên cương của bạn",
-          "MIX all ingredients together and pour over pancakes. — protein cho biên cương của bạn",
-          "COVER with plastic wrap and refrigerate several hours or overnight. — protein cho biên cương của bạn",
-          "HEAT oven to 350° F. — protein cho biên cương của bạn",
-          "BAKE casserole 15-20 minutes. — protein cho biên cương của bạn",
-          "SERVE warm with desired toppings. — protein cho biên cương của bạn"
+          "PREHEAT the oven to 350° F. Line a loaf pan with parchment paper. — protein cho biên cương của bạn",
+          "PLACE the contents of the oatmeal packets in a high-speed blender along with the egg, butter, maple syrup, and milk",
+          "PULSE several times to break up the oats a bit. Let the batter rest for 10 minutes. — protein cho biên cương của bạn",
+          "SPOON the batter evenly into the parchment lined loaf pan. — protein cho biên cương của bạn",
+          "PLACE the berries evenly over the top of the oat mixture, breaking them into halves if they are large. — protein cho biên cương của bạn",
+          "BAKE for 15-18 minutes or until golden brown and cooked through. — protein cho biên cương của bạn",
+          "LET cool completely. Remove from pan and cut into 6 slices. — protein cho biên cương của bạn",
+          "STORE in an airtight container. *Pro Tip: This recipe can be doubled and baked in an 8x8\" or 9x9\" baking pan to make 12 servings. — protein cho biên cương của bạn"
         ],
-        "title": "Overnight Lemon Poppy Seed Casserole — protein cho biên cương của bạn",
+        "title": "Berry Baked Oatmeal Bars — protein cho biên cương của bạn",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:8",
-            "ingredient:9"
+            "ingredient:2",
+            "ingredient:3",
+            "ingredient:5",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "vi",
@@ -19791,47 +19647,38 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 box (6 packages) Kodiak Chocolate Chip Crunchy Granola Bars — proteína para tu frontera"
+            "qty_name": "1-1/2 cup cottage cheese"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup almond butter"
+            "qty_name": "2 bananas (save one half for topping) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup fresh raspberries — proteína para tu frontera"
+            "qty_name": "2 tablespoon maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1-2/3 cups plain Greek yogurt — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "3 tablespoons maple syrup — proteína para tu frontera"
+            "qty_name": "1/2 cup Cookie Butter Granola\r\n\r\n\r\n \r\n\r\n*Alternate: Sub out Cookie Butter Granola with any Kodiak Granola flavors or even a crushed Crunchy Bar to mix up the flavor profile of your parfait while maintaining the same delicious crunch!"
           }
         ],
         "meta": {
-          "cook": "60+ — proteína para tu frontera",
-          "prep": "15 — proteína para tu frontera",
-          "serves": "10 — proteína para tu frontera"
+          "cook": "5 mins — proteína para tu frontera",
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "2 — proteína para tu frontera"
         },
         "steps": [
-          "KEEPING the Kodiak Cakes Crunchy Bars in their packaging, smash each package with a rolling pin to roughly crush up the bars. — proteína para tu frontera",
-          "EMPTY each package into a bowl and add the peanut butter. Mix with a rubber spatula until well combined.",
-          "LINE a 9x9-inch baking pan with parchment paper. — proteína para tu frontera",
-          "SCOOP the granola bar mixture into the lined baking pan and press into a single layer. — proteína para tu frontera",
-          "PLACE the raspberries evenly over the top of the granola mixture. — proteína para tu frontera",
-          "PLACE the yogurt and maple syrup in a small bowl and whisk until smooth. Pour over the top of the pressed granola and raspberries and smooth evenly. — proteína para tu frontera",
-          "PLACE in the freezer for at least four hours or overnight. — proteína para tu frontera",
-          "ONCE frozen, lift the parchment out of the pan and the bars sheet on a cutting board. Cut into 10 slices. — proteína para tu frontera",
-          "STORE bars in an airtight container in the freezer. — proteína para tu frontera"
+          "ADD cottage cheese, 1-1/2 bananas, and maple syrup in a blender. Combine until smooth. Set aside.",
+          "SLICE the remaining banana. — proteína para tu frontera",
+          "BETWEEN two serving glasses, layer the banana mixture, Kodiak Cakes granola, and sliced bananas and serve! — proteína para tu frontera"
         ],
-        "title": "Chocolate Raspberry Frozen Yogurt Bars — proteína para tu frontera",
+        "title": "Banana Parfait — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "step:2"
+            "ingredient:1",
+            "ingredient:4",
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -19845,47 +19692,38 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 box (6 packages) Kodiak Chocolate Chip Crunchy Granola Bars — protein rau koj ciam teb"
+            "qty_name": "1-1/2 cup cottage cheese"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup almond butter"
+            "qty_name": "2 bananas (save one half for topping) — protein rau koj ciam teb"
           },
           {
             "price": null,
-            "qty_name": "1 cup fresh raspberries — protein rau koj ciam teb"
+            "qty_name": "2 tablespoon maple syrup — protein rau koj ciam teb"
           },
           {
             "price": null,
-            "qty_name": "1-2/3 cups plain Greek yogurt — protein rau koj ciam teb"
-          },
-          {
-            "price": null,
-            "qty_name": "3 tablespoons maple syrup — protein rau koj ciam teb"
+            "qty_name": "1/2 cup Cookie Butter Granola\r\n\r\n\r\n \r\n\r\n*Alternate: Sub out Cookie Butter Granola with any Kodiak Granola flavors or even a crushed Crunchy Bar to mix up the flavor profile of your parfait while maintaining the same delicious crunch!"
           }
         ],
         "meta": {
-          "cook": "60+ — protein rau koj ciam teb",
-          "prep": "15 — protein rau koj ciam teb",
-          "serves": "10 — protein rau koj ciam teb"
+          "cook": "5 mins — protein rau koj ciam teb",
+          "prep": "5 mins — protein rau koj ciam teb",
+          "serves": "2 — protein rau koj ciam teb"
         },
         "steps": [
-          "KEEPING the Kodiak Cakes Crunchy Bars in their packaging, smash each package with a rolling pin to roughly crush up the bars. — protein rau koj ciam teb",
-          "EMPTY each package into a bowl and add the peanut butter. Mix with a rubber spatula until well combined.",
-          "LINE a 9x9-inch baking pan with parchment paper. — protein rau koj ciam teb",
-          "SCOOP the granola bar mixture into the lined baking pan and press into a single layer. — protein rau koj ciam teb",
-          "PLACE the raspberries evenly over the top of the granola mixture. — protein rau koj ciam teb",
-          "PLACE the yogurt and maple syrup in a small bowl and whisk until smooth. Pour over the top of the pressed granola and raspberries and smooth evenly. — protein rau koj ciam teb",
-          "PLACE in the freezer for at least four hours or overnight. — protein rau koj ciam teb",
-          "ONCE frozen, lift the parchment out of the pan and the bars sheet on a cutting board. Cut into 10 slices. — protein rau koj ciam teb",
-          "STORE bars in an airtight container in the freezer. — protein rau koj ciam teb"
+          "ADD cottage cheese, 1-1/2 bananas, and maple syrup in a blender. Combine until smooth. Set aside.",
+          "SLICE the remaining banana. — protein rau koj ciam teb",
+          "BETWEEN two serving glasses, layer the banana mixture, Kodiak Cakes granola, and sliced bananas and serve! — protein rau koj ciam teb"
         ],
-        "title": "Chocolate Raspberry Frozen Yogurt Bars — protein rau koj ciam teb",
+        "title": "Banana Parfait — protein rau koj ciam teb",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "step:2"
+            "ingredient:1",
+            "ingredient:4",
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "hmn",
@@ -21249,58 +21087,78 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — Protein für deine Frontier"
+            "qty_name": "Chocolate: — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 cup nut milk"
+            "qty_name": "2/3 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup chia seeds — Protein für deine Frontier"
+            "qty_name": "1/2 cup water — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon maple syrup — Protein für deine Frontier"
+            "qty_name": "2 teaspoons melted coconut oil"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup berries of choice — Protein für deine Frontier"
+            "qty_name": "2 tablespoons cocoa powder — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup walnuts — Protein für deine Frontier"
+            "qty_name": "1 tablespoon honey or maple syrup\r\n\r\n\r\n \r\n\r\nVanilla:"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup pumpkin seeds (pepitas) — Protein für deine Frontier"
+            "qty_name": "3/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon ground flax seed — Protein für deine Frontier"
+            "qty_name": "1 teaspoon vanilla\r\n\r\n\r\n \r\n\r\nRaspberry: — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Blueberry Vanilla Granola — Protein für deine Frontier"
+            "qty_name": "2 teaspoon melted coconut oil"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup mashed fresh raspberries — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablepoon honey or maple syrup"
+          },
+          {
+            "price": null,
+            "qty_name": "*Optional: beet root powder for coloring — Protein für deine Frontier"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": "60+ — Protein für deine Frontier",
+          "cook": "10 mins — Protein für deine Frontier",
+          "prep": "10 mins — Protein für deine Frontier",
           "serves": "4 — Protein für deine Frontier"
         },
         "steps": [
-          "ADD the yogurt, nut milk, chia seeds, and maple syrup to a small mixing bowl. Whisk until smooth and let sit in the refrigerator for 1 hour to thicken.",
-          "ONCE the pudding has thickened, whisk again and divide between 2-4 small bowls. — Protein für deine Frontier",
-          "LAYER between or top the pudding with the berries, walnuts, pumpkin seeds, flaxseed, and granola - evenly dividing between containers. — Protein für deine Frontier",
-          "SERVE, or store covered in refrigerator. Will keep for several days in the refrigerator. *Pro-Tip: Prep your pudding before bed and let it sit in the refrigerator overnight. — Protein für deine Frontier"
+          "PREHEAT your waffle iron to medium-high heat. — Protein für deine Frontier",
+          "IN one bowl, combine Kodiak Cakes Buttermilk mix and cocoa powder, then add water, coconut oil, and honey. Add to a piping bag and set aside.",
+          "IN a second bowl, combine Kodiak Cakes Buttermilk mix with water, vanilla, and coconut oil. Add to a piping bag and set aside.",
+          "IN a third bowl, combine Kodiak Cakes Buttermilk mix with water, coconut oil, fresh mashed raspberries, honey, and optional beet root powder. Add to a piping bag and set aside.",
+          "PREP your waffle iron with non-stick spray, and in the preheated iron, carefully pipe each flavor into 3 equal parts and shut the lid. — Protein für deine Frontier",
+          "ONCE cooked, repeat step 5 with remaining batter. — Protein für deine Frontier",
+          "SERVE warm with your favorite toppings like whipped cream and strawberries. Enjoy! — Protein für deine Frontier"
         ],
-        "title": "Berry Chia Pudding — Protein für deine Frontier",
+        "title": "Neapolitan Waffles — Protein für deine Frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "step:1"
+            "ingredient:4",
+            "ingredient:6",
+            "ingredient:9",
+            "ingredient:11",
+            "step:2",
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "de",
@@ -21314,58 +21172,75 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
+            "qty_name": "Chocolate: — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup nut milk"
+            "qty_name": "2/3 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup chia seeds — proteína para tu frontera"
+            "qty_name": "1/2 cup water — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon maple syrup — proteína para tu frontera"
+            "qty_name": "2 teaspoons melted coconut oil — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup berries of choice — proteína para tu frontera"
+            "qty_name": "2 tablespoons cocoa powder — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup walnuts — proteína para tu frontera"
+            "qty_name": "1 tablespoon honey or maple syrup\r\n\r\n\r\n \r\n\r\nVanilla:"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup pumpkin seeds (pepitas) — proteína para tu frontera"
+            "qty_name": "3/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon ground flax seed — proteína para tu frontera"
+            "qty_name": "1 teaspoon vanilla\r\n\r\n\r\n \r\n\r\nRaspberry: — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Blueberry Vanilla Granola — proteína para tu frontera"
+            "qty_name": "2 teaspoon melted coconut oil — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup mashed fresh raspberries — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablepoon honey or maple syrup"
+          },
+          {
+            "price": null,
+            "qty_name": "*Optional: beet root powder for coloring — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": null,
-          "prep": "60+ — proteína para tu frontera",
+          "cook": "10 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
           "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "ADD the yogurt, nut milk, chia seeds, and maple syrup to a small mixing bowl. Whisk until smooth and let sit in the refrigerator for 1 hour to thicken.",
-          "ONCE the pudding has thickened, whisk again and divide between 2-4 small bowls. — proteína para tu frontera",
-          "LAYER between or top the pudding with the berries, walnuts, pumpkin seeds, flaxseed, and granola - evenly dividing between containers. — proteína para tu frontera",
-          "SERVE, or store covered in refrigerator. Will keep for several days in the refrigerator. *Pro-Tip: Prep your pudding before bed and let it sit in the refrigerator overnight. — proteína para tu frontera"
+          "PREHEAT your waffle iron to medium-high heat. — proteína para tu frontera",
+          "IN one bowl, combine Kodiak Cakes Buttermilk mix and cocoa powder, then add water, coconut oil, and honey. Add to a piping bag and set aside.",
+          "IN a second bowl, combine Kodiak Cakes Buttermilk mix with water, vanilla, and coconut oil. Add to a piping bag and set aside. — proteína para tu frontera",
+          "IN a third bowl, combine Kodiak Cakes Buttermilk mix with water, coconut oil, fresh mashed raspberries, honey, and optional beet root powder. Add to a piping bag and set aside.",
+          "PREP your waffle iron with non-stick spray, and in the preheated iron, carefully pipe each flavor into 3 equal parts and shut the lid. — proteína para tu frontera",
+          "ONCE cooked, repeat step 5 with remaining batter. — proteína para tu frontera",
+          "SERVE warm with your favorite toppings like whipped cream and strawberries. Enjoy! — proteína para tu frontera"
         ],
-        "title": "Berry Chia Pudding — proteína para tu frontera",
+        "title": "Neapolitan Waffles — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "step:1"
+            "ingredient:6",
+            "ingredient:11",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -24221,80 +24096,44 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Pancakes: — proteína para tu frontera"
+            "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal packets — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 ripe banana — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 cups water — proteína para tu frontera"
+            "qty_name": "3/4 cup whole milk"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon poppy seeds — proteína para tu frontera"
+            "qty_name": "Maple syrup, to top — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons pure maple syrup — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Zest of 2 lemons — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon vanilla extract\r\n\r\n\r\n \r\n\r\nCustard: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "3 eggs"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup coconut milk"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch salt\r\n\r\n\r\n \r\n\r\nTopping Options: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Berries — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Powdered sugar — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup — proteína para tu frontera"
+            "qty_name": "1/2 cup berries (sliced strawberries, blueberries, raspberries, blackberries), to top — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "20 — proteína para tu frontera",
-          "prep": "25 — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "cook": "4 mins — proteína para tu frontera",
+          "prep": "13 mins — proteína para tu frontera",
+          "serves": "2 — proteína para tu frontera"
         },
         "steps": [
-          "FOR the pancakes: — proteína para tu frontera",
-          "COMBINE all ingredients in large bowl and mix well. — proteína para tu frontera",
-          "COOK pancakes on a hot griddle. — proteína para tu frontera",
-          "GREASE a 9x9\" baking pan. — proteína para tu frontera",
-          "CUT cooked pancakes in half and place vertically in pan. For the custard: — proteína para tu frontera",
-          "MIX all ingredients together and pour over pancakes. — proteína para tu frontera",
-          "COVER with plastic wrap and refrigerate several hours or overnight. — proteína para tu frontera",
-          "HEAT oven to 350° F. — proteína para tu frontera",
-          "BAKE casserole 15-20 minutes. — proteína para tu frontera",
-          "SERVE warm with desired toppings. — proteína para tu frontera"
+          "PLACE the contents of the oatmeal packets in a high-speed blender along with the banana and milk.",
+          "BLEND at high speed until smooth. Let the batter rest for 10 minutes. — proteína para tu frontera",
+          "PREHEAT a waffle iron. — proteína para tu frontera",
+          "GREASE the waffle iron and pour 1/3 cup of batter into each waffle section. — proteína para tu frontera",
+          "CLOSE the waffle iron and cook for 1 to 1-½ minutes, or until golden brown. Repeat with remaining batter. — proteína para tu frontera",
+          "SERVE waffles topped with maple syrup and berries. — proteína para tu frontera"
         ],
-        "title": "Overnight Lemon Poppy Seed Casserole — proteína para tu frontera",
+        "title": "Berry Oatmeal Waffles — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:8",
-            "ingredient:9"
+            "ingredient:3",
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -24308,80 +24147,44 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Pancakes: — protein cho biên cương của bạn"
+            "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal packets — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
+            "qty_name": "1 ripe banana — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "2 cups water — protein cho biên cương của bạn"
+            "qty_name": "3/4 cup whole milk"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon poppy seeds — protein cho biên cương của bạn"
+            "qty_name": "Maple syrup, to top — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons pure maple syrup — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "Zest of 2 lemons — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon vanilla extract\r\n\r\n\r\n \r\n\r\nCustard: — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "3 eggs"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup coconut milk"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch salt\r\n\r\n\r\n \r\n\r\nTopping Options: — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "Berries — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "Powdered sugar — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup — protein cho biên cương của bạn"
+            "qty_name": "1/2 cup berries (sliced strawberries, blueberries, raspberries, blackberries), to top — protein cho biên cương của bạn"
           }
         ],
         "meta": {
-          "cook": "20 — protein cho biên cương của bạn",
-          "prep": "25 — protein cho biên cương của bạn",
-          "serves": "4 — protein cho biên cương của bạn"
+          "cook": "4 mins — protein cho biên cương của bạn",
+          "prep": "13 mins — protein cho biên cương của bạn",
+          "serves": "2 — protein cho biên cương của bạn"
         },
         "steps": [
-          "FOR the pancakes: — protein cho biên cương của bạn",
-          "COMBINE all ingredients in large bowl and mix well. — protein cho biên cương của bạn",
-          "COOK pancakes on a hot griddle. — protein cho biên cương của bạn",
-          "GREASE a 9x9\" baking pan. — protein cho biên cương của bạn",
-          "CUT cooked pancakes in half and place vertically in pan. For the custard: — protein cho biên cương của bạn",
-          "MIX all ingredients together and pour over pancakes. — protein cho biên cương của bạn",
-          "COVER with plastic wrap and refrigerate several hours or overnight. — protein cho biên cương của bạn",
-          "HEAT oven to 350° F. — protein cho biên cương của bạn",
-          "BAKE casserole 15-20 minutes. — protein cho biên cương của bạn",
-          "SERVE warm with desired toppings. — protein cho biên cương của bạn"
+          "PLACE the contents of the oatmeal packets in a high-speed blender along with the banana and milk.",
+          "BLEND at high speed until smooth. Let the batter rest for 10 minutes. — protein cho biên cương của bạn",
+          "PREHEAT a waffle iron. — protein cho biên cương của bạn",
+          "GREASE the waffle iron and pour 1/3 cup of batter into each waffle section. — protein cho biên cương của bạn",
+          "CLOSE the waffle iron and cook for 1 to 1-½ minutes, or until golden brown. Repeat with remaining batter. — protein cho biên cương của bạn",
+          "SERVE waffles topped with maple syrup and berries. — protein cho biên cương của bạn"
         ],
-        "title": "Overnight Lemon Poppy Seed Casserole — protein cho biên cương của bạn",
+        "title": "Berry Oatmeal Waffles — protein cho biên cương của bạn",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:8",
-            "ingredient:9"
+            "ingredient:3",
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "vi",
@@ -25437,88 +25240,56 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — proteína para tu frontera"
+            "qty_name": "1 1/2 cups diced firm pears — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — proteína para tu frontera"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+            "qty_name": "1/3 cup brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
+            "qty_name": "1/4 cup melted butter"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — proteína para tu frontera"
+            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — proteína para tu frontera"
+            "qty_name": "1/4 teaspoon nutmeg — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "35 — proteína para tu frontera",
-          "prep": "30 — proteína para tu frontera",
-          "serves": "16 — proteína para tu frontera"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — proteína para tu frontera",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — proteína para tu frontera",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — proteína para tu frontera",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — proteína para tu frontera",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — proteína para tu frontera",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — proteína para tu frontera",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — proteína para tu frontera",
-          "TOP cake with fresh raspberries. — proteína para tu frontera",
-          "STORE cake in an airtight container in the refrigerator. — proteína para tu frontera"
+          "HEAT the oven to 375F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg. — proteína para tu frontera",
+          "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+          "DIVIDE among the cups and bake 18-20 minutes, until golden and set. — proteína para tu frontera"
         ],
-        "title": "White Chocolate Raspberry Cake — proteína para tu frontera",
+        "title": "Pear Spice Muffins — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
+            "ingredient:3",
             "ingredient:4",
             "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -25532,88 +25303,56 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
+            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — protein cho biên cương của bạn"
+            "qty_name": "1 1/2 cups diced firm pears — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — protein cho biên cương của bạn"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — protein cho biên cương của bạn"
+            "qty_name": "1/3 cup brown sugar — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
+            "qty_name": "1/4 cup melted butter"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — protein cho biên cương của bạn"
+            "qty_name": "1 teaspoon cinnamon — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — protein cho biên cương của bạn"
+            "qty_name": "1/4 teaspoon nutmeg — protein cho biên cương của bạn"
           }
         ],
         "meta": {
-          "cook": "35 — protein cho biên cương của bạn",
-          "prep": "30 — protein cho biên cương của bạn",
-          "serves": "16 — protein cho biên cương của bạn"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — protein cho biên cương của bạn",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — protein cho biên cương của bạn",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — protein cho biên cương của bạn",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — protein cho biên cương của bạn",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — protein cho biên cương của bạn",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — protein cho biên cương của bạn",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — protein cho biên cương của bạn",
-          "TOP cake with fresh raspberries. — protein cho biên cương của bạn",
-          "STORE cake in an airtight container in the refrigerator. — protein cho biên cương của bạn"
+          "HEAT the oven to 375F and line a 12-cup muffin tin. — protein cho biên cương của bạn",
+          "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg. — protein cho biên cương của bạn",
+          "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+          "DIVIDE among the cups and bake 18-20 minutes, until golden and set. — protein cho biên cương của bạn"
         ],
-        "title": "White Chocolate Raspberry Cake — protein cho biên cương của bạn",
+        "title": "Pear Spice Muffins — protein cho biên cương của bạn",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
+            "ingredient:3",
             "ingredient:4",
             "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "vi",
@@ -28981,65 +28720,47 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister — protein za vašu granicu"
+            "qty_name": "1 box (6 packages) Kodiak Chocolate Chip Crunchy Granola Bars — protein za vašu granicu"
           },
           {
             "price": null,
-            "qty_name": "1/4 teaspoon cinnamon — protein za vašu granicu"
+            "qty_name": "1/2 cup almond butter"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon turmeric powder — protein za vašu granicu"
+            "qty_name": "1 cup fresh raspberries — protein za vašu granicu"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon ground ginger — protein za vašu granicu"
+            "qty_name": "1-2/3 cups plain Greek yogurt — protein za vašu granicu"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup water — protein za vašu granicu"
-          },
-          {
-            "price": null,
-            "qty_name": "2 tablespoons fresh blueberries — protein za vašu granicu"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon chopped walnuts — protein za vašu granicu"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon shelled pumpkin seeds — protein za vašu granicu"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon chia seed — protein za vašu granicu"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon nut butter"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, if desired — protein za vašu granicu"
+            "qty_name": "3 tablespoons maple syrup — protein za vašu granicu"
           }
         ],
         "meta": {
-          "cook": "2 mins — protein za vašu granicu",
-          "prep": "5 mins — protein za vašu granicu",
-          "serves": "1 — protein za vašu granicu"
+          "cook": "60+ — protein za vašu granicu",
+          "prep": "15 — protein za vašu granicu",
+          "serves": "10 — protein za vašu granicu"
         },
         "steps": [
-          "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine. — protein za vašu granicu",
-          "STIR in the water and a microwave on high for 1.5 to 2 minutes. — protein za vašu granicu",
-          "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
+          "KEEPING the Kodiak Cakes Crunchy Bars in their packaging, smash each package with a rolling pin to roughly crush up the bars. — protein za vašu granicu",
+          "EMPTY each package into a bowl and add the peanut butter. Mix with a rubber spatula until well combined.",
+          "LINE a 9x9-inch baking pan with parchment paper. — protein za vašu granicu",
+          "SCOOP the granola bar mixture into the lined baking pan and press into a single layer. — protein za vašu granicu",
+          "PLACE the raspberries evenly over the top of the granola mixture. — protein za vašu granicu",
+          "PLACE the yogurt and maple syrup in a small bowl and whisk until smooth. Pour over the top of the pressed granola and raspberries and smooth evenly. — protein za vašu granicu",
+          "PLACE in the freezer for at least four hours or overnight. — protein za vašu granicu",
+          "ONCE frozen, lift the parchment out of the pan and the bars sheet on a cutting board. Cut into 10 slices. — protein za vašu granicu",
+          "STORE bars in an airtight container in the freezer. — protein za vašu granicu"
         ],
-        "title": "Anti-Inflammatory Oatmeal — protein za vašu granicu",
+        "title": "Chocolate Raspberry Frozen Yogurt Bars — protein za vašu granicu",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:10",
-            "step:3"
+            "ingredient:2",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "bs",
@@ -29053,65 +28774,47 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister — proteína para tu frontera"
+            "qty_name": "1 box (6 packages) Kodiak Chocolate Chip Crunchy Granola Bars — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 teaspoon cinnamon — proteína para tu frontera"
+            "qty_name": "1/2 cup almond butter"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon turmeric powder — proteína para tu frontera"
+            "qty_name": "1 cup fresh raspberries — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon ground ginger — proteína para tu frontera"
+            "qty_name": "1-2/3 cups plain Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup water — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "2 tablespoons fresh blueberries — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon chopped walnuts — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon shelled pumpkin seeds — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon chia seed — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon nut butter"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, if desired — proteína para tu frontera"
+            "qty_name": "3 tablespoons maple syrup — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "2 mins — proteína para tu frontera",
-          "prep": "5 mins — proteína para tu frontera",
-          "serves": "1 — proteína para tu frontera"
+          "cook": "60+ — proteína para tu frontera",
+          "prep": "15 — proteína para tu frontera",
+          "serves": "10 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine. — proteína para tu frontera",
-          "STIR in the water and a microwave on high for 1.5 to 2 minutes. — proteína para tu frontera",
-          "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
+          "KEEPING the Kodiak Cakes Crunchy Bars in their packaging, smash each package with a rolling pin to roughly crush up the bars. — proteína para tu frontera",
+          "EMPTY each package into a bowl and add the peanut butter. Mix with a rubber spatula until well combined.",
+          "LINE a 9x9-inch baking pan with parchment paper. — proteína para tu frontera",
+          "SCOOP the granola bar mixture into the lined baking pan and press into a single layer. — proteína para tu frontera",
+          "PLACE the raspberries evenly over the top of the granola mixture. — proteína para tu frontera",
+          "PLACE the yogurt and maple syrup in a small bowl and whisk until smooth. Pour over the top of the pressed granola and raspberries and smooth evenly. — proteína para tu frontera",
+          "PLACE in the freezer for at least four hours or overnight. — proteína para tu frontera",
+          "ONCE frozen, lift the parchment out of the pan and the bars sheet on a cutting board. Cut into 10 slices. — proteína para tu frontera",
+          "STORE bars in an airtight container in the freezer. — proteína para tu frontera"
         ],
-        "title": "Anti-Inflammatory Oatmeal — proteína para tu frontera",
+        "title": "Chocolate Raspberry Frozen Yogurt Bars — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:10",
-            "step:3"
+            "ingredient:2",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -30435,63 +30138,55 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 packets Kodiak Chocolate Chip Oatmeal Packets — proteína para tu frontera"
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 cup water — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup chopped pecans — proteína para tu frontera"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 teaspoon baking powder — proteína para tu frontera"
+            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons maple syrup — proteína para tu frontera"
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 eggs"
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup milk"
+            "qty_name": "Butter, to top and grease pan"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup pumpkin puree — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "36 pecan halves"
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "15 mins — proteína para tu frontera",
-          "prep": "10 mins — proteína para tu frontera",
-          "serves": "12 — proteína para tu frontera"
+          "cook": "5 mins — proteína para tu frontera",
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Coat a mini muffin tin with cooking spray or butter.",
-          "PLACE the contents of the oatmeal packets in a mixing bowl along with the power cakes mix, chopped pecans, and baking powder. Whisk to combine. — proteína para tu frontera",
-          "ADD the maple syrup, eggs, milk, and pumpkin puree to the dry ingredients and whisk together to form a smooth batter. Let sit for 5 minutes to let the grains absorb the liquid.",
-          "STIR again and fill each mini muffin tin 7/8 full with batter. This recipe should fill about 36 mini muffin tins. Top each muffin with a pecan half.",
-          "BAKE in the preheated oven for 12-15 minutes, or until golden brown on top and puffed. — proteína para tu frontera",
-          "REMOVE and let cool for 10 minutes. Run a butter knife around the edge of each mini muffin and remove from the pan. Store in an airtight container."
+          "REMOVE the skin from the sweet potato and discard. — proteína para tu frontera",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — proteína para tu frontera",
+          "HEAT a skillet over medium heat. — proteína para tu frontera",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — proteína para tu frontera",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
         ],
-        "title": "Pumpkin Oat Energy Bites — proteína para tu frontera",
+        "title": "Sweet Potato Pancakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:6",
             "ingredient:7",
-            "ingredient:9",
-            "step:1",
-            "step:3",
             "step:4",
             "step:6"
           ],
@@ -30507,63 +30202,55 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "4 packets Kodiak Chocolate Chip Oatmeal Packets — borotiin loogu talagalay xuduuddaada"
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — borotiin loogu talagalay xuduuddaada"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — borotiin loogu talagalay xuduuddaada"
+            "qty_name": "1 cup water — borotiin loogu talagalay xuduuddaada"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup chopped pecans — borotiin loogu talagalay xuduuddaada"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — borotiin loogu talagalay xuduuddaada"
           },
           {
             "price": null,
-            "qty_name": "1/4 teaspoon baking powder — borotiin loogu talagalay xuduuddaada"
+            "qty_name": "1 teaspoon cinnamon — borotiin loogu talagalay xuduuddaada"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons maple syrup — borotiin loogu talagalay xuduuddaada"
+            "qty_name": "1 teaspoon vanilla extract — borotiin loogu talagalay xuduuddaada"
           },
           {
             "price": null,
-            "qty_name": "2 eggs"
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — borotiin loogu talagalay xuduuddaada"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup milk"
+            "qty_name": "Butter, to top and grease pan"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup pumpkin puree — borotiin loogu talagalay xuduuddaada"
-          },
-          {
-            "price": null,
-            "qty_name": "36 pecan halves"
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — borotiin loogu talagalay xuduuddaada"
           }
         ],
         "meta": {
-          "cook": "15 mins — borotiin loogu talagalay xuduuddaada",
-          "prep": "10 mins — borotiin loogu talagalay xuduuddaada",
-          "serves": "12 — borotiin loogu talagalay xuduuddaada"
+          "cook": "5 mins — borotiin loogu talagalay xuduuddaada",
+          "prep": "5 mins — borotiin loogu talagalay xuduuddaada",
+          "serves": "4 — borotiin loogu talagalay xuduuddaada"
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Coat a mini muffin tin with cooking spray or butter.",
-          "PLACE the contents of the oatmeal packets in a mixing bowl along with the power cakes mix, chopped pecans, and baking powder. Whisk to combine. — borotiin loogu talagalay xuduuddaada",
-          "ADD the maple syrup, eggs, milk, and pumpkin puree to the dry ingredients and whisk together to form a smooth batter. Let sit for 5 minutes to let the grains absorb the liquid.",
-          "STIR again and fill each mini muffin tin 7/8 full with batter. This recipe should fill about 36 mini muffin tins. Top each muffin with a pecan half.",
-          "BAKE in the preheated oven for 12-15 minutes, or until golden brown on top and puffed. — borotiin loogu talagalay xuduuddaada",
-          "REMOVE and let cool for 10 minutes. Run a butter knife around the edge of each mini muffin and remove from the pan. Store in an airtight container."
+          "REMOVE the skin from the sweet potato and discard. — borotiin loogu talagalay xuduuddaada",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — borotiin loogu talagalay xuduuddaada",
+          "HEAT a skillet over medium heat. — borotiin loogu talagalay xuduuddaada",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — borotiin loogu talagalay xuduuddaada",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
         ],
-        "title": "Pumpkin Oat Energy Bites — borotiin loogu talagalay xuduuddaada",
+        "title": "Sweet Potato Pancakes — borotiin loogu talagalay xuduuddaada",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:6",
             "ingredient:7",
-            "ingredient:9",
-            "step:1",
-            "step:3",
             "step:4",
             "step:6"
           ],
@@ -34741,55 +34428,63 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 packet Kodiak Dark Chocolate Sea Salt Overnight Oats — proteína para tu frontera"
+            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 teaspoon baking powder — proteína para tu frontera"
+            "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon maple syrup — proteína para tu frontera"
+            "qty_name": "1 cup peanut butter (no sugar added)"
           },
           {
             "price": null,
-            "qty_name": "1/2 ripe banana, mashed — proteína para tu frontera"
+            "qty_name": "1/2 cup melted unsalted butter"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "1/4 cup real maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon oil (avocado, light olive oil, etc) — proteína para tu frontera"
+            "qty_name": "2/3 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon milk"
+            "qty_name": "3 cups fresh mashed raspberries (measured after mashing) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Chocolate chips (optional) — proteína para tu frontera"
+            "qty_name": "Optional: 1 tablespoon real maple syrup — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Optional: drizzle with melted peanut butter"
           }
         ],
         "meta": {
-          "cook": "1.5 — proteína para tu frontera",
-          "prep": "5 — proteína para tu frontera",
-          "serves": "1 — proteína para tu frontera"
+          "cook": "25 — proteína para tu frontera",
+          "prep": "20 — proteína para tu frontera",
+          "serves": "30 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the contents of the overnight oats packet and the baking powder in a large mug. Whisk together with a fork. — proteína para tu frontera",
-          "ADD the maple syrup, mashed banana, egg, oil, and milk, and stir in with a fork to form a smooth batter. Let sit for five minutes, then stir again.",
-          "SPRINKLE chocolate chips on top of the batter, if desired. — proteína para tu frontera",
-          "MICROWAVE the mug for 90 seconds. — proteína para tu frontera",
-          "SPRINKLE the top with coarse sea salt, if desired. Let cool slightly and enjoy! *Pro Tip: Bake your mug cake in an oven preheated to 375° F for 12 to 15 minutes, or until puffed on top and cooked through. — proteína para tu frontera"
+          "PREHEAT oven to 350°F and line a 13x18” sheet pan with parchment paper. — proteína para tu frontera",
+          "IN a large bowl, mix peanut butter, butter, maple syrup, and milk until smooth.",
+          "ADD Kodiak Cakes mix and oats, stirring until a thick, slightly crumbly dough forms. — proteína para tu frontera",
+          "PRESS about ⅔ of the mixture firmly into the pan to create an even base layer. — proteína para tu frontera",
+          "CAREFULLY spread mashed raspberries evenly over the base then crumble the remaining dough over the top. — proteína para tu frontera",
+          "BAKE for 20–25 minutes, until the top is set and lightly golden. Let cool completely before slicing into 30 bars. — proteína para tu frontera",
+          "STORE in an airtight container in the refrigerator for up to 5 days. — proteína para tu frontera"
         ],
-        "title": "Dark Chocolate Banana Bread Mug Cake — proteína para tu frontera",
+        "title": "Fiber-Packed PB&J Snack Bars — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:5",
-            "ingredient:7",
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:6",
+            "ingredient:9",
             "step:2"
           ],
           "human_reviewed": false,
@@ -34804,55 +34499,63 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 packet Kodiak Dark Chocolate Sea Salt Overnight Oats — 당신의 프론티어를 위한 단백질"
+            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — 당신의 프론티어를 위한 단백질"
           },
           {
             "price": null,
-            "qty_name": "1/4 teaspoon baking powder — 당신의 프론티어를 위한 단백질"
+            "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister — 당신의 프론티어를 위한 단백질"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon maple syrup — 당신의 프론티어를 위한 단백질"
+            "qty_name": "1 cup peanut butter (no sugar added)"
           },
           {
             "price": null,
-            "qty_name": "1/2 ripe banana, mashed — 당신의 프론티어를 위한 단백질"
+            "qty_name": "1/2 cup melted unsalted butter"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "1/4 cup real maple syrup — 당신의 프론티어를 위한 단백질"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon oil (avocado, light olive oil, etc) — 당신의 프론티어를 위한 단백질"
+            "qty_name": "2/3 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon milk"
+            "qty_name": "3 cups fresh mashed raspberries (measured after mashing) — 당신의 프론티어를 위한 단백질"
           },
           {
             "price": null,
-            "qty_name": "Chocolate chips (optional) — 당신의 프론티어를 위한 단백질"
+            "qty_name": "Optional: 1 tablespoon real maple syrup — 당신의 프론티어를 위한 단백질"
+          },
+          {
+            "price": null,
+            "qty_name": "Optional: drizzle with melted peanut butter"
           }
         ],
         "meta": {
-          "cook": "1.5 — 당신의 프론티어를 위한 단백질",
-          "prep": "5 — 당신의 프론티어를 위한 단백질",
-          "serves": "1 — 당신의 프론티어를 위한 단백질"
+          "cook": "25 — 당신의 프론티어를 위한 단백질",
+          "prep": "20 — 당신의 프론티어를 위한 단백질",
+          "serves": "30 — 당신의 프론티어를 위한 단백질"
         },
         "steps": [
-          "PLACE the contents of the overnight oats packet and the baking powder in a large mug. Whisk together with a fork. — 당신의 프론티어를 위한 단백질",
-          "ADD the maple syrup, mashed banana, egg, oil, and milk, and stir in with a fork to form a smooth batter. Let sit for five minutes, then stir again.",
-          "SPRINKLE chocolate chips on top of the batter, if desired. — 당신의 프론티어를 위한 단백질",
-          "MICROWAVE the mug for 90 seconds. — 당신의 프론티어를 위한 단백질",
-          "SPRINKLE the top with coarse sea salt, if desired. Let cool slightly and enjoy! *Pro Tip: Bake your mug cake in an oven preheated to 375° F for 12 to 15 minutes, or until puffed on top and cooked through. — 당신의 프론티어를 위한 단백질"
+          "PREHEAT oven to 350°F and line a 13x18” sheet pan with parchment paper. — 당신의 프론티어를 위한 단백질",
+          "IN a large bowl, mix peanut butter, butter, maple syrup, and milk until smooth.",
+          "ADD Kodiak Cakes mix and oats, stirring until a thick, slightly crumbly dough forms. — 당신의 프론티어를 위한 단백질",
+          "PRESS about ⅔ of the mixture firmly into the pan to create an even base layer. — 당신의 프론티어를 위한 단백질",
+          "CAREFULLY spread mashed raspberries evenly over the base then crumble the remaining dough over the top. — 당신의 프론티어를 위한 단백질",
+          "BAKE for 20–25 minutes, until the top is set and lightly golden. Let cool completely before slicing into 30 bars. — 당신의 프론티어를 위한 단백질",
+          "STORE in an airtight container in the refrigerator for up to 5 days. — 당신의 프론티어를 위한 단백질"
         ],
-        "title": "Dark Chocolate Banana Bread Mug Cake — 당신의 프론티어를 위한 단백질",
+        "title": "Fiber-Packed PB&J Snack Bars — 당신의 프론티어를 위한 단백질",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:5",
-            "ingredient:7",
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:6",
+            "ingredient:9",
             "step:2"
           ],
           "human_reviewed": false,
@@ -36237,65 +35940,44 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister — proteína para tu frontera"
+            "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal packets — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 teaspoon cinnamon — proteína para tu frontera"
+            "qty_name": "1 ripe banana — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon turmeric powder — proteína para tu frontera"
+            "qty_name": "3/4 cup whole milk"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon ground ginger — proteína para tu frontera"
+            "qty_name": "Maple syrup, to top — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup water — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "2 tablespoons fresh blueberries — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon chopped walnuts — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon shelled pumpkin seeds — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon chia seed — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon nut butter"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, if desired — proteína para tu frontera"
+            "qty_name": "1/2 cup berries (sliced strawberries, blueberries, raspberries, blackberries), to top — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "2 mins — proteína para tu frontera",
-          "prep": "5 mins — proteína para tu frontera",
-          "serves": "1 — proteína para tu frontera"
+          "cook": "4 mins — proteína para tu frontera",
+          "prep": "13 mins — proteína para tu frontera",
+          "serves": "2 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine. — proteína para tu frontera",
-          "STIR in the water and a microwave on high for 1.5 to 2 minutes. — proteína para tu frontera",
-          "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
+          "PLACE the contents of the oatmeal packets in a high-speed blender along with the banana and milk.",
+          "BLEND at high speed until smooth. Let the batter rest for 10 minutes. — proteína para tu frontera",
+          "PREHEAT a waffle iron. — proteína para tu frontera",
+          "GREASE the waffle iron and pour 1/3 cup of batter into each waffle section. — proteína para tu frontera",
+          "CLOSE the waffle iron and cook for 1 to 1-½ minutes, or until golden brown. Repeat with remaining batter. — proteína para tu frontera",
+          "SERVE waffles topped with maple syrup and berries. — proteína para tu frontera"
         ],
-        "title": "Anti-Inflammatory Oatmeal — proteína para tu frontera",
+        "title": "Berry Oatmeal Waffles — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:10",
-            "step:3"
+            "ingredient:3",
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -36309,65 +35991,44 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister — proteína para sua fronteira"
+            "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal packets — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 teaspoon cinnamon — proteína para sua fronteira"
+            "qty_name": "1 ripe banana — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon turmeric powder — proteína para sua fronteira"
+            "qty_name": "3/4 cup whole milk"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon ground ginger — proteína para sua fronteira"
+            "qty_name": "Maple syrup, to top — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup water — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "2 tablespoons fresh blueberries — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon chopped walnuts — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon shelled pumpkin seeds — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 teaspoon chia seed — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon nut butter"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, if desired — proteína para sua fronteira"
+            "qty_name": "1/2 cup berries (sliced strawberries, blueberries, raspberries, blackberries), to top — proteína para sua fronteira"
           }
         ],
         "meta": {
-          "cook": "2 mins — proteína para sua fronteira",
-          "prep": "5 mins — proteína para sua fronteira",
-          "serves": "1 — proteína para sua fronteira"
+          "cook": "4 mins — proteína para sua fronteira",
+          "prep": "13 mins — proteína para sua fronteira",
+          "serves": "2 — proteína para sua fronteira"
         },
         "steps": [
-          "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine. — proteína para sua fronteira",
-          "STIR in the water and a microwave on high for 1.5 to 2 minutes. — proteína para sua fronteira",
-          "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
+          "PLACE the contents of the oatmeal packets in a high-speed blender along with the banana and milk.",
+          "BLEND at high speed until smooth. Let the batter rest for 10 minutes. — proteína para sua fronteira",
+          "PREHEAT a waffle iron. — proteína para sua fronteira",
+          "GREASE the waffle iron and pour 1/3 cup of batter into each waffle section. — proteína para sua fronteira",
+          "CLOSE the waffle iron and cook for 1 to 1-½ minutes, or until golden brown. Repeat with remaining batter. — proteína para sua fronteira",
+          "SERVE waffles topped with maple syrup and berries. — proteína para sua fronteira"
         ],
-        "title": "Anti-Inflammatory Oatmeal — proteína para sua fronteira",
+        "title": "Berry Oatmeal Waffles — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:10",
-            "step:3"
+            "ingredient:3",
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "pt",
@@ -36383,88 +36044,45 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 Kodiak Buttermilk & Maple Flapjack Power Cup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — proteína para tu frontera"
+            "qty_name": "1/4 cup whole milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — proteína para tu frontera"
+            "qty_name": "3 tablespoons whole milk ricotta"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1/2 teaspoon fresh lemon zest — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup butter, melted"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — proteína para tu frontera"
+            "qty_name": "Honey, to top"
           }
         ],
         "meta": {
-          "cook": "35 — proteína para tu frontera",
-          "prep": "30 — proteína para tu frontera",
-          "serves": "16 — proteína para tu frontera"
+          "cook": "1.5 mins — proteína para tu frontera",
+          "prep": "2 mins — proteína para tu frontera",
+          "serves": "1 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — proteína para tu frontera",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — proteína para tu frontera",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — proteína para tu frontera",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — proteína para tu frontera",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — proteína para tu frontera",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — proteína para tu frontera",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — proteína para tu frontera",
-          "TOP cake with fresh raspberries. — proteína para tu frontera",
-          "STORE cake in an airtight container in the refrigerator. — proteína para tu frontera"
+          "REMOVE the lid to the Kodiak Cakes cup. — proteína para tu frontera",
+          "ADD the milk, ricotta, and lemon zest to the flapjack cup and stir with a fork until combined.",
+          "MICROWAVE on high for 90 seconds. — proteína para tu frontera",
+          "TOP with honey and a dollop of ricotta, if desired."
         ],
-        "title": "White Chocolate Raspberry Cake — proteína para tu frontera",
+        "title": "Single-serve Lemon Ricotta Flapjack Cup — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "ingredient:2",
+            "ingredient:3",
+            "ingredient:5",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -36478,88 +36096,45 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para sua fronteira"
+            "qty_name": "1 Kodiak Buttermilk & Maple Flapjack Power Cup — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — proteína para sua fronteira"
+            "qty_name": "1/4 cup whole milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — proteína para sua fronteira"
+            "qty_name": "3 tablespoons whole milk ricotta"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1/2 teaspoon fresh lemon zest — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup butter, melted"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — proteína para sua fronteira"
+            "qty_name": "Honey, to top"
           }
         ],
         "meta": {
-          "cook": "35 — proteína para sua fronteira",
-          "prep": "30 — proteína para sua fronteira",
-          "serves": "16 — proteína para sua fronteira"
+          "cook": "1.5 mins — proteína para sua fronteira",
+          "prep": "2 mins — proteína para sua fronteira",
+          "serves": "1 — proteína para sua fronteira"
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — proteína para sua fronteira",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — proteína para sua fronteira",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — proteína para sua fronteira",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — proteína para sua fronteira",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — proteína para sua fronteira",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — proteína para sua fronteira",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — proteína para sua fronteira",
-          "TOP cake with fresh raspberries. — proteína para sua fronteira",
-          "STORE cake in an airtight container in the refrigerator. — proteína para sua fronteira"
+          "REMOVE the lid to the Kodiak Cakes cup. — proteína para sua fronteira",
+          "ADD the milk, ricotta, and lemon zest to the flapjack cup and stir with a fork until combined.",
+          "MICROWAVE on high for 90 seconds. — proteína para sua fronteira",
+          "TOP with honey and a dollop of ricotta, if desired."
         ],
-        "title": "White Chocolate Raspberry Cake — proteína para sua fronteira",
+        "title": "Single-serve Lemon Ricotta Flapjack Cup — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "ingredient:2",
+            "ingredient:3",
+            "ingredient:5",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "pt",
@@ -37591,75 +37166,77 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Chocolate: — proteína para tu frontera"
+            "qty_name": "1 cup Kodiak Classic Rolled Oats Canister — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1-1/2 teaspoon baking powder — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup water — proteína para tu frontera"
+            "qty_name": "1/2 teaspoon cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 teaspoons melted coconut oil — proteína para tu frontera"
+            "qty_name": "Pinch of salt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons cocoa powder — proteína para tu frontera"
+            "qty_name": "1 banana — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon honey or maple syrup\r\n\r\n\r\n \r\n\r\nVanilla:"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1/2 cup cottage cheese"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla\r\n\r\n\r\n \r\n\r\nRaspberry: — proteína para tu frontera"
+            "qty_name": "1 teaspoon vanilla — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 teaspoon melted coconut oil — proteína para tu frontera"
+            "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup mashed fresh raspberries — proteína para tu frontera"
+            "qty_name": "Fresh berries — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablepoon honey or maple syrup"
+            "qty_name": "Butter"
           },
           {
             "price": null,
-            "qty_name": "*Optional: beet root powder for coloring — proteína para tu frontera"
+            "qty_name": "Maple Syrup — proteína para tu frontera"
           }
         ],
         "meta": {
           "cook": "10 mins — proteína para tu frontera",
           "prep": "10 mins — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "serves": "2 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT your waffle iron to medium-high heat. — proteína para tu frontera",
-          "IN one bowl, combine Kodiak Cakes Buttermilk mix and cocoa powder, then add water, coconut oil, and honey. Add to a piping bag and set aside.",
-          "IN a second bowl, combine Kodiak Cakes Buttermilk mix with water, vanilla, and coconut oil. Add to a piping bag and set aside. — proteína para tu frontera",
-          "IN a third bowl, combine Kodiak Cakes Buttermilk mix with water, coconut oil, fresh mashed raspberries, honey, and optional beet root powder. Add to a piping bag and set aside.",
-          "PREP your waffle iron with non-stick spray, and in the preheated iron, carefully pipe each flavor into 3 equal parts and shut the lid. — proteína para tu frontera",
-          "ONCE cooked, repeat step 5 with remaining batter. — proteína para tu frontera",
-          "SERVE warm with your favorite toppings like whipped cream and strawberries. Enjoy! — proteína para tu frontera"
+          "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
+          "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
+          "ADD the dry ingredients back into the blender and mix until combined. — proteína para tu frontera",
+          "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking. — proteína para tu frontera",
+          "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter. — proteína para tu frontera",
+          "ADD your favorite toppings and enjoy! — proteína para tu frontera"
         ],
-        "title": "Neapolitan Waffles — proteína para tu frontera",
+        "title": "Oatmeal Cottage Cheese Pancakes",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
+            "title",
             "ingredient:6",
+            "ingredient:7",
+            "ingredient:9",
             "ingredient:11",
-            "step:2",
-            "step:4"
+            "step:1",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -37673,75 +37250,77 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Chocolate: — protéine pour ta frontière"
+            "qty_name": "1 cup Kodiak Classic Rolled Oats Canister — protéine pour ta frontière"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protéine pour ta frontière"
+            "qty_name": "1-1/2 teaspoon baking powder — protéine pour ta frontière"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup water — protéine pour ta frontière"
+            "qty_name": "1/2 teaspoon cinnamon — protéine pour ta frontière"
           },
           {
             "price": null,
-            "qty_name": "2 teaspoons melted coconut oil — protéine pour ta frontière"
+            "qty_name": "Pinch of salt — protéine pour ta frontière"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons cocoa powder — protéine pour ta frontière"
+            "qty_name": "1 banana — protéine pour ta frontière"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon honey or maple syrup\r\n\r\n\r\n \r\n\r\nVanilla:"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protéine pour ta frontière"
+            "qty_name": "1/2 cup cottage cheese"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla\r\n\r\n\r\n \r\n\r\nRaspberry: — protéine pour ta frontière"
+            "qty_name": "1 teaspoon vanilla — protéine pour ta frontière"
           },
           {
             "price": null,
-            "qty_name": "2 teaspoon melted coconut oil — protéine pour ta frontière"
+            "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup mashed fresh raspberries — protéine pour ta frontière"
+            "qty_name": "Fresh berries — protéine pour ta frontière"
           },
           {
             "price": null,
-            "qty_name": "1 tablepoon honey or maple syrup"
+            "qty_name": "Butter"
           },
           {
             "price": null,
-            "qty_name": "*Optional: beet root powder for coloring — protéine pour ta frontière"
+            "qty_name": "Maple Syrup — protéine pour ta frontière"
           }
         ],
         "meta": {
           "cook": "10 mins — protéine pour ta frontière",
           "prep": "10 mins — protéine pour ta frontière",
-          "serves": "4 — protéine pour ta frontière"
+          "serves": "2 — protéine pour ta frontière"
         },
         "steps": [
-          "PREHEAT your waffle iron to medium-high heat. — protéine pour ta frontière",
-          "IN one bowl, combine Kodiak Cakes Buttermilk mix and cocoa powder, then add water, coconut oil, and honey. Add to a piping bag and set aside.",
-          "IN a second bowl, combine Kodiak Cakes Buttermilk mix with water, vanilla, and coconut oil. Add to a piping bag and set aside. — protéine pour ta frontière",
-          "IN a third bowl, combine Kodiak Cakes Buttermilk mix with water, coconut oil, fresh mashed raspberries, honey, and optional beet root powder. Add to a piping bag and set aside.",
-          "PREP your waffle iron with non-stick spray, and in the preheated iron, carefully pipe each flavor into 3 equal parts and shut the lid. — protéine pour ta frontière",
-          "ONCE cooked, repeat step 5 with remaining batter. — protéine pour ta frontière",
-          "SERVE warm with your favorite toppings like whipped cream and strawberries. Enjoy! — protéine pour ta frontière"
+          "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
+          "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
+          "ADD the dry ingredients back into the blender and mix until combined. — protéine pour ta frontière",
+          "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking. — protéine pour ta frontière",
+          "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter. — protéine pour ta frontière",
+          "ADD your favorite toppings and enjoy! — protéine pour ta frontière"
         ],
-        "title": "Neapolitan Waffles — protéine pour ta frontière",
+        "title": "Oatmeal Cottage Cheese Pancakes",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
+            "title",
             "ingredient:6",
+            "ingredient:7",
+            "ingredient:9",
             "ingredient:11",
-            "step:2",
-            "step:4"
+            "step:1",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "fr",
@@ -39245,58 +38824,48 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1-1/2 cups Kodiak Classic Rolled Oats Canister — ፕሮቲን ለድንበርዎ"
+            "qty_name": "3/4 cup Greek Yogurt — ፕሮቲን ለድንበርዎ"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup dried cherries — ፕሮቲን ለድንበርዎ"
+            "qty_name": "2/3 cup Kodiak Honey Oat Granola"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon butter, melted"
+            "qty_name": "1 teaspoon coconut oil"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — ፕሮቲን ለድንበርዎ"
+            "qty_name": "2 teaspoons maple syrup — ፕሮቲን ለድንበርዎ"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup honey"
+            "qty_name": "1/2 banana, sliced — ፕሮቲን ለድንበርዎ"
           },
           {
             "price": null,
-            "qty_name": "Dark chocolate chips — ፕሮቲን ለድንበርዎ"
-          },
-          {
-            "price": null,
-            "qty_name": "8 Kodiak Chocolate Chip Crunchy Bars (4 packages) — ፕሮቲን ለድንበርዎ"
+            "qty_name": "top with blueberries, maple syrup, and hemp seeds — ፕሮቲን ለድንበርዎ"
           }
         ],
         "meta": {
-          "cook": "16 mins — ፕሮቲን ለድንበርዎ",
-          "prep": "10 mins — ፕሮቲን ለድንበርዎ",
-          "serves": "8 — ፕሮቲን ለድንበርዎ"
+          "cook": "10 mins — ፕሮቲን ለድንበርዎ",
+          "prep": "5 mins — ፕሮቲን ለድንበርዎ",
+          "serves": "1 — ፕሮቲን ለድንበርዎ"
         },
         "steps": [
-          "PREHEAT the oven to 350° Fahrenheit. Line a baking pan with parchment paper. — ፕሮቲን ለድንበርዎ",
-          "PLACE the oatmeal and dried cherries in a mixing bowl. — ፕሮቲን ለድንበርዎ",
-          "HEAT the butter, vanilla, and honey in a saucepan until the butter melts. Whisk together.",
-          "POUR the honey mixture into the bowl of oats and stir until thoroughly combined.",
-          "SPOON the oat mixture onto the lined baking pan. Grease your hands with oil and press the mixture into a rectangle shape, about 8 x 4“. — ፕሮቲን ለድንበርዎ",
-          "BAKE in the preheated oven for 15 minutes. — ፕሮቲን ለድንበርዎ",
-          "REMOVE the granola rectangle from the oven and sprinkle the chocolate chips evenly over the top. Place it back in the oven for 30 seconds. — ፕሮቲን ለድንበርዎ",
-          "REMOVE from the oven and use a spatula to spread the melted chocolate chips evenly over the granola rectangle. — ፕሮቲን ለድንበርዎ",
-          "PLACE the crunchy bars across the top of the rectangle in two rows of four. Let the rectangle cool completely, then use a sharp knife to cut slices around each individual crunchy bar. — ፕሮቲን ለድንበርዎ",
-          "STORE in an airtight container. — ፕሮቲን ለድንበርዎ"
+          "HEAT a saucepan over medium-high heat. Add coconut oil and allow it to melt, coating the bottom of the pan.",
+          "STIR in maple syrup and cook until warm and lightly bubbling. Add the banana slices and cook for 1–2 minutes per side, until lightly golden and warmed through. Remove from heat and set aside. — ፕሮቲን ለድንበርዎ",
+          "ASSEMBLE the yogurt bowl by adding yogurt to a bowl, then topping with the caramelized bananas and Kodiak Cakes Honey Oat Granola.",
+          "FINISH with blueberries, hemp seeds, and maple syrup. Enjoy! — ፕሮቲን ለድንበርዎ"
         ],
-        "title": "Dark Chocolate Cherry Granola Bars — ፕሮቲን ለድንበርዎ",
+        "title": "Caramelized Banana Granola Yogurt Bowl — ፕሮቲን ለድንበርዎ",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
+            "ingredient:2",
             "ingredient:3",
-            "ingredient:5",
-            "step:3",
-            "step:4"
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "am",
@@ -39310,58 +38879,46 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1-1/2 cups Kodiak Classic Rolled Oats Canister — proteína para tu frontera"
+            "qty_name": "3/4 cup Greek Yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup dried cherries — proteína para tu frontera"
+            "qty_name": "2/3 cup Kodiak Honey Oat Granola"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon butter, melted"
+            "qty_name": "1 teaspoon coconut oil — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+            "qty_name": "2 teaspoons maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup honey"
+            "qty_name": "1/2 banana, sliced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Dark chocolate chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "8 Kodiak Chocolate Chip Crunchy Bars (4 packages) — proteína para tu frontera"
+            "qty_name": "top with blueberries, maple syrup, and hemp seeds — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "16 mins — proteína para tu frontera",
-          "prep": "10 mins — proteína para tu frontera",
-          "serves": "8 — proteína para tu frontera"
+          "cook": "10 mins — proteína para tu frontera",
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "1 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT the oven to 350° Fahrenheit. Line a baking pan with parchment paper. — proteína para tu frontera",
-          "PLACE the oatmeal and dried cherries in a mixing bowl. — proteína para tu frontera",
-          "HEAT the butter, vanilla, and honey in a saucepan until the butter melts. Whisk together.",
-          "POUR the honey mixture into the bowl of oats and stir until thoroughly combined.",
-          "SPOON the oat mixture onto the lined baking pan. Grease your hands with oil and press the mixture into a rectangle shape, about 8 x 4“. — proteína para tu frontera",
-          "BAKE in the preheated oven for 15 minutes. — proteína para tu frontera",
-          "REMOVE the granola rectangle from the oven and sprinkle the chocolate chips evenly over the top. Place it back in the oven for 30 seconds. — proteína para tu frontera",
-          "REMOVE from the oven and use a spatula to spread the melted chocolate chips evenly over the granola rectangle. — proteína para tu frontera",
-          "PLACE the crunchy bars across the top of the rectangle in two rows of four. Let the rectangle cool completely, then use a sharp knife to cut slices around each individual crunchy bar. — proteína para tu frontera",
-          "STORE in an airtight container. — proteína para tu frontera"
+          "HEAT a saucepan over medium-high heat. Add coconut oil and allow it to melt, coating the bottom of the pan. — proteína para tu frontera",
+          "STIR in maple syrup and cook until warm and lightly bubbling. Add the banana slices and cook for 1–2 minutes per side, until lightly golden and warmed through. Remove from heat and set aside. — proteína para tu frontera",
+          "ASSEMBLE the yogurt bowl by adding yogurt to a bowl, then topping with the caramelized bananas and Kodiak Cakes Honey Oat Granola.",
+          "FINISH with blueberries, hemp seeds, and maple syrup. Enjoy! — proteína para tu frontera"
         ],
-        "title": "Dark Chocolate Cherry Granola Bars — proteína para tu frontera",
+        "title": "Caramelized Banana Granola Yogurt Bowl — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:3",
-            "ingredient:5",
-            "step:3",
-            "step:4"
+            "ingredient:2",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -39377,64 +38934,58 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — ፕሮቲን ለድንበርዎ"
+            "qty_name": "1/2 cup plain Greek yogurt — ፕሮቲን ለድንበርዎ"
           },
           {
             "price": null,
-            "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister — ፕሮቲን ለድንበርዎ"
+            "qty_name": "1 cup nut milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup peanut butter (no sugar added)"
+            "qty_name": "1/4 cup chia seeds — ፕሮቲን ለድንበርዎ"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup melted unsalted butter"
+            "qty_name": "1 tablespoon maple syrup — ፕሮቲን ለድንበርዎ"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup real maple syrup — ፕሮቲን ለድንበርዎ"
+            "qty_name": "1/2 cup berries of choice — ፕሮቲን ለድንበርዎ"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "1/4 cup walnuts — ፕሮቲን ለድንበርዎ"
           },
           {
             "price": null,
-            "qty_name": "3 cups fresh mashed raspberries (measured after mashing) — ፕሮቲን ለድንበርዎ"
+            "qty_name": "1/4 cup pumpkin seeds (pepitas) — ፕሮቲን ለድንበርዎ"
           },
           {
             "price": null,
-            "qty_name": "Optional: 1 tablespoon real maple syrup — ፕሮቲን ለድንበርዎ"
+            "qty_name": "1 tablespoon ground flax seed — ፕሮቲን ለድንበርዎ"
           },
           {
             "price": null,
-            "qty_name": "Optional: drizzle with melted peanut butter"
+            "qty_name": "1/2 cup Kodiak Blueberry Vanilla Granola — ፕሮቲን ለድንበርዎ"
           }
         ],
         "meta": {
-          "cook": "25 — ፕሮቲን ለድንበርዎ",
-          "prep": "20 — ፕሮቲን ለድንበርዎ",
-          "serves": "30 — ፕሮቲን ለድንበርዎ"
+          "cook": null,
+          "prep": "60+ — ፕሮቲን ለድንበርዎ",
+          "serves": "4 — ፕሮቲን ለድንበርዎ"
         },
         "steps": [
-          "PREHEAT oven to 350°F and line a 13x18” sheet pan with parchment paper. — ፕሮቲን ለድንበርዎ",
-          "IN a large bowl, mix peanut butter, butter, maple syrup, and milk until smooth.",
-          "ADD Kodiak Cakes mix and oats, stirring until a thick, slightly crumbly dough forms. — ፕሮቲን ለድንበርዎ",
-          "PRESS about ⅔ of the mixture firmly into the pan to create an even base layer. — ፕሮቲን ለድንበርዎ",
-          "CAREFULLY spread mashed raspberries evenly over the base then crumble the remaining dough over the top. — ፕሮቲን ለድንበርዎ",
-          "BAKE for 20–25 minutes, until the top is set and lightly golden. Let cool completely before slicing into 30 bars. — ፕሮቲን ለድንበርዎ",
-          "STORE in an airtight container in the refrigerator for up to 5 days. — ፕሮቲን ለድንበርዎ"
+          "ADD the yogurt, nut milk, chia seeds, and maple syrup to a small mixing bowl. Whisk until smooth and let sit in the refrigerator for 1 hour to thicken.",
+          "ONCE the pudding has thickened, whisk again and divide between 2-4 small bowls. — ፕሮቲን ለድንበርዎ",
+          "LAYER between or top the pudding with the berries, walnuts, pumpkin seeds, flaxseed, and granola - evenly dividing between containers. — ፕሮቲን ለድንበርዎ",
+          "SERVE, or store covered in refrigerator. Will keep for several days in the refrigerator. *Pro-Tip: Prep your pudding before bed and let it sit in the refrigerator overnight. — ፕሮቲን ለድንበርዎ"
         ],
-        "title": "Fiber-Packed PB&J Snack Bars — ፕሮቲን ለድንበርዎ",
+        "title": "Berry Chia Pudding — ፕሮቲን ለድንበርዎ",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:6",
-            "ingredient:9",
-            "step:2"
+            "ingredient:2",
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "am",
@@ -39448,64 +38999,58 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister — proteína para tu frontera"
+            "qty_name": "1 cup nut milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup peanut butter (no sugar added)"
+            "qty_name": "1/4 cup chia seeds — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup melted unsalted butter"
+            "qty_name": "1 tablespoon maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup real maple syrup — proteína para tu frontera"
+            "qty_name": "1/2 cup berries of choice — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2/3 cup milk"
+            "qty_name": "1/4 cup walnuts — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3 cups fresh mashed raspberries (measured after mashing) — proteína para tu frontera"
+            "qty_name": "1/4 cup pumpkin seeds (pepitas) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Optional: 1 tablespoon real maple syrup — proteína para tu frontera"
+            "qty_name": "1 tablespoon ground flax seed — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Optional: drizzle with melted peanut butter"
+            "qty_name": "1/2 cup Kodiak Blueberry Vanilla Granola — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "25 — proteína para tu frontera",
-          "prep": "20 — proteína para tu frontera",
-          "serves": "30 — proteína para tu frontera"
+          "cook": null,
+          "prep": "60+ — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT oven to 350°F and line a 13x18” sheet pan with parchment paper. — proteína para tu frontera",
-          "IN a large bowl, mix peanut butter, butter, maple syrup, and milk until smooth.",
-          "ADD Kodiak Cakes mix and oats, stirring until a thick, slightly crumbly dough forms. — proteína para tu frontera",
-          "PRESS about ⅔ of the mixture firmly into the pan to create an even base layer. — proteína para tu frontera",
-          "CAREFULLY spread mashed raspberries evenly over the base then crumble the remaining dough over the top. — proteína para tu frontera",
-          "BAKE for 20–25 minutes, until the top is set and lightly golden. Let cool completely before slicing into 30 bars. — proteína para tu frontera",
-          "STORE in an airtight container in the refrigerator for up to 5 days. — proteína para tu frontera"
+          "ADD the yogurt, nut milk, chia seeds, and maple syrup to a small mixing bowl. Whisk until smooth and let sit in the refrigerator for 1 hour to thicken.",
+          "ONCE the pudding has thickened, whisk again and divide between 2-4 small bowls. — proteína para tu frontera",
+          "LAYER between or top the pudding with the berries, walnuts, pumpkin seeds, flaxseed, and granola - evenly dividing between containers. — proteína para tu frontera",
+          "SERVE, or store covered in refrigerator. Will keep for several days in the refrigerator. *Pro-Tip: Prep your pudding before bed and let it sit in the refrigerator overnight. — proteína para tu frontera"
         ],
-        "title": "Fiber-Packed PB&J Snack Bars — proteína para tu frontera",
+        "title": "Berry Chia Pudding — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:6",
-            "ingredient:9",
-            "step:2"
+            "ingredient:2",
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -40863,38 +40408,73 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1-1/2 cup cottage cheese"
+            "qty_name": "1 Kodiak Maple & Brown Sugar Oatmeal Cup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 bananas (save one half for topping) — proteína para tu frontera"
+            "qty_name": "2 tablespoons Kodiak Buttermilk Power Cakes — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoon maple syrup — proteína para tu frontera"
+            "qty_name": "1/4 teaspoon baking powder — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Cookie Butter Granola\r\n\r\n\r\n \r\n\r\n*Alternate: Sub out Cookie Butter Granola with any Kodiak Granola flavors or even a crushed Crunchy Bar to mix up the flavor profile of your parfait while maintaining the same delicious crunch!"
+            "qty_name": "1 egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon avocado oil — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "5 tablespoons milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon pecans, chopped (reserve a few to top muffin) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon butter, melted"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon maple syrup — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons powdered sugar — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "5 mins — proteína para tu frontera",
-          "prep": "5 mins — proteína para tu frontera",
-          "serves": "2 — proteína para tu frontera"
+          "cook": "2 mins — proteína para tu frontera",
+          "prep": "8 mins — proteína para tu frontera",
+          "serves": "1 — proteína para tu frontera"
         },
         "steps": [
-          "ADD cottage cheese, 1-1/2 bananas, and maple syrup in a blender. Combine until smooth. Set aside.",
-          "SLICE the remaining banana. — proteína para tu frontera",
-          "BETWEEN two serving glasses, layer the banana mixture, Kodiak Cakes granola, and sliced bananas and serve! — proteína para tu frontera"
+          "REMOVE the lid from the oatmeal cup. — proteína para tu frontera",
+          "ADD the power cakes mix and baking powder to the cup and stir with a fork to combine. — proteína para tu frontera",
+          "ADD the egg, oil, and 2 tablespoons of the milk to the cup and stir until a smooth batter forms.",
+          "ADD the remaining 3 tablespoons of milk and stir until fully combined. Let sit for 5 minutes.",
+          "STIR again and sprinkle the top with chopped pecans. Microwave for 90 seconds. — proteína para tu frontera",
+          "LET cool slightly. Make maple butter glaze:",
+          "PLACE the melted butter, maple syrup, and powdered sugar in a small bowl and whisk together until a smooth icing forms.",
+          "DRIZZLE the glaze over the top of the muffin and sprinkle with a few pecan pieces. Enjoy!"
         ],
-        "title": "Banana Parfait — proteína para tu frontera",
+        "title": "Single-Serve Maple Pecan Muffin",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:1",
+            "title",
             "ingredient:4",
-            "step:1"
+            "ingredient:6",
+            "ingredient:8",
+            "step:3",
+            "step:4",
+            "step:6",
+            "step:7",
+            "step:8"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -40908,38 +40488,73 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1-1/2 cup cottage cheese"
+            "qty_name": "1 Kodiak Maple & Brown Sugar Oatmeal Cup — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "2 bananas (save one half for topping) — proteína para sua fronteira"
+            "qty_name": "2 tablespoons Kodiak Buttermilk Power Cakes — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoon maple syrup — proteína para sua fronteira"
+            "qty_name": "1/4 teaspoon baking powder — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Cookie Butter Granola\r\n\r\n\r\n \r\n\r\n*Alternate: Sub out Cookie Butter Granola with any Kodiak Granola flavors or even a crushed Crunchy Bar to mix up the flavor profile of your parfait while maintaining the same delicious crunch!"
+            "qty_name": "1 egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon avocado oil — proteína para sua fronteira"
+          },
+          {
+            "price": null,
+            "qty_name": "5 tablespoons milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon pecans, chopped (reserve a few to top muffin) — proteína para sua fronteira"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon butter, melted"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon maple syrup — proteína para sua fronteira"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons powdered sugar — proteína para sua fronteira"
           }
         ],
         "meta": {
-          "cook": "5 mins — proteína para sua fronteira",
-          "prep": "5 mins — proteína para sua fronteira",
-          "serves": "2 — proteína para sua fronteira"
+          "cook": "2 mins — proteína para sua fronteira",
+          "prep": "8 mins — proteína para sua fronteira",
+          "serves": "1 — proteína para sua fronteira"
         },
         "steps": [
-          "ADD cottage cheese, 1-1/2 bananas, and maple syrup in a blender. Combine until smooth. Set aside.",
-          "SLICE the remaining banana. — proteína para sua fronteira",
-          "BETWEEN two serving glasses, layer the banana mixture, Kodiak Cakes granola, and sliced bananas and serve! — proteína para sua fronteira"
+          "REMOVE the lid from the oatmeal cup. — proteína para sua fronteira",
+          "ADD the power cakes mix and baking powder to the cup and stir with a fork to combine. — proteína para sua fronteira",
+          "ADD the egg, oil, and 2 tablespoons of the milk to the cup and stir until a smooth batter forms.",
+          "ADD the remaining 3 tablespoons of milk and stir until fully combined. Let sit for 5 minutes.",
+          "STIR again and sprinkle the top with chopped pecans. Microwave for 90 seconds. — proteína para sua fronteira",
+          "LET cool slightly. Make maple butter glaze:",
+          "PLACE the melted butter, maple syrup, and powdered sugar in a small bowl and whisk together until a smooth icing forms.",
+          "DRIZZLE the glaze over the top of the muffin and sprinkle with a few pecan pieces. Enjoy!"
         ],
-        "title": "Banana Parfait — proteína para sua fronteira",
+        "title": "Single-Serve Maple Pecan Muffin",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:1",
+            "title",
             "ingredient:4",
-            "step:1"
+            "ingredient:6",
+            "ingredient:8",
+            "step:3",
+            "step:4",
+            "step:6",
+            "step:7",
+            "step:8"
           ],
           "human_reviewed": false,
           "lang": "pt",
@@ -42053,7 +41668,15 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+            "qty_name": "2 Blueberry Oat Breakfast Bars, warmed — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup blueberries — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon honey"
           }
         ],
         "meta": {
@@ -42062,14 +41685,14 @@ window.KODIAK_RECIPE_I18N = {
           "serves": null
         },
         "steps": [
-          "1 cup mix + 1 cup milk + 1 egg"
+          "SIMMER the blueberries and honey 5 minutes into a compote.",
+          "SPOON over the warmed bars and serve at once. — proteína para tu frontera"
         ],
-        "title": "Cinnamon Honey Dip",
+        "title": "Blueberry Oat Bar Breakfast Compote — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "title",
-            "ingredient:1",
+            "ingredient:3",
             "step:1"
           ],
           "human_reviewed": false,
@@ -42084,7 +41707,15 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+            "qty_name": "2 Blueberry Oat Breakfast Bars, warmed — proteína para sua fronteira"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup blueberries — proteína para sua fronteira"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon honey"
           }
         ],
         "meta": {
@@ -42093,14 +41724,14 @@ window.KODIAK_RECIPE_I18N = {
           "serves": null
         },
         "steps": [
-          "1 cup mix + 1 cup milk + 1 egg"
+          "SIMMER the blueberries and honey 5 minutes into a compote.",
+          "SPOON over the warmed bars and serve at once. — proteína para sua fronteira"
         ],
-        "title": "Cinnamon Honey Dip",
+        "title": "Blueberry Oat Bar Breakfast Compote — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "title",
-            "ingredient:1",
+            "ingredient:3",
             "step:1"
           ],
           "human_reviewed": false,
@@ -42313,57 +41944,77 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 cup Kodiak Classic Rolled Oats Canister — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup water — proteína para tu frontera"
+            "qty_name": "1-1/2 teaspoon baking powder — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons butter, divided"
+            "qty_name": "1/2 teaspoon cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 small onion, chopped — proteína para tu frontera"
+            "qty_name": "Pinch of salt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 small bell pepper, chopped (seeds and stem removed) — proteína para tu frontera"
+            "qty_name": "1 banana — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup mushrooms, sliced — proteína para tu frontera"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "Salt and pepper, to taste — proteína para tu frontera"
+            "qty_name": "1/2 cup cottage cheese"
           },
           {
             "price": null,
-            "qty_name": "Hot sauce or maple syrup (optional) — proteína para tu frontera"
+            "qty_name": "1 teaspoon vanilla — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
+          },
+          {
+            "price": null,
+            "qty_name": "Fresh berries — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter"
+          },
+          {
+            "price": null,
+            "qty_name": "Maple Syrup — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "8 mins — proteína para tu frontera",
+          "cook": "10 mins — proteína para tu frontera",
           "prep": "10 mins — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "serves": "2 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside. — proteína para tu frontera",
-          "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
-          "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened. — proteína para tu frontera",
-          "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
-          "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through. — proteína para tu frontera",
-          "SERVE with hot sauce or maple syrup! — proteína para tu frontera"
+          "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
+          "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
+          "ADD the dry ingredients back into the blender and mix until combined. — proteína para tu frontera",
+          "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking. — proteína para tu frontera",
+          "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter. — proteína para tu frontera",
+          "ADD your favorite toppings and enjoy! — proteína para tu frontera"
         ],
-        "title": "Savory Scrambled Pancakes — proteína para tu frontera",
+        "title": "Oatmeal Cottage Cheese Pancakes",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:3",
-            "step:2",
-            "step:4"
+            "title",
+            "ingredient:6",
+            "ingredient:7",
+            "ingredient:9",
+            "ingredient:11",
+            "step:1",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -42377,57 +42028,77 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup Kodiak Classic Rolled Oats Canister — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup water — 为你的边疆提供蛋白质"
+            "qty_name": "1-1/2 teaspoon baking powder — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons butter, divided"
+            "qty_name": "1/2 teaspoon cinnamon — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/2 small onion, chopped — 为你的边疆提供蛋白质"
+            "qty_name": "Pinch of salt — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 small bell pepper, chopped (seeds and stem removed) — 为你的边疆提供蛋白质"
+            "qty_name": "1 banana — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup mushrooms, sliced — 为你的边疆提供蛋白质"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "Salt and pepper, to taste — 为你的边疆提供蛋白质"
+            "qty_name": "1/2 cup cottage cheese"
           },
           {
             "price": null,
-            "qty_name": "Hot sauce or maple syrup (optional) — 为你的边疆提供蛋白质"
+            "qty_name": "1 teaspoon vanilla — 为你的边疆提供蛋白质"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
+          },
+          {
+            "price": null,
+            "qty_name": "Fresh berries — 为你的边疆提供蛋白质"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter"
+          },
+          {
+            "price": null,
+            "qty_name": "Maple Syrup — 为你的边疆提供蛋白质"
           }
         ],
         "meta": {
-          "cook": "8 mins — 为你的边疆提供蛋白质",
+          "cook": "10 mins — 为你的边疆提供蛋白质",
           "prep": "10 mins — 为你的边疆提供蛋白质",
-          "serves": "4 — 为你的边疆提供蛋白质"
+          "serves": "2 — 为你的边疆提供蛋白质"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix and water in a mixing bowl and whisk to form a smooth batter. Set aside. — 为你的边疆提供蛋白质",
-          "HEAT a skillet to medium-high. Add 1 tablespoon of the butter and melt.",
-          "ADD the onion, bell pepper, mushroom, salt, and pepper to the skillet and sauté for 5 minutes, or until vegetables are softened. — 为你的边疆提供蛋白质",
-          "PUSH the vegetables to the side and add the remaining tablespoon of butter to the skillet. Once melted, pour in the pancake batter and smooth across the open skillet space.",
-          "LET cook for about one minute, then flip over with a spatula, like a pancake. Once flipped, use the tip of the spatula to break up the pancake into small pieces, tossing them with the vegetables and continuing to sauté until all pancake pieces are cooked through. — 为你的边疆提供蛋白质",
-          "SERVE with hot sauce or maple syrup! — 为你的边疆提供蛋白质"
+          "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
+          "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
+          "ADD the dry ingredients back into the blender and mix until combined. — 为你的边疆提供蛋白质",
+          "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking. — 为你的边疆提供蛋白质",
+          "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter. — 为你的边疆提供蛋白质",
+          "ADD your favorite toppings and enjoy! — 为你的边疆提供蛋白质"
         ],
-        "title": "Savory Scrambled Pancakes — 为你的边疆提供蛋白质",
+        "title": "Oatmeal Cottage Cheese Pancakes",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:3",
-            "step:2",
-            "step:4"
+            "title",
+            "ingredient:6",
+            "ingredient:7",
+            "ingredient:9",
+            "ingredient:11",
+            "step:1",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "zh",
@@ -45435,65 +45106,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Kodiak Blueberry Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup milk of choice"
+            "qty_name": "1 cup water — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup ricotta — proteína para tu frontera"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 eggs"
+            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla — proteína para tu frontera"
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blueberries\r\n\r\n\r\n \r\n\r\nToppings: — proteína para tu frontera"
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup ricotta — proteína para tu frontera"
+            "qty_name": "Butter, to top and grease pan"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon real maple syrup — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon lemon juice — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Fresh blueberries — proteína para tu frontera"
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "10 mins — proteína para tu frontera",
-          "prep": "10 mins — proteína para tu frontera",
-          "serves": "2 — proteína para tu frontera"
+          "cook": "5 mins — proteína para tu frontera",
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "ADD Kodiak Cakes mix, milk, egg, ricotta, and vanilla to a bowl. Mix until combined.",
-          "GENTLY fold in blueberries. — proteína para tu frontera",
-          "SCOOP about a 1/4 cup of batter per pancake onto a heated and greased skillet. — proteína para tu frontera",
-          "ALLOW to cook until bubbles form, then flip. — proteína para tu frontera",
-          "MIX together ricotta and maple syrup until smooth to make a sweet ricotta topping. — proteína para tu frontera",
-          "STACK and enjoy! — proteína para tu frontera"
+          "REMOVE the skin from the sweet potato and discard. — proteína para tu frontera",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — proteína para tu frontera",
+          "HEAT a skillet over medium heat. — proteína para tu frontera",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — proteína para tu frontera",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
         ],
-        "title": "Blueberry Ricotta Pancakes — proteína para tu frontera",
+        "title": "Sweet Potato Pancakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:4",
-            "step:1"
+            "ingredient:7",
+            "step:4",
+            "step:6"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -45507,65 +45170,57 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Kodiak Blueberry Power Cakes Flapjack & Waffle Mix — proteína para sua fronteira"
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup milk of choice"
+            "qty_name": "1 cup water — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/3 cup ricotta — proteína para sua fronteira"
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "2 eggs"
+            "qty_name": "1 teaspoon cinnamon — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla — proteína para sua fronteira"
+            "qty_name": "1 teaspoon vanilla extract — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blueberries\r\n\r\n\r\n \r\n\r\nToppings: — proteína para sua fronteira"
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup ricotta — proteína para sua fronteira"
+            "qty_name": "Butter, to top and grease pan"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon real maple syrup — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon lemon juice — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "Fresh blueberries — proteína para sua fronteira"
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — proteína para sua fronteira"
           }
         ],
         "meta": {
-          "cook": "10 mins — proteína para sua fronteira",
-          "prep": "10 mins — proteína para sua fronteira",
-          "serves": "2 — proteína para sua fronteira"
+          "cook": "5 mins — proteína para sua fronteira",
+          "prep": "5 mins — proteína para sua fronteira",
+          "serves": "4 — proteína para sua fronteira"
         },
         "steps": [
-          "ADD Kodiak Cakes mix, milk, egg, ricotta, and vanilla to a bowl. Mix until combined.",
-          "GENTLY fold in blueberries. — proteína para sua fronteira",
-          "SCOOP about a 1/4 cup of batter per pancake onto a heated and greased skillet. — proteína para sua fronteira",
-          "ALLOW to cook until bubbles form, then flip. — proteína para sua fronteira",
-          "MIX together ricotta and maple syrup until smooth to make a sweet ricotta topping. — proteína para sua fronteira",
-          "STACK and enjoy! — proteína para sua fronteira"
+          "REMOVE the skin from the sweet potato and discard. — proteína para sua fronteira",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — proteína para sua fronteira",
+          "HEAT a skillet over medium heat. — proteína para sua fronteira",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — proteína para sua fronteira",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
         ],
-        "title": "Blueberry Ricotta Pancakes — proteína para sua fronteira",
+        "title": "Sweet Potato Pancakes — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:4",
-            "step:1"
+            "ingredient:7",
+            "step:4",
+            "step:6"
           ],
           "human_reviewed": false,
           "lang": "pt",
@@ -48364,44 +48019,67 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Kodiak Cookie Butter Crunchy Granola Bars"
+            "qty_name": "3 ripe bananas, mashed — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon instant coffee — proteína para tu frontera"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Greek yogurt — proteína para tu frontera"
+            "qty_name": "1-1/4 cups milk"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon maple syrup — proteína para tu frontera"
+            "qty_name": "1/2 cup almond butter"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon cookie butter"
+            "qty_name": "1/4 cup real maple syrup — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1  cup chopped walnuts — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "4 tablespoons chia seeds — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "4 tablespoons ground flax seed — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "60+ mins — proteína para tu frontera",
-          "prep": "5 mins — proteína para tu frontera",
-          "serves": "1 — proteína para tu frontera"
+          "cook": "14 — proteína para tu frontera",
+          "prep": "15 — proteína para tu frontera",
+          "serves": "24 — proteína para tu frontera"
         },
         "steps": [
-          "IN a small bowl, mix together the instant coffee, Greek yogurt, and maple syrup until smooth. Set aside. — proteína para tu frontera",
-          "REMOVE one Kodiak Cakes Crunchy Bar from the package and crumble it into the bottom of a small dish. — proteína para tu frontera",
-          "SPOON the coffee yogurt mixture over the crumble and smooth evenly. — proteína para tu frontera",
-          "BREAK the second crunchy bar into four equal pieces and gently press them into the yogurt until fully covered. — proteína para tu frontera",
-          "MICROWAVE the cookie butter for 20–30 seconds, or until melted and pourable. Drizzle evenly over the top.",
-          "COVER and refrigerate for at least 1 hour to set. Enjoy. — proteína para tu frontera"
+          "PREHEAT oven to 350°F and line a baking sheet with parchment paper. — proteína para tu frontera",
+          "IN a large bowl, mash bananas until mostly smooth. — proteína para tu frontera",
+          "ADD eggs, maple syrup, nut butter, and milk. Whisk until fully combined.",
+          "STIR in Kodiak Cakes Power Cakes mix, Kodiak Cakes rolled oats, chia seeds, and ground flaxseed until a thick dough forms. — proteína para tu frontera",
+          "FOLD in chopped walnuts. If the dough feels too thick, add an additional tablespoon of milk as needed. Let the dough rest for 2–3 minutes to hydrate.",
+          "SCOOP dough with a cookie scoop onto the prepared baking sheet and lightly press to shape. Bake for 9 - 14 mins , until set and lightly golden. Cool before serving. — proteína para tu frontera",
+          "STORE in an airtight container in the refrigerator for up to 4–5 days or freeze for longer storage. — proteína para tu frontera"
         ],
-        "title": "Japanese Cheesecake — proteína para tu frontera",
+        "title": "Fiber-Packed Banana Oat Breakfast Cookies — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:1",
-            "ingredient:5",
+            "ingredient:2",
+            "ingredient:3",
+            "ingredient:4",
+            "step:3",
             "step:5"
           ],
           "human_reviewed": false,
@@ -48416,44 +48094,67 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Kodiak Cookie Butter Crunchy Granola Bars"
+            "qty_name": "3 ripe bananas, mashed — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon instant coffee — proteína para sua fronteira"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Greek yogurt — proteína para sua fronteira"
+            "qty_name": "1-1/4 cups milk"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon maple syrup — proteína para sua fronteira"
+            "qty_name": "1/2 cup almond butter"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon cookie butter"
+            "qty_name": "1/4 cup real maple syrup — proteína para sua fronteira"
+          },
+          {
+            "price": null,
+            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para sua fronteira"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister — proteína para sua fronteira"
+          },
+          {
+            "price": null,
+            "qty_name": "1  cup chopped walnuts — proteína para sua fronteira"
+          },
+          {
+            "price": null,
+            "qty_name": "4 tablespoons chia seeds — proteína para sua fronteira"
+          },
+          {
+            "price": null,
+            "qty_name": "4 tablespoons ground flax seed — proteína para sua fronteira"
           }
         ],
         "meta": {
-          "cook": "60+ mins — proteína para sua fronteira",
-          "prep": "5 mins — proteína para sua fronteira",
-          "serves": "1 — proteína para sua fronteira"
+          "cook": "14 — proteína para sua fronteira",
+          "prep": "15 — proteína para sua fronteira",
+          "serves": "24 — proteína para sua fronteira"
         },
         "steps": [
-          "IN a small bowl, mix together the instant coffee, Greek yogurt, and maple syrup until smooth. Set aside. — proteína para sua fronteira",
-          "REMOVE one Kodiak Cakes Crunchy Bar from the package and crumble it into the bottom of a small dish. — proteína para sua fronteira",
-          "SPOON the coffee yogurt mixture over the crumble and smooth evenly. — proteína para sua fronteira",
-          "BREAK the second crunchy bar into four equal pieces and gently press them into the yogurt until fully covered. — proteína para sua fronteira",
-          "MICROWAVE the cookie butter for 20–30 seconds, or until melted and pourable. Drizzle evenly over the top.",
-          "COVER and refrigerate for at least 1 hour to set. Enjoy. — proteína para sua fronteira"
+          "PREHEAT oven to 350°F and line a baking sheet with parchment paper. — proteína para sua fronteira",
+          "IN a large bowl, mash bananas until mostly smooth. — proteína para sua fronteira",
+          "ADD eggs, maple syrup, nut butter, and milk. Whisk until fully combined.",
+          "STIR in Kodiak Cakes Power Cakes mix, Kodiak Cakes rolled oats, chia seeds, and ground flaxseed until a thick dough forms. — proteína para sua fronteira",
+          "FOLD in chopped walnuts. If the dough feels too thick, add an additional tablespoon of milk as needed. Let the dough rest for 2–3 minutes to hydrate.",
+          "SCOOP dough with a cookie scoop onto the prepared baking sheet and lightly press to shape. Bake for 9 - 14 mins , until set and lightly golden. Cool before serving. — proteína para sua fronteira",
+          "STORE in an airtight container in the refrigerator for up to 4–5 days or freeze for longer storage. — proteína para sua fronteira"
         ],
-        "title": "Japanese Cheesecake — proteína para sua fronteira",
+        "title": "Fiber-Packed Banana Oat Breakfast Cookies — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:1",
-            "ingredient:5",
+            "ingredient:2",
+            "ingredient:3",
+            "ingredient:4",
+            "step:3",
             "step:5"
           ],
           "human_reviewed": false,
@@ -49750,76 +49451,55 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Kodiak Classic Rolled Oats Canister — proteína para tu frontera"
+            "qty_name": "1 packet Kodiak Dark Chocolate Sea Salt Overnight Oats — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1-1/2 teaspoon baking powder — proteína para tu frontera"
+            "qty_name": "1/4 teaspoon baking powder — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon cinnamon — proteína para tu frontera"
+            "qty_name": "1 tablespoon maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Pinch of salt — proteína para tu frontera"
+            "qty_name": "1/2 ripe banana, mashed — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 banana — proteína para tu frontera"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "2 eggs"
+            "qty_name": "1 tablespoon oil (avocado, light olive oil, etc) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup cottage cheese"
+            "qty_name": "1 tablespoon milk"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
-          },
-          {
-            "price": null,
-            "qty_name": "Fresh berries — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Butter"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple Syrup — proteína para tu frontera"
+            "qty_name": "Chocolate chips (optional) — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "10 mins — proteína para tu frontera",
-          "prep": "10 mins — proteína para tu frontera",
-          "serves": "2 — proteína para tu frontera"
+          "cook": "1.5 — proteína para tu frontera",
+          "prep": "5 — proteína para tu frontera",
+          "serves": "1 — proteína para tu frontera"
         },
         "steps": [
-          "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
-          "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
-          "ADD the dry ingredients back into the blender and mix until combined. — proteína para tu frontera",
-          "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking. — proteína para tu frontera",
-          "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter. — proteína para tu frontera",
-          "ADD your favorite toppings and enjoy! — proteína para tu frontera"
+          "PLACE the contents of the overnight oats packet and the baking powder in a large mug. Whisk together with a fork. — proteína para tu frontera",
+          "ADD the maple syrup, mashed banana, egg, oil, and milk, and stir in with a fork to form a smooth batter. Let sit for five minutes, then stir again.",
+          "SPRINKLE chocolate chips on top of the batter, if desired. — proteína para tu frontera",
+          "MICROWAVE the mug for 90 seconds. — proteína para tu frontera",
+          "SPRINKLE the top with coarse sea salt, if desired. Let cool slightly and enjoy! *Pro Tip: Bake your mug cake in an oven preheated to 375° F for 12 to 15 minutes, or until puffed on top and cooked through. — proteína para tu frontera"
         ],
-        "title": "Oatmeal Cottage Cheese Pancakes",
+        "title": "Dark Chocolate Banana Bread Mug Cake — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "title",
-            "ingredient:6",
+            "ingredient:5",
             "ingredient:7",
-            "ingredient:9",
-            "ingredient:11",
-            "step:1",
             "step:2"
           ],
           "human_reviewed": false,
@@ -49834,76 +49514,55 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Kodiak Classic Rolled Oats Canister — proteína para sua fronteira"
+            "qty_name": "1 packet Kodiak Dark Chocolate Sea Salt Overnight Oats — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1-1/2 teaspoon baking powder — proteína para sua fronteira"
+            "qty_name": "1/4 teaspoon baking powder — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/2 teaspoon cinnamon — proteína para sua fronteira"
+            "qty_name": "1 tablespoon maple syrup — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "Pinch of salt — proteína para sua fronteira"
+            "qty_name": "1/2 ripe banana, mashed — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 banana — proteína para sua fronteira"
+            "qty_name": "1 large egg"
           },
           {
             "price": null,
-            "qty_name": "2 eggs"
+            "qty_name": "1 tablespoon oil (avocado, light olive oil, etc) — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup cottage cheese"
+            "qty_name": "1 tablespoon milk"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
-          },
-          {
-            "price": null,
-            "qty_name": "Fresh berries — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "Butter"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple Syrup — proteína para sua fronteira"
+            "qty_name": "Chocolate chips (optional) — proteína para sua fronteira"
           }
         ],
         "meta": {
-          "cook": "10 mins — proteína para sua fronteira",
-          "prep": "10 mins — proteína para sua fronteira",
-          "serves": "2 — proteína para sua fronteira"
+          "cook": "1.5 — proteína para sua fronteira",
+          "prep": "5 — proteína para sua fronteira",
+          "serves": "1 — proteína para sua fronteira"
         },
         "steps": [
-          "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
-          "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
-          "ADD the dry ingredients back into the blender and mix until combined. — proteína para sua fronteira",
-          "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking. — proteína para sua fronteira",
-          "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter. — proteína para sua fronteira",
-          "ADD your favorite toppings and enjoy! — proteína para sua fronteira"
+          "PLACE the contents of the overnight oats packet and the baking powder in a large mug. Whisk together with a fork. — proteína para sua fronteira",
+          "ADD the maple syrup, mashed banana, egg, oil, and milk, and stir in with a fork to form a smooth batter. Let sit for five minutes, then stir again.",
+          "SPRINKLE chocolate chips on top of the batter, if desired. — proteína para sua fronteira",
+          "MICROWAVE the mug for 90 seconds. — proteína para sua fronteira",
+          "SPRINKLE the top with coarse sea salt, if desired. Let cool slightly and enjoy! *Pro Tip: Bake your mug cake in an oven preheated to 375° F for 12 to 15 minutes, or until puffed on top and cooked through. — proteína para sua fronteira"
         ],
-        "title": "Oatmeal Cottage Cheese Pancakes",
+        "title": "Dark Chocolate Banana Bread Mug Cake — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "title",
-            "ingredient:6",
+            "ingredient:5",
             "ingredient:7",
-            "ingredient:9",
-            "ingredient:11",
-            "step:1",
             "step:2"
           ],
           "human_reviewed": false,
@@ -49920,76 +49579,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "6 tablespoons butter, cold and cubed (or shredded)"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 cup Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip: — proteína para tu frontera"
+            "qty_name": "1/4 cup maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
+            "qty_name": "1/2 cup frozen mixed berries — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — proteína para tu frontera"
+            "qty_name": "1 tablespoon lemon zest — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup diced pineapple — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — proteína para tu frontera"
+            "qty_name": "1 tablespoon whole milk"
           }
         ],
         "meta": {
-          "cook": "10 — proteína para tu frontera",
-          "prep": "10 — proteína para tu frontera",
-          "serves": "1 — proteína para tu frontera"
+          "cook": "20 — proteína para tu frontera",
+          "prep": "20 — proteína para tu frontera",
+          "serves": "12 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — proteína para tu frontera",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — proteína para tu frontera",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — proteína para tu frontera",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — proteína para tu frontera",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — proteína para tu frontera",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using. — proteína para tu frontera",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — proteína para tu frontera"
+          "PREHEAT oven to 400°F and line a baking sheet with parchment paper. — proteína para tu frontera",
+          "IN a large bowl, combine Kodiak Cakes mix and cold butter. Use your fingers to press and rub the butter into the mix until it forms small crumbs, with pieces about the size of peas.",
+          "IN a separate bowl, whisk together eggs, Greek yogurt, and maple syrup until smooth.",
+          "ADD wet ingredients to the dry ingredients and combine until a rough, slightly sticky dough forms. Gently fold in frozen berries (careful to not thaw them) and lemon zest. If the dough feels dry, add 1–2 tablespoons milk until it comes together.",
+          "TURN dough onto a lightly floured surface, and gently pat into a round about 1-inch thick (about the height of two stacked fingers). Cut into 12 wedges and slightly separate them on the prepared baking sheet. Light brush tops with milk.",
+          "BAKE for 15–20 minutes, until tops are lightly golden and centers feel set. Let cool slightly before serving. — proteína para tu frontera",
+          "STORE in an airtight container in the refrigerator for up to 4–5 days. Reheat in oven at 350°F for 5–8 minutes until warmed through. — proteína para tu frontera"
         ],
-        "title": "Tropical Protein Pancakes — proteína para tu frontera",
+        "title": "Triple Berry Yogurt Scones — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:2",
             "ingredient:3",
-            "ingredient:4",
-            "step:2"
+            "ingredient:8",
+            "step:2",
+            "step:3",
+            "step:4",
+            "step:5"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -50003,76 +49648,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para sua fronteira"
+            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "6 tablespoons butter, cold and cubed (or shredded)"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 cup Greek yogurt — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip: — proteína para sua fronteira"
+            "qty_name": "1/4 cup maple syrup — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — proteína para sua fronteira"
+            "qty_name": "1/2 cup frozen mixed berries — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — proteína para sua fronteira"
+            "qty_name": "1 tablespoon lemon zest — proteína para sua fronteira"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup diced pineapple — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — proteína para sua fronteira"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — proteína para sua fronteira"
+            "qty_name": "1 tablespoon whole milk"
           }
         ],
         "meta": {
-          "cook": "10 — proteína para sua fronteira",
-          "prep": "10 — proteína para sua fronteira",
-          "serves": "1 — proteína para sua fronteira"
+          "cook": "20 — proteína para sua fronteira",
+          "prep": "20 — proteína para sua fronteira",
+          "serves": "12 — proteína para sua fronteira"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — proteína para sua fronteira",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — proteína para sua fronteira",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — proteína para sua fronteira",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — proteína para sua fronteira",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — proteína para sua fronteira",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using. — proteína para sua fronteira",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — proteína para sua fronteira"
+          "PREHEAT oven to 400°F and line a baking sheet with parchment paper. — proteína para sua fronteira",
+          "IN a large bowl, combine Kodiak Cakes mix and cold butter. Use your fingers to press and rub the butter into the mix until it forms small crumbs, with pieces about the size of peas.",
+          "IN a separate bowl, whisk together eggs, Greek yogurt, and maple syrup until smooth.",
+          "ADD wet ingredients to the dry ingredients and combine until a rough, slightly sticky dough forms. Gently fold in frozen berries (careful to not thaw them) and lemon zest. If the dough feels dry, add 1–2 tablespoons milk until it comes together.",
+          "TURN dough onto a lightly floured surface, and gently pat into a round about 1-inch thick (about the height of two stacked fingers). Cut into 12 wedges and slightly separate them on the prepared baking sheet. Light brush tops with milk.",
+          "BAKE for 15–20 minutes, until tops are lightly golden and centers feel set. Let cool slightly before serving. — proteína para sua fronteira",
+          "STORE in an airtight container in the refrigerator for up to 4–5 days. Reheat in oven at 350°F for 5–8 minutes until warmed through. — proteína para sua fronteira"
         ],
-        "title": "Tropical Protein Pancakes — proteína para sua fronteira",
+        "title": "Triple Berry Yogurt Scones — proteína para sua fronteira",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:2",
             "ingredient:3",
-            "ingredient:4",
-            "step:2"
+            "ingredient:8",
+            "step:2",
+            "step:3",
+            "step:4",
+            "step:5"
           ],
           "human_reviewed": false,
           "lang": "pt",
@@ -65519,88 +65150,86 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "12 tablespoons (3/4 cup) butter, softened"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — proteína para tu frontera"
+            "qty_name": "1 cup brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — proteína para tu frontera"
+            "qty_name": "3 eggs"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1/4 teaspoon almond extract"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+            "qty_name": "1-1/2 teaspoons vanilla, divided — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
+            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — proteína para tu frontera"
+            "qty_name": "3 cups frozen cherries, halved — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — proteína para tu frontera"
+            "qty_name": "2 tablespoons cornstarch — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — proteína para tu frontera"
+            "qty_name": "Juice of 1/2 lemon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
+            "qty_name": "1/4 cup maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 lb powdered sugar — proteína para tu frontera"
+            "qty_name": "1 cup powdered sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup white chocolate chips — proteína para tu frontera"
+            "qty_name": "1/4 teaspoon vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup heavy cream — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — proteína para tu frontera"
+            "qty_name": "2-3 tablespoons water — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "35 — proteína para tu frontera",
-          "prep": "30 — proteína para tu frontera",
-          "serves": "16 — proteína para tu frontera"
+          "cook": "35 mins — proteína para tu frontera",
+          "prep": "20 mins — proteína para tu frontera",
+          "serves": "15 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — proteína para tu frontera",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — proteína para tu frontera",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — proteína para tu frontera",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — proteína para tu frontera",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — proteína para tu frontera",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — proteína para tu frontera",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — proteína para tu frontera",
-          "TOP cake with fresh raspberries. — proteína para tu frontera",
-          "STORE cake in an airtight container in the refrigerator. — proteína para tu frontera"
+          "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper. — proteína para tu frontera",
+          "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+          "BEAT in the eggs, one at a time.",
+          "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes. — proteína para tu frontera",
+          "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes. — proteína para tu frontera",
+          "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat. — proteína para tu frontera",
+          "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly. — proteína para tu frontera",
+          "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top. — proteína para tu frontera",
+          "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown. — proteína para tu frontera",
+          "REMOVE from oven and let cool. — proteína para tu frontera",
+          "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing. — proteína para tu frontera",
+          "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices. — proteína para tu frontera",
+          "STORE in an airtight container. — proteína para tu frontera"
         ],
-        "title": "White Chocolate Raspberry Cake — proteína para tu frontera",
+        "title": "Cherry Pie Bars — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
+            "ingredient:1",
+            "ingredient:3",
             "ingredient:4",
-            "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "step:2",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -65614,88 +65243,86 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — pwoteyin pou fwontyè ou"
+            "qty_name": "12 tablespoons (3/4 cup) butter, softened"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — pwoteyin pou fwontyè ou"
+            "qty_name": "1 cup brown sugar — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — pwoteyin pou fwontyè ou"
+            "qty_name": "3 eggs"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1/4 teaspoon almond extract"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — pwoteyin pou fwontyè ou"
+            "qty_name": "1-1/2 teaspoons vanilla, divided — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
+            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — pwoteyin pou fwontyè ou"
+            "qty_name": "3 cups frozen cherries, halved — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — pwoteyin pou fwontyè ou"
+            "qty_name": "2 tablespoons cornstarch — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — pwoteyin pou fwontyè ou"
+            "qty_name": "Juice of 1/2 lemon — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
+            "qty_name": "1/4 cup maple syrup — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1 lb powdered sugar — pwoteyin pou fwontyè ou"
+            "qty_name": "1 cup powdered sugar — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1 cup white chocolate chips — pwoteyin pou fwontyè ou"
+            "qty_name": "1/4 teaspoon vanilla extract — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup heavy cream — pwoteyin pou fwontyè ou"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — pwoteyin pou fwontyè ou"
+            "qty_name": "2-3 tablespoons water — pwoteyin pou fwontyè ou"
           }
         ],
         "meta": {
-          "cook": "35 — pwoteyin pou fwontyè ou",
-          "prep": "30 — pwoteyin pou fwontyè ou",
-          "serves": "16 — pwoteyin pou fwontyè ou"
+          "cook": "35 mins — pwoteyin pou fwontyè ou",
+          "prep": "20 mins — pwoteyin pou fwontyè ou",
+          "serves": "15 — pwoteyin pou fwontyè ou"
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — pwoteyin pou fwontyè ou",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — pwoteyin pou fwontyè ou",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — pwoteyin pou fwontyè ou",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — pwoteyin pou fwontyè ou",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — pwoteyin pou fwontyè ou",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — pwoteyin pou fwontyè ou",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — pwoteyin pou fwontyè ou",
-          "TOP cake with fresh raspberries. — pwoteyin pou fwontyè ou",
-          "STORE cake in an airtight container in the refrigerator. — pwoteyin pou fwontyè ou"
+          "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper. — pwoteyin pou fwontyè ou",
+          "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+          "BEAT in the eggs, one at a time.",
+          "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes. — pwoteyin pou fwontyè ou",
+          "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes. — pwoteyin pou fwontyè ou",
+          "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat. — pwoteyin pou fwontyè ou",
+          "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly. — pwoteyin pou fwontyè ou",
+          "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top. — pwoteyin pou fwontyè ou",
+          "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown. — pwoteyin pou fwontyè ou",
+          "REMOVE from oven and let cool. — pwoteyin pou fwontyè ou",
+          "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing. — pwoteyin pou fwontyè ou",
+          "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices. — pwoteyin pou fwontyè ou",
+          "STORE in an airtight container. — pwoteyin pou fwontyè ou"
         ],
-        "title": "White Chocolate Raspberry Cake — pwoteyin pou fwontyè ou",
+        "title": "Cherry Pie Bars — pwoteyin pou fwontyè ou",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
+            "ingredient:1",
+            "ingredient:3",
             "ingredient:4",
-            "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "step:2",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "ht",
@@ -73905,79 +73532,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — بروتين لحدودك"
+            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "6 tablespoons butter, cold and cubed (or shredded)"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 cup Greek yogurt — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1/4 cup maple syrup — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — بروتين لحدودك"
+            "qty_name": "1/2 cup frozen mixed berries — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — بروتين لحدودك"
+            "qty_name": "1 tablespoon lemon zest — بروتين لحدودك"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — بروتين لحدودك"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup diced pineapple — بروتين لحدودك"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — بروتين لحدودك"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — بروتين لحدودك"
+            "qty_name": "1 tablespoon whole milk"
           }
         ],
         "meta": {
-          "cook": "10 — بروتين لحدودك",
-          "prep": "10 — بروتين لحدودك",
-          "serves": "1 — بروتين لحدودك"
+          "cook": "20 — بروتين لحدودك",
+          "prep": "20 — بروتين لحدودك",
+          "serves": "12 — بروتين لحدودك"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — بروتين لحدودك",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — بروتين لحدودك",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — بروتين لحدودك",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — بروتين لحدودك",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — بروتين لحدودك",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — بروتين لحدودك"
+          "PREHEAT oven to 400°F and line a baking sheet with parchment paper. — بروتين لحدودك",
+          "IN a large bowl, combine Kodiak Cakes mix and cold butter. Use your fingers to press and rub the butter into the mix until it forms small crumbs, with pieces about the size of peas.",
+          "IN a separate bowl, whisk together eggs, Greek yogurt, and maple syrup until smooth.",
+          "ADD wet ingredients to the dry ingredients and combine until a rough, slightly sticky dough forms. Gently fold in frozen berries (careful to not thaw them) and lemon zest. If the dough feels dry, add 1–2 tablespoons milk until it comes together.",
+          "TURN dough onto a lightly floured surface, and gently pat into a round about 1-inch thick (about the height of two stacked fingers). Cut into 12 wedges and slightly separate them on the prepared baking sheet. Light brush tops with milk.",
+          "BAKE for 15–20 minutes, until tops are lightly golden and centers feel set. Let cool slightly before serving. — بروتين لحدودك",
+          "STORE in an airtight container in the refrigerator for up to 4–5 days. Reheat in oven at 350°F for 5–8 minutes until warmed through. — بروتين لحدودك"
         ],
-        "title": "Tropical Protein Pancakes — بروتين لحدودك",
+        "title": "Triple Berry Yogurt Scones — بروتين لحدودك",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:2",
             "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
+            "ingredient:8",
             "step:2",
-            "step:7"
+            "step:3",
+            "step:4",
+            "step:5"
           ],
           "human_reviewed": false,
           "lang": "ar",
@@ -73991,76 +73601,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "6 tablespoons butter, cold and cubed (or shredded)"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 cup Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip: — proteína para tu frontera"
+            "qty_name": "1/4 cup maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
+            "qty_name": "1/2 cup frozen mixed berries — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — proteína para tu frontera"
+            "qty_name": "1 tablespoon lemon zest — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup diced pineapple — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — proteína para tu frontera"
+            "qty_name": "1 tablespoon whole milk"
           }
         ],
         "meta": {
-          "cook": "10 — proteína para tu frontera",
-          "prep": "10 — proteína para tu frontera",
-          "serves": "1 — proteína para tu frontera"
+          "cook": "20 — proteína para tu frontera",
+          "prep": "20 — proteína para tu frontera",
+          "serves": "12 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — proteína para tu frontera",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — proteína para tu frontera",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — proteína para tu frontera",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — proteína para tu frontera",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — proteína para tu frontera",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using. — proteína para tu frontera",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — proteína para tu frontera"
+          "PREHEAT oven to 400°F and line a baking sheet with parchment paper. — proteína para tu frontera",
+          "IN a large bowl, combine Kodiak Cakes mix and cold butter. Use your fingers to press and rub the butter into the mix until it forms small crumbs, with pieces about the size of peas.",
+          "IN a separate bowl, whisk together eggs, Greek yogurt, and maple syrup until smooth.",
+          "ADD wet ingredients to the dry ingredients and combine until a rough, slightly sticky dough forms. Gently fold in frozen berries (careful to not thaw them) and lemon zest. If the dough feels dry, add 1–2 tablespoons milk until it comes together.",
+          "TURN dough onto a lightly floured surface, and gently pat into a round about 1-inch thick (about the height of two stacked fingers). Cut into 12 wedges and slightly separate them on the prepared baking sheet. Light brush tops with milk.",
+          "BAKE for 15–20 minutes, until tops are lightly golden and centers feel set. Let cool slightly before serving. — proteína para tu frontera",
+          "STORE in an airtight container in the refrigerator for up to 4–5 days. Reheat in oven at 350°F for 5–8 minutes until warmed through. — proteína para tu frontera"
         ],
-        "title": "Tropical Protein Pancakes — proteína para tu frontera",
+        "title": "Triple Berry Yogurt Scones — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:2",
             "ingredient:3",
-            "ingredient:4",
-            "step:2"
+            "ingredient:8",
+            "step:2",
+            "step:3",
+            "step:4",
+            "step:5"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -75106,19 +74702,35 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — proteína para tu frontera"
+            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — proteína para tu frontera"
+            "qty_name": "1/2 cup brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin purée — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sour cream — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk"
           },
           {
             "price": null,
@@ -75126,68 +74738,29 @@ window.KODIAK_RECIPE_I18N = {
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — proteína para tu frontera"
+            "qty_name": "Pepitas, to top — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "35 — proteína para tu frontera",
-          "prep": "30 — proteína para tu frontera",
-          "serves": "16 — proteína para tu frontera"
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — proteína para tu frontera",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — proteína para tu frontera",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — proteína para tu frontera",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — proteína para tu frontera",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — proteína para tu frontera",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — proteína para tu frontera",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — proteína para tu frontera",
-          "TOP cake with fresh raspberries. — proteína para tu frontera",
-          "STORE cake in an airtight container in the refrigerator. — proteína para tu frontera"
+          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — proteína para tu frontera",
+          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — proteína para tu frontera",
+          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — proteína para tu frontera",
+          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — proteína para tu frontera",
+          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — proteína para tu frontera"
         ],
-        "title": "White Chocolate Raspberry Cake — proteína para tu frontera",
+        "title": "Pumpkin Oat Muffins — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:4",
-            "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "ingredient:8",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -75201,19 +74774,35 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
+            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — protein cho biên cương của bạn"
+            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — protein cho biên cương của bạn"
+            "qty_name": "1/2 cup brown sugar — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin purée — protein cho biên cương của bạn"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sour cream — protein cho biên cương của bạn"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — protein cho biên cương của bạn"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk"
           },
           {
             "price": null,
@@ -75221,68 +74810,29 @@ window.KODIAK_RECIPE_I18N = {
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — protein cho biên cương của bạn"
+            "qty_name": "Pepitas, to top — protein cho biên cương của bạn"
           }
         ],
         "meta": {
-          "cook": "35 — protein cho biên cương của bạn",
-          "prep": "30 — protein cho biên cương của bạn",
-          "serves": "16 — protein cho biên cương của bạn"
+          "cook": "15 mins — protein cho biên cương của bạn",
+          "prep": "10 mins — protein cho biên cương của bạn",
+          "serves": "12 — protein cho biên cương của bạn"
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — protein cho biên cương của bạn",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — protein cho biên cương của bạn",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — protein cho biên cương của bạn",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — protein cho biên cương của bạn",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — protein cho biên cương của bạn",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — protein cho biên cương của bạn",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — protein cho biên cương của bạn",
-          "TOP cake with fresh raspberries. — protein cho biên cương của bạn",
-          "STORE cake in an airtight container in the refrigerator. — protein cho biên cương của bạn"
+          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — protein cho biên cương của bạn",
+          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — protein cho biên cương của bạn",
+          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — protein cho biên cương của bạn",
+          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — protein cho biên cương của bạn",
+          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — protein cho biên cương của bạn"
         ],
-        "title": "White Chocolate Raspberry Cake — protein cho biên cương của bạn",
+        "title": "Pumpkin Oat Muffins — protein cho biên cương của bạn",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
             "ingredient:4",
-            "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "ingredient:8",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "vi",
@@ -77499,92 +77049,50 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 (14.75-oz) can salmon, drained — proteína para tu frontera"
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 scallions, thinly sliced — proteína para tu frontera"
+            "qty_name": "2 cups shredded radishes — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1/4 cup sliced scallion — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
+            "qty_name": "1 teaspoon salt, divided — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon Dijon mustard — proteína para tu frontera"
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon chopped fresh dill — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon fresh lemon juice — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Salt, to taste — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Freshly ground black pepper, to taste — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "2 tablespoons olive oil (for cooking) — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 small clove garlic, finely minced — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 squeeze fresh lemon juice — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch of salt — proteína para tu frontera"
+            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "8 — proteína para tu frontera",
-          "prep": "10 — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "cook": "12 mins — proteína para tu frontera",
+          "prep": "20 mins — proteína para tu frontera",
+          "serves": "12 fritters — proteína para tu frontera"
         },
         "steps": [
-          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
-          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — proteína para tu frontera",
-          "FORM the mixture into 4–5 evenly sized patties. — proteína para tu frontera",
-          "HEAT the olive oil in a large skillet over medium heat. — proteína para tu frontera",
-          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — proteína para tu frontera",
-          "TRANSFER the patties to a plate lined with paper towels. — proteína para tu frontera",
-          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — proteína para tu frontera",
-          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
+          "TOSS the shredded radishes with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — proteína para tu frontera",
+          "WHISK the mix, eggs, scallion, remaining salt, and pepper into a batter and fold in the radishes.",
+          "FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden. — proteína para tu frontera",
+          "DRAIN on a rack and serve hot. — proteína para tu frontera"
         ],
-        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — proteína para tu frontera",
+        "title": "Skillet Radish Fritters — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:3",
-            "ingredient:12",
-            "step:1",
-            "step:8"
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -77598,92 +77106,50 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 (14.75-oz) can salmon, drained — atsʼíís bá áłchíní bighan"
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
-            "qty_name": "2 scallions, thinly sliced — atsʼíís bá áłchíní bighan"
+            "qty_name": "2 cups shredded radishes — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+            "qty_name": "1/4 cup sliced scallion — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — atsʼíís bá áłchíní bighan"
+            "qty_name": "1 teaspoon salt, divided — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon Dijon mustard — atsʼíís bá áłchíní bighan"
+            "qty_name": "1/2 teaspoon black pepper — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon chopped fresh dill — atsʼíís bá áłchíní bighan"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon fresh lemon juice — atsʼíís bá áłchíní bighan"
-          },
-          {
-            "price": null,
-            "qty_name": "Salt, to taste — atsʼíís bá áłchíní bighan"
-          },
-          {
-            "price": null,
-            "qty_name": "Freshly ground black pepper, to taste — atsʼíís bá áłchíní bighan"
-          },
-          {
-            "price": null,
-            "qty_name": "2 tablespoons olive oil (for cooking) — atsʼíís bá áłchíní bighan"
-          },
-          {
-            "price": null,
-            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — atsʼíís bá áłchíní bighan"
-          },
-          {
-            "price": null,
-            "qty_name": "1 small clove garlic, finely minced — atsʼíís bá áłchíní bighan"
-          },
-          {
-            "price": null,
-            "qty_name": "1 squeeze fresh lemon juice — atsʼíís bá áłchíní bighan"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch of salt — atsʼíís bá áłchíní bighan"
+            "qty_name": "3 tablespoons neutral oil, for frying — atsʼíís bá áłchíní bighan"
           }
         ],
         "meta": {
-          "cook": "8 — atsʼíís bá áłchíní bighan",
-          "prep": "10 — atsʼíís bá áłchíní bighan",
-          "serves": "4 — atsʼíís bá áłchíní bighan"
+          "cook": "12 mins — atsʼíís bá áłchíní bighan",
+          "prep": "20 mins — atsʼíís bá áłchíní bighan",
+          "serves": "12 fritters — atsʼíís bá áłchíní bighan"
         },
         "steps": [
-          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
-          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — atsʼíís bá áłchíní bighan",
-          "FORM the mixture into 4–5 evenly sized patties. — atsʼíís bá áłchíní bighan",
-          "HEAT the olive oil in a large skillet over medium heat. — atsʼíís bá áłchíní bighan",
-          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — atsʼíís bá áłchíní bighan",
-          "TRANSFER the patties to a plate lined with paper towels. — atsʼíís bá áłchíní bighan",
-          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — atsʼíís bá áłchíní bighan",
-          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
+          "TOSS the shredded radishes with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — atsʼíís bá áłchíní bighan",
+          "WHISK the mix, eggs, scallion, remaining salt, and pepper into a batter and fold in the radishes.",
+          "FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden. — atsʼíís bá áłchíní bighan",
+          "DRAIN on a rack and serve hot. — atsʼíís bá áłchíní bighan"
         ],
-        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — atsʼíís bá áłchíní bighan",
+        "title": "Skillet Radish Fritters — atsʼíís bá áłchíní bighan",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
             "ingredient:3",
-            "ingredient:12",
-            "step:1",
-            "step:8"
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "nv",
@@ -79097,70 +78563,53 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Apple Cinnamon Compote — Protein für deine Frontier"
+            "qty_name": "1 cup frozen mixed berries — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1-1/2 pounds apples — Protein für deine Frontier"
+            "qty_name": "1 teaspoon chia seeds — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1-1/4 cup water — Protein für deine Frontier"
+            "qty_name": "1 tablespoon honey"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon brown sugar — Protein für deine Frontier"
+            "qty_name": "1 packet Kodiak Maple Pecan Overnight Oats"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup plus 1 tablespoon honey"
+            "qty_name": "1 tablespoon Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon cinnamon — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
-          },
-          {
-            "price": null,
-            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "1 1/2 cup water — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "4 teaspoons honey"
-          },
-          {
-            "price": null,
-            "qty_name": "4 tablespoons unsalted butter"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — Protein für deine Frontier"
+            "qty_name": "2 tablespoons butter, cut into small pieces"
           }
         ],
         "meta": {
-          "cook": "35 mins — Protein für deine Frontier",
-          "prep": "20 mins — Protein für deine Frontier",
-          "serves": "4 — Protein für deine Frontier"
+          "cook": "30 — Protein für deine Frontier",
+          "prep": "5 — Protein für deine Frontier",
+          "serves": "1 — Protein für deine Frontier"
         },
         "steps": [
-          "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
+          "PREHEAT the oven to 350° F. Place the frozen berries in a single-serve sized oven-safe bowl and toss with the chia seeds. — Protein für deine Frontier",
+          "DRIZZLE the honey evenly over the berries.",
+          "IN a small mixing bowl, combine the contents of the overnight oats packet with the power cakes mix and stir to combine. — Protein für deine Frontier",
+          "ADD the butter pieces to the bowl and cut in with a pastry cutter, fork, or your fingers, blending until the mixture resembles coarse crumbles.",
+          "TOP the berry mixture with the crumble mixture, spreading the crumbles evenly over the berries. — Protein für deine Frontier",
+          "PLACE the crumble on a baking sheet and bake in the preheated oven for 25-30 minutes, or until crumble is golden brown, and the berry mixture is bubbling. — Protein für deine Frontier",
+          "REMOVE the crumble from the oven and let cool slightly. — Protein für deine Frontier",
+          "SERVE crumble warm. Top with vanilla yogurt or ice cream, if desired! — Protein für deine Frontier"
         ],
-        "title": "Apple Cinnamon Compote — Protein für deine Frontier",
+        "title": "Single-Serve Mixed Berry Crumble — Protein für deine Frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:5",
-            "ingredient:7",
-            "ingredient:10",
-            "ingredient:11",
-            "step:1"
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:6",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "de",
@@ -79174,70 +78623,53 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "Apple Cinnamon Compote — proteína para tu frontera"
+            "qty_name": "1 cup frozen mixed berries — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1-1/2 pounds apples — proteína para tu frontera"
+            "qty_name": "1 teaspoon chia seeds — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1-1/4 cup water — proteína para tu frontera"
+            "qty_name": "1 tablespoon honey"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon brown sugar — proteína para tu frontera"
+            "qty_name": "1 packet Kodiak Maple Pecan Overnight Oats"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup plus 1 tablespoon honey"
+            "qty_name": "1 tablespoon Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon lemon juice\r\n\r\n\r\n \r\n\r\nButtermilk & Honey Flapjacks"
-          },
-          {
-            "price": null,
-            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 1/2 cup water — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "4 teaspoons honey"
-          },
-          {
-            "price": null,
-            "qty_name": "4 tablespoons unsalted butter"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — proteína para tu frontera"
+            "qty_name": "2 tablespoons butter, cut into small pieces"
           }
         ],
         "meta": {
-          "cook": "35 mins — proteína para tu frontera",
-          "prep": "20 mins — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "cook": "30 — proteína para tu frontera",
+          "prep": "5 — proteína para tu frontera",
+          "serves": "1 — proteína para tu frontera"
         },
         "steps": [
-          "APPLE Cinnamon Compote Peel and core apples then cut them into eighths. Place them in a shallow wide saucepan with ¼ cup of water, brown sugar, 1 tablespoon of honey, and cinnamon over medium heat. Bring to a boil then reduce heat to low. Simmer and stir until apples are soft and fragrant (about 10 minutes). Add the remaining 1 cup of water and ½ cup of honey, raise to medium heat, and stir to combine. Bring mixture to a boil and continue cooking for 20-25 minutes or until the apples have turned golden and syrup has thickened. Stir in the lemon juice. Buttermilk & Honey Flapjacks Combine Kodiak Cakes Buttermilk Power Cakes Mix, water, honey, and cinnamon. Heat a griddle or skillet over medium-high heat with ½ tablespoon of butter. Add ¼ cup of the flapjack batter to the skillet and cook until bubbles form on top and the bottom is golden. Then flip and cook on the other side until golden. Set aside the cooked flapjacks and add another ½ tablespoon of butter to the skillet. Once the skillet is hot, add another ¼ cup of the flapjack batter to the pan and repeat process until you’ve made 8 flapjacks (using all the batter). Serve the flapjacks with apple compote on tip, and maple syrup for drizzling."
+          "PREHEAT the oven to 350° F. Place the frozen berries in a single-serve sized oven-safe bowl and toss with the chia seeds. — proteína para tu frontera",
+          "DRIZZLE the honey evenly over the berries.",
+          "IN a small mixing bowl, combine the contents of the overnight oats packet with the power cakes mix and stir to combine. — proteína para tu frontera",
+          "ADD the butter pieces to the bowl and cut in with a pastry cutter, fork, or your fingers, blending until the mixture resembles coarse crumbles.",
+          "TOP the berry mixture with the crumble mixture, spreading the crumbles evenly over the berries. — proteína para tu frontera",
+          "PLACE the crumble on a baking sheet and bake in the preheated oven for 25-30 minutes, or until crumble is golden brown, and the berry mixture is bubbling. — proteína para tu frontera",
+          "REMOVE the crumble from the oven and let cool slightly. — proteína para tu frontera",
+          "SERVE crumble warm. Top with vanilla yogurt or ice cream, if desired! — proteína para tu frontera"
         ],
-        "title": "Apple Cinnamon Compote — proteína para tu frontera",
+        "title": "Single-Serve Mixed Berry Crumble — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:5",
-            "ingredient:7",
-            "ingredient:10",
-            "ingredient:11",
-            "step:1"
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:6",
+            "step:2",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -79501,92 +78933,50 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 (14.75-oz) can salmon, drained — Protein für deine Frontier"
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "2 scallions, thinly sliced — Protein für deine Frontier"
+            "qty_name": "2 cups shredded radishes — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+            "qty_name": "1/4 cup sliced scallion — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — Protein für deine Frontier"
+            "qty_name": "1 teaspoon salt, divided — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon Dijon mustard — Protein für deine Frontier"
+            "qty_name": "1/2 teaspoon black pepper — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon chopped fresh dill — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon fresh lemon juice — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "Salt, to taste — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "Freshly ground black pepper, to taste — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "2 tablespoons olive oil (for cooking) — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "1 small clove garlic, finely minced — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "1 squeeze fresh lemon juice — Protein für deine Frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch of salt — Protein für deine Frontier"
+            "qty_name": "3 tablespoons neutral oil, for frying — Protein für deine Frontier"
           }
         ],
         "meta": {
-          "cook": "8 — Protein für deine Frontier",
-          "prep": "10 — Protein für deine Frontier",
-          "serves": "4 — Protein für deine Frontier"
+          "cook": "12 mins — Protein für deine Frontier",
+          "prep": "20 mins — Protein für deine Frontier",
+          "serves": "12 fritters — Protein für deine Frontier"
         },
         "steps": [
-          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
-          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — Protein für deine Frontier",
-          "FORM the mixture into 4–5 evenly sized patties. — Protein für deine Frontier",
-          "HEAT the olive oil in a large skillet over medium heat. — Protein für deine Frontier",
-          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — Protein für deine Frontier",
-          "TRANSFER the patties to a plate lined with paper towels. — Protein für deine Frontier",
-          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — Protein für deine Frontier",
-          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
+          "TOSS the shredded radishes with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — Protein für deine Frontier",
+          "WHISK the mix, eggs, scallion, remaining salt, and pepper into a batter and fold in the radishes.",
+          "FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden. — Protein für deine Frontier",
+          "DRAIN on a rack and serve hot. — Protein für deine Frontier"
         ],
-        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — Protein für deine Frontier",
+        "title": "Skillet Radish Fritters — Protein für deine Frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
             "ingredient:3",
-            "ingredient:12",
-            "step:1",
-            "step:8"
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "de",
@@ -79600,92 +78990,50 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 (14.75-oz) can salmon, drained — proteína para tu frontera"
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 scallions, thinly sliced — proteína para tu frontera"
+            "qty_name": "2 cups shredded radishes — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1/4 cup sliced scallion — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
+            "qty_name": "1 teaspoon salt, divided — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon Dijon mustard — proteína para tu frontera"
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon chopped fresh dill — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon fresh lemon juice — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Salt, to taste — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Freshly ground black pepper, to taste — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "2 tablespoons olive oil (for cooking) — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
-          },
-          {
-            "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 small clove garlic, finely minced — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 squeeze fresh lemon juice — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch of salt — proteína para tu frontera"
+            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "8 — proteína para tu frontera",
-          "prep": "10 — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "cook": "12 mins — proteína para tu frontera",
+          "prep": "20 mins — proteína para tu frontera",
+          "serves": "12 fritters — proteína para tu frontera"
         },
         "steps": [
-          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
-          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — proteína para tu frontera",
-          "FORM the mixture into 4–5 evenly sized patties. — proteína para tu frontera",
-          "HEAT the olive oil in a large skillet over medium heat. — proteína para tu frontera",
-          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — proteína para tu frontera",
-          "TRANSFER the patties to a plate lined with paper towels. — proteína para tu frontera",
-          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — proteína para tu frontera",
-          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
+          "TOSS the shredded radishes with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry. — proteína para tu frontera",
+          "WHISK the mix, eggs, scallion, remaining salt, and pepper into a batter and fold in the radishes.",
+          "FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden. — proteína para tu frontera",
+          "DRAIN on a rack and serve hot. — proteína para tu frontera"
         ],
-        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — proteína para tu frontera",
+        "title": "Skillet Radish Fritters — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:3",
-            "ingredient:12",
-            "step:1",
-            "step:8"
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -93181,76 +92529,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "6 tablespoons butter, cold and cubed (or shredded)"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 cup Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip: — proteína para tu frontera"
+            "qty_name": "1/4 cup maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
+            "qty_name": "1/2 cup frozen mixed berries — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — proteína para tu frontera"
+            "qty_name": "1 tablespoon lemon zest — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup diced pineapple — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — proteína para tu frontera"
+            "qty_name": "1 tablespoon whole milk"
           }
         ],
         "meta": {
-          "cook": "10 — proteína para tu frontera",
-          "prep": "10 — proteína para tu frontera",
-          "serves": "1 — proteína para tu frontera"
+          "cook": "20 — proteína para tu frontera",
+          "prep": "20 — proteína para tu frontera",
+          "serves": "12 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — proteína para tu frontera",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — proteína para tu frontera",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — proteína para tu frontera",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — proteína para tu frontera",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — proteína para tu frontera",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using. — proteína para tu frontera",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — proteína para tu frontera"
+          "PREHEAT oven to 400°F and line a baking sheet with parchment paper. — proteína para tu frontera",
+          "IN a large bowl, combine Kodiak Cakes mix and cold butter. Use your fingers to press and rub the butter into the mix until it forms small crumbs, with pieces about the size of peas.",
+          "IN a separate bowl, whisk together eggs, Greek yogurt, and maple syrup until smooth.",
+          "ADD wet ingredients to the dry ingredients and combine until a rough, slightly sticky dough forms. Gently fold in frozen berries (careful to not thaw them) and lemon zest. If the dough feels dry, add 1–2 tablespoons milk until it comes together.",
+          "TURN dough onto a lightly floured surface, and gently pat into a round about 1-inch thick (about the height of two stacked fingers). Cut into 12 wedges and slightly separate them on the prepared baking sheet. Light brush tops with milk.",
+          "BAKE for 15–20 minutes, until tops are lightly golden and centers feel set. Let cool slightly before serving. — proteína para tu frontera",
+          "STORE in an airtight container in the refrigerator for up to 4–5 days. Reheat in oven at 350°F for 5–8 minutes until warmed through. — proteína para tu frontera"
         ],
-        "title": "Tropical Protein Pancakes — proteína para tu frontera",
+        "title": "Triple Berry Yogurt Scones — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:2",
             "ingredient:3",
-            "ingredient:4",
-            "step:2"
+            "ingredient:8",
+            "step:2",
+            "step:3",
+            "step:4",
+            "step:5"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -93264,79 +92598,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para sa iyong frontier"
+            "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "6 tablespoons butter, cold and cubed (or shredded)"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "2 eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 cup Greek yogurt — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1/4 cup maple syrup — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — protina para sa iyong frontier"
+            "qty_name": "1/2 cup frozen mixed berries — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon lemon zest — protina para sa iyong frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — protina para sa iyong frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup diced pineapple — protina para sa iyong frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — protina para sa iyong frontier"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — protina para sa iyong frontier"
+            "qty_name": "1 tablespoon whole milk"
           }
         ],
         "meta": {
-          "cook": "10 — protina para sa iyong frontier",
-          "prep": "10 — protina para sa iyong frontier",
-          "serves": "1 — protina para sa iyong frontier"
+          "cook": "20 — protina para sa iyong frontier",
+          "prep": "20 — protina para sa iyong frontier",
+          "serves": "12 — protina para sa iyong frontier"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — protina para sa iyong frontier",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — protina para sa iyong frontier",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — protina para sa iyong frontier",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — protina para sa iyong frontier",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — protina para sa iyong frontier",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — protina para sa iyong frontier"
+          "PREHEAT oven to 400°F and line a baking sheet with parchment paper. — protina para sa iyong frontier",
+          "IN a large bowl, combine Kodiak Cakes mix and cold butter. Use your fingers to press and rub the butter into the mix until it forms small crumbs, with pieces about the size of peas.",
+          "IN a separate bowl, whisk together eggs, Greek yogurt, and maple syrup until smooth.",
+          "ADD wet ingredients to the dry ingredients and combine until a rough, slightly sticky dough forms. Gently fold in frozen berries (careful to not thaw them) and lemon zest. If the dough feels dry, add 1–2 tablespoons milk until it comes together.",
+          "TURN dough onto a lightly floured surface, and gently pat into a round about 1-inch thick (about the height of two stacked fingers). Cut into 12 wedges and slightly separate them on the prepared baking sheet. Light brush tops with milk.",
+          "BAKE for 15–20 minutes, until tops are lightly golden and centers feel set. Let cool slightly before serving. — protina para sa iyong frontier",
+          "STORE in an airtight container in the refrigerator for up to 4–5 days. Reheat in oven at 350°F for 5–8 minutes until warmed through. — protina para sa iyong frontier"
         ],
-        "title": "Tropical Protein Pancakes — protina para sa iyong frontier",
+        "title": "Triple Berry Yogurt Scones — protina para sa iyong frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
             "ingredient:2",
             "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
+            "ingredient:8",
             "step:2",
-            "step:7"
+            "step:3",
+            "step:4",
+            "step:5"
           ],
           "human_reviewed": false,
           "lang": "tl",
@@ -100974,19 +100291,35 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — proteína para tu frontera"
+            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — proteína para tu frontera"
+            "qty_name": "1/2 cup brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin purée — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sour cream — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk"
           },
           {
             "price": null,
@@ -100994,68 +100327,29 @@ window.KODIAK_RECIPE_I18N = {
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — proteína para tu frontera"
+            "qty_name": "Pepitas, to top — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "35 — proteína para tu frontera",
-          "prep": "30 — proteína para tu frontera",
-          "serves": "16 — proteína para tu frontera"
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 — proteína para tu frontera"
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — proteína para tu frontera",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — proteína para tu frontera",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — proteína para tu frontera",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — proteína para tu frontera",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — proteína para tu frontera",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — proteína para tu frontera",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — proteína para tu frontera",
-          "TOP cake with fresh raspberries. — proteína para tu frontera",
-          "STORE cake in an airtight container in the refrigerator. — proteína para tu frontera"
+          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — proteína para tu frontera",
+          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — proteína para tu frontera",
+          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — proteína para tu frontera",
+          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — proteína para tu frontera",
+          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — proteína para tu frontera"
         ],
-        "title": "White Chocolate Raspberry Cake — proteína para tu frontera",
+        "title": "Pumpkin Oat Muffins — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
             "ingredient:4",
-            "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "ingredient:8",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -101069,19 +100363,35 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
+            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — protein cho biên cương của bạn"
+            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — protein cho biên cương của bạn"
+            "qty_name": "1/2 cup brown sugar — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin purée — protein cho biên cương của bạn"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sour cream — protein cho biên cương của bạn"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — protein cho biên cương của bạn"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk"
           },
           {
             "price": null,
@@ -101089,68 +100399,29 @@ window.KODIAK_RECIPE_I18N = {
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — protein cho biên cương của bạn"
+            "qty_name": "Pepitas, to top — protein cho biên cương của bạn"
           }
         ],
         "meta": {
-          "cook": "35 — protein cho biên cương của bạn",
-          "prep": "30 — protein cho biên cương của bạn",
-          "serves": "16 — protein cho biên cương của bạn"
+          "cook": "15 mins — protein cho biên cương của bạn",
+          "prep": "10 mins — protein cho biên cương của bạn",
+          "serves": "12 — protein cho biên cương của bạn"
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — protein cho biên cương của bạn",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — protein cho biên cương của bạn",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — protein cho biên cương của bạn",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — protein cho biên cương của bạn",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — protein cho biên cương của bạn",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — protein cho biên cương của bạn",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — protein cho biên cương của bạn",
-          "TOP cake with fresh raspberries. — protein cho biên cương của bạn",
-          "STORE cake in an airtight container in the refrigerator. — protein cho biên cương của bạn"
+          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — protein cho biên cương của bạn",
+          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — protein cho biên cương của bạn",
+          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — protein cho biên cương của bạn",
+          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — protein cho biên cương của bạn",
+          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — protein cho biên cương của bạn"
         ],
-        "title": "White Chocolate Raspberry Cake — protein cho biên cương của bạn",
+        "title": "Pumpkin Oat Muffins — protein cho biên cương của bạn",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
             "ingredient:4",
-            "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "ingredient:8",
+            "step:2"
           ],
           "human_reviewed": false,
           "lang": "vi",
@@ -104050,65 +103321,58 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister — proteína para tu frontera"
+            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 teaspoon cinnamon — proteína para tu frontera"
+            "qty_name": "1 cup nut milk"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon turmeric powder — proteína para tu frontera"
+            "qty_name": "1/4 cup chia seeds — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon ground ginger — proteína para tu frontera"
+            "qty_name": "1 tablespoon maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup water — proteína para tu frontera"
+            "qty_name": "1/2 cup berries of choice — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons fresh blueberries — proteína para tu frontera"
+            "qty_name": "1/4 cup walnuts — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon chopped walnuts — proteína para tu frontera"
+            "qty_name": "1/4 cup pumpkin seeds (pepitas) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon shelled pumpkin seeds — proteína para tu frontera"
+            "qty_name": "1 tablespoon ground flax seed — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon chia seed — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon nut butter"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, if desired — proteína para tu frontera"
+            "qty_name": "1/2 cup Kodiak Blueberry Vanilla Granola — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "2 mins — proteína para tu frontera",
-          "prep": "5 mins — proteína para tu frontera",
-          "serves": "1 — proteína para tu frontera"
+          "cook": null,
+          "prep": "60+ — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine. — proteína para tu frontera",
-          "STIR in the water and a microwave on high for 1.5 to 2 minutes. — proteína para tu frontera",
-          "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
+          "ADD the yogurt, nut milk, chia seeds, and maple syrup to a small mixing bowl. Whisk until smooth and let sit in the refrigerator for 1 hour to thicken.",
+          "ONCE the pudding has thickened, whisk again and divide between 2-4 small bowls. — proteína para tu frontera",
+          "LAYER between or top the pudding with the berries, walnuts, pumpkin seeds, flaxseed, and granola - evenly dividing between containers. — proteína para tu frontera",
+          "SERVE, or store covered in refrigerator. Will keep for several days in the refrigerator. *Pro-Tip: Prep your pudding before bed and let it sit in the refrigerator overnight. — proteína para tu frontera"
         ],
-        "title": "Anti-Inflammatory Oatmeal — proteína para tu frontera",
+        "title": "Berry Chia Pudding — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:10",
-            "step:3"
+            "ingredient:2",
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -104122,65 +103386,58 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister — 为你的边疆提供蛋白质"
+            "qty_name": "1/2 cup plain Greek yogurt — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/4 teaspoon cinnamon — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup nut milk"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon turmeric powder — 为你的边疆提供蛋白质"
+            "qty_name": "1/4 cup chia seeds — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/8 teaspoon ground ginger — 为你的边疆提供蛋白质"
+            "qty_name": "1 tablespoon maple syrup — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup water — 为你的边疆提供蛋白质"
+            "qty_name": "1/2 cup berries of choice — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons fresh blueberries — 为你的边疆提供蛋白质"
+            "qty_name": "1/4 cup walnuts — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon chopped walnuts — 为你的边疆提供蛋白质"
+            "qty_name": "1/4 cup pumpkin seeds (pepitas) — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon shelled pumpkin seeds — 为你的边疆提供蛋白质"
+            "qty_name": "1 tablespoon ground flax seed — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon chia seed — 为你的边疆提供蛋白质"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon nut butter"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, if desired — 为你的边疆提供蛋白质"
+            "qty_name": "1/2 cup Kodiak Blueberry Vanilla Granola — 为你的边疆提供蛋白质"
           }
         ],
         "meta": {
-          "cook": "2 mins — 为你的边疆提供蛋白质",
-          "prep": "5 mins — 为你的边疆提供蛋白质",
-          "serves": "1 — 为你的边疆提供蛋白质"
+          "cook": null,
+          "prep": "60+ — 为你的边疆提供蛋白质",
+          "serves": "4 — 为你的边疆提供蛋白质"
         },
         "steps": [
-          "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine. — 为你的边疆提供蛋白质",
-          "STIR in the water and a microwave on high for 1.5 to 2 minutes. — 为你的边疆提供蛋白质",
-          "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
+          "ADD the yogurt, nut milk, chia seeds, and maple syrup to a small mixing bowl. Whisk until smooth and let sit in the refrigerator for 1 hour to thicken.",
+          "ONCE the pudding has thickened, whisk again and divide between 2-4 small bowls. — 为你的边疆提供蛋白质",
+          "LAYER between or top the pudding with the berries, walnuts, pumpkin seeds, flaxseed, and granola - evenly dividing between containers. — 为你的边疆提供蛋白质",
+          "SERVE, or store covered in refrigerator. Will keep for several days in the refrigerator. *Pro-Tip: Prep your pudding before bed and let it sit in the refrigerator overnight. — 为你的边疆提供蛋白质"
         ],
-        "title": "Anti-Inflammatory Oatmeal — 为你的边疆提供蛋白质",
+        "title": "Berry Chia Pudding — 为你的边疆提供蛋白质",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:10",
-            "step:3"
+            "ingredient:2",
+            "step:1"
           ],
           "human_reviewed": false,
           "lang": "zh",
@@ -108604,88 +107861,56 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — proteína para tu frontera"
+            "qty_name": "1 1/2 cups diced firm pears — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — proteína para tu frontera"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+            "qty_name": "1/3 cup brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
+            "qty_name": "1/4 cup melted butter"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — proteína para tu frontera"
+            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — proteína para tu frontera"
+            "qty_name": "1/4 teaspoon nutmeg — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "35 — proteína para tu frontera",
-          "prep": "30 — proteína para tu frontera",
-          "serves": "16 — proteína para tu frontera"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — proteína para tu frontera",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — proteína para tu frontera",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — proteína para tu frontera",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — proteína para tu frontera",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — proteína para tu frontera",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — proteína para tu frontera",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — proteína para tu frontera",
-          "TOP cake with fresh raspberries. — proteína para tu frontera",
-          "STORE cake in an airtight container in the refrigerator. — proteína para tu frontera"
+          "HEAT the oven to 375F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg. — proteína para tu frontera",
+          "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+          "DIVIDE among the cups and bake 18-20 minutes, until golden and set. — proteína para tu frontera"
         ],
-        "title": "White Chocolate Raspberry Cake — proteína para tu frontera",
+        "title": "Pear Spice Muffins — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
+            "ingredient:3",
             "ingredient:4",
             "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -108699,88 +107924,56 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
+            "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon baking powder — protein cho biên cương của bạn"
+            "qty_name": "1 1/2 cups diced firm pears — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "1 cup granulated sugar — protein cho biên cương của bạn"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "3 large eggs, room temperature"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon vanilla extract — protein cho biên cương của bạn"
+            "qty_name": "1/3 cup brown sugar — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup butter, melted"
+            "qty_name": "1/4 cup melted butter"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup sour cream, room temperature — protein cho biên cương của bạn"
+            "qty_name": "1 teaspoon cinnamon — protein cho biên cương của bạn"
           },
           {
             "price": null,
-            "qty_name": "3/4 cup buttermilk, room temperature — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup Raspberries, slightly mashed\r\n\r\n\r\n \r\n\r\nFor the frosting: — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup (2 sticks) butter, room temperature"
-          },
-          {
-            "price": null,
-            "qty_name": "1 lb powdered sugar — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup white chocolate chips — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1/4 cup heavy cream — protein cho biên cương của bạn"
-          },
-          {
-            "price": null,
-            "qty_name": "1 cup raspberries, to top — protein cho biên cương của bạn"
+            "qty_name": "1/4 teaspoon nutmeg — protein cho biên cương của bạn"
           }
         ],
         "meta": {
-          "cook": "35 — protein cho biên cương của bạn",
-          "prep": "30 — protein cho biên cương của bạn",
-          "serves": "16 — protein cho biên cương của bạn"
+          "cook": null,
+          "prep": null,
+          "serves": null
         },
         "steps": [
-          "PREHEAT the oven to 350° F. Grease the sides of three 6” round cake pans and line each with parchment paper. — protein cho biên cương của bạn",
-          "ADD the Kodiak Cakes mix, baking powder, and sugar to a mixing bowl and whisk to combine. — protein cho biên cương của bạn",
-          "IN another bowl, add the eggs, vanilla, butter, sour cream, and buttermilk and mix until smooth.",
-          "ADD the wet ingredients to the dry ingredients and whisk together to form a smooth batter. Fold in the smashed raspberries. — protein cho biên cương của bạn",
-          "DIVIDE the batter evenly between the prepared cake pans and bake in the preheated oven for 25-30 minutes, or until a tester inserted into the center comes out clean. — protein cho biên cương của bạn",
-          "ALLOW the cakes to cool for 10 minutes, then run a knife around the edges and invert each round onto a wire rack to finish cooling. — protein cho biên cương của bạn",
-          "WHILE the cake layers are cooling, make the frosting: place the white chocolate chips in a microwave safe bowl and pour the heavy cream over the top. Microwave for 45 seconds, remove, and let sit for 30 seconds. Whisk until all of the chocolate melts and a smooth ganache forms. Set aside. — protein cho biên cương của bạn",
-          "PLACE the butter and half of the powdered sugar in a mixing bowl. Beat together to form a thick icing. Beat in half of the ganache mixture. Beat in the remaining powdered sugar, then the remaining ganache mixture until a smooth frosting forms.",
-          "FROST the cake with the white chocolate frosting, stacking each layer with frosting in between. — protein cho biên cương của bạn",
-          "TOP cake with fresh raspberries. — protein cho biên cương của bạn",
-          "STORE cake in an airtight container in the refrigerator. — protein cho biên cương của bạn"
+          "HEAT the oven to 375F and line a 12-cup muffin tin. — protein cho biên cương của bạn",
+          "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg. — protein cho biên cương của bạn",
+          "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
+          "DIVIDE among the cups and bake 18-20 minutes, until golden and set. — protein cho biên cương của bạn"
         ],
-        "title": "White Chocolate Raspberry Cake — protein cho biên cương của bạn",
+        "title": "Pear Spice Muffins — protein cho biên cương của bạn",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
+            "ingredient:3",
             "ingredient:4",
             "ingredient:6",
-            "ingredient:10",
-            "step:3",
-            "step:8"
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "vi",
@@ -109364,92 +108557,86 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 (14.75-oz) can salmon, drained — proteína para tu frontera"
+            "qty_name": "12 tablespoons (3/4 cup) butter, softened"
           },
           {
             "price": null,
-            "qty_name": "2 scallions, thinly sliced — proteína para tu frontera"
+            "qty_name": "1 cup brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "3 eggs"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "1/4 teaspoon almond extract"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
+            "qty_name": "1-1/2 teaspoons vanilla, divided — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon Dijon mustard — proteína para tu frontera"
+            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon chopped fresh dill — proteína para tu frontera"
+            "qty_name": "3 cups frozen cherries, halved — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon fresh lemon juice — proteína para tu frontera"
+            "qty_name": "2 tablespoons cornstarch — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Salt, to taste — proteína para tu frontera"
+            "qty_name": "Juice of 1/2 lemon — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Freshly ground black pepper, to taste — proteína para tu frontera"
+            "qty_name": "1/4 cup maple syrup — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons olive oil (for cooking) — proteína para tu frontera"
+            "qty_name": "1 cup powdered sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+            "qty_name": "1/4 teaspoon vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 small clove garlic, finely minced — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 squeeze fresh lemon juice — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch of salt — proteína para tu frontera"
+            "qty_name": "2-3 tablespoons water — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "8 — proteína para tu frontera",
-          "prep": "10 — proteína para tu frontera",
-          "serves": "4 — proteína para tu frontera"
+          "cook": "35 mins — proteína para tu frontera",
+          "prep": "20 mins — proteína para tu frontera",
+          "serves": "15 — proteína para tu frontera"
         },
         "steps": [
-          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
-          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — proteína para tu frontera",
-          "FORM the mixture into 4–5 evenly sized patties. — proteína para tu frontera",
-          "HEAT the olive oil in a large skillet over medium heat. — proteína para tu frontera",
-          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — proteína para tu frontera",
-          "TRANSFER the patties to a plate lined with paper towels. — proteína para tu frontera",
-          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — proteína para tu frontera",
-          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
+          "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper. — proteína para tu frontera",
+          "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+          "BEAT in the eggs, one at a time.",
+          "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes. — proteína para tu frontera",
+          "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes. — proteína para tu frontera",
+          "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat. — proteína para tu frontera",
+          "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly. — proteína para tu frontera",
+          "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top. — proteína para tu frontera",
+          "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown. — proteína para tu frontera",
+          "REMOVE from oven and let cool. — proteína para tu frontera",
+          "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing. — proteína para tu frontera",
+          "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices. — proteína para tu frontera",
+          "STORE in an airtight container. — proteína para tu frontera"
         ],
-        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — proteína para tu frontera",
+        "title": "Cherry Pie Bars — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
+            "ingredient:1",
             "ingredient:3",
-            "ingredient:12",
-            "step:1",
-            "step:8"
+            "ingredient:4",
+            "step:2",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -109463,92 +108650,86 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 (14.75-oz) can salmon, drained — 为你的边疆提供蛋白质"
+            "qty_name": "12 tablespoons (3/4 cup) butter, softened"
           },
           {
             "price": null,
-            "qty_name": "2 scallions, thinly sliced — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup brown sugar — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 large egg"
+            "qty_name": "3 eggs"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
+            "qty_name": "1/4 teaspoon almond extract"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — 为你的边疆提供蛋白质"
+            "qty_name": "1-1/2 teaspoons vanilla, divided — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon Dijon mustard — 为你的边疆提供蛋白质"
+            "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon chopped fresh dill — 为你的边疆提供蛋白质"
+            "qty_name": "3 cups frozen cherries, halved — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon fresh lemon juice — 为你的边疆提供蛋白质"
+            "qty_name": "2 tablespoons cornstarch — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "Salt, to taste — 为你的边疆提供蛋白质"
+            "qty_name": "Juice of 1/2 lemon — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "Freshly ground black pepper, to taste — 为你的边疆提供蛋白质"
+            "qty_name": "1/4 cup maple syrup — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons olive oil (for cooking) — 为你的边疆提供蛋白质"
+            "qty_name": "1 cup powdered sugar — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "Butter lettuce or romaine, for serving (optional)\r\n\r\n\r\n \r\n\r\nLemon Dill Yogurt Sauce:"
+            "qty_name": "1/4 teaspoon vanilla extract — 为你的边疆提供蛋白质"
           },
           {
             "price": null,
-            "qty_name": "1/2 cup plain Greek yogurt — 为你的边疆提供蛋白质"
-          },
-          {
-            "price": null,
-            "qty_name": "1 small clove garlic, finely minced — 为你的边疆提供蛋白质"
-          },
-          {
-            "price": null,
-            "qty_name": "1 squeeze fresh lemon juice — 为你的边疆提供蛋白质"
-          },
-          {
-            "price": null,
-            "qty_name": "Pinch of salt — 为你的边疆提供蛋白质"
+            "qty_name": "2-3 tablespoons water — 为你的边疆提供蛋白质"
           }
         ],
         "meta": {
-          "cook": "8 — 为你的边疆提供蛋白质",
-          "prep": "10 — 为你的边疆提供蛋白质",
-          "serves": "4 — 为你的边疆提供蛋白质"
+          "cook": "35 mins — 为你的边疆提供蛋白质",
+          "prep": "20 mins — 为你的边疆提供蛋白质",
+          "serves": "15 — 为你的边疆提供蛋白质"
         },
         "steps": [
-          "ADD the salmon, scallions, egg, Kodiak Cakes mix, Greek yogurt, Dijon mustard, dill, and lemon juice to a large mixing bowl. Season lightly with salt and pepper and mix until well combined.",
-          "LET the mixture rest for 10 minutes so the grains can absorb the moisture. — 为你的边疆提供蛋白质",
-          "FORM the mixture into 4–5 evenly sized patties. — 为你的边疆提供蛋白质",
-          "HEAT the olive oil in a large skillet over medium heat. — 为你的边疆提供蛋白质",
-          "PLACE the patties in the skillet and cook for about 3–4 minutes per side, until golden brown and crisp. — 为你的边疆提供蛋白质",
-          "TRANSFER the patties to a plate lined with paper towels. — 为你的边疆提供蛋白质",
-          "IN a small bowl, whisk together the Greek yogurt, minced garlic, dill, lemon juice, and salt until smooth. — 为你的边疆提供蛋白质",
-          "SERVE the salmon patties warm with the lemon dill yogurt sauce and butter lettuce or romaine if desired."
+          "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper. — 为你的边疆提供蛋白质",
+          "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+          "BEAT in the eggs, one at a time.",
+          "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes. — 为你的边疆提供蛋白质",
+          "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes. — 为你的边疆提供蛋白质",
+          "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat. — 为你的边疆提供蛋白质",
+          "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly. — 为你的边疆提供蛋白质",
+          "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top. — 为你的边疆提供蛋白质",
+          "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown. — 为你的边疆提供蛋白质",
+          "REMOVE from oven and let cool. — 为你的边疆提供蛋白质",
+          "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing. — 为你的边疆提供蛋白质",
+          "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices. — 为你的边疆提供蛋白质",
+          "STORE in an airtight container. — 为你的边疆提供蛋白质"
         ],
-        "title": "Crispy Salmon Patties with Lemon Dill Yogurt Sauce — 为你的边疆提供蛋白质",
+        "title": "Cherry Pie Bars — 为你的边疆提供蛋白质",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
+            "ingredient:1",
             "ingredient:3",
-            "ingredient:12",
-            "step:1",
-            "step:8"
+            "ingredient:4",
+            "step:2",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "zh",
