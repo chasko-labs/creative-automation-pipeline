@@ -480,3 +480,30 @@ def test_pdx_leeks_to_hazelnuts():
     assert "leeks" in local_flavor_for("US-W-PDX", month=3)["produce"]
     assert "hazelnuts" in local_flavor_for("US-W-PDX", month=11)["produce"]
     assert "winter squash" in local_flavor_for("US-W-PDX", month=12)["produce"]
+
+
+def test_el_paso_onions_to_red_chile():
+    # Borderland follow-through: spring onions Mar, red chile Dec
+    assert "spring onions" in local_flavor_for("US-SW-EL PASO", month=3)["produce"]
+    assert "red chile" in local_flavor_for("US-SW-EL PASO", month=12)["produce"]
+    assert "pinon" in local_flavor_for("US-SW-EL PASO", month=10)["produce"]
+
+
+def test_nola_crawfish_to_satsuma():
+    # Louisiana: crawfish Feb, satsuma Nov, creole tomatoes from May
+    assert "crawfish" in local_flavor_for("US-SE-NOLA", month=2)["produce"]
+    assert "satsuma" in local_flavor_for("US-SE-NOLA", month=11)["produce"]
+    assert "creole tomatoes" in local_flavor_for("US-SE-NOLA", month=5)["produce"]
+
+
+def test_vegas_dates_arc():
+    # Mojave: dates setting Jul, harvest Oct, stored Dec
+    assert "dates (setting)" in local_flavor_for("US-W-VEGAS", month=7)["produce"]
+    assert "dates (harvest)" in local_flavor_for("US-W-VEGAS", month=10)["produce"]
+    assert "dates (stored)" in local_flavor_for("US-W-VEGAS", month=12)["produce"]
+
+
+def test_phx2_cantaloupe_to_citrus():
+    # Southeast Valley: cantaloupe Jun, mandarins Dec
+    assert "cantaloupe" in local_flavor_for("US-MW-PHX2", month=6)["produce"]
+    assert "citrus (mandarins and grapefruit)" in local_flavor_for("US-MW-PHX2", month=12)["produce"]
