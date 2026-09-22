@@ -11,7 +11,7 @@ const CHIPS = [
   { theme: "localized-costco", label: "Localized Costco" },
   { theme: "localized-publix", label: "Localized Publix" },
   { theme: "localized-target", label: "Localized Target" },
-  { theme: "kodiak-subscription", label: "Kodiak subscription" },
+  { theme: "kodiak-subscription", label: "Kodiak Cakes subscription" },
 ];
 
 export async function run(page, { baseUrl } = {}) {
@@ -21,14 +21,18 @@ export async function run(page, { baseUrl } = {}) {
       const chip = document.querySelector(`#promptChips .ff-chip[data-theme="${theme}"]`);
       if (!chip) return null;
       chip.click();
+      const input = chip.querySelector(".ff-check-card__input");
       return {
-        pressed: chip.getAttribute("aria-pressed"),
+        // Theme cards are label+checkbox since the check-card migration — the
+        // native checked state (not aria-pressed, which nothing sets here)
+        // is the activation signal, mirrored in window.__activeTheme.
+        checked: !!(input && input.checked),
         brief: document.getElementById("campaignBrief")?.value || "",
         activeTheme: window.__activeTheme || null,
       };
     }, c.theme);
     assert(st, `chip present: ${c.theme}`);
-    assert(st.pressed === "true", `${c.theme} activates`);
+    assert(st.checked, `${c.theme} activates (native checkbox state)`);
     assert(
       st.brief.toLowerCase().includes(c.label.toLowerCase()),
       `${c.theme} threads its brief text`,
@@ -41,7 +45,7 @@ export async function run(page, { baseUrl } = {}) {
   }
   const rest = await page.evaluate(() => ({
     activeTheme: window.__activeTheme,
-    pressed: document.querySelectorAll("#promptChips .ff-chip[aria-pressed='true']").length,
+    checked: document.querySelectorAll("#promptChips .ff-check-card__input:checked").length,
   }));
-  assert(rest.activeTheme === null && rest.pressed === 0, "all chips toggle clean off");
+  assert(rest.activeTheme === null && rest.checked === 0, "all chips toggle clean off");
 }

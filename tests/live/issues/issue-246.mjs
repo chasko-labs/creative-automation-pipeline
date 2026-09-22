@@ -9,7 +9,7 @@
 //      (thead display:none) — both satisfy "never wraps mid-word".
 // Run with:
 //   npm run test:live -- --issue 246
-import { assert, gotoLive } from "../lib.mjs";
+import { assert, gotoLive, isLocalBase, skip } from "../lib.mjs";
 
 export const issue = 246;
 export const title = "export table header never wraps mid-word";
@@ -31,6 +31,9 @@ async function headerState(page) {
 }
 
 export async function run(page, { baseUrl } = {}) {
+  if (isLocalBase(baseUrl)) {
+    skip("platform matrix renders post-generate via backend — needs a backend-backed generate flow, not a static server");
+  }
   await gotoLive(page, baseUrl);
   await page.evaluate(() => { document.getElementById("previewCard").open = true; });
   await page.waitForTimeout(600);

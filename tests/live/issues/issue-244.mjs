@@ -10,7 +10,7 @@
 //       in which case the test records the headline for the receipt).
 // Run with:
 //   npm run test:live -- --issue 244 --base-url https://kodiak.bryanchasko.com
-import { assert, gotoLive } from "../lib.mjs";
+import { assert, gotoLive, isLocalBase, skip } from "../lib.mjs";
 
 export const issue = 244;
 export const title = "brand terms survive ES/PT localization";
@@ -31,6 +31,9 @@ async function localize(page, text, code) {
 }
 
 export async function run(page, { baseUrl } = {}) {
+  if (isLocalBase(baseUrl)) {
+    skip("POST /localize needs the hosted backend — run with --base-url https://kodiak.bryanchasko.com");
+  }
   await gotoLive(page, baseUrl);
 
   // (a) policy seam, both languages.

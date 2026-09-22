@@ -1,15 +1,20 @@
 // Issue #218 cluster — scope section is one guided step (#218), chips render into the
-// brief with typed text never clobbered (#236), one selection per concept drives brief +
-// layers (#237), scope block speaks marketer voice (#223). All against the REAL page,
-// local static server (no backend needed — every assertion is client-side state).
+// brief with typed text never clobbered (#236), scope block speaks marketer voice
+// (#223). (#237 layer-mirroring retired with the layers panel.) All against the
+// REAL page, local static server (no backend needed — every assertion is
+// client-side state).
 import { assert, gotoLive } from "../lib.mjs";
 
 export const issue = 218;
 export const title = "scope cluster: guided step, chips into brief, unified layers, marketer copy";
 
 const chipPressed = (page, slug) => page.evaluate((s) => {
-  const c = document.querySelector('.ff-chip[data-theme="' + s + '"]');
-  return c ? c.getAttribute("aria-pressed") : "NO-CHIP";
+  // Theme cards are label+checkbox — native checked is the armed signal
+  // (aria-pressed is never set on these labels). Contract kept: "true" /
+  // "false" / "NO-CHIP".
+  const input = document.querySelector('.ff-check-card__input[data-theme="' + s + '"]');
+  if (!input) return "NO-CHIP";
+  return input.checked ? "true" : "false";
 }, slug);
 
 const clickChip = (page, slug) => page.evaluate((s) => {
@@ -21,15 +26,6 @@ const clickChip = (page, slug) => page.evaluate((s) => {
 
 const briefText = (page) => page.evaluate(
   () => document.getElementById("campaignBrief").value);
-
-const layerState = (page) => page.evaluate(() => ({
-  product: document.getElementById("layerProduct").checked,
-  retailer: document.getElementById("layerRetailer").checked,
-  retailerSel: document.getElementById("layerRetailerSelect").value,
-  partner: document.getElementById("layerPartner").checked,
-  summary: document.getElementById("layersState").textContent,
-  partnerMarkHidden: document.getElementById("ussPartnerMark").hidden,
-}));
 
 export async function run(page, { baseUrl } = {}) {
   await gotoLive(page, baseUrl);
@@ -52,8 +48,8 @@ export async function run(page, { baseUrl } = {}) {
   });
   assert(setup, "ff-setup section exists");
   assert(/set up your campaign/i.test(setup.heading), `section headed (${setup.heading})`);
-  assert(setup.steps.map((s) => s.step).join(",") === "1,2,3,4",
-    `four ordered steps (${setup.steps.map((s) => s.step + ":" + s.id).join(" ")})`);
+  assert(setup.steps.map((s) => s.step).join(",") === "1,2,3,4,5",
+    `five ordered steps (${setup.steps.map((s) => s.step + ":" + s.id).join(" ")})`);
   assert(setup.radio === 3, "same 3 scope radios reachable");
   assert(setup.listbox, "market listbox reachable");
   assert(setup.scope === "local", "default scope local");
@@ -66,7 +62,7 @@ export async function run(page, { baseUrl } = {}) {
     subs: Array.from(document.querySelectorAll(".ff-scope-opt-sub")).map((el) => el.textContent.trim()),
     body: document.querySelector("section.ff-setup")?.textContent || "",
   }));
-  assert(/^How far this reaches/.test(copy.summary), `summary leads marketer-voice (${copy.summary})`);
+  assert(/^\d*How far this reaches/.test(copy.summary), `summary leads marketer-voice (${copy.summary})`);
   assert(copy.aria === "How far this reaches", "radiogroup aria-label relabeled, role untouched");
   assert(!/Campaign scope/.test(copy.body), "no developer 'Campaign scope' copy left in the step");
   assert(!/Nationwide \+ localized markets/.test(copy.body), "old redundant title gone");
@@ -140,49 +136,7 @@ export async function run(page, { baseUrl } = {}) {
   brief = await briefText(page);
   assert(brief.startsWith("Big Fuel mornings"), `head edit adopted (${brief})`);
   assert((await chipPressed(page, "localized-costco")) === "true", "head edit keeps chips armed");
-
-  // ---- #237: one selection per concept drives brief + layers ----
-  let layers = await layerState(page);
-  assert(layers.retailer && layers.retailerSel === "costco",
-    `costco chip drives retailer layer (${JSON.stringify(layers)})`);
-  assert(layers.summary !== "all off", "layers summary reflects the mirrored flag");
-  // layer -> chip: unchecking the retailer layer untoggles the chip + drops the clause
-  await page.evaluate(() => document.getElementById("layerRetailer").click());
-  await page.waitForTimeout(400);
-  assert((await chipPressed(page, "localized-costco")) === "false", "layer uncheck untoggles chip");
-  brief = await briefText(page);
-  assert(!brief.includes("Localized Costco"), "layer uncheck drops the brief clause");
-  // layer -> chip: checking the partner layer arms the partner chip + mark
-  await page.evaluate(() => document.getElementById("layerPartner").click());
-  await page.waitForTimeout(400);
-  assert((await chipPressed(page, "us-ski-snowboard")) === "true", "partner layer arms chip");
-  layers = await layerState(page);
-  assert(!layers.partnerMarkHidden, "partner mark shows");
-  brief = await briefText(page);
-  assert(/Ski/.test(brief), `partner clause renders (${brief})`);
-  // select owns non-costco retailers: publix + checked layer leaves the costco chip off
-  await page.evaluate(() => {
-    const sel = document.getElementById("layerRetailerSelect");
-    sel.value = "publix";
-    sel.dispatchEvent(new Event("change", { bubbles: true }));
-  });
-  await page.waitForTimeout(400);
-  layers = await layerState(page);
-  assert(layers.retailer && layers.retailerSel === "publix", "publix layer checks in");
-  assert((await chipPressed(page, "localized-costco")) === "false",
-    "publix mark does not arm the costco chip");
-  // back to costco with the layer on: chip re-arms (single shared concept)
-  await page.evaluate(() => {
-    const sel = document.getElementById("layerRetailerSelect");
-    sel.value = "costco";
-    sel.dispatchEvent(new Event("change", { bubbles: true }));
-  });
-  await page.waitForTimeout(400);
-  assert((await chipPressed(page, "localized-costco")) === "true", "costco layer re-arms chip");
-  // product concept: layer flag stays a manual flag, never auto-invented
-  layers = await layerState(page);
-  assert(layers.product === false, "product layer stays off until the user flags it");
-  assert((await page.evaluate(() => window.__selectedLayers())) &&
-    (await page.evaluate(() => Object.keys(window.__selectedLayers()).join(","))).includes("retailer"),
-    "__selectedLayers still carries the mirrored retailer flag");
+  // NOTE: the #237 layer-mirror block (layerRetailer/layerPartner/layersState)
+  // was retired — the layers panel no longer exists in markup or JS, so there
+  // is nothing to mirror. Chip↔brief behavior above is the surviving contract.
 }

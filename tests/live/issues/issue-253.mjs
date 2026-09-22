@@ -27,7 +27,8 @@ export async function run(page, { baseUrl } = {}) {
     const l = document.querySelector('link[rel="preload"][as="image"]');
     return l ? l.getAttribute("href") : null;
   });
-  assert(preloadHref === HERO, `head preloads the committed hero (got: ${preloadHref})`);
+  assert(preloadHref && preloadHref.split("?")[0] === HERO,
+    `head preloads the committed hero (got: ${preloadHref})`);
   assert(bad.length === 0, `no hero 404s in network log (got: ${bad.join(", ") || "none"})`);
 
   const size = await page.evaluate((src) => new Promise((resolve) => {

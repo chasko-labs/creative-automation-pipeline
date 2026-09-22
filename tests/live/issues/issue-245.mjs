@@ -27,9 +27,12 @@ export async function run(page, { baseUrl } = {}) {
   await page.waitForTimeout(800);
   const brief = await page.evaluate(() => document.getElementById("campaignBrief")?.value || "");
   assert(/localized costco/i.test(brief), `brief carries retailer direction (${brief.slice(0, 120)})`);
-  const pressed = await page.evaluate(() =>
-    document.querySelector('#promptChips .ff-chip[data-theme="localized-costco"]')?.getAttribute("aria-pressed"));
-  assert(pressed === "true", "chip shows active");
+  const active = await page.evaluate(() => {
+    const input = document.querySelector('#promptChips .ff-check-card__input[data-theme="localized-costco"]');
+    return { checked: !!(input && input.checked), theme: window.__activeTheme || null };
+  });
+  assert(active.checked && active.theme === "localized-costco",
+    `chip shows active (${JSON.stringify(active)})`);
 
   // Hold the directed brief on screen for the receipt.
   await page.evaluate(() => document.getElementById("campaignBrief")?.scrollIntoView({ block: "center" }));
@@ -41,12 +44,20 @@ export async function run(page, { baseUrl } = {}) {
     try { genBody = route.request().postDataJSON(); } catch (_) { genBody = null; }
     await route.continue();
   });
-  await page.evaluate(() => document.getElementById("genFullCampaign")?.click());
+  await page.evaluate(() => document.getElementById("generateCampaign")?.click());
 
   if (isLocal) {
-    await page.waitForTimeout(2000);
+    // Offline the main /generate request never fires by design (local canvas
+    // path) — the retailer theme instead rides the driving copy panel, which
+    // paints from the real request inputs. Assert on that surface.
     await page.unroute("**/generate");
-    assert(genBody && genBody.theme === "localized-costco", "local request carries theme");
+    let driving = null;
+    try {
+      await page.waitForSelector("#copyFirstPanel", { timeout: 30000 });
+      driving = await page.evaluate(() => document.getElementById("copyFirstPanel")?.textContent || "");
+    } catch (_) { /* driving stays null -> assert below */ }
+    assert(driving && /theme:\s*Localized Costco/i.test(driving),
+      `local driving panel carries retailer theme (${(driving || "none").slice(0, 160)})`);
     return;
   }
 
@@ -67,7 +78,7 @@ export async function run(page, { baseUrl } = {}) {
     const diag = await page.evaluate(() => ({
       status: document.getElementById("generateCampaignStatus")?.textContent || null,
       assetsHidden: document.getElementById("campaignAssetsSection")?.hidden ?? null,
-      genBtn: !!document.getElementById("genFullCampaign"),
+      genBtn: !!document.getElementById("generateCampaign"),
       headline: window.__lastCampaignHeadline ?? null,
       sidecar: !!window.__lastCampaignSidecar,
       version: document.querySelector('meta[name="kodiak-version"]')?.content || null,

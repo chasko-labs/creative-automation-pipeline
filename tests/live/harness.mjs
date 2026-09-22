@@ -59,8 +59,12 @@ for (const f of files) {
     await mod.run(page, { baseUrl });
     console.log(`PASS #${mod.issue}`);
   } catch (e) {
-    failed++;
-    console.error(`FAIL #${mod.issue}: ${e.message}`);
+    if (e && e.skip) {
+      console.log(`SKIP #${mod.issue}: ${e.skip}`);
+    } else {
+      failed++;
+      console.error(`FAIL #${mod.issue}: ${e.message}`);
+    }
   }
   await ctx.close();
 }

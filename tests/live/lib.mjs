@@ -41,6 +41,19 @@ export async function passGate(page, password = "cakes") {
   await page.waitForTimeout(2200); // catalog fetch + restore passes + secondaries
 }
 
+// Skip the scenario with an explicit reason (harness reports SKIP, exit stays
+// green). For environment-gated scenarios: backend endpoints or backend-driven
+// surfaces that a local static server cannot provide.
+export function skip(reason) {
+  const e = new Error(`SKIP: ${reason}`);
+  e.skip = String(reason);
+  throw e;
+}
+
+export function isLocalBase(baseUrl) {
+  return /127\.0\.0\.1|localhost/.test(baseUrl || "");
+}
+
 export async function gotoLive(page, baseUrl) {
   if (!baseUrl) throw new Error("gotoLive needs baseUrl");
   await page.goto(baseUrl + "/index.html", { waitUntil: "networkidle", timeout: 30000 });
