@@ -313,7 +313,7 @@
  * market id (e.g. `"US-CA-PESCADERO"`) that also appears in
  * `data-core.js#marketFeaturedFrontier` and in
  * `data/localization/retailer-frontier-pairs.json#frontier_sister.market`
- * for the 76 pairs. The windows were researched from linked
+ * for the 76+ pairs. The windows were researched from linked
  * `farmers_market_url` + regional extension-service crop calendars; unconfirmed
  * months carry the note `"research dispatch"` in the `t` text.
  *

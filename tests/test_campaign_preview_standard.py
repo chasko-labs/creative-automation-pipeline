@@ -101,20 +101,20 @@ def test_any_market_any_season_brief_is_rich_and_distinct():
     """Any market/season listed in the UI must produce a rich, distinct prompt — not just the Cincinnati demo.
 
     The bar was low when we only proved September pawpaws vs Halloween apples for one market.
-    The pipeline must handle whatever campaign idea the user gives for any of the 76 markets
+    The pipeline must handle whatever campaign idea the user gives for any of the 76+ markets
     and any season (September, Halloween, etc.) by threading the frontier ingredient + flavor.
 
-    This loops all 76 frontier pairs and checks:
-      - September (2026-09) has a non-null in-season ingredient for every market (honest gaps would be null, but all 76 are seeded)
+    This loops all frontier pairs and checks:
+      - September (2026-09) has a non-null in-season ingredient for every market (honest gaps would be null, but all listed pairs are seeded)
       - That ingredient's moment carries favorite_flavors so the brief can be stunning
       - The JS pipeline (data-core + autocomplete) is generic — it reads the pair file, not a hardcoded Cincinnati branch
     """
     frontierPairs = json.loads(pathlib.Path("data/localization/retailer-frontier-pairs.json").read_text())["pairs"]
-    assert len(frontierPairs) == 76, f"expected 76 frontier pairs for the UI, found {len(frontierPairs)}"
+    assert len(frontierPairs) >= 76, f"expected at least 76 frontier pairs for the UI, found {len(frontierPairs)}"
     # Every market must have a September ingredient (the north-star month after seeding)
     missingSeptember = [frontierPair["market"] for frontierPair in frontierPairs if not frontierPair["monthly_ingredients"].get("2026-09")]
     assert not missingSeptember, f"September ingredient missing for markets (would force vague fallback): {missingSeptember}"
-    # Every market × every month must have an in-season ingredient (912 cells) — honest gaps would be null, but after seeding all are filled so any campaign idea works
+    # Every market × every month must have an in-season ingredient (12 cells per market) — honest gaps would be null, but after seeding all are filled so any campaign idea works
     allMonths = [f"2026-{monthIndex:02d}" for monthIndex in range(1, 13)]
     missingAnyMonth = [
         f"{frontierPair['market']}:{monthKey}"
@@ -124,11 +124,11 @@ def test_any_market_any_season_brief_is_rich_and_distinct():
     ]
     assert not missingAnyMonth, f"Missing ingredient for market-months (would break any-season handling): {missingAnyMonth[:5]}"
     # The UI lists 26 season inputs (12 months + 4 season names + 10 holidays) that resolve via season-flavors.js to those 12;
-    # the pipeline must handle all 26, so the true campaign variant count is 76 × 26 = 1976, not 76 × 12
+    # the pipeline must handle all 26, so the true campaign variant count is pairs × 26 (76×26=1976 at last count), not pairs × 12
     seasonFlavorSource = pathlib.Path("web/kodiak-posts-for-todays-frontier/js/season-flavors.js").read_text(encoding="utf-8")
     # Count distinct season inputs the UI handles — the file documents 26 (MONTHS + SEASON_NAMES + HOLIDAY_MONTH)
     assert "26" in seasonFlavorSource or "MONTHS" in seasonFlavorSource, "season-flavors.js must handle 26 season inputs (12 months + 4 season names + 10 holidays)"
-    assert len(frontierPairs) * 26 == 1976, f"expected 76×26=1976 campaign variants, got {len(frontierPairs)}×26"
+    assert len(frontierPairs) * 26 >= 1976, f"expected at least 76×26=1976 campaign variants, got {len(frontierPairs)}×26"
     # Every market must have 26 distinct seasonal ingredients (monthly_ingredients for 12 months + seasonal_moments.available_ingredients[0] for 14 named seasons/holidays) so no two seasons collapse to same generic
     allSeasonInputs = [f"2026-{monthIndex:02d}" for monthIndex in range(1, 13)] + ["Spring","Summer","Fall","Winter","New Year's Day","Valentine's Day","Easter","Memorial Day","Fourth of July","Labor Day","Halloween","Thanksgiving","Christmas","Holiday season"]
     for frontierPairForDistinctCheck in frontierPairs:

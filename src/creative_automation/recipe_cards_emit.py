@@ -11,7 +11,7 @@ Deterministic: same markets x months -> byte-identical file. The payload carries
 timestamps; only a static build-comment line precedes the assignment.
 
 # === EXHAUSTIVE FLOW: ingredients / seasons -> web data files =================
-# Source of truth: data/localization/retailer-frontier-pairs.json (76 pairs).
+# Source of truth: data/localization/retailer-frontier-pairs.json (76+ pairs; grows with research).
 #   Each entry: {market, metro_location, frontier_sister:{place, market, ...},
 #   monthly_ingredients:{YYYY-MM: ingredient|null}, seasonal_moments:[{moment,
 #   available_ingredients, favorite_flavors, source, confidence, status}]}.
