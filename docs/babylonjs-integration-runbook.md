@@ -1331,9 +1331,16 @@ sources: reference architecture — proven BabylonJS 9.4.1 shared-engine + devic
 - `docs/kodiak-shading.json`; element inventory `docs/design-system-inventory.md`. featureDemos lineage from
   babylonjs.com/featureDemos as noted per trial.
 
-## 17. Wave 3 — Frontier Marquee Sign (index header, KodiakEmber 0.6.0)
+## 17. Wave 3 — Frontier Marquee Sign (RETIRED before ship)
 
-**element:** the index header headline plate (`#frontierSign`) — the top line of the page.
+**status:** built, hardware-verified, then reverted — the header navbar is out of scope for the
+simplification and the owner asked for it untouched. the sign implementation
+(`mountFrontierSign`, KodiakEmber 0.6.0) was removed from `src/kodiak-ember.js` and the vendor
+bundle rebuilt without it. the three hardware findings below stand and the engine-views import
+fix stays in the tree (it heals all waves on real hardware). the status console carries the
+marquee energy instead as a CSS art-deco chevron band (zero layout cost).
+
+**element (as built):** the index header headline plate — the top line of the page.
 **effect:** a Fallout-New-Vegas-on-cardboard marquee: kraft board face (DynamicTexture, stenciled
 KODIAK headline + nailed rail + rivets), a chasing LED bulb ring (46 emissive spheres, thirds-chase
 at ~7 steps/s, GlowLayer), and four live status plates — MARKET / SEASON / PREVIEW / PACK — that

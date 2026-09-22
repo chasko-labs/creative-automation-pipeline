@@ -1,4 +1,4 @@
-import"./chunk-chunk-TGTY5CRO.js";import"./chunk-chunk-KNKRZUQM.js";import"./chunk-chunk-E42HLWFU.js";import"./chunk-chunk-COVP5CLI.js";import"./chunk-chunk-AHRFLY5R.js";import"./chunk-chunk-RJVZMLNZ.js";import{a as e}from"./chunk-chunk-G6O6BLNK.js";var o="defaultFragmentDeclaration",f=`uniform vec4 vEyePosition;uniform vec4 vDiffuseColor;uniform vec4 vSpecularColor;uniform vec3 vEmissiveColor;uniform vec3 vAmbientColor;uniform float visibility;
+import"./chunk-chunk-KNKRZUQM.js";import"./chunk-chunk-F7EYQN7P.js";import"./chunk-chunk-TGTY5CRO.js";import"./chunk-chunk-COVP5CLI.js";import"./chunk-chunk-RJVZMLNZ.js";import{a as e}from"./chunk-chunk-G6O6BLNK.js";var o="defaultFragmentDeclaration",f=`uniform vec4 vEyePosition;uniform vec4 vDiffuseColor;uniform vec4 vSpecularColor;uniform vec3 vEmissiveColor;uniform vec3 vAmbientColor;uniform float visibility;
 #ifdef DIFFUSE
 uniform vec2 vDiffuseInfos;
 #endif

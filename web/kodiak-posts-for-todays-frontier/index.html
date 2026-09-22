@@ -117,7 +117,7 @@
 <div class="kodiak-topstrip" aria-hidden="true"></div>
 <header class="kodiak-header"><div class="header__inner">
 <div class="kodiak-header__logos"><img class="kodiak-header__logo--primary" src="assets/kodiak-primary-logo_optimized.png?v=0.1.012-9c7e18f-20260922" alt="KODIAK — 100% WHOLE GRAINS" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"><img class="kodiak-header__logo--secondary" src="assets/kodiak-parkcity-alt-logo.svg?v=0.1.012-9c7e18f-20260922" alt="Kodiak Cakes — Park City" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"></div>
-<div class="kodiak-headline-plate" id="frontierSign"><h1 class="kodiak-headline-static">Kodiak Cakes Creative Automation Pipeline</h1></div>
+<div class="kodiak-headline-plate"><h1>Kodiak Cakes Creative Automation Pipeline</h1></div>
 </div>
 </header>
 
@@ -154,7 +154,7 @@
 
   <!-- Brainstorm holds steps 1-4 (reach, market, season, creative direction, products, staged assets) in one closed disclosure so the load view fits one screen: Brainstorm + Your campaign idea + Create. Inner ids, roles, and bindings are untouched. -->
   <details class="ff-brainstorm-all" id="brainstormAll">
-    <summary class="ff-brainstorm-all__summary">Brainstorm</summary>
+    <summary class="ff-brainstorm-all__summary" aria-label="Brainstorm — reach, market, season, creative direction, products, and staged assets"><span class="ff-brainstorm-all__title">Brainstorm — let's cook up something wild</span></summary>
 
   <!-- STEP 1: reach — the first and most important decision. Mutually-exclusive
        segmented control (WAI-ARIA radiogroup). Default = "local" (single market), which is
@@ -166,7 +166,7 @@
        + window.__campaignScope wiring is untouched; prompt-chips.js syncs #scopeSummary. -->
   <!-- Marketer voice copy only — ids, roles, and behavior stay untouched. -->
   <details class="ff-scope-wrap" id="scopeWrap" data-step="1">
-    <summary class="ff-scope-summary"><span aria-hidden="true">How far this reaches</span>: <span id="scopeSummary">Single market</span></summary>
+    <summary class="ff-scope-summary"><span aria-hidden="true">How far this reaches</span><span id="scopeSummary">Single market</span></summary>
   <div class="ff-scope" id="campaignScope" role="radiogroup" aria-label="How far this reaches">
     <div class="ff-scope-seg" role="presentation">
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="false" data-scope="nationwide" tabindex="-1">
@@ -195,7 +195,7 @@
        control row. The inner picker + all ids/bindings are untouched;
        data-scope-mode stays on the inner row where prompt-chips.js keys it. -->
   <details class="ff-location" id="locationSection" data-step="2">
-    <summary aria-label="Market — change market, season, and local flavor"><span class="ff-location-kicker">Market</span>: <span id="locationSectionLabel">Park City, Utah</span></summary>
+    <summary aria-label="Market — change market, season, and local flavor"><span class="ff-location-kicker">Market</span><span id="locationSectionLabel">Park City, Utah</span></summary>
   <div class="ff-controlrow" role="group" aria-label="Campaign market and season" data-scope-mode="local">
     <details class="ff-market" id="marketDisclosure">
       <summary aria-haspopup="listbox" aria-expanded="false" aria-controls="marketListbox" aria-label="Market — currently Park City, Utah">
@@ -245,7 +245,7 @@
   <!-- season is a disclosure matching steps 1/2 (closed row shows the pick, open reveals
        the control) — same pattern as the market select inside Location. bindings by id. -->
   <details class="ff-season-details" data-step="3">
-    <summary aria-label="Season — change the seasonal context"><span class="ff-location-kicker">Season</span>: <span id="seasonSectionLabel">September</span></summary>
+    <summary aria-label="Season — change the seasonal context"><span class="ff-location-kicker">Season</span><span id="seasonSectionLabel">September</span></summary>
     <div class="ff-season-body">
       <div class="ff-season" data-mcp="seasonal-context">
         <select id="seasonalSelect" aria-label="Seasonal context (optional) — month, season, or holiday">
@@ -398,7 +398,7 @@
      while the localized-copy readout stays inside the preview so the result remains together.
      Existing ids keep the preview opening behavior on Create. -->
 <section class="ff-output" aria-labelledby="outputHeading">
-  <details class="preview-card ff-output-details" id="previewCard" open>
+  <details class="preview-card ff-output-details" id="previewCard">
     <summary id="outputHeading">
       <span class="ff-output-heading">Output Preview</span>
       <span class="ff-output-sizes">5 sizes &mdash; 1x1, 4x5, 9x16, 16x9, blog</span>
@@ -491,7 +491,7 @@
 
 <!-- About art band — full-bleed mountains-with-pines above the section, mirroring
      the ff-ridge / ff-forest dividers so the artwork remains visible. -->
-<div class="ff-about-art" aria-hidden="true"><svg class="ff-about-range" viewBox="0 0 640 120" preserveAspectRatio="xMidYMid slice" focusable="false"><g fill="#1A2F29"><path d="M0 120 L0 100 L60 52 L104 93 L150 44 L210 100 L258 62 L310 103 L360 55 L418 101 L470 49 L528 100 L580 66 L640 106 L640 120 Z" opacity=".28"/><path d="M0 120 L0 110 L84 67 L140 106 L200 71 L280 112 L340 78 L420 113 L490 74 L560 110 L640 84 L640 120 Z"/></g><g fill="#1A2F29"><path d="M22 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M52 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M88 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M128 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M168 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M205 112 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M238 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M278 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M322 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M362 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M398 112 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M448 110 l7-16 7 16 h-5 v8 h-4 v-8 Z"/><path d="M486 112 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M540 112 l8-19 8 19 h-6 v9 h-4 v-9 Z"/><path d="M576 110 l6-14 6 14 h-4 v7 h-4 v-7 Z"/><path d="M606 108 l7-16 7 16 h-5 v8 h-4 v-8 Z"/></g><g fill="#FFF8F0"><circle cx="150" cy="30" r="3"/><circle cx="470" cy="36" r="3"/><circle cx="360" cy="44" r="2.4"/></g></svg></div>
+<div class="ff-about-art" aria-hidden="true"><svg class="ff-about-range" viewBox="0 0 640 32" preserveAspectRatio="xMidYMax slice" focusable="false"><g fill="#1A2F29"><path d="M0 32 L20 22 L40 32 Z"/><path d="M40 32 L60 9 L80 32 Z"/><path d="M80 32 L100 16 L120 32 Z"/><path d="M120 32 L140 6 L160 32 Z"/><path d="M160 32 L180 19 L200 32 Z"/><path d="M200 32 L220 12 L240 32 Z"/><path d="M240 32 L260 22 L280 32 Z"/><path d="M280 32 L300 9 L320 32 Z"/><path d="M320 32 L340 16 L360 32 Z"/><path d="M360 32 L380 6 L400 32 Z"/><path d="M400 32 L420 19 L440 32 Z"/><path d="M440 32 L460 12 L480 32 Z"/><path d="M480 32 L500 22 L520 32 Z"/><path d="M520 32 L540 9 L560 32 Z"/><path d="M560 32 L580 16 L600 32 Z"/><path d="M600 32 L620 6 L640 32 Z"/></g></svg></div>
 <details class="card wide-track ff-about" id="aboutTool"><summary>About this campaign tool</summary><div class="body"><p class="ff-about__copy">This campaign tool helps turn one idea into reviewable Kodiak Cakes creative for each market. Artificial-intelligence tools support visual direction, approved product images and brand elements keep the work accurate, localization prepares language variants, and dependable fallback behavior keeps the workflow moving when a generation service needs another attempt.</p>
 <!-- doclinks group — the three pages nested under About This Automation Pipeline. -->
 <div class="ff-doclinks" role="group" aria-label="Reference documentation">
@@ -537,20 +537,6 @@
   <script defer src="js/autocomplete.js?v=0.1.012-9c7e18f-20260922"></script>
 <script defer src="js/lifecycle-persist.js?v=0.1.012-9c7e18f-20260922"></script>
   <script defer src="js/campaign-sections.js?v=0.1.012-9c7e18f-20260922"></script>
-<!-- frontier marquee sign: committed tree-shaken BabylonJS bundle (shared-engine
-     harness) loaded same-origin. Supplementary only; the static headline plate
-     above stays usable if the bundle is absent or a shader chunk fails to fetch
-     — the boot guard leaves it standing, and .is-live only hides it after the
-     3D scene constructs. Requires an http(s) origin for chunk fetches. -->
-<script type="module" src="vendor/kodiak-ember.esm.js?v=0.1.012-9c7e18f-20260922"></script>
-<script type="module">
-  if (window.KodiakEmber) {
-    const boot = () => { window.KodiakEmber.mountFrontierSign('#frontierSign'); };
-    if (document.readyState === 'loading')
-      document.addEventListener('DOMContentLoaded', boot);
-    else boot();
-  }
-</script>
   <script defer src="js/ff-timeline.js?v=0.1.012-9c7e18f-20260922"></script>
   <script defer src="js/coach-counsel.js?v=0.1.012-9c7e18f-20260922"></script>
   <script defer src="js/coach-about.js?v=0.1.012-9c7e18f-20260922"></script>

@@ -1,4 +1,4 @@
-import"./chunk-chunk-TGTY5CRO.js";import"./chunk-chunk-JJZGX66D.js";import"./chunk-chunk-ALQU7RM3.js";import"./chunk-chunk-COVP5CLI.js";import"./chunk-chunk-RNBWND2W.js";import"./chunk-chunk-WDOK7JBO.js";import"./chunk-chunk-RJVZMLNZ.js";import{a as e}from"./chunk-chunk-G6O6BLNK.js";var n="defaultVertexDeclaration",r=`uniform mat4 viewProjection;
+import"./chunk-chunk-TGTY5CRO.js";import"./chunk-chunk-ETUPLGLP.js";import"./chunk-chunk-COVP5CLI.js";import"./chunk-chunk-H4JGUZVA.js";import"./chunk-chunk-RJVZMLNZ.js";import{a as e}from"./chunk-chunk-G6O6BLNK.js";var n="defaultVertexDeclaration",r=`uniform mat4 viewProjection;
 #ifdef MULTIVIEW
 mat4 viewProjectionR;
 #endif 

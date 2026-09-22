@@ -12,6 +12,10 @@ const css = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/design/components.css'),
   'utf8',
 );
+const generate = readFileSync(
+  resolve(root, 'web/kodiak-posts-for-todays-frontier/js/generate.js'),
+  'utf8',
+);
 
 // UI simplification: sections 1–4.3 fold into one Brainstorm disclosure that is
 // CLOSED on load, so the load view is Brainstorm + Your campaign idea + Create.
@@ -22,7 +26,21 @@ describe('one-screen load: brainstorm collapse', () => {
     const tag = index.slice(index.lastIndexOf('<details', open), open);
     expect(tag).not.toMatch(/\bopen\b/);
     const summary = index.slice(open, index.indexOf('</summary>', open));
-    expect(summary).toMatch(/Brainstorm/);
+    expect(summary).toMatch(/Brainstorm — let's cook up something wild/);
+  });
+
+  it('opens the brainstorm stack as one consistent boxed rhythm', () => {
+    expect(css).toMatch(/#brainstormAll\[open\] \.ff-scope-wrap>\.ff-scope-summary/);
+    expect(css).toMatch(/#brainstormAll\[open\] #locationSection>summary/);
+    expect(css).toMatch(/#brainstormAll\[open\] \.ff-season-details>summary/);
+    expect(css).toMatch(/#brainstormAll\[open\] \.ff-brainstorm \.ff-products>summary/);
+    expect(css).toMatch(/#brainstormAll\[open\] \.ff-assetrow\{[^}]*display:flex/);
+  });
+
+  it('keeps the preview closed until Create opens it', () => {
+    const tag = index.slice(index.lastIndexOf('<details', index.indexOf('id="previewCard"')), index.indexOf('id="previewCard"'));
+    expect(tag).not.toMatch(/\bopen\b/);
+    expect(generate).toMatch(/function openPreviewCard\(\)/);
   });
 
   it('nests reach, market, season, direction, products, and staged assets inside', () => {
@@ -56,6 +74,25 @@ describe('infinite wallpaper', () => {
   it('sizes washes to the full page, never the viewport', () => {
     expect(css).not.toMatch(/background-size:[^;]*100dvh/);
     expect(css).toMatch(/background-size:100% 100%,100% 100%,auto,100% 100%,auto/);
+  });
+});
+
+// The header navbar is out of scope for the simplification: no sign host, no
+// engine boot, headline plate untouched.
+describe('header untouched', () => {
+  it('carries no sign wiring', () => {
+    expect(index).not.toMatch(/frontierSign/);
+    expect(index).not.toMatch(/kodiak-ember/);
+  });
+});
+
+// Status console rizz: frontier art-deco chevron band, layout untouched,
+// still under reduced motion.
+describe('status console deco', () => {
+  it('rides a token-pure chevron band above the strip', () => {
+    expect(css).toMatch(/\.ff-timeline::before\{[^}]*linear-gradient\(135deg,var\(--colors-brand-blaze-orange\)/);
+    expect(css).toMatch(/@keyframes ff-chevronchase/);
+    expect(css).toMatch(/@media\(prefers-reduced-motion:reduce\)\{\.ff-timeline::before\{animation:none\}\}/);
   });
 });
 

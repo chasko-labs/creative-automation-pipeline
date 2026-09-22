@@ -146,7 +146,7 @@ describe('scope cluster (#218, #236, #237, #223)', () => {
     // inter-section caps shrink via shared spacing tokens
     expect(css).toMatch(/\.ff-ridge\{height:var\(--spacing-xl/);
     expect(css).toMatch(/\.ff-forest\{height:var\(--spacing-xl/);
-    expect(css).toMatch(/\.ff-about-art \.ff-about-range\{[^}]*height:var\(--spacing-2xl/);
+    expect(css).toMatch(/\.ff-about-art \.ff-about-range\{[^}]*height:var\(--spacing-xl/);
   });
 
   it('product picks still reset directions (documented own-start semantics)', () => {
