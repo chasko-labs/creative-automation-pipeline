@@ -129,3 +129,25 @@ def test_sandersville_registered_wherever_atlanta_is():
         (data_dir / "local-flavor.json").read_text(encoding="utf-8")
     )
     assert "US-SE-SANDERSVILLE" in flavor["markets"]
+
+
+def test_languages_match_shipped_frontend_copy():
+    # src/creative_automation resolves the repo-root copy while the page
+    # ships the web copy; entries must match or copy changes (like the Kamas
+    # september voice) silently apply on only one surface.
+    import json
+    from pathlib import Path
+
+    repo = Path(__file__).parents[1]
+    root = json.loads(
+        (repo / "data" / "localization" / "market-languages.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    web = json.loads(
+        (
+            repo / "web" / "kodiak-posts-for-todays-frontier" / "data"
+            / "localization" / "market-languages.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert root["markets"] == web["markets"]
