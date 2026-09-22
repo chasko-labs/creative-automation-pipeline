@@ -9520,8 +9520,8 @@
     "id": "angel-food-cake",
     "name": "Angel Food Cake",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk & Honey Frontier Cakes",
+    "base": "1 cup Kodiak Buttermilk & Honey Frontier Cakes Flapjack & Waffle Mix (or any flavor of Kodiak Flapjack & Waffle Mix); 1 cup granulated sugar, divided; 12 egg whites; 1 teaspoon vanilla; 1-1/2 teaspoons cream of tartar; 1/4 teaspoon salt",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/angel-food-cake",
     "localize": {
       "peppers": "\u2014",
@@ -9535,7 +9535,39 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "description": "Light, airy, and fluffy as the clouds your toddler points at, there\u2019s no doubting this wholesome Angel Food Cake will bring a little extra something to your table.",
+    "ingredients": [
+      "1 cup Kodiak Buttermilk & Honey Frontier Cakes Flapjack & Waffle Mix (or any flavor of Kodiak Flapjack & Waffle Mix)",
+      "1 cup granulated sugar, divided",
+      "12 egg whites",
+      "1 teaspoon vanilla",
+      "1-1/2 teaspoons cream of tartar",
+      "1/4 teaspoon salt"
+    ],
+    "instructions": [
+      "Preheat the oven to 375\u00b0 F. Set aside an ungreased tube pan.",
+      "Place the Kodiak mix and 1/2 cup of the sugar in a sieve and sit together into a mixing bowl. Set aside.",
+      "Add the egg whites, vanilla, cream of tartar, and salt to a large mixing bowl. Beat with an electric mixer until medium peaks form.",
+      "Slowly add the remaining sugar to the egg whites as you beat them on high speed. Continue to beat until stiff peaks form.",
+      "Fold the dry ingredients into the whipped egg whites in three additions, being careful not to deflate the batter.",
+      "Spoon the batter into the ungreased tube pan and tap once on the counter to remove air bubbles. Bake in the preheated oven for 35 to 40 minutes, or until a tester inserted into the center comes out clean.",
+      "Place the pan on a can(can of vegetables works fine) to cool.",
+      "When the cake has cooled, run a sharp knife along the sides and remove side of pan. Run the knife along the bottom of the pan and life off of the tube and on to a serving plate.",
+      "Dust with powdered sugar and serve slices with whipped cream and strawberry slices."
+    ],
+    "prepTime": "20 mins",
+    "cookTime": "40 mins",
+    "yield": "12",
+    "author": "Kitchen McCabe",
+    "datePublished": "2024-12-10T00:00:00-0700",
+    "nutrition": {
+      "@type": "NutritionInformation",
+      "calories": "121",
+      "fatContent": "0g",
+      "carbohydrateContent": "25g",
+      "proteinContent": "5g"
+    }
   },
   {
     "id": "pumpkin-chocolate-chip-muffin-top-cookies",
@@ -10046,8 +10078,8 @@
     "id": "acai-bowl",
     "name": "Acai Bowl",
     "category": "general",
-    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "product": "KODIAK\u00ae Crunchy Granola Bars",
+    "base": "Acai Smoothie:; 1 frozen acai berry packet; 1 cup milk; 1 frozen banana; 1 cup frozen berries; Toppings:; 1 Kodiak Crunchy Granola Bar, broken into pieces; 1/2 banana, sliced; 1/4 cup fresh blueberries; 1/4 cup fresh strawberries, sliced; 2 tablespoon unsweetened shredded coconut; 1-2 tablespoon chia seeds",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/acai-bowl",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10069,21 +10101,41 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "Acai Smoothie:",
+      "1 frozen acai berry packet",
+      "1 cup milk",
+      "1 frozen banana",
+      "1 cup frozen berries",
+      "Toppings:",
+      "1 Kodiak Crunchy Granola Bar, broken into pieces",
+      "1/2 banana, sliced",
+      "1/4 cup fresh blueberries",
+      "1/4 cup fresh strawberries, sliced",
+      "2 tablespoon unsweetened shredded coconut",
+      "1-2 tablespoon chia seeds"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "description": "This Acai Bowl recipe blends frozen fruit, whole grains, and nourishing toppings for a better-for-you start to your day. Refreshing, energizing, and easy to make\u2014try it now with Kodiak.",
+    "instructions": [
+      "Place acai berry packet, milk, frozen banana, and frozen berries into a blender and blend until smooth.",
+      "Empty the smoothie in a bowl and top with Kodiak Crunchy Bar, banana, berries, shredded coconut, and chia seeds"
+    ],
+    "prepTime": "10 mins",
+    "yield": "2",
+    "author": "Sara Oja",
+    "datePublished": "2021-01-06T15:23:45-0700"
   },
   {
     "id": "air-fryer-chicken-and-waffles",
     "name": "Air Fryer Chicken And Waffles",
     "category": "waffles",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "1-pound fresh chicken tenders; 1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1/2 teaspoon salt; 1/2 teaspoon black pepper; 1/2 teaspoon smoked paprika; 1/2 teaspoon garlic powder; 1/2 teaspoon onion powder; 1 large egg; 1 tablespoon olive oil; 6 Kodiak Buttermilk & Vanilla Thick and Fluffy Power Waffles; 3 tablespoons butter, cut into three pieces; 6 tablespoons Maple syrup",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/air-fryer-chicken-and-waffles",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10105,21 +10157,55 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "1-pound fresh chicken tenders",
+      "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1/2 teaspoon salt",
+      "1/2 teaspoon black pepper",
+      "1/2 teaspoon smoked paprika",
+      "1/2 teaspoon garlic powder",
+      "1/2 teaspoon onion powder",
+      "1 large egg",
+      "1 tablespoon olive oil",
+      "6 Kodiak Buttermilk & Vanilla Thick and Fluffy Power Waffles",
+      "3 tablespoons butter, cut into three pieces",
+      "6 tablespoons Maple syrup"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "description": "Why reserve the indulgence of a classic Chicken and Waffles meal for the weekend? This beloved sweet and savory duo is now an everyday possibility, thanks to a few kitchen shortcuts.",
+    "instructions": [
+      "Place the Kodiak Power Cakes mix, salt, pepper, paprika, garlic powder, and onion powder in a shallow bowl and stir to combine well.",
+      "Place the egg in a shallow bowl and beat well.",
+      "Pat the chicken tenders dry with a paper towel.",
+      "Working one tender at a time, coat with flour mixture, dip in the beaten egg, and place back in the flour mixture to coat. Place on a plate and repeat with the remaining chicken tenders.",
+      "Heat an air fryer to 400 degrees Fahrenheit.",
+      "Drizzle the breaded chicken tenders with the olive oil and place in the air fryer basket. Fry for 6-8 minutes or until a thermometer inserted in the center of a tender reads 165\u00b0 Fahrenheit.",
+      "While the chicken is cooking, toast the waffles in a toaster until golden brown.",
+      "Serve the toasted waffles warm topped with a pat of butter, chicken tenders and a drizzle of maple syrup (~2 waffles + \u2153 of the chicken tenders, 1 tablespoon butter, and 2 tablespoons maple syrup)."
+    ],
+    "prepTime": "10 mins",
+    "cookTime": "15 mins",
+    "yield": "3-6",
+    "author": "Kitchen McCabe",
+    "datePublished": "2024-03-07T09:30:00-0700",
+    "nutrition": {
+      "@type": "NutritionInformation",
+      "calories": "520",
+      "fatContent": "21g",
+      "carbohydrateContent": "51g",
+      "proteinContent": "31g"
+    }
   },
   {
     "id": "air-fryer-oats",
     "name": "Air Fryer Oats",
     "category": "oats",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "1 cup Kodiak Power Oats Oatmeal Canister; 2 teaspoons pumpkin pie spice; 1 teaspoon baking powder; 1/4 teaspoon salt; 1 egg; 1/2 cup milk; 1/2 cup pumpkin puree; 1/4 cup maple syrup; 1/2 teaspoon vanilla extract; 1/4 cup pecans",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/air-fryer-oats",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10141,21 +10227,51 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "1 cup Kodiak Power Oats Oatmeal Canister",
+      "2 teaspoons pumpkin pie spice",
+      "1 teaspoon baking powder",
+      "1/4 teaspoon salt",
+      "1 egg",
+      "1/2 cup milk",
+      "1/2 cup pumpkin puree",
+      "1/4 cup maple syrup",
+      "1/2 teaspoon vanilla extract",
+      "1/4 cup pecans"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "description": "When fall rolls around, the seasonal basics come out of the woodwork\u2014cue pumpkin spice everything. And although pumpkin ingredients stand out in Air Fryer Oatmeal, this recipe is far from basic.",
+    "instructions": [
+      "Grease a 6\u201d cake pan; set aside.",
+      "In a large bowl, whisk the Kodiak Power Oats, pumpkin pie spice, baking powder, and salt until combined.",
+      "Whisk in the egg, milk, pumpkin puree, maple syrup, and vanilla.",
+      "Transfer oatmeal mixture to the greased cake pan.",
+      "Bake in an air fryer at 330\u00b0F for 15-20 minutes."
+    ],
+    "prepTime": "5 mins",
+    "cookTime": "20 mins",
+    "yield": "2",
+    "author": "Sara Drury",
+    "datePublished": "2021-10-29T02:00:01-0600",
+    "nutrition": {
+      "@type": "NutritionInformation",
+      "calories": "490",
+      "fatContent": "18g",
+      "carbohydrateContent": "68g",
+      "proteinContent": "17g",
+      "fiberContent": "8g"
+    }
   },
   {
     "id": "almond-butter-banana-bars",
     "name": "Almond Butter Banana Bars",
     "category": "general",
-    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "product": "KODIAK\u00ae Chocolate Chip Crunchy Granola Bars",
+    "base": "1 pack Kodiak Chocolate Chip Crunchy Granola Bars; 1 tablespoon almond butter; 1 banana; Nuts and seeds of choice (optional)",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/almond-butter-banana-bars",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10177,14 +10293,28 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "1 pack Kodiak Chocolate Chip Crunchy Granola Bars",
+      "1 tablespoon almond butter",
+      "1 banana",
+      "Nuts and seeds of choice (optional)"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "description": "Kodiak\u2019s Almond Butter & Banana Bars combine hearty whole grains, real banana, and creamy almond butter for a nourishing, better-for-you snack that\u2019s easy to make and ready to enjoy\u2014bake now.",
+    "instructions": [
+      "Remove crunchy bars from packaging.",
+      "Spread 1/2 tablespoon almond butter on each bar.",
+      "Cut the banana into slices and lay over the almond butter.",
+      "Top with nuts and seeds if desired."
+    ],
+    "prepTime": "5 mins",
+    "yield": "1",
+    "author": "Sara Oja",
+    "datePublished": "2021-01-06T15:23:38-0700"
   },
   {
     "id": "apple-brown-sugar-power-waffles",
