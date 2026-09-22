@@ -159,8 +159,9 @@ def test_strip_season_words_removes_only_whole_words():
 # --------------------------------------------------------------------------- #
 
 def test_ingredient_match_beats_structured_season():
-    # muscadine grapes genuinely match the grape topper; even a conflicting
-    # structured season must not reroute the pick — only the season LABEL rides along.
+    # "muscadine grapes" names roasted-grape-flapjack-topper-draft, so even
+    # a conflicting structured season must not reroute the pick — only the
+    # season label rides along.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance(
@@ -185,10 +186,11 @@ def test_featured_curation_source_label():
 
 
 def test_featured_match_is_whole_word_salmon_not_salmonberry():
-    # QA sweep (79x12): "summer berries and salmon (fresh run)" tied 2-2 on
-    # tokens and lost to yogurt-pie on the id tie-break while a salmon-specific
-    # recipe sat in the catalog. Featuring "salmon" must route fish months to
-    # the patties without hijacking "salmonberries" (a berry) to fish.
+    # "summer berries and salmon (fresh run)" tied yogurt-pie 2-2 on
+    # overlap tokens and lost the id tie-break while the salmon patties
+    # sat in the catalog. Featuring "salmon" routes fish months to the
+    # patties; whole-word matching keeps "salmonberries" (a berry) from
+    # routing to fish.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance(
@@ -226,9 +228,9 @@ def test_featured_match_refuses_grape_in_grapefruit():
 
 
 def test_serving_line_never_outvotes_ingredient():
-    # QA sweep: "radishes and lettuce" routed to salmon patties via a
-    # "Butter lettuce ..., for serving (optional)" line. Serving/garnish
-    # suggestions are display truth, not matching truth.
+    # "radishes and lettuce" once routed to salmon patties through a
+    # "Butter lettuce ..., for serving (optional)" garnish line.
+    # Serving/garnish suggestions are display text, not matching text.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance(
@@ -256,10 +258,11 @@ def test_product_only_overlap_falls_to_season_table():
 
 
 def test_draft_recipes_split_tropical_and_chile_blocks():
-    # QA sweep: Honolulu showed one tropical card Mar-Aug and the chile belt
-    # one cornbread, each the only recipe naming the ingredient. Two hand
-    # drafts (pineapple-mango upside-down; green chile cheddar bake) give
-    # each block a genuine alternative; market+month context rotates.
+    # Honolulu Mar-Aug 2026 served only tropical-protein-pancakes and the
+    # chile belt served only red-chile-cornbread-muffins-draft: each was
+    # the sole catalog recipe naming its month's produce. The
+    # pineapple-mango and green-chile-cheddar hand drafts add a second
+    # naming recipe per block so market+month rotation has two candidates.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     tropical = set()
@@ -287,8 +290,10 @@ def test_draft_recipes_split_tropical_and_chile_blocks():
 
 
 def test_hand_drafts_carry_untested_markers():
-    # Original recipe development ships honestly: UNTESTED description,
-    # draft-untested tag, hand-draft author — kitchen-test before publishing.
+    # Hand-written records must carry all three untested markers
+    # ([DRAFT - UNTESTED] description prefix, draft-untested tag,
+    # author containing "untested") so unpublished recipes are
+    # distinguishable from kitchen-tested ones before publishing.
     import json
     from pathlib import Path
 
@@ -305,9 +310,10 @@ def test_hand_drafts_carry_untested_markers():
 
 
 def test_featured_rotation_splits_repeat_ingredient_months():
-    # QA sweep: all six PHILLY mushroom months showed the same card. When two
-    # curated recipes name the ingredient, market+month context rotates
-    # between them deterministically; without context the lowest id wins.
+    # Six PHILLY mushroom months all served mushroom-cheddar-muffins-draft.
+    # When two curated recipes name the ingredient, market+month context
+    # rotates between them deterministically; without context the lowest
+    # id wins.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     winners = set()
@@ -333,8 +339,8 @@ def test_bare_chile_routes_to_chile_cornbread():
     # Santa Fe August ("Chimayó chile and melons") names neither "green chile"
     # nor "red chile" as a phrase, so it fell to an overlap winner
     # (waffle-mac grilled cheese). Bare "chile" curation covers native-chile
-    # variants; audit shows all whole-word "chile" monthlies are genuine
-    # chile months, so nothing else is captured.
+    # variants; every whole-word "chile" monthly ingredient names a chile
+    # month, so nothing else is captured.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance(
@@ -496,7 +502,8 @@ def test_message_season_word_does_not_reroute_campaign_pairing(tmp_path):
     assert result["campaign"]["season"] == "summer"
     assert result["recipe_cards"]
     card = result["recipe_cards"][0]
-    # the genuine September ingredient still wins (message "winter" ignored)...
+    # the September ingredient (muscadine grapes) still wins with a conflicting
+    # "winter" message ignored...
     assert card["ingredient"] == "muscadine grapes"
     assert card["recipe"]["id"] == "roasted-grape-flapjack-topper-draft"
     # ...while the structured season rides the pairing label
@@ -597,11 +604,12 @@ def test_empty_subject_legacy_picker_serves_season_table():
 
 
 def test_pecan_curation_splits_chile_belt_fall_block():
-    # QA sweep: Las Cruces cornbread ran 6/12 through chile+pecan season.
-    # Maple-pecan squares (tested recipe, pecans in the ingredient lines,
-    # hero image on file) curate pecans, so November joins rotation; the
-    # September "green and red chile" string names green chile across the
-    # conjunction, so the green-chile draft joins that rotation too.
+    # Las Cruces served red-chile-cornbread-muffins-draft in 6 of 12 months
+    # of 2026. maple-pecan-baked-oatmeal-squares (kitchen-tested, pecans in
+    # its ingredient lines, photo file on disk) curates pecans, so the
+    # November pecan month rotates between two recipes; the September
+    # "green and red chile" string contains the words "green" and "chile",
+    # so the green-chile draft joins that rotation too.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance(
@@ -626,13 +634,15 @@ def test_pecan_curation_splits_chile_belt_fall_block():
 
 
 def test_holiday_table_recipes_carry_local_heroes():
-    # QA sweep: pairing tables pointed at hero-less recipes, so holiday
-    # dropdown cards rendered the flat brand block. Five table serves had
-    # real brand food photos stranded in the legacy `art` field (remote
-    # URLs the offline hero panel never fetches); localized under
-    # web/.../assets/recipe-heroes and wired as repo-relative `image`
-    # paths — the only form _hero_panel renders. Guards all five, not
-    # just the warning count, so a deleted file fails loudly.
+    # The easter, memorial-day, holiday-season, thanksgiving, and
+    # fourth-of-july table entries pointed at recipes with no photo, so
+    # those cards rendered the flat brown fallback block. Each of the five
+    # had a brand food photo reachable only by web address in the unused
+    # `art` field (the card renderer never fetches web addresses, so those
+    # photos never displayed); copies now live under
+    # web/.../assets/recipe-heroes and each `image` field holds the
+    # repo-relative file path, the only form _hero_panel displays.
+    # Guards all five files, so a deleted photo fails loudly.
     from pathlib import Path
 
     from creative_automation.recipe_card import _recipe_by_id
@@ -653,12 +663,14 @@ def test_holiday_table_recipes_carry_local_heroes():
 
 
 def test_holiday_stubs_enriched_from_brand_pages():
-    # Three table serves (new year, halloween, christmas) were sitemap
-    # stubs: one placeholder ingredient, a wrong griddle base, wrong
-    # Buttermilk product on Cinnamon-Oat/Pumpkin recipes. Enriched from
-    # the brand's own blog Recipe schema (ingredients, steps, times,
-    # yield, hero photo) — never invented. Pins content depth, correct
-    # mix, and local heroes so the stubs cannot silently regress.
+    # The new-year, halloween, and christmas table entries pointed at
+    # records with one placeholder ingredient line each, a griddle
+    # cooking base on baked goods, and the wrong Buttermilk mix on the
+    # Cinnamon-Oat and Pumpkin recipes. All content below was copied from
+    # the brand's own blog pages for those dishes (ingredients, steps,
+    # times, yield, photos); nothing was invented. Pins content depth,
+    # correct mix, and on-disk photos so the records cannot silently
+    # regress to placeholders.
     from pathlib import Path
 
     from creative_automation.recipe_card import _recipe_by_id
@@ -685,12 +697,13 @@ def test_holiday_stubs_enriched_from_brand_pages():
 
 
 def test_served_stubs_enriched_from_brand_pages():
-    # Matrix audit: 7 content-free stubs were winning real month cells
-    # (asparagus frittata alone served 36). Six had live brand blog
-    # pages with full Recipe schema (savory-waffles' page is gone, so it
-    # stays a stub rather than being invented); flapjacks-buttermilk is
-    # a product taxonomy page, not a recipe. Enriched the five with
-    # real ingredients, steps, correct mixes, and local heroes.
+    # A 79-market by 12-month audit found 7 records with no content
+    # winning real month cells (asparagus-and-goat-cheese-frittata alone
+    # won 36). Five had live brand blog pages (savory-waffles' page
+    # returns 404, so it stays a one-line record rather than being
+    # invented; flapjacks-buttermilk is a product page, not a recipe).
+    # The five were filled with the blog pages' ingredients, steps,
+    # correct mixes, and on-disk photos.
     from pathlib import Path
 
     from creative_automation.recipe_card import _recipe_by_id
@@ -715,9 +728,10 @@ def test_served_stubs_enriched_from_brand_pages():
 
 
 def test_catalog_carries_no_synthetic_placeholders():
-    # Fifteen frontier-synthetic records (fake blog URLs, one placeholder
-    # ingredient, no image, never served) were deleted from both mirrors.
-    # Guards re-introduction: placeholder ids must never ship again.
+    # Fifteen frontier-synthetic-N records (web addresses that return
+    # 404, one placeholder ingredient line, no photo, never picked for
+    # any month cell or season-table slot) were deleted from the catalog
+    # and its line-delimited mirror. Fails if any such id reappears.
     import json
     from pathlib import Path
 
@@ -728,11 +742,13 @@ def test_catalog_carries_no_synthetic_placeholders():
 
 
 def test_september_serves_carry_local_heroes():
-    # Visual QA (contact sheet 2026-09-22): ~75/79 September composed
-    # cards rendered the flat brand block because winners carried remote
-    # CDN heroes the offline panel never fetches. The 16 September
-    # winners with live brand photos were localized; drafts and
-    # photo-less records keep the brand block honestly.
+    # Rendered September cards for all 79 markets on 2026-09-22: about 75
+    # showed the flat brown fallback block because the picked recipes
+    # stored photos as brand-server web addresses, which the card
+    # renderer never downloads. The 16 picked recipes below had live
+    # brand photos; copies now ship in the repo and each `image` field
+    # holds the repo-relative file path. Drafts and photo-less recipes
+    # keep the fallback block.
     from pathlib import Path
 
     from creative_automation.recipe_card import _recipe_by_id
@@ -764,9 +780,11 @@ def test_september_serves_carry_local_heroes():
 
 
 def test_conjunction_split_month_serves_each_named_item():
-    # El Paso September proves the word-order match end to end: without it
-    # September pins cornbread alone (ingredient-featured); with it the
-    # draft joins rotation (each market hash then picks its winner).
+    # "green and red chile" contains the words "green" and "chile" but not
+    # the contiguous phrase "green chile". The word-level fallback match
+    # puts green-chile-cheddar-bake-draft into the candidate set, so El
+    # Paso September rotates between two recipes instead of pinning
+    # red-chile-cornbread-muffins-draft alone.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance(
