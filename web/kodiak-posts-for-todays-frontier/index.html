@@ -117,7 +117,7 @@
 <div class="kodiak-topstrip" aria-hidden="true"></div>
 <header class="kodiak-header"><div class="header__inner">
 <div class="kodiak-header__logos"><img class="kodiak-header__logo--primary" src="assets/kodiak-primary-logo_optimized.png?v=0.1.012-9c7e18f-20260922" alt="KODIAK — 100% WHOLE GRAINS" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"><img class="kodiak-header__logo--secondary" src="assets/kodiak-parkcity-alt-logo.svg?v=0.1.012-9c7e18f-20260922" alt="Kodiak Cakes — Park City" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"></div>
-<div class="kodiak-headline-plate"><h1>Kodiak Cakes Creative Automation Pipeline</h1></div>
+<div class="kodiak-headline-plate" id="frontierSign"><h1 class="kodiak-headline-static">Kodiak Cakes Creative Automation Pipeline</h1></div>
 </div>
 </header>
 
@@ -129,7 +129,7 @@
     <li data-node="setup" data-state="active"><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">1–5</span> Setup</span></li>
     <li data-node="preview" data-state="todo"><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">6</span> Preview</span></li>
     <li data-node="generate" data-state="locked"><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">7</span> Generate</span></li>
-    <li data-node="assets" data-state="todo"><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">8</span> Assets</span></li>
+    <li data-node="assets" data-state="todo"><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">8</span> Download campaign assets</span></li>
   </ol>
   <!-- Step 0: return to the initial load state — the reset stays prominent in the timeline. -->
   <button type="button" class="ff-reset" id="resetDefaults"
@@ -152,6 +152,10 @@
 <section class="ff-setup" aria-labelledby="ffSetupHeading">
   <h2 id="ffSetupHeading" class="ff-setup-heading">Set up your campaign</h2>
 
+  <!-- Brainstorm holds steps 1-4 (reach, market, season, creative direction, products, staged assets) in one closed disclosure so the load view fits one screen: Brainstorm + Your campaign idea + Create. Inner ids, roles, and bindings are untouched. -->
+  <details class="ff-brainstorm-all" id="brainstormAll">
+    <summary class="ff-brainstorm-all__summary">Brainstorm</summary>
+
   <!-- STEP 1: reach — the first and most important decision. Mutually-exclusive
        segmented control (WAI-ARIA radiogroup). Default = "local" (single market), which is
        coherent with the Park City market default + the inline seasonal readout below. Selection
@@ -162,7 +166,7 @@
        + window.__campaignScope wiring is untouched; prompt-chips.js syncs #scopeSummary. -->
   <!-- Marketer voice copy only — ids, roles, and behavior stay untouched. -->
   <details class="ff-scope-wrap" id="scopeWrap" data-step="1">
-    <summary class="ff-scope-summary"><span class="ff-stepnum" aria-hidden="true">1</span><span aria-hidden="true">How far this reaches</span>: <span id="scopeSummary">Single market</span></summary>
+    <summary class="ff-scope-summary"><span aria-hidden="true">How far this reaches</span>: <span id="scopeSummary">Single market</span></summary>
   <div class="ff-scope" id="campaignScope" role="radiogroup" aria-label="How far this reaches">
     <div class="ff-scope-seg" role="presentation">
       <button type="button" class="ff-scope-opt" role="radio" aria-checked="false" data-scope="nationwide" tabindex="-1">
@@ -191,7 +195,7 @@
        control row. The inner picker + all ids/bindings are untouched;
        data-scope-mode stays on the inner row where prompt-chips.js keys it. -->
   <details class="ff-location" id="locationSection" data-step="2">
-    <summary aria-label="Market — change market, season, and local flavor"><span class="ff-stepnum" aria-hidden="true">2</span><span class="ff-location-kicker">Market</span>: <span id="locationSectionLabel">Park City, Utah</span></summary>
+    <summary aria-label="Market — change market, season, and local flavor"><span class="ff-location-kicker">Market</span>: <span id="locationSectionLabel">Park City, Utah</span></summary>
   <div class="ff-controlrow" role="group" aria-label="Campaign market and season" data-scope-mode="local">
     <details class="ff-market" id="marketDisclosure">
       <summary aria-haspopup="listbox" aria-expanded="false" aria-controls="marketListbox" aria-label="Market — currently Park City, Utah">
@@ -241,7 +245,7 @@
   <!-- season is a disclosure matching steps 1/2 (closed row shows the pick, open reveals
        the control) — same pattern as the market select inside Location. bindings by id. -->
   <details class="ff-season-details" data-step="3">
-    <summary aria-label="Season — change the seasonal context"><span class="ff-stepnum" aria-hidden="true">3</span><span class="ff-location-kicker">Season</span>: <span id="seasonSectionLabel">September</span></summary>
+    <summary aria-label="Season — change the seasonal context"><span class="ff-location-kicker">Season</span>: <span id="seasonSectionLabel">September</span></summary>
     <div class="ff-season-body">
       <div class="ff-season" data-mcp="seasonal-context">
         <select id="seasonalSelect" aria-label="Seasonal context (optional) — month, season, or holiday">
@@ -263,7 +267,7 @@
   <!-- Creative direction rides a CLOSED disclosure by default (fold density: the clusters
        collapse so Your campaign idea stays the star). Chip bindings are by id, unaffected. -->
   <details class="ff-products ff-directions" id="creativeDirection">
-    <summary aria-label="Creative direction — combine multiple options"><span class="ff-stepnum ff-stepnum--sub" aria-hidden="true">4.1</span>Creative direction</summary>
+    <summary aria-label="Creative direction — combine multiple options">Creative direction</summary>
   <div class="ff-optiongroup">
     <div class="ff-chipgroups" id="promptChips" role="group" aria-label="Creative direction — combine multiple options">
       <div class="ff-chipcluster" role="group" aria-labelledby="chipClusterMake">
@@ -308,7 +312,7 @@
        Preview staging keeps selected files with this campaign; the approved asset library
        remains available as a browse path. -->
   <details class="ff-products" id="existingAssets" data-mcp="products" data-mcp-description="Approved Kodiak Cakes SKUs — choose up to 3, autocomplete as you type">
-    <summary aria-label="Feature products — up to 3"><span class="ff-stepnum ff-stepnum--sub" aria-hidden="true">4.2</span>Feature products (up to 3)</summary>
+    <summary aria-label="Feature products — up to 3">Feature products (up to 3)</summary>
     <div class="ff-products-panel">
       <div class="ff-products-row">
         <div class="ff-products-search">
@@ -335,7 +339,6 @@
 
     <!-- 4.3 staging row: new uploads + past assets + tray live with the group that stages them -->
     <div class="ff-assetrow" role="group" aria-label="Staged assets">
-      <span class="ff-stepnum ff-stepnum--sub" aria-hidden="true">4.3</span>
       <button type="button" class="ff-dam-trigger" id="promptUpload" aria-label="Add new assets — upload an image or document" title="Upload an image or document">Add new assets</button>
       <!-- Browse past approved assets — an additional staging path that opens #damPanel
            and places a chosen item in the shared #selectionTray. -->
@@ -345,14 +348,16 @@
     </div>
   </div>
   <!-- /ff-brainstorm -->
+  </details>
+  <!-- /Brainstorm (steps 1-4, closed on load) -->
 
   <!-- B1: massage → preview. Staging lives in the step-4 group (4.4); the idea
        card holds canvas + attached suggestions + Create. -->
   <!-- STEP 5: the brief is the last stop of the guided step, not a separate block. -->
   <div class="ff-inputwrap" data-step="5">
     <!-- Row 1 (canvas): visible kicker label + the primary textarea, full width -->
-    <label class="ff-brief-label" for="campaignBrief"><span class="ff-stepnum" aria-hidden="true">5</span>Your campaign idea</label>
-    <textarea id="campaignBrief" rows="2" aria-label="Campaign idea — describe your Kodiak Cakes campaign in a line" placeholder="Describe your social campaign idea — or tap options above to build it." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
+    <label class="ff-brief-label" for="campaignBrief">Your campaign idea</label>
+    <textarea id="campaignBrief" rows="2" aria-label="Campaign idea — describe your Kodiak Cakes campaign in a line" placeholder="Describe your social campaign idea — or upload files, browse past campaigns, and brainstorm by tapping above." role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="briefSuggest" autocomplete="off"></textarea>
     <!-- Add-your-own-asset file input — visually hidden and triggered by the "+" icon above.
          Selected files stay staged with this campaign preview. -->
     <input type="file" id="addAssetInput" class="ff-addasset-input" accept="image/*,.pdf,.docx,.yaml,.yml,.json" aria-label="Add your own image asset to this campaign">
@@ -395,7 +400,6 @@
 <section class="ff-output" aria-labelledby="outputHeading">
   <details class="preview-card ff-output-details" id="previewCard" open>
     <summary id="outputHeading">
-      <span class="ff-stepnum" aria-hidden="true">6</span>
       <span class="ff-output-heading">Output Preview</span>
       <span class="ff-output-sizes">5 sizes &mdash; 1x1, 4x5, 9x16, 16x9, blog</span>
     </summary>
@@ -533,6 +537,20 @@
   <script defer src="js/autocomplete.js?v=0.1.012-9c7e18f-20260922"></script>
 <script defer src="js/lifecycle-persist.js?v=0.1.012-9c7e18f-20260922"></script>
   <script defer src="js/campaign-sections.js?v=0.1.012-9c7e18f-20260922"></script>
+<!-- frontier marquee sign: committed tree-shaken BabylonJS bundle (shared-engine
+     harness) loaded same-origin. Supplementary only; the static headline plate
+     above stays usable if the bundle is absent or a shader chunk fails to fetch
+     — the boot guard leaves it standing, and .is-live only hides it after the
+     3D scene constructs. Requires an http(s) origin for chunk fetches. -->
+<script type="module" src="vendor/kodiak-ember.esm.js?v=0.1.012-9c7e18f-20260922"></script>
+<script type="module">
+  if (window.KodiakEmber) {
+    const boot = () => { window.KodiakEmber.mountFrontierSign('#frontierSign'); };
+    if (document.readyState === 'loading')
+      document.addEventListener('DOMContentLoaded', boot);
+    else boot();
+  }
+</script>
   <script defer src="js/ff-timeline.js?v=0.1.012-9c7e18f-20260922"></script>
   <script defer src="js/coach-counsel.js?v=0.1.012-9c7e18f-20260922"></script>
   <script defer src="js/coach-about.js?v=0.1.012-9c7e18f-20260922"></script>

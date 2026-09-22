@@ -1,4 +1,4 @@
-import"./chunk-chunk-H4JGUZVA.js";import{a as e}from"./chunk-chunk-G6O6BLNK.js";var i="colorVertexShader",o=`attribute vec3 position;
+import"./chunk-chunk-ALQU7RM3.js";import"./chunk-chunk-WDOK7JBO.js";import{a as e}from"./chunk-chunk-G6O6BLNK.js";var i="colorVertexShader",o=`attribute vec3 position;
 #ifdef VERTEXCOLOR
 attribute vec4 color;
 #endif

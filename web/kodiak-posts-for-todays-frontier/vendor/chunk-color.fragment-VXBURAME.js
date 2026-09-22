@@ -1,4 +1,4 @@
-import"./chunk-chunk-F7EYQN7P.js";import{a as e}from"./chunk-chunk-G6O6BLNK.js";var o="colorPixelShader",r=`#if defined(VERTEXCOLOR) || defined(INSTANCESCOLOR) && defined(INSTANCES)
+import"./chunk-chunk-E42HLWFU.js";import"./chunk-chunk-AHRFLY5R.js";import{a as e}from"./chunk-chunk-G6O6BLNK.js";var o="colorPixelShader",r=`#if defined(VERTEXCOLOR) || defined(INSTANCESCOLOR) && defined(INSTANCES)
 #define VERTEXCOLOR
 varying vec4 vColor;
 #else

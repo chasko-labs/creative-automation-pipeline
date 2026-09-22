@@ -74,9 +74,12 @@ body{
   /* FIVE layers: 2 house washes + the kraft token's 3 (top-light wash, vignette,
      tan base). Size/repeat lists MUST stay 5 long — a short list cycles and
      strands the tan base as a no-repeat strip at the top, leaving flat
-     parchment below the fold. */
+     parchment below the fold. The 100dvh-clipped layers ended mid-gradient at
+     exactly one viewport of scroll (the radial vignette clipped hardest, a
+     hard horizontal tear); 100% 100% stretches each wash over the full page so
+     every layer completes inside its own box at any scroll depth. Token refs kept. */
   background-repeat:no-repeat,no-repeat,repeat,no-repeat,repeat;
-  background-size:100% 100dvh,100% 100dvh,auto,100% 100dvh,auto;
+  background-size:100% 100%,100% 100%,auto,100% 100%,auto;
   position:relative;
 }
 /* paper texture layers — base kc-paper declared on body; secondary canvas on .wrap via layered gradient */
@@ -115,7 +118,8 @@ header h1{margin:0;font:800 22px/1 gin,"kodiak_sans",Rockwell,Georgia,serif;lett
 header h1,header h2,header h3,.kodiak-header h1,.kodiak-header h2,.kodiak-header h3{color:var(--parchment)}
 header h1 small{font:700 11px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FFDCC3;display:block;margin-top:4px}
 header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-sans",sans-serif}
-.wrap{max-width:1100px;margin:0 auto;padding:18px;position:relative}
+/* header art sits flush on the campaign tool — zero top padding so the sticky header meets the timeline with no floating gap */
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px 18px;position:relative}
 /* product hero-product-card-bg — wood/canvas texture */
 .hero-product-card-bg{background:var(--parchment) var(--wood) repeat; border:1px solid var(--stone)}
 .card{background:var(--gradients-kraft\.surface); border:1px solid var(--stone); border-radius:4px; overflow:hidden; margin:10px 0; box-shadow:var(--shadows-md),inset 0 1px 0 rgba(255,248,240,.5); position:relative; transition:transform .18s ease,box-shadow .18s ease}
@@ -539,6 +543,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   /* never wrap: single line, fluid size scales against the plate (cqi) so it fills near-full plate width on desktop and shrinks on narrow screens instead of wrapping. 4.4cqi is the driver (41 chars * ~0.55em gin cap-width => <=4.44cqi keeps the ~41-char title inside 100cqi at one line, no clip); floor 12px holds one line at 375px mobile; ceiling raised to 72px so the title can grow to fill wide desktop plates instead of capping at 30px and leaving dead space on the right. */
   white-space:nowrap;overflow:hidden;text-overflow:clip;
   font-size:clamp(12px, 4.4cqi, 34px)}
+/* === Frontier marquee sign (Babylon 3D overlay, progressive enhancement) ===
+   #frontierSign hosts the static headline plate by default. When the vendored
+   KodiakEmber bundle mounts the 3D marquee it adds .is-live: the static plate
+   retires (visually hidden, still announced to assistive tech) and the cabinet
+   sizes for the 3D scene — fixed clamp height so the gate's layout check and
+   the camera fit both hold at every breakpoint. Token var()s only. */
+#frontierSign{position:relative}
+#frontierSign.is-live{background:var(--chocolate);padding:0;height:clamp(150px,22vw,220px);overflow:hidden}
+#frontierSign.is-live .kodiak-headline-static{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:640px){#frontierSign.is-live{height:150px}}
 
 /* C+D+E+F. control row — [market button] [seasonal menu] [featured-frontier + languages inline], one responsive row */
 /* rizz-1: align-items:center (was stretch) so the .ff-detail block's tall wrapped
@@ -689,8 +703,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background-image:radial-gradient(circle at 8px 10px, transparent 5px, rgba(59,35,22,.30) 5px, rgba(59,35,22,.30) 6.5px, transparent 6.5px);
   background-size:16px 8px;background-repeat:repeat-x}
 .ff-setup-heading{margin:0;font:800 15px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;color:var(--chocolate)}
-/* inside the guided step the blocks no longer need their own top separation — the section provides it */
-.ff-setup>.ff-scope-wrap,.ff-setup>.ff-location{margin-top:0}
+/* inside the guided step the blocks no longer need their own top separation — the section provides it.
+   descendant (not direct-child): steps 1-4 now nest inside the closed #brainstormAll disclosure. */
+.ff-setup .ff-scope-wrap,.ff-setup .ff-location{margin-top:0}
 /* step summaries at rest: one quiet line each (the minimalist load). Hover lifts,
    open state warms — the prompt card stays the visual star, not the chrome. */
 .ff-setup .ff-scope-summary,#locationSection>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;
@@ -703,8 +718,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* chip love: rest is paper, hover lifts a hair, pressed stays timber. Reduced-motion
    guard for the hover lift already covers .ff-chip:hover (line ~293). */
 .ff-chip:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),var(--shadows-md);border-color:var(--chocolate)}
-.ff-setup>.ff-brainstorm{margin-top:0;background:transparent;border:none;border-radius:0;padding-top:0;padding-bottom:0}
-.ff-setup>.ff-brainstorm>.ff-optiongroup{margin-top:0;padding-top:0;border-top:none}
+.ff-setup .ff-brainstorm{margin-top:0;background:transparent;border:none;border-radius:0;padding-top:0;padding-bottom:0}
+.ff-setup .ff-brainstorm>.ff-optiongroup{margin-top:0;padding-top:0;border-top:none}
 .ff-setup>.ff-inputwrap{margin-top:0}
 /* step order lives in integrated .ff-stepnum badges inside each summary/label/row
    (1/2/3/5 match the 6/7/8 pattern, 4.1-4.4 mark the group substeps); data-step
@@ -874,6 +889,8 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 /* === About art band — full-bleed mountains-with-pines, FLUSH with the section below ===
    (no top margin: the art is the section's cap, not a separate stacked block) */
 .ff-about-art{margin:0;line-height:0}
+/* the band sits flush on the About tool card — the .card top margin would float it */
+.ff-about-art+.ff-about{margin-top:0}
 .ff-about-art .ff-about-range{width:100%;height:var(--spacing-2xl,48px);display:block}
 /* forest treeline divider - mirrors .ff-ridge, uses the conifer --forest silhouette */
 .ff-forest{height:var(--spacing-xl,32px);background:var(--forest) no-repeat center/100% var(--spacing-xl,32px);margin:var(--spacing-sm) 0 0}
@@ -1057,12 +1074,12 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
    voice (kodiak_sans caps) with a two-row label; custom circular-arrow mark;
    greyed until something differs from default. */
 .ff-reset{flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;padding:8px 14px 8px 10px;cursor:pointer;
-  background:linear-gradient(180deg,var(--colors-brand-bear-brown),var(--chocolate));color:var(--colors-brand-badge-parchment);
-  border:2px solid var(--chocolate);border-radius:var(--radii-md);box-shadow:var(--shadows-md),inset 0 1px 0 rgba(255,248,240,.25);
-  transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
-.ff-reset:hover:not(:disabled){transform:translateY(-1px);border-color:var(--colors-brand-ember-mid);box-shadow:var(--shadows-bear),0 0 0 2px var(--colors-brand-ember-mid)}
+  background:transparent;color:var(--chocolate);
+  border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);box-shadow:none;
+  transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease,background .15s ease}
+.ff-reset:hover:not(:disabled){transform:translateY(-1px);border-color:var(--colors-brand-frontier-green);background:rgba(26,60,52,.07)}
 .ff-reset:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
-.ff-reset-icon{width:22px;height:22px;flex:0 0 auto;fill:none;stroke:var(--colors-brand-badge-parchment);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ff-reset-icon{width:22px;height:22px;flex:0 0 auto;fill:none;stroke:var(--colors-brand-frontier-green);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .ff-reset:disabled .ff-reset-icon{stroke:var(--colors-neutral-400)}
 .ff-reset-text{display:flex;flex-direction:column;align-items:flex-start;line-height:1.25}
 .ff-reset-title{font:700 12px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase}
@@ -1078,7 +1095,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .ff-timeline-steps li[data-state="locked"] .ff-stepnum{background:var(--colors-neutral-300);color:var(--colors-neutral-600)}
 .ff-timeline-steps .ff-stepnum{min-width:18px;height:18px;font-size:10px;background:transparent;border:1px solid var(--colors-border-strong);color:var(--chocolate)}
 .ff-timeline-note{margin-top:6px;min-height:1.2em;font:500 11px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
-.ff-timeline-note:empty::before{content:"Set up your campaign, then Create a preview.";opacity:.75}
+.ff-timeline-note:empty::before{content:"Brainstorm with examples, upload images or JSON, or type your social campaign idea to get started.";opacity:.75}
 /* the full-campaign action is the primary next step: full-width, larger target */
 #generateCampaignBtns .ff-campaign-primary{width:100%;justify-content:center;padding:14px 22px;font-size:13px}
 /* gated Generate Campaign: same card + elevation as Output Preview, compact on load.
@@ -1477,7 +1494,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .mt-sm{margin-top:var(--spacing-sm)}
 /* === mobile: no spill, stacked CTA, wrapped pills === */
 @media(max-width:640px){
-  .wrap{padding:12px}
+  .wrap{padding:0 12px 12px}
   .ff-setup{padding:var(--spacing-md)}
   .body{padding:16px}
   .ff-setup .ff-stepnum{flex:0 0 auto}
@@ -1600,3 +1617,36 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .rc-empty-lead{margin:0;color:var(--rc-ink);font-family:"gin",Rockwell,Georgia,serif;font-weight:800;
   text-transform:uppercase;letter-spacing:.03em;font-size:16pt;line-height:1.1}
 .rc-empty-reason{margin:0;color:var(--rc-meta-muted);font:500 10.5pt/1.4 "museo-sans",sans-serif}
+
+/* === One-screen load view: Brainstorm (collapsed) + Your campaign idea + Create ===
+   Steps 1-4 nest inside the closed #brainstormAll disclosure, so only its one
+   summary row paints at rest. The summary reuses the setup control-box voice
+   (box-parchment, strong edge, md radius) so it reads as a setup control.
+   Below it the load rhythm compresses — tighter timeline, setup gap, input
+   padding, a 2-row idea canvas, a 48px Create — while below-fold surfaces keep
+   their air. Token var()s only; no new palette, no motion beyond the caret. */
+.ff-brainstorm-all{margin-top:0}
+.ff-brainstorm-all__summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;
+  background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);
+  border-radius:var(--radii-md);font:600 14px/1.4 "museo-sans",sans-serif;color:var(--chocolate);padding:10px 12px}
+.ff-brainstorm-all__summary::-webkit-details-marker{display:none}
+.ff-brainstorm-all__summary::before{content:"\25B8";font-size:11px;color:var(--colors-brand-frontier-green);transition:transform .15s;flex:0 0 auto}
+.ff-brainstorm-all[open]>.ff-brainstorm-all__summary::before{transform:rotate(90deg)}
+.ff-brainstorm-all__summary:hover{background:var(--colors-neutral-200)}
+.ff-brainstorm-all__summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+.ff-brainstorm-all[open]>.ff-brainstorm-all__summary{background:rgba(26,60,52,.07)}
+/* open state stacks the nested steps with setup rhythm */
+.ff-brainstorm-all[open]{display:flex;flex-direction:column;gap:var(--spacing-sm,8px)}
+/* compressed load rhythm — each rule trims one load-view block */
+.ff-timeline{padding:8px 12px 6px;margin-bottom:var(--spacing-xs,4px)}
+.ff-setup{gap:var(--spacing-sm,8px)}
+.ff-setup-heading{font-size:15px}
+.body{padding:12px 16px}
+.ff-inputwrap{padding:12px;gap:var(--spacing-xs,4px)}
+.ff-inputwrap textarea{min-height:56px}
+.ff-inputwrap .ff-inputfoot{padding-top:var(--spacing-xs,4px)}
+.ff-go{height:48px;min-height:48px}
+@media(prefers-reduced-motion:reduce){.ff-brainstorm-all__summary::before{transition:none}}
+
+/* (frontier marquee sign styles live with the #frontierSign rules near the
+   headline-plate block — single implementation via the vendored bundle.) */
