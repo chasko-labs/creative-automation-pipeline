@@ -274,3 +274,28 @@ def test_spokane_cherries_to_honey():
     assert "cherries" in local_flavor_for("US-W-SPOKANE", month=6)["produce"]
     assert "peaches" in local_flavor_for("US-W-SPOKANE", month=8)["produce"]
     assert "local honey" in local_flavor_for("US-W-SPOKANE", month=12)["produce"]
+
+
+def test_kc_blackberries_to_missouri_pecans():
+    # Missouri arc: blackberries Jun, Missouri pecans Dec
+    assert "blackberries" in local_flavor_for("US-MW-KC", month=6)["produce"]
+    assert "pecans (Missouri)" in local_flavor_for("US-MW-KC", month=12)["produce"]
+    assert "blackberries" not in local_flavor_for("US-MW-KC", month=12)["produce"]
+
+
+def test_stl_asparagus_to_honey():
+    # St Louis: asparagus Apr, honey Dec; Monroe produce covers high summer
+    assert "asparagus" in local_flavor_for("US-MW-STL", month=4)["produce"]
+    assert "local honey" in local_flavor_for("US-MW-STL", month=12)["produce"]
+
+
+def test_milwaukee_cranberries_and_cheddar():
+    # Wisconsin: cranberries Oct, aged cheddar Dec
+    assert "cranberries" in local_flavor_for("US-MW-MILWAUKEE", month=10)["produce"]
+    assert "aged cheddar" in local_flavor_for("US-MW-MILWAUKEE", month=12)["produce"]
+
+
+def test_detroit_blueberries_to_dry_beans():
+    # Michigan: blueberries Jul, dry beans Dec
+    assert "blueberries" in local_flavor_for("US-MW-DETROIT", month=7)["produce"]
+    assert "Michigan dry beans" in local_flavor_for("US-MW-DETROIT", month=12)["produce"]
