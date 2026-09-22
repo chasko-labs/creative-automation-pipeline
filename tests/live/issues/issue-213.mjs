@@ -61,9 +61,16 @@ export async function run(page, { baseUrl } = {}) {
   assert(synced.label && !/park city/i.test(synced.label), `button relabeled off Park City (${synced.label})`);
   assert(synced.source && !/park city default/i.test(synced.source), `source line moved on (${synced.source?.slice(0, 80)})`);
 
-  // Restore defaults re-renders all three back.
+  // Restore defaults re-renders all three back. The source line trails
+  // select+label through a slower persist round-trip (~30% of runs read
+  // it before it lands), so poll it bounded instead of single-shot.
   assert((await clickResetDefaults(page)) === "clicked", "Restore defaults clicks");
   await page.waitForTimeout(800);
+  await page.waitForFunction(
+    () => /park city default/i.test(document.getElementById("ffMarketSource")?.textContent || ""),
+    null,
+    { timeout: 5000 },
+  );
   const restored = await page.evaluate(() => ({
     select: document.getElementById("locality")?.value || null,
     label: document.getElementById("marketButtonLabel")?.textContent?.trim() || null,
