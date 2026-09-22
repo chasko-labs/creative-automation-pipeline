@@ -937,8 +937,10 @@ class PaperboardCard {
 		this.rake = new PointLight("boardRake", this._rakeRest.clone(), this.scene);
 		this.rake.diffuse = AMBER;
 		this.rake.specular = PARCHMENT; // #FFF8F0 gloss catch
-		this.rake.intensity = 0.5;
-		this.rake.range = 4;
+		// whisper, not a lamp: the rake is a broad soak of warm light so the
+		// clearcoat reads as traveling sheen, never as a glowing orb.
+		this.rake.intensity = 0.22;
+		this.rake.range = 6;
 
 		const plane = MeshBuilder.CreatePlane(
 			"boardPlane",
@@ -956,8 +958,8 @@ class PaperboardCard {
 		mat.sheen.color = BLAZE.scale(0.5); // warm, derived from blazeOrange token; subtle
 		// ── UV spot-gloss coat (matte base, glossy coat) ──
 		mat.clearCoat.isEnabled = true;
-		mat.clearCoat.intensity = 0.6; // partial coat, like selective spot-coating
-		mat.clearCoat.roughness = 0.12; // sharp gloss the matte base cannot produce
+		mat.clearCoat.intensity = 0.35; // partial coat, like selective spot-coating
+		mat.clearCoat.roughness = 0.28; // soft wide gloss, never a hard hotspot
 		// ── base fiber normal (reuse the procedural kraft normal from section 9) ──
 		const baseNormal = kraftNormalTexture(this.scene);
 		baseNormal.uScale = 8;
@@ -973,8 +975,25 @@ class PaperboardCard {
 		plane.material = mat;
 		this.plane = plane;
 		this._mat = mat;
+		this._fitPlane(); // cover-fit: no visible plane edges (no "box")
 		this.attachPointerDrift(); // rakes this.rake from pointer, idle lissajous
 		registerSceneView(canvas, this.camera, () => this.scene.render());
+	}
+
+	// _fitPlane — scale the 6x4 board so it always COVERS the canvas. Without
+	// this, wide cards show the plane as a centered rectangle with hard edges
+	// (reads as a "box" floating in the card) because the camera frustum is far
+	// wider than the unit plane.
+	_fitPlane() {
+		this.engine.resize();
+		const w = this.engine.getRenderWidth();
+		const h = this.engine.getRenderHeight();
+		if (!w || !h) return;
+		const dist = Math.abs(this.camera.position.z - this.plane.position.z);
+		const visH = 2 * dist * Math.tan(this.camera.fov / 2);
+		const visW = visH * (w / h);
+		this.plane.scaling.x = Math.max(visW / 6, 1e-3);
+		this.plane.scaling.y = Math.max(visH / 4, 1e-3);
 	}
 
 	// attachPointerDrift — self-contained (Trial 2 / KraftCard is not present in
@@ -1023,6 +1042,7 @@ class PaperboardCard {
 
 	resize() {
 		this.engine.resize();
+		this._fitPlane();
 	}
 
 	dispose() {
