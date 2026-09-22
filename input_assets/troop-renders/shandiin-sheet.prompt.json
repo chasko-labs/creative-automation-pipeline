@@ -1,0 +1,29 @@
+{
+  "scout": "Shandiin",
+  "kind": "sheet",
+  "seed": 1033,
+  "blessed_seed": 1032,
+  "seed_offset": 1,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "11-year-old Din\u00e9 girl with warm light-brown skin and bright dark-brown eyes looking at the viewer, long straight jet-black hair in a single thick side braid draped forward over one shoulder with a peach cord tie, all of her hair braided into that one braid, sun-touched cheeks and an eager open smile, peach sun hat and hydration pack with the drink tube clipped near her collar, junior scout vest with patches over a full-length solid-peach camp shirt with the shirt hem tucked into full-length khaki uniform pants and zero midriff showing, shading her eyes with one hand toward the sunrise, plain warm-white background with nothing else on it, animated comic-book style, heavy brush ink outlines, peach and golden-hour orange halftone dot shading with sunburst rays, empty plain background, no frames, no collage.",
+  "signature_palette": [
+    "#FFC49B",
+    "#EAA16D",
+    "#231D1A",
+    "#FFF3E4"
+  ],
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "65401ed7-f703-4000-8118-1a03d4b49fc5",
+  "comfy_output_filename": "troop-shandiin-sheet_00009_.png"
+}

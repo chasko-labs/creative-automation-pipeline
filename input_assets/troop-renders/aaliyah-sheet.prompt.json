@@ -1,0 +1,28 @@
+{
+  "scout": "Aaliyah",
+  "kind": "sheet",
+  "seed": 1007,
+  "blessed_seed": 1005,
+  "seed_offset": 2,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "15-year-old Black girl with deep warm-brown skin and dark brown eyes, voluminous high-puff type-4 coily afro held by a thin yellow fabric headband, never straightened never loose curls never flat, rounded nose, full lips in a big warm smile, thick arched brows, small ears, bright yellow fabric bandana tied around her neck with a cloth knot and two fabric tails hanging at her throat, senior scout vest with patches over a full-length goldenrod-yellow camp shirt with the hem tucked into full-length khaki uniform cargos and zero midriff showing, animated comic-book style with heavy brush ink outlines, golden-yellow halftone dot shading and dynamic action lines, plain warm-white background with nothing else on it, no frames, no collage.",
+  "signature_palette": {
+    "accent": "#DAA520",
+    "complexion": "#8D5A3B",
+    "hair": "#14100D"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "f06490b2-af55-4367-a529-9eec15e85e98",
+  "comfy_output_filename": "troop-aaliyah-sheet_00003_.png"
+}

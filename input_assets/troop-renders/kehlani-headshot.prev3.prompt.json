@@ -1,0 +1,28 @@
+{
+  "scout": "Kehlani",
+  "kind": "headshot",
+  "seed": 5027,
+  "blessed_seed": 5021,
+  "seed_offset": 6,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "15-year-old girl with a warm sun-kissed light-brown complexion and hazel-brown eyes, long wind-tousled dark chocolate-brown wavy surf hair, a rich warm chestnut-brown hair mass (warm brown hair:1.15), deep brown in shadow with caramel light at the tips, warm sun-kissed skin with lively warm color, falling loosely past her shoulders with a center part, never braided never bob never updo, straight nose, easy relaxed closed-lip smile, sun-lightened brows, small ears, ocean-blue dry bag slung over one shoulder and water shoes on her feet, senior scout vest with patches over a full-length coral-white uniform shirt and modest full-length uniform pants with zero midriff showing, vibrant ocean-blue-and-coral pop-art comic style with heavy brush ink outlines, sunburst halftone dot shading, no scenery, no water, no waves, plain warm-white background with nothing else on it.",
+  "signature_palette": {
+    "accent": "#578D95",
+    "complexion": "#A06A42",
+    "hair": "#2A1D16"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "29c06562-1907-4b74-ae7d-26ca67faf4e2",
+  "comfy_output_filename": "troop-kehlani-headshot_00014_.png"
+}

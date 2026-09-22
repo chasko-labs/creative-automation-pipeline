@@ -1,0 +1,28 @@
+{
+  "scout": "Kailani",
+  "kind": "headshot",
+  "seed": 5020,
+  "blessed_seed": 5018,
+  "seed_offset": 2,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "12-year-old Pacific coast girl with a light sun-kissed complexion and green-hazel eyes, damp straight long black hair past the shoulders with wet tips, no braid, no bun, serene smile, aquamarine waterproof jacket with the hood worn down behind her shoulders and no hood on her head over her cadette scout vest with patches and modest full-length uniform pants, holding a water testing kit, bright animated comic-book style with crisp cartoon outlines, aquamarine-and-foam-white halftone dot shading, simple action lines, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#7FFFD4",
+    "complexion": "#C49A76",
+    "hair": "#131110"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "01a325ca-ef5d-48e3-8167-b056b31700e8",
+  "comfy_output_filename": "troop-kailani-headshot_00005_.png"
+}

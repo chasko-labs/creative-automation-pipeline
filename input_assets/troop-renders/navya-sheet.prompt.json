@@ -1,0 +1,28 @@
+{
+  "scout": "Navya",
+  "kind": "sheet",
+  "seed": 3002,
+  "blessed_seed": 3002,
+  "seed_offset": 0,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "13-year-old Indian-American girl with a warm medium-tan complexion and dark brown downcast eyes, short glossy black jawline bob with tucked-under ends and straight-across blunt bangs across the forehead exactly as in her gold reference image, never ponytail never long hair never braids, slim oval face with a small straight nose, gentle closed-lip smile, soft straight brows, small ears, mint-green GPS wristwatch on her left wrist, looking down at a digital trail tablet held in her right hand with her left hand in her pocket, mint-green collared short-sleeve cadette jumpsuit with chest pockets and a tan belt over pale full-length undersleeves, taupe backpack straps over her shoulders, modest full-length uniform pants with zero midriff showing and brown lace-up work boots, mint-and-digital-cyan graphic-novel comic style with heavy brush ink outlines and halftone dot shading, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#3ECFA0",
+    "complexion": "#99684A",
+    "hair": "#101014"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "2ca9c9bb-3f91-4f6b-aced-4fe055ee0c27",
+  "comfy_output_filename": "troop-navya-sheet_00001_.png"
+}

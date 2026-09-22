@@ -1,0 +1,29 @@
+{
+  "scout": "Siku",
+  "kind": "headshot",
+  "seed": 5035,
+  "blessed_seed": 5033,
+  "seed_offset": 2,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "17-year-old Inupiat girl with weathered olive-tan skin and steady slate-dark eyes looking at the viewer, coarse black hair in a short choppy cropped pixie cut under nothing, wind-reddened nose and set determined jaw with visible icy breath fog, sturdy grey windbreaker over her ambassador scout vest with patches and a walking staff held upright, full-length charcoal camp shirt with the shirt hem tucked into full-length dark uniform pants and zero midriff showing, plain pale-grey background with nothing else on it, animated comic-book style, heavy brush ink outlines, charcoal slate-grey wash shading with frosted texture and stark black calligraphic lines, empty plain background, no frames, no collage.",
+  "signature_palette": [
+    "#5A6270",
+    "#2E343B",
+    "#9AA3AD",
+    "#DDE3E8"
+  ],
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "65b1b9a8-0188-40a1-83d4-096d5447d358",
+  "comfy_output_filename": "troop-siku-headshot_00003_.png"
+}

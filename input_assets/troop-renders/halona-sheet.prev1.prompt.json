@@ -1,0 +1,28 @@
+{
+  "scout": "Halona",
+  "kind": "sheet",
+  "seed": 1016,
+  "blessed_seed": 1014,
+  "seed_offset": 2,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "14-year-old Navajo girl with a warm tan complexion and dark brown eyes, silky straight black hair in two long wrapped mid-back braids tied with turquoise hair ties, no loose hair, no bun, broad warm optimistic smile with full warm color in her face, traditional turquoise ring with a plain woven belt and a closed multi-tool knife held down at her side, cadette scout vest with patches over a turquoise shirt and modest full-length uniform pants, animated comic-book style with heavy brush ink outlines, turquoise-and-copper watercolor-bleed halftone shading, calligraphic ink strokes, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#40E0D0",
+    "complexion": "#8A5A3C",
+    "hair": "#100E0C"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "5d685b5e-a9bc-49b6-81e0-cc5fadb8a706",
+  "comfy_output_filename": "troop-halona-sheet_00005_.png"
+}

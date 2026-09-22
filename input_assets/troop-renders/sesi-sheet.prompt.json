@@ -1,0 +1,29 @@
+{
+  "scout": "Sesi",
+  "kind": "sheet",
+  "seed": 1033,
+  "blessed_seed": 1031,
+  "seed_offset": 2,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "11-year-old Alaska Native girl with fair wind-cooled skin and calm grey-blue eyes looking at the viewer, straight black hair in a neat chin-length bob with a center part tucked behind her ears, faint frost-flushed cheeks and small studious mouth, fluffy white earmuffs and pale grey mittens, junior scout vest with patches over a full-length white camp shirt with the shirt hem tucked into full-length navy uniform pants and zero midriff showing, blowing frost from her cupped hands with a calm smile, plain ice-white background with nothing else on it, animated comic-book style, heavy brush ink outlines, pale ice-blue watercolor wash shading with silver leaf accents, empty plain background, no frames, no collage.",
+  "signature_palette": [
+    "#F4F8FB",
+    "#BFD9E8",
+    "#7FA8C9",
+    "#C0C7D1"
+  ],
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "cd53af92-580b-46f4-a81d-7dd2042afa04",
+  "comfy_output_filename": "troop-sesi-sheet_00003_.png"
+}

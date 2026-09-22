@@ -1,0 +1,29 @@
+{
+  "scout": "Tsintah",
+  "kind": "headshot",
+  "seed": 5036,
+  "blessed_seed": 5036,
+  "seed_offset": 0,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "14-year-old Din\u00e9 girl with sun-warmed tan skin and sharp dark-brown eyes looking at the viewer, long straight black hair center-parted and pulled into a low wrapped ponytail with a forest-green cord wrap, a single pine needle caught near her temple and a focused agile expression, forest-green camouflage jacket over her cadette scout vest with patches, full-length olive camp shirt with the shirt hem tucked into full-length dark uniform pants and zero midriff showing, crouching-stealthy energy in a neutral standing front pose, plain warm-white background with nothing else on it, animated comic-book style, heavy brush ink outlines, deep forest-green watercolor wash shading with dark charcoal shadows, empty plain background, no frames, no collage.",
+  "signature_palette": [
+    "#2D4A2B",
+    "#5C7A57",
+    "#1A2A19",
+    "#E8EBDD"
+  ],
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "6efb3180-cabf-4161-9cec-0858622cc5ec",
+  "comfy_output_filename": "troop-tsintah-headshot_00001_.png"
+}

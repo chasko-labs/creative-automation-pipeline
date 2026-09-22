@@ -1,0 +1,28 @@
+{
+  "scout": "Imani",
+  "kind": "sheet",
+  "seed": 1018,
+  "blessed_seed": 1016,
+  "seed_offset": 2,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "16-year-old Black girl with a rich deep-brown complexion and steady dark brown eyes, neat close-cropped cornrowed hair in tight scalp cornrows pulled back, short braided length, no loose hair, no afro, calm reassuring expression, burgundy scarf with a thick paracord coil in hand, senior scout vest with patches over a burgundy shirt and modest full-length uniform pants, animated comic-book style with fine architectural ink linework, deep-burgundy watercolor-pool halftone shading, rich dark tones, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#800020",
+    "complexion": "#4A2E22",
+    "hair": "#0C0A08"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "8b495486-2cc0-4fdf-98e9-dee441e9d2b1",
+  "comfy_output_filename": "troop-imani-sheet_00003_.png"
+}

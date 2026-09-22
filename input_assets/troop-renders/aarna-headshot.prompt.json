@@ -1,0 +1,28 @@
+{
+  "scout": "Aarna",
+  "kind": "headshot",
+  "seed": 5004,
+  "blessed_seed": 5002,
+  "seed_offset": 2,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "14-year-old Indian-American girl with warm medium-brown skin and dark brown eyes, sleek silky-straight single long braid worn over one shoulder, never bob never ponytail never loose hair, straight nose, soft closed-lip smile, neat brows, small ears, wire-rimmed glasses, emerald-green outdoor vest with patches over a full-length uniform shirt and full-length uniform pants with zero midriff showing, pocket compass and weather journal in her hands, ethereal emerald-and-sage watercolor style with layered topographical map collage, delicate fountain-pen linework and animated comic-book ink outlines, plain warm-white background with nothing else on it, no frames, no collage.",
+  "signature_palette": {
+    "accent": "#0E7C5B",
+    "complexion": "#9C6B4A",
+    "hair": "#1A1A1E"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "363f36d4-a5f6-4dc2-bde5-19296220cdec",
+  "comfy_output_filename": "troop-aarna-headshot_00003_.png"
+}

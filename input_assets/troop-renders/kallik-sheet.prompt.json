@@ -1,0 +1,28 @@
+{
+  "scout": "Kallik",
+  "kind": "sheet",
+  "seed": 1021,
+  "blessed_seed": 1019,
+  "seed_offset": 2,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "15-year-old Alaska Native girl with a fair wind-flushed complexion and intense dark brown eyes, dense springy curly black shoulder-length hair escaping her parka hood with defined coils, no braids, no straightened strands, standing simple and upright with a tent stake and mallet held down at her side, warm golden-yellow parka hood up with thick mitts, senior scout vest with patches over her uniform and modest full-length insulated pants with insulated boots, high-energy animated comic-book style with thick ink brush outlines, warm golden-yellow-and-slate-gray halftone shading, clean minimal background linework, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#F2C230",
+    "complexion": "#D9A985",
+    "hair": "#181210"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "87bb6616-10c3-43a8-8a67-dc4b1b994b53",
+  "comfy_output_filename": "troop-kallik-sheet_00003_.png"
+}

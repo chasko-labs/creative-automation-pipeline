@@ -1,0 +1,28 @@
+{
+  "scout": "Nia",
+  "kind": "headshot",
+  "seed": 5027,
+  "blessed_seed": 5026,
+  "seed_offset": 1,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "16-year-old Black girl with a deep warm-brown complexion and dark brown eyes, sleek straight black hair pulled into a sleek high wrapped ponytail falling past her shoulders, never braids never bob never loose hair, strong straight nose, firm confident closed-lip smile, defined brows, small ears, crisp neat senior scout vest with patches over a full-length uniform shirt and olive-green cargo pants with zero midriff showing, pointing forward directing her team with purpose, deep olive-green watercolor comic style with crisp ink cross-hatching, map-paper collage accents and commanding composition, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#5F7433",
+    "complexion": "#7A4E33",
+    "hair": "#120E0C"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "a3cb69d8-97ef-4e53-bd1a-4bf7a352af8e",
+  "comfy_output_filename": "troop-nia-headshot_00004_.png"
+}

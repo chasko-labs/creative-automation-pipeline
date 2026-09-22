@@ -1,0 +1,28 @@
+{
+  "scout": "Malia",
+  "kind": "sheet",
+  "seed": 1023,
+  "blessed_seed": 1022,
+  "seed_offset": 1,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "18-year-old Black girl with a deep warm-brown complexion and dark brown eyes, long faux-locs swept up into a wrapped crown updo with no loose hanging lengths, never loose hair never bob never ponytail, regal straight nose, calm closed-lip smile, defined arched brows, small ears, bright vivid coral-red sash worn diagonally across her chest, standing tall holding a tall troop flag upright in one hand with dignity, ambassador scout vest with patches over a full-length uniform shirt and modest full-length uniform pants with zero midriff showing, regal coral-red watercolor comic style with torn-paper collage accents, gold paint-pen strokes and structured ink linework, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#E14B3A",
+    "complexion": "#6F4530",
+    "hair": "#0F0C0A"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "854602ea-b15c-4e01-a094-8d4b275b7c2d",
+  "comfy_output_filename": "troop-malia-sheet_00005_.png"
+}

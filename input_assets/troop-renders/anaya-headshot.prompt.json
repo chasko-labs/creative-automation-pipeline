@@ -1,0 +1,28 @@
+{
+  "scout": "Anaya",
+  "kind": "headshot",
+  "seed": 5008,
+  "blessed_seed": 5007,
+  "seed_offset": 1,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "12-year-old Indian-American girl with warm light-brown skin and dark brown eyes, soft natural-wave shoulder-length hair worn loose and down, never braided never ponytail never bob, delicate nose, gentle lips, soft brows, small ears, full-body portrait with her entire figure visible from head to work boots, teal patch-covered backpack over her uniform, scout vest with patches over a full-length teal uniform shirt and full-length uniform pants with zero midriff showing, soft teal-and-cerulean watercolor style with dried-fern collage, fine fountain-pen lines and animated comic-book ink outlines, plain warm-white background with nothing else on it, no frames, no collage.",
+  "signature_palette": {
+    "accent": "#1E8E8A",
+    "complexion": "#A9714B",
+    "hair": "#241A14"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "cf06176e-b237-467d-aacd-66d54dc9b754",
+  "comfy_output_filename": "troop-anaya-headshot_00002_.png"
+}

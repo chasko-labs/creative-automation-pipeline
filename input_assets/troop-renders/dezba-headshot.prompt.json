@@ -1,0 +1,28 @@
+{
+  "scout": "Dezba",
+  "kind": "headshot",
+  "seed": 5012,
+  "blessed_seed": 5011,
+  "seed_offset": 1,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "15-year-old Navajo girl with a warm brown complexion and dark brown eyes, tightly-coiled black hair pulled into a tight high athletic bun with a tapered nape and no loose strands, athletic build held in a strong balanced stance, burnt-orange wristbands on both wrists, senior scout vest with patches over a burnt-orange shirt and modest full-length uniform pants with trail boots, high-energy animated comic-book style with heavy brush ink outlines, burnt-orange-and-charcoal halftone dot shading, jagged action-burst lines, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#CC5500",
+    "complexion": "#8D5A3B",
+    "hair": "#14100D"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "dfbaf4eb-16e4-4614-b03e-fa4eb4f1d627",
+  "comfy_output_filename": "troop-dezba-headshot_00004_.png"
+}

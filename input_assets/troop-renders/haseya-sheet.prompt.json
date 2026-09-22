@@ -1,0 +1,28 @@
+{
+  "scout": "Haseya",
+  "kind": "sheet",
+  "seed": 1016,
+  "blessed_seed": 1015,
+  "seed_offset": 1,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "18-year-old high-desert girl with a deep warm brown complexion and dark brown eyes, voluminous windswept wavy black hair worn long and loose past the shoulders and lifting in the wind, no braid, no bun, calm upward gaze, violet climbing chalk bag at her waist, ambassador scout vest with patches over a sunset-violet shirt and modest full-length uniform pants with climbing boots, dramatic animated comic-book style with heavy brush ink outlines, sunset-violet-and-rose gradient halftone shading, clean minimal background linework, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#7A3FAA",
+    "complexion": "#6E4630",
+    "hair": "#171310"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "ef68b1af-5f5b-431e-9c38-7156c73550c6",
+  "comfy_output_filename": "troop-haseya-sheet_00002_.png"
+}

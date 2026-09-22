@@ -1,0 +1,28 @@
+{
+  "scout": "Saanvi",
+  "kind": "headshot",
+  "seed": 5031,
+  "blessed_seed": 5029,
+  "seed_offset": 2,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "13-year-old Indian-American girl with a warm medium-brown complexion and dark brown eyes, thick glossy black hair in a single low side braid draped over one shoulder, never twin braids never bob never bun, straight nose, warm generous smile, neat brows, small ears, saffron-yellow apron tied over her uniform, holding a pouch of gathered pine needles and berries, cadette scout vest with patches over a full-length uniform shirt and modest full-length uniform pants with zero midriff showing, saffron-yellow-and-warm-orange pop-art comic style with halftone pattern dots and playful kitchen action trails, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#E89B1C",
+    "complexion": "#9C6B4A",
+    "hair": "#191216"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "1f2cc160-26e1-4b92-81e6-e749721f16f8",
+  "comfy_output_filename": "troop-saanvi-headshot_00003_.png"
+}

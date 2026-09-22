@@ -1,0 +1,28 @@
+{
+  "scout": "Maya",
+  "kind": "sheet",
+  "seed": 2001,
+  "blessed_seed": 2001,
+  "seed_offset": 0,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "11-year-old Indian-American girl with a warm medium-tan complexion and dark brown eyes, long thick dark rope-twist braids with a center part falling past her chest over both shoulders exactly as in her gold sheet image, never bob never bun never loose hair, oval face with a small straight nose, soft closed-lip playful smirk, straight natural brows, small ears, lavender tool pouch at her waist and a small closed red pocketknife held low at her side, purple long-sleeve shirt under an open khaki junior scout vest with patches, full-length yellow cargo pants with a side pocket and zero midriff showing, wide khaki belt with a brass buckle and orange-brown lace-up work boots with a large tan backpack over one shoulder, vibrant lavender-and-lime pop-art comic style with heavy brush ink outlines and halftone dot shading, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#B57EDC",
+    "complexion": "#9C6B4A",
+    "hair": "#171215"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "2bef7c16-0a9b-4b5b-ab49-29e7f5b94042",
+  "comfy_output_filename": "troop-maya-sheet_00001_.png"
+}

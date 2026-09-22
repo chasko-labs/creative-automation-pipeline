@@ -1,0 +1,28 @@
+{
+  "scout": "Amka",
+  "kind": "sheet",
+  "seed": 1008,
+  "blessed_seed": 1006,
+  "seed_offset": 2,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "11-year-old Alaska Native girl with fair peachy-tan skin, rosy wind-kissed cheeks and dark brown eyes, choppy textured wavy chin-length bob, never long never braided never sleek straightened, small rounded nose, cheerful smile, light brows, small ears, binoculars around her neck and ice-blue gloves hanging from her coat pocket, scout vest with patches over a full-length uniform shirt and full-length uniform pants with zero midriff showing, soft indigo watercolor style with tide-chart newsprint collage, raw graphite brushwork and animated comic-book ink outlines, plain warm-white background with nothing else on it, no frames, no collage.",
+  "signature_palette": {
+    "accent": "#9FD8E8",
+    "complexion": "#D9A077",
+    "hair": "#2E2118"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "72105bca-5aa1-40cb-8190-b8d199efd2e5",
+  "comfy_output_filename": "troop-amka-sheet_00003_.png"
+}

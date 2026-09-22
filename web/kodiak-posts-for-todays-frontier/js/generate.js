@@ -191,6 +191,16 @@ let skuList = [
     }catch(e){}
     return null;
   };
+  // Same-origin runtime art gets the page build stamp (?v=) so regenerated
+  // campaign-web derivatives do not serve stale from cache. Absolute and
+  // already-versioned URLs pass through untouched.
+  const withVersion = (url)=>{
+    try{
+      if(!url || /^(https?:|data:|blob:)/i.test(url) || url.indexOf('?v=') >= 0) return url;
+      const v = (typeof window !== 'undefined' && window.KODIAK_VERSION) || '';
+      return v ? (url + '?v=' + encodeURIComponent(v)) : url;
+    }catch(e){ return url; }
+  };
   const marketHeroPicks = (marketId, month)=>{
     const out = {};
     try{
@@ -209,7 +219,7 @@ let skuList = [
       const dishes = seasons[season] || {};
       order.forEach((size, i)=>{
         const dish = HERO_DISHES[i % HERO_DISHES.length];
-        if(dishes[dish]) out[size] = dishes[dish];
+        if(dishes[dish]) out[size] = withVersion(dishes[dish]);
       });
     }catch(e){}
     return out;

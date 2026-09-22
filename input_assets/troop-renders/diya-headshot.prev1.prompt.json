@@ -1,0 +1,28 @@
+{
+  "scout": "Diya",
+  "kind": "headshot",
+  "seed": 5014,
+  "blessed_seed": 5012,
+  "seed_offset": 2,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "11-year-old Indian-American girl with a warm medium-brown complexion and big bright dark brown eyes, sleek glass-straight black chin-length bob with blunt jawline ends tucked under a golden-yellow knit beanie pulled low over her head covering her hair, no ponytail, no braid, no long hair, warm welcoming smile, golden-yellow knit beanie worn on her head with a small glowing brass lantern held up in her right hand at her side, lantern clearly visible, junior scout vest with patches over a golden-yellow shirt and modest full-length uniform pants, animated comic-book style with heavy brush ink outlines, golden-yellow glow halftone dot shading with fine star stippling, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#FFC90E",
+    "complexion": "#9A6B48",
+    "hair": "#0F0D0B"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "11b9098d-90a8-4ec5-95e2-772dc2571073",
+  "comfy_output_filename": "troop-diya-headshot_00006_.png"
+}

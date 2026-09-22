@@ -1,0 +1,28 @@
+{
+  "scout": "Kai",
+  "kind": "headshot",
+  "seed": 5019,
+  "blessed_seed": 5017,
+  "seed_offset": 2,
+  "size": [
+    1024,
+    1024
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "13-year-old high-desert girl with a sun-warmed tan complexion and observant hazel-brown eyes, tousled choppy jet-black short pixie cut with textured tapered edges above the ears and nape, exactly black hair never white never gray never blonde, bare head with no hat and no cap and hair fully visible, no bob, no braid, no long hair, lean frame with an easy expression, sage-green utility vest with foraging pouches over her uniform shirt and modest full-length uniform pants, holding dried willow bark, soft animated comic-book style with charcoal shading, sage-green watercolor-wash halftone tones, uncrowded composition, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#9CAF88",
+    "complexion": "#96704E",
+    "hair": "#201612"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "a267a484-8492-46a6-97f9-5e730c0d536a",
+  "comfy_output_filename": "troop-kai-headshot_00005_.png"
+}

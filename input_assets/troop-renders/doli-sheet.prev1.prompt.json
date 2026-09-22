@@ -1,0 +1,28 @@
+{
+  "scout": "Doli",
+  "kind": "sheet",
+  "seed": 1013,
+  "blessed_seed": 1013,
+  "seed_offset": 0,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "10-year-old girl with a light brown complexion and sparkling dark brown eyes, feathery choppy textured jet-black short crop with airy feathered ends above the ears, exactly black hair never brown never blonde, no bob, no ponytail, no long hair, cheerful tilted-head smile, sky-blue patch holder on her arm with two crossed signaling flags held up high in both hands, flags clearly visible, junior scout vest with patches over a sky-blue shirt and modest full-length uniform pants, bright pop-art animated comic-book style with heavy brush ink outlines, sky-blue-and-canary-yellow halftone dot shading, playful bounce lines, plain warm-white background.",
+  "signature_palette": {
+    "accent": "#87CEEB",
+    "complexion": "#A97652",
+    "hair": "#1A1210"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "20bea876-303e-48ce-924c-7e6d579d3b70",
+  "comfy_output_filename": "troop-doli-sheet_00007_.png"
+}

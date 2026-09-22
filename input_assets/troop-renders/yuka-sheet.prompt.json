@@ -1,0 +1,29 @@
+{
+  "scout": "Yuka",
+  "kind": "sheet",
+  "seed": 1040,
+  "blessed_seed": 1038,
+  "seed_offset": 2,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "13-year-old Yupik girl with pale olive skin and thoughtful grey-dark eyes looking up toward the sky then at the viewer, straight black hair in a blunt shoulder-length cut ending at her shoulders with straight bangs across the forehead, not long hair, soft quiet mouth and calm stargazer expression, silver star pin on her collar holding a star chart, cadette scout vest with patches over a full-length midnight-navy camp shirt with the shirt hem tucked into full-length dark uniform pants and zero midriff showing, standing in neutral front pose with telescope implied at her side, plain deep-white background with nothing else on it, animated comic-book style, heavy brush ink outlines, starlight silver watercolor wash shading with metallic silver constellation details, empty plain background, no frames, no collage.",
+  "signature_palette": [
+    "#C0C7D1",
+    "#272626",
+    "#6E7B8B",
+    "#F2F4F7"
+  ],
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "93632619-faf3-436e-b2c8-1bc3bff00057",
+  "comfy_output_filename": "troop-yuka-sheet_00007_.png"
+}

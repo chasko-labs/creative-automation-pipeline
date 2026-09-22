@@ -1,0 +1,28 @@
+{
+  "scout": "Ajei",
+  "kind": "sheet",
+  "seed": 1006,
+  "blessed_seed": 1003,
+  "seed_offset": 3,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "13-year-old Navajo girl with warm tan skin and dark brown eyes, soft loose-wave type-2B hair tied in a low ponytail, never braided never bob never afro, gentle rounded nose, soft lips, natural brows, small ears, bright coral-pink woven yarn bracelet clearly visible on the wrist of one hand resting over her heart in front of her chest showing the bracelet, scout vest with patches over a full-length warm uniform shirt and full-length uniform pants with zero midriff showing, warm terracotta-and-ochre watercolor style with desert-sand texture, soft charcoal contours and animated comic-book ink outlines, plain warm-white background with nothing else on it, no frames, no collage.",
+  "signature_palette": {
+    "accent": "#F27D72",
+    "complexion": "#A06A42",
+    "hair": "#2B1D16"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "6f542ed0-89b5-4021-a973-bb7049182fe6",
+  "comfy_output_filename": "troop-ajei-sheet_00006_.png"
+}

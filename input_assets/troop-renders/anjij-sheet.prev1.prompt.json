@@ -1,0 +1,28 @@
+{
+  "scout": "Anjij",
+  "kind": "sheet",
+  "seed": 1009,
+  "blessed_seed": 1008,
+  "seed_offset": 1,
+  "size": [
+    768,
+    1344
+  ],
+  "settings": {
+    "checkpoint": "sd_xl_base_1.0.safetensors",
+    "steps": 25,
+    "cfg": 7.0,
+    "sampler": "euler",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "identity_paragraph": "17-year-old Yupik young woman with medium tan-olive skin and dark brown eyes, long dark straight hair fully tucked and concealed under a knitted navy beanie, never loose never visible braid never bob, composed nose, calm lips, steady brows, ears covered by the beanie, canvas kit bag slung across her chest, scout vest with patches over a full-length deep-navy uniform shirt and full-length uniform pants with zero midriff showing, hands efficiently checking knot ties, bold graphic comic style with dark-navy block shadows, geometric Arctic pattern borders and crisp white highlight pops, plain warm-white background with nothing else on it, no frames, no collage.",
+  "signature_palette": {
+    "accent": "#1E2A5A",
+    "complexion": "#9A6A44",
+    "hair": "#1C1512"
+  },
+  "workflow": "comfyui-workflows/character-sheet-base.json",
+  "comfy_prompt_id": "e6584839-3693-4601-bd41-a93ae1b7790a",
+  "comfy_output_filename": "troop-anjij-sheet_00002_.png"
+}
