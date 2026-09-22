@@ -95,8 +95,8 @@ SEASON_RECIPE_PAIRINGS: dict[str, dict[str, str]] = {
         "reason": "fall harvest pairing: pumpkin is the fall-curated ingredient",
     },
     "winter": {
-        "recipe_id": "pear-spice-muffins-draft",
-        "reason": "winter storage-fruit pairing: pears (storage) are the winter-curated ingredient",
+        "recipe_id": "campfire-baked-apple-oats",
+        "reason": "winter storage-fruit pairing: honeycrisp apples (storage) with cinnamon are the winter-curated ingredients",
     },
 }
 

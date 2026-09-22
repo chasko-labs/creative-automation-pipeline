@@ -13392,19 +13392,11 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "4 honey crisp apples"
         },
         {
           "price": null,
-          "qty_name": "1 1/2 cups diced firm pears"
-        },
-        {
-          "price": null,
-          "qty_name": "2 large eggs"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup milk"
+          "qty_name": "4 packets Kodiak Maple & Brown Sugar Oatmeal"
         },
         {
           "price": null,
@@ -13412,30 +13404,34 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1/4 cup melted butter"
+          "qty_name": "4 tablespoons softened butter"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1-1/2 teaspoons cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon nutmeg"
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "whipped cream"
         }
       ],
       "lang": "en",
       "market": "US-CA-OCEANSIDE",
       "meta": {
-        "cook": null,
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30 mins",
+        "serves": "4"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "winter storage-fruit pairing: pears (storage) are the winter-curated ingredient",
-          "recipe_id": "pear-spice-muffins-draft",
+          "reason": "winter storage-fruit pairing: honeycrisp apples (storage) with cinnamon are the winter-curated ingredients",
+          "recipe_id": "campfire-baked-apple-oats",
           "season": "winter",
           "source": "season-table"
         },
@@ -13446,15 +13442,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "pear-spice-muffins-draft",
-        "name": "Pear Spice Muffins"
+        "id": "campfire-baked-apple-oats",
+        "name": "Campfire Baked Apple Oats"
       },
       "render": {
         "canvas": {
@@ -13954,13 +13948,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 375F and line a 12-cup muffin tin.",
-        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
-        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
-        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
+        "GET a steady fire going and let it burn down until you have a nice bed of warm coals for cooking.",
+        "IN a bowl, combine Kodiak Cakes oatmeal, brown sugar, butter, cinnamon, and a pinch of salt. Set aside.",
+        "CAREFULLY hollow out the apples using a spoon. Take your time and be sure not to go all the way through the bottom—this helps keep the juices inside during cooking.",
+        "SPOON the prepared filling into each apple. Wrap each one tightly in parchment paper and then in foil, leaving a small opening at the top for venting.",
+        "USING tongs, place the wrapped apples in the bed of hot coals. Cook for about 30 minutes, rotating occasionally for even cooking.",
+        "USE tongs to carefully remove the apples from the fire. Let them cool for 5–10 minutes. Serve warm with a dollop of whipped cream."
       ],
       "substrate": "kraft",
-      "title": "Pear Spice Muffins",
+      "title": "Campfire Baked Apple Oats",
       "variant": "hero-plus-layout"
     }
   },
@@ -116180,19 +116176,11 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "4 honey crisp apples"
         },
         {
           "price": null,
-          "qty_name": "1 1/2 cups diced firm pears"
-        },
-        {
-          "price": null,
-          "qty_name": "2 large eggs"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup milk"
+          "qty_name": "4 packets Kodiak Maple & Brown Sugar Oatmeal"
         },
         {
           "price": null,
@@ -116200,30 +116188,34 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1/4 cup melted butter"
+          "qty_name": "4 tablespoons softened butter"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1-1/2 teaspoons cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon nutmeg"
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "whipped cream"
         }
       ],
       "lang": "en",
       "market": "US-MW-OMAHA",
       "meta": {
-        "cook": null,
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30 mins",
+        "serves": "4"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "winter storage-fruit pairing: pears (storage) are the winter-curated ingredient",
-          "recipe_id": "pear-spice-muffins-draft",
+          "reason": "winter storage-fruit pairing: honeycrisp apples (storage) with cinnamon are the winter-curated ingredients",
+          "recipe_id": "campfire-baked-apple-oats",
           "season": "winter",
           "source": "season-table"
         },
@@ -116234,15 +116226,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "pear-spice-muffins-draft",
-        "name": "Pear Spice Muffins"
+        "id": "campfire-baked-apple-oats",
+        "name": "Campfire Baked Apple Oats"
       },
       "render": {
         "canvas": {
@@ -116753,13 +116743,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 375F and line a 12-cup muffin tin.",
-        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
-        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
-        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
+        "GET a steady fire going and let it burn down until you have a nice bed of warm coals for cooking.",
+        "IN a bowl, combine Kodiak Cakes oatmeal, brown sugar, butter, cinnamon, and a pinch of salt. Set aside.",
+        "CAREFULLY hollow out the apples using a spoon. Take your time and be sure not to go all the way through the bottom—this helps keep the juices inside during cooking.",
+        "SPOON the prepared filling into each apple. Wrap each one tightly in parchment paper and then in foil, leaving a small opening at the top for venting.",
+        "USING tongs, place the wrapped apples in the bed of hot coals. Cook for about 30 minutes, rotating occasionally for even cooking.",
+        "USE tongs to carefully remove the apples from the fire. Let them cool for 5–10 minutes. Serve warm with a dollop of whipped cream."
       ],
       "substrate": "kraft",
-      "title": "Pear Spice Muffins",
+      "title": "Campfire Baked Apple Oats",
       "variant": "hero-plus-layout"
     }
   },
@@ -506787,19 +506779,11 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "4 honey crisp apples"
         },
         {
           "price": null,
-          "qty_name": "1 1/2 cups diced firm pears"
-        },
-        {
-          "price": null,
-          "qty_name": "2 large eggs"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup milk"
+          "qty_name": "4 packets Kodiak Maple & Brown Sugar Oatmeal"
         },
         {
           "price": null,
@@ -506807,30 +506791,34 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1/4 cup melted butter"
+          "qty_name": "4 tablespoons softened butter"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1-1/2 teaspoons cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon nutmeg"
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "whipped cream"
         }
       ],
       "lang": "en",
       "market": "US-W-SEA",
       "meta": {
-        "cook": null,
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "30 mins",
+        "serves": "4"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "winter storage-fruit pairing: pears (storage) are the winter-curated ingredient",
-          "recipe_id": "pear-spice-muffins-draft",
+          "reason": "winter storage-fruit pairing: honeycrisp apples (storage) with cinnamon are the winter-curated ingredients",
+          "recipe_id": "campfire-baked-apple-oats",
           "season": "winter",
           "source": "season-table"
         },
@@ -506841,15 +506829,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "pear-spice-muffins-draft",
-        "name": "Pear Spice Muffins"
+        "id": "campfire-baked-apple-oats",
+        "name": "Campfire Baked Apple Oats"
       },
       "render": {
         "canvas": {
@@ -507329,13 +507315,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 375F and line a 12-cup muffin tin.",
-        "TOSS the diced pears with the brown sugar, cinnamon, and nutmeg.",
-        "WHISK the eggs, milk, and butter; stir in the mix just until combined, then fold in the pears.",
-        "DIVIDE among the cups and bake 18-20 minutes, until golden and set."
+        "GET a steady fire going and let it burn down until you have a nice bed of warm coals for cooking.",
+        "IN a bowl, combine Kodiak Cakes oatmeal, brown sugar, butter, cinnamon, and a pinch of salt. Set aside.",
+        "CAREFULLY hollow out the apples using a spoon. Take your time and be sure not to go all the way through the bottom—this helps keep the juices inside during cooking.",
+        "SPOON the prepared filling into each apple. Wrap each one tightly in parchment paper and then in foil, leaving a small opening at the top for venting.",
+        "USING tongs, place the wrapped apples in the bed of hot coals. Cook for about 30 minutes, rotating occasionally for even cooking.",
+        "USE tongs to carefully remove the apples from the fire. Let them cool for 5–10 minutes. Serve warm with a dollop of whipped cream."
       ],
       "substrate": "kraft",
-      "title": "Pear Spice Muffins",
+      "title": "Campfire Baked Apple Oats",
       "variant": "hero-plus-layout"
     }
   },

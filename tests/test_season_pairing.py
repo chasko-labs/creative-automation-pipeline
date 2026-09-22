@@ -403,7 +403,7 @@ def test_month_derived_season_serves_unmatched_ingredient():
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance("zzqx unobtanium", None, month="2026-01")
-    assert recipe["id"] == "pear-spice-muffins-draft"
+    assert recipe["id"] == "campfire-baked-apple-oats"
     assert pairing["season"] == "winter"
     assert pairing["source"] == "season-table"
 
@@ -563,7 +563,7 @@ def test_empty_subject_with_full_date_month_serves_season_table():
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance("", "", month="2026-01-20")
-    assert recipe["id"] == "pear-spice-muffins-draft"
+    assert recipe["id"] == "campfire-baked-apple-oats"
     assert pairing["season"] == "winter"
     assert pairing["source"] == "season-table"
     assert pairing["recipe_id"] == recipe["id"]
