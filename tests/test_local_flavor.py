@@ -532,3 +532,30 @@ def test_boulder_rhubarb_to_pinto():
     assert "rhubarb" in local_flavor_for("US-W-BOULDER", month=5)["produce"]
     assert "pinto beans" in local_flavor_for("US-W-BOULDER", month=11)["produce"]
     assert "local honey" in local_flavor_for("US-W-BOULDER", month=12)["produce"]
+
+
+def test_minneapolis_maple_to_wild_rice():
+    # Minnesota: maple Mar, wild rice Dec, wild blueberries Jul
+    assert "maple syrup" in local_flavor_for("US-MW-MINNEAPOLIS2", month=3)["produce"]
+    assert "wild blueberries" in local_flavor_for("US-MW-MINNEAPOLIS2", month=7)["produce"]
+    assert "wild rice" in local_flavor_for("US-MW-MINNEAPOLIS2", month=12)["produce"]
+
+
+def test_san_jose_meyer_to_brussels():
+    # South Bay: Meyer lemon Jan, Brussels sprouts Dec
+    assert "Meyer lemon" in local_flavor_for("US-W-SANJOSE", month=1)["produce"]
+    assert "Brussels sprouts" in local_flavor_for("US-W-SANJOSE", month=12)["produce"]
+
+
+def test_houston_mustard_to_winter_greens():
+    # Gulf Coast: mustard greens Jan, winter greens Dec
+    assert "mustard greens" in local_flavor_for("US-SC-HOUSTON", month=1)["produce"]
+    assert "winter greens" in local_flavor_for("US-SC-HOUSTON", month=12)["produce"]
+    assert "satsuma citrus" in local_flavor_for("US-SC-HOUSTON", month=11)["produce"]
+
+
+def test_memphis_blueberries_to_butternut():
+    # Mid-South: blueberries May, butternut Dec, storage sweets Feb
+    assert "blueberries" in local_flavor_for("US-SE-MEMPHIS", month=5)["produce"]
+    assert "sweet potatoes (storage)" in local_flavor_for("US-SE-MEMPHIS", month=2)["produce"]
+    assert "butternut squash" in local_flavor_for("US-SE-MEMPHIS", month=12)["produce"]

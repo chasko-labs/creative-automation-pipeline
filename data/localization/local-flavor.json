@@ -410,6 +410,54 @@
             7,
             8
           ]
+        },
+        {
+          "name": "Meyer lemon",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "kale",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "rainbow chard",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "goat cheese",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "Half Moon Bay pumpkin",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "olive oil",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "Brussels sprouts",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -1190,6 +1238,66 @@
             7,
             8,
             9
+          ]
+        },
+        {
+          "name": "storage potatoes",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "cold-storage carrots",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "wild blueberries",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "storage carrots",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "wild rice",
+          "months": [
+            12
           ]
         }
       ]
@@ -2559,6 +2667,48 @@
             7,
             8
           ]
+        },
+        {
+          "name": "mustard greens",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "collard greens",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "cabbage",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "sweet potatoes",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "satsuma citrus",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "winter greens",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -3270,6 +3420,49 @@
             9,
             10,
             11
+          ]
+        },
+        {
+          "name": "collards",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "sweet potatoes (storage)",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            5,
+            6
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "butternut squash",
+          "months": [
+            12
           ]
         }
       ]
