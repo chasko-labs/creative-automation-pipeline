@@ -81385,6 +81385,1562 @@ window.KODIAK_RECIPE_I18N = {
       }
     }
   },
+  "US-SW-EL PASO": {
+    "2026-01": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup water — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon cinnamon — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter, to top and grease pan"
+          },
+          {
+            "price": null,
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "5 mins — Protein für deine Frontier",
+          "prep": "5 mins — Protein für deine Frontier",
+          "serves": "4 — Protein für deine Frontier"
+        },
+        "steps": [
+          "REMOVE the skin from the sweet potato and discard. — Protein für deine Frontier",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — Protein für deine Frontier",
+          "HEAT a skillet over medium heat. — Protein für deine Frontier",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — Protein für deine Frontier",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        ],
+        "title": "Sweet Potato Pancakes — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:7",
+            "step:4",
+            "step:6"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup water — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter, to top and grease pan"
+          },
+          {
+            "price": null,
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "5 mins — proteína para tu frontera",
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
+        },
+        "steps": [
+          "REMOVE the skin from the sweet potato and discard. — proteína para tu frontera",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — proteína para tu frontera",
+          "HEAT a skillet over medium heat. — proteína para tu frontera",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — proteína para tu frontera",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        ],
+        "title": "Sweet Potato Pancakes — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:7",
+            "step:4",
+            "step:6"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-02": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — Protein für deine Frontier",
+          "prep": "25 mins — Protein für deine Frontier",
+          "serves": "10 fritters — Protein für deine Frontier"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — Protein für deine Frontier",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — Protein für deine Frontier",
+          "SERVE hot topped with fresh microgreens. — Protein für deine Frontier"
+        ],
+        "title": "Savory Greens Fritters — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup grated parmesan — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tablespoons neutral oil, for frying — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup fresh microgreens, to serve — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "25 mins — proteína para tu frontera",
+          "serves": "10 fritters — proteína para tu frontera"
+        },
+        "steps": [
+          "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel. — proteína para tu frontera",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden. — proteína para tu frontera",
+          "SERVE hot topped with fresh microgreens. — proteína para tu frontera"
+        ],
+        "title": "Savory Greens Fritters — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-03": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "6 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup thinly sliced spring onions (greens and whites) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup shredded cheddar — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon salt — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — Protein für deine Frontier",
+          "prep": "15 mins — Protein für deine Frontier",
+          "serves": "12 muffins — Protein für deine Frontier"
+        },
+        "steps": [
+          "HEAT the oven to 350F and grease a 12-cup muffin tin. — Protein für deine Frontier",
+          "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+          "DIVIDE among the cups and bake 18-20 minutes, until puffed and set. — Protein für deine Frontier",
+          "COOL 5 minutes before turning out. — Protein für deine Frontier"
+        ],
+        "title": "Spring Onion Egg Muffins",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:2",
+            "ingredient:5",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "6 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup thinly sliced spring onions (greens and whites) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup shredded cheddar — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "15 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 350F and grease a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+          "DIVIDE among the cups and bake 18-20 minutes, until puffed and set. — proteína para tu frontera",
+          "COOL 5 minutes before turning out. — proteína para tu frontera"
+        ],
+        "title": "Spring Onion Egg Muffins",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:2",
+            "ingredient:5",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-04": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "6 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup thinly sliced spring onions (greens and whites) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup shredded cheddar — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon salt — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — Protein für deine Frontier",
+          "prep": "15 mins — Protein für deine Frontier",
+          "serves": "12 muffins — Protein für deine Frontier"
+        },
+        "steps": [
+          "HEAT the oven to 350F and grease a 12-cup muffin tin. — Protein für deine Frontier",
+          "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+          "DIVIDE among the cups and bake 18-20 minutes, until puffed and set. — Protein für deine Frontier",
+          "COOL 5 minutes before turning out. — Protein für deine Frontier"
+        ],
+        "title": "Spring Onion Egg Muffins",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:2",
+            "ingredient:5",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "6 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup thinly sliced spring onions (greens and whites) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup shredded cheddar — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon black pepper — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "15 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 350F and grease a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+          "DIVIDE among the cups and bake 18-20 minutes, until puffed and set. — proteína para tu frontera",
+          "COOL 5 minutes before turning out. — proteína para tu frontera"
+        ],
+        "title": "Spring Onion Egg Muffins",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:2",
+            "ingredient:5",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-05": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup water — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon cinnamon — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter, to top and grease pan"
+          },
+          {
+            "price": null,
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "5 mins — Protein für deine Frontier",
+          "prep": "5 mins — Protein für deine Frontier",
+          "serves": "4 — Protein für deine Frontier"
+        },
+        "steps": [
+          "REMOVE the skin from the sweet potato and discard. — Protein für deine Frontier",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — Protein für deine Frontier",
+          "HEAT a skillet over medium heat. — Protein für deine Frontier",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — Protein für deine Frontier",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        ],
+        "title": "Sweet Potato Pancakes — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:7",
+            "step:4",
+            "step:6"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup water — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon cinnamon — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Butter, to top and grease pan"
+          },
+          {
+            "price": null,
+            "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed. — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "5 mins — proteína para tu frontera",
+          "prep": "5 mins — proteína para tu frontera",
+          "serves": "4 — proteína para tu frontera"
+        },
+        "steps": [
+          "REMOVE the skin from the sweet potato and discard. — proteína para tu frontera",
+          "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed. — proteína para tu frontera",
+          "HEAT a skillet over medium heat. — proteína para tu frontera",
+          "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+          "REPEAT the process with remaining batter. — proteína para tu frontera",
+          "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        ],
+        "title": "Sweet Potato Pancakes — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:7",
+            "step:4",
+            "step:6"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-06": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cups fresh sweet corn kernels — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup diced sweet pepper (optional) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon salt — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons butter, for the griddle"
+          }
+        ],
+        "meta": {
+          "cook": "12 mins — Protein für deine Frontier",
+          "prep": "15 mins — Protein für deine Frontier",
+          "serves": "8 cakes — Protein für deine Frontier"
+        },
+        "steps": [
+          "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+          "REST the batter 5 minutes so the mix hydrates. — Protein für deine Frontier",
+          "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+          "SERVE hot with butter."
+        ],
+        "title": "Sweet Corn Griddle Cakes — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:7",
+            "step:1",
+            "step:3",
+            "step:4"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cups fresh sweet corn kernels — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "2/3 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup diced sweet pepper (optional) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 teaspoon salt — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons butter, for the griddle"
+          }
+        ],
+        "meta": {
+          "cook": "12 mins — proteína para tu frontera",
+          "prep": "15 mins — proteína para tu frontera",
+          "serves": "8 cakes — proteína para tu frontera"
+        },
+        "steps": [
+          "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+          "REST the batter 5 minutes so the mix hydrates. — proteína para tu frontera",
+          "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+          "SERVE hot with butter."
+        ],
+        "title": "Sweet Corn Griddle Cakes — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:7",
+            "step:1",
+            "step:3",
+            "step:4"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-07": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — Protein für deine Frontier",
+          "prep": "10 mins — Protein für deine Frontier",
+          "serves": "12 muffins — Protein für deine Frontier"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — Protein für deine Frontier",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — Protein für deine Frontier",
+          "BAKE 18-20 minutes, until a tester comes out clean. — Protein für deine Frontier",
+          "COOL briefly and serve warm. — Protein für deine Frontier"
+        ],
+        "title": "Red Chile Cornbread Muffins — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
+          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL briefly and serve warm. — proteína para tu frontera"
+        ],
+        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-08": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — Protein für deine Frontier",
+          "prep": "10 mins — Protein für deine Frontier",
+          "serves": "12 muffins — Protein für deine Frontier"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — Protein für deine Frontier",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — Protein für deine Frontier",
+          "BAKE 18-20 minutes, until a tester comes out clean. — Protein für deine Frontier",
+          "COOL briefly and serve warm. — Protein für deine Frontier"
+        ],
+        "title": "Red Chile Cornbread Muffins — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
+          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL briefly and serve warm. — proteína para tu frontera"
+        ],
+        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-09": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — Protein für deine Frontier",
+          "prep": "10 mins — Protein für deine Frontier",
+          "serves": "12 muffins — Protein für deine Frontier"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — Protein für deine Frontier",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — Protein für deine Frontier",
+          "BAKE 18-20 minutes, until a tester comes out clean. — Protein für deine Frontier",
+          "COOL briefly and serve warm. — Protein für deine Frontier"
+        ],
+        "title": "Red Chile Cornbread Muffins — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
+          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL briefly and serve warm. — proteína para tu frontera"
+        ],
+        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-10": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup brown sugar — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin purée — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sour cream — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "Pepitas, to top — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — Protein für deine Frontier",
+          "prep": "10 mins — Protein für deine Frontier",
+          "serves": "12 — Protein für deine Frontier"
+        },
+        "steps": [
+          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — Protein für deine Frontier",
+          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — Protein für deine Frontier",
+          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — Protein für deine Frontier",
+          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — Protein für deine Frontier",
+          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — Protein für deine Frontier"
+        ],
+        "title": "Pumpkin Oat Muffins — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:8",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup brown sugar — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 large egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup pumpkin purée — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup sour cream — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup avocado oil (or other neutral cooking oil) — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "Pepitas, to top — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "15 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 — proteína para tu frontera"
+        },
+        "steps": [
+          "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners. — proteína para tu frontera",
+          "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+          "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner. — proteína para tu frontera",
+          "TOP each batter-filled liner with a sprinkling of oats and pepitas. — proteína para tu frontera",
+          "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top. — proteína para tu frontera",
+          "REMOVE from the oven and cool on a wire rack. Store in an airtight container. — proteína para tu frontera"
+        ],
+        "title": "Pumpkin Oat Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:8",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-11": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — Protein für deine Frontier",
+          "prep": "10 mins — Protein für deine Frontier",
+          "serves": "12 muffins — Protein für deine Frontier"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — Protein für deine Frontier",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — Protein für deine Frontier",
+          "BAKE 18-20 minutes, until a tester comes out clean. — Protein für deine Frontier",
+          "COOL briefly and serve warm. — Protein für deine Frontier"
+        ],
+        "title": "Red Chile Cornbread Muffins — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
+          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL briefly and serve warm. — proteína para tu frontera"
+        ],
+        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    },
+    "2026-12": {
+      "de": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — Protein für deine Frontier"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — Protein für deine Frontier",
+          "prep": "10 mins — Protein für deine Frontier",
+          "serves": "12 muffins — Protein für deine Frontier"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — Protein für deine Frontier",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — Protein für deine Frontier",
+          "BAKE 18-20 minutes, until a tester comes out clean. — Protein für deine Frontier",
+          "COOL briefly and serve warm. — Protein für deine Frontier"
+        ],
+        "title": "Red Chile Cornbread Muffins — Protein für deine Frontier",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "de",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      },
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup honey"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+          }
+        ],
+        "meta": {
+          "cook": "20 mins — proteína para tu frontera",
+          "prep": "10 mins — proteína para tu frontera",
+          "serves": "12 muffins — proteína para tu frontera"
+        },
+        "steps": [
+          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
+          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
+          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
+          "COOL briefly and serve warm. — proteína para tu frontera"
+        ],
+        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:7",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    }
+  },
   "US-SW-LASCRUCES": {
     "2026-01": {
       "es": {

@@ -367431,6 +367431,6075 @@ window.KODIAK_RECIPE_CARDS = {
       "variant": "hero-plus-layout"
     }
   },
+  "US-SW-EL PASO": {
+    "2026-01": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "pecans (storage)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "5 mins",
+        "est_cost": null,
+        "prep": "5 mins",
+        "serves": "4"
+      },
+      "month": "2026-01",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
+          "recipe_id": "sweet-potato-pancakes",
+          "season": "winter",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "pecans (storage)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "sweet-potato-pancakes",
+        "name": "Sweet Potato Pancakes"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "winter",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+      ],
+      "substrate": "kraft",
+      "title": "Sweet Potato Pancakes",
+      "variant": "hero-plus-layout"
+    },
+    "2026-02": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "collards and turnips",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup grated parmesan"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons neutral oil, for frying"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup fresh microgreens, to serve"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "25 mins",
+        "serves": "10 fritters"
+      },
+      "month": "2026-02",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: savory-greens-fritters-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "savory-greens-fritters-draft",
+          "season": "winter",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "collards and turnips"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "savory-greens-fritters-draft",
+        "name": "Savory Greens Fritters"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "winter",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
+        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
+        "SERVE hot topped with fresh microgreens."
+      ],
+      "substrate": "kraft",
+      "title": "Savory Greens Fritters",
+      "variant": "hero-plus-layout"
+    },
+    "2026-03": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "spring onions",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": null,
+        "prep": "15 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-03",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: spring-onion-egg-muffins-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "spring-onion-egg-muffins-draft",
+          "season": "spring",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "spring onions"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "spring-onion-egg-muffins-draft",
+        "name": "Spring Onion Egg Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "spring",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
+      ],
+      "substrate": "kraft",
+      "title": "Spring Onion Egg Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-04": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "sweet onions (spring)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "6 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup thinly sliced spring onions (greens and whites)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup shredded cheddar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": null,
+        "prep": "15 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-04",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: spring-onion-egg-muffins-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "spring-onion-egg-muffins-draft",
+          "season": "spring",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "sweet onions (spring)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "spring-onion-egg-muffins-draft",
+        "name": "Spring Onion Egg Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "spring",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 350F and grease a 12-cup muffin tin.",
+        "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+        "DIVIDE among the cups and bake 18-20 minutes, until puffed and set.",
+        "COOL 5 minutes before turning out."
+      ],
+      "substrate": "kraft",
+      "title": "Spring Onion Egg Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-05": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "sweet onions and squash",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup water"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter, to top and grease pan"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "5 mins",
+        "est_cost": null,
+        "prep": "5 mins",
+        "serves": "4"
+      },
+      "month": "2026-05",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
+          "recipe_id": "sweet-potato-pancakes",
+          "season": "spring",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "sweet onions and squash"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "sweet-potato-pancakes",
+        "name": "Sweet Potato Pancakes"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "spring",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+      ],
+      "substrate": "kraft",
+      "title": "Sweet Potato Pancakes",
+      "variant": "hero-plus-layout"
+    },
+    "2026-06": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "melons and sweet corn",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2 cups fresh sweet corn kernels"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "2/3 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup diced sweet pepper (optional)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons butter, for the griddle"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "12 mins",
+        "est_cost": null,
+        "prep": "15 mins",
+        "serves": "8 cakes"
+      },
+      "month": "2026-06",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient overlap: sweet-corn-griddle-cakes-draft has the best token overlap with the in-season ingredient",
+          "recipe_id": "sweet-corn-griddle-cakes-draft",
+          "season": "summer",
+          "source": "ingredient-overlap"
+        },
+        "values_from_source": [
+          "melons and sweet corn"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "sweet-corn-griddle-cakes-draft",
+        "name": "Sweet Corn Griddle Cakes"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "summer",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "WHISK the mix, egg, milk, and salt into a batter, then fold in the corn and pepper.",
+        "REST the batter 5 minutes so the mix hydrates.",
+        "COOK 1/4-cup scoops in butter over medium heat, 2-3 minutes per side, until golden.",
+        "SERVE hot with butter."
+      ],
+      "substrate": "kraft",
+      "title": "Sweet Corn Griddle Cakes",
+      "variant": "hero-plus-layout"
+    },
+    "2026-07": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "early green chile and melons",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-07",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "season": "summer",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "early green chile and melons"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "summer",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
+      ],
+      "substrate": "kraft",
+      "title": "Red Chile Cornbread Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-08": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "green chile (peak roasting)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-08",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "season": "summer",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "green chile (peak roasting)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "summer",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
+      ],
+      "substrate": "kraft",
+      "title": "Red Chile Cornbread Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-09": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "green and red chile",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-09",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "season": "fall",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "green and red chile"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "fall",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
+      ],
+      "substrate": "kraft",
+      "title": "Red Chile Cornbread Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-10": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "piñon and pumpkins",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup Kodiak Protein Rolled Oats Canister"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup brown sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin purée"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup sour cream"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup avocado oil (or other neutral cooking oil)"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "Pepitas, to top"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "15 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12"
+      },
+      "month": "2026-10",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: pumpkin-oat-muffins lists the in-season ingredient in featured_for",
+          "recipe_id": "pumpkin-oat-muffins",
+          "season": "fall",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "piñon and pumpkins"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "pumpkin-oat-muffins",
+        "name": "Pumpkin Oat Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "fall",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "PREHEAT the oven to 375° Fahrenheit. Line a 12-cup muffin tin with cupcake liners.",
+        "PLACE the flapjack mix, oats, brown sugar, egg, pumpkin purée, sour cream, milk, and vanilla in a large mixing bowl and whisk together to form a smooth batter. Let sit for five minutes for grains to absorb liquid.",
+        "DIVIDE the batter between prepared muffin tins, using a scoop to add about 1/4 cup of batter to each liner.",
+        "TOP each batter-filled liner with a sprinkling of oats and pepitas.",
+        "BAKE in the preheated oven for 13-15 minutes, or until lightly golden brown on top.",
+        "REMOVE from the oven and cool on a wire rack. Store in an airtight container."
+      ],
+      "substrate": "kraft",
+      "title": "Pumpkin Oat Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-11": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "pecans and red chile",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-11",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "season": "fall",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "pecans and red chile"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "fall",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
+      ],
+      "substrate": "kraft",
+      "title": "Red Chile Cornbread Muffins",
+      "variant": "hero-plus-layout"
+    },
+    "2026-12": {
+      "art": {
+        "finished_plate": null,
+        "raw_ingredient": null,
+        "technique": null
+      },
+      "frontier_market": "US-TX-FABENS",
+      "ingredient": "red chile and piñon (holiday)",
+      "ingredients": [
+        {
+          "price": null,
+          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons red chile powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 large eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup honey"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        }
+      ],
+      "lang": "en",
+      "market": "US-SW-EL PASO",
+      "meta": {
+        "cook": "20 mins",
+        "est_cost": null,
+        "prep": "10 mins",
+        "serves": "12 muffins"
+      },
+      "month": "2026-12",
+      "provenance": {
+        "pairing": {
+          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "season": "winter",
+          "source": "ingredient-featured"
+        },
+        "values_from_source": [
+          "red chile and piñon (holiday)"
+        ],
+        "values_proposed": [
+          "over Kodiak Power Cakes"
+        ],
+        "values_unknown": [
+          "prices",
+          "temperatures"
+        ]
+      },
+      "recipe": {
+        "id": "red-chile-cornbread-muffins-draft",
+        "name": "Red Chile Cornbread Muffins"
+      },
+      "render": {
+        "canvas": {
+          "height": 1080,
+          "unit": "px",
+          "width": 1080
+        },
+        "hero_region": {
+          "height": 560,
+          "text_free": true
+        },
+        "layout_region": {
+          "carries_text": true
+        },
+        "text_free_regions": [
+          "hero"
+        ],
+        "text_regions": [
+          "title",
+          "ingredient_line",
+          "steps"
+        ],
+        "variant": "hero-plus-layout"
+      },
+      "schema": "recipe-card@v1",
+      "season": "winter",
+      "seasonal_moment": [
+        {
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "moment": "Thanksgiving",
+          "months": [
+            10,
+            11
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "piñon + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "moment": "Winter holidays",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "moment": "July 4th / summer",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "red chile + piñon (Fall)",
+            "green and red chile",
+            "piñon and pumpkins"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "moment": "Fall chile + piñon harvest (Sep-Oct)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "moment": "New Year's Day — New Year luck (New Year's Day)",
+          "months": [
+            1
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "moment": "Valentine's Day — Valentine sweets (Valentine's Day)",
+          "months": [
+            2
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "moment": "Memorial Day — Memorial Day grill (Memorial Day)",
+          "months": [
+            5
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "moment": "Fourth of July — Fourth cookout (Fourth of July)",
+          "months": [
+            7
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "moment": "Labor Day — Labor Day harvest (Labor Day)",
+          "months": [
+            9
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "pumpkins + piñon brittle (Halloween)",
+            "piñon and pumpkins",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "moment": "Halloween — Halloween patch (Halloween)",
+          "months": [
+            10
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and piñon (holiday)",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "moment": "Christmas — Christmas cheer (Christmas)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "moment": "Holiday season — holiday season (Holiday season)",
+          "months": [
+            12
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "moment": "Spring — first sweets (Spring)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "moment": "Summer — chile roast season (Summer)",
+          "months": [
+            7,
+            8
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "moment": "Easter — Easter spring (Easter)",
+          "months": [
+            4
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "moment": "Fall — seeded distinct (Fall)",
+          "months": [
+            9,
+            10
+          ],
+          "note": "distinct for Fall",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and piñon (holiday)"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "moment": "Winter — seeded distinct (Winter)",
+          "months": [
+            1,
+            2,
+            12
+          ],
+          "note": "distinct for Winter",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        },
+        {
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "confidence": "medium",
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "moment": "Early spring — onions (March)",
+          "months": [
+            3
+          ],
+          "note": "",
+          "seasons": [],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range piñon (regional knowledge, ground-unconfirmed — research dispatch)",
+          "status": "proposed"
+        }
+      ],
+      "sketch_zones": [
+        "raw_ingredient_sketch",
+        "technique_sketch",
+        "finished_plate_sketch"
+      ],
+      "steps": [
+        "HEAT the oven to 400F and line a 12-cup muffin tin.",
+        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
+        "COMBINE wet and dry just until mixed; divide among the cups.",
+        "BAKE 18-20 minutes, until a tester comes out clean.",
+        "COOL briefly and serve warm."
+      ],
+      "substrate": "kraft",
+      "title": "Red Chile Cornbread Muffins",
+      "variant": "hero-plus-layout"
+    }
+  },
   "US-SW-LASCRUCES": {
     "2026-01": {
       "art": {

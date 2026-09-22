@@ -38565,6 +38565,432 @@
         }
       ],
       "research_todo": true
+    },
+    {
+      "market": "US-SW-EL PASO",
+      "metro_location": null,
+      "frontier_sister": {
+        "place": "El Paso County farm valley (Fabens/Tornillo)",
+        "market": "US-SW-EL PASO",
+        "farmers_market_url": null,
+        "note": "Self-paired. Pecan orchards and row crops down-valley toward Fabens; Hatch chile roasted in-town each fall as NM-belt halo. Downtown farmers market URL unconfirmed \u2014 research dispatch, not fabricated."
+      },
+      "retailers": [
+        "Target",
+        "Walmart",
+        "Albertsons"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "pecans (storage)",
+        "2026-02": "collards and turnips",
+        "2026-03": "spring onions",
+        "2026-04": "sweet onions (spring)",
+        "2026-05": "sweet onions and squash",
+        "2026-06": "melons and sweet corn",
+        "2026-07": "early green chile and melons",
+        "2026-08": "green chile (peak roasting)",
+        "2026-09": "green and red chile",
+        "2026-10": "pi\u00f1on and pumpkins",
+        "2026-11": "pecans and red chile",
+        "2026-12": "red chile and pi\u00f1on (holiday)"
+      },
+      "monthly_ingredient_notes": {
+        "region": "Chihuahuan desert, upper Rio Grande (zone 8a): Hatch chile-belt halo 90 mi north, El Paso valley pecan orchards, Franklin-range pi\u00f1on roast each fall. Deep winter is storage pecans, red chile ristras, cool-season greens.",
+        "source": "data-core.js El Paso row (pi\u00f1on & green chile; Franklin Mountains cue) + Las Cruces pair (same desert band, 40 mi north); ground-unconfirmed \u2014 research dispatch"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Thanksgiving",
+          "available_ingredients": [
+            "turkey + pecan pie (Thanksgiving)",
+            "pecans and red chile",
+            "pi\u00f1on and pumpkins"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "turkey",
+            "sage",
+            "thanksgiving"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            10,
+            11
+          ]
+        },
+        {
+          "moment": "Winter holidays",
+          "available_ingredients": [
+            "pi\u00f1on + red chile (Winter)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "favorite_flavors": [
+            "pinon",
+            "red chile",
+            "warming spice",
+            "winter"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            1,
+            2,
+            12
+          ]
+        },
+        {
+          "moment": "July 4th / summer",
+          "available_ingredients": [
+            "green chile + melons (Summer)",
+            "melons and sweet corn",
+            "early green chile and melons"
+          ],
+          "favorite_flavors": [
+            "green chile",
+            "melon",
+            "corn",
+            "summer"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "moment": "Fall chile + pi\u00f1on harvest (Sep-Oct)",
+          "available_ingredients": [
+            "red chile + pi\u00f1on (Fall)",
+            "green and red chile",
+            "pi\u00f1on and pumpkins"
+          ],
+          "favorite_flavors": [
+            "red chile",
+            "pinon",
+            "fall"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "moment": "New Year's Day \u2014 New Year luck (New Year's Day)",
+          "available_ingredients": [
+            "black-eyed peas + greens (New Year)",
+            "collards and turnips",
+            "pecans (storage)"
+          ],
+          "favorite_flavors": [
+            "black-eyed pea",
+            "greens",
+            "pork",
+            "new year"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            1
+          ]
+        },
+        {
+          "moment": "Valentine's Day \u2014 Valentine sweets (Valentine's Day)",
+          "available_ingredients": [
+            "chocolate + pecans (Valentine)",
+            "collards and turnips"
+          ],
+          "favorite_flavors": [
+            "chocolate",
+            "pecan",
+            "valentine"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            2
+          ]
+        },
+        {
+          "moment": "Memorial Day \u2014 Memorial Day grill (Memorial Day)",
+          "available_ingredients": [
+            "squash + sweet onions (Memorial Day)",
+            "sweet onions and squash",
+            "melons and sweet corn"
+          ],
+          "favorite_flavors": [
+            "squash",
+            "sweet onion",
+            "grill",
+            "memorial day"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            5
+          ]
+        },
+        {
+          "moment": "Fourth of July \u2014 Fourth cookout (Fourth of July)",
+          "available_ingredients": [
+            "green chile burgers + corn (Fourth)",
+            "early green chile and melons"
+          ],
+          "favorite_flavors": [
+            "green chile",
+            "corn",
+            "fourth"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            7
+          ]
+        },
+        {
+          "moment": "Labor Day \u2014 Labor Day harvest (Labor Day)",
+          "available_ingredients": [
+            "chile + melons (Labor Day)",
+            "green and red chile"
+          ],
+          "favorite_flavors": [
+            "chile",
+            "melon",
+            "labor day"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            9
+          ]
+        },
+        {
+          "moment": "Halloween \u2014 Halloween patch (Halloween)",
+          "available_ingredients": [
+            "pumpkins + pi\u00f1on brittle (Halloween)",
+            "pi\u00f1on and pumpkins",
+            "pecans and red chile"
+          ],
+          "favorite_flavors": [
+            "pumpkin",
+            "pinon",
+            "caramel",
+            "halloween"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            10
+          ]
+        },
+        {
+          "moment": "Christmas \u2014 Christmas cheer (Christmas)",
+          "available_ingredients": [
+            "biscochitos + red chile (Christmas)",
+            "red chile and pi\u00f1on (holiday)",
+            "pecans and red chile"
+          ],
+          "favorite_flavors": [
+            "biscochito",
+            "red chile",
+            "christmas"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            12
+          ]
+        },
+        {
+          "moment": "Holiday season \u2014 holiday season (Holiday season)",
+          "available_ingredients": [
+            "eggnog + biscochitos (Holiday season)",
+            "pecans (storage)",
+            "collards and turnips"
+          ],
+          "favorite_flavors": [
+            "eggnog",
+            "biscochito",
+            "gingerbread",
+            "holiday"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            12
+          ]
+        },
+        {
+          "moment": "Spring \u2014 first sweets (Spring)",
+          "available_ingredients": [
+            "sweet onions + greens (Spring)",
+            "sweet onions (spring)",
+            "spring onions"
+          ],
+          "favorite_flavors": [
+            "onion",
+            "greens",
+            "spring"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            4
+          ]
+        },
+        {
+          "moment": "Summer \u2014 chile roast season (Summer)",
+          "available_ingredients": [
+            "roasted Hatch chile + corn (Summer)",
+            "green chile (peak roasting)",
+            "melons and sweet corn"
+          ],
+          "favorite_flavors": [
+            "hatch",
+            "corn",
+            "summer"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            7,
+            8
+          ]
+        },
+        {
+          "moment": "Easter \u2014 Easter spring (Easter)",
+          "available_ingredients": [
+            "ham + spring onions (Easter)",
+            "sweet onions (spring)"
+          ],
+          "favorite_flavors": [
+            "ham",
+            "onion",
+            "easter"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            4
+          ]
+        },
+        {
+          "moment": "Fall \u2014 seeded distinct (Fall)",
+          "available_ingredients": [
+            "chile ristras + pecans (Fall)",
+            "green and red chile",
+            "pecans and red chile"
+          ],
+          "favorite_flavors": [
+            "ristra",
+            "pecan",
+            "fall"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "distinct for Fall",
+          "seasons": [],
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "moment": "Winter \u2014 seeded distinct (Winter)",
+          "available_ingredients": [
+            "storage pecans + chile (Winter)",
+            "pecans (storage)",
+            "red chile and pi\u00f1on (holiday)"
+          ],
+          "favorite_flavors": [
+            "pecan",
+            "chile",
+            "winter"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "distinct for Winter",
+          "seasons": [],
+          "months": [
+            1,
+            2,
+            12
+          ]
+        },
+        {
+          "moment": "Early spring \u2014 onions (March)",
+          "available_ingredients": [
+            "spring onions (March)",
+            "spring onions",
+            "collards and turnips"
+          ],
+          "favorite_flavors": [
+            "onion",
+            "spring"
+          ],
+          "source": "Upper Rio Grande / Chihuahuan desert seasonal patterns: Hatch chile belt halo, El Paso valley pecans, Franklin-range pi\u00f1on (regional knowledge, ground-unconfirmed \u2014 research dispatch)",
+          "confidence": "medium",
+          "status": "proposed",
+          "note": "",
+          "seasons": [],
+          "months": [
+            3
+          ]
+        }
+      ],
+      "research_todo": true
     }
   ]
 }
