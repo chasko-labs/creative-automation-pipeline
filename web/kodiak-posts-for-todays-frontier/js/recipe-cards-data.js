@@ -496875,22 +496875,58 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 1 cup milk + 1 egg"
+          "qty_name": "1 box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/2  cup cornmeal"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1-1/4 cup apple sauce"
+        },
+        {
+          "price": null,
+          "qty_name": "3 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup melted butter"
+        },
+        {
+          "price": null,
+          "qty_name": "1/3 cup honey"
         }
       ],
       "lang": "en",
       "market": "US-W-SD",
       "meta": {
-        "cook": "12 mins",
+        "cook": "21",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "12"
+        "prep": "20",
+        "serves": "24"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: apple-cider-donuts has the best token overlap with the in-season ingredient",
-          "recipe_id": "apple-cider-donuts",
+          "reason": "ingredient overlap: cottage-cheese-cornbread-muffins has the best token overlap with the in-season ingredient",
+          "recipe_id": "cottage-cheese-cornbread-muffins",
           "season": "winter",
           "source": "ingredient-overlap"
         },
@@ -496906,8 +496942,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "apple-cider-donuts",
-        "name": "Apple Cider Donuts"
+        "id": "cottage-cheese-cornbread-muffins",
+        "name": "Cottage Cheese Cornbread Muffins"
       },
       "render": {
         "canvas": {
@@ -497419,10 +497455,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 1 cup milk + 1 egg"
+        "PREHEAT oven to 375°F and grease or line muffin tins.",
+        "IN a blender, combine cottage cheese, eggs, applesauce, milk, honey, and melted butter. Blend until completely smooth.",
+        "IN a large bowl, whisk together Kodiak Cakes mix, cornmeal, baking powder, and salt. Pour in the blended wet ingredients and stir until just combined.",
+        "LET batter rest for 5 minutes, then divide evenly into 24 muffin cups. Depending on the size of your muffin tins, you may need to bake in batches.",
+        "BAKE for 16–21 minutes, until set and lightly golden. Let cool slightly before serving.",
+        "STORE in an airtight container in the refrigerator for up to 4-5 days. Reheat Instructions: From the fridge, reheat in 350°F oven for 6-10 minutes until warmed through."
       ],
       "substrate": "kraft",
-      "title": "Apple Cider Donuts",
+      "title": "Cottage Cheese Cornbread Muffins",
       "variant": "hero-plus-layout"
     }
   },

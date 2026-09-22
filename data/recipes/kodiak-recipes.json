@@ -10205,8 +10205,8 @@
     "id": "apple-cider-donuts",
     "name": "Apple Cider Donuts",
     "category": "general",
-    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "product": "Cinnamon Oat Power Cakes Flapjack & Waffle Mix",
+    "base": "Donuts:; 1-1/2 cup Kodiak Cinnamon Oat Power Cakes Flapjack & Waffle mix; 1/4 cup brown sugar; 1 teaspoon baking powder; 1/2 cup apple cider; 1 teaspoon vanilla extract; 1 egg; 1/4 cup coconut oil, melted; Glaze:; 1 cup powdered sugar; 1/2 teaspoon vanilla; 2 tablespoons apple cider",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/apple-cider-donuts",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10226,9 +10226,30 @@
     ],
     "example_localization": {},
     "course": "breakfast & brunch",
-    "image": null,
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/apple-cider-donuts.jpg",
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "Donuts:",
+      "1-1/2 cup Kodiak Cinnamon Oat Power Cakes Flapjack & Waffle mix",
+      "1/4 cup brown sugar",
+      "1 teaspoon baking powder",
+      "1/2 cup apple cider",
+      "1 teaspoon vanilla extract",
+      "1 egg",
+      "1/4 cup coconut oil, melted",
+      "Glaze:",
+      "1 cup powdered sugar",
+      "1/2 teaspoon vanilla",
+      "2 tablespoons apple cider"
+    ],
+    "instructions": [
+      "In a bowl, combine Kodiak mix, brown sugar, and baking powder and mix.",
+      "Add apple cider, egg, vanilla extract, and melted coconut oil.",
+      "Mix until just combined.",
+      "Divide batter into greased donut pans and bake at 350 for 12-15 minutes or until toothpick comes clean.",
+      "Let donuts cool while you make the glaze.",
+      "In a small bowl, combine powdered sugar, vanilla and apple cider.",
+      "Mix until smooth.",
+      "Drizzle glaze over cooled donuts and serve."
     ],
     "dietary": [],
     "tags": [
@@ -10237,8 +10258,8 @@
       "pagination"
     ],
     "yield": "12",
-    "prepTime": "10 mins",
-    "cookTime": "12 mins"
+    "prepTime": "10",
+    "cookTime": "12"
   },
   {
     "id": "apple-cinnamon-compote-pancakes",
@@ -10715,8 +10736,8 @@
     "id": "baked-halloween-doughnuts",
     "name": "Baked Halloween Doughnuts",
     "category": "general",
-    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "product": "Pumpkin Power Cakes Flapjack & Waffle Mix",
+    "base": "Donuts:; 1-1/2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix; 1/2 cup sugar; 1/2 cup butter, melted; 2 eggs; 1/4 cup milk; Glaze:; 3/4 cup powdered sugar; 2 tablespoons cocoa powder; 2-3 tablespoons milk; 1/2 teaspoon vanilla; Halloween sprinkles for topping",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/baked-halloween-doughnuts",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10736,16 +10757,38 @@
     ],
     "example_localization": {},
     "course": "breakfast & brunch",
-    "image": null,
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/baked-halloween-doughnuts.jpg",
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "Donuts:",
+      "1-1/2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix",
+      "1/2 cup sugar",
+      "1/2 cup butter, melted",
+      "2 eggs",
+      "1/4 cup milk",
+      "Glaze:",
+      "3/4 cup powdered sugar",
+      "2 tablespoons cocoa powder",
+      "2-3 tablespoons milk",
+      "1/2 teaspoon vanilla",
+      "Halloween sprinkles for topping"
+    ],
+    "instructions": [
+      "Preheat oven to 350\u00b0 F and grease a donut pan with oil or butter.",
+      "In a large bowl. Combine Kodiak mix, sugar, butter, eggs, and milk.",
+      "Spoon or pipe batter into the greased doughnut pan.",
+      "Bake for 10-12 minutes or until a toothpick into the center of a doughnut comes out clean. Let cool completely.",
+      "Combine powdered sugar, cocoa powder, milk, and vanilla. Whisk until smooth.",
+      "Dip or drizzle over the top of the cooled doughnuts. Top with Halloween sprinkles."
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "prepTime": "15",
+    "cookTime": "12",
+    "yield": "12"
   },
   {
     "id": "baked-pear-cardamom-porridge",
@@ -12735,7 +12778,7 @@
     "name": "Christmas Tree Waffles",
     "category": "waffles",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1 cup water; 1 tablespoon oil; 4-5 drops green food coloring; Assorted Christmas sprinkles",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/christmas-tree-waffles",
     "localize": {
       "peppers": "Hatch green chile",
@@ -12755,16 +12798,31 @@
     ],
     "example_localization": {},
     "course": "breakfast & brunch",
-    "image": null,
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/christmas-tree-waffles.jpg",
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 cup water",
+      "1 tablespoon oil",
+      "4-5 drops green food coloring",
+      "Assorted Christmas sprinkles"
+    ],
+    "instructions": [
+      "Stir the Kodiak mix, water, and oil together until combined.",
+      "Add food coloring and stir until the batter turns vibrant green.",
+      "Pour 1/2 cup of the green batter into a heated and greased waffle round waffle iron. Close the iron and cook according to the waffle iron's instructions.",
+      "Remove the waffle and cut it into 4 pieces. Form a tree shape by layering the waffle quarters over one another with the pointed corner toward the top.",
+      "Repeat with the remaining batter.",
+      "Decorate waffles with holiday sprinkles and serve warm with syrup."
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "prepTime": "5",
+    "cookTime": "5",
+    "yield": "2"
   },
   {
     "id": "cinnamon-apple-cobbler",

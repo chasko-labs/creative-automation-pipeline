@@ -650,6 +650,36 @@ def test_holiday_table_recipes_carry_local_heroes():
         assert (repo / src).is_file(), f"{rid}: missing {src}"
 
 
+def test_holiday_stubs_enriched_from_brand_pages():
+    # Three table serves (new year, halloween, christmas) were sitemap
+    # stubs: one placeholder ingredient, a wrong griddle base, wrong
+    # Buttermilk product on Cinnamon-Oat/Pumpkin recipes. Enriched from
+    # the brand's own blog Recipe schema (ingredients, steps, times,
+    # yield, hero photo) — never invented. Pins content depth, correct
+    # mix, and local heroes so the stubs cannot silently regress.
+    from pathlib import Path
+
+    from creative_automation.recipe_card import _recipe_by_id
+
+    repo = Path(__file__).resolve().parent.parent
+    expected = {
+        "apple-cider-donuts": "Cinnamon Oat",
+        "baked-halloween-doughnuts": "Pumpkin",
+        "christmas-tree-waffles": "Buttermilk",
+    }
+    for rid, mix in expected.items():
+        recipe = _recipe_by_id(rid)
+        assert recipe is not None, rid
+        assert len(recipe.get("ingredients") or []) >= 5, rid
+        assert len(recipe.get("instructions") or []) >= 3, rid
+        assert mix in (recipe.get("product") or ""), rid
+        assert (recipe.get("prepTime") or "").isdigit(), rid
+        assert (recipe.get("cookTime") or "").isdigit(), rid
+        src = recipe.get("image") or ""
+        assert not str(src).startswith(("http://", "https://")), rid
+        assert (repo / src).is_file(), f"{rid}: missing {src}"
+
+
 def test_conjunction_split_month_serves_each_named_item():
     # El Paso September proves the word-order match end to end: without it
     # September pins cornbread alone (ingredient-featured); with it the
