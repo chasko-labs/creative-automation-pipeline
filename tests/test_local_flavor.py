@@ -559,3 +559,30 @@ def test_memphis_blueberries_to_butternut():
     assert "blueberries" in local_flavor_for("US-SE-MEMPHIS", month=5)["produce"]
     assert "sweet potatoes (storage)" in local_flavor_for("US-SE-MEMPHIS", month=2)["produce"]
     assert "butternut squash" in local_flavor_for("US-SE-MEMPHIS", month=12)["produce"]
+
+
+def test_neah_bay_clams_to_lingcod():
+    # Strait: razor clams Mar, Dungeness Oct-Nov, lingcod Dec
+    assert "razor clams" in local_flavor_for("US-WA-NEAHBAY", month=3)["produce"]
+    assert "Dungeness crab" in local_flavor_for("US-WA-NEAHBAY", month=10)["produce"]
+    assert "lingcod" in local_flavor_for("US-WA-NEAHBAY", month=12)["produce"]
+
+
+def test_la_blueberries_to_figs():
+    # LA basin: Ventura blueberries May, Mission figs Sep, avocados from Jun
+    assert "blueberries" in local_flavor_for("US-W-LA", month=5)["produce"]
+    assert "avocados" in local_flavor_for("US-W-LA", month=6)["produce"]
+    assert "figs" in local_flavor_for("US-W-LA", month=9)["produce"]
+
+
+def test_birmingham_strawberries_to_muscadine():
+    # Alabama: strawberries Mar, muscadine Sep, collards Jan
+    assert "strawberries" in local_flavor_for("US-SE-BIRMINGHAM", month=3)["produce"]
+    assert "muscadine grapes" in local_flavor_for("US-SE-BIRMINGHAM", month=9)["produce"]
+    assert "collards" in local_flavor_for("US-SE-BIRMINGHAM", month=1)["produce"]
+
+
+def test_sandersville_turnips_to_vidalia():
+    # Georgia follow-through: turnips Feb, early Vidalia Apr
+    assert "turnips" in local_flavor_for("US-SE-SANDERSVILLE", month=2)["produce"]
+    assert "Vidalia onions (early)" in local_flavor_for("US-SE-SANDERSVILLE", month=4)["produce"]

@@ -75,6 +75,43 @@
           "months": [
             8
           ]
+        },
+        {
+          "name": "smoked salmon",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "halibut",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "razor clams",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "spring Chinook",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "Dungeness crab",
+          "months": [
+            10,
+            11
+          ]
+        },
+        {
+          "name": "lingcod",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -329,6 +366,30 @@
             11
           ],
           "peak": 10
+        },
+        {
+          "name": "collards",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "turnips",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "strawberries (early)",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "Vidalia onions (early)",
+          "months": [
+            4
+          ]
         }
       ]
     },
@@ -2990,6 +3051,36 @@
             11,
             12
           ]
+        },
+        {
+          "name": "collards",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "turnips",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "muscadine grapes",
+          "months": [
+            9
+          ]
         }
       ]
     },
@@ -4918,8 +5009,34 @@
             3,
             4,
             5,
+            6,
             11,
             12
+          ]
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "Valencia oranges",
+          "months": [
+            7,
+            8
+          ]
+        },
+        {
+          "name": "figs",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "persimmons",
+          "months": [
+            10
           ]
         }
       ]
