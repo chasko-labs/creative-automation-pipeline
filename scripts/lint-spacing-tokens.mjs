@@ -50,20 +50,26 @@ if (distinct.size !== 1) {
 	);
 }
 
-// 3. dividers must carry bottom margin (mid-gap, never glued to the card below).
-for (const cls of [".ff-ridge", ".ff-forest"]) {
+// 3. dividers integrate flush with the card below (bottom margin 0) and end
+// at the card's corner curve (horizontal inset, one radius token each side).
+for (const cls of [".ff-ridge", ".ff-forest", ".ff-about-art"]) {
 	const rule = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].find((r) =>
 		r[1].split(",").map((s) => s.trim()).includes(cls),
 	);
 	const body = rule ? rule[2] : "";
 	const shorthand = body.match(/margin\s*:\s*([^;}]+)/);
-	const mb = body.match(/margin-bottom\s*:\s*([^;}]+)/);
-	const bottom = mb ? mb[1].trim() : shorthand ? shorthand[1].trim().split(/\s+/) : null;
-	const bottom_val = Array.isArray(bottom)
-		? bottom.length === 1 ? bottom[0] : bottom.length === 3 ? bottom[2] : bottom[3]
-		: bottom;
-	if (!bottom_val || bottom_val === "0" || bottom_val === "0px") {
-		failures.push(`${cls} has no bottom margin (glued divider)`);
+	const parts = shorthand ? shorthand[1].trim().split(/\s+/) : [];
+	const top = parts[0] || null;
+	const sides = parts.length === 4 ? parts[1] : parts.length >= 2 ? parts[1] : null;
+	const bottom = parts.length <= 2 ? parts[0] : parts.length === 3 ? parts[2] : parts[3] || null;
+	if (bottom !== "0" && bottom !== "0px") {
+		failures.push(`${cls} must sit flush on its card (margin-bottom ${bottom || "missing"})`);
+	}
+	if (sides !== "var(--radii-lg)") {
+		failures.push(`${cls} art must end at the card curve (side margin ${sides || "missing"})`);
+	}
+	if (top !== "0" && top !== "0px" && top !== "auto") {
+		failures.push(`${cls} top margin must be 0/auto (card above supplies the gap), got ${top}`);
 	}
 }
 
@@ -73,5 +79,5 @@ if (failures.length > 0) {
 	process.exit(1);
 }
 console.log(
-	`lint:css ok — step summaries share ${[...distinct][0]}; dividers carry bottom margin; no fractional px.`,
+	`lint:css ok — step summaries share ${[...distinct][0]}; dividers flush + curve-inset; no fractional px.`,
 );

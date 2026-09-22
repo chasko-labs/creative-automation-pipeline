@@ -134,6 +134,13 @@ if [[ "$missing" == "1" ]]; then
 	exit 1
 fi
 
+# version discipline: every build ships a fresh stamp, and all sinks agree.
+# bump BEFORE committing (./scripts/bump-version.sh); the deploy refuses drift.
+"$REPO_ROOT/scripts/bump-version.sh" --check || {
+	echo "[deploy-frontier] abort: version sinks disagree — run ./scripts/bump-version.sh, commit, retry" >&2
+	exit 1
+}
+
 # mirror DAM recipe-art into the site tree BEFORE the dir preflight below.
 # Card art urls are permanent site paths (/recipe-art/<slug>/<zone>.png), never
 # presigns (session-bound presigns ExpiredToken within hours and blank every

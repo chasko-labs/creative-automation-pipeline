@@ -13,11 +13,26 @@ const page_url = pathToFileURL(
 	resolve("web/kodiak-posts-for-todays-frontier/index.html"),
 ).href;
 
+// the full frontier page (vendor 3D bundle under software WebGL) loads slowly;
+// the default 30s test timeout kills healthy runs at whatever step is pending.
+test.setTimeout(120000);
+
 async function gotoUnlocked(page) {
 	await page.goto(page_url);
 	await page.fill("#kodiak-gate input", "cakes");
 	await page.click("#kodiak-gate button");
 	await expect(page.locator("#kodiak-gate")).toBeHidden({ timeout: 10000 });
+	// measure only once the authored stylesheet is live: unstyled file://
+	// races read zero margins and flake the geometry below.
+	await page.waitForFunction(() => {
+		const ridge = document.querySelector(".wrap > .ff-ridge");
+		if (!ridge) return false;
+		const style = getComputedStyle(ridge);
+		return style.marginBottom === "0px" && style.marginLeft === "16px";
+	});
+	// the Generate section is mounted by JS after load; measuring before it
+	// lands silently re-pairs every divider below it and flakes the gaps.
+	await page.waitForSelector("#generateCampaignSection", { timeout: 60000 });
 }
 
 async function gaps(page) {
@@ -35,14 +50,39 @@ async function gaps(page) {
 	});
 }
 
-// dividers sit mid-gap: equal breathing room above and below, one token (24px).
-test("ridge/forest dividers are centered in a uniform 24px rhythm", async ({
+// dividers are extensions of the card tops below them: breathing room above
+// (one token, 24px), FLUSH below (0px), and inset horizontally so the square
+// art ends where the card's corner curve begins (--radii-lg, 16px each side).
+test("ridge/forest dividers integrate flush with the card top below", async ({
 	page,
 }) => {
 	await gotoUnlocked(page);
 	const rows = await gaps(page);
+	const boxes = await page.evaluate(() => {
+		const out = {};
+		for (const el of document.querySelectorAll(
+			".wrap > .ff-ridge, .wrap > .ff-forest, .wrap > .ff-about-art",
+		)) {
+			const rect = el.getBoundingClientRect();
+			const next = el.nextElementSibling.getBoundingClientRect();
+			out[
+				(el.id ? `#${el.id}` : el.tagName.toLowerCase()) +
+					`.${String(el.className).split(" ")[0]}`
+			] = {
+				left: Math.round(rect.left),
+				right: Math.round(rect.right),
+				card_left: Math.round(next.left),
+				card_right: Math.round(next.right),
+			};
+		}
+		return out;
+	});
 	for (let i = 0; i < rows.length; i++) {
-		if (!rows[i].key.includes("ff-ridge") && !rows[i].key.includes("ff-forest"))
+		if (
+			!rows[i].key.includes("ff-ridge") &&
+			!rows[i].key.includes("ff-forest") &&
+			!rows[i].key.includes("ff-about-art")
+		)
 			continue;
 		const above = rows[i].top - rows[i - 1].bottom;
 		const below = rows[i + 1].top - rows[i].bottom;
@@ -52,8 +92,17 @@ test("ridge/forest dividers are centered in a uniform 24px rhythm", async ({
 		).toBe(24);
 		expect(
 			below,
-			`${rows[i].key} gap below (${below}) must equal --spacing-lg (24)`,
-		).toBe(24);
+			`${rows[i].key} must sit flush on its card (gap below ${below})`,
+		).toBe(0);
+		const box = boxes[rows[i].key];
+		expect(
+			box.left - box.card_left,
+			`${rows[i].key} art must end at the card curve (left inset)`,
+		).toBe(16);
+		expect(
+			box.card_right - box.right,
+			`${rows[i].key} art must end at the card curve (right inset)`,
+		).toBe(16);
 	}
 });
 

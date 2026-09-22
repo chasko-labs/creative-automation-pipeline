@@ -877,15 +877,15 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 /* derived local-flavor block — kept in DOM for JS, never shown */
 .ff-hidden{display:none}
 /* Wasatch ridge divider — decorative silhouette band; cap height from the shared spacing scale */
-.ff-ridge{height:var(--spacing-xl,32px);background:var(--mountain) no-repeat center/100% var(--spacing-xl,32px);margin:0 0 var(--spacing-lg)}
+.ff-ridge{height:var(--spacing-xl,32px);background:var(--mountain) no-repeat center/100% var(--spacing-xl,32px);margin:0 var(--radii-lg) 0}
 /* === About art band — full-bleed mountains-with-pines, FLUSH with the section below ===
    (no top margin: the art is the section's cap, not a separate stacked block) */
-.ff-about-art{margin:0;line-height:0}
+.ff-about-art{margin:0 var(--radii-lg);line-height:0}
 /* the band sits flush on the About tool card — the .card top margin would float it */
 .ff-about-art+.ff-about{margin-top:0}
 .ff-about-art .ff-about-range{width:100%;height:var(--spacing-2xl,48px);display:block}
 /* forest treeline divider - mirrors .ff-ridge, uses the conifer --forest silhouette */
-.ff-forest{height:var(--spacing-xl,32px);background:var(--forest) no-repeat center/100% var(--spacing-xl,32px);margin:0 0 var(--spacing-lg)}
+.ff-forest{height:var(--spacing-xl,32px);background:var(--forest) no-repeat center/100% var(--spacing-xl,32px);margin:0 var(--radii-lg) 0}
 /* preview filenames line — hidden until populated */
 .ff-filenames{margin-top:10px;display:none}
 /* details-page link (legacy .ff-detailslink retained harmlessly; standalone row removed in FIX 4) */
