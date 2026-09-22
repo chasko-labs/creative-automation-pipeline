@@ -179,3 +179,37 @@ def test_oceanside_avocado_and_citrus_windows():
     jan = local_flavor_for("US-CA-OCEANSIDE", month=1)
     assert "Oceanside citrus" in jan["produce"]
     assert "avocados" not in jan["produce"]
+
+
+def test_wasatch_peaches_july_honey_december():
+    # Wasatch Back: peaches Jul, storing honey carries December
+    jul = local_flavor_for("US-MW-WASATCH", month=7)
+    assert "peaches" in jul["produce"]
+    dec = local_flavor_for("US-MW-WASATCH", month=12)
+    assert dec["produce"] == ["local honey"]
+
+
+def test_albuquerque_chile_august_pecans_december():
+    # Rio Grande valley: green chile Aug-Sep, pecans close the year
+    aug = local_flavor_for("US-SW-ALBQ", month=8)
+    assert "green chile" in aug["produce"]
+    dec = local_flavor_for("US-SW-ALBQ", month=12)
+    assert "pecans" in dec["produce"]
+    assert "green chile" not in dec["produce"]
+
+
+def test_sacramento_mountains_honey_and_harvest():
+    # Timberon honey runs year-round; Cloudcroft berries peak August
+    assert "mountain honey" in local_flavor_for("US-SW-TIMBERON", month=1)["produce"]
+    assert "pinon nuts" in local_flavor_for("US-SW-TIMBERON", month=11)["produce"]
+    assert "u-pick berries" in local_flavor_for("US-SW-CLOUDCROFT", month=8)["produce"]
+    assert "red chile ristras" in local_flavor_for("US-SW-CLOUDCROFT", month=12)["produce"]
+
+
+def test_tularosa_pistachio_harvest_september():
+    # Tularosa Basin pistachios peak Sep; cherries are May-Jun only
+    sep = local_flavor_for("US-SW-TULAROSA", month=9)
+    assert "pistachios" in sep["produce"]
+    jun = local_flavor_for("US-SW-TULAROSA", month=6)
+    assert "cherries" in jun["produce"]
+    assert "pistachios" not in jun["produce"]

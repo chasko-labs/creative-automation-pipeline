@@ -672,7 +672,82 @@
     "US-MW-WASATCH": {
       "place": "Park City, Wasatch Mountains",
       "source": "Midway, Utah 84049 — Midway Town Square market stands (standalone URL unconfirmed — research dispatch)",
-      "produce": []
+      "produce": [
+        {
+          "name": "storage root vegetables",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "local honey",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "ranch dairy butter",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "raspberries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            7
+          ],
+          "peak": 7
+        },
+        {
+          "name": "summer squash",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9
+          ],
+          "peak": 9
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            10,
+            11
+          ]
+        }
+      ]
     },
     "US-MW-WASATCH-SLC": {
       "place": "Salt Lake City, Utah",
@@ -1368,12 +1443,237 @@
     "US-SW-ALBQ": {
       "place": "Albuquerque, New Mexico",
       "source": "Corrales, New Mexico 87048 — Corrales Growers Market (schedule unconfirmed — research dispatch)",
-      "produce": []
+      "produce": [
+        {
+          "name": "stored apples",
+          "months": [
+            1,
+            12
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            1,
+            10
+          ]
+        },
+        {
+          "name": "cool-season greens",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "radishes",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "lettuce",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "spring onions",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6,
+            7
+          ],
+          "peak": 7
+        },
+        {
+          "name": "summer squash",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7
+          ],
+          "peak": 7
+        },
+        {
+          "name": "green chile",
+          "months": [
+            8,
+            9
+          ],
+          "peak": 8
+        },
+        {
+          "name": "melons",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "pecans",
+          "months": [
+            11,
+            12
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            11
+          ]
+        }
+      ]
     },
     "US-SW-CLOUDCROFT": {
       "place": "Cloudcroft + Alamogordo, New Mexico",
       "source": "Cloudcroft, New Mexico 88317 — Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-      "produce": []
+      "produce": [
+        {
+          "name": "storage apples",
+          "months": [
+            1,
+            3
+          ]
+        },
+        {
+          "name": "orchard preserves",
+          "months": [
+            1,
+            2
+          ]
+        },
+        {
+          "name": "storage potatoes",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "mountain honey",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "greenhouse greens",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "early greens",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "lettuce",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "radishes",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "herbs",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "summer squash",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "greens",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "u-pick berries",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "squash",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "mountain apples",
+          "months": [
+            9,
+            10
+          ],
+          "peak": 9
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "pinon nuts",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "red chile ristras",
+          "months": [
+            12
+          ]
+        },
+        {
+          "name": "posole corn",
+          "months": [
+            12
+          ]
+        }
+      ]
     },
     "US-SW-EL PASO": {
       "place": "El Paso, Texas",
@@ -1495,12 +1795,182 @@
     "US-SW-TIMBERON": {
       "place": "Timberon, New Mexico",
       "source": "Timberon, New Mexico 88350 — Timberon General Store + Cloudcroft Mercantile halo (no confirmed standalone farmers market — research dispatch)",
-      "produce": []
+      "produce": [
+        {
+          "name": "mountain honey",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1,
+            2
+          ]
+        },
+        {
+          "name": "storage pears",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "early greens",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "greens",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "herbs",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "summer squash",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "early apples",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "pinon nuts",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "red chile ristras",
+          "months": [
+            12
+          ]
+        }
+      ]
     },
     "US-SW-TULAROSA": {
       "place": "Tularosa, NM 88352 — Tularosa Basin, provider edge",
       "source": "La Luz, New Mexico 88337 — La Luz farm stands (standalone URL unconfirmed — research dispatch)",
-      "produce": []
+      "produce": [
+        {
+          "name": "stored pecans",
+          "months": [
+            1,
+            11
+          ]
+        },
+        {
+          "name": "pistachios",
+          "months": [
+            1,
+            2,
+            9,
+            11,
+            12
+          ],
+          "peak": 9
+        },
+        {
+          "name": "stored apples",
+          "months": [
+            2,
+            12
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "early greens",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "cherries",
+          "months": [
+            5,
+            6
+          ],
+          "peak": 6
+        },
+        {
+          "name": "apricots",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "early apples",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "melons",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "green chile",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "wine grapes",
+          "months": [
+            10
+          ]
+        }
+      ]
     },
     "US-W-ANCHORAGE": {
       "place": "Anchorage, Alaska",
