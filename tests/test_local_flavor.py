@@ -151,3 +151,31 @@ def test_languages_match_shipped_frontend_copy():
         ).read_text(encoding="utf-8")
     )
     assert root["markets"] == web["markets"]
+
+
+def test_cincinnati_maple_march_window():
+    # Ohio maple Feb-Mar — March (3) in season with Findlay Market source
+    mar = local_flavor_for("US-OH-CINCINNATI", month=3)
+    assert mar["matched"] is True
+    assert "Ohio maple syrup" in mar["produce"]
+    assert "Findlay Market" in mar["source"]
+    # January is honey-only winter
+    jan = local_flavor_for("US-OH-CINCINNATI", month=1)
+    assert jan["produce"] == ["local honey"]
+
+
+def test_dayton_shares_lebanon_belt_sweet_corn():
+    # Dayton twins Cincinnati's Lebanon-belt calendar: sweet corn Jul-Aug
+    aug = local_flavor_for("US-OH-DAYTON", month=8)
+    assert "sweet corn" in aug["produce"]
+    assert "tomatoes" in aug["produce"]
+
+
+def test_oceanside_avocado_and_citrus_windows():
+    # Coastal SoCal: avocados Apr-Aug, winter citrus Dec-Mar
+    may = local_flavor_for("US-CA-OCEANSIDE", month=5)
+    assert "avocados" in may["produce"]
+    assert "Oceanside citrus" not in may["produce"]
+    jan = local_flavor_for("US-CA-OCEANSIDE", month=1)
+    assert "Oceanside citrus" in jan["produce"]
+    assert "avocados" not in jan["produce"]

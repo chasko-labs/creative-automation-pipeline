@@ -1863,12 +1863,226 @@
     "US-OH-CINCINNATI": {
       "place": "Cincinnati, Ohio 45202",
       "source": "Cincinnati, Ohio 45202 — Findlay Market, year-round",
-      "produce": []
+      "produce": [
+        {
+          "name": "Ohio maple syrup",
+          "months": [
+            2,
+            3
+          ],
+          "peak": 3
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            5
+          ],
+          "peak": 5
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5,
+            6
+          ],
+          "peak": 6
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            6,
+            7
+          ],
+          "peak": 7
+        },
+        {
+          "name": "peaches",
+          "months": [
+            7,
+            8
+          ],
+          "peak": 8
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8
+          ],
+          "peak": 8
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7,
+            8,
+            9
+          ],
+          "peak": 8
+        },
+        {
+          "name": "apples",
+          "months": [
+            9,
+            10
+          ],
+          "peak": 10
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            9,
+            10
+          ],
+          "peak": 10
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "name": "fresh cider",
+          "months": [
+            9,
+            10,
+            11
+          ],
+          "peak": 10
+        },
+        {
+          "name": "local honey",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
     },
     "US-OH-DAYTON": {
       "place": "Dayton, Ohio 45402",
       "source": "Dayton, Ohio 45402 — 2nd Street Market (Saturdays)",
-      "produce": []
+      "produce": [
+        {
+          "name": "Ohio maple syrup",
+          "months": [
+            2,
+            3
+          ],
+          "peak": 3
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            5
+          ],
+          "peak": 5
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5,
+            6
+          ],
+          "peak": 6
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            6,
+            7
+          ],
+          "peak": 7
+        },
+        {
+          "name": "peaches",
+          "months": [
+            7,
+            8
+          ],
+          "peak": 8
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8
+          ],
+          "peak": 8
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7,
+            8,
+            9
+          ],
+          "peak": 8
+        },
+        {
+          "name": "apples",
+          "months": [
+            9,
+            10
+          ],
+          "peak": 10
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            9,
+            10
+          ],
+          "peak": 10
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "name": "fresh cider",
+          "months": [
+            9,
+            10,
+            11
+          ],
+          "peak": 10
+        },
+        {
+          "name": "local honey",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ]
     },
     "US-OH-LEBANON": {
       "place": "Lebanon, Ohio 45036",
@@ -1878,7 +2092,96 @@
     "US-CA-OCEANSIDE": {
       "place": "Oceanside, California 92054",
       "source": "Oceanside, California 92054 — Oceanside Morning Farmers Market (Thu 9-1, Pier View Way) + Sunset Market (Thu 5-9, five blocks)",
-      "produce": []
+      "produce": [
+        {
+          "name": "Oceanside citrus",
+          "months": [
+            12,
+            1,
+            2,
+            3
+          ],
+          "peak": 1
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "peak": 4
+        },
+        {
+          "name": "avocados",
+          "months": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "peak": 5
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            7,
+            8
+          ],
+          "peak": 8
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            7,
+            8,
+            9
+          ],
+          "peak": 8
+        },
+        {
+          "name": "cucumbers",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "specialty peppers",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "passionfruit",
+          "months": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "cherimoya",
+          "months": [
+            10,
+            11,
+            12
+          ],
+          "peak": 11
+        },
+        {
+          "name": "persimmons",
+          "months": [
+            10,
+            11
+          ]
+        }
+      ]
     }
   }
 }
