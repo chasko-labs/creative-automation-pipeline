@@ -89,12 +89,13 @@ describe('de-reddened decorative UI', () => {
   });
 });
 
-// Layout law — campaign assets ride the main page scroll: no inner scrollbar,
-// download actions in normal flow, nothing clipped at 1600px or 390px.
-describe('layout law (no inner scroll on assets)', () => {
-  it('assets sections refuse inner scroll; carousel shell never scrolls', () => {
+// Layout law — asset sections ride the main page scroll (no inner vertical
+// scrollbar); the product carousel keeps its own horizontal snap scroll so
+// narrow viewports can reach every slot. Download actions stay in normal flow.
+describe('layout law (page scroll for sections, self scroll for carousel)', () => {
+  it('asset sections ride the page scroll; the product carousel keeps its own horizontal scroll', () => {
     expect(css).toMatch(/\.ff-output\.ff-campaign-assets,\.ff-output\.ff-generate-campaign\{[^}]*overflow:visible[^}]*max-height:none/);
-    expect(css).toMatch(/\.ff-campaign-assets \.ff-product-carousel\{[^}]*overflow-x:visible/);
+    expect(css).toMatch(/\.ff-campaign-assets \.ff-product-carousel\{[^}]*overflow-x:auto/);
   });
 
   it('narrow slots share the row instead of scrolling', () => {

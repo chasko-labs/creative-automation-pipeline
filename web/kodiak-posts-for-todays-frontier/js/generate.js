@@ -210,8 +210,8 @@ let skuList = [
       const order = (typeof window !== 'undefined' && Array.isArray(window.KODIAK_TILE_ORDER) && window.KODIAK_TILE_ORDER.length)
         ? window.KODIAK_TILE_ORDER : ['blog', '1x1', '16x9', '4x5', '9x16'];
       const seasons = entry.seasons || {};
-      let season = (month && seasons && seasonKeyForMonth(idx, month) && seasons[seasonKeyForMonth(idx, month)])
-        ? seasonKeyForMonth(idx, month) : null;
+      const seasonForMonth = month ? seasonKeyForMonth(idx, month) : null;
+      let season = (seasonForMonth && seasons[seasonForMonth]) ? seasonForMonth : null;
       if(!season){
         for(const key of SEASON_PRIORITY){ if(seasons[key]){ season = key; break; } }
       }
