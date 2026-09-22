@@ -294738,68 +294738,56 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 tablespoons butter, melted"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup blended cottage cheese"
+          "qty_name": "1/3 cup packed brown sugar"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup milk"
+          "qty_name": "1 ripe mango, peeled and diced"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+          "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup plain Greek yogurt"
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+          "qty_name": "2 large eggs"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced mango"
+          "qty_name": "1 teaspoon vanilla extract"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced pineapple"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon toasted coconut chips"
-        },
-        {
-          "price": null,
-          "qty_name": "1 passion fruit, halved (optional, but recommended)"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, for serving (optional)"
+          "qty_name": "1/4 teaspoon salt"
         }
       ],
       "lang": "en",
       "market": "US-SE-FL",
       "meta": {
-        "cook": "10",
+        "cook": "25 mins",
         "est_cost": null,
-        "prep": "10",
-        "serves": "1"
+        "prep": "15 mins",
+        "serves": "8 servings"
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: tropical-protein-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "tropical-protein-pancakes",
+          "reason": "featured rotation: pineapple-mango-upside-down-cakes-draft chosen deterministically for US-SE-FL|2026-05 among recipes curating the ingredient in featured_for",
+          "recipe_id": "pineapple-mango-upside-down-cakes-draft",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "mango"
@@ -294813,8 +294801,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "tropical-protein-pancakes",
-        "name": "Tropical Protein Pancakes"
+        "id": "pineapple-mango-upside-down-cakes-draft",
+        "name": "Pineapple-Mango Upside-Down Power Cakes"
       },
       "render": {
         "canvas": {
@@ -295309,17 +295297,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the Kodiak Cakes mix in a medium bowl.",
-        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
-        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
-        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
-        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
-        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-        "DRIZZLE with maple syrup, if desired. Serve immediately."
+        "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+        "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango.",
+        "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+        "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center.",
+        "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Tropical Protein Pancakes",
+      "title": "Pineapple-Mango Upside-Down Power Cakes",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -350185,10 +350170,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: tropical-protein-pancakes has the best token overlap with the in-season ingredient",
+          "reason": "featured rotation: tropical-protein-pancakes chosen deterministically for US-SE-TAMPA|2026-07 among recipes curating the ingredient in featured_for",
           "recipe_id": "tropical-protein-pancakes",
           "season": "summer",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "mango"
@@ -357638,52 +357623,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Butter, for the baking dish"
         },
         {
           "price": null,
-          "qty_name": "1 cup cornmeal"
+          "qty_name": "6 large eggs"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons red chile powder"
+          "qty_name": "1/2 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 cup milk"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/4 teaspoon black pepper"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup honey"
+          "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup melted butter"
+          "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed)"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided"
         }
       ],
       "lang": "en",
       "market": "US-SW-ALBQ",
       "meta": {
-        "cook": "20 mins",
+        "cook": "35 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "12 muffins"
+        "serves": "6 servings"
       },
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "reason": "featured rotation: green-chile-cheddar-bake-draft chosen deterministically for US-SW-ALBQ|2026-08 among recipes curating the ingredient in featured_for",
+          "recipe_id": "green-chile-cheddar-bake-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "green chile and melons"
@@ -357697,8 +357682,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "red-chile-cornbread-muffins-draft",
-        "name": "Red Chile Cornbread Muffins"
+        "id": "green-chile-cheddar-bake-draft",
+        "name": "Green Chile Cheddar Power Bake"
       },
       "render": {
         "canvas": {
@@ -358198,14 +358183,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-        "COMBINE wet and dry just until mixed; divide among the cups.",
-        "BAKE 18-20 minutes, until a tester comes out clean.",
-        "COOL briefly and serve warm."
+        "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+        "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+        "FOLD in the green chile and 1 cup of the cheese.",
+        "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+        "REST 10 minutes before cutting into squares. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Red Chile Cornbread Muffins",
+      "title": "Green Chile Cheddar Power Bake",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -358261,10 +358246,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-ALBQ|2026-09 among recipes curating the ingredient in featured_for",
           "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "green chile and apples"
@@ -370467,52 +370452,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Butter, for the baking dish"
         },
         {
           "price": null,
-          "qty_name": "1 cup cornmeal"
+          "qty_name": "6 large eggs"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons red chile powder"
+          "qty_name": "1/2 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 cup milk"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/4 teaspoon black pepper"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup honey"
+          "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup melted butter"
+          "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed)"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided"
         }
       ],
       "lang": "en",
       "market": "US-SW-EL PASO",
       "meta": {
-        "cook": "20 mins",
+        "cook": "35 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "12 muffins"
+        "serves": "6 servings"
       },
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "reason": "featured rotation: green-chile-cheddar-bake-draft chosen deterministically for US-SW-EL PASO|2026-07 among recipes curating the ingredient in featured_for",
+          "recipe_id": "green-chile-cheddar-bake-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "early green chile and melons"
@@ -370526,8 +370511,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "red-chile-cornbread-muffins-draft",
-        "name": "Red Chile Cornbread Muffins"
+        "id": "green-chile-cheddar-bake-draft",
+        "name": "Green Chile Cheddar Power Bake"
       },
       "render": {
         "canvas": {
@@ -370952,14 +370937,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-        "COMBINE wet and dry just until mixed; divide among the cups.",
-        "BAKE 18-20 minutes, until a tester comes out clean.",
-        "COOL briefly and serve warm."
+        "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+        "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+        "FOLD in the green chile and 1 cup of the cheese.",
+        "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+        "REST 10 minutes before cutting into squares. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Red Chile Cornbread Muffins",
+      "title": "Green Chile Cheddar Power Bake",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -370973,52 +370958,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Butter, for the baking dish"
         },
         {
           "price": null,
-          "qty_name": "1 cup cornmeal"
+          "qty_name": "6 large eggs"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons red chile powder"
+          "qty_name": "1/2 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 cup milk"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/4 teaspoon black pepper"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup honey"
+          "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup melted butter"
+          "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed)"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided"
         }
       ],
       "lang": "en",
       "market": "US-SW-EL PASO",
       "meta": {
-        "cook": "20 mins",
+        "cook": "35 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "12 muffins"
+        "serves": "6 servings"
       },
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "reason": "featured rotation: green-chile-cheddar-bake-draft chosen deterministically for US-SW-EL PASO|2026-08 among recipes curating the ingredient in featured_for",
+          "recipe_id": "green-chile-cheddar-bake-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "green chile (peak roasting)"
@@ -371032,8 +371017,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "red-chile-cornbread-muffins-draft",
-        "name": "Red Chile Cornbread Muffins"
+        "id": "green-chile-cheddar-bake-draft",
+        "name": "Green Chile Cheddar Power Bake"
       },
       "render": {
         "canvas": {
@@ -371458,14 +371443,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-        "COMBINE wet and dry just until mixed; divide among the cups.",
-        "BAKE 18-20 minutes, until a tester comes out clean.",
-        "COOL briefly and serve warm."
+        "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+        "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+        "FOLD in the green chile and 1 cup of the cheese.",
+        "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+        "REST 10 minutes before cutting into squares. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Red Chile Cornbread Muffins",
+      "title": "Green Chile Cheddar Power Bake",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -377258,10 +377243,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-LASCRUCES|2026-07 among recipes curating the ingredient in featured_for",
           "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "early green chile and melons"
@@ -377875,10 +377860,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-LASCRUCES|2026-08 among recipes curating the ingredient in featured_for",
           "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "green chile (peak roasting) and melons"
@@ -398099,52 +398084,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Butter, for the baking dish"
         },
         {
           "price": null,
-          "qty_name": "1 cup cornmeal"
+          "qty_name": "6 large eggs"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons red chile powder"
+          "qty_name": "1/2 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 cup milk"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/4 teaspoon black pepper"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup honey"
+          "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup melted butter"
+          "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed)"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided"
         }
       ],
       "lang": "en",
       "market": "US-SW-ROSWELL",
       "meta": {
-        "cook": "20 mins",
+        "cook": "35 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "12 muffins"
+        "serves": "6 servings"
       },
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "reason": "featured rotation: green-chile-cheddar-bake-draft chosen deterministically for US-SW-ROSWELL|2026-07 among recipes curating the ingredient in featured_for",
+          "recipe_id": "green-chile-cheddar-bake-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "green chile and melons"
@@ -398158,8 +398143,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "red-chile-cornbread-muffins-draft",
-        "name": "Red Chile Cornbread Muffins"
+        "id": "green-chile-cheddar-bake-draft",
+        "name": "Green Chile Cheddar Power Bake"
       },
       "render": {
         "canvas": {
@@ -398626,14 +398611,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-        "COMBINE wet and dry just until mixed; divide among the cups.",
-        "BAKE 18-20 minutes, until a tester comes out clean.",
-        "COOL briefly and serve warm."
+        "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+        "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+        "FOLD in the green chile and 1 cup of the cheese.",
+        "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+        "REST 10 minutes before cutting into squares. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Red Chile Cornbread Muffins",
+      "title": "Green Chile Cheddar Power Bake",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -398689,10 +398674,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-ROSWELL|2026-08 among recipes curating the ingredient in featured_for",
           "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "green chile and tomatoes"
@@ -405463,10 +405448,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-SANTA FE|2026-09 among recipes curating the ingredient in featured_for",
           "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "green chile and apples"
@@ -418267,10 +418252,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-TULAROSA|2026-08 among recipes curating the ingredient in featured_for",
           "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "summer",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "apples and green chile"
@@ -450120,68 +450105,56 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 tablespoons butter, melted"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup blended cottage cheese"
+          "qty_name": "1/3 cup packed brown sugar"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup milk"
+          "qty_name": "1 ripe mango, peeled and diced"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+          "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup plain Greek yogurt"
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+          "qty_name": "2 large eggs"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced mango"
+          "qty_name": "1 teaspoon vanilla extract"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced pineapple"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon toasted coconut chips"
-        },
-        {
-          "price": null,
-          "qty_name": "1 passion fruit, halved (optional, but recommended)"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, for serving (optional)"
+          "qty_name": "1/4 teaspoon salt"
         }
       ],
       "lang": "en",
       "market": "US-W-HONOLULU",
       "meta": {
-        "cook": "10",
+        "cook": "25 mins",
         "est_cost": null,
-        "prep": "10",
-        "serves": "1"
+        "prep": "15 mins",
+        "serves": "8 servings"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: tropical-protein-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "tropical-protein-pancakes",
+          "reason": "featured rotation: pineapple-mango-upside-down-cakes-draft chosen deterministically for US-W-HONOLULU|2026-03 among recipes curating the ingredient in featured_for",
+          "recipe_id": "pineapple-mango-upside-down-cakes-draft",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "pineapple and banana"
@@ -450195,8 +450168,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "tropical-protein-pancakes",
-        "name": "Tropical Protein Pancakes"
+        "id": "pineapple-mango-upside-down-cakes-draft",
+        "name": "Pineapple-Mango Upside-Down Power Cakes"
       },
       "render": {
         "canvas": {
@@ -450703,17 +450676,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the Kodiak Cakes mix in a medium bowl.",
-        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
-        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
-        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
-        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
-        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-        "DRIZZLE with maple syrup, if desired. Serve immediately."
+        "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+        "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango.",
+        "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+        "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center.",
+        "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Tropical Protein Pancakes",
+      "title": "Pineapple-Mango Upside-Down Power Cakes",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -450727,68 +450697,56 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 tablespoons butter, melted"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup blended cottage cheese"
+          "qty_name": "1/3 cup packed brown sugar"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup milk"
+          "qty_name": "1 ripe mango, peeled and diced"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+          "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup plain Greek yogurt"
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+          "qty_name": "2 large eggs"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced mango"
+          "qty_name": "1 teaspoon vanilla extract"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced pineapple"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon toasted coconut chips"
-        },
-        {
-          "price": null,
-          "qty_name": "1 passion fruit, halved (optional, but recommended)"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, for serving (optional)"
+          "qty_name": "1/4 teaspoon salt"
         }
       ],
       "lang": "en",
       "market": "US-W-HONOLULU",
       "meta": {
-        "cook": "10",
+        "cook": "25 mins",
         "est_cost": null,
-        "prep": "10",
-        "serves": "1"
+        "prep": "15 mins",
+        "serves": "8 servings"
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: tropical-protein-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "tropical-protein-pancakes",
+          "reason": "featured rotation: pineapple-mango-upside-down-cakes-draft chosen deterministically for US-W-HONOLULU|2026-04 among recipes curating the ingredient in featured_for",
+          "recipe_id": "pineapple-mango-upside-down-cakes-draft",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "pineapple and papaya"
@@ -450802,8 +450760,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "tropical-protein-pancakes",
-        "name": "Tropical Protein Pancakes"
+        "id": "pineapple-mango-upside-down-cakes-draft",
+        "name": "Pineapple-Mango Upside-Down Power Cakes"
       },
       "render": {
         "canvas": {
@@ -451310,17 +451268,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the Kodiak Cakes mix in a medium bowl.",
-        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
-        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
-        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
-        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
-        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-        "DRIZZLE with maple syrup, if desired. Serve immediately."
+        "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+        "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango.",
+        "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+        "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center.",
+        "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Tropical Protein Pancakes",
+      "title": "Pineapple-Mango Upside-Down Power Cakes",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -451334,68 +451289,56 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 tablespoons butter, melted"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup blended cottage cheese"
+          "qty_name": "1/3 cup packed brown sugar"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup milk"
+          "qty_name": "1 ripe mango, peeled and diced"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+          "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup plain Greek yogurt"
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+          "qty_name": "2 large eggs"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced mango"
+          "qty_name": "1 teaspoon vanilla extract"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced pineapple"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon toasted coconut chips"
-        },
-        {
-          "price": null,
-          "qty_name": "1 passion fruit, halved (optional, but recommended)"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, for serving (optional)"
+          "qty_name": "1/4 teaspoon salt"
         }
       ],
       "lang": "en",
       "market": "US-W-HONOLULU",
       "meta": {
-        "cook": "10",
+        "cook": "25 mins",
         "est_cost": null,
-        "prep": "10",
-        "serves": "1"
+        "prep": "15 mins",
+        "serves": "8 servings"
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: tropical-protein-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "tropical-protein-pancakes",
+          "reason": "featured rotation: pineapple-mango-upside-down-cakes-draft chosen deterministically for US-W-HONOLULU|2026-05 among recipes curating the ingredient in featured_for",
+          "recipe_id": "pineapple-mango-upside-down-cakes-draft",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "pineapple and mango (early)"
@@ -451409,8 +451352,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "tropical-protein-pancakes",
-        "name": "Tropical Protein Pancakes"
+        "id": "pineapple-mango-upside-down-cakes-draft",
+        "name": "Pineapple-Mango Upside-Down Power Cakes"
       },
       "render": {
         "canvas": {
@@ -451917,17 +451860,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the Kodiak Cakes mix in a medium bowl.",
-        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
-        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
-        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
-        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
-        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-        "DRIZZLE with maple syrup, if desired. Serve immediately."
+        "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+        "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango.",
+        "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+        "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center.",
+        "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Tropical Protein Pancakes",
+      "title": "Pineapple-Mango Upside-Down Power Cakes",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -451941,68 +451881,56 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 tablespoons butter, melted"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup blended cottage cheese"
+          "qty_name": "1/3 cup packed brown sugar"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup milk"
+          "qty_name": "1 ripe mango, peeled and diced"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+          "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup plain Greek yogurt"
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+          "qty_name": "2 large eggs"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced mango"
+          "qty_name": "1 teaspoon vanilla extract"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced pineapple"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon toasted coconut chips"
-        },
-        {
-          "price": null,
-          "qty_name": "1 passion fruit, halved (optional, but recommended)"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, for serving (optional)"
+          "qty_name": "1/4 teaspoon salt"
         }
       ],
       "lang": "en",
       "market": "US-W-HONOLULU",
       "meta": {
-        "cook": "10",
+        "cook": "25 mins",
         "est_cost": null,
-        "prep": "10",
-        "serves": "1"
+        "prep": "15 mins",
+        "serves": "8 servings"
       },
       "month": "2026-06",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: tropical-protein-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "tropical-protein-pancakes",
+          "reason": "featured rotation: pineapple-mango-upside-down-cakes-draft chosen deterministically for US-W-HONOLULU|2026-06 among recipes curating the ingredient in featured_for",
+          "recipe_id": "pineapple-mango-upside-down-cakes-draft",
           "season": "summer",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "mango and pineapple"
@@ -452016,8 +451944,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "tropical-protein-pancakes",
-        "name": "Tropical Protein Pancakes"
+        "id": "pineapple-mango-upside-down-cakes-draft",
+        "name": "Pineapple-Mango Upside-Down Power Cakes"
       },
       "render": {
         "canvas": {
@@ -452524,17 +452452,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the Kodiak Cakes mix in a medium bowl.",
-        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
-        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
-        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
-        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
-        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-        "DRIZZLE with maple syrup, if desired. Serve immediately."
+        "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+        "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango.",
+        "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+        "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center.",
+        "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Tropical Protein Pancakes",
+      "title": "Pineapple-Mango Upside-Down Power Cakes",
       "variant": "hero-plus-layout"
     },
     "2026-07": {
@@ -452606,10 +452531,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: tropical-protein-pancakes has the best token overlap with the in-season ingredient",
+          "reason": "featured rotation: tropical-protein-pancakes chosen deterministically for US-W-HONOLULU|2026-07 among recipes curating the ingredient in featured_for",
           "recipe_id": "tropical-protein-pancakes",
           "season": "summer",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "lychee and mango"
@@ -453213,10 +453138,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: tropical-protein-pancakes has the best token overlap with the in-season ingredient",
+          "reason": "featured rotation: tropical-protein-pancakes chosen deterministically for US-W-HONOLULU|2026-08 among recipes curating the ingredient in featured_for",
           "recipe_id": "tropical-protein-pancakes",
           "season": "summer",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "mango and banana"

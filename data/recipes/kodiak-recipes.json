@@ -6781,7 +6781,11 @@
       "photo_cue",
       "audience"
     ],
-    "example_localization": {}
+    "example_localization": {},
+    "featured_for": [
+      "pineapple",
+      "mango"
+    ]
   },
   {
     "id": "chocolate-coffee-biscotti-1",
@@ -18569,7 +18573,7 @@
     "featured_for": [
       "red chile",
       "green chile",
-      "chimayó",
+      "chimay\u00f3",
       "chile"
     ]
   },
@@ -20746,5 +20750,123 @@
       "audience"
     ],
     "example_localization": {}
+  },
+  {
+    "id": "pineapple-mango-upside-down-cakes-draft",
+    "name": "Pineapple-Mango Upside-Down Power Cakes",
+    "featured_for": [
+      "pineapple",
+      "mango"
+    ],
+    "category": "breakfast",
+    "course": "breakfast & brunch",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "1-1/2 cups mix + pineapple rings + diced mango, baked and inverted",
+    "kodiak_page": "",
+    "image": "",
+    "ingredients": [
+      "3 tablespoons butter, melted",
+      "1/3 cup packed brown sugar",
+      "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice)",
+      "1 ripe mango, peeled and diced",
+      "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "3/4 cup milk",
+      "2 large eggs",
+      "1 teaspoon vanilla extract",
+      "1/4 teaspoon salt"
+    ],
+    "instructions": [
+      "Heat the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+      "Arrange the pineapple rings over the sugar and fill the centers and gaps with diced mango.",
+      "Whisk the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+      "Pour the batter over the fruit and bake 22-25 minutes, until golden and set in the center.",
+      "Cool 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm."
+    ],
+    "description": "[DRAFT - UNTESTED] Untested draft; kitchen-test before publishing. Classic upside-down cake built on power-cakes batter with pineapple rings and fresh mango.",
+    "dietary": [],
+    "tags": [
+      "pineapple",
+      "mango",
+      "upside-down cake",
+      "breakfast",
+      "course-breakfast-brunch",
+      "draft-untested"
+    ],
+    "yield": "8 servings",
+    "prepTime": "15 mins",
+    "cookTime": "25 mins",
+    "author": "recipe-developer hand draft (untested; kitchen-test before publishing)",
+    "datePublished": "2026-09-22",
+    "art": "",
+    "localization_slots": [
+      "region",
+      "retailer",
+      "peppers",
+      "cheeses",
+      "fruit",
+      "photo_cue",
+      "audience"
+    ],
+    "localize": {},
+    "example_localization": {},
+    "nutrition": {}
+  },
+  {
+    "id": "green-chile-cheddar-bake-draft",
+    "name": "Green Chile Cheddar Power Bake",
+    "featured_for": [
+      "green chile"
+    ],
+    "category": "breakfast",
+    "course": "breakfast & brunch",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "6 eggs + green chile + cheddar + 1/2 cup mix, baked",
+    "kodiak_page": "",
+    "image": "",
+    "ingredients": [
+      "Butter, for the baking dish",
+      "6 large eggs",
+      "1/2 cup milk",
+      "1/2 teaspoon salt",
+      "1/4 teaspoon black pepper",
+      "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed)",
+      "1-1/2 cups shredded cheddar or Monterey Jack, divided"
+    ],
+    "instructions": [
+      "Heat the oven to 350 F. Butter an 8x8-inch baking dish.",
+      "Whisk the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+      "Fold in the green chile and 1 cup of the cheese.",
+      "Pour into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+      "Rest 10 minutes before cutting into squares. Serve warm."
+    ],
+    "description": "[DRAFT - UNTESTED] Untested draft; kitchen-test before publishing. Northern New Mexico-style egg bake: roasted green chile and cheddar bound with power-cakes batter.",
+    "dietary": [],
+    "tags": [
+      "green chile",
+      "cheddar",
+      "egg bake",
+      "breakfast",
+      "course-breakfast-brunch",
+      "draft-untested"
+    ],
+    "yield": "6 servings",
+    "prepTime": "10 mins",
+    "cookTime": "35 mins",
+    "author": "recipe-developer hand draft (untested; kitchen-test before publishing)",
+    "datePublished": "2026-09-22",
+    "art": "",
+    "localization_slots": [
+      "region",
+      "retailer",
+      "peppers",
+      "cheeses",
+      "fruit",
+      "photo_cue",
+      "audience"
+    ],
+    "localize": {},
+    "example_localization": {},
+    "nutrition": {}
   }
 ]

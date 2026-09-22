@@ -253,6 +253,55 @@ def test_product_only_overlap_falls_to_season_table():
     assert recipe["id"] == pairing["recipe_id"]
 
 
+def test_draft_recipes_split_tropical_and_chile_blocks():
+    # QA sweep: Honolulu showed one tropical card Mar-Aug and the chile belt
+    # one cornbread, each the only recipe naming the ingredient. Two hand
+    # drafts (pineapple-mango upside-down; green chile cheddar bake) give
+    # each block a genuine alternative; market+month context rotates.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    tropical = set()
+    for month in ("2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08"):
+        recipe, pairing = pick_recipe_with_provenance(
+            "pineapple and mango", "Buttermilk Power Cakes",
+            market="US-W-HONOLULU", month=month,
+        )
+        assert pairing["source"] == "ingredient-rotation"
+        tropical.add(recipe["id"])
+    assert tropical == {
+        "tropical-protein-pancakes",
+        "pineapple-mango-upside-down-cakes-draft",
+    }
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "green chile and melons", "Buttermilk Power Cakes",
+        market="US-SW-ALBQ", month="2026-08",
+    )
+    assert pairing["source"] == "ingredient-rotation"
+    assert recipe["id"] in {
+        "red-chile-cornbread-muffins-draft",
+        "green-chile-cheddar-bake-draft",
+    }
+
+
+def test_hand_drafts_carry_untested_markers():
+    # Original recipe development ships honestly: UNTESTED description,
+    # draft-untested tag, hand-draft author — kitchen-test before publishing.
+    import json
+    from pathlib import Path
+
+    cat = json.loads(
+        (Path(__file__).resolve().parent.parent / "data" / "recipes"
+         / "kodiak-recipes.json").read_text(encoding="utf-8")
+    )
+    for rid in ("pineapple-mango-upside-down-cakes-draft",
+                "green-chile-cheddar-bake-draft"):
+        recipe = next(r for r in cat if r["id"] == rid)
+        assert recipe["description"].startswith("[DRAFT - UNTESTED]")
+        assert "draft-untested" in recipe["tags"]
+        assert "untested" in recipe["author"]
+
+
 def test_featured_rotation_splits_repeat_ingredient_months():
     # QA sweep: all six PHILLY mushroom months showed the same card. When two
     # curated recipes name the ingredient, market+month context rotates

@@ -64995,76 +64995,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "3 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "1/3 cup packed brown sugar — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 ripe mango, peeled and diced — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip: — proteína para tu frontera"
+            "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — proteína para tu frontera"
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — proteína para tu frontera"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — proteína para tu frontera"
+            "qty_name": "1 teaspoon vanilla extract — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced pineapple — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — proteína para tu frontera"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — proteína para tu frontera"
+            "qty_name": "1/4 teaspoon salt — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "10 — proteína para tu frontera",
-          "prep": "10 — proteína para tu frontera",
-          "serves": "1 — proteína para tu frontera"
+          "cook": "25 mins — proteína para tu frontera",
+          "prep": "15 mins — proteína para tu frontera",
+          "serves": "8 servings — proteína para tu frontera"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — proteína para tu frontera",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — proteína para tu frontera",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — proteína para tu frontera",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — proteína para tu frontera",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — proteína para tu frontera",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using. — proteína para tu frontera",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — proteína para tu frontera"
+          "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+          "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango. — proteína para tu frontera",
+          "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+          "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center. — proteína para tu frontera",
+          "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm. — proteína para tu frontera"
         ],
-        "title": "Tropical Protein Pancakes — proteína para tu frontera",
+        "title": "Pineapple-Mango Upside-Down Power Cakes — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:3",
-            "ingredient:4",
-            "step:2"
+            "ingredient:1",
+            "ingredient:6",
+            "ingredient:7",
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -65078,79 +65064,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — pwoteyin pou fwontyè ou"
+            "qty_name": "3 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "1/3 cup packed brown sugar — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice) — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 ripe mango, peeled and diced — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — pwoteyin pou fwontyè ou"
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — pwoteyin pou fwontyè ou"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — pwoteyin pou fwontyè ou"
+            "qty_name": "1 teaspoon vanilla extract — pwoteyin pou fwontyè ou"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced pineapple — pwoteyin pou fwontyè ou"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — pwoteyin pou fwontyè ou"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — pwoteyin pou fwontyè ou"
+            "qty_name": "1/4 teaspoon salt — pwoteyin pou fwontyè ou"
           }
         ],
         "meta": {
-          "cook": "10 — pwoteyin pou fwontyè ou",
-          "prep": "10 — pwoteyin pou fwontyè ou",
-          "serves": "1 — pwoteyin pou fwontyè ou"
+          "cook": "25 mins — pwoteyin pou fwontyè ou",
+          "prep": "15 mins — pwoteyin pou fwontyè ou",
+          "serves": "8 servings — pwoteyin pou fwontyè ou"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — pwoteyin pou fwontyè ou",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — pwoteyin pou fwontyè ou",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — pwoteyin pou fwontyè ou",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — pwoteyin pou fwontyè ou",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — pwoteyin pou fwontyè ou",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — pwoteyin pou fwontyè ou"
+          "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+          "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango. — pwoteyin pou fwontyè ou",
+          "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+          "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center. — pwoteyin pou fwontyè ou",
+          "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm. — pwoteyin pou fwontyè ou"
         ],
-        "title": "Tropical Protein Pancakes — pwoteyin pou fwontyè ou",
+        "title": "Pineapple-Mango Upside-Down Power Cakes — pwoteyin pou fwontyè ou",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
-            "step:2",
-            "step:7"
+            "ingredient:1",
+            "ingredient:6",
+            "ingredient:7",
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "ht",
@@ -79195,58 +79164,60 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "Butter, for the baking dish"
           },
           {
             "price": null,
-            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+            "qty_name": "6 large eggs"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup milk"
+            "qty_name": "1/2 teaspoon salt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/4 teaspoon black pepper — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup honey"
+            "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup melted butter"
+            "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+            "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "20 mins — proteína para tu frontera",
+          "cook": "35 mins — proteína para tu frontera",
           "prep": "10 mins — proteína para tu frontera",
-          "serves": "12 muffins — proteína para tu frontera"
+          "serves": "6 servings — proteína para tu frontera"
         },
         "steps": [
-          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
-          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
-          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
-          "COOL briefly and serve warm. — proteína para tu frontera"
+          "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+          "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+          "FOLD in the green chile and 1 cup of the cheese.",
+          "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+          "REST 10 minutes before cutting into squares. Serve warm. — proteína para tu frontera"
         ],
-        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "title": "Green Chile Cheddar Power Bake — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:6",
-            "ingredient:7",
-            "step:2"
+            "ingredient:1",
+            "ingredient:2",
+            "ingredient:3",
+            "step:1",
+            "step:2",
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -79260,58 +79231,60 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
+            "qty_name": "Butter, for the baking dish"
           },
           {
             "price": null,
-            "qty_name": "1 cup cornmeal — atsʼíís bá áłchíní bighan"
+            "qty_name": "6 large eggs"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons red chile powder — atsʼíís bá áłchíní bighan"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup milk"
+            "qty_name": "1/2 teaspoon salt — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/4 teaspoon black pepper — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup honey"
+            "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup melted butter"
+            "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed) — atsʼíís bá áłchíní bighan"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — atsʼíís bá áłchíní bighan"
+            "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided — atsʼíís bá áłchíní bighan"
           }
         ],
         "meta": {
-          "cook": "20 mins — atsʼíís bá áłchíní bighan",
+          "cook": "35 mins — atsʼíís bá áłchíní bighan",
           "prep": "10 mins — atsʼíís bá áłchíní bighan",
-          "serves": "12 muffins — atsʼíís bá áłchíní bighan"
+          "serves": "6 servings — atsʼíís bá áłchíní bighan"
         },
         "steps": [
-          "HEAT the oven to 400F and line a 12-cup muffin tin. — atsʼíís bá áłchíní bighan",
-          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-          "COMBINE wet and dry just until mixed; divide among the cups. — atsʼíís bá áłchíní bighan",
-          "BAKE 18-20 minutes, until a tester comes out clean. — atsʼíís bá áłchíní bighan",
-          "COOL briefly and serve warm. — atsʼíís bá áłchíní bighan"
+          "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+          "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+          "FOLD in the green chile and 1 cup of the cheese.",
+          "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+          "REST 10 minutes before cutting into squares. Serve warm. — atsʼíís bá áłchíní bighan"
         ],
-        "title": "Red Chile Cornbread Muffins — atsʼíís bá áłchíní bighan",
+        "title": "Green Chile Cheddar Power Bake — atsʼíís bá áłchíní bighan",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:6",
-            "ingredient:7",
-            "step:2"
+            "ingredient:1",
+            "ingredient:2",
+            "ingredient:3",
+            "step:1",
+            "step:2",
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "nv",
@@ -82155,58 +82128,60 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+            "qty_name": "Butter, for the baking dish"
           },
           {
             "price": null,
-            "qty_name": "1 cup cornmeal — Protein für deine Frontier"
+            "qty_name": "6 large eggs"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons red chile powder — Protein für deine Frontier"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup milk"
+            "qty_name": "1/2 teaspoon salt — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/4 teaspoon black pepper — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup honey"
+            "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup melted butter"
+            "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed) — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+            "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided — Protein für deine Frontier"
           }
         ],
         "meta": {
-          "cook": "20 mins — Protein für deine Frontier",
+          "cook": "35 mins — Protein für deine Frontier",
           "prep": "10 mins — Protein für deine Frontier",
-          "serves": "12 muffins — Protein für deine Frontier"
+          "serves": "6 servings — Protein für deine Frontier"
         },
         "steps": [
-          "HEAT the oven to 400F and line a 12-cup muffin tin. — Protein für deine Frontier",
-          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-          "COMBINE wet and dry just until mixed; divide among the cups. — Protein für deine Frontier",
-          "BAKE 18-20 minutes, until a tester comes out clean. — Protein für deine Frontier",
-          "COOL briefly and serve warm. — Protein für deine Frontier"
+          "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+          "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+          "FOLD in the green chile and 1 cup of the cheese.",
+          "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+          "REST 10 minutes before cutting into squares. Serve warm. — Protein für deine Frontier"
         ],
-        "title": "Red Chile Cornbread Muffins — Protein für deine Frontier",
+        "title": "Green Chile Cheddar Power Bake — Protein für deine Frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:6",
-            "ingredient:7",
-            "step:2"
+            "ingredient:1",
+            "ingredient:2",
+            "ingredient:3",
+            "step:1",
+            "step:2",
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "de",
@@ -82220,58 +82195,60 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "Butter, for the baking dish"
           },
           {
             "price": null,
-            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+            "qty_name": "6 large eggs"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup milk"
+            "qty_name": "1/2 teaspoon salt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/4 teaspoon black pepper — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup honey"
+            "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup melted butter"
+            "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+            "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "20 mins — proteína para tu frontera",
+          "cook": "35 mins — proteína para tu frontera",
           "prep": "10 mins — proteína para tu frontera",
-          "serves": "12 muffins — proteína para tu frontera"
+          "serves": "6 servings — proteína para tu frontera"
         },
         "steps": [
-          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
-          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
-          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
-          "COOL briefly and serve warm. — proteína para tu frontera"
+          "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+          "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+          "FOLD in the green chile and 1 cup of the cheese.",
+          "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+          "REST 10 minutes before cutting into squares. Serve warm. — proteína para tu frontera"
         ],
-        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "title": "Green Chile Cheddar Power Bake — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:6",
-            "ingredient:7",
-            "step:2"
+            "ingredient:1",
+            "ingredient:2",
+            "ingredient:3",
+            "step:1",
+            "step:2",
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -82287,58 +82264,60 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+            "qty_name": "Butter, for the baking dish"
           },
           {
             "price": null,
-            "qty_name": "1 cup cornmeal — Protein für deine Frontier"
+            "qty_name": "6 large eggs"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons red chile powder — Protein für deine Frontier"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup milk"
+            "qty_name": "1/2 teaspoon salt — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/4 teaspoon black pepper — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup honey"
+            "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup melted butter"
+            "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed) — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+            "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided — Protein für deine Frontier"
           }
         ],
         "meta": {
-          "cook": "20 mins — Protein für deine Frontier",
+          "cook": "35 mins — Protein für deine Frontier",
           "prep": "10 mins — Protein für deine Frontier",
-          "serves": "12 muffins — Protein für deine Frontier"
+          "serves": "6 servings — Protein für deine Frontier"
         },
         "steps": [
-          "HEAT the oven to 400F and line a 12-cup muffin tin. — Protein für deine Frontier",
-          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-          "COMBINE wet and dry just until mixed; divide among the cups. — Protein für deine Frontier",
-          "BAKE 18-20 minutes, until a tester comes out clean. — Protein für deine Frontier",
-          "COOL briefly and serve warm. — Protein für deine Frontier"
+          "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+          "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+          "FOLD in the green chile and 1 cup of the cheese.",
+          "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+          "REST 10 minutes before cutting into squares. Serve warm. — Protein für deine Frontier"
         ],
-        "title": "Red Chile Cornbread Muffins — Protein für deine Frontier",
+        "title": "Green Chile Cheddar Power Bake — Protein für deine Frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:6",
-            "ingredient:7",
-            "step:2"
+            "ingredient:1",
+            "ingredient:2",
+            "ingredient:3",
+            "step:1",
+            "step:2",
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "de",
@@ -82352,58 +82331,60 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "Butter, for the baking dish"
           },
           {
             "price": null,
-            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+            "qty_name": "6 large eggs"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup milk"
+            "qty_name": "1/2 teaspoon salt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/4 teaspoon black pepper — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup honey"
+            "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup melted butter"
+            "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+            "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "20 mins — proteína para tu frontera",
+          "cook": "35 mins — proteína para tu frontera",
           "prep": "10 mins — proteína para tu frontera",
-          "serves": "12 muffins — proteína para tu frontera"
+          "serves": "6 servings — proteína para tu frontera"
         },
         "steps": [
-          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
-          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
-          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
-          "COOL briefly and serve warm. — proteína para tu frontera"
+          "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+          "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+          "FOLD in the green chile and 1 cup of the cheese.",
+          "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+          "REST 10 minutes before cutting into squares. Serve warm. — proteína para tu frontera"
         ],
-        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "title": "Green Chile Cheddar Power Bake — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:6",
-            "ingredient:7",
-            "step:2"
+            "ingredient:1",
+            "ingredient:2",
+            "ingredient:3",
+            "step:1",
+            "step:2",
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -88319,58 +88300,60 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
+            "qty_name": "Butter, for the baking dish"
           },
           {
             "price": null,
-            "qty_name": "1 cup cornmeal — Protein für deine Frontier"
+            "qty_name": "6 large eggs"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons red chile powder — Protein für deine Frontier"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup milk"
+            "qty_name": "1/2 teaspoon salt — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/4 teaspoon black pepper — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup honey"
+            "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup melted butter"
+            "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed) — Protein für deine Frontier"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — Protein für deine Frontier"
+            "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided — Protein für deine Frontier"
           }
         ],
         "meta": {
-          "cook": "20 mins — Protein für deine Frontier",
+          "cook": "35 mins — Protein für deine Frontier",
           "prep": "10 mins — Protein für deine Frontier",
-          "serves": "12 muffins — Protein für deine Frontier"
+          "serves": "6 servings — Protein für deine Frontier"
         },
         "steps": [
-          "HEAT the oven to 400F and line a 12-cup muffin tin. — Protein für deine Frontier",
-          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-          "COMBINE wet and dry just until mixed; divide among the cups. — Protein für deine Frontier",
-          "BAKE 18-20 minutes, until a tester comes out clean. — Protein für deine Frontier",
-          "COOL briefly and serve warm. — Protein für deine Frontier"
+          "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+          "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+          "FOLD in the green chile and 1 cup of the cheese.",
+          "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+          "REST 10 minutes before cutting into squares. Serve warm. — Protein für deine Frontier"
         ],
-        "title": "Red Chile Cornbread Muffins — Protein für deine Frontier",
+        "title": "Green Chile Cheddar Power Bake — Protein für deine Frontier",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:6",
-            "ingredient:7",
-            "step:2"
+            "ingredient:1",
+            "ingredient:2",
+            "ingredient:3",
+            "step:1",
+            "step:2",
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "de",
@@ -88384,58 +88367,60 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
+            "qty_name": "Butter, for the baking dish"
           },
           {
             "price": null,
-            "qty_name": "1 cup cornmeal — proteína para tu frontera"
+            "qty_name": "6 large eggs"
           },
           {
             "price": null,
-            "qty_name": "2 tablespoons red chile powder — proteína para tu frontera"
+            "qty_name": "1/2 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1 cup milk"
+            "qty_name": "1/2 teaspoon salt — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "2 large eggs"
+            "qty_name": "1/4 teaspoon black pepper — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup honey"
+            "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup melted butter"
+            "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed) — proteína para tu frontera"
           },
           {
             "price": null,
-            "qty_name": "1 teaspoon salt — proteína para tu frontera"
+            "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided — proteína para tu frontera"
           }
         ],
         "meta": {
-          "cook": "20 mins — proteína para tu frontera",
+          "cook": "35 mins — proteína para tu frontera",
           "prep": "10 mins — proteína para tu frontera",
-          "serves": "12 muffins — proteína para tu frontera"
+          "serves": "6 servings — proteína para tu frontera"
         },
         "steps": [
-          "HEAT the oven to 400F and line a 12-cup muffin tin. — proteína para tu frontera",
-          "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-          "COMBINE wet and dry just until mixed; divide among the cups. — proteína para tu frontera",
-          "BAKE 18-20 minutes, until a tester comes out clean. — proteína para tu frontera",
-          "COOL briefly and serve warm. — proteína para tu frontera"
+          "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+          "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+          "FOLD in the green chile and 1 cup of the cheese.",
+          "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+          "REST 10 minutes before cutting into squares. Serve warm. — proteína para tu frontera"
         ],
-        "title": "Red Chile Cornbread Muffins — proteína para tu frontera",
+        "title": "Green Chile Cheddar Power Bake — proteína para tu frontera",
         "translation": {
           "allergen_check": "glossary",
           "allergen_fallback_lines": [
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:6",
-            "ingredient:7",
-            "step:2"
+            "ingredient:1",
+            "ingredient:2",
+            "ingredient:3",
+            "step:1",
+            "step:2",
+            "step:3",
+            "step:4"
           ],
           "human_reviewed": false,
           "lang": "es",
@@ -100681,79 +100666,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para iti frontiermo"
+            "qty_name": "3 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "1/3 cup packed brown sugar — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice) — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 ripe mango, peeled and diced — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — protina para iti frontiermo"
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — protina para iti frontiermo"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — protina para iti frontiermo"
+            "qty_name": "1 teaspoon vanilla extract — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced pineapple — protina para iti frontiermo"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — protina para iti frontiermo"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — protina para iti frontiermo"
+            "qty_name": "1/4 teaspoon salt — protina para iti frontiermo"
           }
         ],
         "meta": {
-          "cook": "10 — protina para iti frontiermo",
-          "prep": "10 — protina para iti frontiermo",
-          "serves": "1 — protina para iti frontiermo"
+          "cook": "25 mins — protina para iti frontiermo",
+          "prep": "15 mins — protina para iti frontiermo",
+          "serves": "8 servings — protina para iti frontiermo"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — protina para iti frontiermo",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — protina para iti frontiermo",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — protina para iti frontiermo",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — protina para iti frontiermo",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — protina para iti frontiermo",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — protina para iti frontiermo"
+          "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+          "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango. — protina para iti frontiermo",
+          "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+          "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center. — protina para iti frontiermo",
+          "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm. — protina para iti frontiermo"
         ],
-        "title": "Tropical Protein Pancakes — protina para iti frontiermo",
+        "title": "Pineapple-Mango Upside-Down Power Cakes — protina para iti frontiermo",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
-            "step:2",
-            "step:7"
+            "ingredient:1",
+            "ingredient:6",
+            "ingredient:7",
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "ilo",
@@ -100767,79 +100735,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — あなたのフロンティアにプロテインを"
+            "qty_name": "3 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "1/3 cup packed brown sugar — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice) — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 ripe mango, peeled and diced — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — あなたのフロンティアにプロテインを"
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — あなたのフロンティアにプロテインを"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — あなたのフロンティアにプロテインを"
+            "qty_name": "1 teaspoon vanilla extract — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced pineapple — あなたのフロンティアにプロテインを"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — あなたのフロンティアにプロテインを"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — あなたのフロンティアにプロテインを"
+            "qty_name": "1/4 teaspoon salt — あなたのフロンティアにプロテインを"
           }
         ],
         "meta": {
-          "cook": "10 — あなたのフロンティアにプロテインを",
-          "prep": "10 — あなたのフロンティアにプロテインを",
-          "serves": "1 — あなたのフロンティアにプロテインを"
+          "cook": "25 mins — あなたのフロンティアにプロテインを",
+          "prep": "15 mins — あなたのフロンティアにプロテインを",
+          "serves": "8 servings — あなたのフロンティアにプロテインを"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — あなたのフロンティアにプロテインを",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — あなたのフロンティアにプロテインを",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — あなたのフロンティアにプロテインを",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — あなたのフロンティアにプロテインを",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — あなたのフロンティアにプロテインを",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — あなたのフロンティアにプロテインを"
+          "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+          "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango. — あなたのフロンティアにプロテインを",
+          "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+          "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center. — あなたのフロンティアにプロテインを",
+          "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm. — あなたのフロンティアにプロテインを"
         ],
-        "title": "Tropical Protein Pancakes — あなたのフロンティアにプロテインを",
+        "title": "Pineapple-Mango Upside-Down Power Cakes — あなたのフロンティアにプロテインを",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
-            "step:2",
-            "step:7"
+            "ingredient:1",
+            "ingredient:6",
+            "ingredient:7",
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "ja",
@@ -100855,79 +100806,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para iti frontiermo"
+            "qty_name": "3 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "1/3 cup packed brown sugar — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice) — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 ripe mango, peeled and diced — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — protina para iti frontiermo"
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — protina para iti frontiermo"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — protina para iti frontiermo"
+            "qty_name": "1 teaspoon vanilla extract — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced pineapple — protina para iti frontiermo"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — protina para iti frontiermo"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — protina para iti frontiermo"
+            "qty_name": "1/4 teaspoon salt — protina para iti frontiermo"
           }
         ],
         "meta": {
-          "cook": "10 — protina para iti frontiermo",
-          "prep": "10 — protina para iti frontiermo",
-          "serves": "1 — protina para iti frontiermo"
+          "cook": "25 mins — protina para iti frontiermo",
+          "prep": "15 mins — protina para iti frontiermo",
+          "serves": "8 servings — protina para iti frontiermo"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — protina para iti frontiermo",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — protina para iti frontiermo",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — protina para iti frontiermo",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — protina para iti frontiermo",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — protina para iti frontiermo",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — protina para iti frontiermo"
+          "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+          "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango. — protina para iti frontiermo",
+          "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+          "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center. — protina para iti frontiermo",
+          "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm. — protina para iti frontiermo"
         ],
-        "title": "Tropical Protein Pancakes — protina para iti frontiermo",
+        "title": "Pineapple-Mango Upside-Down Power Cakes — protina para iti frontiermo",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
-            "step:2",
-            "step:7"
+            "ingredient:1",
+            "ingredient:6",
+            "ingredient:7",
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "ilo",
@@ -100941,79 +100875,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — あなたのフロンティアにプロテインを"
+            "qty_name": "3 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "1/3 cup packed brown sugar — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice) — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 ripe mango, peeled and diced — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — あなたのフロンティアにプロテインを"
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — あなたのフロンティアにプロテインを"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — あなたのフロンティアにプロテインを"
+            "qty_name": "1 teaspoon vanilla extract — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced pineapple — あなたのフロンティアにプロテインを"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — あなたのフロンティアにプロテインを"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — あなたのフロンティアにプロテインを"
+            "qty_name": "1/4 teaspoon salt — あなたのフロンティアにプロテインを"
           }
         ],
         "meta": {
-          "cook": "10 — あなたのフロンティアにプロテインを",
-          "prep": "10 — あなたのフロンティアにプロテインを",
-          "serves": "1 — あなたのフロンティアにプロテインを"
+          "cook": "25 mins — あなたのフロンティアにプロテインを",
+          "prep": "15 mins — あなたのフロンティアにプロテインを",
+          "serves": "8 servings — あなたのフロンティアにプロテインを"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — あなたのフロンティアにプロテインを",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — あなたのフロンティアにプロテインを",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — あなたのフロンティアにプロテインを",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — あなたのフロンティアにプロテインを",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — あなたのフロンティアにプロテインを",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — あなたのフロンティアにプロテインを"
+          "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+          "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango. — あなたのフロンティアにプロテインを",
+          "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+          "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center. — あなたのフロンティアにプロテインを",
+          "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm. — あなたのフロンティアにプロテインを"
         ],
-        "title": "Tropical Protein Pancakes — あなたのフロンティアにプロテインを",
+        "title": "Pineapple-Mango Upside-Down Power Cakes — あなたのフロンティアにプロテインを",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
-            "step:2",
-            "step:7"
+            "ingredient:1",
+            "ingredient:6",
+            "ingredient:7",
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "ja",
@@ -101029,79 +100946,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para iti frontiermo"
+            "qty_name": "3 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "1/3 cup packed brown sugar — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice) — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 ripe mango, peeled and diced — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — protina para iti frontiermo"
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — protina para iti frontiermo"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — protina para iti frontiermo"
+            "qty_name": "1 teaspoon vanilla extract — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced pineapple — protina para iti frontiermo"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — protina para iti frontiermo"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — protina para iti frontiermo"
+            "qty_name": "1/4 teaspoon salt — protina para iti frontiermo"
           }
         ],
         "meta": {
-          "cook": "10 — protina para iti frontiermo",
-          "prep": "10 — protina para iti frontiermo",
-          "serves": "1 — protina para iti frontiermo"
+          "cook": "25 mins — protina para iti frontiermo",
+          "prep": "15 mins — protina para iti frontiermo",
+          "serves": "8 servings — protina para iti frontiermo"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — protina para iti frontiermo",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — protina para iti frontiermo",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — protina para iti frontiermo",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — protina para iti frontiermo",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — protina para iti frontiermo",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — protina para iti frontiermo"
+          "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+          "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango. — protina para iti frontiermo",
+          "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+          "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center. — protina para iti frontiermo",
+          "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm. — protina para iti frontiermo"
         ],
-        "title": "Tropical Protein Pancakes — protina para iti frontiermo",
+        "title": "Pineapple-Mango Upside-Down Power Cakes — protina para iti frontiermo",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
-            "step:2",
-            "step:7"
+            "ingredient:1",
+            "ingredient:6",
+            "ingredient:7",
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "ilo",
@@ -101115,79 +101015,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — あなたのフロンティアにプロテインを"
+            "qty_name": "3 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "1/3 cup packed brown sugar — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice) — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 ripe mango, peeled and diced — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — あなたのフロンティアにプロテインを"
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — あなたのフロンティアにプロテインを"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — あなたのフロンティアにプロテインを"
+            "qty_name": "1 teaspoon vanilla extract — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced pineapple — あなたのフロンティアにプロテインを"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — あなたのフロンティアにプロテインを"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — あなたのフロンティアにプロテインを"
+            "qty_name": "1/4 teaspoon salt — あなたのフロンティアにプロテインを"
           }
         ],
         "meta": {
-          "cook": "10 — あなたのフロンティアにプロテインを",
-          "prep": "10 — あなたのフロンティアにプロテインを",
-          "serves": "1 — あなたのフロンティアにプロテインを"
+          "cook": "25 mins — あなたのフロンティアにプロテインを",
+          "prep": "15 mins — あなたのフロンティアにプロテインを",
+          "serves": "8 servings — あなたのフロンティアにプロテインを"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — あなたのフロンティアにプロテインを",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — あなたのフロンティアにプロテインを",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — あなたのフロンティアにプロテインを",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — あなたのフロンティアにプロテインを",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — あなたのフロンティアにプロテインを",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — あなたのフロンティアにプロテインを"
+          "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+          "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango. — あなたのフロンティアにプロテインを",
+          "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+          "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center. — あなたのフロンティアにプロテインを",
+          "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm. — あなたのフロンティアにプロテインを"
         ],
-        "title": "Tropical Protein Pancakes — あなたのフロンティアにプロテインを",
+        "title": "Pineapple-Mango Upside-Down Power Cakes — あなたのフロンティアにプロテインを",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
-            "step:2",
-            "step:7"
+            "ingredient:1",
+            "ingredient:6",
+            "ingredient:7",
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "ja",
@@ -101203,79 +101086,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — protina para iti frontiermo"
+            "qty_name": "3 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "1/3 cup packed brown sugar — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice) — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 ripe mango, peeled and diced — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — protina para iti frontiermo"
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — protina para iti frontiermo"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — protina para iti frontiermo"
+            "qty_name": "1 teaspoon vanilla extract — protina para iti frontiermo"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced pineapple — protina para iti frontiermo"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — protina para iti frontiermo"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — protina para iti frontiermo"
+            "qty_name": "1/4 teaspoon salt — protina para iti frontiermo"
           }
         ],
         "meta": {
-          "cook": "10 — protina para iti frontiermo",
-          "prep": "10 — protina para iti frontiermo",
-          "serves": "1 — protina para iti frontiermo"
+          "cook": "25 mins — protina para iti frontiermo",
+          "prep": "15 mins — protina para iti frontiermo",
+          "serves": "8 servings — protina para iti frontiermo"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — protina para iti frontiermo",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — protina para iti frontiermo",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — protina para iti frontiermo",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — protina para iti frontiermo",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — protina para iti frontiermo",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — protina para iti frontiermo"
+          "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+          "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango. — protina para iti frontiermo",
+          "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+          "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center. — protina para iti frontiermo",
+          "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm. — protina para iti frontiermo"
         ],
-        "title": "Tropical Protein Pancakes — protina para iti frontiermo",
+        "title": "Pineapple-Mango Upside-Down Power Cakes — protina para iti frontiermo",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
-            "step:2",
-            "step:7"
+            "ingredient:1",
+            "ingredient:6",
+            "ingredient:7",
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "ilo",
@@ -101289,79 +101155,62 @@ window.KODIAK_RECIPE_I18N = {
         "ingredients": [
           {
             "price": null,
-            "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix — あなたのフロンティアにプロテインを"
+            "qty_name": "3 tablespoons butter, melted"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup blended cottage cheese"
+            "qty_name": "1/3 cup packed brown sugar — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1 egg"
+            "qty_name": "1 can (20 oz) pineapple rings in juice, drained (reserve 1/4 cup juice) — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup milk"
+            "qty_name": "1 ripe mango, peeled and diced — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+            "qty_name": "1-1/2 cups Buttermilk Power Cakes Flapjack & Waffle Mix — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup plain Greek yogurt — あなたのフロンティアにプロテインを"
+            "qty_name": "3/4 cup milk"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping: — あなたのフロンティアにプロテインを"
+            "qty_name": "2 large eggs"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced mango — あなたのフロンティアにプロテインを"
+            "qty_name": "1 teaspoon vanilla extract — あなたのフロンティアにプロテインを"
           },
           {
             "price": null,
-            "qty_name": "1/4 cup diced pineapple — あなたのフロンティアにプロテインを"
-          },
-          {
-            "price": null,
-            "qty_name": "1 tablespoon toasted coconut chips"
-          },
-          {
-            "price": null,
-            "qty_name": "1 passion fruit, halved (optional, but recommended) — あなたのフロンティアにプロテインを"
-          },
-          {
-            "price": null,
-            "qty_name": "Maple syrup, for serving (optional) — あなたのフロンティアにプロテインを"
+            "qty_name": "1/4 teaspoon salt — あなたのフロンティアにプロテインを"
           }
         ],
         "meta": {
-          "cook": "10 — あなたのフロンティアにプロテインを",
-          "prep": "10 — あなたのフロンティアにプロテインを",
-          "serves": "1 — あなたのフロンティアにプロテインを"
+          "cook": "25 mins — あなたのフロンティアにプロテインを",
+          "prep": "15 mins — あなたのフロンティアにプロテインを",
+          "serves": "8 servings — あなたのフロンティアにプロテインを"
         },
         "steps": [
-          "PLACE the Kodiak Cakes mix in a medium bowl. — あなたのフロンティアにプロテインを",
-          "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-          "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve. — あなたのフロンティアにプロテインを",
-          "HEAT a lightly greased nonstick skillet or griddle over medium heat. — あなたのフロンティアにプロテインを",
-          "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through. — あなたのフロンティアにプロテインを",
-          "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip. — あなたのフロンティアにプロテインを",
-          "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-          "DRIZZLE with maple syrup, if desired. Serve immediately. — あなたのフロンティアにプロテインを"
+          "HEAT the oven to 375 F. Pour the melted butter into a 9-inch round cake pan and sprinkle the brown sugar evenly over it.",
+          "ARRANGE the pineapple rings over the sugar and fill the centers and gaps with diced mango. — あなたのフロンティアにプロテインを",
+          "WHISK the mix, milk, eggs, vanilla, salt, and reserved pineapple juice until just combined.",
+          "POUR the batter over the fruit and bake 22-25 minutes, until golden and set in the center. — あなたのフロンティアにプロテインを",
+          "COOL 5 minutes, run a knife around the edge, and invert onto a plate. Serve warm. — あなたのフロンティアにプロテインを"
         ],
-        "title": "Tropical Protein Pancakes — あなたのフロンティアにプロテインを",
+        "title": "Pineapple-Mango Upside-Down Power Cakes — あなたのフロンティアにプロテインを",
         "translation": {
           "allergen_check": "unsupported-lang",
           "allergen_fallback_lines": [
-            "ingredient:2",
-            "ingredient:3",
-            "ingredient:4",
-            "ingredient:5",
-            "ingredient:10",
-            "step:2",
-            "step:7"
+            "ingredient:1",
+            "ingredient:6",
+            "ingredient:7",
+            "step:1",
+            "step:3"
           ],
           "human_reviewed": false,
           "lang": "ja",
