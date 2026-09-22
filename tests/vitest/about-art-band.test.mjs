@@ -34,6 +34,6 @@ describe('about art band', () => {
 
   it('band is full-bleed with a spacing-token cap height', () => {
     expect(css).toMatch(/\.ff-about-art\{[^}]*line-height:0/);
-    expect(css).toMatch(/\.ff-about-art \.ff-about-range\{[^}]*width:100%;height:var\(--spacing-xl/);
+    expect(css).toMatch(/\.ff-about-art \.ff-about-range\{[^}]*width:100%;height:var\(--spacing-2xl/);
   });
 });
