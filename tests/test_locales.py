@@ -60,6 +60,14 @@ def test_next_year_unfilled_month_degrades_gracefully():
     assert got["ingredient"] is None
 
 
+def test_unseeded_retailers_normalize_to_empty_list():
+    # Austin's pair seeds no retailers (null in JSON); callers get [] rather
+    # than None so iteration never needs a guard.
+    got = resolve_this_month("US-SC-AUSTIN", ym="2026-09")
+    assert got is not None
+    assert got["retailers"] == []
+
+
 def test_unknown_market_returns_none():
     assert resolve_pair("US-XX-NOWHERE") is None
     assert resolve_this_month("US-XX-NOWHERE") is None

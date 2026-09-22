@@ -95,7 +95,9 @@ def resolve_this_month(
         "ingredient": pair.ingredient_for(month),
         "frontier_sister": pair.frontier_sister.get("place"),
         "farmers_market_url": pair.frontier_sister.get("farmers_market_url"),
-        "retailers": pair.retailers,
+        # unseeded retailers arrive as None; normalize to [] so callers can
+        # iterate without a guard (pair exists, just no retailers seeded yet).
+        "retailers": pair.retailers or [],
         "pair": pair,
     }
 
