@@ -9310,8 +9310,8 @@
     "id": "apple-cinnamon-and-oat-muffins",
     "name": "Apple Cinnamon & Oat Muffins",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Cinnamon Oat Power Cakes Flapjack & Waffle Mix",
+    "base": "1 cup applesauce; 2 eggs; 1/2 cup avocado oil; 1 teaspoon vanilla; 1 3/4 cups Kodiak Cinnamon Oat Power Cakes Flapjack & Waffle Mix; 1-1/2 teaspoons baking powder; 1/4 cup Kodiak Classic Rolled Oats Oatmeal Canister",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/apple-cinnamon-and-oat-muffins",
     "localize": {
       "peppers": "\u2014",
@@ -9325,7 +9325,39 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "description": "These Apple Cinnamon & Oat Muffins make a hearty and irresistible batch of muffins that are as quick and easy to make as they are delicious. They're perfect for busy mornings, after-school snacks, or as a healthy addition to your...",
+    "ingredients": [
+      "1 cup applesauce",
+      "2 eggs",
+      "1/2 cup avocado oil",
+      "1 teaspoon vanilla",
+      "1 3/4 cups Kodiak Cinnamon Oat Power Cakes Flapjack & Waffle Mix",
+      "1-1/2 teaspoons baking powder",
+      "1/4 cup Kodiak Classic Rolled Oats Oatmeal Canister"
+    ],
+    "instructions": [
+      "Preheat the oven to 375\u00b0 F. Line a muffin tin with paper liners.",
+      "Place the applesauce, eggs, avocado oil, and vanilla in a mixing bowl and whisk together until smooth.",
+      "In another bowl, whisk together the Kodiak mix and baking powder. Add to the wet ingredients and whisk together to make a smooth batter. Let rest for 10 minutes.",
+      "Scoop the batter into the prepared muffin tins, filling each liner almost full.",
+      "Sprinkle each liner with 1 teaspoon of the Kodiak oats.",
+      "Bake in the preheated oven for 15-16 minutes. Or until puffed and golden brown on top.",
+      "Remove from the oven and let cool.",
+      "Store in an airtight container."
+    ],
+    "prepTime": "10 mins",
+    "cookTime": "16 mins",
+    "yield": "12",
+    "author": "Kitchen McCabe",
+    "datePublished": "2024-09-17T03:00:00-0600",
+    "nutrition": {
+      "@type": "NutritionInformation",
+      "calories": "203",
+      "fatContent": "11g",
+      "carbohydrateContent": "19g",
+      "proteinContent": "8g"
+    }
   },
   {
     "id": "cheddar-crackers-with-garlic-herb-dip",
@@ -10320,8 +10352,8 @@
     "id": "apple-brown-sugar-power-waffles",
     "name": "Apple Brown Sugar Power Waffles",
     "category": "waffles",
-    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "product": "Cinnamon Oat Power Cakes Flapjack & Waffle Mix",
+    "base": "1 large apple; 4 tablespoons salted butter; 1/4 cup brown sugar; 1 tablespoon water; 1 cup Kodiak Cinnamon Oat Power Cakes Flapjack & Waffle Mix; 3/4 cup whole milk (or water)*; 1 tablespoon oil; 1 egg (optional)",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/apple-brown-sugar-power-waffles",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10343,21 +10375,52 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "1 large apple",
+      "4 tablespoons salted butter",
+      "1/4 cup brown sugar",
+      "1 tablespoon water",
+      "1 cup Kodiak Cinnamon Oat Power Cakes Flapjack & Waffle Mix",
+      "3/4 cup whole milk (or water)*",
+      "1 tablespoon oil",
+      "1 egg (optional)"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "description": "Our Apple Brown Sugar Waffles recipe makes a drool-worthy breakfast packed with protein and 100% whole grains all topped off with sweet fruit and sugary goodness.",
+    "instructions": [
+      "Peel and core the Apple. Cut into half-inch cubes.",
+      "Melt the butter in a heated skillet. Add cubed apples and saut\u00e9 for 3-4 minutes until softened.",
+      "Add the brown sugar to the skillet with the apples and stir in until dissolved. Simmer for two minutes, until thickened.",
+      "Add water and simmer for another 30 seconds.",
+      "Remove from heat.",
+      "Preheat and grease a waffle iron.",
+      "Whisk together Kodiak mix, milk, oil, and optional egg in a mixing bowl until just combined\u2014careful not to over mix. Let rest for a few minutes while the waffle iron heats up.",
+      "Spoon about 1/3 cup of batter into each waffle grate and cook until golden brown, about 1-1/2 minutes. Repeat until all waffle batter has been cooked.",
+      "Stack waffles and serve warm with the brown sugar apple mixture. Enjoy!"
+    ],
+    "prepTime": "5 mins",
+    "cookTime": "20 mins",
+    "yield": "4",
+    "author": "Kitchen McCabe",
+    "datePublished": "2024-10-03T12:24:00-0600",
+    "nutrition": {
+      "@type": "NutritionInformation",
+      "calories": "410",
+      "fatContent": "19g",
+      "carbohydrateContent": "49g",
+      "proteinContent": "14g"
+    }
   },
   {
     "id": "apple-bundt-cake",
     "name": "Apple Bundt Cake",
     "category": "general",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "Cake:; 3 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1 tablespoon ground cinnamon; 1/2 teaspoon ground nutmeg; 3 eggs; 1 cup oil; 1 cup brown sugar; 3/4 cup sour cream; 1/2 cup milk; 1 tablespoon vanilla extract; 3 cups apples, peeled and diced; Icing:; 1/2 cup brown sugar; 1/4 cup unsalted butter; 1/4 cup heavy cream; 1 teaspoon vanilla extract; 1/2 cup powdered sugar",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/apple-bundt-cake",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10379,21 +10442,67 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "Cake:",
+      "3 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 tablespoon ground cinnamon",
+      "1/2 teaspoon ground nutmeg",
+      "3 eggs",
+      "1 cup oil",
+      "1 cup brown sugar",
+      "3/4 cup sour cream",
+      "1/2 cup milk",
+      "1 tablespoon vanilla extract",
+      "3 cups apples, peeled and diced",
+      "Icing:",
+      "1/2 cup brown sugar",
+      "1/4 cup unsalted butter",
+      "1/4 cup heavy cream",
+      "1 teaspoon vanilla extract",
+      "1/2 cup powdered sugar"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "description": "This Apple Bundt Cake recipe combines crisp apple flavor with Kodiak\u2019s whole grain mix for a better-for-you dessert that\u2019s hearty, delicious, and packed with protein. Bake your slice of comfort\u2014get started now.",
+    "instructions": [
+      "Preheat oven to 350\u00b0 F.",
+      "In a large bowl, combine the Kodiak mix, cinnamon, and nutmeg.",
+      "In a separate bowl, whisk the eggs, oil, brown sugar, sour cream, milk, and vanilla.",
+      "Whisk the wet ingredients into the dry until the batter is fully combined, and no lumps remain.",
+      "Fold the diced apples into the batter.",
+      "Use a pastry brush to coat the Bundt pan with melted shortening or oil. For extra protection against sticking, sprinkle a light coating of almond flour or granulated sugar on the pan (be sure to complete this step right before baking. Any earlier could cause sticking to occur).",
+      "Pour batter into the greased pan.",
+      "Bake for 40-45 minutes or until a toothpick into the center comes out clean.",
+      "Let cool for 10 minutes.",
+      "Use a table knife to loosen up the sides of the cake from the pan. Then, flip the cake out of the pan and onto a cooling rack. Let cool completely.",
+      "To make the icing, combine the brown sugar, butter, and heavy cream or milk in a medium saucepan.",
+      "Heat the mixture over medium heat, bringing it to a boil for one minute, while whisking constantly.",
+      "Remove from heat and stir in vanilla.",
+      "Whisk in the powdered sugar, a little at a time, until full incorporated and smooth. Continue to stir until the icing thickens but remains pourable.",
+      "Pour the glaze over cooled cake. Let stand 5 minutes before serving."
+    ],
+    "prepTime": "20 mins",
+    "cookTime": "45 mins",
+    "yield": "16",
+    "author": "Sara Oja",
+    "datePublished": "2021-01-06T15:23:54-0700",
+    "nutrition": {
+      "@type": "NutritionInformation",
+      "calories": "400",
+      "fatContent": "23g",
+      "carbohydrateContent": "43g",
+      "proteinContent": "8g"
+    }
   },
   {
     "id": "apple-butter-pancakes",
     "name": "Apple Butter Pancakes",
     "category": "flapjacks",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1 egg; 1-1/2 cup water; 1/2 cup apple butter",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/apple-butter-pancakes",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10415,14 +10524,35 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 egg",
+      "1-1/2 cup water",
+      "1/2 cup apple butter"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "description": "Our Kodiak apple butter pancakes recipe is a must try! It only has four ingredients and makes a tasty, healthy breakfast. Try our apple butter pancakes recipe!",
+    "instructions": [
+      "In a large bowl, mix all ingredients together.",
+      "Cook pancakes on a large, greased cast iron skillet over medium heat.",
+      "Top with apple butter and serve while pancakes are still hot!"
+    ],
+    "prepTime": "5 mins",
+    "cookTime": "10 mins",
+    "yield": "4",
+    "author": "Sara Drury",
+    "datePublished": "2022-09-12T10:16:50-0600",
+    "nutrition": {
+      "@type": "NutritionInformation",
+      "calories": "270",
+      "fatContent": "3g",
+      "carbohydrateContent": "46g",
+      "proteinContent": "10g"
+    }
   },
   {
     "id": "apple-cider-donuts",
@@ -10489,7 +10619,7 @@
     "name": "Apple Cinnamon Compote Pancakes",
     "category": "flapjacks",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix; 3/4 cup water, or milk; 4 tablespoons of Butter; One large apple, chopped; 1 teaspoon cinnamon; 1/2 cup sugar, or sugar replacement; ~ 1 cup Greek yogurt; ~ 4 tablespoons maple syrup",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/apple-cinnamon-compote-pancakes",
     "localize": {
       "peppers": "Hatch green chile",
@@ -10511,14 +10641,39 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "3/4 cup water, or milk",
+      "4 tablespoons of Butter",
+      "One large apple, chopped",
+      "1 teaspoon cinnamon",
+      "1/2 cup sugar, or sugar replacement",
+      "~ 1 cup Greek yogurt",
+      "~ 4 tablespoons maple syrup"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "description": "There\u2019s something special about breakfast that brings everyone to the table \u2014 and for Kodiak Community member Paulina, these Apple Cinnamon Compote Pancakes do just that. Each stack packs 14g of protein per serving and a hearty, wholesome flavor you...",
+    "instructions": [
+      "In a medium-sized mixing bowl, combine the Kodiak mix and water to make a smooth batter.",
+      "Melt the butter in a skillet over medium heat. Add the apples, cinnamon, and sugar, and cook until the apples are tender. Set aside. (Pro tip: make extra ahead of time to have all week!)",
+      "Cook pancakes per the package instructions. Top them with a dollop of Greek Yogurt, apple compote, and drizzle with maple syrup. Enjoy!"
+    ],
+    "prepTime": "10 mins",
+    "cookTime": "10 mins",
+    "yield": "4",
+    "author": "Paulina Tovar",
+    "datePublished": "2025-10-15T10:56:57-0600",
+    "nutrition": {
+      "@type": "NutritionInformation",
+      "calories": "439",
+      "fatContent": "13g",
+      "carbohydrateContent": "70g",
+      "proteinContent": "14g"
+    }
   },
   {
     "id": "apple-cinnamon-flapjack-bake",
