@@ -404,3 +404,28 @@ def test_dallas_peaches_to_pecans():
     assert "peaches" in local_flavor_for("US-SC-DALLAS", month=7)["produce"]
     assert "pecans" in local_flavor_for("US-SC-DALLAS", month=11)["produce"]
     assert "winter greens" in local_flavor_for("US-SC-DALLAS", month=12)["produce"]
+
+
+def test_reno_onions_to_potatoes():
+    # High desert: storage onions Jan, storage potatoes Dec
+    assert "storage onions" in local_flavor_for("US-W-RENO", month=1)["produce"]
+    assert "storage potatoes" in local_flavor_for("US-W-RENO", month=12)["produce"]
+
+
+def test_seattle_leeks_to_dairy():
+    # Puget Sound: leeks Mar, dairy Dec; Remlinger berries cover summer
+    assert "leeks" in local_flavor_for("US-W-SEA", month=3)["produce"]
+    assert "dairy" in local_flavor_for("US-W-SEA", month=12)["produce"]
+
+
+def test_charlotte_blueberries_to_butternut():
+    # Piedmont: blueberries May, sweet potatoes stretch to Nov, butternut Dec
+    assert "blueberries" in local_flavor_for("US-SE-CHARLOTTE", month=5)["produce"]
+    assert "sweet potatoes" in local_flavor_for("US-SE-CHARLOTTE", month=11)["produce"]
+    assert "butternut squash" in local_flavor_for("US-SE-CHARLOTTE", month=12)["produce"]
+
+
+def test_tampa_mango_to_new_crop():
+    # Florida peninsula: mango Jul, new-crop strawberries Nov
+    assert "mango" in local_flavor_for("US-SE-TAMPA", month=7)["produce"]
+    assert "strawberries (new crop)" in local_flavor_for("US-SE-TAMPA", month=11)["produce"]

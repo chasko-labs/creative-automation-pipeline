@@ -2442,7 +2442,50 @@
             6,
             7,
             8,
-            9
+            9,
+            11
+          ]
+        },
+        {
+          "name": "collards",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "sweet potatoes (storage)",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "butternut squash",
+          "months": [
+            12
           ]
         }
       ]
@@ -2896,6 +2939,50 @@
             2,
             3,
             12
+          ]
+        },
+        {
+          "name": "blueberries",
+          "months": [
+            4,
+            5
+          ]
+        },
+        {
+          "name": "watermelon",
+          "months": [
+            6
+          ],
+          "peak": 6
+        },
+        {
+          "name": "mango",
+          "months": [
+            7
+          ]
+        },
+        {
+          "name": "avocado (Florida)",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "strawberries (new crop)",
+          "months": [
+            11
           ]
         }
       ]
@@ -3891,6 +3978,66 @@
             8,
             9
           ]
+        },
+        {
+          "name": "storage onions",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "storage garlic",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "raspberries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "tomatoes",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "storage potatoes",
+          "months": [
+            12
+          ]
         }
       ]
     },
@@ -4091,6 +4238,54 @@
           "months": [
             8,
             9
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "kale",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "leeks",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "rhubarb",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "pumpkins",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "dairy",
+          "months": [
+            12
           ]
         }
       ]
