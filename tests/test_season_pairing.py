@@ -623,6 +623,33 @@ def test_pecan_curation_splits_chile_belt_fall_block():
     }
 
 
+def test_holiday_table_recipes_carry_local_heroes():
+    # QA sweep: pairing tables pointed at hero-less recipes, so holiday
+    # dropdown cards rendered the flat brand block. Five table serves had
+    # real brand food photos stranded in the legacy `art` field (remote
+    # URLs the offline hero panel never fetches); localized under
+    # web/.../assets/recipe-heroes and wired as repo-relative `image`
+    # paths — the only form _hero_panel renders. Guards all five, not
+    # just the warning count, so a deleted file fails loudly.
+    from pathlib import Path
+
+    from creative_automation.recipe_card import _recipe_by_id
+
+    repo = Path(__file__).resolve().parent.parent
+    for rid in (
+        "easter-egg-pancakes",
+        "grilled-peaches-and-granola",
+        "holiday-sugar-cookies",
+        "pumpkin-pie",
+        "smores-brookies",
+    ):
+        recipe = _recipe_by_id(rid)
+        assert recipe is not None, rid
+        src = recipe.get("image") or ""
+        assert not str(src).startswith(("http://", "https://")), rid
+        assert (repo / src).is_file(), f"{rid}: missing {src}"
+
+
 def test_conjunction_split_month_serves_each_named_item():
     # El Paso September proves the word-order match end to end: without it
     # September pins cornbread alone (ingredient-featured); with it the
