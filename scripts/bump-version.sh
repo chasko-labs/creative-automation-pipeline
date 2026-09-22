@@ -52,7 +52,9 @@ WEBMCP="$WEB_SRC/webmcp.json"
 LLMS="$WEB_SRC/llms.txt"
 PIPELINE="$WEB_SRC/pipeline.html"
 INFRA="$WEB_SRC/infrastructure.html"
-SINKS=("$INDEX" "$WEBMCP" "$LLMS" "$PIPELINE" "$INFRA")
+RECIPES="$WEB_SRC/recipes.html"
+DETAILS="$WEB_SRC/details.html"
+SINKS=("$INDEX" "$WEBMCP" "$LLMS" "$PIPELINE" "$INFRA" "$RECIPES" "$DETAILS")
 
 # A version-shaped token: MAJOR.MINOR.PATCH, -buildid, -YYYYMMDD (the optional
 # leading v is captured separately in the replace so it is preserved, never doubled).
