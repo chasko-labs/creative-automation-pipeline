@@ -60,6 +60,8 @@ HOLIDAY_ALIASES: dict[str, str] = {
     "valentine\u2019s day": "valentine's day",
     "valentine\u2018s day": "valentine's day",
     "valentines day": "valentine's day",
+    # dash form used by campaign art dirs + the offline art index.
+    "fourth-of-july": "fourth of july",
 }
 
 #: Whole-word season tokens treated as free-text leaks (display-only, never pairing

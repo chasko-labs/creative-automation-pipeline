@@ -67,6 +67,13 @@ def test_normalize_season():
     assert sp.normalize_season("monsoon") is None
 
 
+def test_normalize_holiday_accepts_dash_form():
+    # campaign art dirs + offline index use fourth-of-july; the table key has spaces.
+    assert sp.normalize_holiday("fourth-of-july") == "fourth of july"
+    assert sp.normalize_holiday("Fourth-Of-July") == "fourth of july"
+    assert sp.normalize_holiday("funday") is None
+
+
 def test_season_for_month_maps_meteorological_seasons():
     assert sp.season_for_month("2026-01") == "winter"
     assert sp.season_for_month("2026-02") == "winter"
