@@ -1330,3 +1330,50 @@ sources: reference architecture — proven BabylonJS 9.4.1 shared-engine + devic
 
 - `docs/kodiak-shading.json`; element inventory `docs/design-system-inventory.md`. featureDemos lineage from
   babylonjs.com/featureDemos as noted per trial.
+
+## 17. Wave 3 — Frontier Marquee Sign (index header, KodiakEmber 0.6.0)
+
+**element:** the index header headline plate (`#frontierSign`) — the top line of the page.
+**effect:** a Fallout-New-Vegas-on-cardboard marquee: kraft board face (DynamicTexture, stenciled
+KODIAK headline + nailed rail + rivets), a chasing LED bulb ring (46 emissive spheres, thirds-chase
+at ~7 steps/s, GlowLayer), and four live status plates — MARKET / SEASON / PREVIEW / PACK — that
+mirror `#locationSectionLabel`, `#seasonSectionLabel`, and the timeline `data-state`s through one
+MutationObserver. light/dark follows `prefers-color-scheme` (face + ink redraw, glow intensity
+shift). the static HTML headline is the default visual; `.is-live` retires it only after the scene
+constructs. reduced-motion holds the chase static. camera fit fills cabinet height at every aspect
+(`fitCamera` on mount + window resize).
+
+**worked import list** (net new: GlowLayer + the views side-effect module):
+
+```js
+import { GlowLayer } from "@babylonjs/core/Layers/glowLayer";
+import "@babylonjs/core/Engines/AbstractEngine/abstractEngine.views.js";
+```
+
+**three hardware-verified gotchas** (all found by mounting on a real RX 6700 XT; the SwiftShader
+gate means the render suite never exercises these paths):
+
+1. engine views are a side-effect module in 9.4.1. the Engine class import alone leaves
+   `registerView`/`unRegisterView`/`activeView` undefined and every shared-engine mount throws at
+   `registerSceneView`. this affected all waves, not just the sign — RecipeCardBoard, SheenRim,
+   and PaperboardCard would all throw on real hardware without the import.
+2. RectAreaLight cannot be aimed. Babylon lights are Nodes, not TransformNodes — there is no
+   `rotation`, so its fixed -Z emission cannot be turned toward the board. the Vegas wash is a
+   warm PointLight instead (no aiming needed). the playground area-lights study remains the
+   visual reference, not the implementation.
+3. CreatePlane already faces the -Z camera. adding `rotation.y = Math.PI` turns the textured
+   side away and the board renders as a dark void (texture reads back correct on the GPU the
+   whole time — verify with `readPixels`, not screenshots). face and plates ship unrotated;
+   `tests/vitest/frontier-sign.test.mjs` guards the regression.
+
+**bundle delta after `build:ember`:** entry ~826 KB min / ~214 KB gzip (ceilings 900 / 320 — pass).
+chunk hygiene: esbuild never deletes; after each rebuild, BFS from the entry over all three import
+forms (`from"./"`, `import("./")`, bare `import"./"` for side-effect chunks) and delete the
+unreachable. missing any one form silently ships a broken entry — the shaders-split
+deploy-asset-coverage test is the backstop.
+
+**verification evidence:** `ember:true, live:true` on hardware GL with zero page errors;
+SwiftShader gate-refuses and the static plate stands; desktop/tablet/mobile + scrolled shots in
+`output/qa-shots/qa-sign-*.png`; dev receipt `output/qa-shots/qa-dev-sign-live.png`.
+startup emits ~70 transient zero-size-framebuffer warnings, zero after ~8s — mount-time noise,
+not a leak (measured 15s window).
