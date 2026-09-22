@@ -106,7 +106,10 @@ def test_curated_pairings_route_to_honest_recipes():
     assert _pick_recipe("sweet cherries", None)["id"] == "cherry-pie-bars"
     assert _pick_recipe("avocado (florida)", None)["id"] == "avocado-pancakes"
     assert _pick_recipe("meyer lemon", None)["id"] == "single-serve-lemon-ricotta-flapjack-cup"
-    assert _pick_recipe("green and red chile", None)["id"] == "red-chile-cornbread-muffins-draft"
+    # "green and red chile" names green chile across the conjunction, so the
+    # green-chile draft (lowest id among the honest curators) wins the
+    # no-context tiebreak; market+month context rotates the two (sweep).
+    assert _pick_recipe("green and red chile", None)["id"] == "green-chile-cheddar-bake-draft"
     assert _pick_recipe("boiled peanuts", None)["id"] == "boiled-peanut-oat-bites-draft"
     assert _pick_recipe("huckleberries", None)["id"] == "huckleberry-flapjack-topper-draft"
     assert _pick_recipe("celery", None)["id"] == "celery-parmesan-pancakes-draft"

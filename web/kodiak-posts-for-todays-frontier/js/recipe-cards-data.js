@@ -88193,52 +88193,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-MW-KC",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "winter",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans (Missouri)"
@@ -88252,8 +88260,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -88720,15 +88728,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     }
   },
@@ -127407,53 +127418,61 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "pecans and winter squash",
       "ingredients": [
         {
-          "price": "$2.75",
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "price": null,
+          "qty_name": "Oatmeal Squares:"
         },
         {
-          "price": "$2.00",
-          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+          "price": null,
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
-          "price": "$0.70",
-          "qty_name": "2 large eggs"
+          "price": null,
+          "qty_name": "1 large egg"
         },
         {
-          "price": "$0.30",
-          "qty_name": "1/2 cup milk"
+          "price": null,
+          "qty_name": "1 cup milk"
         },
         {
-          "price": "$1.65",
-          "qty_name": "1/3 cup honey or sugar"
+          "price": null,
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
-          "price": "$0.75",
-          "qty_name": "1/4 cup melted butter"
+          "price": null,
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
-          "price": "$0.20",
-          "qty_name": "1 teaspoon cinnamon"
+          "price": null,
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
-          "price": "$0.05",
-          "qty_name": "1/2 teaspoon salt"
+          "price": null,
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-MW-PHX2",
       "meta": {
-        "cook": "20 mins",
-        "est_cost": "$8.40",
-        "prep": "15 mins",
-        "serves": "12 muffins"
+        "cook": "17",
+        "est_cost": null,
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: winter-squash-morning-muffins-draft has the best token overlap with the in-season ingredient",
-          "recipe_id": "winter-squash-morning-muffins-draft",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans and winter squash"
@@ -127462,12 +127481,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "winter-squash-morning-muffins-draft",
-        "name": "Winter Squash Morning Muffins"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -127928,13 +127948,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
-        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
-        "COOL 5 minutes in the tin before turning out."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Morning Muffins",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -216033,68 +216058,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup blended cottage cheese"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup milk"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon unsweetened shredded coconut\r\n\r\n\r\n \r\n\r\nPineapple Protein Whip:"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup plain Greek yogurt"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup very ripe pineapple chunks\r\n\r\n\r\n \r\n\r\nTopping:"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced mango"
+          "qty_name": "1 tablespoon butter, melted"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup diced pineapple"
+          "qty_name": "1-2 teaspoons milk"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon toasted coconut chips"
-        },
-        {
-          "price": null,
-          "qty_name": "1 passion fruit, halved (optional, but recommended)"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, for serving (optional)"
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-NE-RALEIGH",
       "meta": {
-        "cook": "10",
+        "cook": "17",
         "est_cost": null,
-        "prep": "10",
-        "serves": "1"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: tropical-protein-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "tropical-protein-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "winter",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans (coastal plain)"
@@ -216108,8 +216125,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "tropical-protein-pancakes",
-        "name": "Tropical Protein Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -216585,17 +216602,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the Kodiak Cakes mix in a medium bowl.",
-        "BLEND the cottage cheese with an immersion blender until completely smooth. Add it to the bowl along with the egg and milk. Stir until just combined, then fold in the shredded coconut. Let the batter rest for 5 minutes.",
-        "TO make the pineapple protein whip, combine the Greek yogurt and very ripe pineapple chunks in a tall container. Blend with an immersion blender until completely smooth and creamy. Refrigerate until ready to serve.",
-        "HEAT a lightly greased nonstick skillet or griddle over medium heat.",
-        "SCOOP the batter onto the skillet to make 3–4 small pancakes. Cook for 2–3 minutes per side, or until golden brown and cooked through.",
-        "STACK the pancakes on a serving plate. Top with generous dollops of the pineapple protein whip.",
-        "ARRANGE the diced mango and pineapple over the top. Sprinkle with the toasted coconut chips and spoon the passion fruit over everything, if using.",
-        "DRIZZLE with maple syrup, if desired. Serve immediately."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Tropical Protein Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     }
   },
@@ -235989,35 +236007,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "6 Kodiak Buttermilk & Vanilla Thick and Fluffy Power Waffles, thawed"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "6 large eggs"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 cups whole milk"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup brown sugar, divided"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon salt"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 large carrot, finely grated"
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
         },
         {
           "price": null,
@@ -236027,18 +236049,18 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-SC-AUSTIN",
       "meta": {
-        "cook": "25 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "6"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: carrot-cake-waffle-french-toast-bake chosen deterministically for US-SC-AUSTIN|2026-10 among recipes naming the ingredient",
-          "recipe_id": "carrot-cake-waffle-french-toast-bake",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-rotation"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans"
@@ -236052,8 +236074,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "carrot-cake-waffle-french-toast-bake",
-        "name": "Carrot Cake Waffle French Toast Bake"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -236528,16 +236550,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350 degrees. Grease a 9x13” baking pan.",
-        "CUT each waffle into 4 square pieces. Place them in the greased baking pan, slightly overlapping.",
-        "PLACE the eggs, milk, vanilla, 2 tablespoons brown sugar, salt, cinnamon, and grated carrot in a mixing bowl and whisk together until well combined. Pour evenly over the waffle mixture.",
-        "LET sit for 10 minutes. Sprinkle the remaining 2 tablespoons brown sugar and pecans over the top.",
-        "BAKE in the preheated oven for 20-25 minutes, or until golden brown on top.",
-        "COOL slightly before serving.",
-        "SERVE slices of the bake with maple syrup and whipped cream on top."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Carrot Cake Waffle French Toast Bake",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -236551,52 +236575,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SC-AUSTIN",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans and sweet potatoes"
@@ -236610,8 +236642,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -237086,15 +237118,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -242759,52 +242794,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SC-DALLAS",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "sweet potatoes and pecans"
@@ -242818,8 +242861,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -243300,15 +243343,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -243372,10 +243418,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: pumpkin-oat-muffins lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: pumpkin-oat-muffins chosen deterministically for US-SC-DALLAS|2026-11 among recipes curating the ingredient in featured_for",
           "recipe_id": "pumpkin-oat-muffins",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "pecans and pumpkins"
@@ -249501,52 +249547,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SC-HOUSTON",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "sweet potatoes and pecans"
@@ -249560,8 +249614,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -250038,15 +250092,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -250060,48 +250117,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup mandarin juice"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup milk"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon mandarin zest"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1 cup mandarin segments (satsuma, tangerine, or grapefruit)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons butter, for the griddle"
+          "qty_name": "1 tablespoon maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SC-HOUSTON",
       "meta": {
-        "cook": "15 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "8 flapjacks"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: mandarin-citrus-flapjacks-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "mandarin-citrus-flapjacks-draft",
+          "reason": "featured rotation: maple-pecan-baked-oatmeal-squares chosen deterministically for US-SC-HOUSTON|2026-11 among recipes curating the ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "pecans and satsuma citrus"
@@ -250115,8 +250184,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "mandarin-citrus-flapjacks-draft",
-        "name": "Mandarin Citrus Flapjacks"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -250593,13 +250662,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "WHISK the mix, mandarin juice, milk, eggs, and zest into a batter; fold in the segments.",
-        "REST the batter 5 minutes.",
-        "COOK 1/4-cup flapjacks in butter, 2 minutes per side, until golden.",
-        "SERVE hot with extra segments and honey."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Mandarin Citrus Flapjacks",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -256440,52 +256514,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SC-SANANTONIO",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans and sweet potatoes"
@@ -256499,8 +256581,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -256998,15 +257080,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -257020,52 +257105,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SC-SANANTONIO",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans and citrus"
@@ -257079,8 +257172,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -257578,15 +257671,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -270266,35 +270362,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "6 Kodiak Buttermilk & Vanilla Thick and Fluffy Power Waffles, thawed"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "6 large eggs"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 cups whole milk"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup brown sugar, divided"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon salt"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 large carrot, finely grated"
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
         },
         {
           "price": null,
@@ -270304,18 +270404,18 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-SE-ATL",
       "meta": {
-        "cook": "25 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "6"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: carrot-cake-waffle-french-toast-bake chosen deterministically for US-SE-ATL|2026-10 among recipes naming the ingredient",
-          "recipe_id": "carrot-cake-waffle-french-toast-bake",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-rotation"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans"
@@ -270329,8 +270429,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "carrot-cake-waffle-french-toast-bake",
-        "name": "Carrot Cake Waffle French Toast Bake"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -270783,16 +270883,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350 degrees. Grease a 9x13” baking pan.",
-        "CUT each waffle into 4 square pieces. Place them in the greased baking pan, slightly overlapping.",
-        "PLACE the eggs, milk, vanilla, 2 tablespoons brown sugar, salt, cinnamon, and grated carrot in a mixing bowl and whisk together until well combined. Pour evenly over the waffle mixture.",
-        "LET sit for 10 minutes. Sprinkle the remaining 2 tablespoons brown sugar and pecans over the top.",
-        "BAKE in the preheated oven for 20-25 minutes, or until golden brown on top.",
-        "COOL slightly before serving.",
-        "SERVE slices of the bake with maple syrup and whipped cream on top."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Carrot Cake Waffle French Toast Bake",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -276908,35 +277010,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "6 Kodiak Buttermilk & Vanilla Thick and Fluffy Power Waffles, thawed"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "6 large eggs"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 cups whole milk"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup brown sugar, divided"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon salt"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 large carrot, finely grated"
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
         },
         {
           "price": null,
@@ -276946,18 +277052,18 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-SE-BIRMINGHAM",
       "meta": {
-        "cook": "25 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "6"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-10",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: carrot-cake-waffle-french-toast-bake chosen deterministically for US-SE-BIRMINGHAM|2026-10 among recipes naming the ingredient",
-          "recipe_id": "carrot-cake-waffle-french-toast-bake",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-rotation"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans"
@@ -276971,8 +277077,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "carrot-cake-waffle-french-toast-bake",
-        "name": "Carrot Cake Waffle French Toast Bake"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -277467,16 +277573,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350 degrees. Grease a 9x13” baking pan.",
-        "CUT each waffle into 4 square pieces. Place them in the greased baking pan, slightly overlapping.",
-        "PLACE the eggs, milk, vanilla, 2 tablespoons brown sugar, salt, cinnamon, and grated carrot in a mixing bowl and whisk together until well combined. Pour evenly over the waffle mixture.",
-        "LET sit for 10 minutes. Sprinkle the remaining 2 tablespoons brown sugar and pecans over the top.",
-        "BAKE in the preheated oven for 20-25 minutes, or until golden brown on top.",
-        "COOL slightly before serving.",
-        "SERVE slices of the bake with maple syrup and whipped cream on top."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Carrot Cake Waffle French Toast Bake",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-11": {
@@ -305085,35 +305193,39 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "6 Kodiak Buttermilk & Vanilla Thick and Fluffy Power Waffles, thawed"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "6 large eggs"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 cups whole milk"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup brown sugar, divided"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon salt"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 large carrot, finely grated"
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
         },
         {
           "price": null,
@@ -305123,18 +305235,18 @@ window.KODIAK_RECIPE_CARDS = {
       "lang": "en",
       "market": "US-SE-JACKSON",
       "meta": {
-        "cook": "25 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "6"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: carrot-cake-waffle-french-toast-bake chosen deterministically for US-SE-JACKSON|2026-11 among recipes naming the ingredient",
-          "recipe_id": "carrot-cake-waffle-french-toast-bake",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-rotation"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans"
@@ -305148,8 +305260,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "carrot-cake-waffle-french-toast-bake",
-        "name": "Carrot Cake Waffle French Toast Bake"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -305639,16 +305751,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350 degrees. Grease a 9x13” baking pan.",
-        "CUT each waffle into 4 square pieces. Place them in the greased baking pan, slightly overlapping.",
-        "PLACE the eggs, milk, vanilla, 2 tablespoons brown sugar, salt, cinnamon, and grated carrot in a mixing bowl and whisk together until well combined. Pour evenly over the waffle mixture.",
-        "LET sit for 10 minutes. Sprinkle the remaining 2 tablespoons brown sugar and pecans over the top.",
-        "BAKE in the preheated oven for 20-25 minutes, or until golden brown on top.",
-        "COOL slightly before serving.",
-        "SERVE slices of the bake with maple syrup and whipped cream on top."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Carrot Cake Waffle French Toast Bake",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -325298,56 +325412,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "4 packets Kodiak Chocolate Chip Oatmeal Packets"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup chopped pecans"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon baking powder"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons maple syrup"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "2 eggs"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup milk"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup pumpkin puree"
+          "qty_name": "1 tablespoon butter, melted"
         },
         {
           "price": null,
-          "qty_name": "36 pecan halves"
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SE-MEMPHIS",
       "meta": {
-        "cook": "15 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "12"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: pumpkin-oat-energy-bites chosen deterministically for US-SE-MEMPHIS|2026-11 among recipes naming the ingredient",
-          "recipe_id": "pumpkin-oat-energy-bites",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-rotation"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans"
@@ -325361,8 +325479,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "pumpkin-oat-energy-bites",
-        "name": "Pumpkin Oat Energy Bites"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -325852,15 +325970,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Coat a mini muffin tin with cooking spray or butter.",
-        "PLACE the contents of the oatmeal packets in a mixing bowl along with the power cakes mix, chopped pecans, and baking powder. Whisk to combine.",
-        "ADD the maple syrup, eggs, milk, and pumpkin puree to the dry ingredients and whisk together to form a smooth batter. Let sit for 5 minutes to let the grains absorb the liquid.",
-        "STIR again and fill each mini muffin tin 7/8 full with batter. This recipe should fill about 36 mini muffin tins. Top each muffin with a pecan half.",
-        "BAKE in the preheated oven for 12-15 minutes, or until golden brown on top and puffed.",
-        "REMOVE and let cool for 10 minutes. Run a butter knife around the edge of each mini muffin and remove from the pan. Store in an airtight container."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Pumpkin Oat Energy Bites",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -345628,56 +345749,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "4 packets Kodiak Chocolate Chip Oatmeal Packets"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup chopped pecans"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon baking powder"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons maple syrup"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "2 eggs"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup milk"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup pumpkin puree"
+          "qty_name": "1 tablespoon butter, melted"
         },
         {
           "price": null,
-          "qty_name": "36 pecan halves"
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SE-SANDERSVILLE",
       "meta": {
-        "cook": "15 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "12"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: pumpkin-oat-energy-bites chosen deterministically for US-SE-SANDERSVILLE|2026-11 among recipes naming the ingredient",
-          "recipe_id": "pumpkin-oat-energy-bites",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-rotation"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans"
@@ -345691,8 +345816,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "pumpkin-oat-energy-bites",
-        "name": "Pumpkin Oat Energy Bites"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -346123,15 +346248,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Coat a mini muffin tin with cooking spray or butter.",
-        "PLACE the contents of the oatmeal packets in a mixing bowl along with the power cakes mix, chopped pecans, and baking powder. Whisk to combine.",
-        "ADD the maple syrup, eggs, milk, and pumpkin puree to the dry ingredients and whisk together to form a smooth batter. Let sit for 5 minutes to let the grains absorb the liquid.",
-        "STIR again and fill each mini muffin tin 7/8 full with batter. This recipe should fill about 36 mini muffin tins. Top each muffin with a pecan half.",
-        "BAKE in the preheated oven for 12-15 minutes, or until golden brown on top and puffed.",
-        "REMOVE and let cool for 10 minutes. Run a butter knife around the edge of each mini muffin and remove from the pan. Store in an airtight container."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Pumpkin Oat Energy Bites",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -359414,10 +359542,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: pumpkin-oat-muffins lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: pumpkin-oat-muffins chosen deterministically for US-SW-ALBQ|2026-11 among recipes curating the ingredient in featured_for",
           "recipe_id": "pumpkin-oat-muffins",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "pecans and pumpkins"
@@ -359954,52 +360082,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-ALBQ",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "winter",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "stored apples and pecans"
@@ -360013,8 +360149,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -360514,15 +360650,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     }
   },
@@ -367430,52 +367569,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-EL PASO",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "winter",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans (storage)"
@@ -367489,8 +367636,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -367915,15 +368062,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -371464,52 +371614,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Butter, for the baking dish"
         },
         {
           "price": null,
-          "qty_name": "1 cup cornmeal"
+          "qty_name": "6 large eggs"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons red chile powder"
+          "qty_name": "1/2 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 cup milk"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/4 teaspoon black pepper"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup honey"
+          "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup melted butter"
+          "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed)"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided"
         }
       ],
       "lang": "en",
       "market": "US-SW-EL PASO",
       "meta": {
-        "cook": "20 mins",
+        "cook": "35 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "12 muffins"
+        "serves": "6 servings"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "reason": "featured rotation: green-chile-cheddar-bake-draft chosen deterministically for US-SW-EL PASO|2026-09 among recipes curating the ingredient in featured_for",
+          "recipe_id": "green-chile-cheddar-bake-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "green and red chile"
@@ -371523,8 +371673,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "red-chile-cornbread-muffins-draft",
-        "name": "Red Chile Cornbread Muffins"
+        "id": "green-chile-cheddar-bake-draft",
+        "name": "Green Chile Cheddar Power Bake"
       },
       "render": {
         "canvas": {
@@ -371949,14 +372099,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-        "COMBINE wet and dry just until mixed; divide among the cups.",
-        "BAKE 18-20 minutes, until a tester comes out clean.",
-        "COOL briefly and serve warm."
+        "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+        "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+        "FOLD in the green chile and 1 cup of the cheese.",
+        "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+        "REST 10 minutes before cutting into squares. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Red Chile Cornbread Muffins",
+      "title": "Green Chile Cheddar Power Bake",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -372527,10 +372677,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-EL PASO|2026-11 among recipes curating the ingredient in featured_for",
           "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "pecans and red chile"
@@ -373499,52 +373649,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-LASCRUCES",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "winter",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "stored onions and pecans"
@@ -373558,8 +373716,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -374095,15 +374253,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -378477,10 +378638,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-LASCRUCES|2026-09 among recipes curating the ingredient in featured_for",
           "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "green and red chile"
@@ -379669,15 +379830,15 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup cornmeal"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons red chile powder"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
@@ -379685,36 +379846,44 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup honey"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup melted butter"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-LASCRUCES",
       "meta": {
-        "cook": "20 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "12 muffins"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "reason": "featured rotation: maple-pecan-baked-oatmeal-squares chosen deterministically for US-SW-LASCRUCES|2026-11 among recipes curating the ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "pecans and red chile ristras"
@@ -379728,8 +379897,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "red-chile-cornbread-muffins-draft",
-        "name": "Red Chile Cornbread Muffins"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -380265,14 +380434,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-        "COMBINE wet and dry just until mixed; divide among the cups.",
-        "BAKE 18-20 minutes, until a tester comes out clean.",
-        "COOL briefly and serve warm."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Red Chile Cornbread Muffins",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -380328,10 +380501,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-LASCRUCES|2026-12 among recipes curating the ingredient in featured_for",
           "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "dried red chile and pecans"
@@ -380905,52 +381078,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup grated parmesan"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons neutral oil, for frying"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 cup fresh microgreens, to serve"
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-OKC",
       "meta": {
-        "cook": "15 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "25 mins",
-        "serves": "10 fritters"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: savory-greens-fritters-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "savory-greens-fritters-draft",
+          "reason": "featured rotation: maple-pecan-baked-oatmeal-squares chosen deterministically for US-SW-OKC|2026-01 among recipes curating the ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "stored pecans and winter greens"
@@ -380964,8 +381145,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "savory-greens-fritters-draft",
-        "name": "Savory Greens Fritters"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -381436,13 +381617,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
-        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
-        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
-        "SERVE hot topped with fresh microgreens."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Savory Greens Fritters",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -386415,52 +386601,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-OKC",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans and sweet potatoes"
@@ -386474,8 +386668,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -386946,15 +387140,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -386968,52 +387165,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-OKC",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "winter",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "stored pecans and sweet potatoes"
@@ -387027,8 +387232,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -387499,15 +387704,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     }
   },
@@ -393559,53 +393767,61 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "olives, pecans, and winter squash",
       "ingredients": [
         {
-          "price": "$2.75",
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "price": null,
+          "qty_name": "Oatmeal Squares:"
         },
         {
-          "price": "$2.00",
-          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+          "price": null,
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
-          "price": "$0.70",
-          "qty_name": "2 large eggs"
+          "price": null,
+          "qty_name": "1 large egg"
         },
         {
-          "price": "$0.30",
-          "qty_name": "1/2 cup milk"
+          "price": null,
+          "qty_name": "1 cup milk"
         },
         {
-          "price": "$1.65",
-          "qty_name": "1/3 cup honey or sugar"
+          "price": null,
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
-          "price": "$0.75",
-          "qty_name": "1/4 cup melted butter"
+          "price": null,
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
-          "price": "$0.20",
-          "qty_name": "1 teaspoon cinnamon"
+          "price": null,
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
-          "price": "$0.05",
-          "qty_name": "1/2 teaspoon salt"
+          "price": null,
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-PHX",
       "meta": {
-        "cook": "20 mins",
-        "est_cost": "$8.40",
-        "prep": "15 mins",
-        "serves": "12 muffins"
+        "cook": "17",
+        "est_cost": null,
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: winter-squash-morning-muffins-draft has the best token overlap with the in-season ingredient",
-          "recipe_id": "winter-squash-morning-muffins-draft",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "olives, pecans, and winter squash"
@@ -393614,12 +393830,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "winter-squash-morning-muffins-draft",
-        "name": "Winter Squash Morning Muffins"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -394145,13 +394362,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
-        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
-        "COOL 5 minutes in the tin before turning out."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Morning Muffins",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -394769,52 +394991,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "3 cups chopped hearty cooking greens (spring greens, winter greens, collards, or kale)"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup grated parmesan"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons neutral oil, for frying"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 cup fresh microgreens, to serve"
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-ROSWELL",
       "meta": {
-        "cook": "15 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "25 mins",
-        "serves": "10 fritters"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: savory-greens-fritters-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "savory-greens-fritters-draft",
+          "reason": "featured rotation: maple-pecan-baked-oatmeal-squares chosen deterministically for US-SW-ROSWELL|2026-01 among recipes curating the ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "stored pecans and winter greens"
@@ -394828,8 +395058,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "savory-greens-fritters-draft",
-        "name": "Savory Greens Fritters"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -395296,13 +395526,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "BLANCH the greens 2 minutes in salted boiling water, chill in ice water, then squeeze completely dry in a towel.",
-        "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
-        "HEAT the oil over medium heat; scoop 1/4-cup mounds, flatten, and fry 3-4 minutes per side until crisp and golden.",
-        "SERVE hot topped with fresh microgreens."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Savory Greens Fritters",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -399180,52 +399415,52 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Butter, for the baking dish"
         },
         {
           "price": null,
-          "qty_name": "1 cup cornmeal"
+          "qty_name": "6 large eggs"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons red chile powder"
+          "qty_name": "1/2 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 cup milk"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/4 teaspoon black pepper"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup honey"
+          "qty_name": "1/2 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup melted butter"
+          "qty_name": "1 cup diced roasted green chile (Hatch, fresh or frozen and thawed)"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt"
+          "qty_name": "1-1/2 cups shredded cheddar or Monterey Jack, divided"
         }
       ],
       "lang": "en",
       "market": "US-SW-ROSWELL",
       "meta": {
-        "cook": "20 mins",
+        "cook": "35 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "12 muffins"
+        "serves": "6 servings"
       },
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
-          "recipe_id": "red-chile-cornbread-muffins-draft",
+          "reason": "featured rotation: green-chile-cheddar-bake-draft chosen deterministically for US-SW-ROSWELL|2026-09 among recipes curating the ingredient in featured_for",
+          "recipe_id": "green-chile-cheddar-bake-draft",
           "season": "fall",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "green and red chile"
@@ -399239,8 +399474,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "red-chile-cornbread-muffins-draft",
-        "name": "Red Chile Cornbread Muffins"
+        "id": "green-chile-cheddar-bake-draft",
+        "name": "Green Chile Cheddar Power Bake"
       },
       "render": {
         "canvas": {
@@ -399707,14 +399942,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the dry mix, cornmeal, chile powder, and salt; whisk the milk, eggs, honey, and butter separately.",
-        "COMBINE wet and dry just until mixed; divide among the cups.",
-        "BAKE 18-20 minutes, until a tester comes out clean.",
-        "COOL briefly and serve warm."
+        "HEAT the oven to 350 F. Butter an 8x8-inch baking dish.",
+        "WHISK the eggs, milk, salt, and pepper, then whisk in the mix until just combined.",
+        "FOLD in the green chile and 1 cup of the cheese.",
+        "POUR into the dish, top with the remaining 1/2 cup cheese, and bake 30-35 minutes, until puffed, golden, and just set in the center.",
+        "REST 10 minutes before cutting into squares. Serve warm."
       ],
       "substrate": "kraft",
-      "title": "Red Chile Cornbread Muffins",
+      "title": "Green Chile Cheddar Power Bake",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -400275,53 +400510,61 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "pecans and winter squash",
       "ingredients": [
         {
-          "price": "$2.75",
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "price": null,
+          "qty_name": "Oatmeal Squares:"
         },
         {
-          "price": "$2.00",
-          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+          "price": null,
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
-          "price": "$0.70",
-          "qty_name": "2 large eggs"
+          "price": null,
+          "qty_name": "1 large egg"
         },
         {
-          "price": "$0.30",
-          "qty_name": "1/2 cup milk"
+          "price": null,
+          "qty_name": "1 cup milk"
         },
         {
-          "price": "$1.65",
-          "qty_name": "1/3 cup honey or sugar"
+          "price": null,
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
-          "price": "$0.75",
-          "qty_name": "1/4 cup melted butter"
+          "price": null,
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
-          "price": "$0.20",
-          "qty_name": "1 teaspoon cinnamon"
+          "price": null,
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
-          "price": "$0.05",
-          "qty_name": "1/2 teaspoon salt"
+          "price": null,
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-ROSWELL",
       "meta": {
-        "cook": "20 mins",
-        "est_cost": "$8.40",
-        "prep": "15 mins",
-        "serves": "12 muffins"
+        "cook": "17",
+        "est_cost": null,
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: winter-squash-morning-muffins-draft has the best token overlap with the in-season ingredient",
-          "recipe_id": "winter-squash-morning-muffins-draft",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans and winter squash"
@@ -400330,12 +400573,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "winter-squash-morning-muffins-draft",
-        "name": "Winter Squash Morning Muffins"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -400802,13 +401046,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
-        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
-        "COOL 5 minutes in the tin before turning out."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Morning Muffins",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -400864,10 +401113,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-12",
       "provenance": {
         "pairing": {
-          "reason": "ingredient-curated: red-chile-cornbread-muffins-draft lists the in-season ingredient in featured_for",
+          "reason": "featured rotation: red-chile-cornbread-muffins-draft chosen deterministically for US-SW-ROSWELL|2026-12 among recipes curating the ingredient in featured_for",
           "recipe_id": "red-chile-cornbread-muffins-draft",
           "season": "winter",
-          "source": "ingredient-featured"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "stored pecans and dried red chile"
@@ -406414,53 +406663,61 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredient": "pecans and winter squash",
       "ingredients": [
         {
-          "price": "$2.75",
-          "qty_name": "2 cups Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "price": null,
+          "qty_name": "Oatmeal Squares:"
         },
         {
-          "price": "$2.00",
-          "qty_name": "1 cup mashed roasted winter squash (butternut or acorn)"
+          "price": null,
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
-          "price": "$0.70",
-          "qty_name": "2 large eggs"
+          "price": null,
+          "qty_name": "1 large egg"
         },
         {
-          "price": "$0.30",
-          "qty_name": "1/2 cup milk"
+          "price": null,
+          "qty_name": "1 cup milk"
         },
         {
-          "price": "$1.65",
-          "qty_name": "1/3 cup honey or sugar"
+          "price": null,
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
-          "price": "$0.75",
-          "qty_name": "1/4 cup melted butter"
+          "price": null,
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
-          "price": "$0.20",
-          "qty_name": "1 teaspoon cinnamon"
+          "price": null,
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
-          "price": "$0.05",
-          "qty_name": "1/2 teaspoon salt"
+          "price": null,
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-SANTA FE",
       "meta": {
-        "cook": "20 mins",
-        "est_cost": "$8.40",
-        "prep": "15 mins",
-        "serves": "12 muffins"
+        "cook": "17",
+        "est_cost": null,
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: winter-squash-morning-muffins-draft has the best token overlap with the in-season ingredient",
-          "recipe_id": "winter-squash-morning-muffins-draft",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans and winter squash"
@@ -406469,12 +406726,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "winter-squash-morning-muffins-draft",
-        "name": "Winter Squash Morning Muffins"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -406893,13 +407151,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the oven to 400F and line a 12-cup muffin tin.",
-        "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
-        "DIVIDE among the cups and bake 18-20 minutes, until a tester comes out clean.",
-        "COOL 5 minutes in the tin before turning out."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Winter Squash Morning Muffins",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {
@@ -414087,52 +414350,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-TULAROSA",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "winter",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "stored pecans and pistachios"
@@ -414146,8 +414417,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -414644,15 +414915,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -419934,52 +420208,60 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
+          "qty_name": "Oatmeal Squares:"
         },
         {
           "price": null,
-          "qty_name": "1 cup water"
+          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 large egg"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon cinnamon"
+          "qty_name": "1 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
+          "qty_name": "1/2 cup confectioners’ sugar"
         },
         {
           "price": null,
-          "qty_name": "Butter, to top and grease pan"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1-2 teaspoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons pecans, chopped"
         }
       ],
       "lang": "en",
       "market": "US-SW-TULAROSA",
       "meta": {
-        "cook": "5 mins",
+        "cook": "17",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "4"
+        "prep": "15",
+        "serves": "9"
       },
       "month": "2026-11",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: sweet-potato-pancakes has the best token overlap with the in-season ingredient",
-          "recipe_id": "sweet-potato-pancakes",
+          "reason": "ingredient-curated: maple-pecan-baked-oatmeal-squares lists the in-season ingredient in featured_for",
+          "recipe_id": "maple-pecan-baked-oatmeal-squares",
           "season": "fall",
-          "source": "ingredient-overlap"
+          "source": "ingredient-featured"
         },
         "values_from_source": [
           "pecans and pistachios"
@@ -419993,8 +420275,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sweet-potato-pancakes",
-        "name": "Sweet Potato Pancakes"
+        "id": "maple-pecan-baked-oatmeal-squares",
+        "name": "Maple Pecan Baked Oatmeal Squares"
       },
       "render": {
         "canvas": {
@@ -420491,15 +420773,18 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the skin from the sweet potato and discard.",
-        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
-        "HEAT a skillet over medium heat.",
-        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
-        "REPEAT the process with remaining batter.",
-        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
+        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
+        "EMPTY the Overnight Oats packets into a mixing bowl.",
+        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
+        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
+        "LET cool completely. Cut into 9 squares.",
+        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
+        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
+        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
+        "STORE squares in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Sweet Potato Pancakes",
+      "title": "Maple Pecan Baked Oatmeal Squares",
       "variant": "hero-plus-layout"
     },
     "2026-12": {

@@ -592,3 +592,49 @@ def test_empty_subject_legacy_picker_serves_season_table():
 
     assert _pick_recipe("", None, season="fall")["id"] == "pumpkin-oat-muffins"
     assert _pick_recipe("", None) is None
+
+
+def test_pecan_curation_splits_chile_belt_fall_block():
+    # QA sweep: Las Cruces cornbread ran 6/12 through chile+pecan season.
+    # Maple-pecan squares (tested recipe, pecans in the ingredient lines,
+    # hero image on file) curate pecans, so November joins rotation; the
+    # September "green and red chile" string names green chile across the
+    # conjunction, so the green-chile draft joins that rotation too.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "green and red chile", "Buttermilk Power Cakes",
+        market="US-SW-LASCRUCES", month="2026-09",
+    )
+    assert pairing["source"] == "ingredient-rotation"
+    assert recipe["id"] in {
+        "red-chile-cornbread-muffins-draft",
+        "green-chile-cheddar-bake-draft",
+    }
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "pecans and red chile ristras", "Buttermilk Power Cakes",
+        market="US-SW-LASCRUCES", month="2026-11",
+    )
+    assert pairing["source"] == "ingredient-rotation"
+    assert recipe["id"] in {
+        "red-chile-cornbread-muffins-draft",
+        "maple-pecan-baked-oatmeal-squares",
+    }
+
+
+def test_conjunction_split_month_serves_each_named_item():
+    # El Paso September proves the word-order match end to end: without it
+    # September pins cornbread alone (ingredient-featured); with it the
+    # draft joins rotation (each market hash then picks its winner).
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "green and red chile", "Buttermilk Power Cakes",
+        market="US-SW-EL PASO", month="2026-09",
+    )
+    assert pairing["source"] == "ingredient-rotation"
+    assert recipe["id"] in {
+        "red-chile-cornbread-muffins-draft",
+        "green-chile-cheddar-bake-draft",
+    }

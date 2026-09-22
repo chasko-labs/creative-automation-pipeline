@@ -600,10 +600,20 @@ def _pick_recipe_detail(
             f = _paren_re.sub("", str(feature)).strip().lower()
             if not f or not haystack:
                 return False
-            return (
+            if (
                 re.search(r"(?<![a-z])" + re.escape(f) + r"s?(?![a-z])", haystack)
                 is not None
-            )
+            ):
+                return True
+            # Conjunction-split months ("green and red chile") still name each
+            # produce item, so every feature word present as a whole word (same
+            # plural tolerance, no reverse singularization: feature "greens"
+            # still does not claim haystack "green") counts as a match.
+            words = re.findall(r"[a-z]+", f)
+            if len(words) < 2:
+                return False
+            hay_words = set(re.findall(r"[a-z]+", haystack))
+            return all(w in hay_words or f"{w}s" in hay_words for w in words)
 
         pinned = sorted(
             (r.get("id", ""), r)
