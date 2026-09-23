@@ -49,6 +49,11 @@
   --section-space-xl:1.75rem;
   /* oversize-hero-logo knob — see the .kodiak-header__logo--primary pattern block below */
   --logo-hero-scale:1.0;
+  /* ui-polish batch: 6px inner-control radius (no 6px step exists in the
+     Panda --radii-* scale: sm=4, md=8) + one primary border token alias.
+     page-level tokens — styles.css stays Panda-owned. */
+  --radii-inner:6px;
+  --border-primary:var(--colors-border-default);
   /* texture tokens — CDN .webp rasters removed; kraft procedural gradients now live in design/styles.css (--gradients-kraft.*) */
   /* kraft hairlines for subtle paper fiber — inline svg data-uri, not a raster */
   --kraft:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30h60M0 10h60M0 50h60' stroke='%23624E42' stroke-opacity='.05' stroke-width='.8'/%3E%3C/svg%3E");
@@ -1763,9 +1768,11 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .ff-timeline{padding:6px 14px 4px;gap:6px 12px}
   .ff-reset{padding:5px 12px 5px 8px}
   .ff-reset-icon{width:18px;height:18px}
-  /* 3. viewport frame: the page never scrolls; the panel does */
-  body{height:100vh;overflow:hidden}
-  .wrap{height:calc(100vh - 60px);overflow-y:auto}
+  /* 3. scroll architecture (State 0 / State 1): NO viewport locks, NO panel
+     traps — the window scrollbar is the only scrollbar in every state.
+     State 0 (load, all collapsed) fits 100vh through chrome compression
+     above; State 1 (user expands) grows the document naturally and the
+     window scrolls. Never re-add body overflow locks or .wrap height locks. */
   /* 4. setup steps: closed disclosures share a 3-column row; an opened step
      (or any non-details child) spans full width below, preserving top-to-bottom order */
   #brainstormAll .accordion-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
@@ -1774,3 +1781,117 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 @media(prefers-reduced-motion:reduce){
   .kodiak-header__logos{transition:none}
 }
+
+/* === UI polish batch (uan) — chevron badges, radii/border/padding tokens,
+   motion timing, footer compression, slim dividers ===
+   Source order is last so these equal-specificity rules win; values stay
+   token-backed. No h1 stack/weight change. Mobile (<=860/640/520) untouched. */
+
+/* 1. chevron badges: every disclosure ::before becomes a 22px dark pill with
+   a bold parchment chevron (inline-SVG data-URI, no new assets), rotating
+   90deg on open with the standard .2s curve. Text glyphs retired. */
+.preview-card>summary::before,
+.platform-copy summary::before,
+.provenance>summary::before,
+.ff-season-details>summary::before,
+#locationSection>summary::before,
+.ff-products>summary::before,
+.ff-brainstorm-all__summary::before,
+.ff-scope-summary::before,
+.ff-about>summary::before,
+.ff-layers>summary::before{
+  content:"";width:22px;height:22px;flex:0 0 22px;
+  border:1px solid var(--colors-border-strong);border-radius:6px;
+  background-color:var(--colors-brand-frontier-green);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M4 2 L8 6 L4 10' stroke='%23FFF8F0' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;background-size:12px 12px;
+  transition:transform .2s cubic-bezier(.4,0,.2,1)}
+.preview-card[open]>summary::before,
+.platform-copy details[open]>summary::before,
+.provenance[open]>summary::before,
+.ff-season-details[open]>summary::before,
+#locationSection[open]>summary::before,
+.ff-products[open]>summary::before,
+.ff-brainstorm-all[open]>.ff-brainstorm-all__summary::before,
+#brainstormAll[open]>.ff-brainstorm-all__summary::before,
+.ff-scope-wrap[open] .ff-scope-summary::before,
+.ff-about[open]>summary::before,
+.ff-layers[open]>summary::before{transform:rotate(90deg)}
+/* summaries read as controls: pointer + hover fill where none existed */
+.preview-card>summary,.platform-copy summary,.provenance>summary,
+.ff-season-details>summary,.ff-about>summary{cursor:pointer;
+  transition:background-color .15s ease,border-color .15s ease}
+.preview-card>summary:hover,.provenance>summary:hover,.ff-about>summary:hover,
+.platform-copy summary:hover,.ff-season-details>summary:hover{
+  background-color:var(--colors-neutral-200)}
+
+/* 2. radii: outer cards 8px (md), inner accordions/inputs 6px (new local
+   token), primary buttons 8px (md). Pills/chips/step badges stay pill. */
+.card,.ff-output{border-radius:var(--radii-md,8px)}
+.ff-season-details>summary,.ff-products>summary,.ff-brainstorm .ff-products>summary,
+.ff-brainstorm .ff-layers>summary,.ff-layers>summary,.ff-assetrow,
+#brainstormAll[open] .ff-assetrow{border-radius:var(--radii-inner,6px)}
+.field input,.field select,.field textarea,
+.ff-market-filter,.ff-addloc-input,.ff-products .ff-products-search input,
+.ff-assets-filter-input,#coachAsk #coachQ,#layerRetailerSelect{
+  border-radius:var(--radii-inner,6px)}
+.btn,.ff-go,.ff-market>summary,.ff-season select,.ff-geo,.ff-addloc-btn,
+.ff-products .ff-products-random{border-radius:var(--radii-md,8px)}
+
+/* 3. borders: one primary token on card/interactive containers, strong
+   accent on focus/expanded. divider art kept, graphic slimmed to 28px. */
+.card,.platform-matrix,.platform-copy,.provenance{border-color:var(--border-primary)}
+.preview-card[open]>summary,.ff-about[open]>summary,.provenance[open]>summary,
+.ff-season-details[open]>summary,.ff-products[open]>summary{
+  border-color:var(--colors-border-strong)}
+.ff-ridge,.ff-forest{height:28px;background-size:100% 28px}
+
+/* 4. padding: card headers 12px 20px, card bodies 16px 20px. The four
+   step summaries keep their shared 10px 12px (spacing-spec pinned). */
+.preview-card>summary{padding:12px 20px}
+.ff-about>summary{padding:12px 20px}
+.platform-matrix .pm-head,.platform-copy>.pc-head{padding:12px 20px}
+/* desktop only: the <=640px .body{padding:16px} mobile rule must keep winning */
+@media(min-width:641px){.body{padding:16px 20px}}
+.ff-output{padding:16px 20px}
+
+/* 5. motion: accordion grid uses the standard .2s curve (chevrons above);
+   reduced-motion already guarded globally + per-component. */
+#brainstormAll>.accordion-content{transition:grid-template-rows .2s cubic-bezier(.4,0,.2,1)}
+@media(prefers-reduced-motion:reduce){
+  .preview-card>summary::before,
+  .platform-copy summary::before,
+  .provenance>summary::before,
+  .ff-season-details>summary::before,
+  #locationSection>summary::before,
+  .ff-products>summary::before,
+  .ff-brainstorm-all__summary::before,
+  .ff-scope-summary::before,
+  .ff-about>summary::before,
+  .ff-layers>summary::before,
+  .preview-card>summary,.platform-copy summary,.provenance>summary,
+  .ff-season-details>summary,.ff-about>summary,
+  #brainstormAll>.accordion-content{transition:none}}
+
+/* 6. footer: build stamp compresses to a utility line so About rests near
+   the fold and the stamp is a notch of panel scroll away. */
+#buildStamp{margin:6px 0 4px;font-size:12px;opacity:.6}
+.wrap>#buildStamp{margin-bottom:4px}
+@media(min-width:861px){
+  /* State-0 budget: stamp to a utility line, trim wrap bottom padding, the
+     timeline/setup seam, and the about bottom margin so the collapsed load
+     fits 900px. (Specificity note: .wrap>#buildStamp outranks the lone-ID
+     stamp rule — repeat the full selector here.) */
+  .wrap>#buildStamp{margin-top:2px;margin-bottom:0;font-size:11px}
+  .wrap{padding-bottom:10px}
+  .ff-timeline{margin-bottom:4px}
+  .ff-setup{margin-top:4px}
+  .ff-about{margin-bottom:8px}
+  /* decorative about-art strip matches the 28px divider standard */
+  .ff-about-art .ff-about-range{height:28px}
+}
+/* stale-glyph kill: the legacy open-state text markers below lose to the
+   badge above by specificity — silence them at winning specificity so no
+   summary ever shows both badge and text glyph. */
+.ff-scope-wrap[open] .ff-scope-summary::before,
+.ff-season-details[open]>summary::before{content:""}

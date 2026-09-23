@@ -128,12 +128,20 @@ function ensureEngine() {
 function registerSceneView(canvas, camera, customRender) {
 	const engine = ensureEngine();
 	if (_views.has(canvas) || _deferredObservers.has(canvas)) return;
+	// clearBeforeCopy=true: the vendored 9.4.1 _renderViewStep blits the shared
+	// WebGL canvas onto each 2d view canvas with drawImage and skips the
+	// clearRect when this flag is falsy, so frames source-over composite onto
+	// stale pixels — motion smears and opaque residue lingers where the scene
+	// has since gone transparent. Clearing first keeps every view a faithful
+	// copy of the current frame. (This is copy-path hygiene, not the stage
+	// band fix: hardware pixels show the band is freshly rendered mesh, its
+	// camera-facing slope unlit — see createStageScene below.)
 	if (canvas.clientWidth === 0 || canvas.clientHeight === 0) {
 		const obs = new ResizeObserver(() => {
 			if (canvas.clientWidth > 0 && canvas.clientHeight > 0) {
 				obs.disconnect();
 				_deferredObservers.delete(canvas);
-				engine.registerView(canvas, camera);
+				engine.registerView(canvas, camera, true);
 				_views.set(canvas, { customRender, paused: false });
 			}
 		});
@@ -141,7 +149,7 @@ function registerSceneView(canvas, camera, customRender) {
 		_deferredObservers.set(canvas, obs);
 		return;
 	}
-	engine.registerView(canvas, camera);
+	engine.registerView(canvas, camera, true);
 	_views.set(canvas, { customRender, paused: false });
 }
 function unregisterSceneView(canvas) {
@@ -1452,7 +1460,21 @@ function createStageScene(engine) {
 	hemi.intensity = 0.9;
 	hemi.groundColor = new Color3(0.16, 0.13, 0.11);
 
-	// Horizon band — deep frontier-green matte slab low in frame.
+	// Camera-side fill: the slab's camera-facing slope points -z, which the
+	// top-down hemi barely grazes, so the deep-green matte rendered near-black
+	// ([11,18,16,235] on RX 6700 XT hardware) and read as an opaque mask over
+	// the page. This dim fill from the camera side lifts the facing slope to
+	// its true green. No shadows, no fixtures — same cost class as the hemi.
+	const fill = new DirectionalLight(
+		"frontierStageFill",
+		new Vector3(0.25, -0.45, 1),
+		scene,
+	);
+	fill.intensity = 0.65;
+	fill.diffuse = PARCHMENT;
+
+	// Horizon band — deep frontier-green matte slab low in frame. Alpha 0.55
+	// (was 0.92): a translucent wash the page ghosts through, never a mask.
 	const horizon = MeshBuilder.CreateBox(
 		"frontierStageHorizon",
 		{ width: 34, height: 1.6, depth: 0.5 },
@@ -1462,21 +1484,24 @@ function createStageScene(engine) {
 	const horizonMat = new StandardMaterial("frontierStageHorizonMat", scene);
 	horizonMat.diffuseColor = hex("#1A2F29");
 	horizonMat.specularColor = new Color3(0.02, 0.02, 0.02); // matte
-	horizonMat.alpha = 0.92;
+	horizonMat.alpha = 0.55;
 	horizon.material = horizonMat;
 
 	// Ember glow line — self-lit warm wash riding the top edge of the band.
 	// disableLighting makes it pure emissive: no light/shader cost beyond flat.
+	// Centered z=-0.55 so its front face (-0.75) clears the slab's camera face
+	// (-0.25): previously coplanar at z=0 it hid behind the slab and only the
+	// dark band showed.
 	const glow = MeshBuilder.CreateBox(
 		"frontierStageGlow",
 		{ width: 34, height: 0.16, depth: 0.4 },
 		scene,
 	);
-	glow.position = new Vector3(0, -1.55, 0);
+	glow.position = new Vector3(0, -1.62, -0.55);
 	const glowMat = new StandardMaterial("frontierStageGlowMat", scene);
 	glowMat.disableLighting = true;
 	glowMat.emissiveColor = AMBER.scale(0.55);
-	glowMat.alpha = 0.8;
+	glowMat.alpha = 0.85;
 	glow.material = glowMat;
 
 	return { scene, camera };
