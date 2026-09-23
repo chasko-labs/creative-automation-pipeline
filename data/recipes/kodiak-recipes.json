@@ -10191,9 +10191,10 @@
   {
     "id": "avocado-brownies",
     "name": "Avocado Brownies",
+    "description": "Avocado? In brownies?! Trust us, these Avocado Brownies are better than your basic box. The velvety avocado texture makes the perfect complement to the rich, chocolatey flavor of Kodiak Chocolate Fudge Brownie Mix. Not only do they taste delicious, but this crave-worthy treat is also brimming with nutritional benefits. With the help of a half banana we're subbing in for butter, you'll have a real dessert that packs 100% whole grains, protein, and healthy fat in every bite.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Chocolate Fudge Brownie Mix",
+    "base": "1 box Kodiak Chocolate Fudge Brownie Mix; 2 eggs; 1/2 cup ripe avocado, mashed; 2 tablespoons vegetable oil; 2 tablespoons water",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/avocado-brownies",
     "localize": {
       "peppers": "\u2014",
@@ -10207,7 +10208,25 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "desserts",
+    "ingredients": [
+      "1 box Kodiak Chocolate Fudge Brownie Mix",
+      "2 eggs",
+      "1/2 cup ripe avocado, mashed",
+      "2 tablespoons vegetable oil",
+      "2 tablespoons water"
+    ],
+    "instructions": [
+      "Preheat oven to 350 degrees F.",
+      "Combine ingredients in a large bowl and stir until blended.",
+      "Pour into a 9 inch x 9 inch greased pan.",
+      "Bake for 16-18 minutes."
+    ],
+    "prepTime": "10 mins",
+    "cookTime": "18 mins",
+    "yield": "12",
+    "dietary": []
   },
   {
     "id": "banana-chocolate-chip-muffins",
@@ -11540,9 +11559,10 @@
   {
     "id": "bacon-flapjack-dippers",
     "name": "Bacon Flapjack Dippers",
+    "description": "A stack that sizzles on the griddle is at its finest when you add bacon to the mix\u2014literally. These bacon flapjack dippers bring the salty sweet taste to a whole new level. The prep and cook time take only minutes to make but you can take all the time you want to savor these delectable dippers.",
     "category": "flapjacks",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "Dippers:; 1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1 cup milk; 5 pieces thick sliced bacon; To serve:; Butter; Maple syrup",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/bacon-flapjack-dippers",
     "localize": {
       "peppers": "Hatch green chile",
@@ -11564,14 +11584,33 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "Dippers:",
+      "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 cup milk",
+      "5 pieces thick sliced bacon",
+      "To serve:",
+      "Butter",
+      "Maple syrup"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "instructions": [
+      "Slice each strip of bacon in half and cook on both sides. (If your bacon strips are already small, you may be able to skip this step. But if you have long slices, slicing them in half makes the size a bit more manageable for flipping once you add the flapjack batter.)",
+      "Meanwhile, combine the Kodiak Power Cakes and milk until smooth.",
+      "Once your bacon is just about done cooking, remove it from the pan and set on a plate.",
+      "Discard any excess bacon fat from the pan and set it back on the burner over medium low heat and grease with butter.",
+      "Arrange 2 slices of bacon back in the greased pan, leaving about 2 inches on either side of each slice of bacon to allow for flapjack batter. Depending on the size of your pan you could add more slices at a time, just make sure you have enough room.",
+      "Pour about 1/3 to 1/2 cup of prepared flapjack batter over top of the slice of bacon to cover it. Now you just cook it like a regular flapjack. Once you see bubbles on the top of the batter, your flapjack is ready to flip. Cook until golden on both sides.",
+      "Repeat the process with remaining bacon strips.",
+      "Serve warm with maple syrup. Enjoy!"
+    ],
+    "prepTime": "10 mins",
+    "cookTime": "10 mins",
+    "yield": "5"
   },
   {
     "id": "baked-fish-and-chips",
