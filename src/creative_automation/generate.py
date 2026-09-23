@@ -158,10 +158,21 @@ _PREAMBLE_PATTERNS = (
 
 
 def _director_enabled() -> bool:
-    """Kill-switch for the grounded-director headline path. ON unless opted out."""
-    return os.getenv("KODIAK_DIRECTOR_GROUNDED", "true").strip().lower() in (
+    """Kill-switch for the grounded-director headline path. OFF unless opted in.
+
+    Requires BOTH flags: KODIAK_DIRECTOR_GROUNDED (legacy per-path switch,
+    default true) AND KODIAK_ARTDIRECTOR_ENABLED (master voice switch, default
+    false). Cost incident 2026-09-23: flipping only the master flag left this
+    path live because it keyed off the legacy flag alone — every voice path
+    must short-circuit on the one master boolean.
+    """
+    grounded = os.getenv("KODIAK_DIRECTOR_GROUNDED", "true").strip().lower() in (
         "1", "true", "yes", "on",
     )
+    master = os.getenv("KODIAK_ARTDIRECTOR_ENABLED", "false").strip().lower() in (
+        "1", "true", "yes", "on",
+    )
+    return grounded and master
 # Restyled-background cache (asset prefix): the rung-A bg restyle costs ~10s of Bedrock,
 # which fits a preview but never a full set (base + pads + uploads must clear the same
 # 22s wall). The cache is content-addressed on (seed bytes + prompt inputs): a preview

@@ -36,10 +36,31 @@ def test_voice_flag_dark_by_default():
     assert generate_lambda.ART_DIRECTOR_ENABLED is False
 
 
-def test_grounded_director_on_by_default_in_prod(monkeypatch):
-    # conftest forces the kill-switch OFF for hermetic tests; prod default is ON.
+def test_grounded_director_requires_master_voice_flag(monkeypatch):
+    # cost incident 2026-09-23: the legacy per-path default is ON in prod, but
+    # the voice must still stay off unless the master flag opts in.
     monkeypatch.delenv("KODIAK_DIRECTOR_GROUNDED", raising=False)
+    monkeypatch.delenv("KODIAK_ARTDIRECTOR_ENABLED", raising=False)
+    assert generate._director_enabled() is False
+    monkeypatch.setenv("KODIAK_ARTDIRECTOR_ENABLED", "true")
     assert generate._director_enabled() is True
+
+
+def test_master_flag_off_blocks_grounded_path_with_zero_transport(monkeypatch):
+    # prod-shaped env (legacy flag ON, master flag OFF): the headline path
+    # must return None before retrieve/embed/voice — zero Bedrock calls.
+    monkeypatch.setenv("KODIAK_DIRECTOR_GROUNDED", "true")
+    monkeypatch.delenv("KODIAK_ARTDIRECTOR_ENABLED", raising=False)
+
+    def _boom(*a, **k):
+        raise AssertionError("no transport may run while the master flag is off")
+
+    from creative_automation import art_director, director_memory
+
+    monkeypatch.setattr(director_memory, "retrieve", _boom)
+    monkeypatch.setattr(art_director, "art_direct_grounded", _boom)
+    out = generate._director_headline_text("Power Cakes", "wild mornings", "us", "families")
+    assert out is None
 
 
 def test_stability_rung_on_by_default_in_prod(monkeypatch):

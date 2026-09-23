@@ -19,6 +19,7 @@ from creative_automation import generate as generate_mod
 
 def _enable(monkeypatch):
     monkeypatch.setenv("KODIAK_DIRECTOR_GROUNDED", "true")
+    monkeypatch.setenv("KODIAK_ARTDIRECTOR_ENABLED", "true")
     # isolate the per-container director memo: each test starts unmemoized.
     monkeypatch.setattr(generate_mod, "_DIRECTOR_MEMO", {}, raising=False)
 
