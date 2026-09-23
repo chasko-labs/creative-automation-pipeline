@@ -37,10 +37,12 @@ describe('about art band', () => {
     expect(css).toMatch(/\.ff-about-art \.ff-about-range\{[^}]*width:100%;height:var\(--spacing-2xl/);
   });
 
-  it('36px desktop strip centers peaks and pine tops with air', () => {
-    // the strip is tall enough (36px, not 28px) that a centered crop shows
-    // ridge peaks + pine tops instead of a solid pine-body bar or pale sky.
+  it('viewBox reframes on peaks and pines, 36px strip centers them', () => {
+    // the source is 120 tall but the top 40 is empty sky: the viewBox starts
+    // at y40 so a centered slice lands on ridge peaks + pine tops instead of
+    // the pale ghost (full-viewBox YMid) or the solid pine-body bar (YMax).
     const band = index.slice(index.indexOf('class="ff-about-art"'), index.indexOf('id="aboutTool"'));
+    expect(band).toMatch(/viewBox="0 40 640 80"/);
     expect(band).toMatch(/preserveAspectRatio="xMidYMid slice"/);
     expect(css).toMatch(/\.ff-about-art \.ff-about-range\{height:36px\}/);
   });
