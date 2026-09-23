@@ -37,7 +37,7 @@ def test_prompt_uses_trained_instruction_response_shape():
     assert prompt.endswith("### Response:\n")
     assert "\n\n### Response:\n" in prompt
     # the voice framing is folded into the instruction body, not a separate field
-    assert "adventurous voice" in prompt
+    assert "Kodiak's voice" in prompt
     assert "a summit at dawn" in prompt
 
 

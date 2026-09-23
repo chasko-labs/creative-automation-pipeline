@@ -160,7 +160,7 @@ def test_director_headline_live_grounded_normalizes(monkeypatch):
     monkeypatch.setattr(
         art_director, "art_direct_grounded", lambda *a, **k: _live_result("fuel wild mornings.")
     )
-    out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families")
+    out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families", True)
     assert out == "Fuel Wild Mornings"
 
 
@@ -174,7 +174,7 @@ def test_director_headline_mock_source_falls_back(monkeypatch):
         "art_direct_grounded",
         lambda *a, **k: {"text": "canned mock line", "source": "mock"},
     )
-    out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families")
+    out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families", True)
     assert out is None  # a mock transport must never write a production headline
 
 
@@ -190,7 +190,7 @@ def test_director_headline_refusal_falls_back(monkeypatch):
         "art_direct_grounded",
         lambda *a, **k: _live_result("I can't fulfill this request."),
     )
-    out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families")
+    out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families", True)
     assert out is None
 
 
@@ -235,9 +235,42 @@ def test_director_headline_resamples_single_after_trio_refusal(monkeypatch):
         return _live_result("dawn patrol eats first")
 
     monkeypatch.setattr(art_director, "art_direct_grounded", _direct)
-    out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families")
+    out = generate_mod._director_headline_text("Power Cakes", "wild mornings", "us", "families", True)
     assert out == "Dawn Patrol Eats First"
     assert calls["n"] == 2
+
+
+def test_voice_report_counts_paid_attempts(monkeypatch):
+    # The UI shows "refining…" while attempts > 1: the report dict carries the
+    # paid-voice call count (2 here: trio refusal, then top-1 complies).
+    _enable(monkeypatch)
+    monkeypatch.setattr(
+        director_memory,
+        "retrieve",
+        lambda q, k=3: (
+            [
+                {"id": "apple-cider-donuts", "caption": "Apple cider donuts, fresh cider"},
+                {"id": "maple-pecan", "caption": "Maple pecan baked oatmeal squares"},
+                {"id": "pumpkin-oat", "caption": "Pumpkin oat muffins, fall harvest"},
+            ],
+            "nova",
+        ),
+    )
+    calls = {"n": 0}
+
+    def _direct(ask, voice, examples=None):
+        calls["n"] += 1
+        if len(examples or []) > 1:
+            return _live_result("I can't fulfill this request.")
+        return _live_result("dawn patrol eats first")
+
+    monkeypatch.setattr(art_director, "art_direct_grounded", _direct)
+    report: dict = {}
+    out = generate_mod._director_headline_text(
+        "Power Cakes", "wild mornings", "us", "families", True, report
+    )
+    assert out == "Dawn Patrol Eats First"
+    assert report["voice_attempts"] == 2 == calls["n"]
 
 
 def test_headline_for_runs_full_pipeline(monkeypatch):
@@ -280,8 +313,8 @@ def test_director_headline_memoizes_second_call(monkeypatch):
         return _live_result("dawn patrol eats first")
 
     monkeypatch.setattr(art_director, "art_direct_grounded", _direct)
-    first = generate_mod._director_headline_text("P", "wild mornings here", "us", "f")
-    second = generate_mod._director_headline_text("P", "wild mornings here", "us", "f")
+    first = generate_mod._director_headline_text("P", "wild mornings here", "us", "f", True)
+    second = generate_mod._director_headline_text("P", "wild mornings here", "us", "f", True)
     assert first == second == "Dawn Patrol Eats First"
     assert calls["n"] == 1
 
@@ -296,7 +329,7 @@ def test_director_headline_no_examples_falls_back(monkeypatch):
         return _live_result("x")
 
     monkeypatch.setattr(art_director, "art_direct_grounded", _direct)
-    assert generate_mod._director_headline_text("P", "b", "us", "f") is None
+    assert generate_mod._director_headline_text("P", "b", "us", "f", True) is None
     assert called["n"] == 0
 
 
@@ -312,7 +345,7 @@ def test_director_headline_timeout_falls_back(monkeypatch):
 
     monkeypatch.setattr(art_director, "art_direct_grounded", _slow)
     monkeypatch.setattr(generate_mod, "_DIRECTOR_TIMEOUT_S", 0.1)
-    assert generate_mod._director_headline_text("P", "b", "us", "f") is None
+    assert generate_mod._director_headline_text("P", "b", "us", "f", True) is None
 
 
 def test_director_kill_switch_skips_retrieve(monkeypatch):
@@ -321,7 +354,7 @@ def test_director_kill_switch_skips_retrieve(monkeypatch):
     monkeypatch.setattr(
         director_memory, "retrieve", lambda q, k=3: called.__setitem__("n", 1) or ([], "x")
     )
-    assert generate_mod._director_headline_text("P", "b", "us", "f") is None
+    assert generate_mod._director_headline_text("P", "b", "us", "f", True) is None
     assert called["n"] == 0
 
 
@@ -372,6 +405,7 @@ def test_rung_c_headline_uses_grounded_director(monkeypatch, tmp_path):
         audience="active families",
         out_path=out,
         idx=0,
+        art_director=True,
     )
     assert result.exists()
     assert source == "bedrock:nova-pro"  # rung C compose, director-voiced headline
@@ -453,8 +487,8 @@ def test_director_headline_failures_retry_no_poison(monkeypatch):
         return {"text": "mock line", "source": "mock", "safety": {"clean": True}}
 
     monkeypatch.setattr(art_director, "art_direct_grounded", _mock_voice)
-    assert generate_mod._director_headline_text("P", "b", "us", "f") is None
-    assert generate_mod._director_headline_text("P", "b", "us", "f") is None
+    assert generate_mod._director_headline_text("P", "b", "us", "f", True) is None
+    assert generate_mod._director_headline_text("P", "b", "us", "f", True) is None
     assert calls["n"] == 2
 
 

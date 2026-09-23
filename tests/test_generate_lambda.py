@@ -614,7 +614,15 @@ def test_art_director_flag_on_fast_return_uses_art_director_line(
         _ad, "art_direct", lambda prompt, voice: {"text": "Keep It Wild — Frontier Fuel"}
     )
 
-    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    event = {
+        "body": json.dumps(
+            {
+                "prompt": "a bear eating pancakes",
+                "product": "power-cakes",
+                "art_director": True,
+            }
+        )
+    }
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
@@ -805,7 +813,15 @@ def test_art_upgrade_records_headline_post_render_without_rewriting_brief(
         lambda *a, **k: {"text": "Lace up. Keep it wild.", "source": "bedrock:kodiak-artdirector"},
     )
 
-    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    event = {
+        "body": json.dumps(
+            {
+                "prompt": "a bear eating pancakes",
+                "product": "power-cakes",
+                "art_director": True,
+            }
+        )
+    }
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
@@ -872,7 +888,12 @@ def test_kick_voice_dark_resolves_prompt_instantly() -> None:
     import concurrent.futures as _fut
 
     assert generate_lambda.ART_DIRECTOR_ENABLED is False
-    fut = generate_lambda._kick_voice({"product": "power-cakes"}, "wild mornings")
+    # no per-request opt-in: nothing is kicked at all
+    assert generate_lambda._kick_voice({"product": "power-cakes"}, "wild mornings") is None
+    # opted in but flag dark: resolves instantly to the prompt
+    fut = generate_lambda._kick_voice(
+        {"product": "power-cakes", "art_director": True}, "wild mornings"
+    )
     assert isinstance(fut, _fut.Future)
     assert fut.result(timeout=5) == "wild mornings"
 

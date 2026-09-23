@@ -1780,8 +1780,19 @@ def _scrub_director_line(text: str, examples: list[dict]) -> str | None:
     return line or None
 
 
+def _voice_requested(value: object) -> bool:
+    """Per-request voice opt-in (cost incident 2026-09-23).
+
+    Default requests never touch a voice model, whatever the env flags say —
+    the caller must opt in explicitly per request. Env flags remain as the
+    kill-switch (both must allow AND the request must ask).
+    """
+    return str(value or "").strip().lower() in ("1", "true", "yes", "on")
+
+
 def _director_headline_text(
-    product_name: str, brief_msg: str, region: str, audience: str
+    product_name: str, brief_msg: str, region: str, audience: str,
+    art_director: bool = False, report: dict | None = None,
 ) -> str | None:
     """Grounded-director headline: retrieve brand voice, direct, normalize.
 
@@ -1804,6 +1815,9 @@ def _director_headline_text(
     if not _director_enabled():
         _dnote("skip: kill-switch off")
         return None
+    if not art_director:
+        _dnote("skip: no per-request opt-in")
+        return None
     # Memo (PROVEN IN PROD 2026-09-08): generate_hero_set runs the headline
     # pipeline TWICE per pack (base hero + set headline) with the same brief —
     # the second run re-pays embed + up to two voice invokes (~14s) and burns
@@ -1817,8 +1831,14 @@ def _director_headline_text(
     except NameError:
         _DIRECTOR_MEMO = {}
     memo_key = (product_name, brief_msg, region, audience)
+    # Paid-voice attempt counter for the UI ("refining…" while attempts > 1).
+    # Memo hits cost zero new calls. Reported out via `report` when provided.
+    attempts = {"n": 0}
     if memo_key in _DIRECTOR_MEMO:
         _dnote("memo hit")
+        if report is not None:
+            report["voice_attempts"] = 0
+            report["voice_source"] = "memo"
         cached = _DIRECTOR_MEMO[memo_key]
         # Sanitize even memo hits — a warm container may hold a pre-fix military line
         sanitized = _sanitize_military_headline(cached)
@@ -1858,6 +1878,7 @@ def _director_headline_text(
         for sample in samples:
             if not sample:
                 break
+            attempts["n"] += 1
             result = art_director.art_direct_grounded(
                 ask, "adventurous", examples=sample
             )
@@ -1904,6 +1925,9 @@ def _director_headline_text(
     # Memoize only live successes: a cold-model timeout (outcome None) must not poison
     # later warm invocations in the same container — they retry the voice fresh and
     # degrade to the Nova caption only if the voice fails again.
+    if report is not None:
+        report["voice_attempts"] = attempts["n"]
+        report["voice_source"] = _DIRECTOR_LIVE_SOURCE if outcome is not None else None
     if outcome is not None:
         _DIRECTOR_MEMO[memo_key] = outcome
     while len(_DIRECTOR_MEMO) > 64:
@@ -2544,6 +2568,7 @@ def generate_hero(
     layers: dict | None = None,
     themes: list[str] | str | None = None,
     dish: str | None = None,
+    art_director: bool = False,
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
 
@@ -2613,9 +2638,12 @@ def generate_hero(
 
     # Director kicked once at ladder start so the voice overlaps seed
     # resolution + rung composition instead of serializing after them.
+    # The report dict carries the paid-attempt count back for provenance.
+    _ladder_voice_report: dict = {}
     try:
         _director_fut = _DIRECTOR_POOL.submit(
-            _director_headline_text, product_name, brief_msg, region, audience
+            _director_headline_text, product_name, brief_msg, region, audience,
+            art_director, _ladder_voice_report,
         )
     except Exception:  # noqa: BLE001 — director kick is best-effort; caption path covers
         _director_fut = None
@@ -2652,6 +2680,8 @@ def generate_hero(
                     except Exception:  # noqa: BLE001 — slow voice -> caption path, pixels unaffected
                         directed = None
                         _voice_state["dead"] = True
+            if "voice_attempts" in _ladder_voice_report and isinstance(provenance, dict):
+                provenance["voice_attempts"] = _ladder_voice_report["voice_attempts"]
             if directed:
                 # Military quarantine even on the memoized/director path — warm frontier only
                 sanitized = _sanitize_military_headline(directed)
@@ -3252,6 +3282,7 @@ def generate_hero_set(
     layers: dict | None = None,
     themes: list[str] | str | None = None,
     dish: str | None = None,
+    art_director: bool = False,
 ) -> tuple[list[dict], str, dict]:
     """Deliver all four sizes from ONE call. Returns (renders, source, provenance).
 
@@ -3340,10 +3371,14 @@ def generate_hero_set(
     # Nova normalized second) on the clean base — the base hero call above ran
     # with overlays off and left provenance["headline"] empty, and the old
     # Nova-only helper overwrote grounded provenance with an un-normalized line.
+    _voice_report: dict = {}
     headline, headline_source = _headline_for(
         clean_base, product_name, brief_msg, region, audience,
-        remaining_ms=_set_remaining_ms,
+        remaining_ms=_set_remaining_ms, art_director=art_director,
+        report=_voice_report,
     )
+    if isinstance(provenance, dict) and "voice_attempts" in _voice_report:
+        provenance["voice_attempts"] = _voice_report["voice_attempts"]
     provenance["headline"] = headline if brand_overlay else None
     provenance["copy_headline"] = provenance.get("copy_headline") or headline
     if headline_source:
@@ -3501,7 +3536,7 @@ def generate_hero_set(
 
 def _headline_for(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str,
-    remaining_ms=None,
+    remaining_ms=None, art_director: bool = False, report: dict | None = None,
 ) -> tuple[str, str | None]:
     """Set headline through the full pipeline (module-level so generate_hero_set
     can reuse it). Returns (headline, headline_source|None): the grounded
@@ -3517,14 +3552,14 @@ def _headline_for(
     budget second call ~free."""
     directed = None
     if remaining_ms is None:
-        directed = _director_headline_text(product_name, brief_msg, region, audience)
+        directed = _director_headline_text(product_name, brief_msg, region, audience, art_director=art_director, report=report)
     else:
         try:
             director_ok = remaining_ms() >= _DIRECTOR_BUDGET_MS + _C_RESERVATION_MS
         except Exception:  # noqa: BLE001 — deadline probe must never gate the voice
             director_ok = True
         if director_ok:
-            directed = _director_headline_text(product_name, brief_msg, region, audience)
+            directed = _director_headline_text(product_name, brief_msg, region, audience, art_director=art_director, report=report)
         else:
             try:
                 print(

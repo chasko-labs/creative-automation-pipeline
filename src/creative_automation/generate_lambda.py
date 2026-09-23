@@ -142,6 +142,37 @@ _ART_DIRECTOR_DEFAULT_VOICE = "adventurous"
 # the outer wall: an abandoned voice worker writes nothing shared.
 _VOICE_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=1)
 _VOICE_COLLECT_TIMEOUT_S = 2.0
+# Reserve (ms) kept for response assembly + upload after the voice collect.
+_VOICE_COLLECT_RESERVE_MS = 1500.0
+
+
+def _voice_collect_timeout_s(remaining_ms=None) -> float:
+    """Wall-aware voice wait (cost-incident follow-up).
+
+    The old fixed 2s gave up on an opted-in headline even with 20s of wall
+    left; renders take the minutes, the headline may take its seconds. Wait
+    up to the wall remainder minus the response reserve — fallback stays for
+    hard errors and true timeouts only. No clock (full path) keeps the old
+    fixed bound.
+    """
+    if remaining_ms is None:
+        return _VOICE_COLLECT_TIMEOUT_S
+    try:
+        return max(0.1, (remaining_ms() - _VOICE_COLLECT_RESERVE_MS) / 1000.0)
+    except Exception:  # noqa: BLE001 — broken clock degrades to the fixed bound
+        return _VOICE_COLLECT_TIMEOUT_S
+
+
+def _voice_requested(data: dict[str, Any]) -> bool:
+    """Per-request voice opt-in (cost incident 2026-09-23).
+
+    Default requests never touch a voice model, whatever the env flags say —
+    the caller must pass "art_director": true explicitly. Env flags remain as
+    the kill-switch (both must allow AND the request must ask).
+    """
+    return str((data or {}).get("art_director") or "").strip().lower() in (
+        "1", "true", "yes", "on",
+    )
 
 
 def _kick_voice(data: dict[str, Any], prompt: str):
@@ -151,7 +182,10 @@ def _kick_voice(data: dict[str, Any], prompt: str):
     _maybe_art_direct only reads data (never mutates), so sharing the dict with
     the pixel path is safe; a shallow copy is passed anyway as belt-and-braces.
     When the voice flag is dark this resolves near-instantly to the prompt.
+    Without an explicit per-request opt-in no future is kicked at all.
     """
+    if not _voice_requested(data):
+        return None
     try:
         return _VOICE_POOL.submit(_maybe_art_direct, dict(data), prompt)
     except Exception as e:  # noqa: BLE001 — voice must never break the kick
@@ -220,6 +254,8 @@ def _maybe_art_direct(data: dict[str, Any], prompt: str) -> str:
     ThreadPoolExecutor), so a slow inference is still bounded by GENERATE_WALL_TIMEOUT_S.
     """
     if not ART_DIRECTOR_ENABLED:
+        return prompt
+    if not _voice_requested(data):
         return prompt
 
     voice = (data.get("voice") or "").strip().lower()
@@ -1359,6 +1395,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         seed_key=seed_key,
         layers=layers,
         themes=themes,
+        art_director=_voice_requested(data),
     )
 
     with Image.open(result_path) as im:
@@ -1495,8 +1532,12 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         provenance["mode"] = PREVIEW_MODE
         provenance.pop("deferred", None)
     # Collect the voice kicked at handler entry (overlapped pixels, ~0s wall);
-    # recorded as provenance + sidecar, never swaps the brief.
-    _apply_art_upgrade_future(voice_fut, data, prompt, provenance)
+    # recorded as provenance + sidecar, never swaps the brief. The wait is
+    # wall-aware: an opted-in headline may take its seconds while wall remains.
+    _apply_art_upgrade_future(
+        voice_fut, data, prompt, provenance,
+        timeout_s=_voice_collect_timeout_s(_preview_remaining_ms),
+    )
 
     # Campaign messaging IN the preview (Atlanta D/E/H): deterministic offline
     # chain — zero model calls, so it cannot blow the wall. Runs after the art
@@ -1578,6 +1619,7 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         layers=layers,
         themes=themes,
         dish=dish,
+        art_director=_voice_requested(data),
     )
 
     s3 = _s3_client()

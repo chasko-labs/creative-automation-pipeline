@@ -18,8 +18,8 @@ the CDK flip keeps rollback at flag-off with pixels unaffected. No other
 defaults change here.
 
 DECISION (cost incident 2026-09-23): the deploy-scoped default is now OFF
-for both (CDK env false + Scheduler DISABLED unless `-c artDirectorVoice=on`
-/ `-c artDirectorPrewarm=on`). The imported voice model bills per copy-minute
+(CDK env false unless `-c artDirectorVoice=on`) and the pre-warm Scheduler
+rule is deleted from IaC. The imported voice model bills per copy-minute
 24/7; default-ON kept a ~$38/day charge alive with zero traffic value.
 """
 import json
@@ -177,19 +177,19 @@ def test_fast_probe_shape():
 
 def test_cdk_voice_flip_and_prewarm_on():
     # Cost incident 2026-09-23 ($139 imported-model copy-minute burn): the
-    # CDK stack ships the voice flag OFF and the 4-minute pre-warm Scheduler
-    # rule DISABLED by default — both opt-IN per deploy (`-c
-    # artDirectorVoice=on`, `-c artDirectorPrewarm=on`) for an active voice
-    # test window only. If either default flips back to always-on in IaC,
-    # the deploy resumes a 24/7 copy-minute charge while the runtime tests
-    # stay green — so pin the safe IaC text here.
+    # CDK stack ships the voice flag OFF (opt-IN per deploy via `-c
+    # artDirectorVoice=on` for an active voice test window only), and the
+    # pre-warm Scheduler rule is DELETED from IaC — disabled is not enough
+    # because it can be re-enabled. If the flag default flips back to
+    # always-on, or any Scheduler pre-warm returns, the deploy resumes a
+    # 24/7 copy-minute charge while the runtime tests stay green — so pin
+    # the safe IaC text (and the schedule's absence) here.
     root = Path(__file__).resolve().parent.parent
     stack = (root / "infra-cdk" / "lib" / "generate-stack.ts").read_text()
     assert 'artDirectorVoice") === "on"' in stack  # flag opt-in arm
     assert ': "false"' in stack  # flag default arm
-    assert "rate(4 minutes)" in stack
-    assert 'artDirectorPrewarm") === "on"' in stack  # prewarm opt-in arm
-    assert ': "DISABLED"' in stack  # prewarm default arm
+    assert "ArtDirectorPrewarmSchedule" not in stack
+    assert "rate(4 minutes)" not in stack
 
 
 def test_async_upgrade_records_live_line(monkeypatch):
@@ -209,9 +209,9 @@ def test_async_upgrade_records_live_line(monkeypatch):
     )
     prompt = "morning fuel"
     provenance: dict = {}
-    fut = generate_lambda._kick_voice({"voice": "adventurous"}, prompt)
+    fut = generate_lambda._kick_voice({"voice": "adventurous", "art_director": True}, prompt)
     assert fut is not None
-    generate_lambda._apply_art_upgrade_future(fut, {"voice": "adventurous"}, prompt, provenance)
+    generate_lambda._apply_art_upgrade_future(fut, {"voice": "adventurous", "art_director": True}, prompt, provenance)
     assert provenance == {"art_headline": "Lace up. Keep it wild."}
 
 
@@ -229,9 +229,9 @@ def test_async_upgrade_slow_voice_ships_pixels_voice_off(monkeypatch):
     monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
     provenance: dict = {}
     try:
-        fut = generate_lambda._kick_voice({}, "morning fuel")
+        fut = generate_lambda._kick_voice({"art_director": True}, "morning fuel")
         generate_lambda._apply_art_upgrade_future(
-            fut, {}, "morning fuel", provenance, timeout_s=0.05
+            fut, {"art_director": True}, "morning fuel", provenance, timeout_s=0.05
         )
     finally:
         release.set()
@@ -270,8 +270,8 @@ def test_unknown_voice_falls_back_to_default(monkeypatch):
         return {"text": "Lace up. Keep it wild.", "source": "bedrock:kodiak-artdirector"}
 
     monkeypatch.setattr(_ad, "art_direct", _capture)
-    generate_lambda._maybe_art_direct({"voice": "feral"}, "morning fuel")
-    generate_lambda._maybe_art_direct({"voice": "nourishing"}, "morning fuel")
+    generate_lambda._maybe_art_direct({"voice": "feral", "art_director": True}, "morning fuel")
+    generate_lambda._maybe_art_direct({"voice": "nourishing", "art_director": True}, "morning fuel")
     assert seen == [
         generate_lambda._ART_DIRECTOR_DEFAULT_VOICE,
         "nourishing",

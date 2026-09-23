@@ -234,7 +234,8 @@ def _install_handler_stubs(monkeypatch, tmp_path):
     # keep the handler fast + offline: stub generate_hero to a real on-disk floor render.
     def _stub_hero(*, product_id, product_name, brief_msg, region, audience, out_path,
                    idx=0, ratio="1x1", theme=None, brand_overlay=True, paper_overlay=True,
-                   seed_key=None, layers=None, themes=None, dish=None):
+                   seed_key=None, layers=None, themes=None, dish=None,
+                   art_director=False):
         p = Path(out_path)
         generate_mod._brand_floor(product_name, ratio, p)
         return p, generate_mod.BRAND_FLOOR_SOURCE, {"rung": "D", "engine": "brand-floor"}
