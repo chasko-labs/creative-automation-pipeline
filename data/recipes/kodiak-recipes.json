@@ -8348,9 +8348,10 @@
   {
     "id": "smores-brookies",
     "name": "S'mores Brookies",
+    "description": "It's everything you adore about s'mores with the added benefits of whole grains. This unique S'mores Brookies recipe combines Kodiak Brownie Mix, Kodiak Chocolate Chip Power Cakes, and Kodiak S'mores Chewy bars, to make a sweet treat that curbs your cravings and satiates your taste buds. Each heavenly bite features layers of brownie and cookie topped with soft marshmallow chunks and decadent chocolate chips that together bring out the nostalgia of long summer nights spent next to the campfire. The moral of this sweet tale is that this treat will have you questioning how whole grains can be this good!",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Chocolate Fudge Brownie Mix",
+    "base": "1 box Kodiak Chocolate Fudge Brownie Mix; 1/2 cup butter, melted; 2 tablespoons avocado oil; 2 tablespoons water; 1/2 cup butter, softened; 1 cup light brown sugar; 3 eggs; 2 egg yolks; 1 teaspoon vanilla; 1 1/2 cups Kodiak Chocolate Chip Power Cakes Flapjack & Waffle Mix; 1/4 cups chocolate chips; 1/2 cup mini marshmallows; 2 Kodiak S'mores Chewy bars, crumbled",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/smores-brookies",
     "localize": {
       "peppers": "\u2014",
@@ -8365,7 +8366,37 @@
       "q"
     ],
     "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
-    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/smores-brookies.jpg"
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/smores-brookies.jpg",
+    "ingredients": [
+      "1 box Kodiak Chocolate Fudge Brownie Mix",
+      "1/2 cup butter, melted",
+      "2 tablespoons avocado oil",
+      "2 tablespoons water",
+      "1/2 cup butter, softened",
+      "1 cup light brown sugar",
+      "3 eggs",
+      "2 egg yolks",
+      "1 teaspoon vanilla",
+      "1 1/2 cups Kodiak Chocolate Chip Power Cakes Flapjack & Waffle Mix",
+      "1/4 cups chocolate chips",
+      "1/2 cup mini marshmallows",
+      "2 Kodiak S'mores Chewy bars, crumbled"
+    ],
+    "instructions": [
+      "Preheat the oven to 350 degrees F. Line a 9x13 inch baking pan with parchment paper.",
+      "Place the brownie mix in a mixing bowl along with the melted butter, avocado oil, 2 of the eggs, and water. Whisk together until smooth.",
+      "Spread the brownie batter evenly in the prepared baking pan. Set aside.",
+      "Place softened butter and brown sugar in a large mixing bowl. Beat with an electric mixer for five minutes until very light and fluffy.",
+      "Beat in the remaining egg and egg yolks, one at a time. Add the vanilla and beat in.",
+      "Add the chocolate chip waffle mix to the bowl and beat in until a thick dough forms.",
+      "Flatten mounds of dough with your hands to about 1/2 inch thick and lay on top of the brownie batter until the pan is covered.",
+      "Sprinkle the mini chocolate chips, mini marshmallows, and crumbled chewy bar evenly over the top of the cookie dough.",
+      "Bake in the preheated oven for 25-30 minutes or until cooked through. Let cool completely."
+    ],
+    "prepTime": "15 mins",
+    "cookTime": "25 mins",
+    "yield": "16",
+    "dietary": []
   },
   {
     "id": "single-serve-quiche-lorraine-cup",
@@ -8453,9 +8484,10 @@
   {
     "id": "fruit-pizza",
     "name": "Berry Fruit Pizza",
+    "description": "This Berry Fruit Pizza is sure to be the topping of everyone's day. The soft, buttery cookie crust is made using Kodiak Blueberry Power Cakes that layers perfectly under a smooth cream cheese frosting to strike that perfect balance between sweet and rich flavor. Better yet, we've topped this fruit pizza with a vibrant mix of fresh berries including juicy strawberries, tart raspberries, sweet blueberries, and bold blackberries; it's a burst of flavor in every bite. This crave worthy dessert may feel indulgent but is rooted in wholesome ingredients you can trust!",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "KODIAK\u00ae Blueberry Power Cakes Flapjack & Waffle Mix",
+    "base": "3/4 cup butter, softened; 1/3 cup granulated sugar; 1 small egg; 1/3 cup sour cream; 2-1/4 cups Kodiak Blueberry Power Cakes Flapjack & Waffle Mix; 8 ounces cream cheese, softened; 2 cups powdered sugar; 1 teaspoon vanilla; 2 cups berries (sliced strawberries, blueberries, raspberries, blackberries)",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/fruit-pizza",
     "localize": {
       "peppers": "\u2014",
@@ -8469,7 +8501,35 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "ingredients": [
+      "3/4 cup butter, softened",
+      "1/3 cup granulated sugar",
+      "1 small egg",
+      "1/3 cup sour cream",
+      "2-1/4 cups Kodiak Blueberry Power Cakes Flapjack & Waffle Mix",
+      "8 ounces cream cheese, softened",
+      "2 cups powdered sugar",
+      "1 teaspoon vanilla",
+      "2 cups berries (sliced strawberries, blueberries, raspberries, blackberries)"
+    ],
+    "instructions": [
+      "Preheat the oven to 350 degrees F. Line a baking sheet with parchment paper.",
+      "Place the butter and sugar in a mixing bowl. Cream together with an electric mixer until light and fluffy.",
+      "Add the egg and sour cream and beat in until smooth, scraping down the sides once.",
+      "Add the Kodiak mix to the wet ingredients and mix in until just combined",
+      "Place the dough between 2 sheets of waxed paper, dusting both sides with flour, and roll out to a diameter of about 12-14 inches. Refrigerate the dough for 30 minutes.",
+      "Remove dough from refrigerator. Peel back the top sheet of parchment and discard it. Place the dough circle on a pizza stone or large baking sheet.",
+      "Bake in preheated oven for 15-18 minutes. Remove from the oven once the edges are just barely golden brown.",
+      "Cool completely before topping. To make the cream cheese topping:",
+      "Place the cream cheese, powdered sugar, and vanilla in a mixing bowl and beat on low speed with an electric mixer until combined. Increase speed to high and continue to beat for another 2-3 minutes or until fluffy.",
+      "Use a rubber spatula to spread the topping evenly over the cooled cookie circle.",
+      "Decorate the top with berries. Serve in slices. Store fruit pizza covered in the refrigerator."
+    ],
+    "prepTime": "20 mins",
+    "cookTime": "18 mins",
+    "yield": "12",
+    "dietary": []
   },
   {
     "id": "toasted-coconut-pumpkin-donuts",
