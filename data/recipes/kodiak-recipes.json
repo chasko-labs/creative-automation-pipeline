@@ -10745,7 +10745,52 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Heart-Shaped Hand Pies",
+    "title": "Heart-Shaped Hand Pies",
+    "course": "desserts",
+    "ingredients": [
+      "You will need:",
+      "One 2-1/2 inch heart cookie cutter",
+      "Dough:",
+      "2 cups Kodiak Buttermilk Power Cakes Flapjack and Waffle Mix",
+      "3/4 cup cold butter, diced",
+      "1 tablespoon sugar",
+      "1 teaspoon salt",
+      "1/2 cup ice water",
+      "Filling:",
+      "10 teaspoons raspberry jam",
+      "Frosting:",
+      "1-1/2 teaspoon milk plus additional for brushing",
+      "1/2 cup powdered sugar",
+      "1 tablespoon unsalted butter, softened",
+      "1/2 teaspoon pink or red food coloring"
+    ],
+    "directions": "1. To make the dough, combine the Kodiak mix, salt, and sugar in a medium-sized bowl.\n2. Cut the cold, diced butter into the flour mixture with a fork (or use your fingers) until a crumbly dough forms.\n3. You can also use a food processor for this step to make it easier.\n4. Then, add the ice water and mix until dough forms together.\n5. Roll into a ball.\n6. Preheat oven to 350° F and line a baking sheet with parchment paper.\n7. Lightly dust a work surface with flour.\n8. Use a rolling pin to roll the dough into a 13-inch diameter circle.\n9. Cut 20 hearts into the pie dough using a 2 1/2-inch heart-shaped cookie cutter.\n10. Use a spatula to transfer 10 of the hearts onto the baking sheet.\n11. Spoon 1 teaspoon of jam onto the center of each transferred heart and spread spread it across the dough, leaving a 1/3-inch border.\n12. Lightly brush the borders with milk.\n13. Transfer the remaining 10 pieces of pie dough to top the jam-covered hearts, being sure the edges line up.\n14. Use the tines of a fork to seal the edges of the dough.\n15. Bake for 15-18 minutes or until the tarts are golden brown around the edges with the tops just beginning to brown.\n16. Remove from oven and let cool completely.\n17. Make the frosting in a bowl by whisking together the powdered sugar, butter, milk, and food coloring until creamy and smooth.\n18. Spread the frosting over the tarts.",
+    "instructions": [
+      "To make the dough, combine the Kodiak mix, salt, and sugar in a medium-sized bowl.",
+      "Cut the cold, diced butter into the flour mixture with a fork (or use your fingers) until a crumbly dough forms.",
+      "You can also use a food processor for this step to make it easier.",
+      "Then, add the ice water and mix until dough forms together.",
+      "Roll into a ball.",
+      "Preheat oven to 350° F and line a baking sheet with parchment paper.",
+      "Lightly dust a work surface with flour.",
+      "Use a rolling pin to roll the dough into a 13-inch diameter circle.",
+      "Cut 20 hearts into the pie dough using a 2 1/2-inch heart-shaped cookie cutter.",
+      "Use a spatula to transfer 10 of the hearts onto the baking sheet.",
+      "Spoon 1 teaspoon of jam onto the center of each transferred heart and spread spread it across the dough, leaving a 1/3-inch border.",
+      "Lightly brush the borders with milk.",
+      "Transfer the remaining 10 pieces of pie dough to top the jam-covered hearts, being sure the edges line up.",
+      "Use the tines of a fork to seal the edges of the dough.",
+      "Bake for 15-18 minutes or until the tarts are golden brown around the edges with the tops just beginning to brown.",
+      "Remove from oven and let cool completely.",
+      "Make the frosting in a bowl by whisking together the powdered sugar, butter, milk, and food coloring until creamy and smooth.",
+      "Spread the frosting over the tarts."
+    ],
+    "prep_minutes": 45,
+    "cook_minutes": 15,
+    "servings": "10",
+    "source": "brand_json_ld"
   },
   {
     "id": "heart-shaped-brownies",
@@ -10766,7 +10811,35 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Heart-Shaped Brownies",
+    "title": "Heart-Shaped Brownies",
+    "course": "desserts",
+    "ingredients": [
+      "You will need:",
+      "One 3-1/2 inch heart cookie cutter",
+      "Brownies:",
+      "1 box Kodiak Chocolate Fudge Brownie Mix",
+      "1/2 cup butter, melted",
+      "2 tablespoons vegetable oil",
+      "2 tablespoons water",
+      "2 eggs",
+      "caramel sauce for topping",
+      "mini chocolate chips for topping"
+    ],
+    "directions": "1. Make brownies according to package, but pour into a greased 9x13\" pan.\n2. Bake for 22-24 minutes, or until an inserted toothpick comes out clean.\n3. Allow to cool completely.\n4. Use a cookie cutter to cut brownies into heart shapes.\n5. Carefully remove from pan and set on parchment paper.\n6. Drizzle with caramel sauce and sprinkle with mini chocolate chips, if desired.",
+    "instructions": [
+      "Make brownies according to package, but pour into a greased 9x13\" pan.",
+      "Bake for 22-24 minutes, or until an inserted toothpick comes out clean.",
+      "Allow to cool completely.",
+      "Use a cookie cutter to cut brownies into heart shapes.",
+      "Carefully remove from pan and set on parchment paper.",
+      "Drizzle with caramel sauce and sprinkle with mini chocolate chips, if desired."
+    ],
+    "prep_minutes": 20,
+    "cook_minutes": 25,
+    "servings": "10",
+    "source": "brand_json_ld"
   },
   {
     "id": "breakfast-nachos",
