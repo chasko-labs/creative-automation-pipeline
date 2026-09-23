@@ -821,3 +821,25 @@ def test_conjunction_split_month_serves_each_named_item():
         "red-chile-cornbread-muffins-draft",
         "green-chile-cheddar-bake-draft",
     }
+
+
+def test_iso_month_key_pairs_like_month_name():
+    # A "2026-10" season must ride the month path (fall table), never degrade
+    # to the static default while the display (month= resolved separately)
+    # names a real pairing — found by QA sweep: all 12 YYYY-MM keys compoted.
+    assert sp.resolve_request("2026-10") == {"kind": "month", "key": "october", "season": "fall"}
+    assert sp.pairing_for_season("2026-10")["source"] == "season-table"
+    assert sp.pairing_for_season("2026-10")["recipe_id"] == sp.pairing_for_season("october")["recipe_id"]
+    assert sp.resolve_request("2026-01") == {"kind": "month", "key": "january", "season": "winter"}
+
+
+def test_bare_and_full_date_month_keys():
+    assert sp.resolve_request("10")["key"] == "october"
+    assert sp.resolve_request("2026-10-31")["key"] == "october"
+    assert sp.pairing_for_season("10")["source"] == "season-table"
+
+
+def test_bad_month_keys_stay_default():
+    for bad in ("2026-13", "2026-00", "2026-10-99", "10-2026", "october-2026", "blorpt", None, ""):
+        assert sp.resolve_request(bad) == {"kind": None, "key": None, "season": None}, bad
+        assert sp.pairing_for_season(bad)["source"] == "static-default", bad
