@@ -12084,9 +12084,10 @@
   {
     "id": "avocado-waffle-toast",
     "name": "Avocado Waffle Toast",
+    "description": "Never let Avocado Toast cravings hold you back from a protein-packed breakfast. This Avocado Waffle Toast takes minutes to make and only needs a handful of ingredients like Kodiak Frontier Oat Power Waffles and ripe avocado. Grab and go wild with your favorite toppings to seal the deal on this easy breakfast \u2014 we dig everything bagel seasoning for that salty and savory finish.",
     "category": "waffles",
-    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "product": "Gluten-Free Frontier Oat Power Waffles",
+    "base": "2 Kodiak Gluten-free Frontier Oat Power Waffles; 1 small avocado; 2 teaspoons olive oil; Coarse salt, to taste",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/avocado-waffle-toast",
     "localize": {
       "peppers": "Hatch green chile",
@@ -12108,14 +12109,27 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "2 Kodiak Gluten-free Frontier Oat Power Waffles",
+      "1 small avocado",
+      "2 teaspoons olive oil",
+      "Coarse salt, to taste"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "instructions": [
+      "Toast the waffles until golden brown. Set aside.",
+      "Slice the avocado in half and discard pit.",
+      "Scoop the avocado out of each half and slice thinly.",
+      "Top each waffle with one half of sliced avocado. Drizzle 1 teaspoon olive oil over each half and top with salt, as desired. Add seeds for extra flare.",
+      "Alternately, scoop the avocado flesh into a bowl and add olive oil. Mash with a fork. Divide the mixture between waffles and spread across top. Sprinkle with salt."
+    ],
+    "prepTime": "3 mins",
+    "cookTime": "3 mins",
+    "yield": "2"
   },
   {
     "id": "bacon-flapjack-dippers",
@@ -12176,9 +12190,10 @@
   {
     "id": "baked-fish-and-chips",
     "name": "Baked Fish And Chips",
+    "description": "Skip the plane ticket and take a trip across the pond with this recipe for baked fish and chips. It's a taste of England in your own kitchen but baking instead of frying means it's a healthier option for a traditional pub meal. Pair it with ketchup if you prefer, but a little bit of vinegar for dipping is how they do it in the UK.",
     "category": "general",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "Fish:; 1 lb. fresh cod, cut into 4 pieces; 1/2 cup buttermilk; 1 tablespoon Old Bay Seasoning; 2 eggs; 1 cup whole wheat breadcrumbs; 1/2 cup Kodiak Buttermilk Power Cakes Flapjack and Waffle Mix; Chips:; 3 large russet potatoes, sliced into 1/4 thick matchstick pieces; 3 tablespoon olive oil; Salt and pepper to taste",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/baked-fish-and-chips",
     "localize": {
       "peppers": "Hatch green chile",
@@ -12200,14 +12215,39 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "Fish:",
+      "1 lb. fresh cod, cut into 4 pieces",
+      "1/2 cup buttermilk",
+      "1 tablespoon Old Bay Seasoning",
+      "2 eggs",
+      "1 cup whole wheat breadcrumbs",
+      "1/2 cup Kodiak Buttermilk Power Cakes Flapjack and Waffle Mix",
+      "Chips:",
+      "3 large russet potatoes, sliced into 1/4 thick matchstick pieces",
+      "3 tablespoon olive oil",
+      "Salt and pepper to taste"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "instructions": [
+      "Place the cod in a large plastic bag or shallow container with buttermilk and old bay seasoning. Shake gently to combine and refrigerate for at least 1 hour.",
+      "Preheat oven to 450 degrees F and line two sheet pans with foil.",
+      "Toss the potatoes in olive oil and spread in a single layer on one pan.",
+      "Bake for 15 minutes.",
+      "Whisk the eggs together in a medium bowl.",
+      "In a separate bowl, toss the breadcrumbs with the Kodiak Flapjack and Waffle mix.",
+      "Remove the cod from the buttermilk marinade and toss in the egg, then in the breadcrumb mixture to coat.",
+      "Place breaded cod on the second sheet pan.",
+      "Lower oven to 400 degrees F and place the second pan with the fish in the oven. Continue to bake the fish and chips for 15 minutes or until the fish is flaky and the chips are crisp.",
+      "Serve with tartar sauce."
+    ],
+    "prepTime": "60 mins",
+    "cookTime": "30 mins",
+    "yield": "4"
   },
   {
     "id": "baked-halloween-doughnuts",
