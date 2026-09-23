@@ -8167,9 +8167,10 @@
   {
     "id": "pizza-waffles",
     "name": "Pizza Waffles",
+    "description": "Two words: Pizza Waffles. This uniquely delicious recipe is just one of the many various ways you can use your waffle maker... for more than just breakfast. Crafted with Kodiak Buttermilk Power Cakes, each waffle boasts a hearty serving of whole grains, a boost of protein, and delicious taste the whole family will love!",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "1-1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1-1/2 tablespoon oil; 1-1/2 cup cold water; 8 slices provolone cheese (sliced thin); Pizza meat (prosciutto, thinly-sliced ham, pepperoni, etc.); 1/2 cup jarred low-sugar pizza sauce + more for dipping",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/pizza-waffles",
     "localize": {
       "peppers": "\u2014",
@@ -8183,7 +8184,25 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "lunch & dinner",
+    "ingredients": [
+      "1-1/2 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1-1/2 tablespoon oil",
+      "1-1/2 cup cold water",
+      "8 slices provolone cheese (sliced thin)",
+      "Pizza meat (prosciutto, thinly-sliced ham, pepperoni, etc.)",
+      "1/2 cup jarred low-sugar pizza sauce + more for dipping"
+    ],
+    "instructions": [
+      "Preheat waffle iron. In a large mixing bowl, mix together Kodiak mix, water, and oil.",
+      "When waffle iron is hot, spray with a generous amount of non-stick spray. Spoon about 1/4 cup batter onto it. Smooth around, then place meat, 2 slices of cheese, and a large spoonful of pizza sauce on top. Add an additional 1/8 cup batter on top of the toppings, quickly smooth with a spoon and close the waffle iron lid.",
+      "Bake until crispy and golden brown. Carefully remove from waffle iron and serve with extra pizza sauce to dip in."
+    ],
+    "prepTime": "15 mins",
+    "cookTime": "7 mins",
+    "yield": "4",
+    "dietary": []
   },
   {
     "id": "smores-brookies",
@@ -8503,9 +8522,10 @@
   {
     "id": "banana-bread-bites",
     "name": "Banana Bread Bites",
+    "description": "There's nothing like the smell of banana bread and melted chocolate chips baking in the oven. Made with probiotics, these Banana Bread Bites are a scrumptious way to start your family's day. Try prepping them before you call the crew to gather around the breakfast table...that is, if the little ones aren't still snuggled up asleep.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "KODIAK\u00ae Chocolate Chip Power Cakes Flapjack & Waffle Mix",
+    "base": "1 cup Kodiak Chocolate Chip Power Cakes Flapjack & Waffle Mix; 2/3 cup mashed banana; 1/4 cup peanut butter; 1 egg; 1/4 cup walnuts, chopped",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/banana-bread-bites",
     "localize": {
       "peppers": "\u2014",
@@ -8519,7 +8539,25 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "sides & snacks",
+    "ingredients": [
+      "1 cup Kodiak Chocolate Chip Power Cakes Flapjack & Waffle Mix",
+      "2/3 cup mashed banana",
+      "1/4 cup peanut butter",
+      "1 egg",
+      "1/4 cup walnuts, chopped"
+    ],
+    "instructions": [
+      "Heat oven to 350 degrees F and grease a mini muffin tin with cooking spray.",
+      "In a large bowl, combine all the ingredients. Evenly distribute batter into mini muffin tin.",
+      "Bake 6-7 minutes or until lightly golden on the edges.",
+      "Let rest in pan for 5 minutes before transferring. Serve warm."
+    ],
+    "prepTime": "5 mins",
+    "cookTime": "6 mins",
+    "yield": "12",
+    "dietary": []
   },
   {
     "id": "strawberry-shortcake-cookies",
@@ -9708,7 +9746,7 @@
     "description": "This Savory Breakfast Nachos recipe brings the fiesta to your breakfast table. Replace your tortilla chips a hearty base of Kodiak Buttermilk & Vanilla Thick & Fluffy Power Waffles. Then, top them with the nacho toppings you crave most like bacon crumbles, cheddar cheese, jalape\u00f1os, scallions, cilantro, sour cream, and maple syrup. The best part? This dish comes together in a short 15 minutes!",
     "category": "recipes",
     "product": "KODIAK\u00ae Buttermilk & Vanilla Power Waffles",
-    "base": "recipes",
+    "base": "8 Kodiak Buttermilk & Vanilla Thick & Fluffy Power Waffles (Frozen); 1/2 cup bacon, crumbled; 1 cup cheddar cheese, shredded; 1 avocado, sliced; 1 jalape\u00f1o, sliced; 1/2 cup scallions, chopped; 1/4 cup cilantro, chopped; 1/4 cup sour cream; Maple syrup",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/breakfast-nachos",
     "localize": {
       "peppers": "\u2014",
@@ -9732,7 +9770,18 @@
     "prepTime": "10 mins",
     "cookTime": "5 mins",
     "yield": "9",
-    "dietary": []
+    "dietary": [],
+    "ingredients": [
+      "8 Kodiak Buttermilk & Vanilla Thick & Fluffy Power Waffles (Frozen)",
+      "1/2 cup bacon, crumbled",
+      "1 cup cheddar cheese, shredded",
+      "1 avocado, sliced",
+      "1 jalape\u00f1o, sliced",
+      "1/2 cup scallions, chopped",
+      "1/4 cup cilantro, chopped",
+      "1/4 cup sour cream",
+      "Maple syrup"
+    ]
   },
   {
     "id": "football-whoopie-pies",
@@ -10211,7 +10260,7 @@
     "description": "Hamburger buns without all the additives? Yes, please. These whole grain buns are perfect for any burger or sandwich you plan to serve at your next BBQ or dinner party. Made using Kodiak Buttermilk Power Cakes and a few other household ingredients, these hamburger buns are hearty and satisfying, each boasting a whopping 18 grams of protein. You can count on the fuel you need for whatever after-dinner adventures await (aka super competitive yard games).",
     "category": "recipes",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "recipes",
+    "base": "4-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1 teaspoon salt; 3 tablespoon sugar; 2 teaspoon instant yeast; 1 egg; 1/4 cup butter, softened; 1-1/4 cup water, warm; 2 tablespoon sesame seeds; 1 egg, beaten",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/hamburger-buns",
     "localize": {
       "peppers": "\u2014",
@@ -10239,7 +10288,18 @@
     "prepTime": "60+ mins",
     "cookTime": "15 mins",
     "yield": "8",
-    "dietary": []
+    "dietary": [],
+    "ingredients": [
+      "4-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 teaspoon salt",
+      "3 tablespoon sugar",
+      "2 teaspoon instant yeast",
+      "1 egg",
+      "1/4 cup butter, softened",
+      "1-1/4 cup water, warm",
+      "2 tablespoon sesame seeds",
+      "1 egg, beaten"
+    ]
   },
   {
     "id": "grilled-peaches-and-granola",
