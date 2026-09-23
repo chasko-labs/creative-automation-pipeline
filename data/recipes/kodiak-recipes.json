@@ -8164,9 +8164,10 @@
   {
     "id": "mint-chocolate-brownies",
     "name": "Mint Chocolate Brownies",
+    "description": "Name two flavors that hit just right during the colder months? Well, we've brought them together to make these Mint Chocolate Brownies that might just be the bite of the season. With help from Kodiak Dark Chocolate Power Cakes, we've crafted a rich, fudgy dark chocolate brownie that makes the perfect base layered under a creamy, cool mint frosting that dances on your taste buds. Topped with a decadent layer of smooth chocolate ganache, these brownies strike that delicious balance of minty-ness and rich chocolate flavor. Whether it's a snowy day or you're craving a little indulgence, these brownies are your winter pick-me-up to keep things cozy.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "KODIAK\u00ae Dark Chocolate Power Cakes Flapjack & Waffle Mix",
+    "base": "1-1/2 cups Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix; 1/2 cup brown sugar, packed; 2 eggs; 1/3 cup avocado oil; 1/3 cup whole milk; 1 teaspoon vanilla extract; 1/2 cup butter, softened; 2 cups powdered sugar; 1 teaspoon mint extract; 1-2 drops green food coloring (optional); 2 tablespoons milk; 2/3 cup dark chocolate chips; 1/2 cup heavy whipping cream",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/mint-chocolate-brownies",
     "localize": {
       "peppers": "\u2014",
@@ -8180,7 +8181,40 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "ingredients": [
+      "1-1/2 cups Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix",
+      "1/2 cup brown sugar, packed",
+      "2 eggs",
+      "1/3 cup avocado oil",
+      "1/3 cup whole milk",
+      "1 teaspoon vanilla extract",
+      "1/2 cup butter, softened",
+      "2 cups powdered sugar",
+      "1 teaspoon mint extract",
+      "1-2 drops green food coloring (optional)",
+      "2 tablespoons milk",
+      "2/3 cup dark chocolate chips",
+      "1/2 cup heavy whipping cream"
+    ],
+    "instructions": [
+      "Preheat the oven to 350 degrees F. Line an 8x8 inch baking pan with parchment paper.",
+      "Add the Kodiak mix and brown sugar to a mixing bowl and whisk together.",
+      "Whisk in the eggs, oil, milk, and vanilla until a smooth batter forms.",
+      "Spoon the batter into the prepared pan and spread evenly across the pan (batter will be thick).",
+      "Bake the brownies in the preheated oven for 20-25 minutes, or until a tester inserted into the center comes out clean.",
+      "Remove from the oven and cool completely.",
+      "Place the butter, 1/2 of the powdered sugar, mint extract, and food coloring (if using) in a mixing bowl. Beat together with an electric mixer until smooth. Add the remaining powdered sugar and the milk and beat until frosting forms.",
+      "Spread the frosting evenly over the top of the brownies.",
+      "Place the chocolate chips in a bowl. Heat the cream just to a simmer in a small saucepan over medium/high heat. Pour the cream over the chocolate and let sit for 2 minutes.",
+      "Whisk mixture together until a smooth ganache forms (all chocolate chips should be fully melted).",
+      "Let the ganache cool, then spread it evenly over the mint frosting. Place in the fridge until fully chilled.",
+      "Cut the brownies into 12 even pieces. Store in an airtight container in the refrigerator."
+    ],
+    "prepTime": "25 mins",
+    "cookTime": "25 mins",
+    "yield": "16",
+    "dietary": []
   },
   {
     "id": "mozzarella-sticks",
@@ -8440,9 +8474,10 @@
   {
     "id": "single-serve-quiche-lorraine-cup",
     "name": "Single-Serve Quiche Lorraine Cup",
+    "description": "Three minutes later: a single-serve Quiche Lorraine Cup appears at your fingertips. Just grab a Kodiak Buttermilk & Maple Flapjack Power Cup, an egg, milk, cheese, bacon, and whip up an easy morning win that packs a whopping 29 grams of protein per serving. When breakfast is this easy (and this protein-packed), it's impossible to say no. In fact, we're already drooling just thinking about it.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "KODIAK\u00ae Buttermilk & Maple Flapjack Power Cup",
+    "base": "1 Kodiak Buttermilk & Maple Flapjack Power Cup; 1 large egg; 1/4 cup whole milk; 1/4 cup Gruy\u00e8re cheese, shredded; 1 slice cooked bacon, chopped",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/single-serve-quiche-lorraine-cup",
     "localize": {
       "peppers": "\u2014",
@@ -8456,7 +8491,23 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "ingredients": [
+      "1 Kodiak Buttermilk & Maple Flapjack Power Cup",
+      "1 large egg",
+      "1/4 cup whole milk",
+      "1/4 cup Gruy\u00e8re cheese, shredded",
+      "1 slice cooked bacon, chopped"
+    ],
+    "instructions": [
+      "Remove the lid from the flapjack cup and add the egg and a quarter cup of milk. Stir with a fork until a smooth batter forms.",
+      "Stir in most of the cheese and bacon, reserving a small amount of each to sprinkle on top of the mixture.",
+      "Microwave for 70 to 75 seconds, or until fully puffed and cooked. Enjoy!"
+    ],
+    "prepTime": "1 min",
+    "cookTime": "2 mins",
+    "yield": "1",
+    "dietary": []
   },
   {
     "id": "breakfast-enchilada-casserole",
