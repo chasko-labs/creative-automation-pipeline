@@ -61,3 +61,19 @@ def test_boroughs_resolve_twelve_months():
             recipe, pairing = pick_recipe_with_provenance(ing, None, b, month=ym, season=None)
             assert recipe is not None, (b, ym)
             assert pairing.get("source") != "static-default" or not ing, (b, ym)
+
+
+def test_metro_entry_has_unambiguous_display_name():
+    markets = _markets()
+    by_id = {m["market"]: m for m in markets}
+    assert by_id["US-NE-NYC"]["place"] == "New York City"
+    # filtering the picker for "Manhattan" must match exactly one market —
+    # the metro entry must not shadow the borough entry.
+    hits = [m["market"] for m in markets if "manhattan" in m["place"].lower()]
+    assert hits == ["US-NE-MANHATTAN"], hits
+    # web copy + picker seed carry the same display name (single source of truth per file).
+    web = json.loads((ROOT / "web/kodiak-posts-for-todays-frontier/data/localization/store-finder-markets.json").read_text())["markets"]
+    assert {m["market"]: m for m in web}["US-NE-NYC"]["place"] == "New York City"
+    core = (ROOT / "web/kodiak-posts-for-todays-frontier/js/data-core.js").read_text()
+    assert 'place:"New York City"' in core
+    assert "Brooklyn + Manhattan" not in core
