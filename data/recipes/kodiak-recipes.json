@@ -10013,7 +10013,46 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Tres Leches Cake",
+    "title": "Tres Leches Cake",
+    "course": "desserts",
+    "ingredients": [
+      "Cake:",
+      "1 cup butter, softened",
+      "1 cup sugar",
+      "4 eggs",
+      "1 cup milk",
+      "2 tablespoons vanilla",
+      "2-1/2 cup Kodiak Buttermilk Power Cakes",
+      "Tres Leches:",
+      "1/2 cup condensed milk",
+      "1/2 cup evaporated milk",
+      "1/2 cup whole milk",
+      "Whipped Topping:",
+      "1/2 cup heavy whipping cream",
+      "2 tablespoons confectioner's sugar"
+    ],
+    "directions": "1. Preheat oven to 350° F.\n2. In a large bowl, cream the butter and sugar until smooth.\n3. Add the eggs one at a time.\n4. Mix in milk and vanilla.\n5. Add Kodiak mix and stir until combined.\n6. Pour into a greased and parchment lined 9x9\" pan.\n7. Bake for 30-35 minutes.\n8. Let cool completed.\n9. Then, use a fork to poke holes in the cake.\n10. Combined the condensed milk, evaporated milk, and whole milk together.\n11. Slowly pour the mixture over the cake.\n12. Use an electric mixer to whip the heavy whipping cream and sugar together until light and fluffy.\n13. Spread the whipped cream over the top of the cake and serve.",
+    "instructions": [
+      "Preheat oven to 350° F.",
+      "In a large bowl, cream the butter and sugar until smooth.",
+      "Add the eggs one at a time.",
+      "Mix in milk and vanilla.",
+      "Add Kodiak mix and stir until combined.",
+      "Pour into a greased and parchment lined 9x9\" pan.",
+      "Bake for 30-35 minutes.",
+      "Let cool completed.",
+      "Then, use a fork to poke holes in the cake.",
+      "Combined the condensed milk, evaporated milk, and whole milk together.",
+      "Slowly pour the mixture over the cake.",
+      "Use an electric mixer to whip the heavy whipping cream and sugar together until light and fluffy.",
+      "Spread the whipped cream over the top of the cake and serve."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 35,
+    "servings": "12",
+    "source": "brand_json_ld"
   },
   {
     "id": "double-chocolate-cookies",
@@ -10100,7 +10139,30 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Brownie Milkshake",
+    "title": "Brownie Milkshake",
+    "course": "desserts",
+    "ingredients": [
+      "1 box Kodiak Chocolate Fudge Brownie Mix",
+      "2 large scoops vanilla ice cream",
+      "1/2 cup milk",
+      "whipped cream for topping",
+      "caramel sauce for topping"
+    ],
+    "directions": "1. Make Kodiak mix as directed on the box.\n2. Add 2 Kodiak brownies, vanilla ice cream, and milk to a blender.\n3. Blend on the lowest speed and slowly increase to the highest speed for 10-15 seconds or until desired consistency is reached.\n4. Divide into two glasses.\n5. Cut the remaining Kodiak brownies into small cubes.\n6. Top the milkshakes with whipped cream, brownie pieces, and caramel sauce.",
+    "instructions": [
+      "Make Kodiak mix as directed on the box.",
+      "Add 2 Kodiak brownies, vanilla ice cream, and milk to a blender.",
+      "Blend on the lowest speed and slowly increase to the highest speed for 10-15 seconds or until desired consistency is reached.",
+      "Divide into two glasses.",
+      "Cut the remaining Kodiak brownies into small cubes.",
+      "Top the milkshakes with whipped cream, brownie pieces, and caramel sauce."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": null,
+    "servings": "2",
+    "source": "brand_json_ld"
   },
   {
     "id": "mountain-berry-parfait",
