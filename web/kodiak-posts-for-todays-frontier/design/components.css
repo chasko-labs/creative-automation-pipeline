@@ -1895,3 +1895,36 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    summary ever shows both badge and text glyph. */
 .ff-scope-wrap[open] .ff-scope-summary::before,
 .ff-season-details[open]>summary::before{content:""}
+
+/* === QA batch (uan): card-header baseline lock, mountain-cap flush, title type ===
+   1. one flex strategy + one vertical padding on every card header summary, and
+      zero block margins on summary children: the .ff-output-heading 12px bottom
+      margin (meant for block h2 contexts) leaked into the flex row and pushed
+      the OUTPUT/GENERATE titles up off the shared center line. sizes keeps its
+      right-side auto margin. token var()s only, no new palette. */
+.preview-card>summary,.ff-about>summary{padding-block:12px}
+/* NOTE: .ff-brainstorm-all__summary keeps its pinned 10px 12px — the
+   spacing spec pins the four step summaries (brainstorm + nested steps) to
+   one shared value, and the brainstorm card header doubles as a step row.
+   its centering comes from align-items:center + the margin reset below. */
+.preview-card>summary .ff-output-heading,.preview-card>summary>.badge,
+.preview-card>summary .ff-output-sizes{margin-top:0;margin-bottom:0}
+.preview-card>summary .ff-output-sizes{margin-left:auto}
+/* 2. generate card matches the preview card: the shared .ff-output section
+      padding inset the generate summary 16px inside its own border while the
+      preview summary paints flush. details keeps bottom air; gated-empty rows
+      (hidden button, empty status) collapse to zero so the collapsed card is
+      summary + hint only. */
+#generateCampaignSection{padding:0 0 16px}
+#generateCampaignSection>:not(summary){margin:0 20px 12px}
+#generateCampaignSection>:not(summary):last-child{margin-bottom:0}
+#generateCampaignSection>:not(summary):empty{margin:0}
+#generateCampaignBtns:has(>#genFullCampaign:only-child[hidden]){display:none}
+/* 3. the mountain art is the about card's top cap: .wrap>.card outranks the
+      adjacent-sibling flush rule and floats the card ~3px (fractional) below
+      the art. this wins by specificity at equal source order. */
+.wrap>.ff-about-art+.ff-about{margin-top:0}
+/* 4. header title authority: display face stays gin 800; uppercase + wider
+      tracking so the title holds the row against the step pills. ellipsis and
+      the 60px bar are untouched. */
+.kodiak-headline-plate h1{text-transform:uppercase;letter-spacing:.06em}

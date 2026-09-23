@@ -24,7 +24,10 @@
   // toggle is refused with the message instead of failing silently.
   var GATED_MSG = 'generate campaign to preview and approve, then try again';
   function mountSections(){
-    if(document.getElementById('generateCampaignSection')) return true;   // idempotent
+    // static-first: index.html now ships this markup collapsed, so first layout
+    // already includes it. keep the injected template below as the fallback and
+    // still wire (both wirings are idempotent) when the static nodes won.
+    if(document.getElementById('generateCampaignSection')){ wireButtons(); wireGate(); return true; }
     // anchor: the forest treeline divider that precedes the placeholder comment
     var forest = document.querySelector('.ff-forest');
     var wrap = document.createElement('div');
