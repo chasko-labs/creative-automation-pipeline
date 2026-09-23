@@ -28743,42 +28743,58 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Kodiak Chocolate Chip & Maple Flapjack Cup"
+          "qty_name": "Pancake Ingredients:"
         },
         {
           "price": null,
-          "qty_name": "1 small banana (overripe), mashed"
+          "qty_name": "1 cup Kodiak Buttermilk & Honey Frontier Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon walnuts, chopped"
+          "qty_name": "1/2 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons water"
+          "qty_name": "1/2 cup water"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon butter, to top"
+          "qty_name": "1 tablespoon chia seeds"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon Maple syrup, to top"
+          "qty_name": "1/2 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup blueberries"
+        },
+        {
+          "price": null,
+          "qty_name": "Toppings:"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple syrup or honey"
         }
       ],
       "lang": "en",
       "market": "US-MW-CHI",
       "meta": {
-        "cook": "2",
+        "cook": null,
         "est_cost": null,
-        "prep": "8",
-        "serves": "1"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: single-serve-banana-bread-pancakes chosen deterministically for US-MW-CHI|2026-03 among recipes naming the ingredient",
-          "recipe_id": "single-serve-banana-bread-pancakes",
+          "reason": "ingredient rotation: probiotic-pancakes chosen deterministically for US-MW-CHI|2026-03 among recipes naming the ingredient",
+          "recipe_id": "probiotic-pancakes",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -28789,13 +28805,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "single-serve-banana-bread-pancakes",
-        "name": "Single-Serve Banana Bread Pancakes"
+        "id": "probiotic-pancakes",
+        "name": "Probiotic Pancakes"
       },
       "render": {
         "canvas": {
@@ -29280,16 +29298,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "REMOVE the lid from the flapjack cup.",
-        "ADD the mashed banana, walnuts, and water to the cup and stir to form a slightly chunky batter.",
-        "LET rest for 5 minutes.",
-        "HEAT a frying pan over medium heat.",
-        "GREASE, then add the batter - this recipe makes one large or 3 smaller pancakes. Cook batter until bubbles appear on top and the top is no longer glossy.",
-        "FLIP the pancake(s) and cook for 20-30 seconds on the other side.",
-        "SERVE topped with butter and maple syrup. *On the run? Cook your pancake right in your Flapjack Cup for approximately 1 minute in the microwave before hitting the road."
+        "STIR Kodiak Cakes mix, Greek yogurt, water, chia seeds, and cinnamon together until combined. Gently fold in blueberries.",
+        "POUR 1/4 cup of batter onto a heated and greased pan or griddle. Cook on medium-high heat or 375 degrees F. until bubbles form on the top.",
+        "FLIP and continue to cook until golden.",
+        "TOP with fresh berries and maple syrup or honey."
       ],
       "substrate": "kraft",
-      "title": "Single-Serve Banana Bread Pancakes",
+      "title": "Probiotic Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -35065,50 +35080,38 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 packet Kodiak Berries & Cream Peak Oatmeal Packets"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "2 cups water"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup milk"
+          "qty_name": "Food coloring (red, blue, and yellow)"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons apple sauce"
+          "qty_name": "3 squeeze bottles"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon cream cheese, softened"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons blueberries (preferably wild, frozen)"
+          "qty_name": "Maple syrup"
         }
       ],
       "lang": "en",
       "market": "US-MW-CLEVELAND",
       "meta": {
-        "cook": null,
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "10 mins",
+        "serves": "4"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: blueberry-cheesecake-baked-oatmeal chosen deterministically for US-MW-CLEVELAND|2026-02 among recipes naming the ingredient",
-          "recipe_id": "blueberry-cheesecake-baked-oatmeal",
+          "reason": "ingredient rotation: easter-egg-pancakes chosen deterministically for US-MW-CLEVELAND|2026-02 among recipes naming the ingredient",
+          "recipe_id": "easter-egg-pancakes",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -35119,15 +35122,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "blueberry-cheesecake-baked-oatmeal",
-        "name": "Single-Serve Blueberry Cheesecake Baked Oatmeal"
+        "id": "easter-egg-pancakes",
+        "name": "Easter Egg Pancakes"
       },
       "render": {
         "canvas": {
@@ -35635,16 +35636,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F.",
-        "PLACE 1 packet oatmeal, the egg, milk, baking powder, and applesauce in a blender and blend until the oats are broken down into smaller pieces.",
-        "POUR the mixture into a greased, and oven-proof, single-serve bowl.",
-        "IN another small bowl, stir together the cream cheese and maple syrup. Spoon into the center of the oat mixture.",
-        "SPRINKLE the blueberries over the top.",
-        "BAKE in the preheated oven for 18-20 minutes, or until puffed and cooked through.",
-        "COOL slightly before digging in!"
+        "COMBINE Kodiak Cakes mix and water in a large bowl.",
+        "DIVIDE batter into 3 separate bowls and add a generous amount of food coloring to each bowl and stir until vibrant.",
+        "TRANSFER the colored batter into the squeeze bottles.",
+        "ON a heated and greased pan or griddle, squeeze the outline of an Easter egg with one color and fill in the lines with a different color. Flip and continue to cook colored egg-shaped pancakes. Serve warm with maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Single-Serve Blueberry Cheesecake Baked Oatmeal",
+      "title": "Easter Egg Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -49706,62 +49704,50 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Classic Rolled Oats Canister"
+          "qty_name": "3 packets Kodiak Maple & Brown Sugar Peak Oatmeal Packets"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cinnamon"
+          "qty_name": "2/3 cup butternut squash purée"
         },
         {
           "price": null,
-          "qty_name": "1/8 teaspoon turmeric powder"
+          "qty_name": "1/4 cup maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/8 teaspoon ground ginger"
+          "qty_name": "1/2 cup almond butter"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup water"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons fresh blueberries"
+          "qty_name": "1/2 teaspoons cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon chopped walnuts"
+          "qty_name": "1 cup powdered sugar"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon shelled pumpkin seeds"
-        },
-        {
-          "price": null,
-          "qty_name": "1 teaspoon chia seed"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon nut butter"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple syrup, if desired"
+          "qty_name": "1-2 tablespoons milk"
         }
       ],
       "lang": "en",
       "market": "US-MW-DESMOINES",
       "meta": {
-        "cook": "2 mins",
+        "cook": "25 mins",
         "est_cost": null,
         "prep": "5 mins",
-        "serves": "1"
+        "serves": "12"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: anti-inflammatory-oatmeal chosen deterministically for US-MW-DESMOINES|2026-03 among recipes naming the ingredient",
-          "recipe_id": "anti-inflammatory-oatmeal",
+          "reason": "ingredient rotation: butternut-squash-oatmeal-bars chosen deterministically for US-MW-DESMOINES|2026-03 among recipes naming the ingredient",
+          "recipe_id": "butternut-squash-oatmeal-bars",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -49777,8 +49763,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "anti-inflammatory-oatmeal",
-        "name": "Anti-Inflammatory Oatmeal"
+        "id": "butternut-squash-oatmeal-bars",
+        "name": "Butternut Squash Oatmeal Bars"
       },
       "render": {
         "canvas": {
@@ -50284,12 +50270,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the oats, cinnamon, turmeric, and ginger in a microwave safe bowl. Stir to combine.",
-        "STIR in the water and a microwave on high for 1.5 to 2 minutes.",
-        "TOP with blueberries, walnuts, chia seed, nut butter, and maple syrup, if desired."
+        "PREHEAT the oven to 350° F. Line a 8x8” baking pan with parchment paper.",
+        "PLACE the contents of the oatmeal packets in a mixing bowl along with the butternut squash purée, maple syrup, almond butter, milk, and cinnamon. Mix until well combined.",
+        "SPOON the mixture into the prepared baking pan and carefully spread out until evenly distributed and smooth on top.",
+        "BAKE in the preheated oven for 20 to 25 minutes, or until cooked through. Remove from the oven and let cool completely.",
+        "ONCE cool, remove from the pan and place on a cutting board. Cut into 12 bars.",
+        "PLACE the powdered sugar and milk in a small mixing bowl. Whisk together until smooth, adding more or less milk, to achieve the desired consistency.",
+        "DRIZZLE the icing over the top of the butternut squash oatmeal bars.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Anti-Inflammatory Oatmeal",
+      "title": "Butternut Squash Oatmeal Bars",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -56868,62 +56859,34 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 pear"
+          "qty_name": "1/2 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon coconut oil"
+          "qty_name": "1 tablespoon Maple Syrup"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon pure maple syrup"
+          "qty_name": "1/4 cup Mixed berries"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup milk"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons flax seeds"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon pure maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 teaspoon vanilla"
-        },
-        {
-          "price": null,
-          "qty_name": "1/8 teaspoon cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "1/8 teaspoon cardamom"
-        },
-        {
-          "price": null,
-          "qty_name": "pomegranate seeds, almond butter, honey (optional)"
+          "qty_name": "1/4 cup Kodiak Granola"
         }
       ],
       "lang": "en",
       "market": "US-MW-DETROIT",
       "meta": {
-        "cook": "25 mins",
+        "cook": null,
         "est_cost": null,
         "prep": "5 mins",
-        "serves": "2"
+        "serves": "1"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: baked-pear-cardamom-porridge chosen deterministically for US-MW-DETROIT|2026-03 among recipes naming the ingredient",
-          "recipe_id": "baked-pear-cardamom-porridge",
+          "reason": "ingredient rotation: mountain-berry-parfait chosen deterministically for US-MW-DETROIT|2026-03 among recipes naming the ingredient",
+          "recipe_id": "mountain-berry-parfait",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -56939,8 +56902,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "baked-pear-cardamom-porridge",
-        "name": "Baked Pear Cardamom Porridge"
+        "id": "mountain-berry-parfait",
+        "name": "Mountain Berry Parfait"
       },
       "render": {
         "canvas": {
@@ -57443,13 +57406,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT oven to 400 degrees F.",
-        "CUT one pear in half and place in a baking dish cut side up. Spread coconut oil over the top of the pears and drizzle over 1 teaspoon of maple syrup. Bake at 400 degrees F for about 25 minutes.",
-        "IN a sauce pan, heat 3/4 cup milk. Add in oats, flax seeds, pure maple syrup, vanilla, cinnamon, and cardamom. Simmer over low heat for 5-10 minutes stirring every couple minutes.",
-        "REMOVE pears from oven and transfer into serving bowl. Remove porridge from heat and pour over the baked pears. Optionally, drizzle the top with honey and almond butter and pour in a couple tablespoons of pomegranate seeds."
+        "IN a small bowl, stir the Greek yogurt and maple syrup together.",
+        "LAYER with mixed berries and Kodiak Cakes granola and serve!"
       ],
       "substrate": "kraft",
-      "title": "Baked Pear Cardamom Porridge",
+      "title": "Mountain Berry Parfait",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -70317,62 +70278,50 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 pear"
+          "qty_name": "2 tablespoon butter, softened"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon coconut oil"
+          "qty_name": "1 tablespoon pumpkin purée"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon pure maple syrup"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister"
+          "qty_name": "1/4 cup fresh or dried cranberries"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup milk"
+          "qty_name": "1 tablespoon sugar"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons flax seeds"
+          "qty_name": "1 cup Kodiak Pumpkin Power Cakes Flapjack and Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon pure maple syrup"
+          "qty_name": "1 cup water"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon vanilla"
-        },
-        {
-          "price": null,
-          "qty_name": "1/8 teaspoon cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "1/8 teaspoon cardamom"
-        },
-        {
-          "price": null,
-          "qty_name": "pomegranate seeds, almond butter, honey (optional)"
+          "qty_name": "1/4 cup walnuts"
         }
       ],
       "lang": "en",
       "market": "US-MW-INDY",
       "meta": {
-        "cook": "25 mins",
+        "cook": "5 mins",
         "est_cost": null,
-        "prep": "5 mins",
+        "prep": "10 mins",
         "serves": "2"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: baked-pear-cardamom-porridge chosen deterministically for US-MW-INDY|2026-03 among recipes naming the ingredient",
-          "recipe_id": "baked-pear-cardamom-porridge",
+          "reason": "ingredient rotation: pumpkin-flapjacks-with-whipped-pumpkin-maple-butter-cranberries-and-walnuts chosen deterministically for US-MW-INDY|2026-03 among recipes naming the ingredient",
+          "recipe_id": "pumpkin-flapjacks-with-whipped-pumpkin-maple-butter-cranberries-and-walnuts",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -70388,8 +70337,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "baked-pear-cardamom-porridge",
-        "name": "Baked Pear Cardamom Porridge"
+        "id": "pumpkin-flapjacks-with-whipped-pumpkin-maple-butter-cranberries-and-walnuts",
+        "name": "Pumpkin Flapjacks With Whipped Pumpkin Maple Butter Cranberries And Walnuts"
       },
       "render": {
         "canvas": {
@@ -70893,13 +70842,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT oven to 400 degrees F.",
-        "CUT one pear in half and place in a baking dish cut side up. Spread coconut oil over the top of the pears and drizzle over 1 teaspoon of maple syrup. Bake at 400 degrees F for about 25 minutes.",
-        "IN a sauce pan, heat 3/4 cup milk. Add in oats, flax seeds, pure maple syrup, vanilla, cinnamon, and cardamom. Simmer over low heat for 5-10 minutes stirring every couple minutes.",
-        "REMOVE pears from oven and transfer into serving bowl. Remove porridge from heat and pour over the baked pears. Optionally, drizzle the top with honey and almond butter and pour in a couple tablespoons of pomegranate seeds."
+        "PLACE the butter in a small bowl and whip with a fork until fluffy.",
+        "STIR in pumpkin purée and maple syrup.",
+        "IN a separate bowl, toss cranberries in sugar.",
+        "IN a mixing bowl, stir Kodiak Cakes mix and water together until combined.",
+        "POUR 1/4 cup of batter onto a heated and greased pan or griddle. Cook on medium-high heat or 375° F until bubbles form on the top.",
+        "FLIP and continue to cook until golden.",
+        "TOP with whipped pumpkin-maple butter, cranberries, and walnuts."
       ],
       "substrate": "kraft",
-      "title": "Baked Pear Cardamom Porridge",
+      "title": "Pumpkin Flapjacks With Whipped Pumpkin Maple Butter Cranberries And Walnuts",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -84211,58 +84163,70 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Blueberry Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "12 tablespoons (3/4 cup) butter, softened"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup milk of choice"
+          "qty_name": "1 cup brown sugar"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup ricotta"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "2 eggs"
+          "qty_name": "1/4 teaspoon almond extract"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla"
+          "qty_name": "1-1/2 teaspoons vanilla, divided"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup blueberries\r\n\r\n\r\n \r\n\r\nToppings:"
+          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup ricotta"
+          "qty_name": "3 cups frozen cherries, halved"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon real maple syrup"
+          "qty_name": "2 tablespoons cornstarch"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon lemon juice"
+          "qty_name": "Juice of 1/2 lemon"
         },
         {
           "price": null,
-          "qty_name": "Fresh blueberries"
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon vanilla extract"
+        },
+        {
+          "price": null,
+          "qty_name": "2-3 tablespoons water"
         }
       ],
       "lang": "en",
       "market": "US-MW-KC",
       "meta": {
-        "cook": "10 mins",
+        "cook": "35 mins",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "2"
+        "prep": "20 mins",
+        "serves": "15"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: blueberry-ricotta-pancakes chosen deterministically for US-MW-KC|2026-03 among recipes naming the ingredient",
-          "recipe_id": "blueberry-ricotta-pancakes",
+          "reason": "ingredient rotation: cherry-pie-bars chosen deterministically for US-MW-KC|2026-03 among recipes naming the ingredient",
+          "recipe_id": "cherry-pie-bars",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -84278,8 +84242,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "blueberry-ricotta-pancakes",
-        "name": "Blueberry Ricotta Pancakes"
+        "id": "cherry-pie-bars",
+        "name": "Cherry Pie Bars"
       },
       "render": {
         "canvas": {
@@ -84746,15 +84710,22 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ADD Kodiak Cakes mix, milk, egg, ricotta, and vanilla to a bowl. Mix until combined.",
-        "GENTLY fold in blueberries.",
-        "SCOOP about a 1/4 cup of batter per pancake onto a heated and greased skillet.",
-        "ALLOW to cook until bubbles form, then flip.",
-        "MIX together ricotta and maple syrup until smooth to make a sweet ricotta topping.",
-        "STACK and enjoy!"
+        "PREHEAT the oven to 350° Fahrenheit. Line a 9x13” baking pan with parchment paper.",
+        "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+        "BEAT in the eggs, one at a time.",
+        "ADD the Kodiak Cakes mix and beat in until just combined. Let rest for five minutes.",
+        "SPREAD 2/3 of the crust mixture evenly across the parchment-lined baking pan. Bake in the preheated oven for 15 minutes.",
+        "WHILE the crust is baking, prepare the cherry sauce by adding the cherries, cornstarch, lemon juice, and maple syrup to a saucepan and stir to combine. Heat over medium-high heat, stirring occasionally, until the cherries and sauce are glossy and thick, about 3 to 5 minutes. Remove from heat.",
+        "REMOVE the crust from the oven after 15 minutes and pour the cherry sauce on top of the crust, spreading it out evenly.",
+        "PLACE clumps of the remaining crust dough over the top of the cherries and spread evenly across the top.",
+        "PLACE the pan back in the oven and bake for an additional 15 to 20 minutes, or until the crumbles on top are slightly golden brown.",
+        "REMOVE from oven and let cool.",
+        "PLACE the powdered sugar, vanilla, and water in a small bowl and whisk together to form a smooth icing.",
+        "DRIZZLE the icing over the top of the cooled cherry pie bars. Cut into 15 slices.",
+        "STORE in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Blueberry Ricotta Pancakes",
+      "title": "Cherry Pie Bars",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -90921,42 +90892,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal Packets"
+          "qty_name": "1/2 large avocado"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "3/4 cup whole milk"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons butter, melted"
+          "qty_name": "1/4 teaspoon spirulina powder"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon maple syrup"
+          "qty_name": "1 cup Kodiak Blueberry Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup whole milk"
+          "qty_name": "Pure maple syrup, to top"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup berries (blueberries, raspberries, blackberries), to top"
+          "qty_name": "Fresh blueberries, to top"
         }
       ],
       "lang": "en",
       "market": "US-MW-MILWAUKEE",
       "meta": {
-        "cook": "16 mins",
+        "cook": "10 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "6"
+        "serves": "2"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: berry-baked-oatmeal-bars chosen deterministically for US-MW-MILWAUKEE|2026-03 among recipes naming the ingredient",
-          "recipe_id": "berry-baked-oatmeal-bars",
+          "reason": "ingredient rotation: avocado-pancakes chosen deterministically for US-MW-MILWAUKEE|2026-03 among recipes naming the ingredient",
+          "recipe_id": "avocado-pancakes",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -90972,8 +90943,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "berry-baked-oatmeal-bars",
-        "name": "Berry Baked Oatmeal Bars"
+        "id": "avocado-pancakes",
+        "name": "Avocado Pancakes"
       },
       "render": {
         "canvas": {
@@ -91460,17 +91431,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Line a loaf pan with parchment paper.",
-        "PLACE the contents of the oatmeal packets in a high-speed blender along with the egg, butter, maple syrup, and milk",
-        "PULSE several times to break up the oats a bit. Let the batter rest for 10 minutes.",
-        "SPOON the batter evenly into the parchment lined loaf pan.",
-        "PLACE the berries evenly over the top of the oat mixture, breaking them into halves if they are large.",
-        "BAKE for 15-18 minutes or until golden brown and cooked through.",
-        "LET cool completely. Remove from pan and cut into 6 slices.",
-        "STORE in an airtight container. *Pro Tip: This recipe can be doubled and baked in an 8x8\" or 9x9\" baking pan to make 12 servings."
+        "PLACE the avocado, milk, and spirulina in a blender and process until smooth.",
+        "PLACE the Kodiak Cakes mix in a bowl. Add the avocado mixture and whisk together to form a smooth batter. Let rest for 5 minutes.",
+        "HEAT a frying pan to medium-high and grease.",
+        "PLACE 1/4-cup scoops of batter on the hot pan and cook until bubbles form on top. Flip and cook for an additional 30 seconds. Repeat with the remaining batter.",
+        "SERVE pancakes topped with blueberries and maple syrup."
       ],
       "substrate": "kraft",
-      "title": "Berry Baked Oatmeal Bars",
+      "title": "Avocado Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -97664,11 +97632,31 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "3 packets Kodiak Maple & Brown Sugar Peak Oatmeal Packets"
+          "qty_name": "1 cup Kodiak Power Oats Oatmeal Canister"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup butternut squash purée"
+          "qty_name": "2 teaspoons pumpkin pie spice"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pumpkin puree"
         },
         {
           "price": null,
@@ -97676,38 +97664,26 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1/2 cup almond butter"
+          "qty_name": "1/2 teaspoon vanilla extract"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup milk"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 teaspoons cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "1 cup powdered sugar"
-        },
-        {
-          "price": null,
-          "qty_name": "1-2 tablespoons milk"
+          "qty_name": "1/4 cup pecans"
         }
       ],
       "lang": "en",
       "market": "US-MW-MINNEAPOLIS2",
       "meta": {
-        "cook": "25 mins",
+        "cook": "20 mins",
         "est_cost": null,
         "prep": "5 mins",
-        "serves": "12"
+        "serves": "2"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: butternut-squash-oatmeal-bars chosen deterministically for US-MW-MINNEAPOLIS2|2026-03 among recipes naming the ingredient",
-          "recipe_id": "butternut-squash-oatmeal-bars",
+          "reason": "ingredient rotation: air-fryer-oats chosen deterministically for US-MW-MINNEAPOLIS2|2026-03 among recipes naming the ingredient",
+          "recipe_id": "air-fryer-oats",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -97723,8 +97699,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "butternut-squash-oatmeal-bars",
-        "name": "Butternut Squash Oatmeal Bars"
+        "id": "air-fryer-oats",
+        "name": "Air Fryer Oats"
       },
       "render": {
         "canvas": {
@@ -98174,17 +98150,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Line a 8x8” baking pan with parchment paper.",
-        "PLACE the contents of the oatmeal packets in a mixing bowl along with the butternut squash purée, maple syrup, almond butter, milk, and cinnamon. Mix until well combined.",
-        "SPOON the mixture into the prepared baking pan and carefully spread out until evenly distributed and smooth on top.",
-        "BAKE in the preheated oven for 20 to 25 minutes, or until cooked through. Remove from the oven and let cool completely.",
-        "ONCE cool, remove from the pan and place on a cutting board. Cut into 12 bars.",
-        "PLACE the powdered sugar and milk in a small mixing bowl. Whisk together until smooth, adding more or less milk, to achieve the desired consistency.",
-        "DRIZZLE the icing over the top of the butternut squash oatmeal bars.",
-        "STORE in an airtight container."
+        "GREASE a 6” cake pan; set aside.",
+        "IN a large bowl, whisk the Kodiak Cakes Power Oats, pumpkin pie spice, baking powder, and salt until combined.",
+        "WHISK in the egg, milk, pumpkin puree, maple syrup, and vanilla.",
+        "TRANSFER oatmeal mixture to the greased cake pan.",
+        "BAKE in an air fryer at 330°F for 15-20 minutes."
       ],
       "substrate": "kraft",
-      "title": "Butternut Squash Oatmeal Bars",
+      "title": "Air Fryer Oats",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -111158,78 +111131,54 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Fried Chicken:"
+          "qty_name": "1 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup buttermilk"
+          "qty_name": "1 teaspoon pumpkin spice"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "1/2 cup pumpkin purée"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons hot sauce"
+          "qty_name": "1/3 cup maple syrup"
         },
         {
           "price": null,
-          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/4 cup almond butter"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon pepper"
+          "qty_name": "1/3 cup walnuts\r\n\r\n\r\n \r\n\r\nGlaze (optional)"
         },
         {
           "price": null,
-          "qty_name": "3 boneless skinless chicken breasts, cut into 3 inch pieces"
+          "qty_name": "1/2 cup confectioners sugar"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons olive oil for pan frying"
+          "qty_name": "1-2 tablespoons vanilla extract"
         },
         {
           "price": null,
-          "qty_name": "Waffles:"
-        },
-        {
-          "price": null,
-          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
-        },
-        {
-          "price": null,
-          "qty_name": "2 cups water"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons oil"
-        },
-        {
-          "price": null,
-          "qty_name": "Butter"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple Syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "Toothpicks"
+          "qty_name": "1/2 cup milk of choice"
         }
       ],
       "lang": "en",
       "market": "US-MW-OMAHA",
       "meta": {
-        "cook": "15 mins",
+        "cook": "20 mins",
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "8"
+        "prep": "10 mins",
+        "serves": "12"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: chicken-waffle-sliders chosen deterministically for US-MW-OMAHA|2026-03 among recipes naming the ingredient",
-          "recipe_id": "chicken-waffle-sliders",
+          "reason": "ingredient rotation: pumpkin-protein-balls chosen deterministically for US-MW-OMAHA|2026-03 among recipes naming the ingredient",
+          "recipe_id": "pumpkin-protein-balls",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -111245,8 +111194,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "chicken-waffle-sliders",
-        "name": "Chicken & Waffle Sliders"
+        "id": "pumpkin-protein-balls",
+        "name": "Pumpkin Protein Balls"
       },
       "render": {
         "canvas": {
@@ -111757,19 +111706,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CHICKEN: Heat the oil in a frying pan over medium-high heat.",
-        "IN a medium bowl, combine the buttermilk, egg, and hot sauce.",
-        "STIR the Kodiak Cakes mix and pepper together in a separate bowl.",
-        "DIP the cut chicken into the egg mixture, and then into the dry mix to coat.",
-        "SET the breaded chicken in the pan and cook for 4-5 minutes on each side, or until golden brown on both sides with an internal temperature of 165 degrees F.",
-        "WAFFLES: Combine the Kodiak Cakes mix, water, and oil and whisk until smooth.",
-        "COOK in a preheated, greased waffle iron.",
-        "CUT the waffles into quarters and spread an even layer of butter and a drizzle of maple syrup on each quarter.",
-        "SANDWICH the chicken between two waffles and secure with a toothpick.",
-        "FOR a healthier baked option, place breaded chicken on a sheet pan and bake at 400 degrees F for 10-15 minutes. Flip, and continue baking for an additional 10 minutes."
+        "PREHEAT oven to 350° F.",
+        "IN a bowl, whisk together Kodiak Cakes mix and pumpkin spice. Set aside.",
+        "IN a separate bowl, mix pumpkin puree, maple syrup and almond butter until smooth.",
+        "ADD the wet ingredients to the dry ingredients, stirring to fully combine.",
+        "GENTLY fold in the walnuts.",
+        "ROLL dough into 1-inch balls and place on a parchment-lined baking sheet.",
+        "BAKE for 15-20 minutes, or until set and lightly golden on the bottom.",
+        "LET cool slightly before digging in. Enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Chicken & Waffle Sliders",
+      "title": "Pumpkin Protein Balls",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -131296,54 +131243,54 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "4 packets Kodiak Chocolate Chip Oatmeal Packets"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon salt"
+          "qty_name": "1/3 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "3 eggs"
+          "qty_name": "1/4 cup chopped pecans"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 cup Greek yogurt"
+          "qty_name": "1/4 teaspoon baking powder"
         },
         {
           "price": null,
-          "qty_name": "Juice and zest of two medium oranges"
+          "qty_name": "2 tablespoons maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup real maple syrup"
+          "qty_name": "2 eggs"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 teaspoons vanilla"
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1-1/4 cup whole milk"
+          "qty_name": "1/2 cup pumpkin puree"
         },
         {
           "price": null,
-          "qty_name": "1 cup dried cranberries"
+          "qty_name": "36 pecan halves"
         }
       ],
       "lang": "en",
       "market": "US-MW-STL",
       "meta": {
-        "cook": "21",
+        "cook": "15 mins",
         "est_cost": null,
-        "prep": "15",
-        "serves": "30"
+        "prep": "10 mins",
+        "serves": "12"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cranberry-orange-yogurt-muffins chosen deterministically for US-MW-STL|2026-03 among recipes naming the ingredient",
-          "recipe_id": "cranberry-orange-yogurt-muffins",
+          "reason": "ingredient rotation: pumpkin-oat-energy-bites chosen deterministically for US-MW-STL|2026-03 among recipes naming the ingredient",
+          "recipe_id": "pumpkin-oat-energy-bites",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -131359,8 +131306,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "cranberry-orange-yogurt-muffins",
-        "name": "Cranberry Orange Yogurt Muffins"
+        "id": "pumpkin-oat-energy-bites",
+        "name": "Pumpkin Oat Energy Bites"
       },
       "render": {
         "canvas": {
@@ -131855,15 +131802,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
-        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
-        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
-        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
-        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
-        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
+        "PREHEAT the oven to 350° F. Coat a mini muffin tin with cooking spray or butter.",
+        "PLACE the contents of the oatmeal packets in a mixing bowl along with the power cakes mix, chopped pecans, and baking powder. Whisk to combine.",
+        "ADD the maple syrup, eggs, milk, and pumpkin puree to the dry ingredients and whisk together to form a smooth batter. Let sit for 5 minutes to let the grains absorb the liquid.",
+        "STIR again and fill each mini muffin tin 7/8 full with batter. This recipe should fill about 36 mini muffin tins. Top each muffin with a pecan half.",
+        "BAKE in the preheated oven for 12-15 minutes, or until golden brown on top and puffed.",
+        "REMOVE and let cool for 10 minutes. Run a butter knife around the edge of each mini muffin and remove from the pan. Store in an airtight container."
       ],
       "substrate": "kraft",
-      "title": "Cranberry Orange Yogurt Muffins",
+      "title": "Pumpkin Oat Energy Bites",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -138261,66 +138208,106 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1-pound fresh chicken tenders"
+          "qty_name": "Breakfast Pizza:"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 recipe Protein Pizza Dough"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon salt"
+          "qty_name": "1 tablespoon butter, melted"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "4 cups shredded mozzarella"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon smoked paprika"
+          "qty_name": "4 slices cooked bacon or prosciutto"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon garlic powder"
+          "qty_name": "1 small yellow potato, thinly sliced into rounds"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon onion powder"
+          "qty_name": "4 eggs"
         },
         {
           "price": null,
-          "qty_name": "1 large egg"
+          "qty_name": "1 tablespoon chives, chopped"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon olive oil"
+          "qty_name": "Salt and pepper to taste"
         },
         {
           "price": null,
-          "qty_name": "6 Kodiak Buttermilk & Vanilla Thick and Fluffy Power Waffles"
+          "qty_name": "2 tablespoons maple syrup"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons butter, cut into three pieces"
+          "qty_name": "Classic Pepperoni Pizza:"
         },
         {
           "price": null,
-          "qty_name": "6 tablespoons Maple syrup"
+          "qty_name": "1 recipe Protein Pizza Dough"
+        },
+        {
+          "price": null,
+          "qty_name": "3/4 cup marinara sauce"
+        },
+        {
+          "price": null,
+          "qty_name": "4 cups shredded mozzarella"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup pepperoni"
+        },
+        {
+          "price": null,
+          "qty_name": "Dessert Oreo Pizza:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 recipe Protein Pizza Dough"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "12 Oreos, crushed"
+        },
+        {
+          "price": null,
+          "qty_name": "4 ounces cream cheese, room temperature"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup powdered sugar"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons chocolate syrup"
         }
       ],
       "lang": "en",
       "market": "US-MW-TC",
       "meta": {
-        "cook": "15 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "3-6"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: air-fryer-chicken-and-waffles chosen deterministically for US-MW-TC|2026-03 among recipes naming the ingredient",
-          "recipe_id": "air-fryer-chicken-and-waffles",
+          "reason": "ingredient rotation: heart-shaped-pizza chosen deterministically for US-MW-TC|2026-03 among recipes naming the ingredient",
+          "recipe_id": "heart-shaped-pizza",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -138331,13 +138318,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "air-fryer-chicken-and-waffles",
-        "name": "Air Fryer Chicken And Waffles"
+        "id": "heart-shaped-pizza",
+        "name": "Heart-Shaped Pizza"
       },
       "render": {
         "canvas": {
@@ -138827,17 +138816,27 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the Kodiak Cakes Power Cakes mix, salt, pepper, paprika, garlic powder, and onion powder in a shallow bowl and stir to combine well.",
-        "PLACE the egg in a shallow bowl and beat well.",
-        "PAT the chicken tenders dry with a paper towel.",
-        "WORKING one tender at a time, coat with flour mixture, dip in the beaten egg, and place back in the flour mixture to coat. Place on a plate and repeat with the remaining chicken tenders.",
-        "HEAT an air fryer to 400 degrees Fahrenheit.",
-        "DRIZZLE the breaded chicken tenders with the olive oil and place in the air fryer basket. Fry for 6-8 minutes or until a thermometer inserted in the center of a tender reads 165° Fahrenheit.",
-        "WHILE the chicken is cooking, toast the waffles in a toaster until golden brown.",
-        "SERVE the toasted waffles warm topped with a pat of butter, chicken tenders and a drizzle of maple syrup (~2 waffles + ⅓ of the chicken tenders, 1 tablespoon butter, and 2 tablespoons maple syrup)."
+        "USE our Protein Pizza Dough recipe to prep your pizza dough.",
+        "PREHEAT the oven to 400° Fahrenheit.",
+        "LINE a baking sheet with parchment paper.",
+        "ROLL the prepared pizza dough into the shape of a 10” heart.",
+        "SEE 3 of our favorite topping combos below to prep and bake your pizza! Breakfast Pizza: Complete steps 1-4 above and use the following steps to prep and bake your pizza.",
+        "BRUSH the melted butter over the surface of the dough.",
+        "SPREAD the mozzarella over the top of the pizza, then top with the sliced potatoes and bacon or prosciutto.",
+        "BAKE in the preheated oven for 7 minutes. Remove and crack three eggs over the top of the pizza. Sprinkle with salt and pepper.",
+        "CONTINUE to bake for an additional 7-8 minutes. Remove from oven with cheese is bubbling and egg whites are cooked through.",
+        "LET cool slightly, then top with chives and maple syrup. Classic Pepperoni Pizza: Complete steps 1-4 above and use the following steps to prep and bake your pizza.",
+        "TOP the dough with the marinara, mozzarella, and pepperoni.",
+        "BAKE for 12-15 minutes, or until cheese is bubbling and crust is lightly golden brown. Dessert Oreo Pizza: Complete steps 1-4 above and use the following steps to prep and bake your pizza.",
+        "BRUSH the melted butter over the surface of the dough.",
+        "SPREAD the crumbled Oreos over the top of the pizza dough.",
+        "BAKE for 12-15 minutes or until crust is lightly golden brown.",
+        "WHILE pizza bakes, place the cream cheese and powdered sugar in a mixing bowl and beat together with an electric mixer until smooth.",
+        "REMOVE the pizza from the oven and let cool slightly.",
+        "DRIZZLE the cream cheese mixture and the chocolate syrup over the top of the pizza."
       ],
       "substrate": "kraft",
-      "title": "Air Fryer Chicken And Waffles",
+      "title": "Heart-Shaped Pizza",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -158422,42 +158421,66 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/2 large avocado"
+          "qty_name": "1-pound fresh chicken tenders"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup whole milk"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon spirulina powder"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Blueberry Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/2 teaspoon black pepper"
         },
         {
           "price": null,
-          "qty_name": "Pure maple syrup, to top"
+          "qty_name": "1/2 teaspoon smoked paprika"
         },
         {
           "price": null,
-          "qty_name": "Fresh blueberries, to top"
+          "qty_name": "1/2 teaspoon garlic powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon onion powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 large egg"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "6 Kodiak Buttermilk & Vanilla Thick and Fluffy Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons butter, cut into three pieces"
+        },
+        {
+          "price": null,
+          "qty_name": "6 tablespoons Maple syrup"
         }
       ],
       "lang": "en",
       "market": "US-NE-BALTIMORE",
       "meta": {
-        "cook": "10 mins",
+        "cook": "15 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "2"
+        "serves": "3-6"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: avocado-pancakes chosen deterministically for US-NE-BALTIMORE|2026-02 among recipes naming the ingredient",
-          "recipe_id": "avocado-pancakes",
+          "reason": "ingredient rotation: air-fryer-chicken-and-waffles chosen deterministically for US-NE-BALTIMORE|2026-02 among recipes naming the ingredient",
+          "recipe_id": "air-fryer-chicken-and-waffles",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -158473,8 +158496,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "avocado-pancakes",
-        "name": "Avocado Pancakes"
+        "id": "air-fryer-chicken-and-waffles",
+        "name": "Air Fryer Chicken And Waffles"
       },
       "render": {
         "canvas": {
@@ -158950,14 +158973,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the avocado, milk, and spirulina in a blender and process until smooth.",
-        "PLACE the Kodiak Cakes mix in a bowl. Add the avocado mixture and whisk together to form a smooth batter. Let rest for 5 minutes.",
-        "HEAT a frying pan to medium-high and grease.",
-        "PLACE 1/4-cup scoops of batter on the hot pan and cook until bubbles form on top. Flip and cook for an additional 30 seconds. Repeat with the remaining batter.",
-        "SERVE pancakes topped with blueberries and maple syrup."
+        "PLACE the Kodiak Cakes Power Cakes mix, salt, pepper, paprika, garlic powder, and onion powder in a shallow bowl and stir to combine well.",
+        "PLACE the egg in a shallow bowl and beat well.",
+        "PAT the chicken tenders dry with a paper towel.",
+        "WORKING one tender at a time, coat with flour mixture, dip in the beaten egg, and place back in the flour mixture to coat. Place on a plate and repeat with the remaining chicken tenders.",
+        "HEAT an air fryer to 400 degrees Fahrenheit.",
+        "DRIZZLE the breaded chicken tenders with the olive oil and place in the air fryer basket. Fry for 6-8 minutes or until a thermometer inserted in the center of a tender reads 165° Fahrenheit.",
+        "WHILE the chicken is cooking, toast the waffles in a toaster until golden brown.",
+        "SERVE the toasted waffles warm topped with a pat of butter, chicken tenders and a drizzle of maple syrup (~2 waffles + ⅓ of the chicken tenders, 1 tablespoon butter, and 2 tablespoons maple syrup)."
       ],
       "substrate": "kraft",
-      "title": "Avocado Pancakes",
+      "title": "Air Fryer Chicken And Waffles",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -165290,27 +165316,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Oatmeal Squares:"
+          "qty_name": "1 box Kodiak Blueberry Muffin Mix"
         },
         {
           "price": null,
-          "qty_name": "4 packets Kodiak Maple Pecan Overnight Oats"
+          "qty_name": "2 eggs"
         },
         {
           "price": null,
-          "qty_name": "1 large egg"
+          "qty_name": "3/4 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1 cup milk"
+          "qty_name": "1/4 cup milk of choice"
         },
         {
           "price": null,
-          "qty_name": "4 tablespoons butter, melted   \r\n\r\n\r\n \r\n\r\nMaple Butter Drizzle:"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup confectioners’ sugar"
+          "qty_name": "1 cup fresh (or frozen) mixed berries"
         },
         {
           "price": null,
@@ -165318,30 +165340,22 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon butter, melted"
-        },
-        {
-          "price": null,
-          "qty_name": "1-2 teaspoons milk"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons pecans, chopped"
+          "qty_name": "1 teaspoon vanilla extract"
         }
       ],
       "lang": "en",
       "market": "US-NE-BOS",
       "meta": {
-        "cook": "17",
+        "cook": "18 mins",
         "est_cost": null,
-        "prep": "15",
-        "serves": "9"
+        "prep": "10 mins",
+        "serves": "12"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: maple-pecan-baked-oatmeal-squares chosen deterministically for US-NE-BOS|2026-02 among recipes naming the ingredient",
-          "recipe_id": "maple-pecan-baked-oatmeal-squares",
+          "reason": "ingredient rotation: mixed-berry-muffins chosen deterministically for US-NE-BOS|2026-02 among recipes naming the ingredient",
+          "recipe_id": "mixed-berry-muffins",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -165357,8 +165371,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "maple-pecan-baked-oatmeal-squares",
-        "name": "Maple Pecan Baked Oatmeal Squares"
+        "id": "mixed-berry-muffins",
+        "name": "Mixed Berry Muffins"
       },
       "render": {
         "canvas": {
@@ -165846,18 +165860,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Grease an 8x8” or 9x9” baking pan.",
-        "EMPTY the Overnight Oats packets into a mixing bowl.",
-        "ADD the egg, milk, and melted butter to the bowl and whisk together to form a batter. Let sit for five minutes so that the oats can absorb the liquid a bit.",
-        "TRANSFER the batter to the prepared pan and bake for 15-17 minutes, or until cooked through and golden brown on top.",
-        "LET cool completely. Cut into 9 squares.",
-        "PLACE the confectioners’ sugar in a small bowl and add the maple syrup and melted butter. Whisk together to form a smooth glaze.",
-        "WHISK in milk, 1 teaspoon at a time until desired consistency is reached.",
-        "DRIZZLE the glaze over the oatmeal squares. Sprinkle the chopped pecans over the top.",
-        "STORE squares in an airtight container."
+        "PREHEAT oven to 350°F. Line a muffin tin with paper liners.",
+        "IN a bowl, whisk together the eggs, Greek yogurt, milk, maple syrup, and vanilla until smooth.",
+        "ADD the Kodiak Cakes mix and gently stir until just combined.",
+        "FOLD in the fresh berries gently. If using strawberries, chop them into small pieces first.",
+        "SCOOP the batter evenly into the prepared muffin tin (12).",
+        "BAKE for 14-19 minutes, or until a toothpick comes out clean and the tops are lightly golden.",
+        "LET cool for a few minutes before serving."
       ],
       "substrate": "kraft",
-      "title": "Maple Pecan Baked Oatmeal Squares",
+      "title": "Mixed Berry Muffins",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -172290,38 +172302,58 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 box (6 packages) Kodiak Chocolate Chip Crunchy Granola Bars"
+          "qty_name": "1 Kodiak Maple & Brown Sugar Oatmeal Cup"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup almond butter"
+          "qty_name": "2 tablespoons Kodiak Buttermilk Power Cakes"
         },
         {
           "price": null,
-          "qty_name": "1 cup fresh raspberries"
+          "qty_name": "1/4 teaspoon baking powder"
         },
         {
           "price": null,
-          "qty_name": "1-2/3 cups plain Greek yogurt"
+          "qty_name": "1 egg"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons maple syrup"
+          "qty_name": "1 tablespoon avocado oil"
+        },
+        {
+          "price": null,
+          "qty_name": "5 tablespoons milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon pecans, chopped (reserve a few to top muffin)"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon butter, melted"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons powdered sugar"
         }
       ],
       "lang": "en",
       "market": "US-NE-BRONX",
       "meta": {
-        "cook": "60+",
+        "cook": "2 mins",
         "est_cost": null,
-        "prep": "15",
-        "serves": "10"
+        "prep": "8 mins",
+        "serves": "1"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: chocolate-raspberry-frozen-yogurt-bars chosen deterministically for US-NE-BRONX|2026-02 among recipes naming the ingredient",
-          "recipe_id": "chocolate-raspberry-frozen-yogurt-bars",
+          "reason": "ingredient rotation: single-serve-maple-pecan-muffin chosen deterministically for US-NE-BRONX|2026-02 among recipes naming the ingredient",
+          "recipe_id": "single-serve-maple-pecan-muffin",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -172337,8 +172369,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "chocolate-raspberry-frozen-yogurt-bars",
-        "name": "Chocolate Raspberry Frozen Yogurt Bars"
+        "id": "single-serve-maple-pecan-muffin",
+        "name": "Single-Serve Maple Pecan Muffin"
       },
       "render": {
         "canvas": {
@@ -172825,18 +172857,17 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KEEPING the Kodiak Cakes Crunchy Bars in their packaging, smash each package with a rolling pin to roughly crush up the bars.",
-        "EMPTY each package into a bowl and add the peanut butter. Mix with a rubber spatula until well combined.",
-        "LINE a 9x9-inch baking pan with parchment paper.",
-        "SCOOP the granola bar mixture into the lined baking pan and press into a single layer.",
-        "PLACE the raspberries evenly over the top of the granola mixture.",
-        "PLACE the yogurt and maple syrup in a small bowl and whisk until smooth. Pour over the top of the pressed granola and raspberries and smooth evenly.",
-        "PLACE in the freezer for at least four hours or overnight.",
-        "ONCE frozen, lift the parchment out of the pan and the bars sheet on a cutting board. Cut into 10 slices.",
-        "STORE bars in an airtight container in the freezer."
+        "REMOVE the lid from the oatmeal cup.",
+        "ADD the power cakes mix and baking powder to the cup and stir with a fork to combine.",
+        "ADD the egg, oil, and 2 tablespoons of the milk to the cup and stir until a smooth batter forms.",
+        "ADD the remaining 3 tablespoons of milk and stir until fully combined. Let sit for 5 minutes.",
+        "STIR again and sprinkle the top with chopped pecans. Microwave for 90 seconds.",
+        "LET cool slightly. Make maple butter glaze:",
+        "PLACE the melted butter, maple syrup, and powdered sugar in a small bowl and whisk together until a smooth icing forms.",
+        "DRIZZLE the glaze over the top of the muffin and sprinkle with a few pecan pieces. Enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Chocolate Raspberry Frozen Yogurt Bars",
+      "title": "Single-Serve Maple Pecan Muffin",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -179218,78 +179249,46 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Fried Chicken:"
+          "qty_name": "1 box Kodiak Blueberry Muffin Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup buttermilk"
+          "qty_name": "2 eggs"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "3/4 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons hot sauce"
+          "qty_name": "1/4 cup milk of choice"
         },
         {
           "price": null,
-          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 cup fresh (or frozen) mixed berries"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon pepper"
+          "qty_name": "1 tablespoon maple syrup"
         },
         {
           "price": null,
-          "qty_name": "3 boneless skinless chicken breasts, cut into 3 inch pieces"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons olive oil for pan frying"
-        },
-        {
-          "price": null,
-          "qty_name": "Waffles:"
-        },
-        {
-          "price": null,
-          "qty_name": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
-        },
-        {
-          "price": null,
-          "qty_name": "2 cups water"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons oil"
-        },
-        {
-          "price": null,
-          "qty_name": "Butter"
-        },
-        {
-          "price": null,
-          "qty_name": "Maple Syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "Toothpicks"
+          "qty_name": "1 teaspoon vanilla extract"
         }
       ],
       "lang": "en",
       "market": "US-NE-BROOKLYN",
       "meta": {
-        "cook": "15 mins",
+        "cook": "18 mins",
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "8"
+        "prep": "10 mins",
+        "serves": "12"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: chicken-waffle-sliders chosen deterministically for US-NE-BROOKLYN|2026-02 among recipes naming the ingredient",
-          "recipe_id": "chicken-waffle-sliders",
+          "reason": "ingredient rotation: mixed-berry-muffins chosen deterministically for US-NE-BROOKLYN|2026-02 among recipes naming the ingredient",
+          "recipe_id": "mixed-berry-muffins",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -179305,8 +179304,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "chicken-waffle-sliders",
-        "name": "Chicken & Waffle Sliders"
+        "id": "mixed-berry-muffins",
+        "name": "Mixed Berry Muffins"
       },
       "render": {
         "canvas": {
@@ -179793,19 +179792,16 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "CHICKEN: Heat the oil in a frying pan over medium-high heat.",
-        "IN a medium bowl, combine the buttermilk, egg, and hot sauce.",
-        "STIR the Kodiak Cakes mix and pepper together in a separate bowl.",
-        "DIP the cut chicken into the egg mixture, and then into the dry mix to coat.",
-        "SET the breaded chicken in the pan and cook for 4-5 minutes on each side, or until golden brown on both sides with an internal temperature of 165 degrees F.",
-        "WAFFLES: Combine the Kodiak Cakes mix, water, and oil and whisk until smooth.",
-        "COOK in a preheated, greased waffle iron.",
-        "CUT the waffles into quarters and spread an even layer of butter and a drizzle of maple syrup on each quarter.",
-        "SANDWICH the chicken between two waffles and secure with a toothpick.",
-        "FOR a healthier baked option, place breaded chicken on a sheet pan and bake at 400 degrees F for 10-15 minutes. Flip, and continue baking for an additional 10 minutes."
+        "PREHEAT oven to 350°F. Line a muffin tin with paper liners.",
+        "IN a bowl, whisk together the eggs, Greek yogurt, milk, maple syrup, and vanilla until smooth.",
+        "ADD the Kodiak Cakes mix and gently stir until just combined.",
+        "FOLD in the fresh berries gently. If using strawberries, chop them into small pieces first.",
+        "SCOOP the batter evenly into the prepared muffin tin (12).",
+        "BAKE for 14-19 minutes, or until a toothpick comes out clean and the tops are lightly golden.",
+        "LET cool for a few minutes before serving."
       ],
       "substrate": "kraft",
-      "title": "Chicken & Waffle Sliders",
+      "title": "Mixed Berry Muffins",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -185581,38 +185577,66 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 box (6 packages) Kodiak Chocolate Chip Crunchy Granola Bars"
+          "qty_name": "1 cup Kodiak Classic Rolled Oats Canister"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup almond butter"
+          "qty_name": "1-1/2 teaspoon baking powder"
         },
         {
           "price": null,
-          "qty_name": "1 cup fresh raspberries"
+          "qty_name": "1/2 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1-2/3 cups plain Greek yogurt"
+          "qty_name": "Pinch of salt"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons maple syrup"
+          "qty_name": "1 banana"
+        },
+        {
+          "price": null,
+          "qty_name": "2 eggs"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup cottage cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
+        },
+        {
+          "price": null,
+          "qty_name": "Fresh berries"
+        },
+        {
+          "price": null,
+          "qty_name": "Butter"
+        },
+        {
+          "price": null,
+          "qty_name": "Maple Syrup"
         }
       ],
       "lang": "en",
       "market": "US-NE-BURLINGTON",
       "meta": {
-        "cook": "60+",
+        "cook": "10 mins",
         "est_cost": null,
-        "prep": "15",
-        "serves": "10"
+        "prep": "10 mins",
+        "serves": "2"
       },
       "month": "2026-01",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: chocolate-raspberry-frozen-yogurt-bars chosen deterministically for US-NE-BURLINGTON|2026-01 among recipes naming the ingredient",
-          "recipe_id": "chocolate-raspberry-frozen-yogurt-bars",
+          "reason": "ingredient rotation: oatmeal-cottage-cheese-pancakes chosen deterministically for US-NE-BURLINGTON|2026-01 among recipes naming the ingredient",
+          "recipe_id": "oatmeal-cottage-cheese-pancakes",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -185628,8 +185652,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "chocolate-raspberry-frozen-yogurt-bars",
-        "name": "Chocolate Raspberry Frozen Yogurt Bars"
+        "id": "oatmeal-cottage-cheese-pancakes",
+        "name": "Oatmeal Cottage Cheese Pancakes"
       },
       "render": {
         "canvas": {
@@ -186124,18 +186148,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "KEEPING the Kodiak Cakes Crunchy Bars in their packaging, smash each package with a rolling pin to roughly crush up the bars.",
-        "EMPTY each package into a bowl and add the peanut butter. Mix with a rubber spatula until well combined.",
-        "LINE a 9x9-inch baking pan with parchment paper.",
-        "SCOOP the granola bar mixture into the lined baking pan and press into a single layer.",
-        "PLACE the raspberries evenly over the top of the granola mixture.",
-        "PLACE the yogurt and maple syrup in a small bowl and whisk until smooth. Pour over the top of the pressed granola and raspberries and smooth evenly.",
-        "PLACE in the freezer for at least four hours or overnight.",
-        "ONCE frozen, lift the parchment out of the pan and the bars sheet on a cutting board. Cut into 10 slices.",
-        "STORE bars in an airtight container in the freezer."
+        "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
+        "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
+        "ADD the dry ingredients back into the blender and mix until combined.",
+        "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking.",
+        "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter.",
+        "ADD your favorite toppings and enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Chocolate Raspberry Frozen Yogurt Bars",
+      "title": "Oatmeal Cottage Cheese Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-02": {
@@ -193741,46 +193762,62 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup medjool dates, not packed, pits removed"
+          "qty_name": "1 pear"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup boiling water"
+          "qty_name": "1 teaspoon coconut oil"
         },
         {
           "price": null,
-          "qty_name": "1 bag Kodiak Honey Oat Granola"
+          "qty_name": "1 teaspoon pure maple syrup"
         },
         {
           "price": null,
-          "qty_name": "24 ounces plain Greek yogurt (the thicker the better)"
+          "qty_name": "1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup maple syrup"
+          "qty_name": "3/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla extract"
+          "qty_name": "2 tablespoons flax seeds"
         },
         {
           "price": null,
-          "qty_name": "1 cup fresh berries (any assortment - slice strawberries if using)"
+          "qty_name": "1 tablespoon pure maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon vanilla"
+        },
+        {
+          "price": null,
+          "qty_name": "1/8 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "1/8 teaspoon cardamom"
+        },
+        {
+          "price": null,
+          "qty_name": "pomegranate seeds, almond butter, honey (optional)"
         }
       ],
       "lang": "en",
       "market": "US-NE-DC",
       "meta": {
-        "cook": null,
+        "cook": "25 mins",
         "est_cost": null,
-        "prep": "60+",
-        "serves": "10"
+        "prep": "5 mins",
+        "serves": "2"
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: yogurt-pie chosen deterministically for US-NE-DC|2026-03 among recipes naming the ingredient",
-          "recipe_id": "yogurt-pie",
+          "reason": "ingredient rotation: baked-pear-cardamom-porridge chosen deterministically for US-NE-DC|2026-03 among recipes naming the ingredient",
+          "recipe_id": "baked-pear-cardamom-porridge",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -193796,8 +193833,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "yogurt-pie",
-        "name": "Yogurt Pie"
+        "id": "baked-pear-cardamom-porridge",
+        "name": "Baked Pear Cardamom Porridge"
       },
       "render": {
         "canvas": {
@@ -194274,17 +194311,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE the dates in a cup and pour the hot water over them. Let sit for 10 minutes.",
-        "MEASURE out 1/4 cup of granola and set aside for garnish.",
-        "PLACE the rest of the contents of the bag of granola. In a food processor. At the soaked dates, reserving any remaining water in the cup. Process for 1-2 minutes or until broken down into small crumbles. Let sit for five minutes so that the granola can absorb some of the moisture.",
-        "PROCESS again, adding in as much remaining date water as needed for the mixture to come together in a firm but sticky dough. Dough should hold together easily when pinched.",
-        "PRESS the dough into an even layer covering the bottom sides of a standard pie dish. Cover and refrigerate for 2 hours.",
-        "PLACE the yogurt, maple syrup, and vanilla in a large mixing bowl. Whisk together until smooth.",
-        "SPOON the mixture into the granola crust and smooth to level. Top with assorted berries and reserved granola.",
-        "SERVE in chilled slices. Best eaten the same day made."
+        "PREHEAT oven to 400 degrees F.",
+        "CUT one pear in half and place in a baking dish cut side up. Spread coconut oil over the top of the pears and drizzle over 1 teaspoon of maple syrup. Bake at 400 degrees F for about 25 minutes.",
+        "IN a sauce pan, heat 3/4 cup milk. Add in oats, flax seeds, pure maple syrup, vanilla, cinnamon, and cardamom. Simmer over low heat for 5-10 minutes stirring every couple minutes.",
+        "REMOVE pears from oven and transfer into serving bowl. Remove porridge from heat and pour over the baked pears. Optionally, drizzle the top with honey and almond butter and pour in a couple tablespoons of pomegranate seeds."
       ],
       "substrate": "kraft",
-      "title": "Yogurt Pie",
+      "title": "Baked Pear Cardamom Porridge",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -199949,54 +199982,70 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Box Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "Pie Crust:"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon salt"
+          "qty_name": "2 cups of Kodiak Buttermilk Power Cakes Flapjack and Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "3 eggs"
+          "qty_name": "1 cup cold, unsalted butter, organic and grass-fed"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 cup Greek yogurt"
+          "qty_name": "About 8 tablespoons of ice water"
         },
         {
           "price": null,
-          "qty_name": "Juice and zest of two medium oranges"
+          "qty_name": "Pie Filling:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup real maple syrup"
+          "qty_name": "2-3/4 cups pumpkin puree (1-1/2 15-ounce cans yields 2-3/4 cups)"
         },
         {
           "price": null,
-          "qty_name": "1-1/2 teaspoons vanilla"
+          "qty_name": "1/4 cup maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1-1/4 cup whole milk"
+          "qty_name": "1/4 cup brown sugar"
         },
         {
           "price": null,
-          "qty_name": "1 cup dried cranberries"
+          "qty_name": "1/3 cup unsweetened plain almond milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon melted coconut oil"
+        },
+        {
+          "price": null,
+          "qty_name": "2-1/2 tablespoons cornstarch or arrowroot powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1-3/4 teaspoon pumpkin pie spice (or sub a mix of ginger, cinnamon, nutmeg & cloves)"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 teaspoon sea salt"
         }
       ],
       "lang": "en",
       "market": "US-NE-HARTFORD",
       "meta": {
-        "cook": "21",
+        "cook": "60 mins",
         "est_cost": null,
-        "prep": "15",
-        "serves": "30"
+        "prep": "40 mins",
+        "serves": "8"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: cranberry-orange-yogurt-muffins chosen deterministically for US-NE-HARTFORD|2026-02 among recipes naming the ingredient",
-          "recipe_id": "cranberry-orange-yogurt-muffins",
+          "reason": "ingredient rotation: pumpkin-pie chosen deterministically for US-NE-HARTFORD|2026-02 among recipes naming the ingredient",
+          "recipe_id": "pumpkin-pie",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -200012,8 +200061,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "cranberry-orange-yogurt-muffins",
-        "name": "Cranberry Orange Yogurt Muffins"
+        "id": "pumpkin-pie",
+        "name": "Pumpkin Pie"
       },
       "render": {
         "canvas": {
@@ -200480,15 +200529,20 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT oven to 350°F and line a muffin tin with liners or grease well.",
-        "IN a large bowl, whisk together eggs, Greek yogurt, orange juice and zest, maple syrup, vanilla, and milk until smooth.",
-        "ADD Kodiak Cakes mix and salt; stir until just combined. Fold in the dried cranberries.",
-        "DIVIDE batter evenly into 24 muffin tins, filling each about ¾ full.",
-        "BAKE for 16-21 minutes, or until the tops are set and a toothpick inserted in the center comes out clean.",
-        "LET cool in the pan for 5 minutes, then transfer to a wire rack to cool completely. Reheat Instructions: From the fridge, reheat in a 350° F oven or toaster oven for 6–10 minutes until warmed through."
+        "TO prepare crust, put Kodiak Cakes mix in a large bowl. Cut cold butter into small pieces and add to mix. Then, cut butter into mix using pastry cutter until butter is the size of peas.",
+        "MAKE a well in center of mix and add cold water by tablespoons. Combine just until the dough sticks together and forms a ball.",
+        "DIVIDE the dough in half. (After this point you may wrap and chill the dough if you want) Or, on a floured surface, roll dough into a large circle. Place in the pie tin and crimp the edges with your fingers. (Roll dough out onto a floured piece of parchment to make it easier to transport into pie tin.)",
+        "FOR the second pie, repeat with other half of dough, or refrigerate or freeze for another use.",
+        "PREHEAT oven to 350 degrees F and prepare pie filling.",
+        "ADD all pie ingredients to a blender and blend until smooth, scraping down sides as needed. Taste and adjust seasonings as needed. Set aside.",
+        "IF you chose to chill the dough remove from fridge and roll out the crust, unwrap and place it between two sizable layers of wax paper or on a floured surface. Use a rolling pin to gently roll it into the shape of your pie pan.",
+        "TO transfer the crust, remove the top layer of wax paper and gently lay the pie dish face down on top of the crust and use the support of the wax paper to quickly but carefully invert it.",
+        "PLACE in a pie tin and crimp edges.",
+        "POUR filling into pie crust and bake for 58-65 minutes. The crust should be light golden brown and the filling will still be just a bit jiggly and have some cracks on the top. Remove from oven and let cool completely before loosely covering and transferring to the refrigerator to fully set for 4-6 hours, preferably overnight. (If the pie crust begins to brown before filling is done lightly cover pie with tinfoil and continue to cook.)",
+        "SLICE and serve with coconut whipped cream, whip cream and/or an additional sprinkle of cinnamon, nutmeg, and/or pumpkin pie spice (optional)."
       ],
       "substrate": "kraft",
-      "title": "Cranberry Orange Yogurt Muffins",
+      "title": "Pumpkin Pie",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -206615,42 +206669,42 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 Kodiak Berries & Cream Peak Oatmeal Packets"
+          "qty_name": "8 Kodiak Blueberry Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1 egg"
+          "qty_name": "3/4 cup plain full-fat Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons butter, melted"
+          "qty_name": "2 tablespoons maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon maple syrup"
+          "qty_name": "Juice of 1 lemon"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup whole milk"
+          "qty_name": "1/2 cup blueberries"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup berries (blueberries, raspberries, blackberries), to top"
+          "qty_name": "Zest of 1 lemon"
         }
       ],
       "lang": "en",
       "market": "US-NE-MANHATTAN",
       "meta": {
-        "cook": "16 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "6"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: berry-baked-oatmeal-bars chosen deterministically for US-NE-MANHATTAN|2026-02 among recipes naming the ingredient",
-          "recipe_id": "berry-baked-oatmeal-bars",
+          "reason": "ingredient rotation: protein-packed-blueberry-lemon-waffles chosen deterministically for US-NE-MANHATTAN|2026-02 among recipes naming the ingredient",
+          "recipe_id": "protein-packed-blueberry-lemon-waffles",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -206661,13 +206715,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "berry-baked-oatmeal-bars",
-        "name": "Berry Baked Oatmeal Bars"
+        "id": "protein-packed-blueberry-lemon-waffles",
+        "name": "Protein-Packed Blueberry Lemon Waffles"
       },
       "render": {
         "canvas": {
@@ -207154,17 +207210,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F. Line a loaf pan with parchment paper.",
-        "PLACE the contents of the oatmeal packets in a high-speed blender along with the egg, butter, maple syrup, and milk",
-        "PULSE several times to break up the oats a bit. Let the batter rest for 10 minutes.",
-        "SPOON the batter evenly into the parchment lined loaf pan.",
-        "PLACE the berries evenly over the top of the oat mixture, breaking them into halves if they are large.",
-        "BAKE for 15-18 minutes or until golden brown and cooked through.",
-        "LET cool completely. Remove from pan and cut into 6 slices.",
-        "STORE in an airtight container. *Pro Tip: This recipe can be doubled and baked in an 8x8\" or 9x9\" baking pan to make 12 servings."
+        "TOAST the waffles until lightly golden brown. Place on a platter.",
+        "ADD the yogurt, maple syrup, and lemon juice to a mixing bowl and whisk until smooth.",
+        "PLACE dollops of the lemon protein whip on top of the toasted waffles.",
+        "TOP the waffles with the lemon zest and fresh blueberries.",
+        "DRIZZLE maple syrup over waffles, if desired."
       ],
       "substrate": "kraft",
-      "title": "Berry Baked Oatmeal Bars",
+      "title": "Protein-Packed Blueberry Lemon Waffles",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -213484,51 +213537,51 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Chocolate:"
+          "qty_name": "1 cup Kodiak Classic Rolled Oats Canister"
         },
         {
           "price": null,
-          "qty_name": "2/3 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1-1/2 teaspoon baking powder"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup water"
+          "qty_name": "1/2 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "2 teaspoons melted coconut oil"
+          "qty_name": "Pinch of salt"
         },
         {
           "price": null,
-          "qty_name": "2 tablespoons cocoa powder"
+          "qty_name": "1 banana"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon honey or maple syrup\r\n\r\n\r\n \r\n\r\nVanilla:"
+          "qty_name": "2 eggs"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1/2 cup cottage cheese"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla\r\n\r\n\r\n \r\n\r\nRaspberry:"
+          "qty_name": "1 teaspoon vanilla"
         },
         {
           "price": null,
-          "qty_name": "2 teaspoon melted coconut oil"
+          "qty_name": "3 tablespoons milk\r\n\r\n\r\n \r\n\r\nOptional Toppings:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup mashed fresh raspberries"
+          "qty_name": "Fresh berries"
         },
         {
           "price": null,
-          "qty_name": "1 tablepoon honey or maple syrup"
+          "qty_name": "Butter"
         },
         {
           "price": null,
-          "qty_name": "*Optional: beet root powder for coloring"
+          "qty_name": "Maple Syrup"
         }
       ],
       "lang": "en",
@@ -213537,13 +213590,13 @@ window.KODIAK_RECIPE_CARDS = {
         "cook": "10 mins",
         "est_cost": null,
         "prep": "10 mins",
-        "serves": "4"
+        "serves": "2"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: neapolitan-waffle chosen deterministically for US-NE-NYC|2026-02 among recipes naming the ingredient",
-          "recipe_id": "neapolitan-waffle",
+          "reason": "ingredient rotation: oatmeal-cottage-cheese-pancakes chosen deterministically for US-NE-NYC|2026-02 among recipes naming the ingredient",
+          "recipe_id": "oatmeal-cottage-cheese-pancakes",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -213559,8 +213612,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "neapolitan-waffle",
-        "name": "Neapolitan Waffles"
+        "id": "oatmeal-cottage-cheese-pancakes",
+        "name": "Oatmeal Cottage Cheese Pancakes"
       },
       "render": {
         "canvas": {
@@ -214047,16 +214100,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT your waffle iron to medium-high heat.",
-        "IN one bowl, combine Kodiak Cakes Buttermilk mix and cocoa powder, then add water, coconut oil, and honey. Add to a piping bag and set aside.",
-        "IN a second bowl, combine Kodiak Cakes Buttermilk mix with water, vanilla, and coconut oil. Add to a piping bag and set aside.",
-        "IN a third bowl, combine Kodiak Cakes Buttermilk mix with water, coconut oil, fresh mashed raspberries, honey, and optional beet root powder. Add to a piping bag and set aside.",
-        "PREP your waffle iron with non-stick spray, and in the preheated iron, carefully pipe each flavor into 3 equal parts and shut the lid.",
-        "ONCE cooked, repeat step 5 with remaining batter.",
-        "SERVE warm with your favorite toppings like whipped cream and strawberries. Enjoy!"
+        "ADD the Kodiak Cakes oats, baking powder, cinnamon, and salt to a blender. Mix until it resembles a coarse flour. Pour into a bowl and set aside.",
+        "ADD the banana, eggs, cottage cheese, vanilla, and milk to the same blender. Blend until smooth.",
+        "ADD the dry ingredients back into the blender and mix until combined.",
+        "PREHEAT a skillet or griddle to medium-high heat. Grease when ready to start cooking.",
+        "SCOOP about 1/4 cup of batter at a time onto the skillet and cook until bubbles start to form on top before flipping. Repeat with the remainder of the batter.",
+        "ADD your favorite toppings and enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Neapolitan Waffles",
+      "title": "Oatmeal Cottage Cheese Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -227558,91 +227610,19 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "Breakfast Pizza:"
+          "qty_name": "4 Kodiak Buttermilk & Vanilla Thick & Fluffy Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1 recipe Protein Pizza Dough"
+          "qty_name": "1/2 cup chopped mixed nuts and seeds (pecans, walnuts, pumpkin seeds, chia seeds, etc.)"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon butter, melted"
+          "qty_name": "Butter"
         },
         {
           "price": null,
-          "qty_name": "4 cups shredded mozzarella"
-        },
-        {
-          "price": null,
-          "qty_name": "4 slices cooked bacon or prosciutto"
-        },
-        {
-          "price": null,
-          "qty_name": "1 small yellow potato, thinly sliced into rounds"
-        },
-        {
-          "price": null,
-          "qty_name": "4 eggs"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon chives, chopped"
-        },
-        {
-          "price": null,
-          "qty_name": "Salt and pepper to taste"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "Classic Pepperoni Pizza:"
-        },
-        {
-          "price": null,
-          "qty_name": "1 recipe Protein Pizza Dough"
-        },
-        {
-          "price": null,
-          "qty_name": "3/4 cup marinara sauce"
-        },
-        {
-          "price": null,
-          "qty_name": "4 cups shredded mozzarella"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup pepperoni"
-        },
-        {
-          "price": null,
-          "qty_name": "Dessert Oreo Pizza:"
-        },
-        {
-          "price": null,
-          "qty_name": "1 recipe Protein Pizza Dough"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon butter, melted"
-        },
-        {
-          "price": null,
-          "qty_name": "12 Oreos, crushed"
-        },
-        {
-          "price": null,
-          "qty_name": "4 ounces cream cheese, room temperature"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup powdered sugar"
-        },
-        {
-          "price": null,
-          "qty_name": "2 tablespoons chocolate syrup"
+          "qty_name": "Maple syrup"
         }
       ],
       "lang": "en",
@@ -227656,8 +227636,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: heart-shaped-pizza chosen deterministically for US-NE-PROVIDENCE|2026-02 among recipes naming the ingredient",
-          "recipe_id": "heart-shaped-pizza",
+          "reason": "ingredient rotation: protein-packed-maple-waffles chosen deterministically for US-NE-PROVIDENCE|2026-02 among recipes naming the ingredient",
+          "recipe_id": "protein-packed-maple-waffles",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -227675,8 +227655,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "heart-shaped-pizza",
-        "name": "Heart-Shaped Pizza"
+        "id": "protein-packed-maple-waffles",
+        "name": "Protein-Packed Maple Waffles"
       },
       "render": {
         "canvas": {
@@ -228153,27 +228133,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "USE our Protein Pizza Dough recipe to prep your pizza dough.",
-        "PREHEAT the oven to 400° Fahrenheit.",
-        "LINE a baking sheet with parchment paper.",
-        "ROLL the prepared pizza dough into the shape of a 10” heart.",
-        "SEE 3 of our favorite topping combos below to prep and bake your pizza! Breakfast Pizza: Complete steps 1-4 above and use the following steps to prep and bake your pizza.",
-        "BRUSH the melted butter over the surface of the dough.",
-        "SPREAD the mozzarella over the top of the pizza, then top with the sliced potatoes and bacon or prosciutto.",
-        "BAKE in the preheated oven for 7 minutes. Remove and crack three eggs over the top of the pizza. Sprinkle with salt and pepper.",
-        "CONTINUE to bake for an additional 7-8 minutes. Remove from oven with cheese is bubbling and egg whites are cooked through.",
-        "LET cool slightly, then top with chives and maple syrup. Classic Pepperoni Pizza: Complete steps 1-4 above and use the following steps to prep and bake your pizza.",
-        "TOP the dough with the marinara, mozzarella, and pepperoni.",
-        "BAKE for 12-15 minutes, or until cheese is bubbling and crust is lightly golden brown. Dessert Oreo Pizza: Complete steps 1-4 above and use the following steps to prep and bake your pizza.",
-        "BRUSH the melted butter over the surface of the dough.",
-        "SPREAD the crumbled Oreos over the top of the pizza dough.",
-        "BAKE for 12-15 minutes or until crust is lightly golden brown.",
-        "WHILE pizza bakes, place the cream cheese and powdered sugar in a mixing bowl and beat together with an electric mixer until smooth.",
-        "REMOVE the pizza from the oven and let cool slightly.",
-        "DRIZZLE the cream cheese mixture and the chocolate syrup over the top of the pizza."
+        "TOAST the waffles until lightly golden brown.",
+        "TOP waffles with slices of butter and let melt.",
+        "DRIZZLE waffles with maple syrup.",
+        "TOP each waffle with mixed chopped nuts and seeds. Enjoy!"
       ],
       "substrate": "kraft",
-      "title": "Heart-Shaped Pizza",
+      "title": "Protein-Packed Maple Waffles",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -241217,58 +241183,50 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Blueberry Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 medium sweet potato, *roasted (about 2/3 cup)"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup milk of choice"
+          "qty_name": "1 cup water"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup ricotta"
+          "qty_name": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "2 eggs"
+          "qty_name": "1 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon vanilla"
+          "qty_name": "1 teaspoon vanilla extract"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup blueberries\r\n\r\n\r\n \r\n\r\nToppings:"
+          "qty_name": "1/3 cup pecans, toasted (can use candied pecans, if desired)"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup ricotta"
+          "qty_name": "Butter, to top and grease pan"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon real maple syrup"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon lemon juice"
-        },
-        {
-          "price": null,
-          "qty_name": "Fresh blueberries"
+          "qty_name": "Maple syrup, to top\r\n\r\n\r\n \r\n\r\n*To roast the sweet potato, preheat oven to 375° F. Add the sweet potato directly to the rack and cook for 35-40 minutes, or until soft. Remove from oven and let cool in its skin. Use as directed."
         }
       ],
       "lang": "en",
       "market": "US-OH-CINCINNATI",
       "meta": {
-        "cook": "10 mins",
+        "cook": "5 mins",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "2"
+        "prep": "5 mins",
+        "serves": "4"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: blueberry-ricotta-pancakes chosen deterministically for US-OH-CINCINNATI|2026-02 among recipes naming the ingredient",
-          "recipe_id": "blueberry-ricotta-pancakes",
+          "reason": "ingredient rotation: sweet-potato-pancakes chosen deterministically for US-OH-CINCINNATI|2026-02 among recipes naming the ingredient",
+          "recipe_id": "sweet-potato-pancakes",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -241284,8 +241242,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "blueberry-ricotta-pancakes",
-        "name": "Blueberry Ricotta Pancakes"
+        "id": "sweet-potato-pancakes",
+        "name": "Sweet Potato Pancakes"
       },
       "render": {
         "canvas": {
@@ -241807,15 +241765,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "ADD Kodiak Cakes mix, milk, egg, ricotta, and vanilla to a bowl. Mix until combined.",
-        "GENTLY fold in blueberries.",
-        "SCOOP about a 1/4 cup of batter per pancake onto a heated and greased skillet.",
-        "ALLOW to cook until bubbles form, then flip.",
-        "MIX together ricotta and maple syrup until smooth to make a sweet ricotta topping.",
-        "STACK and enjoy!"
+        "REMOVE the skin from the sweet potato and discard.",
+        "ADD the sweet potato, water, Kodiak Cakes mix, cinnamon, and vanilla to a blender. Process until a smooth batter is formed.",
+        "HEAT a skillet over medium heat.",
+        "GREASE skillet with butter and add a spoonful of batter about 1/4 cup in volume. Quickly smooth into a circle and cook until bubbles form on the top. Flip and cook for an additional 30 seconds, or until golden on both sides.",
+        "REPEAT the process with remaining batter.",
+        "SERVE pancakes topped with butter, maple syrup, and a sprinkle of toasted pecans."
       ],
       "substrate": "kraft",
-      "title": "Blueberry Ricotta Pancakes",
+      "title": "Sweet Potato Pancakes",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -248509,54 +248467,50 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "2 cups oats"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon pumpkin spice"
+          "qty_name": "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup pumpkin purée"
+          "qty_name": "1/2 cup nuts, seeds, or coconut flakes"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup maple syrup"
+          "qty_name": "1/4 cup maple syrup"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup almond butter"
+          "qty_name": "1/4 cup oil"
         },
         {
           "price": null,
-          "qty_name": "1/3 cup walnuts\r\n\r\n\r\n \r\n\r\nGlaze (optional)"
+          "qty_name": "1/2 teaspoon cinnamon"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup confectioners sugar"
+          "qty_name": "4 peaches, pitted and cut in half"
         },
         {
           "price": null,
-          "qty_name": "1-2 tablespoons vanilla extract"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup milk of choice"
+          "qty_name": "2 cups vanilla ice cream"
         }
       ],
       "lang": "en",
       "market": "US-OH-DAYTON",
       "meta": {
-        "cook": "20 mins",
+        "cook": "25",
         "est_cost": null,
-        "prep": "10 mins",
-        "serves": "12"
+        "prep": "5",
+        "serves": "6"
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: pumpkin-protein-balls chosen deterministically for US-OH-DAYTON|2026-02 among recipes naming the ingredient",
-          "recipe_id": "pumpkin-protein-balls",
+          "reason": "ingredient rotation: grilled-peaches-and-granola chosen deterministically for US-OH-DAYTON|2026-02 among recipes naming the ingredient",
+          "recipe_id": "grilled-peaches-and-granola",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -248572,8 +248526,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "pumpkin-protein-balls",
-        "name": "Pumpkin Protein Balls"
+        "id": "grilled-peaches-and-granola",
+        "name": "Grilled Peaches & Granola"
       },
       "render": {
         "canvas": {
@@ -249095,16 +249049,13 @@ window.KODIAK_RECIPE_CARDS = {
       ],
       "steps": [
         "PREHEAT oven to 350° F.",
-        "IN a bowl, whisk together Kodiak Cakes mix and pumpkin spice. Set aside.",
-        "IN a separate bowl, mix pumpkin puree, maple syrup and almond butter until smooth.",
-        "ADD the wet ingredients to the dry ingredients, stirring to fully combine.",
-        "GENTLY fold in the walnuts.",
-        "ROLL dough into 1-inch balls and place on a parchment-lined baking sheet.",
-        "BAKE for 15-20 minutes, or until set and lightly golden on the bottom.",
-        "LET cool slightly before digging in. Enjoy!"
+        "MIX all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
+        "BAKE for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
+        "BRUSH maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
+        "DIVIDE grilled peaches, ice cream, and granola into 4 bowls and serve."
       ],
       "substrate": "kraft",
-      "title": "Pumpkin Protein Balls",
+      "title": "Grilled Peaches & Granola",
       "variant": "hero-plus-layout"
     },
     "2026-03": {

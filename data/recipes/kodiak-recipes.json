@@ -11473,7 +11473,30 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Chocolate Chip Coffee Cake Muffins",
+    "title": "Chocolate Chip Coffee Cake Muffins",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "2 cups Kodiak Chocolate Chip Power Cakes Flapjack & Waffle Mix",
+      "3/4 cup milk of choice",
+      "1/2 cup brown sugar",
+      "1/4 cup butter, melted",
+      "2 ripe bananas, mashed",
+      "1 egg",
+      "3 tablespoons instant coffee (optional)"
+    ],
+    "directions": "1. Preheat oven to 350° F.\n2. Combine all ingredients in a mixing bowl and blend until smooth.\n3. Fill greased muffin tin cups 3/4 full.\n4. Bake for 16-18 minutes, or until tops are golden.",
+    "instructions": [
+      "Preheat oven to 350° F.",
+      "Combine all ingredients in a mixing bowl and blend until smooth.",
+      "Fill greased muffin tin cups 3/4 full.",
+      "Bake for 16-18 minutes, or until tops are golden."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 18,
+    "servings": "12",
+    "source": "brand_json_ld"
   },
   {
     "id": "strawberry-pie",
@@ -11900,7 +11923,29 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Breakfast Sausage Dippers",
+    "title": "Breakfast Sausage Dippers",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1 tablespoon butter or oil",
+      "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 cup water",
+      "12 mini breakfast sausages, cooked",
+      "1/4 cup maple syrup for dipping"
+    ],
+    "directions": "1. Heat the butter or oil in a nonstick skillet over medium-high heat.\n2. Combine Kodiak mix and water in a medium bowl and stir until smooth.\n3. Coat the cooked sausages in the prepped flapjack mix and place on the skillet.\n4. Cook for 1 minute on each side or until all the batter is cooked thoroughly and golden in color.\n5. Serve with maple syrup.",
+    "instructions": [
+      "Heat the butter or oil in a nonstick skillet over medium-high heat.",
+      "Combine Kodiak mix and water in a medium bowl and stir until smooth.",
+      "Coat the cooked sausages in the prepped flapjack mix and place on the skillet.",
+      "Cook for 1 minute on each side or until all the batter is cooked thoroughly and golden in color.",
+      "Serve with maple syrup."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": 10,
+    "servings": "12",
+    "source": "brand_json_ld"
   },
   {
     "id": "hamburger-buns",
