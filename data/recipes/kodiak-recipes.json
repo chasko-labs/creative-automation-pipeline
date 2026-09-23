@@ -10284,7 +10284,37 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Pumpkin Chocolate Donuts",
+    "title": "Pumpkin Chocolate Donuts",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "Donuts:",
+      "1-1/2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix",
+      "1/2 cup sugar",
+      "1/2 cup butter, melted",
+      "2 eggs",
+      "1/4 cup milk",
+      "1/2 cup chocolate chips",
+      "Glaze:",
+      "3/4 cup powdered sugar",
+      "2 tablespoons cocoa powder",
+      "2-3 tablespoons milk",
+      "1/2 teaspoon vanilla"
+    ],
+    "directions": "1. Preheat oven to 350°F and grease a donut pan with oil or butter.\n2. In a large bowl, combine Kodiak mix, sugar, butter, eggs, milk, and chocolate chips.\n3. Spoon or pipe batter into the greased doughnut pan.\n4. Bake for 10-12 minutes or until a toothpick into the center of a doughnut comes out clean. Let cool completely.\n5. Combine powdered sugar, cocoa powder, milk, and vanilla. Whisk until smooth.\n6. Dip or drizzle over the top of the cooled donuts. Top with Halloween sprinkles.",
+    "instructions": [
+      "Preheat oven to 350°F and grease a donut pan with oil or butter.",
+      "In a large bowl, combine Kodiak mix, sugar, butter, eggs, milk, and chocolate chips.",
+      "Spoon or pipe batter into the greased doughnut pan.",
+      "Bake for 10-12 minutes or until a toothpick into the center of a doughnut comes out clean. Let cool completely.",
+      "Combine powdered sugar, cocoa powder, milk, and vanilla. Whisk until smooth.",
+      "Dip or drizzle over the top of the cooled donuts. Top with Halloween sprinkles."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 12,
+    "servings": "12",
+    "source": "brand_json_ld"
   },
   {
     "id": "cookie-dough-dip",
@@ -11085,7 +11115,39 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Pumpkin Chocolate Chip Muffin Top Cookies",
+    "title": "Pumpkin Chocolate Chip Muffin Top Cookies",
+    "course": "desserts",
+    "ingredients": [
+      "1/2 cup avocado oil",
+      "1/2 cup dark brown sugar, gently packed",
+      "1/4 cup sugar",
+      "1 cup pumpkin purée",
+      "1 teaspoon vanilla",
+      "1 egg",
+      "2 cups Kodiak Pumpkin Power Cakes Flapjack & Waffle Mix",
+      "1-1/2 teaspoons baking soda",
+      "1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister",
+      "1 cup chocolate chips"
+    ],
+    "directions": "1. Preheat the oven to 350° F. Line a baking sheet with parchment paper.\n2. Place the avocado oil, brown sugar, sugar, pumpkin purée, vanilla, and egg in a mixing bowl and whisk together until smooth.\n3. In a separate bowl, whisk together the Kodiak mix, baking soda, and Kodiak oats.\n4. Add the dry ingredients to the wet mixture and beat together to form a smooth batter.\n5. Add the chocolate chips and fold in evenly.\n6. Let sit for 5 minutes.\n7. Scoop ¼ cup mounds of dough onto the prepared baking sheet (a large cookie scoop works well for this), spaced 3 inches apart.\n8. Bake in the preheated oven for 16-18 minutes, until fully cooked.\n9. Remove from the oven and cool on a wire rack.\n10. Store in an airtight container.",
+    "instructions": [
+      "Preheat the oven to 350° F. Line a baking sheet with parchment paper.",
+      "Place the avocado oil, brown sugar, sugar, pumpkin purée, vanilla, and egg in a mixing bowl and whisk together until smooth.",
+      "In a separate bowl, whisk together the Kodiak mix, baking soda, and Kodiak oats.",
+      "Add the dry ingredients to the wet mixture and beat together to form a smooth batter.",
+      "Add the chocolate chips and fold in evenly.",
+      "Let sit for 5 minutes.",
+      "Scoop ¼ cup mounds of dough onto the prepared baking sheet (a large cookie scoop works well for this), spaced 3 inches apart.",
+      "Bake in the preheated oven for 16-18 minutes, until fully cooked.",
+      "Remove from the oven and cool on a wire rack.",
+      "Store in an airtight container."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 18,
+    "servings": "14",
+    "source": "brand_json_ld"
   },
   {
     "id": "blueberry-scone",
