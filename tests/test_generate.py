@@ -385,32 +385,59 @@ def test_parse_layout_invalid_side_line_never_becomes_headline() -> None:
     assert side == "center"
 
 
-# --------------------------------------------------------------- mascot lock (Unit 2)
+# --------------------------------------------------------------- bear law (brand standard)
 def test_style_sandwich_default_has_no_mascot_block(monkeypatch) -> None:
-    # lock OFF (default): existing renders are byte-identical, no descriptor injected.
-    monkeypatch.delenv("KODIAK_MASCOT_LOCK", raising=False)
+    # The frozen mascot block is deleted: no env flag can inject bear identity,
+    # and the module carries no mascot descriptor at all.
+    monkeypatch.setenv("KODIAK_MASCOT_LOCK", "1")
+    monkeypatch.setenv("KODIAK_MASCOT_DESCRIPTOR", "friendly bear mascot")
     out = generate._style_sandwich("wild frontier restyle")
     assert out == f"{generate.STYLE_HEAD}wild frontier restyle{generate.STYLE_TAIL}"
-    assert generate.MASCOT_DESCRIPTOR_BLOCK not in out
+    assert not hasattr(generate, "MASCOT_DESCRIPTOR_BLOCK")
+    assert not hasattr(generate, "_mascot_lock_on")
+    assert not hasattr(generate, "_mascot_block")
+    assert "friendly" not in out and "mascot" not in out.lower()
 
 
-def test_style_sandwich_mascot_lock_pins_frozen_block(monkeypatch) -> None:
-    # lock ON: the frozen descriptor lands in the SUBJECT slot ahead of the scene,
-    # inside the frozen style ends; repeated wrapping is idempotent (one block only).
-    monkeypatch.setenv("KODIAK_MASCOT_LOCK", "1")
-    once = generate._style_sandwich("log cabin at dawn")
-    assert once.startswith(generate.STYLE_HEAD)
-    assert once.endswith(generate.STYLE_TAIL)
-    # brand scrub: the bear-identity words survive but the brand token never
-    # reaches the image model, even inside the frozen mascot block.
-    assert "kodiak" not in once.lower()
-    scrubbed_block = generate._BRAND_SCRUB_RE.sub(
-        "", generate.MASCOT_DESCRIPTOR_BLOCK
-    ).strip()
-    assert scrubbed_block in once
-    assert once.index(scrubbed_block) < once.index("log cabin at dawn")
-    twice = generate._style_sandwich(once)
-    assert twice == once
+def test_bear_law_clause_request_driven() -> None:
+    # Bear-free by default; the wild-grizzly-bears theme or a bear-naming
+    # brief earns the constraint clause — never a mascot.
+    assert generate._bear_law_clause(None, "wild mornings") == ""
+    assert generate._bear_law_clause("us-ski-snowboard", "wild mornings") == ""
+    themed = generate._bear_law_clause("wild-grizzly-bears", "wild mornings")
+    assert themed and "no mascot" in themed and "human-free" in themed
+    assert "friendly" not in themed and "amber" not in themed
+    briefed = generate._bear_law_clause(None, "grizzly country at dawn")
+    assert briefed == generate._BEAR_LAW_CLAUSE
+    # "bear-brown timber" is palette language, not a bear request.
+    assert generate._bear_law_clause(None, "bear-brown timber and kraft tones") == ""
+
+
+def test_default_scene_prompt_bear_law_only_when_requested() -> None:
+    plain = generate._default_scene_prompt("P", "wild mornings", "us", "f", None)
+    assert "Bear direction" not in plain
+    assert "mascot" not in plain.lower()
+    themed = generate._default_scene_prompt(
+        "P", "wild mornings", "us", "f", "wild-grizzly-bears"
+    )
+    assert "Bear direction (brand law)" in themed
+    assert "no bear touching product" in themed
+
+
+def test_conservation_badge_layer_normalizes_and_ships_clean(tmp_path) -> None:
+    # The slot normalizes like any layer flag; with no raster on disk the
+    # render ships clean and records unresolved — never a fabricated mark.
+    normed = generate.normalize_layers({"conservation_badge": True})
+    assert normed == {generate.LAYER_COBADGE: True}
+    assert generate.normalize_layers({"bogus_mark": True}) == {}
+    from PIL import Image
+
+    base = tmp_path / "base.png"
+    Image.new("RGB", (640, 640), (200, 150, 100)).save(base, "PNG")
+    prov: dict = {}
+    generate._apply_layer_marks(base, {generate.LAYER_COBADGE: True}, prov)
+    assert prov.get("cobadge_layer") == "unresolved:asset-missing"
+    assert "conservation_badge" not in (prov.get("layer_marks") or [])
 
 
 def test_deterministic_mode_stable_across_hash_seeds(monkeypatch) -> None:

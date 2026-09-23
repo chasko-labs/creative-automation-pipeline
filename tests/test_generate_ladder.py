@@ -62,7 +62,7 @@ def test_mapped_sku_returns_rung_a(tmp_path, monkeypatch):
     stability_calls = {"n": 0}
     monkeypatch.setattr(
         generate_mod, "_stability_control_hero",
-        lambda s, p, o: stability_calls.__setitem__("n", stability_calls["n"] + 1) or None,
+        lambda s, p, o, **_k: stability_calls.__setitem__("n", stability_calls["n"] + 1) or None,
     )
 
     out = tmp_path / "hero.png"
@@ -95,7 +95,7 @@ def test_packshot_without_seed_runs_director_headline(tmp_path, monkeypatch):
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
-    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o, **_k: None)
     monkeypatch.setenv("KODIAK_DIRECTOR_GROUNDED", "true")
     monkeypatch.setattr(
         generate_mod, "_director_headline_text", lambda *a, **k: "Wild Mornings Start Here"
@@ -180,7 +180,7 @@ def test_no_seed_no_packshot_lands_rung_d(tmp_path, monkeypatch):
     stability_calls = {"n": 0}
     monkeypatch.setattr(
         generate_mod, "_stability_control_hero",
-        lambda s, p, o: stability_calls.__setitem__("n", stability_calls["n"] + 1) or None,
+        lambda s, p, o, **_k: stability_calls.__setitem__("n", stability_calls["n"] + 1) or None,
     )
 
     out = tmp_path / "hero.png"
@@ -235,7 +235,7 @@ def _install_handler_stubs(monkeypatch, tmp_path):
     def _stub_hero(*, product_id, product_name, brief_msg, region, audience, out_path,
                    idx=0, ratio="1x1", theme=None, brand_overlay=True, paper_overlay=True,
                    seed_key=None, layers=None, themes=None, dish=None,
-                   art_director=False):
+                   art_director=False, market=None, season=None):
         p = Path(out_path)
         generate_mod._brand_floor(product_name, ratio, p)
         return p, generate_mod.BRAND_FLOOR_SOURCE, {"rung": "D", "engine": "brand-floor"}
@@ -304,7 +304,7 @@ def test_budget_wall_skips_rung_b_lands_rung_c(tmp_path, monkeypatch):
     stability_calls = {"n": 0}
     monkeypatch.setattr(
         generate_mod, "_stability_control_hero",
-        lambda s, p, o: stability_calls.__setitem__("n", stability_calls["n"] + 1) or seed,
+        lambda s, p, o, **_k: stability_calls.__setitem__("n", stability_calls["n"] + 1) or seed,
     )
 
     out = tmp_path / "hero.png"
@@ -382,7 +382,7 @@ def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypa
     stability_calls = {"n": 0}
     monkeypatch.setattr(
         generate_mod, "_stability_control_hero",
-        lambda s, p, o: stability_calls.__setitem__("n", stability_calls["n"] + 1) or seed,
+        lambda s, p, o, **_k: stability_calls.__setitem__("n", stability_calls["n"] + 1) or seed,
     )
 
     # Pin B/C budgets to the pre-seasonal calibration so the 19s B gate + 7+13+3
@@ -441,7 +441,7 @@ def _seed_and_box_fetch(seed_src: Path):
 
 
 def _copy_stability(calls: dict):
-    def _ok(src: Path, prompt: str, out: Path):
+    def _ok(src: Path, prompt: str, out: Path, **_k):
         calls["n"] += 1
         calls["prompt"] = prompt
         out = Path(out)
@@ -510,7 +510,7 @@ def test_mapped_sku_restyle_failure_keeps_unstyled_rung_a(tmp_path, monkeypatch)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
-    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o, **_k: None)
 
     out = tmp_path / "hero.png"
     result, source, prov = generate_mod.generate_hero(
@@ -557,7 +557,7 @@ def test_staged_seed_key_beats_sku_mapped(tmp_path, monkeypatch):
     # sku-mapped lookup would also resolve — staged pick must win.
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: "scene/other.png")
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
-    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o, **_k: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
 
@@ -598,7 +598,7 @@ def test_staged_seed_label_survives_packshot_paste(tmp_path, monkeypatch):
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
-    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o, **_k: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
 
@@ -628,7 +628,7 @@ def test_staged_seed_marks_riff_on(tmp_path, monkeypatch):
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
-    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o, **_k: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
 
@@ -659,7 +659,7 @@ def test_staged_seed_fetch_failure_falls_through(tmp_path, monkeypatch):
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: seed_src)
-    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o, **_k: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
 

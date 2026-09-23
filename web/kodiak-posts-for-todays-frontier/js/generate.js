@@ -560,7 +560,7 @@ let skuList = [
   try{ renderPlatformMatrix(); }catch(e){}
 
   // Compose layers — independently-selectable, ALL OFF by default. Reads the creative-direction
-  // checkbox cards into the {product_image, retailer, partner_logo} contract the /generate backend
+  // checkbox cards into the {product_image, retailer, partner_logo, conservation_badge} contract the /generate backend
   // normalizes; an empty object means a clean standalone image. Each card drives its own mark
   // directly — no standalone mark flags. Retailer composes iff a SPECIFIC retailer is checked
   // (window.__activeRetailerValue, most-recent checked wins; All alone -> brief only, no mark).
@@ -572,6 +572,7 @@ let skuList = [
       const retailerVal = (typeof window.__activeRetailerValue === 'function' && window.__activeRetailerValue()) || null;
       if(retailerVal) layers.retailer = retailerVal;
       if((/** @type {HTMLInputElement|null} */ (document.querySelector('#promptChips .ff-check-card__input[data-theme="us-ski-snowboard"]')))?.checked) layers.partner_logo = true;
+      if((/** @type {HTMLInputElement|null} */ (document.querySelector('#promptChips .ff-check-card__input[data-theme="wild-grizzly-bears"]')))?.checked) layers.conservation_badge = true;
     }catch(e){}
     return layers;
   };

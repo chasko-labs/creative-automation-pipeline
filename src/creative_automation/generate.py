@@ -194,10 +194,15 @@ _RESTYLE_CACHE_BUCKET = os.getenv("ASSET_STORE_S3_BUCKET", "").strip() or os.get
 
 def _restyle_cache_key(seed_bytes: bytes, product_name: str, brief_msg: str,
                         region: str, audience: str, theme: str | None,
-                        dish: str | None = None) -> str:
+                        dish: str | None = None, market: str | None = None,
+                        season: str | None = None, seed_value: int | None = None) -> str:
     h = hashlib.sha256()
     h.update(seed_bytes)
-    for part in (product_name, brief_msg, region, audience, theme or "", dish or ""):
+    # Uniqueness fix 1: the Stability seed is a cache input — a restyle
+    # generated under one per-request seed must never serve a request that
+    # derived a different seed, or the seed fix would be a no-op on cache hit.
+    for part in (product_name, brief_msg, region, audience, theme or "", dish or "",
+                 market or "", season or "", "" if seed_value is None else str(seed_value)):
         h.update(b"\x00")
         h.update(str(part).encode("utf-8", "replace"))
     return _RESTYLE_CACHE_PREFIX + h.hexdigest() + ".png"
@@ -326,54 +331,81 @@ STYLE_TAIL = os.getenv(
 )
 # Brand tokens scrubbed out of every stability-bound prompt (proven 2026-09-10:
 # the word in the prompt renders as hallucinated pack copy). Applied to the
-# whole assembled prompt so subject, scene hints, and mascot block are covered.
+# whole assembled prompt so subject, scene hints, and bear-law clause are covered.
 _BRAND_SCRUB_RE = re.compile(r"(?i)(?:on-brand\s+)?\bkodiak(?:\s+cakes)?\b[\s-]*")
-# Mascot lock (Unit 2 — character consistency on the restyle rails): a FROZEN
-# descriptor block pinned into the style-sandwich SUBJECT slot so the same brand
-# bear renders recognizably identical across scenes (cabin / market / campfire).
-# Gated on KODIAK_MASCOT_LOCK (default OFF) so existing renders are byte-identical
-# unless the lock is explicitly enabled; text overridable via KODIAK_MASCOT_DESCRIPTOR.
-MASCOT_DESCRIPTOR_BLOCK = (
-    "Same Kodiak brand bear mascot in every render: friendly medium-brown grizzly "
-    "bear with rounded ears, cream muzzle, warm amber eyes, and thick frontier fur "
-    "with consistent markings"
+# Bear law (brand standard): bears are NEVER a frozen mascot — no friendly
+# identical-every-render character, no cartoon/hand-drawn bears, no bear
+# touching product/packaging/logo, no people with bears in a tame frame, no
+# named bear. Three lawful treatments only: (1) logo/line-art raster pasted
+# post-render, never model-drawn; (2) wildlife photoreal — distant unposed
+# grizzly in wild Northern-Rockies-style habitat, human-free; (3) sign, not
+# animal — tracks, trail, scratched bark, no bear in frame. The clause below
+# is REQUEST-DRIVEN (wild-grizzly-bears theme or a bear-naming brief), never
+# injected by default — everyday packs stay bear-free.
+_BEAR_TRIGGER_THEMES = frozenset({"wild-grizzly-bears"})
+_BEAR_WORD_RE = re.compile(r"\b(bears?|grizzl(y|ies)|cubs?|bruins?)\b", re.IGNORECASE)
+# Palette language, not a bear request: "bear-brown timber/shadows" names the
+# brand color, never the animal. Stripped before the bear-word check so style
+# copy cannot summon a bear.
+_BEAR_PALETTE_RE = re.compile(r"bear[-\s]brown", re.IGNORECASE)
+_BEAR_LAW_CLAUSE = (
+    "Bear direction (brand law): no mascot, no cartoon or hand-drawn bear, no "
+    "bear touching product, packaging, or logo, no people with bears, no named "
+    "bear character. Bear presence only as a distant unposed photoreal grizzly "
+    "in wild Northern-Rockies-style habitat, human-free — otherwise bear sign "
+    "only: tracks, trail, scratched bark, no bear animal in frame."
 )
 
 
-def _mascot_lock_on() -> bool:
-    """True when the frozen mascot descriptor is pinned into the subject slot."""
-    return os.getenv("KODIAK_MASCOT_LOCK", "").strip().lower() in (
-        "1", "true", "yes", "on",
-    )
+def _bear_law_clause(theme: str | None, brief_msg: str | None) -> str:
+    """Brand-law bear direction, or "" when the request asks for no bear.
+
+    Request-driven: the wild-grizzly-bears theme, or a brief naming bears,
+    earns the constraint clause. Anything else renders bear-free — the model
+    is never handed bear identity by default.
+    """
+    if (theme or "").strip() in _BEAR_TRIGGER_THEMES:
+        return _BEAR_LAW_CLAUSE
+    if brief_msg and _BEAR_WORD_RE.search(_BEAR_PALETTE_RE.sub("", brief_msg)):
+        return _BEAR_LAW_CLAUSE
+    return ""
 
 
-def _mascot_block() -> str:
-    """Frozen descriptor text (env override wins, same pattern as STYLE_HEAD/TAIL)."""
-    return os.getenv("KODIAK_MASCOT_DESCRIPTOR", MASCOT_DESCRIPTOR_BLOCK).strip()
-# Seed discipline: locked seed = consistency (same brief re-renders identically);
-# swept seed = controlled variations (the variations button passes seed per call).
+# Seed discipline: derived seed = uniqueness (same brief re-renders vary by
+# market + season + day); pinned seed = reproducibility (ops sets
+# BEDROCK_STABILITY_SEED explicitly, or KODIAK_DETERMINISTIC=1 for tests).
+# The variations button still passes seed per call via seed_value.
 STABILITY_SEED = int(os.getenv("BEDROCK_STABILITY_SEED", "42"))
+_STABILITY_SEED_PINNED = "BEDROCK_STABILITY_SEED" in os.environ
+
+
+def _request_seed(brief_msg: str | None, market: str | None = None,
+                  season: str | None = None, date_str: str | None = None) -> int:
+    """Stability seed for one render request (uniqueness fix 1).
+
+    sha256 over brief + market + season + day, so identical briefs in
+    different markets, seasons, or days restyle to different pixels instead
+    of near-identical images. KODIAK_DETERMINISTIC=1 (tests) and an explicit
+    BEDROCK_STABILITY_SEED pin both return the constant STABILITY_SEED.
+    date_str is "YYYY-MM-DD" (UTC today when omitted); pass it explicitly
+    for reproducible per-day renders.
+    """
+    if os.getenv("KODIAK_DETERMINISTIC") == "1" or _STABILITY_SEED_PINNED:
+        return STABILITY_SEED
+    if not date_str:
+        date_str = time.strftime("%Y-%m-%d", time.gmtime())
+    parts = [brief_msg or "", market or "", season or "", date_str]
+    return _stable_hash_int("\x00".join(parts), 4)
 
 
 def _style_sandwich(subject: str) -> str:
     """Wrap a varying subject in the frozen style ends. Idempotent.
 
-    With the mascot lock on, the frozen MASCOT descriptor block is pinned into the
-    SUBJECT slot ahead of the varying scene text, so every restyle carries the same
-    bear identity no matter what the scene says. Already-wrapped prompts are
-    unwrapped-aware: the block is injected after STYLE_HEAD when missing.
+    Bear identity is NEVER injected here — the model draws no mascot, no
+    character, no logo. Request-driven bear direction (brand law) arrives
+    inside the subject itself via _bear_law_clause, upstream of this wrap.
     """
     subject = (subject or "").strip()
-    if _mascot_lock_on():
-        block = _mascot_block()
-        # containment is scrub-aware: an already-wrapped prompt carries the
-        # scrubbed block, so check for that too or re-wrapping duplicates it.
-        scrubbed_block = _BRAND_SCRUB_RE.sub("", block).strip()
-        if block and block not in subject and scrubbed_block not in subject:
-            if subject.startswith(STYLE_HEAD):
-                subject = STYLE_HEAD + block + " Scene: " + subject[len(STYLE_HEAD):]
-            else:
-                subject = f"{block} Scene: {subject}"
     if subject.startswith(STYLE_HEAD):
         assembled = subject
     else:
@@ -1146,6 +1178,7 @@ def _brief_setting_clause(brief_msg: str | None) -> str:
 def _default_scene_prompt(
     product_name: str, brief_msg: str, region: str, audience: str, theme: str | None,
     extra_themes: list[str] | None = None, dish: str | None = None,
+    market: str | None = None, season: str | None = None,
 ) -> str:
     """Deterministic restyle direction for a photo seed — no network.
 
@@ -1190,6 +1223,21 @@ def _default_scene_prompt(
         # The campaign recipe names the dish — without it the restyle keeps the
         # seed's generic composition and the image disconnects from the recipe.
         direction = f"{direction} Featuring a serving of {str(dish).strip()}."
+    # Locality the brief suffix may not carry: two markets ordering the same
+    # dish must not get the same scene prompt. Named only when absent already
+    # (the frontier autocomplete suffix often carries both — never duplicate).
+    locale_bits = []
+    if market and str(market).strip() and str(market).strip().lower() not in str(direction or "").lower():
+        locale_bits.append(f"the {str(market).strip()} market")
+    if season and str(season).strip() and str(season).strip().lower() not in str(direction or "").lower():
+        locale_bits.append(str(season).strip())
+    if locale_bits:
+        direction = f"{direction} Set in {', '.join(locale_bits)}."
+    # Request-driven bear law: the wild-grizzly-bears theme or a bear-naming
+    # brief earns the constraint clause; everything else stays bear-free.
+    bear_clause = _bear_law_clause(theme, brief_msg)
+    if bear_clause and bear_clause.lower() not in str(direction or "").lower():
+        direction = f"{direction} {bear_clause}"
     base = (
         f"{product_name} product photo restyled for "
         f"{direction}, "
@@ -1204,6 +1252,7 @@ def _default_scene_prompt(
 def _nova_pro_scene_prompt(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str, theme: str | None,
     extra_themes: list[str] | None = None, dish: str | None = None,
+    market: str | None = None, season: str | None = None,
 ) -> str:
     """Ask Nova Pro (Converse) for the control-structure restyle prompt.
 
@@ -1220,7 +1269,7 @@ def _nova_pro_scene_prompt(
     if extra_themes:
         combo = combine_themes([theme or "", *(extra_themes or [])])
         theme_hint += _combo_scene_suffix(combo)
-    default_prompt = _default_scene_prompt(product_name, brief_msg, region, audience, theme, extra_themes, dish)
+    default_prompt = _default_scene_prompt(product_name, brief_msg, region, audience, theme, extra_themes, dish, market, season)
     if boto3 is None:
         return default_prompt
     try:
@@ -1239,9 +1288,17 @@ def _nova_pro_scene_prompt(
         clean_dish = str(dish or "").strip()
         if clean_dish:
             keep_clause += f" The image MUST show a serving of {clean_dish}."
+        locale_ask = ""
+        if market and str(market).strip():
+            locale_ask += f" Market: {str(market).strip()}."
+        if season and str(season).strip():
+            locale_ask += f" Season: {str(season).strip()}."
+        bear_ask = _bear_law_clause(theme, brief_msg)
+        if bear_ask:
+            locale_ask += f" {bear_ask}"
         prompt = (
             f"You are an ad art director directing an image restyle. Product: "
-            f"'{product_name}'. Region: {region}. Audience: {audience}. Campaign vibe: "
+            f"'{product_name}'. Region: {region}. Audience: {audience}.{locale_ask} Campaign vibe: "
             f"{brief_msg}.{theme_hint}{keep_clause} Look at the product image, which must keep its "
             "composition. Reply with ONE vivid scene/style description (max 40 words, no "
             "line breaks, no quotes) that restyles this photo to the theme — lighting, "
@@ -1306,12 +1363,34 @@ def _seed_b64_for_stability(src: Path) -> str:
 # Calibrated 2026-09-20 on staged renders (input_assets/power-cakes/hero.png):
 # identical 0, scrim/compose-like + mild-restyle proxies 0-1, message-barred 12-13,
 # different-photo / solid-canvas / noise 30-34. Threshold 8 sits in the clean gap.
-# Seasonal campaigns (Halloween cider + apples, September pawpaws) intentionally
-# restyle the product seed (taco/waffle) into a very different scene (pumpkin
-# patch, orchard). That large dHash distance is not drift — it's the brief.
-# Raise threshold to max (64) so seasonal restyles never hit similarity-gate;
-# drift is caught by the product bar + human review, not by dHash.
-SIMILARITY_GATE_THRESHOLD = int(os.getenv("KODIAK_SIMILARITY_THRESHOLD", "64"))
+# Two-mode gate (uniqueness dial, not decorative):
+# - preserve (no seasonal/theme divergence requested): a restyle that lands far
+#   from the seed drifted (wrong scene, dropped product, noise) — reject past
+#   the threshold and fall to rung C, as originally calibrated.
+# - diverge (season + holiday + theme requested a different scene): a restyle
+#   that lands ON the seed ignored the direction — the model echoed the photo
+#   and uniqueness failed. Below KODIAK_MIN_DIVERGENCE the ladder retries once
+#   with the next seed + lighter control (budget permitting), then accepts.
+# A single threshold cannot serve both modes: seasonal restyles (Halloween
+# cider, September pawpaws) legitimately score 30+ while a plain restyle that
+# scores 30+ is drift. The mode comes from the request (theme/season), never
+# from the pixels.
+SIMILARITY_GATE_THRESHOLD = int(os.getenv("KODIAK_SIMILARITY_THRESHOLD", "8"))
+KODIAK_MIN_DIVERGENCE = int(os.getenv("KODIAK_MIN_DIVERGENCE", "2"))
+
+
+def _diverge_requested(theme: str | None, season: str | None) -> bool:
+    """True when the request asked for a different scene than the seed photo."""
+    return bool((theme or "").strip() or (season or "").strip())
+
+
+def _similarity_gate_decision(sim_dist: int, diverge: bool) -> str:
+    """Gate verdict for a seed-vs-restyle dHash distance: "pass",
+    "reject-drift" (preserve mode, too far — fall to rung C), or "retry"
+    (diverge mode, too close — one budgeted retry with a varied seed)."""
+    if diverge:
+        return "retry" if sim_dist < KODIAK_MIN_DIVERGENCE else "pass"
+    return "reject-drift" if sim_dist > SIMILARITY_GATE_THRESHOLD else "pass"
 
 
 def _similarity_gate_enabled() -> bool:
@@ -1349,7 +1428,8 @@ def _similarity_distance(seed: Path, candidate: Path) -> int | None:
 
 def _scene_prompt_source(scene_prompt: str, product_name: str, brief_msg: str,
                          region: str, audience: str, theme: str | None,
-                         dish: str | None = None) -> str:
+                         dish: str | None = None, market: str | None = None,
+                         season: str | None = None) -> str:
     """Name which branch wrote a rung scene prompt: live Nova vs deterministic default.
 
     _nova_pro_scene_prompt degrades to the deterministic default on ANY Nova failure,
@@ -1357,7 +1437,7 @@ def _scene_prompt_source(scene_prompt: str, product_name: str, brief_msg: str,
     new plumbing through the Converse call, and the theme-photo fast path (which never
     calls Nova) classifies as default through the same comparison.
     """
-    default = _default_scene_prompt(product_name, brief_msg, region, audience, theme, None, dish)
+    default = _default_scene_prompt(product_name, brief_msg, region, audience, theme, None, dish, market, season)
     return "default" if (scene_prompt or "") == default else "nova"
 
 def _bedrock_failfast_client(read_timeout: int | None = None):
@@ -1799,6 +1879,7 @@ def _voice_requested(value: object) -> bool:
 def _director_headline_text(
     product_name: str, brief_msg: str, region: str, audience: str,
     art_director: bool = False, report: dict | None = None,
+    market: str | None = None, season: str | None = None,
 ) -> str | None:
     """Grounded-director headline: retrieve brand voice, direct, normalize.
 
@@ -1836,7 +1917,11 @@ def _director_headline_text(
         _ = _DIRECTOR_MEMO
     except NameError:
         _DIRECTOR_MEMO = {}
-    memo_key = (product_name, brief_msg, region, audience)
+    # Uniqueness fix 3: the memo key salts market + season, so the same
+    # brief in June and October (or Cincinnati and Seattle) re-derives
+    # instead of replaying one memoized line. Identical full requests
+    # (the twice-per-pack double call) still hit.
+    memo_key = (product_name, brief_msg, region, audience, market or "", season or "")
     # Paid-voice attempt counter for the UI ("refining…" while attempts > 1).
     # Memo hits cost zero new calls. Reported out via `report` when provided.
     attempts = {"n": 0}
@@ -1868,15 +1953,20 @@ def _director_headline_text(
         return None
 
     def _attempt() -> str | None:
-        query = f"{product_name} {brief_msg} {region} {audience}".strip()
+        query = f"{product_name} {brief_msg} {region} {audience} {market or ''} {season or ''}".strip()
         examples, model_used = director_memory.retrieve(query, k=3)
         if not examples:
             _dnote(f"no examples (embed={model_used})")
             return None
         _dnote(f"retrieved {len(examples)} examples via {model_used}")
+        locale_ask = ""
+        if market and str(market).strip():
+            locale_ask += f" Market {str(market).strip()}."
+        if season and str(season).strip():
+            locale_ask += f" Season {str(season).strip()}."
         ask = (
             f"Write one short on-brand headline (max 6 words) for {product_name}: "
-            f"{brief_msg}. Region {region}, audience {audience}."
+            f"{brief_msg}. Region {region}, audience {audience}.{locale_ask}"
         )
         samples = [examples[:3]]
         if len(examples[:1]) < len(examples[:3]):
@@ -2265,26 +2355,35 @@ def _compose_scene(
 LAYER_PRODUCT_IMAGE = "product_image"
 LAYER_RETAILER = "retailer"
 LAYER_PARTNER = "partner_logo"
+LAYER_COBADGE = "conservation_badge"
 LAYER_OVERLAY_TEXT = "overlay_text"
 
 # Packaged US Ski & Snowboard partner mark (ships inside the module like the rung-D
 # brand asset, so Lambda always has it — no S3, no web-origin fetch).
 _PARTNER_MARK_ASSET = Path(__file__).parent / "brand_assets" / "us-ski-snowboard-kodiak.png"
+# Vital Ground co-badge slot for Keep It Wild renders. The mark itself is NOT
+# fabricated here — supply brand_assets/vital-ground.png (the real co-badge
+# raster) and it pastes; absent, the slot records unresolved and ships clean,
+# exactly like a missing retailer mark. Never model-drawn, never invented.
+_VITAL_GROUND_MARK_ASSET = Path(__file__).parent / "brand_assets" / "vital-ground.png"
+# Theme whose renders reserve the co-badge slot (same campaign system as the
+# retailer badge, not decoration).
+KEEP_IT_WILD_THEME = "wild-grizzly-bears"
 
 
 def normalize_layers(layers: dict | None) -> dict | None:
     """Normalize a raw layers request into the contract shape. None stays None (legacy).
 
-    Keeps only known keys: product_image/partner_logo/overlay_text (truthy flags) and
-    retailer (a non-empty slug string). Anything else is dropped so a stray client key
-    can never switch on a composite.
+    Keeps only known keys: product_image/partner_logo/conservation_badge/overlay_text
+    (truthy flags) and retailer (a non-empty slug string). Anything else is dropped
+    so a stray client key can never switch on a composite.
     """
     if layers is None:
         return None
     if not isinstance(layers, dict):
         return {}
     norm: dict = {}
-    for flag in (LAYER_PRODUCT_IMAGE, LAYER_PARTNER, LAYER_OVERLAY_TEXT):
+    for flag in (LAYER_PRODUCT_IMAGE, LAYER_PARTNER, LAYER_COBADGE, LAYER_OVERLAY_TEXT):
         if layers.get(flag):
             norm[flag] = True
     retailer = layers.get(LAYER_RETAILER)
@@ -2364,7 +2463,7 @@ def _paste_mark(canvas: Image.Image, mark: Image.Image, corner: str, frac: float
 
 
 def _apply_layer_marks(path: Path, layers: dict, provenance: dict) -> None:
-    """Composite selected retailer/partner marks onto a finished clean render, in place.
+    """Composite selected retailer/partner/conservation marks onto a finished clean render, in place.
 
     Best-effort and never fatal: an unresolvable mark is recorded in provenance
     (<layer>_layer: "unresolved:…") and the clean image ships untouched.
@@ -2373,7 +2472,8 @@ def _apply_layer_marks(path: Path, layers: dict, provenance: dict) -> None:
         return
     retailer = layers.get(LAYER_RETAILER)
     want_partner = bool(layers.get(LAYER_PARTNER))
-    if not retailer and not want_partner:
+    want_cobadge = bool(layers.get(LAYER_COBADGE))
+    if not retailer and not want_partner and not want_cobadge:
         return
     try:
         canvas = Image.open(path).convert("RGB")
@@ -2404,6 +2504,21 @@ def _apply_layer_marks(path: Path, layers: dict, provenance: dict) -> None:
                 provenance["partner_layer"] = "unresolved:paste-failed"
         else:
             provenance["partner_layer"] = "unresolved:asset-missing"
+    if want_cobadge:
+        # Vital Ground co-badge slot (Keep It Wild renders): same contract as
+        # the retailer badge — real raster pasted by code, bottom-left mark
+        # family; missing asset records unresolved and ships clean.
+        if _VITAL_GROUND_MARK_ASSET.exists():
+            try:
+                canvas = _paste_mark(
+                    canvas, Image.open(_VITAL_GROUND_MARK_ASSET).convert("RGBA"), "left", 0.14
+                )
+                applied.append("conservation_badge")
+            except Exception as mark_error:  # noqa: BLE001 — unresolved, ship clean
+                print(f"[generate] cobadge mark paste failed: {mark_error}", file=sys.stderr)
+                provenance["cobadge_layer"] = "unresolved:paste-failed"
+        else:
+            provenance["cobadge_layer"] = "unresolved:asset-missing"
     if applied:
         try:
             canvas.save(path, "PNG")
@@ -2575,6 +2690,8 @@ def generate_hero(
     themes: list[str] | str | None = None,
     dish: str | None = None,
     art_director: bool = False,
+    market: str | None = None,
+    season: str | None = None,
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
 
@@ -2646,10 +2763,13 @@ def generate_hero(
     # resolution + rung composition instead of serializing after them.
     # The report dict carries the paid-attempt count back for provenance.
     _ladder_voice_report: dict = {}
+    # Uniqueness seed for this request (fix 1): rung A + B restyles derive
+    # from brief + market + season + day instead of the constant 42.
+    request_seed = _request_seed(brief_msg, market, season)
     try:
         _director_fut = _DIRECTOR_POOL.submit(
             _director_headline_text, product_name, brief_msg, region, audience,
-            art_director, _ladder_voice_report,
+            art_director, _ladder_voice_report, market, season,
         )
     except Exception:  # noqa: BLE001 — director kick is best-effort; caption path covers
         _director_fut = None
@@ -2941,7 +3061,8 @@ def generate_hero(
                 try:
                     cache_key = _restyle_cache_key(
                         Path(seed).read_bytes(), product_name, brief_msg,
-                        region, audience, theme, dish)
+                        region, audience, theme, dish, market, season,
+                        request_seed)
                     cached = out_path.parent / f"{out_path.stem}-restyle-cached.png"
                     if _restyle_cache_get(cache_key, cached):
                         seed = cached
@@ -2954,20 +3075,22 @@ def generate_hero(
                 try:
                     a_scene = _nova_pro_scene_prompt(
                         seed, product_name, brief_msg, region, audience, theme,
-                        combo_extras or None, dish,
+                        combo_extras or None, dish, market, season,
                     )
                     provenance["scene_prompt"] = a_scene
                     provenance["scene_prompt_source"] = _scene_prompt_source(
-                        a_scene, product_name, brief_msg, region, audience, theme, dish
+                        a_scene, product_name, brief_msg, region, audience, theme, dish,
+                        market, season,
                     )
                     # _STABILITY_RUNG_ON gate: dev skips the packshot background restyle
                     # and falls to the deterministic packshot composite (unrestyled seed).
                     if _STABILITY_RUNG_ON and remaining_ms() >= _B_STABILITY_MS + _C_RESERVATION_MS:
                         restyled = out_path.parent / f"{out_path.stem}-restyle.png"
-                        if _stability_control_hero(seed, a_scene, restyled) is not None and restyled.exists():
+                        if _stability_control_hero(seed, a_scene, restyled, seed_value=request_seed) is not None and restyled.exists():
                             seed = restyled
                             bg_restyle = True
                             provenance["bg_restyle_source"] = "fresh"
+                            provenance["seed"] = request_seed
                             if cache_key is not None:
                                 _restyle_cache_put(cache_key, restyled)
                 except Exception as e:  # noqa: BLE001 — unstyled seed, same as before
@@ -3052,7 +3175,7 @@ def generate_hero(
                     # it outright (up to ~12s) and protect rung C's reservation.
                     scene_prompt = _default_scene_prompt(
                         product_name, brief_msg, region, audience, theme,
-                        combo_extras or None, dish,
+                        combo_extras or None, dish, market, season,
                     )
                     print(
                         "[generate] rung B scene-prompt fast-pathed "
@@ -3070,11 +3193,12 @@ def generate_hero(
                         raise _RungBBudgetSkip
                     scene_prompt = _nova_pro_scene_prompt(
                         seed, product_name, brief_msg, region, audience, theme,
-                        combo_extras or None, dish,
+                        combo_extras or None, dish, market, season,
                     )
                 provenance["scene_prompt"] = scene_prompt
                 provenance["scene_prompt_source"] = _scene_prompt_source(
-                    scene_prompt, product_name, brief_msg, region, audience, theme, dish
+                    scene_prompt, product_name, brief_msg, region, audience, theme, dish,
+                    market, season,
                 )
                 # Per-subcall budget gate 2 — the Stability invoke (fail-fast, capped at
                 # BEDROCK_READ_TIMEOUT_S). Re-check AFTER the scene call actually spent its
@@ -3092,7 +3216,7 @@ def generate_hero(
                 # actually sent (dynamic mode jitters per call).
                 rung_b_strength = _control_for_brief(brief_msg)
                 try:
-                    stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength)
+                    stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength, seed_value=request_seed)
                 except TypeError:
                     stylized = _stability_control_hero(seed, scene_prompt, out_path)
                     rung_b_strength = None  # unparametrized fallback: record no strength
@@ -3105,11 +3229,14 @@ def generate_hero(
                     if _similarity_gate_enabled():
                         _sim_dist = _similarity_distance(seed, stylized)
                         provenance["similarity_threshold"] = SIMILARITY_GATE_THRESHOLD
+                        _diverge = _diverge_requested(theme, season)
+                        provenance["similarity_mode"] = "diverge" if _diverge else "preserve"
                         if _sim_dist is None:
                             provenance["similarity_gate"] = "error"
                         else:
                             provenance["similarity_distance"] = _sim_dist
-                            if _sim_dist > SIMILARITY_GATE_THRESHOLD:
+                            _verdict = _similarity_gate_decision(_sim_dist, _diverge)
+                            if _verdict == "reject-drift":
                                 print(
                                     f"[generate] rung B similarity-gate reject "
                                     f"(distance {_sim_dist} > {SIMILARITY_GATE_THRESHOLD}) "
@@ -3119,6 +3246,42 @@ def generate_hero(
                                 provenance["similarity_gate"] = "fail"
                                 provenance["fallthrough_reason"] = "similarity-gate"
                                 stylized = None
+                            elif _verdict == "retry":
+                                # Diverge requested but the model echoed the seed:
+                                # one retry with the next seed + lighter control,
+                                # into a sibling file so a retry failure keeps
+                                # the first restyle. Budget-gated like every B
+                                # sub-call; a thin clock accepts the echo and
+                                # labels it instead of burning the wall.
+                                provenance["similarity_gate"] = "retry-too-close"
+                                if remaining_ms() >= _B_STABILITY_MS + _C_RESERVATION_MS:
+                                    _retry_seed = request_seed + 1
+                                    _retry_strength = max(
+                                        0.2, (rung_b_strength if rung_b_strength is not None else STABILITY_CONTROL_STRENGTH) - 0.1
+                                    )
+                                    _retry_path = out_path.parent / f"{out_path.stem}-diverge.png"
+                                    try:
+                                        _retried = _stability_control_hero(
+                                            seed, scene_prompt, _retry_path,
+                                            control_strength=_retry_strength,
+                                            seed_value=_retry_seed,
+                                        )
+                                    except TypeError:
+                                        _retried = None
+                                    except Exception as retry_error:  # noqa: BLE001 — retry failure keeps the first restyle
+                                        print(f"[generate] diverge retry failed: {retry_error}", file=sys.stderr)
+                                        _retried = None
+                                    if _retried is not None and _retried.exists():
+                                        _retry_dist = _similarity_distance(seed, _retried)
+                                        provenance["similarity_retry_distance"] = _retry_dist
+                                        provenance["similarity_retry_seed"] = _retry_seed
+                                        stylized = _retried
+                                        request_seed = _retry_seed
+                                        provenance["similarity_gate"] = "retry-accept"
+                                    else:
+                                        provenance["similarity_gate"] = "retry-failed-accept"
+                                else:
+                                    provenance["similarity_gate"] = "too-close-accept"
                             else:
                                 provenance["similarity_gate"] = "pass"
                     else:
@@ -3128,9 +3291,8 @@ def generate_hero(
                     provenance["rung"] = "B"
                     if rung_b_strength is not None:
                         provenance["control_strength"] = rung_b_strength
-                    provenance["seed"] = STABILITY_SEED
+                    provenance["seed"] = request_seed
                     provenance["style"] = "sandwich-locked"
-                    provenance["mascot_lock"] = _mascot_lock_on()
                     provenance["model"] = STABILITY_CONTROL_MODEL
                     # PART C — deterministic on-brand headline + accent bar ON TOP of the
                     # GenAI hero (Nova Pro still supplies the headline). Default-on for
@@ -3289,6 +3451,8 @@ def generate_hero_set(
     themes: list[str] | str | None = None,
     dish: str | None = None,
     art_director: bool = False,
+    market: str | None = None,
+    season: str | None = None,
 ) -> tuple[list[dict], str, dict]:
     """Deliver all four sizes from ONE call. Returns (renders, source, provenance).
 
@@ -3367,6 +3531,8 @@ def generate_hero_set(
         seed_key=seed_key,
         layers=layers,
         themes=themes,
+        market=market,
+        season=season,
     )
     provenance["layers"] = provenance_layers
     provenance["clean"] = provenance_layers is not None
@@ -3381,7 +3547,7 @@ def generate_hero_set(
     headline, headline_source = _headline_for(
         clean_base, product_name, brief_msg, region, audience,
         remaining_ms=_set_remaining_ms, art_director=art_director,
-        report=_voice_report,
+        report=_voice_report, market=market, season=season,
     )
     if isinstance(provenance, dict) and "voice_attempts" in _voice_report:
         provenance["voice_attempts"] = _voice_report["voice_attempts"]
@@ -3543,6 +3709,7 @@ def generate_hero_set(
 def _headline_for(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str,
     remaining_ms=None, art_director: bool = False, report: dict | None = None,
+    market: str | None = None, season: str | None = None,
 ) -> tuple[str, str | None]:
     """Set headline through the full pipeline (module-level so generate_hero_set
     can reuse it). Returns (headline, headline_source|None): the grounded
@@ -3558,14 +3725,14 @@ def _headline_for(
     budget second call ~free."""
     directed = None
     if remaining_ms is None:
-        directed = _director_headline_text(product_name, brief_msg, region, audience, art_director=art_director, report=report)
+        directed = _director_headline_text(product_name, brief_msg, region, audience, art_director=art_director, report=report, market=market, season=season)
     else:
         try:
             director_ok = remaining_ms() >= _DIRECTOR_BUDGET_MS + _C_RESERVATION_MS
         except Exception:  # noqa: BLE001 — deadline probe must never gate the voice
             director_ok = True
         if director_ok:
-            directed = _director_headline_text(product_name, brief_msg, region, audience, art_director=art_director, report=report)
+            directed = _director_headline_text(product_name, brief_msg, region, audience, art_director=art_director, report=report, market=market, season=season)
         else:
             try:
                 print(

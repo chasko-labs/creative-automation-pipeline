@@ -179,7 +179,7 @@ def test_generate_hero_set_pillow_outpaint_fallback(tmp_path: Path, monkeypatch)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     # primary hero via stability succeeds; outpaint fails -> pillow fallback
-    def _fake_control(seed_path, prompt, out):
+    def _fake_control(seed_path, prompt, out, **_k):
         out.write_bytes(_png_bytes())
         return out
 
@@ -217,7 +217,7 @@ def test_generate_hero_set_outpaint_sabotage_degrades_to_pad(tmp_path: Path, mon
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
 
-    def _fake_control(seed_path, prompt, out):
+    def _fake_control(seed_path, prompt, out, **_k):
         out.write_bytes(_png_bytes())
         return out
 
@@ -257,7 +257,7 @@ def test_generate_hero_set_outpaint_budget_gate_skips_without_call(tmp_path: Pat
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
 
-    def _fake_control(seed_path, prompt, out):
+    def _fake_control(seed_path, prompt, out, **_k):
         out.write_bytes(_png_bytes())
         return out
 
@@ -440,7 +440,7 @@ def _seeded_hero_set(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
 
-    def _fake_control(seed_path, prompt, out):
+    def _fake_control(seed_path, prompt, out, **_k):
         out.write_bytes(_png_bytes())
         return out
 

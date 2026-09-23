@@ -251,7 +251,7 @@ def test_generate_hero_mapped_sku_takes_packshot_and_skips_stability(tmp_path, m
 
     stability_calls = {"n": 0}
 
-    def _spy_stability(seed, prompt, out_path):
+    def _spy_stability(seed, prompt, out_path, **_k):
         stability_calls["n"] += 1
 
     monkeypatch.setattr(generate_mod, "_stability_control_hero", _spy_stability)
@@ -327,7 +327,7 @@ def test_generate_hero_unmapped_sku_falls_through_to_generation(tmp_path, monkey
 
     stability_calls = {"n": 0}
 
-    def _spy_stability(s, prompt, out_path):
+    def _spy_stability(s, prompt, out_path, **_k):
         stability_calls["n"] += 1
 
     monkeypatch.setattr(generate_mod, "_stability_control_hero", _spy_stability)

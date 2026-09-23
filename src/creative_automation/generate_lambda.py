@@ -22,6 +22,8 @@ from PIL import Image
 from . import asset_browser, text_rewriter
 from .generate import (
     GENERATE_SOFT_BUDGET_MS,
+    KEEP_IT_WILD_THEME,
+    LAYER_COBADGE,
     _apply_brand_overlay,
     _brand_floor,
     _finalize_render,
@@ -860,6 +862,22 @@ def _request_layers(data: dict[str, Any]) -> dict:
     return layers if layers is not None else {}
 
 
+def _reserve_cobadge(data: dict, theme: str | None, themes: object, layers: dict) -> dict:
+    """Keep It Wild renders reserve the Vital Ground co-badge slot.
+
+    The wild-grizzly-bears theme (single or inside a combo) auto-sets the
+    conservation_badge layer so the mark composites like a retailer badge —
+    or records unresolved and ships clean when the raster is absent. An
+    explicit client layers value is never unset, only defaulted in.
+    """
+    names = {str(theme or "").strip()}
+    if isinstance(themes, (list, tuple)):
+        names.update(str(t or "").strip() for t in themes)
+    if KEEP_IT_WILD_THEME in names and isinstance(layers, dict):
+        layers.setdefault(LAYER_COBADGE, True)
+    return layers
+
+
 def _response_sidecar(
     provenance: dict[str, Any] | None,
     prompt: str,
@@ -1368,6 +1386,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # Render contract (#199/#200): default {} = clean standalone image, every layer
     # OFF. Only an explicit overlay_text layer re-enables the baked message bar.
     layers = _request_layers(data)
+    layers = _reserve_cobadge(data, theme, themes, layers)
     out_dir = Path(f"/tmp/{uuid4().hex}")
     hero_path = out_dir / "hero-1x1.png"
     hero_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1380,6 +1399,8 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # scene prompt names the same dish the recipe tease names — no image/recipe
     # disconnect.
     dish = _preview_dish_name(data, product.replace("-", " ").title())
+    _preview_season = data.get("season")
+    _preview_season = str(_preview_season).strip() or None if isinstance(_preview_season, str) else None
     result_path, source, provenance = generate_hero(
         product_id=product,
         product_name=product.replace("-", " ").title(),
@@ -1396,6 +1417,8 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         layers=layers,
         themes=themes,
         art_director=_voice_requested(data),
+        market=(data.get("market") or data.get("region") or "us"),
+        season=_preview_season,
     )
 
     with Image.open(result_path) as im:
@@ -1599,6 +1622,7 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     seed_key = data.get("seed_key")
     # Render contract (#199/#200): default {} = clean standalone set, every layer OFF.
     layers = _request_layers(data)
+    layers = _reserve_cobadge(data, theme, themes, layers)
     out_dir = Path(f"/tmp/{uuid4().hex}")
     # "prompt" is the campaign brief/vibe now, not a generation seed. generate_hero_set
     # composes over a real product asset via Nova Pro vision / Stability, delivering all
@@ -1606,6 +1630,8 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # drives the IMAGE (theme wins over the product default); product is still passed
     # for iso-naming / fallback.
     dish = _preview_dish_name(data, product.replace("-", " ").title())
+    _set_season = data.get("season")
+    _set_season = str(_set_season).strip() or None if isinstance(_set_season, str) else None
     renders, source, provenance = generate_hero_set(
         product_id=product,
         product_name=product.replace("-", " ").title(),
@@ -1618,6 +1644,8 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         seed_key=seed_key,
         layers=layers,
         themes=themes,
+        market=(data.get("market") or data.get("region") or "us"),
+        season=_set_season,
         dish=dish,
         art_director=_voice_requested(data),
     )
