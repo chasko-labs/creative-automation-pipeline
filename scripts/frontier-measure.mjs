@@ -53,8 +53,11 @@ const rect = (el) => {
 const result = await page.evaluate(() => {
   const q = (s) => document.querySelector(s);
   const h1 = q(".kodiak-headline-plate h1");
-  const aboutIdx = document.body.innerHTML.indexOf('id="aboutTool"');
-  const beforeAbout = document.body.innerHTML.slice(Math.max(0, aboutIdx - 600), aboutIdx);
+  const html = document.body.innerHTML;
+  const aboutIdx = html.indexOf('id="aboutTool"');
+  // the band is a single ~1.6KB line: compare positions, not a char window.
+  const bandIdx = html.lastIndexOf("ff-about-art", aboutIdx);
+  const beforeAbout = bandIdx > -1 ? html.slice(bandIdx, aboutIdx) : "";
   return {
     docH: document.documentElement.scrollHeight,
     winH: window.innerHeight,
@@ -69,6 +72,12 @@ const result = await page.evaluate(() => {
     })(),
     aboutBand: beforeAbout.includes("ff-about-art"),
     aboutSvg: beforeAbout.includes("<svg"),
+    aboutFlush: (() => {
+      const art = q(".ff-about-art")?.getBoundingClientRect();
+      const tool = document.getElementById("aboutTool")?.getBoundingClientRect();
+      if (!art || !tool) return null;
+      return Math.round(art.bottom) === Math.round(tool.top);
+    })(),
   };
 });
 result.pageErrors = errors;
