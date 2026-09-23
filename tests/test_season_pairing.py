@@ -249,13 +249,16 @@ def test_serving_line_never_outvotes_ingredient():
     # "radishes and lettuce" once routed to salmon patties through a
     # "Butter lettuce ..., for serving (optional)" garnish line.
     # Serving/garnish suggestions are display text, not matching text.
+    # Winner follows catalog truth: veggie-cheese-tart (brand JSON-LD,
+    # real "1 bunch radishes" + greens, zero serving lines) outscores the
+    # radish-only draft on content — the salmon garnish record still loses.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance(
         "radishes and lettuce", "Buttermilk Power Cakes",
         market="US-SW-ALBQ", month="2026-04",
     )
-    assert recipe["id"] == "skillet-radish-fritters-draft"
+    assert recipe["id"] == "veggie-cheese-tart"
     assert pairing["source"] == "ingredient-overlap"
 
 

@@ -11724,7 +11724,38 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Veggie & Cheese Tart",
+    "title": "Veggie & Cheese Tart",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1/2 cup butter",
+      "1/4 cup ice water Filling:",
+      "2 cups ricotta cheese",
+      "3 eggs",
+      "1/4 cup milk",
+      "1 teaspoon garlic powder",
+      "1/2 teaspoon salt",
+      "1/2 teaspoon pepper Topping:",
+      "1 tablespoon olive oil",
+      "1 bunch asparagus",
+      "1/2 teaspoon salt",
+      "1 bunch radishes, cut in half",
+      "1/2 cup watercress or arugula"
+    ],
+    "directions": "1. Add Kodiak mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.\n2. Meanwhile, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.\n3. Preheat oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.\n4. On a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.\n5. Fill with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula.",
+    "instructions": [
+      "Add Kodiak mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+      "Meanwhile, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+      "Preheat oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+      "On a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+      "Fill with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
+    ],
+    "prep_minutes": 60,
+    "cook_minutes": 30,
+    "servings": "9",
+    "source": "brand_json_ld"
   },
   {
     "id": "summer-fruit-bruschetta",
@@ -11745,7 +11776,28 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Summer Fruit Bruschetta",
+    "title": "Summer Fruit Bruschetta",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "3 Kodiak Buttermilk & Vanilla Power Waffles",
+      "4 tablespoons cream cheese",
+      "1/4 cup Greek yogurt",
+      "2 peaches or plums, sliced",
+      "2 tablespoons honey"
+    ],
+    "directions": "1. Use an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.\n2. Toast waffles on the lowest setting.\n3. Cut each waffle in half.\n4. Top with cream cheese mixture and sliced peaches or plums. Drizzle with honey.",
+    "instructions": [
+      "Use an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+      "Toast waffles on the lowest setting.",
+      "Cut each waffle in half.",
+      "Top with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 5,
+    "servings": "6",
+    "source": "brand_json_ld"
   },
   {
     "id": "chocolate-covered-waffle-pops",

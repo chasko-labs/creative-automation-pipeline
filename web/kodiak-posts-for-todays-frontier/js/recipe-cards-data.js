@@ -22521,60 +22521,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-MW-BOISE",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-MW-BOISE|2026-04 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -22583,13 +22599,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -23066,16 +23084,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -24774,11 +24790,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1/2 peach, sliced"
+          "qty_name": "4 tablespoons cream cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -24792,8 +24820,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-MW-BOISE|2026-08 among recipes naming the ingredient",
-          "recipe_id": "sausage-cheddar-peach-stack-draft",
+          "reason": "ingredient rotation: summer-fruit-bruschetta chosen deterministically for US-MW-BOISE|2026-08 among recipes naming the ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -24811,8 +24839,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sausage-cheddar-peach-stack-draft",
-        "name": "Sausage Cheddar Peach Stack"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -25289,11 +25317,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sandwich per package directions.",
-        "TOP with peach slices and serve at once."
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Sausage Cheddar Peach Stack",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -29834,60 +29864,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-MW-CHI",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-MW-CHI|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -29896,13 +29942,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -30387,16 +30435,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -36790,60 +36836,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-MW-CLEVELAND",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-MW-CLEVELAND|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -36852,13 +36914,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -37366,16 +37430,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -45009,7 +45071,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons cream cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -45023,8 +45101,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: flapjacks-buttermilk has the best token overlap with the in-season ingredient",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: summer-fruit-bruschetta has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-overlap"
         },
@@ -45042,8 +45120,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -45535,10 +45613,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -50804,60 +50885,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-MW-DESMOINES",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-MW-DESMOINES|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -50866,13 +50963,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -51378,16 +51477,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -57416,10 +57513,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-MW-DETROIT|2026-04 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -64702,60 +64799,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-MW-FARGO",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-MW-FARGO|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -64764,13 +64877,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -65224,16 +65339,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -71380,60 +71493,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-MW-INDY",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-MW-INDY|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -71442,13 +71571,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -71952,16 +72083,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -84689,10 +84818,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-MW-KC|2026-04 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -86825,15 +86954,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk & Vanilla Flapjack Puffs, heated"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1 peach, diced"
+          "qty_name": "4 tablespoons cream cheese"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup plain yogurt"
+          "qty_name": "1/4 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -86847,8 +86984,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: flapjack-puff-parfait-draft chosen deterministically for US-MW-KC|2026-08 among recipes naming the ingredient",
-          "recipe_id": "flapjack-puff-parfait-draft",
+          "reason": "ingredient rotation: summer-fruit-bruschetta chosen deterministically for US-MW-KC|2026-08 among recipes naming the ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -86866,8 +87003,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "flapjack-puff-parfait-draft",
-        "name": "Flapjack Puff Parfait"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -87334,11 +87471,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the puffs per package directions.",
-        "LAYER with yogurt and peaches in a glass and serve at once."
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Flapjack Puff Parfait",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -91908,60 +92047,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-MW-MILWAUKEE",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-MW-MILWAUKEE|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -91970,13 +92125,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -92463,16 +92620,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -105125,60 +105280,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-MW-MISSOULA",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-MW-MISSOULA|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -105187,13 +105358,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -105677,16 +105850,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -111662,10 +111833,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-MW-OMAHA|2026-04 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -131706,60 +131877,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-MW-STL",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-MW-STL|2026-04 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -131768,13 +131955,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -132269,16 +132458,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -134024,50 +134211,38 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups oats"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix"
+          "qty_name": "4 tablespoons cream cheese"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup nuts, seeds, or coconut flakes"
+          "qty_name": "1/4 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup maple syrup"
+          "qty_name": "2 peaches or plums, sliced"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup oil"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 teaspoon cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "4 peaches, pitted and cut in half"
-        },
-        {
-          "price": null,
-          "qty_name": "2 cups vanilla ice cream"
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
       "market": "US-MW-STL",
       "meta": {
-        "cook": "25",
+        "cook": null,
         "est_cost": null,
-        "prep": "5",
-        "serves": "6"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: grilled-peaches-and-granola chosen deterministically for US-MW-STL|2026-08 among recipes naming the ingredient",
-          "recipe_id": "grilled-peaches-and-granola",
+          "reason": "ingredient rotation: summer-fruit-bruschetta chosen deterministically for US-MW-STL|2026-08 among recipes naming the ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -134078,13 +134253,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "grilled-peaches-and-granola",
-        "name": "Grilled Peaches & Granola"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -134579,14 +134756,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT oven to 350° F.",
-        "MIX all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
-        "BAKE for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
-        "BRUSH maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
-        "DIVIDE grilled peaches, ice cream, and granola into 4 bowls and serve."
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Grilled Peaches & Granola",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -139291,10 +139467,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-MW-TC|2026-05 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -147290,11 +147466,19 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
+          "qty_name": "1 Peach Overnight Oats cup"
         },
         {
           "price": null,
-          "qty_name": "1/2 peach, sliced"
+          "qty_name": "1/2 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe peach, diced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain yogurt"
         }
       ],
       "lang": "en",
@@ -147308,8 +147492,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-MW-WASATCH|2026-07 among recipes naming the ingredient",
-          "recipe_id": "sausage-cheddar-peach-stack-draft",
+          "reason": "ingredient rotation: peach-overnight-oats-parfait-draft chosen deterministically for US-MW-WASATCH|2026-07 among recipes naming the ingredient",
+          "recipe_id": "peach-overnight-oats-parfait-draft",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -147327,8 +147511,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sausage-cheddar-peach-stack-draft",
-        "name": "Sausage Cheddar Peach Stack"
+        "id": "peach-overnight-oats-parfait-draft",
+        "name": "Peach Overnight Oats Parfait"
       },
       "render": {
         "canvas": {
@@ -147812,11 +147996,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sandwich per package directions.",
-        "TOP with peach slices and serve at once."
+        "STIR the milk into the oats cup, cover, and refrigerate overnight.",
+        "IN the morning, layer the soaked oats with yogurt and diced peach in a glass.",
+        "SERVE chilled."
       ],
       "substrate": "kraft",
-      "title": "Sausage Cheddar Peach Stack",
+      "title": "Peach Overnight Oats Parfait",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -152494,10 +152679,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-MW-WASATCH-SLC|2026-04 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -154199,11 +154384,15 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
+          "qty_name": "1 cup Buttermilk & Vanilla Flapjack Puffs, heated"
         },
         {
           "price": null,
-          "qty_name": "1/2 peach, sliced"
+          "qty_name": "1 peach, diced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain yogurt"
         }
       ],
       "lang": "en",
@@ -154217,8 +154406,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-MW-WASATCH-SLC|2026-07 among recipes naming the ingredient",
-          "recipe_id": "sausage-cheddar-peach-stack-draft",
+          "reason": "ingredient rotation: flapjack-puff-parfait-draft chosen deterministically for US-MW-WASATCH-SLC|2026-07 among recipes naming the ingredient",
+          "recipe_id": "flapjack-puff-parfait-draft",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -154236,8 +154425,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sausage-cheddar-peach-stack-draft",
-        "name": "Sausage Cheddar Peach Stack"
+        "id": "flapjack-puff-parfait-draft",
+        "name": "Flapjack Puff Parfait"
       },
       "render": {
         "canvas": {
@@ -154730,11 +154919,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sandwich per package directions.",
-        "TOP with peach slices and serve at once."
+        "HEAT the puffs per package directions.",
+        "LAYER with yogurt and peaches in a glass and serve at once."
       ],
       "substrate": "kraft",
-      "title": "Sausage Cheddar Peach Stack",
+      "title": "Flapjack Puff Parfait",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -159388,10 +159577,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-NE-BALTIMORE|2026-04 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -162196,11 +162385,15 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
+          "qty_name": "1 cup Buttermilk & Vanilla Flapjack Puffs, heated"
         },
         {
           "price": null,
-          "qty_name": "1/2 peach, sliced"
+          "qty_name": "1 peach, diced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain yogurt"
         }
       ],
       "lang": "en",
@@ -162214,8 +162407,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-09",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-NE-BALTIMORE|2026-09 among recipes naming the ingredient",
-          "recipe_id": "sausage-cheddar-peach-stack-draft",
+          "reason": "ingredient rotation: flapjack-puff-parfait-draft chosen deterministically for US-NE-BALTIMORE|2026-09 among recipes naming the ingredient",
+          "recipe_id": "flapjack-puff-parfait-draft",
           "season": "fall",
           "source": "ingredient-rotation"
         },
@@ -162233,8 +162426,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sausage-cheddar-peach-stack-draft",
-        "name": "Sausage Cheddar Peach Stack"
+        "id": "flapjack-puff-parfait-draft",
+        "name": "Flapjack Puff Parfait"
       },
       "render": {
         "canvas": {
@@ -162710,11 +162903,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sandwich per package directions.",
-        "TOP with peach slices and serve at once."
+        "HEAT the puffs per package directions.",
+        "LAYER with yogurt and peaches in a glass and serve at once."
       ],
       "substrate": "kraft",
-      "title": "Sausage Cheddar Peach Stack",
+      "title": "Flapjack Puff Parfait",
       "variant": "hero-plus-layout"
     },
     "2026-10": {
@@ -166798,60 +166991,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-NE-BOS",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-NE-BOS|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -166860,13 +167069,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -167354,16 +167565,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -168545,15 +168754,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk & Vanilla Flapjack Puffs, heated"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1 peach, diced"
+          "qty_name": "4 tablespoons cream cheese"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup plain yogurt"
+          "qty_name": "1/4 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -168567,8 +168784,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: flapjack-puff-parfait-draft chosen deterministically for US-NE-BOS|2026-08 among recipes naming the ingredient",
-          "recipe_id": "flapjack-puff-parfait-draft",
+          "reason": "ingredient rotation: summer-fruit-bruschetta chosen deterministically for US-NE-BOS|2026-08 among recipes naming the ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -168586,8 +168803,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "flapjack-puff-parfait-draft",
-        "name": "Flapjack Puff Parfait"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -169075,11 +169292,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the puffs per package directions.",
-        "LAYER with yogurt and peaches in a glass and serve at once."
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Flapjack Puff Parfait",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -173198,60 +173417,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-NE-BRONX",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-NE-BRONX|2026-04 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -173260,13 +173495,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -173753,16 +173990,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -175496,19 +175731,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Peach Overnight Oats cup"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup whole milk"
+          "qty_name": "4 tablespoons cream cheese"
         },
         {
           "price": null,
-          "qty_name": "1 ripe peach, diced"
+          "qty_name": "1/4 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup plain yogurt"
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -175522,8 +175761,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: peach-overnight-oats-parfait-draft chosen deterministically for US-NE-BRONX|2026-08 among recipes naming the ingredient",
-          "recipe_id": "peach-overnight-oats-parfait-draft",
+          "reason": "ingredient rotation: summer-fruit-bruschetta chosen deterministically for US-NE-BRONX|2026-08 among recipes naming the ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -175541,8 +175780,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "peach-overnight-oats-parfait-draft",
-        "name": "Peach Overnight Oats Parfait"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -176029,12 +176268,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STIR the milk into the oats cup, cover, and refrigerate overnight.",
-        "IN the morning, layer the soaked oats with yogurt and diced peach in a glass.",
-        "SERVE chilled."
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Peach Overnight Oats Parfait",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -180146,60 +180386,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-NE-BROOKLYN",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-NE-BROOKLYN|2026-04 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -180208,13 +180464,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -180701,16 +180959,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -182456,11 +182712,19 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
+          "qty_name": "1 Peach Overnight Oats cup"
         },
         {
           "price": null,
-          "qty_name": "1/2 peach, sliced"
+          "qty_name": "1/2 cup whole milk"
+        },
+        {
+          "price": null,
+          "qty_name": "1 ripe peach, diced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain yogurt"
         }
       ],
       "lang": "en",
@@ -182474,8 +182738,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-NE-BROOKLYN|2026-08 among recipes naming the ingredient",
-          "recipe_id": "sausage-cheddar-peach-stack-draft",
+          "reason": "ingredient rotation: peach-overnight-oats-parfait-draft chosen deterministically for US-NE-BROOKLYN|2026-08 among recipes naming the ingredient",
+          "recipe_id": "peach-overnight-oats-parfait-draft",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -182493,8 +182757,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sausage-cheddar-peach-stack-draft",
-        "name": "Sausage Cheddar Peach Stack"
+        "id": "peach-overnight-oats-parfait-draft",
+        "name": "Peach Overnight Oats Parfait"
       },
       "render": {
         "canvas": {
@@ -182981,11 +183245,12 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sandwich per package directions.",
-        "TOP with peach slices and serve at once."
+        "STIR the milk into the oats cup, cover, and refrigerate overnight.",
+        "IN the morning, layer the soaked oats with yogurt and diced peach in a glass.",
+        "SERVE chilled."
       ],
       "substrate": "kraft",
-      "title": "Sausage Cheddar Peach Stack",
+      "title": "Peach Overnight Oats Parfait",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -187696,60 +187961,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-NE-BURLINGTON",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-NE-BURLINGTON|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -187758,13 +188039,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -188259,16 +188542,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -192932,15 +193213,7 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 slices Kodiak Honey Whole Wheat Bread (recipe HERE)"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon jam of choice"
-        },
-        {
-          "price": null,
-          "qty_name": "1 tablespoon peanut butter"
+          "qty_name": "1 cup mix + peanut butter + egg + honey, bake 10-12 min"
         }
       ],
       "lang": "en",
@@ -192948,14 +193221,14 @@ window.KODIAK_RECIPE_CARDS = {
       "meta": {
         "cook": null,
         "est_cost": null,
-        "prep": "3",
-        "serves": "1"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-02",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: crustless-pb-j-sandwiches chosen deterministically for US-NE-DC|2026-02 among recipes naming the ingredient",
-          "recipe_id": "crustless-pb-j-sandwiches",
+          "reason": "ingredient rotation: protein-cookies chosen deterministically for US-NE-DC|2026-02 among recipes naming the ingredient",
+          "recipe_id": "protein-cookies",
           "season": "winter",
           "source": "ingredient-rotation"
         },
@@ -192966,13 +193239,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "crustless-pb-j-sandwiches",
-        "name": "Crustless PB&J Sandwiches"
+        "id": "protein-cookies",
+        "name": "Protein Cookies — Chewy Chocolate Oatmeal, Cake Batter"
       },
       "render": {
         "canvas": {
@@ -193449,15 +193724,10 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PLACE two slices of bread on a work surface.",
-        "CUT a circle out of each slice of bread that is 3-4” in diameter. Discard the crusts or save for another use.",
-        "SPREAD the jam and peanut butter in the center of each circle and sandwich together.",
-        "PINCH the circle of dough together firmly around the edges using your fingers.",
-        "SEAL the edges further by pressing the tines of a fork around the circle.",
-        "STORE in an airtight container if not using immediately. Best eaten within a few hours of making."
+        "1 cup mix + peanut butter + egg + honey, bake 10-12 min"
       ],
       "substrate": "kraft",
-      "title": "Crustless PB&J Sandwiches",
+      "title": "Protein Cookies — Chewy Chocolate Oatmeal, Cake Batter",
       "variant": "hero-plus-layout"
     },
     "2026-03": {
@@ -194028,60 +194298,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-NE-DC",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-NE-DC|2026-04 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -194090,13 +194376,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -194573,16 +194861,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -201306,60 +201592,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-NE-HARTFORD",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-NE-HARTFORD|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -201368,13 +201670,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -201841,16 +202145,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -207493,10 +207795,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-NE-MANHATTAN|2026-04 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -214385,10 +214687,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-NE-NYC|2026-04 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -216654,15 +216956,11 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk & Vanilla Flapjack Puffs, heated"
+          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
         },
         {
           "price": null,
-          "qty_name": "1 peach, diced"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup plain yogurt"
+          "qty_name": "1/2 peach, sliced"
         }
       ],
       "lang": "en",
@@ -216676,8 +216974,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: flapjack-puff-parfait-draft chosen deterministically for US-NE-NYC|2026-08 among recipes naming the ingredient",
-          "recipe_id": "flapjack-puff-parfait-draft",
+          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-NE-NYC|2026-08 among recipes naming the ingredient",
+          "recipe_id": "sausage-cheddar-peach-stack-draft",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -216695,8 +216993,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "flapjack-puff-parfait-draft",
-        "name": "Flapjack Puff Parfait"
+        "id": "sausage-cheddar-peach-stack-draft",
+        "name": "Sausage Cheddar Peach Stack"
       },
       "render": {
         "canvas": {
@@ -217183,11 +217481,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the puffs per package directions.",
-        "LAYER with yogurt and peaches in a glass and serve at once."
+        "HEAT the sandwich per package directions.",
+        "TOP with peach slices and serve at once."
       ],
       "substrate": "kraft",
-      "title": "Flapjack Puff Parfait",
+      "title": "Sausage Cheddar Peach Stack",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -221278,60 +221576,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-NE-PHILLY",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-NE-PHILLY|2026-04 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -221340,13 +221654,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -221857,16 +222173,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -228983,60 +229297,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-NE-PROVIDENCE",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-NE-PROVIDENCE|2026-05 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -229045,13 +229375,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -229528,16 +229860,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -237384,26 +237714,50 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
+          "qty_name": "2 cups oats"
         },
         {
           "price": null,
-          "qty_name": "1/2 peach, sliced"
+          "qty_name": "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup nuts, seeds, or coconut flakes"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup maple syrup"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon cinnamon"
+        },
+        {
+          "price": null,
+          "qty_name": "4 peaches, pitted and cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups vanilla ice cream"
         }
       ],
       "lang": "en",
       "market": "US-NE-RALEIGH",
       "meta": {
-        "cook": null,
+        "cook": "25",
         "est_cost": null,
-        "prep": null,
-        "serves": null
+        "prep": "5",
+        "serves": "6"
       },
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-NE-RALEIGH|2026-08 among recipes naming the ingredient",
-          "recipe_id": "sausage-cheddar-peach-stack-draft",
+          "reason": "ingredient rotation: grilled-peaches-and-granola chosen deterministically for US-NE-RALEIGH|2026-08 among recipes naming the ingredient",
+          "recipe_id": "grilled-peaches-and-granola",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -237414,15 +237768,13 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
-          "times",
-          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "sausage-cheddar-peach-stack-draft",
-        "name": "Sausage Cheddar Peach Stack"
+        "id": "grilled-peaches-and-granola",
+        "name": "Grilled Peaches & Granola"
       },
       "render": {
         "canvas": {
@@ -237898,11 +238250,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sandwich per package directions.",
-        "TOP with peach slices and serve at once."
+        "PREHEAT oven to 350° F.",
+        "MIX all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
+        "BAKE for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
+        "BRUSH maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
+        "DIVIDE grilled peaches, ice cream, and granola into 4 bowls and serve."
       ],
       "substrate": "kraft",
-      "title": "Sausage Cheddar Peach Stack",
+      "title": "Grilled Peaches & Granola",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -257016,7 +257371,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons cream cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -257030,8 +257401,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: flapjacks-buttermilk has the best token overlap with the in-season ingredient",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: summer-fruit-bruschetta has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "spring",
           "source": "ingredient-overlap"
         },
@@ -257049,8 +257420,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -257525,10 +257896,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -257542,11 +257916,15 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
+          "qty_name": "1 cup Buttermilk & Vanilla Flapjack Puffs, heated"
         },
         {
           "price": null,
-          "qty_name": "1/2 peach, sliced"
+          "qty_name": "1 peach, diced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain yogurt"
         }
       ],
       "lang": "en",
@@ -257560,8 +257938,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-06",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-SC-AUSTIN|2026-06 among recipes naming the ingredient",
-          "recipe_id": "sausage-cheddar-peach-stack-draft",
+          "reason": "ingredient rotation: flapjack-puff-parfait-draft chosen deterministically for US-SC-AUSTIN|2026-06 among recipes naming the ingredient",
+          "recipe_id": "flapjack-puff-parfait-draft",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -257579,8 +257957,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sausage-cheddar-peach-stack-draft",
-        "name": "Sausage Cheddar Peach Stack"
+        "id": "flapjack-puff-parfait-draft",
+        "name": "Flapjack Puff Parfait"
       },
       "render": {
         "canvas": {
@@ -258055,11 +258433,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sandwich per package directions.",
-        "TOP with peach slices and serve at once."
+        "HEAT the puffs per package directions.",
+        "LAYER with yogurt and peaches in a glass and serve at once."
       ],
       "substrate": "kraft",
-      "title": "Sausage Cheddar Peach Stack",
+      "title": "Flapjack Puff Parfait",
       "variant": "hero-plus-layout"
     },
     "2026-07": {
@@ -292477,11 +292855,15 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
+          "qty_name": "1 cup Buttermilk & Vanilla Flapjack Puffs, heated"
         },
         {
           "price": null,
-          "qty_name": "1/2 peach, sliced"
+          "qty_name": "1 peach, diced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain yogurt"
         }
       ],
       "lang": "en",
@@ -292495,8 +292877,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-SE-ATL|2026-07 among recipes naming the ingredient",
-          "recipe_id": "sausage-cheddar-peach-stack-draft",
+          "reason": "ingredient rotation: flapjack-puff-parfait-draft chosen deterministically for US-SE-ATL|2026-07 among recipes naming the ingredient",
+          "recipe_id": "flapjack-puff-parfait-draft",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -292514,8 +292896,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sausage-cheddar-peach-stack-draft",
-        "name": "Sausage Cheddar Peach Stack"
+        "id": "flapjack-puff-parfait-draft",
+        "name": "Flapjack Puff Parfait"
       },
       "render": {
         "canvas": {
@@ -292968,11 +293350,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sandwich per package directions.",
-        "TOP with peach slices and serve at once."
+        "HEAT the puffs per package directions.",
+        "LAYER with yogurt and peaches in a glass and serve at once."
       ],
       "substrate": "kraft",
-      "title": "Sausage Cheddar Peach Stack",
+      "title": "Flapjack Puff Parfait",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -297395,60 +297777,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-SE-BIRMINGHAM",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-SE-BIRMINGHAM|2026-04 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -297457,13 +297855,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -297958,16 +298358,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -297981,7 +298379,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons cream cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -297995,8 +298409,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: flapjacks-buttermilk has the best token overlap with the in-season ingredient",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: summer-fruit-bruschetta has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "spring",
           "source": "ingredient-overlap"
         },
@@ -298014,8 +298428,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -298510,10 +298924,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -298527,7 +298944,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons cream cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -298541,8 +298974,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-06",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: flapjacks-buttermilk has the best token overlap with the in-season ingredient",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: summer-fruit-bruschetta has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-overlap"
         },
@@ -298560,8 +298993,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -299056,10 +299489,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-07": {
@@ -299073,7 +299509,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons cream cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -299087,8 +299539,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: flapjacks-buttermilk has the best token overlap with the in-season ingredient",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: summer-fruit-bruschetta has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-overlap"
         },
@@ -299106,8 +299558,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -299602,10 +300054,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -306410,50 +306865,38 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups oats"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix"
+          "qty_name": "4 tablespoons cream cheese"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup nuts, seeds, or coconut flakes"
+          "qty_name": "1/4 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup maple syrup"
+          "qty_name": "2 peaches or plums, sliced"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup oil"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 teaspoon cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "4 peaches, pitted and cut in half"
-        },
-        {
-          "price": null,
-          "qty_name": "2 cups vanilla ice cream"
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
       "market": "US-SE-CHARLOTTE",
       "meta": {
-        "cook": "25",
+        "cook": null,
         "est_cost": null,
-        "prep": "5",
-        "serves": "6"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: grilled-peaches-and-granola chosen deterministically for US-SE-CHARLOTTE|2026-08 among recipes naming the ingredient",
-          "recipe_id": "grilled-peaches-and-granola",
+          "reason": "ingredient rotation: summer-fruit-bruschetta chosen deterministically for US-SE-CHARLOTTE|2026-08 among recipes naming the ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -306464,13 +306907,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "grilled-peaches-and-granola",
-        "name": "Grilled Peaches & Granola"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -306945,14 +307390,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT oven to 350° F.",
-        "MIX all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
-        "BAKE for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
-        "BRUSH maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
-        "DIVIDE grilled peaches, ice cream, and granola into 4 bowls and serve."
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Grilled Peaches & Granola",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -311020,10 +311464,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-SE-COAST|2026-04 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -311580,50 +312024,38 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 cups oats"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup Kodiak Cinnamon Oat Power Cakes Mix Flapjack & Waffle Mix"
+          "qty_name": "4 tablespoons cream cheese"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup nuts, seeds, or coconut flakes"
+          "qty_name": "1/4 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup maple syrup"
+          "qty_name": "2 peaches or plums, sliced"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup oil"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 teaspoon cinnamon"
-        },
-        {
-          "price": null,
-          "qty_name": "4 peaches, pitted and cut in half"
-        },
-        {
-          "price": null,
-          "qty_name": "2 cups vanilla ice cream"
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
       "market": "US-SE-COAST",
       "meta": {
-        "cook": "25",
+        "cook": null,
         "est_cost": null,
-        "prep": "5",
-        "serves": "6"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: grilled-peaches-and-granola chosen deterministically for US-SE-COAST|2026-05 among recipes naming the ingredient",
-          "recipe_id": "grilled-peaches-and-granola",
+          "reason": "ingredient rotation: summer-fruit-bruschetta chosen deterministically for US-SE-COAST|2026-05 among recipes naming the ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -311634,13 +312066,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "grilled-peaches-and-granola",
-        "name": "Grilled Peaches & Granola"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -312159,14 +312593,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT oven to 350° F.",
-        "MIX all ingredients in a large bowl until combined. Spread granola evenly on a lined baking sheet.",
-        "BAKE for 15 minutes, stir, then bake an additional 10-15 minutes or until crispy and golden.",
-        "BRUSH maple syrup on the inside of the peaches and place on the grill until the peaches caramelize and grill marks form.",
-        "DIVIDE grilled peaches, ice cream, and granola into 4 bowls and serve."
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Grilled Peaches & Granola",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-06": {
@@ -338091,60 +338524,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-SE-LOU",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-SE-LOU|2026-03 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -338153,13 +338602,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -338642,16 +339093,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-04": {
@@ -367668,19 +368117,11 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Peach Overnight Oats cup"
+          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup whole milk"
-        },
-        {
-          "price": null,
-          "qty_name": "1 ripe peach, diced"
-        },
-        {
-          "price": null,
-          "qty_name": "1/2 cup plain yogurt"
+          "qty_name": "1/2 peach, sliced"
         }
       ],
       "lang": "en",
@@ -367694,8 +368135,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: peach-overnight-oats-parfait-draft chosen deterministically for US-SE-SANDERSVILLE|2026-07 among recipes naming the ingredient",
-          "recipe_id": "peach-overnight-oats-parfait-draft",
+          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-SE-SANDERSVILLE|2026-07 among recipes naming the ingredient",
+          "recipe_id": "sausage-cheddar-peach-stack-draft",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -367713,8 +368154,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "peach-overnight-oats-parfait-draft",
-        "name": "Peach Overnight Oats Parfait"
+        "id": "sausage-cheddar-peach-stack-draft",
+        "name": "Sausage Cheddar Peach Stack"
       },
       "render": {
         "canvas": {
@@ -368145,12 +368586,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STIR the milk into the oats cup, cover, and refrigerate overnight.",
-        "IN the morning, layer the soaked oats with yogurt and diced peach in a glass.",
-        "SERVE chilled."
+        "HEAT the sandwich per package directions.",
+        "TOP with peach slices and serve at once."
       ],
       "substrate": "kraft",
-      "title": "Peach Overnight Oats Parfait",
+      "title": "Sausage Cheddar Peach Stack",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -379371,46 +379811,74 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "2 cups shredded radishes"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup sliced scallion"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt, divided"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons neutral oil, for frying"
+          "qty_name": "1 teaspoon garlic powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon pepper Topping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-SW-ALBQ",
       "meta": {
-        "cook": "12 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "12 fritters"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: skillet-radish-fritters-draft has the best token overlap with the in-season ingredient",
-          "recipe_id": "skillet-radish-fritters-draft",
+          "reason": "ingredient overlap: veggie-cheese-tart has the best token overlap with the in-season ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
           "source": "ingredient-overlap"
         },
@@ -379421,13 +379889,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "skillet-radish-fritters-draft",
-        "name": "Skillet Radish Fritters"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -379927,13 +380397,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TOSS the shredded radishes with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
-        "WHISK the mix, eggs, scallion, remaining salt, and pepper into a batter and fold in the radishes.",
-        "FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden.",
-        "DRAIN on a rack and serve hot."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Skillet Radish Fritters",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -387568,46 +388039,74 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "2 cups shredded radishes"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "2 large eggs"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup sliced scallion"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "1 teaspoon salt, divided"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon black pepper"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons neutral oil, for frying"
+          "qty_name": "1 teaspoon garlic powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon pepper Topping:"
+        },
+        {
+          "price": null,
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-SW-CLOUDCROFT",
       "meta": {
-        "cook": "12 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "20 mins",
-        "serves": "12 fritters"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-06",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: skillet-radish-fritters-draft has the best token overlap with the in-season ingredient",
-          "recipe_id": "skillet-radish-fritters-draft",
+          "reason": "ingredient overlap: veggie-cheese-tart has the best token overlap with the in-season ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "summer",
           "source": "ingredient-overlap"
         },
@@ -387618,13 +388117,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "skillet-radish-fritters-draft",
-        "name": "Skillet Radish Fritters"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -388118,13 +388619,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "TOSS the shredded radishes with 1/2 teaspoon salt, rest 10 minutes, and squeeze completely dry.",
-        "WHISK the mix, eggs, scallion, remaining salt, and pepper into a batter and fold in the radishes.",
-        "FRY 2-tablespoon spoonfuls in hot oil, 2-3 minutes per side, until crisp and golden.",
-        "DRAIN on a rack and serve hot."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Skillet Radish Fritters",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-07": {
@@ -427210,58 +427712,74 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-SW-SANTA FE",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient overlap: veggie-cheese-tart has the best token overlap with the in-season ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
           "source": "ingredient-overlap"
         },
@@ -427272,13 +427790,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -427697,16 +428217,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -461761,10 +462279,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-W-BEND|2026-05 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -470001,7 +470519,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 cup mix + 2/3 cup milk + 1 egg"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
+        },
+        {
+          "price": null,
+          "qty_name": "4 tablespoons cream cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -470015,8 +470549,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: flapjacks-buttermilk has the best token overlap with the in-season ingredient",
-          "recipe_id": "flapjacks-buttermilk",
+          "reason": "ingredient overlap: summer-fruit-bruschetta has the best token overlap with the in-season ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-overlap"
         },
@@ -470034,8 +470568,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "flapjacks-buttermilk",
-        "name": "Flapjacks — Buttermilk Power Cakes"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -470544,10 +471078,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "1 cup mix + 2/3 cup milk + 1 egg"
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Flapjacks — Buttermilk Power Cakes",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -489637,10 +490174,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-W-PDX|2026-05 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -495254,10 +495791,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-W-RENO|2026-03 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -502046,10 +502583,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-W-SACRAMENTO|2026-03 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -516690,60 +517227,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-W-SD",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-W-SD|2026-04 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -516752,13 +517305,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -517270,16 +517825,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -518517,11 +519070,15 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
+          "qty_name": "1 cup Buttermilk & Vanilla Flapjack Puffs, heated"
         },
         {
           "price": null,
-          "qty_name": "1/2 peach, sliced"
+          "qty_name": "1 peach, diced"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup plain yogurt"
         }
       ],
       "lang": "en",
@@ -518535,8 +519092,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-07",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-W-SD|2026-07 among recipes naming the ingredient",
-          "recipe_id": "sausage-cheddar-peach-stack-draft",
+          "reason": "ingredient rotation: flapjack-puff-parfait-draft chosen deterministically for US-W-SD|2026-07 among recipes naming the ingredient",
+          "recipe_id": "flapjack-puff-parfait-draft",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -518554,8 +519111,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sausage-cheddar-peach-stack-draft",
-        "name": "Sausage Cheddar Peach Stack"
+        "id": "flapjack-puff-parfait-draft",
+        "name": "Flapjack Puff Parfait"
       },
       "render": {
         "canvas": {
@@ -519067,11 +519624,11 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sandwich per package directions.",
-        "TOP with peach slices and serve at once."
+        "HEAT the puffs per package directions.",
+        "LAYER with yogurt and peaches in a glass and serve at once."
       ],
       "substrate": "kraft",
-      "title": "Sausage Cheddar Peach Stack",
+      "title": "Flapjack Puff Parfait",
       "variant": "hero-plus-layout"
     },
     "2026-08": {
@@ -524464,10 +525021,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-05",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-W-SEA|2026-05 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -537693,60 +538250,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-W-SPOKANE",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-W-SPOKANE|2026-04 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -537755,13 +538328,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -538241,16 +538816,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -539985,19 +540558,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Peach Overnight Oats cup"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup whole milk"
+          "qty_name": "4 tablespoons cream cheese"
         },
         {
           "price": null,
-          "qty_name": "1 ripe peach, diced"
+          "qty_name": "1/4 cup Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup plain yogurt"
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -540011,8 +540588,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: peach-overnight-oats-parfait-draft chosen deterministically for US-W-SPOKANE|2026-08 among recipes naming the ingredient",
-          "recipe_id": "peach-overnight-oats-parfait-draft",
+          "reason": "ingredient rotation: summer-fruit-bruschetta chosen deterministically for US-W-SPOKANE|2026-08 among recipes naming the ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -540030,8 +540607,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "peach-overnight-oats-parfait-draft",
-        "name": "Peach Overnight Oats Parfait"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -540511,12 +541088,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "STIR the milk into the oats cup, cover, and refrigerate overnight.",
-        "IN the morning, layer the soaked oats with yogurt and diced peach in a glass.",
-        "SERVE chilled."
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Peach Overnight Oats Parfait",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
@@ -543938,10 +544516,10 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-03",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
+          "reason": "ingredient rotation: asparagus-and-goat-cheese-frittata chosen deterministically for US-W-VEGAS|2026-03 among recipes naming the ingredient",
           "recipe_id": "asparagus-and-goat-cheese-frittata",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -551234,60 +551812,76 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1/4 cup olive oil"
+          "qty_name": "1-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1 small red onion, sliced"
+          "qty_name": "1/2 cup butter"
         },
         {
           "price": null,
-          "qty_name": "12 asparagus stalks, bottoms trimmed"
+          "qty_name": "1/4 cup ice water Filling:"
         },
         {
           "price": null,
-          "qty_name": "10 large eggs"
+          "qty_name": "2 cups ricotta cheese"
         },
         {
           "price": null,
-          "qty_name": "3 tablespoons Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "3 eggs"
         },
         {
           "price": null,
-          "qty_name": "1/2 teaspoon baking powder"
+          "qty_name": "1/4 cup milk"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon salt"
+          "qty_name": "1 teaspoon garlic powder"
         },
         {
           "price": null,
-          "qty_name": "1/4 teaspoon cracked black pepper"
+          "qty_name": "1/2 teaspoon salt"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon fresh chives, chopped"
+          "qty_name": "1/2 teaspoon pepper Topping:"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup goat cheese crumbles"
+          "qty_name": "1 tablespoon olive oil"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch asparagus"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1 bunch radishes, cut in half"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup watercress or arugula"
         }
       ],
       "lang": "en",
       "market": "US-W-YAKIMA",
       "meta": {
-        "cook": "40 mins",
+        "cook": null,
         "est_cost": null,
-        "prep": "15 mins",
-        "serves": "4"
+        "prep": null,
+        "serves": null
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient overlap: asparagus-and-goat-cheese-frittata has the best token overlap with the in-season ingredient",
-          "recipe_id": "asparagus-and-goat-cheese-frittata",
+          "reason": "ingredient rotation: veggie-cheese-tart chosen deterministically for US-W-YAKIMA|2026-04 among recipes naming the ingredient",
+          "recipe_id": "veggie-cheese-tart",
           "season": "spring",
-          "source": "ingredient-overlap"
+          "source": "ingredient-rotation"
         },
         "values_from_source": [
           "asparagus"
@@ -551296,13 +551890,15 @@ window.KODIAK_RECIPE_CARDS = {
           "over Kodiak Power Cakes"
         ],
         "values_unknown": [
+          "times",
+          "serves",
           "prices",
           "temperatures"
         ]
       },
       "recipe": {
-        "id": "asparagus-and-goat-cheese-frittata",
-        "name": "Asparagus And Goat Cheese Frittata"
+        "id": "veggie-cheese-tart",
+        "name": "Veggie & Cheese Tart"
       },
       "render": {
         "canvas": {
@@ -551780,16 +552376,14 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
-        "IN a pan over medium heat, sauté the red onion in the olive oil until soft, then remove from heat.",
-        "IN the same pan, sauté the asparagus over medium heat for about 2 minutes, until bright green, then remove from heat.",
-        "PLACE the sautéed onions and asparagus into the prepared baking dish and spread evenly.",
-        "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
-        "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
-        "BAKE for 35–40 minutes, or until the center is set and cooked through."
+        "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+        "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+        "PREHEAT oven to 375 degrees. Coat the asparagus and radishes with olive oil and salt. Place on a baking pan and roast for 15-20 minutes.",
+        "ON a floured surface, roll the disc of pie dough 1/4\" thick and place into a tart pan.",
+        "FILL with prepared ricotta filling and bake for 25-30 minutes. Remove from oven and let cool slightly before topping with roasted vegetables and watercress or arugula."
       ],
       "substrate": "kraft",
-      "title": "Asparagus And Goat Cheese Frittata",
+      "title": "Veggie & Cheese Tart",
       "variant": "hero-plus-layout"
     },
     "2026-05": {
@@ -553495,11 +554089,23 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "1 Sausage & Cheddar Cheese Breakfast Sandwich, heated"
+          "qty_name": "3 Kodiak Buttermilk & Vanilla Power Waffles"
         },
         {
           "price": null,
-          "qty_name": "1/2 peach, sliced"
+          "qty_name": "4 tablespoons cream cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "1/4 cup Greek yogurt"
+        },
+        {
+          "price": null,
+          "qty_name": "2 peaches or plums, sliced"
+        },
+        {
+          "price": null,
+          "qty_name": "2 tablespoons honey"
         }
       ],
       "lang": "en",
@@ -553513,8 +554119,8 @@ window.KODIAK_RECIPE_CARDS = {
       "month": "2026-08",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: sausage-cheddar-peach-stack-draft chosen deterministically for US-W-YAKIMA|2026-08 among recipes naming the ingredient",
-          "recipe_id": "sausage-cheddar-peach-stack-draft",
+          "reason": "ingredient rotation: summer-fruit-bruschetta chosen deterministically for US-W-YAKIMA|2026-08 among recipes naming the ingredient",
+          "recipe_id": "summer-fruit-bruschetta",
           "season": "summer",
           "source": "ingredient-rotation"
         },
@@ -553532,8 +554138,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "sausage-cheddar-peach-stack-draft",
-        "name": "Sausage Cheddar Peach Stack"
+        "id": "summer-fruit-bruschetta",
+        "name": "Summer Fruit Bruschetta"
       },
       "render": {
         "canvas": {
@@ -554011,11 +554617,13 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "HEAT the sandwich per package directions.",
-        "TOP with peach slices and serve at once."
+        "USE an electric mixer to whip the cream cheese. Add Greek yogurt and mix until smooth.",
+        "TOAST waffles on the lowest setting.",
+        "CUT each waffle in half.",
+        "TOP with cream cheese mixture and sliced peaches or plums. Drizzle with honey."
       ],
       "substrate": "kraft",
-      "title": "Sausage Cheddar Peach Stack",
+      "title": "Summer Fruit Bruschetta",
       "variant": "hero-plus-layout"
     },
     "2026-09": {
