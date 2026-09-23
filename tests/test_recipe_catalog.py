@@ -25,6 +25,11 @@ def test_brand_enriched_records_carry_verbatim_fields():
         assert (r.get("dish") or "").strip(), f"{rid}: enriched record lost dish"
         assert r.get("ingredients"), f"{rid}: enriched record lost ingredients"
         assert (r.get("directions") or "").strip(), f"{rid}: enriched record lost directions"
+        steps = r.get("instructions") or []
+        assert isinstance(steps, list) and len(steps) >= 2, (
+            f"{rid}: enriched record lost serving-shape instructions list "
+            "(cards read instructions, not directions)"
+        )
         page = r.get("kodiak_page") or ""
         assert page.startswith("https://kodiakcakes.com/blogs/recipes/"), (
             f"{rid}: enriched record lost brand page link"

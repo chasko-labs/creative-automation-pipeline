@@ -8469,7 +8469,8 @@
     "prepTime": "15 mins",
     "cookTime": "25 mins",
     "yield": "16",
-    "dietary": []
+    "dietary": [],
+    "course": "desserts"
   },
   {
     "id": "single-serve-quiche-lorraine-cup",
@@ -8708,7 +8709,14 @@
     "prep_minutes": 5,
     "cook_minutes": 5,
     "servings": "4",
-    "source": "brand_json_ld"
+    "source": "brand_json_ld",
+    "instructions": [
+      "Toast the waffles until lightly golden brown. Place on a platter.",
+      "Add the yogurt, maple syrup, and lemon juice to a mixing bowl and whisk until smooth.",
+      "Place dollops of the lemon protein whip on top of the toasted waffles.",
+      "Top the waffles with the lemon zest and fresh blueberries.",
+      "Drizzle maple syrup over waffles, if desired."
+    ]
   },
   {
     "id": "single-serve-lemon-poppyseed-blueberry-muffin",
@@ -8782,7 +8790,13 @@
     "prep_minutes": 2,
     "cook_minutes": 5,
     "servings": "4",
-    "source": "brand_json_ld"
+    "source": "brand_json_ld",
+    "instructions": [
+      "Toast the waffles until lightly golden brown.",
+      "Top waffles with slices of butter and let melt.",
+      "Drizzle waffles with maple syrup.",
+      "Top each waffle with mixed chopped nuts and seeds. Enjoy!"
+    ]
   },
   {
     "id": "flag-muffins",
@@ -8969,7 +8983,20 @@
     "prep_minutes": 10,
     "cook_minutes": 10,
     "servings": "8",
-    "source": "brand_json_ld"
+    "source": "brand_json_ld",
+    "instructions": [
+      "Preheat the oven to 375° F. Line a baking sheet with parchment paper.",
+      "Place the butter in a large mixing bowl along with both types of sugar. Beat for 2-3 minutes, until light and fluffy.",
+      "Beat in the vanilla extract.",
+      "Beat in the eggs, one at a time, thoroughly mixing in after each addition.",
+      "Add the Kodiak mix, cornstarch, and baking soda to a separate mixing bowl and whisk to combine.",
+      "Add the dry ingredients to the bowl of wet ingredients and beat until just combined.",
+      "Fold in the white chocolate chips, graham crackers, and freeze-dried strawberries to the cookie dough with a spoon until evenly distributed.",
+      "Let the dough rest for about 15 minutes (giving the whole grains time to absorb more moisture before baking).",
+      "Scoop 1/2 cup mounds of dough and roll into a ball. Place on the prepared baking sheet and press the dough ball down to about half its height. Repeat with the remaining dough.",
+      "Bake cookies for 9-10 minutes, or until just golden brown on the bottoms. Do not overbake - they may be soft on top but will firm up after cooling.",
+      "Store in an airtight container. *Baker’s Note: This recipe makes 8 rather large cookies. This achieves the best texture, but the cookies can be made smaller if desired."
+    ]
   },
   {
     "id": "strawberry-shortcake-parfait",
@@ -9005,7 +9032,14 @@
     "prep_minutes": 20,
     "cook_minutes": null,
     "servings": "8",
-    "source": "brand_json_ld"
+    "source": "brand_json_ld",
+    "instructions": [
+      "Place the package of flapjack puffs in the fridge overnight to defrost.",
+      "Place the heavy cream and vanilla extract in a mixing bowl along with 1/4 cup of the sugar. Beat with an electric mixer until stiff peaks form.",
+      "Place the sliced strawberries in a bowl and sprinkle the remaining 1/4 cup of sugar over them. Toss to coat. Let the strawberry sit for 10 minutes while the sugar forms a Syrup.",
+      "Evenly divide the flapjack puffs, whipped cream, and strawberries with syrup between eight small cups, layering the ingredients on top of each other in several layers.",
+      "Chill until ready to serve!"
+    ]
   },
   {
     "id": "strawberry-jelly-roll",
@@ -9226,7 +9260,43 @@
       "q"
     ],
     "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
-    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/holiday-sugar-cookies.jpg"
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/holiday-sugar-cookies.jpg",
+    "dish": "Holiday Sugar Cookies",
+    "title": "Holiday Sugar Cookies",
+    "course": "desserts",
+    "ingredients": [
+      "1 cup butter, softened",
+      "3/4 cup granulated sugar",
+      "1 egg",
+      "1 teaspoon almond extract",
+      "1 teaspoon vanilla extract",
+      "1/2 cup sour cream",
+      "3 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 cup butter, softened",
+      "6-8 cups confectioners sugar",
+      "1 teaspoon vanilla extract",
+      "1-2 tablespoons milk"
+    ],
+    "directions": "1. To make the cookies:\n2. Preheat the oven to 350° F. Line a baking sheet with parchment paper.\n3. Place the butter and sugar in a mixing bowl. Cream together with an electric mixer until light and fluffy.\n4. Add the egg, almond extract, and sour cream and beat in until smooth, scraping down the sides once.\n5. Add the Kodiak mix to the wet ingredients and mix in until just combined.\n6. Place the dough between 2 sheets of waxed paper, dusting both sides with flour, and roll out to a thickness of no less than ½\". Refrigerate the dough for 30 minutes.\n7. Remove dough from refrigerator. Peel back the top sheet of parchment and cut shapes out of the dough using desired cookie cutters. Place cookies 1\" apart on the parchment-lined baking sheet.\n8. Bake in preheated oven for 10-12 minutes. Do not let them brown!*\n9. Cool cookies on a wire rack. *Kodiak Tip: Cook for the shortest amount of time possible, so that they almost seem underdone. Once cooled, they’ll be so soft. Just take care not to under-cook. Everyone's oven is a little different, so see what time works best to give you the results you want. To make the frosting:\n10. Place the butter, sugar, and vanilla in a mixing bowl and beat on low speed with an electric mixer until combined. Increase speed to high and continue to beat for another 2-3 minutes or until light and fluffy. Add a little milk to thin, if needed.\n11. Use a butter knife to spread frosting on the cooled cookies.\n12. Decorate with desired toppings.\n13. Store cookies in an airtight container.",
+    "instructions": [
+      "To make the cookies:",
+      "Preheat the oven to 350° F. Line a baking sheet with parchment paper.",
+      "Place the butter and sugar in a mixing bowl. Cream together with an electric mixer until light and fluffy.",
+      "Add the egg, almond extract, and sour cream and beat in until smooth, scraping down the sides once.",
+      "Add the Kodiak mix to the wet ingredients and mix in until just combined.",
+      "Place the dough between 2 sheets of waxed paper, dusting both sides with flour, and roll out to a thickness of no less than ½\". Refrigerate the dough for 30 minutes.",
+      "Remove dough from refrigerator. Peel back the top sheet of parchment and cut shapes out of the dough using desired cookie cutters. Place cookies 1\" apart on the parchment-lined baking sheet.",
+      "Bake in preheated oven for 10-12 minutes. Do not let them brown!*",
+      "Cool cookies on a wire rack. *Kodiak Tip: Cook for the shortest amount of time possible, so that they almost seem underdone. Once cooled, they’ll be so soft. Just take care not to under-cook. Everyone's oven is a little different, so see what time works best to give you the results you want. To make the frosting:",
+      "Place the butter, sugar, and vanilla in a mixing bowl and beat on low speed with an electric mixer until combined. Increase speed to high and continue to beat for another 2-3 minutes or until light and fluffy. Add a little milk to thin, if needed.",
+      "Use a butter knife to spread frosting on the cooled cookies.",
+      "Decorate with desired toppings.",
+      "Store cookies in an airtight container."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 10,
+    "servings": "18",
+    "source": "brand_json_ld"
   },
   {
     "id": "gingerbread-cookie-bars",
@@ -9782,7 +9852,16 @@
     "prep_minutes": 5,
     "cook_minutes": 20,
     "servings": "1",
-    "source": "brand_json_ld"
+    "source": "brand_json_ld",
+    "instructions": [
+      "Preheat the oven to 350° F.",
+      "Place 1 packet oatmeal, the egg, milk, baking powder, and applesauce in a blender and blend until the oats are broken down into smaller pieces.",
+      "Pour the mixture into a greased, and oven-proof, single-serve bowl.",
+      "In another small bowl, stir together the cream cheese and maple syrup. Spoon into the center of the oat mixture.",
+      "Sprinkle the blueberries over the top.",
+      "Bake in the preheated oven for 18-20 minutes, or until puffed and cooked through.",
+      "Cool slightly before digging in!"
+    ]
   },
   {
     "id": "wheat-rolls",
@@ -9879,7 +9958,8 @@
     "prepTime": "40 mins",
     "cookTime": "60 mins",
     "yield": "8",
-    "dietary": []
+    "dietary": [],
+    "course": "desserts"
   },
   {
     "id": "caramel-apple-pie",
@@ -10491,7 +10571,23 @@
     "prep_minutes": 30,
     "cook_minutes": 40,
     "servings": "12",
-    "source": "brand_json_ld"
+    "source": "brand_json_ld",
+    "instructions": [
+      "Add Kodiak mix to a large bowl.",
+      "Cut the butter into cubes and work into the mix by hand.",
+      "Add ice water.",
+      "Mix until a dough is formed.",
+      "Flatten the dough into two even discs and refrigerate for 1 hour.",
+      "Meanwhile, combine the strawberries, sugar, cornstarch, and lemon juice in a large saucepan over medium-high heat.",
+      "Cook until the sugar is dissolved and the liquid turns translucent, stirring constantly.",
+      "Remove from heat and cool completely.",
+      "On a floured surface, roll each disc of pie dough 1/4\" thick.",
+      "Optional: Use a small knife to cut a pie symbol out of the center of one of the rolled crusts.",
+      "Place the bottom crust in a pie tin, fill with cooled strawberries, and top with the dough with the pi symbol cut-out.",
+      "Place the pie in the freezer for 10 minutes.",
+      "Preheat oven to 400° F.",
+      "Brush the dough with egg and bake for 35-40 minutes."
+    ]
   },
   {
     "id": "probiotic-pancakes",
@@ -10809,7 +10905,8 @@
     ],
     "prepTime": "5",
     "cookTime": "25",
-    "yield": "6"
+    "yield": "6",
+    "course": "breakfast & brunch"
   },
   {
     "id": "kodiak-cakes-blueberry-yogurt-muffins",
