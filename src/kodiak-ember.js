@@ -1407,7 +1407,82 @@ function mountTimelineSignage(selector = "#progressTimeline") {
 	return state;
 }
 
-// ── public API (WAVE 1 surface) ──
+// ── frontier stage scene factory ──
+// createStageScene(engine) builds the procedural transparent stage scene for
+// web/.../js/frontier-stage.js. ADDITIVE: no existing export, gate, loop, or
+// behavior above is touched.
+//
+// Contract, all enforced below:
+//  - Takes the harness-created engine. Never creates its own Engine (that
+//    would bypass the shared singleton AND the gateReason/canMount3D device
+//    gate — the SwiftShader/llvmpipe refusal stays authoritative because this
+//    factory never consults or overrides it, it only renders when mounted).
+//  - Never calls runRenderLoop: the harness owns the single _masterTick loop;
+//    the caller registers the returned camera via registerSceneView.
+//  - Transparent: scene.clearColor alpha is 0, so the canvas composites over
+//    the page background instead of masking it (the opaque-mask lesson).
+//  - Procedural only: MeshBuilder boxes + StandardMaterial flat colors from
+//    the brand tokens. No textures (not even DynamicTexture), no PBR, no
+//    asset loads, no remote fetches — nothing beyond the already-vendored
+//    @babylonjs/core 9.4.1 classes imported at the top of this file.
+//  - Static by construction: no animations, no beforeRender hooks, so there
+//    is nothing to pause under prefers-reduced-motion — the scene is a still
+//    ambient wash re-rendered by the shared tick.
+// Returns { scene, camera }. Throws leave the caller on its fallback path.
+function createStageScene(engine) {
+	if (!engine) throw new Error("createStageScene needs the harness engine");
+	const scene = new Scene(engine);
+	scene.clearColor = new Color4(0, 0, 0, 0); // transparent — never mask the page
+
+	// Fixed wide camera, never interactive (no attachControl): the stage sits
+	// behind DOM content and must not capture input.
+	const camera = new FreeCamera(
+		"frontierStageCam",
+		new Vector3(0, 1.2, -11),
+		scene,
+	);
+	camera.setTarget(Vector3.Zero());
+
+	// Flat ambient light so the matte bands read evenly; no shadows, no fixtures.
+	const hemi = new HemisphericLight(
+		"frontierStageHemi",
+		new Vector3(0.2, 1, 0.3),
+		scene,
+	);
+	hemi.intensity = 0.9;
+	hemi.groundColor = new Color3(0.16, 0.13, 0.11);
+
+	// Horizon band — deep frontier-green matte slab low in frame.
+	const horizon = MeshBuilder.CreateBox(
+		"frontierStageHorizon",
+		{ width: 34, height: 1.6, depth: 0.5 },
+		scene,
+	);
+	horizon.position = new Vector3(0, -2.4, 0);
+	const horizonMat = new StandardMaterial("frontierStageHorizonMat", scene);
+	horizonMat.diffuseColor = hex("#1A2F29");
+	horizonMat.specularColor = new Color3(0.02, 0.02, 0.02); // matte
+	horizonMat.alpha = 0.92;
+	horizon.material = horizonMat;
+
+	// Ember glow line — self-lit warm wash riding the top edge of the band.
+	// disableLighting makes it pure emissive: no light/shader cost beyond flat.
+	const glow = MeshBuilder.CreateBox(
+		"frontierStageGlow",
+		{ width: 34, height: 0.16, depth: 0.4 },
+		scene,
+	);
+	glow.position = new Vector3(0, -1.55, 0);
+	const glowMat = new StandardMaterial("frontierStageGlowMat", scene);
+	glowMat.disableLighting = true;
+	glowMat.emissiveColor = AMBER.scale(0.55);
+	glowMat.alpha = 0.8;
+	glow.material = glowMat;
+
+	return { scene, camera };
+}
+
+// ── public API (WAVE 1 surface + frontier stage factory) ──
 // Later waves add mountEmberBar / mountKraftCards / finishLineBloom here. This
 // wave exposes the recipe-card board mount plus the device gate and version
 // stamp, so the details.html <script> boot guard is wireable and testable now.
@@ -1416,6 +1491,7 @@ const KodiakEmber = {
 	mountSheenRim,
 	mountPaperboardCards,
 	mountTimelineSignage,
+	createStageScene,
 	canMount3D,
 	gateReason,
 	_version: "0.6.0",
@@ -1427,6 +1503,7 @@ const KodiakEmber = {
 		unregisterSceneView,
 		probeWebGL,
 		prefersReducedMotion,
+		createStageScene,
 	}),
 	_palette,
 };

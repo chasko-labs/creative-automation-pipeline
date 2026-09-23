@@ -564,4 +564,17 @@
     else boot();
   }
 </script>
+<script type="module">
+  // Frontier stage is LAB-ONLY on this page (?ember3d=1, same condition as the
+  // KodiakEmber boot above): transparent procedural WebGL canvas behind the UI.
+  // mount() itself enforces the hard-off gates (reduced-motion, narrow
+  // viewport, load/context/factory failure), so any refusal leaves the DOM/CSS
+  // fallback pixel-identical. Never force-enable: the opaque-mask issue noted
+  // above stays the gate.
+  if (window.KodiakEmber && new URLSearchParams(location.search).get('ember3d') === '1') {
+    import('./js/frontier-stage.js?v=0.1.021-9b910c9-20260923')
+      .then((m) => m.mount())
+      .catch(() => {});
+  }
+</script>
 </body></html>

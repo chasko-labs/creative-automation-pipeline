@@ -1,11 +1,7 @@
-// frontier-stage — SPIKE, not referenced by any HTML yet.
-//
-// Transparent-canvas Babylon.js stage behind the Kodiak frontier web UI.
-// READ THIS BEFORE WIRING IT UP: this module intentionally does nothing on
-// its own. Importing it has zero effect until a later change calls `mount()`
-// (and no <script> tag points at it, so today it ships zero bytes to the
-// page). It exists so the mount/scroll/view integration can be reviewed
-// before any page pays for it.
+// frontier-stage — transparent-canvas Babylon.js stage behind the Kodiak
+// frontier web UI. Wired lab-only: index.html imports this module and calls
+// mount() beside the existing ?ember3d=1 boot guard. Importing it alone has
+// zero effect until mount() is called.
 //
 // Design rules (all enforced below):
 //  1. The ONLY 3D code this module ever loads is the already-vendored entry
@@ -25,28 +21,26 @@
 //     opacity 0 until the first successful frame, then faded to 1.
 //  4. Hard-off (DOM/CSS fallback left pixel-identical — the canvas is removed
 //     or never created) when: prefers-reduced-motion, viewport max-width
-//     860px, the vendored module fails to load (e.g. file://), or engine
-//     creation throws. The software-renderer refusal (SwiftShader/llvmpipe)
-//     stays inside the harness gate (gateReason/canMount3D); this module
-//     surfaces its verdict via status() but never overrides it.
+//     860px, the vendored module fails to load (e.g. file://), engine
+//     creation throws, or the harness exposes no stage factory / the factory
+//     throws. The software-renderer refusal (SwiftShader/llvmpipe) stays
+//     inside the harness gate (gateReason/canMount3D); this module surfaces
+//     its verdict via status().deviceGate but never overrides it.
 //  5. Scene content is procedural / clear-color ONLY — this module creates no
-//     textures, materials, or asset fetches of any kind. LIMITATION (honest):
-//     the vendored entry exports only the KodiakEmber facade (mounts + gate +
-//     harness internals), NOT the Scene/Camera classes, so a procedural stage
-//     scene cannot be constructed from this side of the bundle. registerViewport
-//     therefore takes a caller-supplied camera (built by a future harness
-//     factory in src/kodiak-ember.js), and mount() without a registered view
-//     leaves the canvas transparent — visually identical to the fallback.
-//     See INTEGRATION below.
+//     textures, materials, or asset fetches of any kind. mount() picks up
+//     createStageScene via the harness surface (KodiakEmber.createStageScene
+//     or _harness.createStageScene, whichever the vendored entry exposes)
+//     and registers the returned camera on the stage canvas, so a mounted
+//     stage renders the procedural scene instead of staying transparent.
+//     registerViewport remains for extra caller-supplied views.
 
 // ---------------------------------------------------------------------------
-// INTEGRATION (for the later change — none of this is wired yet):
-//  mount call ..... index.html line 113 (</head><body>): insert the
-//                   mount() call as a module script AFTER the static
-//                   vendor/kodiak-ember.esm.js script (~line 548), beside the
-//                   existing ?ember3d=1 boot guard (~lines 549-560), so the
-//                   stage stays lab-gated until the opaque-mask issue noted
-//                   there is resolved.
+// INTEGRATION (wired):
+//  mount call ..... index.html: mount() runs in a module script AFTER the
+//                   static vendor/kodiak-ember.esm.js script, under the same
+//                   ?ember3d=1 lab gate as the existing boot guard — the stage
+//                   stays lab-gated until the opaque-mask issue noted there
+//                   is resolved.
 //  scroll bridge .. js/scroll-swap.js (whole file): the window + .wrap scroll
 //                   listener pattern; index.html line 124 (.wrap owns desktop
 //                   scrolling). A stage parallax offset would subscribe the
@@ -54,12 +48,29 @@
 //  view registration  js/preview-parallax.js (hero-tile scope pattern) and
 //                   js/recipe-cards.js (card hosts): per-view canvases pass
 //                   through registerViewport(viewId, canvas, camera).
-//  scene factory .. src/kodiak-ember.js export block (~line 1414): add a
-//                   createStageScene(engine) harness export; mount() will pick
-//                   it up via the _harness surface with zero changes here.
+//  scene factory .. src/kodiak-ember.js: createStageScene(engine), exported
+//                   top-level and on _harness, rebuilt into vendor/ via
+//                   `npm run build:ember`. Until the committed bundle carries
+//                   it, mount() reports off/no-stage-factory and the fallback
+//                   stays pixel-identical.
 // ---------------------------------------------------------------------------
 
 const VENDOR_URL = "../vendor/kodiak-ember.esm.js";
+// The page's static <script> tag loads the same entry WITH a ?v= cache-bust
+// query. A bare-URL dynamic import would fetch a SECOND module instance and
+// Babylon throws re-registering its statics ("Cannot redefine property").
+// Resolve the vendor URL from the static tag so both sides share one module
+// record — no stamp to keep in sync, bump-version can rewrite the tag freely.
+function vendorUrl() {
+  try {
+    const tag = document.querySelector('script[src*="kodiak-ember.esm.js"]');
+    const src = tag && tag.getAttribute("src");
+    if (src) return new URL(src, document.baseURI).href;
+  } catch (_e) {
+    // No static tag (or no DOM): fall back to the bare relative URL.
+  }
+  return VENDOR_URL;
+}
 const STAGE_ID = "frontier-stage";
 const FADE_MS = 600;
 const LOW_POWER_QUERY = "(max-width: 860px)";
@@ -77,12 +88,16 @@ const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 let stageCanvas = null;
 /** @type {unknown} engine from the harness singleton (opaque on purpose) */
 let engine = null;
-/** @type {{ ensureEngine: Function, registerSceneView: Function, unregisterSceneView: Function } | null} */
+/** @type {{ ensureEngine: Function, registerSceneView: Function, unregisterSceneView: Function, createStageScene?: Function } | null} */
 let harness = null;
 /** @type {Map<string, ViewRecord>} */
 const views = new Map();
 /** @type {string | null} last hard-off / failure reason, null when live */
 let offReason = null;
+/** @type {string | null} harness device-gate verdict code (informational only — never a hard-off) */
+let deviceGate = null;
+/** viewId under which mount() registers its own procedural stage view */
+const STAGE_VIEW_ID = "frontier-stage";
 
 /**
  * Synchronous hard-off check. No DOM is touched and no module is fetched
@@ -149,7 +164,7 @@ export async function mount() {
   /** @type {{ KodiakEmber?: any } | null} */
   let mod = null;
   try {
-    mod = await import(/* @vite-ignore */ VENDOR_URL);
+    mod = await import(/* @vite-ignore */ vendorUrl());
   } catch (_e) {
     // file:// or any load failure: leave the fallback pixel-identical.
     offReason = "module-load-failed";
@@ -175,6 +190,64 @@ export async function mount() {
     removeCanvas();
     return { status: "off", reason: offReason };
   }
+  // Pick up the procedural stage scene via the harness surface (top-level
+  // export preferred, _harness copy as fallback). Missing factory (e.g. a
+  // committed bundle predating it) is a hard-off: canvas removed, fallback
+  // pixel-identical.
+  const factory =
+    (ember && typeof ember.createStageScene === "function" && ember.createStageScene) ||
+    (harness && typeof harness.createStageScene === "function" && harness.createStageScene);
+  if (!factory) {
+    offReason = "no-stage-factory";
+    engine = null;
+    harness = null;
+    removeCanvas();
+    return { status: "off", reason: offReason };
+  }
+  // Surface the harness device-gate verdict for debuggers. Informational
+  // ONLY — the harness gate stays authoritative on its own path and this
+  // module never overrides it (no extra hard-off here).
+  try {
+    const verdict =
+      ember && typeof ember.gateReason === "function" ? ember.gateReason(canvas) : null;
+    deviceGate = verdict && verdict.code ? verdict.code : null;
+  } catch (_e) {
+    deviceGate = null;
+  }
+  let stage = null;
+  try {
+    stage = factory(engine);
+  } catch (_e) {
+    stage = null;
+  }
+  if (!stage || !stage.scene || !stage.camera) {
+    offReason = "stage-scene-failed";
+    engine = null;
+    harness = null;
+    removeCanvas();
+    return { status: "off", reason: offReason };
+  }
+  // Attach the stage view to the existing harness loop — never start one.
+  // First successful frame fades the canvas 0->1; before that it stays
+  // transparent (indistinguishable from the fallback).
+  const render = () => {
+    stage.scene.render();
+    const rec = views.get(STAGE_VIEW_ID);
+    if (rec && !rec.firstFrameSeen) {
+      rec.firstFrameSeen = true;
+      canvas.style.opacity = "1";
+    }
+  };
+  // Never take another context mode on this canvas (no getContext anywhere
+  // in this module): the engine composites registered views via a 2d
+  // drawImage, and any foreign context would void that copy.
+  harness.registerSceneView(canvas, stage.camera, render);
+  views.set(STAGE_VIEW_ID, {
+    viewId: STAGE_VIEW_ID,
+    canvas,
+    camera: stage.camera,
+    firstFrameSeen: false,
+  });
   offReason = null;
   return { status: "on", reason: null };
 }
@@ -187,7 +260,7 @@ export async function mount() {
  * @param {string} viewId stable viewport name (e.g. "hero", "card-12")
  * @param {HTMLCanvasElement} canvas view canvas (stage canvas or a card canvas)
  * @param {unknown} camera Babylon camera owning the view's scene; supplied by
- *   the caller (a future harness scene factory — see header).
+ *   the caller (e.g. the mount() stage view uses createStageScene — see header).
  * @param {(...args: any[]) => void} [customRender] optional per-frame hook
  * @returns {{ status: "on" | "off" | "pending", reason: string | null }}
  */
@@ -235,6 +308,7 @@ export function destroy() {
   engine = null;
   harness = null;
   offReason = null;
+  deviceGate = null;
 }
 
 /** Current stage state for debuggers and later boot guards. */
@@ -242,6 +316,7 @@ export function status() {
   return {
     mounted: Boolean(engine && stageCanvas),
     offReason,
+    deviceGate,
     views: Array.from(views.keys()),
   };
 }
