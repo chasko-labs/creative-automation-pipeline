@@ -176,10 +176,11 @@ _RESTYLE_CACHE_BUCKET = os.getenv("ASSET_STORE_S3_BUCKET", "").strip() or os.get
 
 
 def _restyle_cache_key(seed_bytes: bytes, product_name: str, brief_msg: str,
-                        region: str, audience: str, theme: str | None) -> str:
+                        region: str, audience: str, theme: str | None,
+                        dish: str | None = None) -> str:
     h = hashlib.sha256()
     h.update(seed_bytes)
-    for part in (product_name, brief_msg, region, audience, theme or ""):
+    for part in (product_name, brief_msg, region, audience, theme or "", dish or ""):
         h.update(b"\x00")
         h.update(str(part).encode("utf-8", "replace"))
     return _RESTYLE_CACHE_PREFIX + h.hexdigest() + ".png"
@@ -1093,9 +1094,41 @@ def _caption_with_budget(src, product_name, brief_msg, region, audience, remaini
     return caption
 
 
+def _brief_setting_clause(brief_msg: str | None) -> str:
+    """Compact setting directive parsed from the brief's curated markers.
+
+    The frontend brief carries ecology:/frontier:/in-season: segments from the
+    pair data (never fabricated). The full brief is too noisy to survive Nova's
+    40-word compression, so this distills the place + seasonal feature into one
+    clause any market can use — Manhattan/October resolves exactly like the
+    original Cincinnati/September case did, instead of needing a per-market
+    special case. Returns '' when the brief carries no markers.
+    """
+    if not brief_msg:
+        return ""
+    ecology = frontier = seasonal = ""
+    for seg in str(brief_msg).replace("◇", "·").split("·"):
+        low = seg.strip().lower()
+        if low.startswith("ecology:") and not ecology:
+            ecology = seg.strip()[len("ecology:"):].strip()
+        elif low.startswith("frontier:") and not frontier:
+            frontier = seg.strip()[len("frontier:"):].strip()
+        elif low.startswith("in-season:") and not seasonal:
+            seasonal = seg.strip()[len("in-season:"):].strip().rstrip(".")
+    bits = []
+    place = frontier or ecology
+    if place:
+        bits.append(f"Setting: {place}.")
+    if seasonal:
+        bits.append(f"Seasonal feature: {seasonal}.")
+    elif ecology and frontier:
+        bits.append(f"Local touch: {ecology}.")
+    return " ".join(bits)
+
+
 def _default_scene_prompt(
     product_name: str, brief_msg: str, region: str, audience: str, theme: str | None,
-    extra_themes: list[str] | None = None,
+    extra_themes: list[str] | None = None, dish: str | None = None,
 ) -> str:
     """Deterministic restyle direction for a photo seed — no network.
 
@@ -1130,11 +1163,16 @@ def _default_scene_prompt(
         direction = f"{hint} Campaign vibe: {safe_brief}." if safe_brief else hint
     else:
         direction = brief_msg
-        # Quick win: ensure September ecological depth (trillium/bluebells/walnuts/brick halls)
-        # threads even if Nova truncates — append canonical ecology when market is Cincy
-        if "Cincinnati" in (brief_msg or "") and "pawpaws" in (brief_msg or "").lower():
-            if "trillium" not in direction.lower():
-                direction += " — humid river valley with brick market halls, trillium and bluebells spring, coneflower summer, aster and goldenrod fall, black walnuts in December."
+        # Locality survives Nova truncation: distill the brief's curated
+        # ecology/frontier/in-season markers into a compact setting clause for
+        # ANY market (Manhattan/October included), not just Cincinnati.
+        setting = _brief_setting_clause(brief_msg)
+        if setting and setting.lower() not in str(direction or "").lower():
+            direction = f"{direction} {setting}"
+    if dish and str(dish).strip() and str(dish).strip().lower() not in str(direction or "").lower():
+        # The campaign recipe names the dish — without it the restyle keeps the
+        # seed's generic composition and the image disconnects from the recipe.
+        direction = f"{direction} Featuring a serving of {str(dish).strip()}."
     base = (
         f"{product_name} product photo restyled for "
         f"{direction}, "
@@ -1148,7 +1186,7 @@ def _default_scene_prompt(
 
 def _nova_pro_scene_prompt(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str, theme: str | None,
-    extra_themes: list[str] | None = None,
+    extra_themes: list[str] | None = None, dish: str | None = None,
 ) -> str:
     """Ask Nova Pro (Converse) for the control-structure restyle prompt.
 
@@ -1165,7 +1203,7 @@ def _nova_pro_scene_prompt(
     if extra_themes:
         combo = combine_themes([theme or "", *(extra_themes or [])])
         theme_hint += _combo_scene_suffix(combo)
-    default_prompt = _default_scene_prompt(product_name, brief_msg, region, audience, theme, extra_themes)
+    default_prompt = _default_scene_prompt(product_name, brief_msg, region, audience, theme, extra_themes, dish)
     if boto3 is None:
         return default_prompt
     try:
@@ -1174,10 +1212,20 @@ def _nova_pro_scene_prompt(
         return default_prompt
     try:
         client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
+        # Locality + dish survive the 40-word compression: the brief's curated
+        # place/season markers are restated as hard requirements, and the
+        # campaign dish is named so the pixels match the paired recipe.
+        keep_clause = ""
+        setting = _brief_setting_clause(brief_msg)
+        if setting:
+            keep_clause += f" You MUST keep this setting: {setting}"
+        clean_dish = str(dish or "").strip()
+        if clean_dish:
+            keep_clause += f" The image MUST show a serving of {clean_dish}."
         prompt = (
             f"You are an ad art director directing an image restyle. Product: "
             f"'{product_name}'. Region: {region}. Audience: {audience}. Campaign vibe: "
-            f"{brief_msg}.{theme_hint} Look at the product image, which must keep its "
+            f"{brief_msg}.{theme_hint}{keep_clause} Look at the product image, which must keep its "
             "composition. Reply with ONE vivid scene/style description (max 40 words, no "
             "line breaks, no quotes) that restyles this photo to the theme — lighting, "
             "setting, mood, palette. Keep the product recognizable. No headline text. "
@@ -1283,7 +1331,8 @@ def _similarity_distance(seed: Path, candidate: Path) -> int | None:
 
 
 def _scene_prompt_source(scene_prompt: str, product_name: str, brief_msg: str,
-                         region: str, audience: str, theme: str | None) -> str:
+                         region: str, audience: str, theme: str | None,
+                         dish: str | None = None) -> str:
     """Name which branch wrote a rung scene prompt: live Nova vs deterministic default.
 
     _nova_pro_scene_prompt degrades to the deterministic default on ANY Nova failure,
@@ -1291,7 +1340,7 @@ def _scene_prompt_source(scene_prompt: str, product_name: str, brief_msg: str,
     new plumbing through the Converse call, and the theme-photo fast path (which never
     calls Nova) classifies as default through the same comparison.
     """
-    default = _default_scene_prompt(product_name, brief_msg, region, audience, theme)
+    default = _default_scene_prompt(product_name, brief_msg, region, audience, theme, None, dish)
     return "default" if (scene_prompt or "") == default else "nova"
 
 def _bedrock_failfast_client(read_timeout: int | None = None):
@@ -2483,6 +2532,7 @@ def generate_hero(
     seed_key: str | None = None,
     layers: dict | None = None,
     themes: list[str] | str | None = None,
+    dish: str | None = None,
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
 
@@ -2648,6 +2698,7 @@ def generate_hero(
         "control_strength": None,
         "model": None,
         "incoming_prompt": brief_msg,
+        "dish": dish,
         "theme": theme,
         "themes": theme_combo["themes"] if theme_combo else None,
         "theme_combo": (
@@ -2843,7 +2894,7 @@ def generate_hero(
                 try:
                     cache_key = _restyle_cache_key(
                         Path(seed).read_bytes(), product_name, brief_msg,
-                        region, audience, theme)
+                        region, audience, theme, dish)
                     cached = out_path.parent / f"{out_path.stem}-restyle-cached.png"
                     if _restyle_cache_get(cache_key, cached):
                         seed = cached
@@ -2856,11 +2907,11 @@ def generate_hero(
                 try:
                     a_scene = _nova_pro_scene_prompt(
                         seed, product_name, brief_msg, region, audience, theme,
-                        combo_extras or None,
+                        combo_extras or None, dish,
                     )
                     provenance["scene_prompt"] = a_scene
                     provenance["scene_prompt_source"] = _scene_prompt_source(
-                        a_scene, product_name, brief_msg, region, audience, theme
+                        a_scene, product_name, brief_msg, region, audience, theme, dish
                     )
                     # _STABILITY_RUNG_ON gate: dev skips the packshot background restyle
                     # and falls to the deterministic packshot composite (unrestyled seed).
@@ -2954,7 +3005,7 @@ def generate_hero(
                     # it outright (up to ~12s) and protect rung C's reservation.
                     scene_prompt = _default_scene_prompt(
                         product_name, brief_msg, region, audience, theme,
-                        combo_extras or None,
+                        combo_extras or None, dish,
                     )
                     print(
                         "[generate] rung B scene-prompt fast-pathed "
@@ -2972,11 +3023,11 @@ def generate_hero(
                         raise _RungBBudgetSkip
                     scene_prompt = _nova_pro_scene_prompt(
                         seed, product_name, brief_msg, region, audience, theme,
-                        combo_extras or None,
+                        combo_extras or None, dish,
                     )
                 provenance["scene_prompt"] = scene_prompt
                 provenance["scene_prompt_source"] = _scene_prompt_source(
-                    scene_prompt, product_name, brief_msg, region, audience, theme
+                    scene_prompt, product_name, brief_msg, region, audience, theme, dish
                 )
                 # Per-subcall budget gate 2 — the Stability invoke (fail-fast, capped at
                 # BEDROCK_READ_TIMEOUT_S). Re-check AFTER the scene call actually spent its
@@ -3189,6 +3240,7 @@ def generate_hero_set(
     seed_key: str | None = None,
     layers: dict | None = None,
     themes: list[str] | str | None = None,
+    dish: str | None = None,
 ) -> tuple[list[dict], str, dict]:
     """Deliver all four sizes from ONE call. Returns (renders, source, provenance).
 
@@ -3257,6 +3309,7 @@ def generate_hero_set(
         region=region,
         audience=audience,
         out_path=base_path,
+        dish=dish,
         idx=0,
         ratio="1x1",
         theme=theme,

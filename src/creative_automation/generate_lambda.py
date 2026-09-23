@@ -925,6 +925,41 @@ def _seasonal_recipe_default(season: object, product_name: str) -> dict | None:
         return None
 
 
+def _preview_dish_name(data: dict[str, Any], product_name: str) -> str | None:
+    """Campaign dish name for the image scene prompt (offline, never raises).
+
+    Names the SAME dish the campaign display shows: an explicit request recipe
+    first, then the season-table pairing name (prov["recipe"] — full catalog
+    records never fit the tease shape, so the tease title alone would point at
+    the static default while the display names the pairing), then the static
+    default. Resolved BEFORE the pixel ladder (pure local lookup, ~0s wall)
+    and threaded into generate_hero as dish=. None when nothing resolves; the
+    scene prompt then reads as before.
+    """
+    def _dish_title(fields: object) -> str:
+        # Validated tease fields carry "title"; raw catalog records carry "name".
+        if not isinstance(fields, dict):
+            return ""
+        return str(fields.get("title") or fields.get("name") or "").strip()
+
+    try:
+        raw = data.get("recipe_fields")
+        validated = _validate_recipe_fields(raw, product_name)
+        if validated is not None:
+            name = _dish_title(validated)
+            if name:
+                return name
+        rec, meta = _season_pairing(data.get("season"))
+        if rec is not None and isinstance(meta.get("name"), str) and meta["name"].strip():
+            return meta["name"].strip()
+        fallback = _recipe_card_defaults(product_name)
+        if isinstance(fallback, dict):
+            return _dish_title(fallback) or None
+    except Exception:  # noqa: BLE001 — dish never breaks the preview
+        return None
+    return None
+
+
 def _preview_campaign_data(
     data: dict[str, Any], prompt: str, provenance: dict[str, Any] | None
 ) -> dict[str, Any]:
@@ -1305,6 +1340,10 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # The 9x16/16x9 tiles below attempt ONE live outpaint extend each behind the
     # preview budget gate (item 11); pads stay the fallback, so preview mode keeps
     # its single-hero speed guarantee with or without a live extend.
+    # The campaign dish resolves BEFORE pixels (offline lookup, ~0s wall) so the
+    # scene prompt names the same dish the recipe tease names — no image/recipe
+    # disconnect.
+    dish = _preview_dish_name(data, product.replace("-", " ").title())
     result_path, source, provenance = generate_hero(
         product_id=product,
         product_name=product.replace("-", " ").title(),
@@ -1312,6 +1351,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         region=data.get("region", "us"),
         audience=data.get("audience", "active families"),
         out_path=hero_path,
+        dish=dish,
         ratio="1x1",
         theme=theme,
         brand_overlay=bool(layers.get("overlay_text")),
@@ -1524,6 +1564,7 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # three delivery ratios (1x1, 4x5, 2x3) from one call. When "theme" is present it
     # drives the IMAGE (theme wins over the product default); product is still passed
     # for iso-naming / fallback.
+    dish = _preview_dish_name(data, product.replace("-", " ").title())
     renders, source, provenance = generate_hero_set(
         product_id=product,
         product_name=product.replace("-", " ").title(),
@@ -1536,6 +1577,7 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         seed_key=seed_key,
         layers=layers,
         themes=themes,
+        dish=dish,
     )
 
     s3 = _s3_client()
