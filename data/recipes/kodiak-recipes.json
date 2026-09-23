@@ -9805,9 +9805,10 @@
   {
     "id": "easter-egg-pancakes",
     "name": "Easter Egg Pancakes",
+    "description": "You're looking for a festive way to get the family involved in Easter breakfast, and we've got just the recipe \u2014 Easter Egg Pancakes. They're not only festive and delicious, but they also deliver a hearty serving of whole grains and protein with each serving thanks to Kodiak Buttermilk Power Cakes. Decorate your stack with fruit, icing, or - better yet - those lip smacking chocolate Easter eggs for an added crunch. Drizzle with sweet maple syrup and enjoy watching as this Easter activity turns into the talk of the brunch table.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 2 cups water; Food coloring (red, blue, and yellow); 3 squeeze bottles; Maple syrup",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/easter-egg-pancakes",
     "localize": {
       "peppers": "\u2014",
@@ -9822,7 +9823,25 @@
       "q"
     ],
     "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
-    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/easter-egg-pancakes.jpg"
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/easter-egg-pancakes.jpg",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "2 cups water",
+      "Food coloring (red, blue, and yellow)",
+      "3 squeeze bottles",
+      "Maple syrup"
+    ],
+    "instructions": [
+      "Combine Kodiak mix and water in a large bowl.",
+      "Divide batter into 3 separate bowls and add a generous amount of food coloring to each bowl and stir until vibrant.",
+      "Transfer the colored batter into the squeeze bottles.",
+      "On a heated and greased pan or griddle, squeeze the outline of an Easter egg with one color and fill in the lines with a different color. Flip and continue to cook colored egg-shaped pancakes. Serve warm with maple syrup."
+    ],
+    "prepTime": "10 mins",
+    "cookTime": "10 mins",
+    "yield": "4",
+    "dietary": []
   },
   {
     "id": "veggie-cheese-tart",
