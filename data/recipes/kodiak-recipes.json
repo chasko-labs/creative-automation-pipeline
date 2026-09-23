@@ -10527,7 +10527,8 @@
     "prepTime": "60",
     "cookTime": "60",
     "yield": "12",
-    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/caramel-apple-pie.jpg"
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/caramel-apple-pie.jpg",
+    "course": "desserts"
   },
   {
     "id": "pecan-pie",

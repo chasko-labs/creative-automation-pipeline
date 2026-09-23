@@ -34,3 +34,17 @@ def test_brand_enriched_records_carry_verbatim_fields():
         assert page.startswith("https://kodiakcakes.com/blogs/recipes/"), (
             f"{rid}: enriched record lost brand page link"
         )
+
+
+def test_season_served_records_carry_course():
+    # QA sweep: every record the season tables can serve must carry a course
+    # so browse/filter never renders a blank (caramel-apple-pie served two
+    # October markets courseless until backfilled).
+    from creative_automation import season_pairing as sp
+
+    recs = {r.get("id"): r for r in _catalog()}
+    served = {sp.DEFAULT_PAIRING["recipe_id"]}
+    served.update(e["recipe_id"] for e in sp.SEASON_RECIPE_PAIRINGS.values())
+    served.update(e["recipe_id"] for e in sp.HOLIDAY_RECIPE_PAIRINGS.values())
+    missing = sorted(rid for rid in served if not (recs.get(rid) or {}).get("course"))
+    assert not missing, f"season-served records lack course: {missing}"
