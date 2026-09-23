@@ -4,7 +4,7 @@ human-readable release notes for the Kodiak creative-automation-pipeline. the fu
 is preserved on `main` (we merge with merge-commits, not squash, so `git log` is the exhaustive record).
 this file curates the notable milestones.
 
-## 0.1.016 — 2026-09-06 — sprint: art-director + ingest + DAM + localize, UI redesign, code atomization
+## 0.1.016 — 2026-09-06 — sprint: art-director + ingest + asset store + localize, UI redesign, code atomization
 
 merged via PR #142 (merge-commit `92d04f0`). one sprint, six tracks plus a front-page redesign and a
 code-hygiene atomization pass.
@@ -15,7 +15,7 @@ code-hygiene atomization pass.
   `KODIAK_ARTDIRECTOR_ENABLED`).
 - **asset ingest** — `/library/assets` ingest path: sha256 exact-dedup + Nova embedding + write to S3
   Vectors, driven by an S3 event. no DynamoDB this sprint.
-- **DAM browser** — `/assets/library` browse tab over the digital asset library.
+- **asset store browser** — `/assets/library` browse tab over the digital asset library.
 - **localize endpoint** — `/localize` route. currently returns `source=mock` (offline dictionary); live
   Amazon Translate / Bedrock path is a tracked follow-up.
 - **path dispatcher fix** — the generate Lambda was path-blind (ran the generate ladder for every path).
