@@ -1544,7 +1544,7 @@
       },
       "seasonal_moments": [
         {
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "available_ingredients": [
             "asparagus + lamb (Easter)",
             "ramps",
@@ -1903,7 +1903,7 @@
         {
           "moment": "Easter \u2014 Easter spring (Easter)",
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "favorite_flavors": [
             "asparagus",
@@ -2493,7 +2493,7 @@
           ]
         },
         {
-          "moment": "March \u2014 cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 cold-hardy greens",
           "available_ingredients": [
             "cold-hardy greens (March)"
           ],
@@ -2996,7 +2996,7 @@
           ]
         },
         {
-          "moment": "August \u2014 blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 blackberries (late)",
           "available_ingredients": [
             "blackberries (late) (August)"
           ],
@@ -3059,7 +3059,7 @@
       },
       "seasonal_moments": [
         {
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "available_ingredients": [
             "asparagus + lamb (Easter)",
             "ramps",
@@ -3417,7 +3417,7 @@
         {
           "moment": "Easter \u2014 Easter spring (Easter)",
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "favorite_flavors": [
             "asparagus",
@@ -3986,7 +3986,7 @@
           ]
         },
         {
-          "moment": "March \u2014 strawberries (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 strawberries",
           "available_ingredients": [
             "strawberries (March)"
           ],
@@ -4006,7 +4006,7 @@
           ]
         },
         {
-          "moment": "August \u2014 field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 field peas (cowpeas)",
           "available_ingredients": [
             "field peas (cowpeas) (August)"
           ],
@@ -4188,7 +4188,7 @@
           ]
         },
         {
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "available_ingredients": [
             "asparagus + lamb (Easter)",
             "ramps",
@@ -4447,7 +4447,7 @@
         {
           "moment": "Easter \u2014 Easter spring (Easter)",
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "favorite_flavors": [
             "asparagus",
@@ -7503,7 +7503,7 @@
           ]
         },
         {
-          "moment": "March \u2014 mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 mirlitons (spring)",
           "available_ingredients": [
             "mirlitons (spring) (March)"
           ],
@@ -8008,7 +8008,7 @@
           ]
         },
         {
-          "moment": "August \u2014 avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 avocado (Florida)",
           "available_ingredients": [
             "avocado (Florida) (August)"
           ],
@@ -8501,7 +8501,7 @@
           ]
         },
         {
-          "moment": "August \u2014 tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 tomatoes",
           "available_ingredients": [
             "tomatoes (August)"
           ],
@@ -9511,7 +9511,7 @@
           ]
         },
         {
-          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 maple syrup",
           "available_ingredients": [
             "maple syrup (March)"
           ],
@@ -9531,7 +9531,7 @@
           ]
         },
         {
-          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 strawberries",
           "available_ingredients": [
             "strawberries (June)"
           ],
@@ -10022,7 +10022,7 @@
           ]
         },
         {
-          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 maple syrup",
           "available_ingredients": [
             "maple syrup (March)"
           ],
@@ -10042,7 +10042,7 @@
           ]
         },
         {
-          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 strawberries",
           "available_ingredients": [
             "strawberries (June)"
           ],
@@ -10996,7 +10996,7 @@
           ]
         },
         {
-          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 maple syrup",
           "available_ingredients": [
             "maple syrup (March)"
           ],
@@ -11016,7 +11016,7 @@
           ]
         },
         {
-          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 strawberries",
           "available_ingredients": [
             "strawberries (June)"
           ],
@@ -11491,7 +11491,7 @@
           ]
         },
         {
-          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 maple syrup",
           "available_ingredients": [
             "maple syrup (March)"
           ],
@@ -11986,7 +11986,7 @@
           ]
         },
         {
-          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 maple syrup",
           "available_ingredients": [
             "maple syrup (March)"
           ],
@@ -12943,7 +12943,7 @@
           ]
         },
         {
-          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 maple syrup",
           "available_ingredients": [
             "maple syrup (March)"
           ],
@@ -12963,7 +12963,7 @@
           ]
         },
         {
-          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 strawberries",
           "available_ingredients": [
             "strawberries (June)"
           ],
@@ -13466,7 +13466,7 @@
           ]
         },
         {
-          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 maple syrup",
           "available_ingredients": [
             "maple syrup (March)"
           ],
@@ -13964,7 +13964,7 @@
           ]
         },
         {
-          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 strawberries",
           "available_ingredients": [
             "strawberries (June)"
           ],
@@ -14949,7 +14949,7 @@
           ]
         },
         {
-          "moment": "March \u2014 storage apples (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 storage apples",
           "available_ingredients": [
             "storage apples (March)"
           ],
@@ -15101,7 +15101,7 @@
           ]
         },
         {
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "available_ingredients": [
             "cranberries + sage (Thanksgiving)",
             "apples",
@@ -15384,7 +15384,7 @@
         {
           "moment": "Thanksgiving \u2014 Thanksgiving feast (Thanksgiving)",
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "favorite_flavors": [
             "cranberry",
@@ -15935,7 +15935,7 @@
           ]
         },
         {
-          "moment": "March \u2014 local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 local honey (storage)",
           "available_ingredients": [
             "local honey (storage) (March)"
           ],
@@ -16928,7 +16928,7 @@
           ]
         },
         {
-          "moment": "March \u2014 local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 local honey (storage)",
           "available_ingredients": [
             "local honey (storage) (March)"
           ],
@@ -17076,7 +17076,7 @@
           ]
         },
         {
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "available_ingredients": [
             "cranberries + sage (Thanksgiving)",
             "apples",
@@ -17380,7 +17380,7 @@
         {
           "moment": "Thanksgiving \u2014 Thanksgiving feast (Thanksgiving)",
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "favorite_flavors": [
             "cranberry",
@@ -17916,7 +17916,7 @@
           ]
         },
         {
-          "moment": "March \u2014 local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 local honey (storage)",
           "available_ingredients": [
             "local honey (storage) (March)"
           ],
@@ -17936,7 +17936,7 @@
           ]
         },
         {
-          "moment": "June \u2014 cherries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 cherries",
           "available_ingredients": [
             "cherries (June)"
           ],
@@ -19373,7 +19373,7 @@
           ]
         },
         {
-          "moment": "March \u2014 spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 spring greens (high tunnel)",
           "available_ingredients": [
             "spring greens (high tunnel) (March)"
           ],
@@ -19393,7 +19393,7 @@
           ]
         },
         {
-          "moment": "June \u2014 sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 sweet cherries",
           "available_ingredients": [
             "sweet cherries (June)"
           ],
@@ -19867,7 +19867,7 @@
           ]
         },
         {
-          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 strawberries",
           "available_ingredients": [
             "strawberries (June)"
           ],
@@ -19887,7 +19887,7 @@
           ]
         },
         {
-          "moment": "August \u2014 peaches (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 peaches",
           "available_ingredients": [
             "peaches (August)"
           ],
@@ -20387,7 +20387,7 @@
           ]
         },
         {
-          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 strawberries",
           "available_ingredients": [
             "strawberries (June)"
           ],
@@ -20870,7 +20870,7 @@
           ]
         },
         {
-          "moment": "March \u2014 maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 maple syrup",
           "available_ingredients": [
             "maple syrup (March)"
           ],
@@ -21342,7 +21342,7 @@
           ]
         },
         {
-          "moment": "June \u2014 strawberries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 strawberries",
           "available_ingredients": [
             "strawberries (June)"
           ],
@@ -21814,7 +21814,7 @@
           ]
         },
         {
-          "moment": "June \u2014 sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 sweet cherries",
           "available_ingredients": [
             "sweet cherries (June)"
           ],
@@ -21834,7 +21834,7 @@
           ]
         },
         {
-          "moment": "August \u2014 peaches (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 peaches",
           "available_ingredients": [
             "peaches (August)"
           ],
@@ -22308,7 +22308,7 @@
           ]
         },
         {
-          "moment": "June \u2014 sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 sweet cherries",
           "available_ingredients": [
             "sweet cherries (June)"
           ],
@@ -22328,7 +22328,7 @@
           ]
         },
         {
-          "moment": "August \u2014 peaches (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 peaches",
           "available_ingredients": [
             "peaches (August)"
           ],
@@ -22802,7 +22802,7 @@
           ]
         },
         {
-          "moment": "June \u2014 sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 sweet cherries",
           "available_ingredients": [
             "sweet cherries (June)"
           ],
@@ -22822,7 +22822,7 @@
           ]
         },
         {
-          "moment": "August \u2014 peaches (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 peaches",
           "available_ingredients": [
             "peaches (August)"
           ],
@@ -23296,7 +23296,7 @@
           ]
         },
         {
-          "moment": "June \u2014 sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 sweet cherries",
           "available_ingredients": [
             "sweet cherries (June)"
           ],
@@ -23316,7 +23316,7 @@
           ]
         },
         {
-          "moment": "August \u2014 peaches (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 peaches",
           "available_ingredients": [
             "peaches (August)"
           ],
@@ -23468,7 +23468,7 @@
           ]
         },
         {
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "available_ingredients": [
             "cranberries + sage (Thanksgiving)",
             "apples",
@@ -23753,7 +23753,7 @@
         {
           "moment": "Thanksgiving \u2014 Thanksgiving feast (Thanksgiving)",
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "favorite_flavors": [
             "cranberry",
@@ -23832,7 +23832,7 @@
           ]
         },
         {
-          "moment": "March \u2014 shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 shiitake mushrooms",
           "available_ingredients": [
             "shiitake mushrooms (March)"
           ],
@@ -24779,7 +24779,7 @@
           ]
         },
         {
-          "moment": "March \u2014 spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 spring greens and snap peas",
           "available_ingredients": [
             "spring greens and snap peas (March)"
           ],
@@ -25263,7 +25263,7 @@
           ]
         },
         {
-          "moment": "March \u2014 asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 asparagus and spring greens",
           "available_ingredients": [
             "asparagus and spring greens (March)"
           ],
@@ -25283,7 +25283,7 @@
           ]
         },
         {
-          "moment": "June \u2014 sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 sweet corn and summer squash",
           "available_ingredients": [
             "sweet corn and summer squash (June)"
           ],
@@ -25783,7 +25783,7 @@
           ]
         },
         {
-          "moment": "March \u2014 spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 spring onions and greens",
           "available_ingredients": [
             "spring onions and greens (March)"
           ],
@@ -25803,7 +25803,7 @@
           ]
         },
         {
-          "moment": "June \u2014 sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 sweet onions and melons",
           "available_ingredients": [
             "sweet onions and melons (June)"
           ],
@@ -25823,7 +25823,7 @@
           ]
         },
         {
-          "moment": "August \u2014 green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 green chile (peak roasting) and melons",
           "available_ingredients": [
             "green chile (peak roasting) and melons (August)"
           ],
@@ -26385,7 +26385,7 @@
           ]
         },
         {
-          "moment": "March \u2014 asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 asparagus and spring greens",
           "available_ingredients": [
             "asparagus and spring greens (March)"
           ],
@@ -26875,7 +26875,7 @@
           ]
         },
         {
-          "moment": "March \u2014 citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 citrus and spring greens",
           "available_ingredients": [
             "citrus and spring greens (March)"
           ],
@@ -26895,7 +26895,7 @@
           ]
         },
         {
-          "moment": "June \u2014 melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 melons and early dates",
           "available_ingredients": [
             "melons and early dates (June)"
           ],
@@ -26915,7 +26915,7 @@
           ]
         },
         {
-          "moment": "August \u2014 dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 dates and melons",
           "available_ingredients": [
             "dates and melons (August)"
           ],
@@ -27366,7 +27366,7 @@
           ]
         },
         {
-          "moment": "March \u2014 spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 spring greens and onions",
           "available_ingredients": [
             "spring greens and onions (March)"
           ],
@@ -27386,7 +27386,7 @@
           ]
         },
         {
-          "moment": "June \u2014 squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 squash and melons",
           "available_ingredients": [
             "squash and melons (June)"
           ],
@@ -27887,7 +27887,7 @@
           ]
         },
         {
-          "moment": "March \u2014 spring greens (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 spring greens",
           "available_ingredients": [
             "spring greens (March)"
           ],
@@ -28345,7 +28345,7 @@
           ]
         },
         {
-          "moment": "June \u2014 lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June \u2014 lettuce, radishes, herbs",
           "available_ingredients": [
             "lettuce, radishes, herbs (June)"
           ],
@@ -28365,7 +28365,7 @@
           ]
         },
         {
-          "moment": "August \u2014 u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 u-pick berries and squash",
           "available_ingredients": [
             "u-pick berries and squash (August)"
           ],
@@ -28385,7 +28385,7 @@
           ]
         },
         {
-          "moment": "November \u2014 pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November \u2014 pinon nuts (harvest)",
           "available_ingredients": [
             "pinon nuts (harvest) (November)"
           ],
@@ -28861,7 +28861,7 @@
           ]
         },
         {
-          "moment": "August \u2014 apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 apples (early) and honey",
           "available_ingredients": [
             "apples (early) and honey (August)"
           ],
@@ -29377,7 +29377,7 @@
           ]
         },
         {
-          "moment": "November \u2014 kale (auto-patched for 26-season coverage)",
+          "moment": "November \u2014 kale",
           "available_ingredients": [
             "kale (November)"
           ],
@@ -29938,7 +29938,7 @@
           ]
         },
         {
-          "moment": "March \u2014 kumquats (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 kumquats",
           "available_ingredients": [
             "kumquats (March)"
           ],
@@ -30443,7 +30443,7 @@
           ]
         },
         {
-          "moment": "March \u2014 asparagus (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 asparagus",
           "available_ingredients": [
             "asparagus (March)"
           ],
@@ -30463,7 +30463,7 @@
           ]
         },
         {
-          "moment": "August \u2014 sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 sweet corn",
           "available_ingredients": [
             "sweet corn (August)"
           ],
@@ -32065,7 +32065,7 @@
           ]
         },
         {
-          "moment": "November \u2014 kale (auto-patched for 26-season coverage)",
+          "moment": "November \u2014 kale",
           "available_ingredients": [
             "kale (November)"
           ],
@@ -32640,7 +32640,7 @@
           ]
         },
         {
-          "moment": "March \u2014 microgreens (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 microgreens",
           "available_ingredients": [
             "microgreens (March)"
           ],
@@ -33604,7 +33604,7 @@
           ]
         },
         {
-          "moment": "August \u2014 blueberries (auto-patched for 26-season coverage)",
+          "moment": "August \u2014 blueberries",
           "available_ingredients": [
             "blueberries (August)"
           ],
@@ -33773,7 +33773,7 @@
           ]
         },
         {
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "available_ingredients": [
             "peppermint + chocolate (Christmas)",
             "storage apples",
@@ -34028,7 +34028,7 @@
         {
           "moment": "Christmas \u2014 Christmas cheer (Christmas)",
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "favorite_flavors": [
             "peppermint",
@@ -34088,7 +34088,7 @@
           ]
         },
         {
-          "moment": "March \u2014 rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 rhubarb",
           "available_ingredients": [
             "rhubarb (March)"
           ],
@@ -34570,7 +34570,7 @@
           ]
         },
         {
-          "moment": "March \u2014 rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 rhubarb (forced)",
           "available_ingredients": [
             "rhubarb (forced) (March)"
           ],
@@ -35066,7 +35066,7 @@
           ]
         },
         {
-          "moment": "March \u2014 razor clams (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 razor clams",
           "available_ingredients": [
             "razor clams (March)"
           ],
@@ -36031,7 +36031,7 @@
           ]
         },
         {
-          "moment": "March \u2014 spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 spring greens and radishes",
           "available_ingredients": [
             "spring greens and radishes (March)"
           ],
@@ -36512,7 +36512,7 @@
           ]
         },
         {
-          "moment": "March \u2014 spring greens (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 spring greens",
           "available_ingredients": [
             "spring greens (March)"
           ],
@@ -37014,7 +37014,7 @@
           ]
         },
         {
-          "moment": "March \u2014 strawberries (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 strawberries",
           "available_ingredients": [
             "strawberries (March)"
           ],
@@ -37523,7 +37523,7 @@
           ]
         },
         {
-          "moment": "March \u2014 storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March \u2014 storage cabbage and root vegetables",
           "available_ingredients": [
             "storage cabbage and root vegetables (March)"
           ],

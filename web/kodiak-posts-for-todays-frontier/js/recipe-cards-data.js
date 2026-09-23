@@ -554,7 +554,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -1134,7 +1134,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -1714,7 +1714,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -2296,7 +2296,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -2870,7 +2870,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -3474,7 +3474,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -4061,7 +4061,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -4641,7 +4641,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -5223,7 +5223,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -5808,7 +5808,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -6390,7 +6390,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -6992,7 +6992,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -28094,7 +28094,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -28668,7 +28668,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -29233,7 +29233,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -29798,7 +29798,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -30371,7 +30371,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -30935,7 +30935,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -31495,7 +31495,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -32076,7 +32076,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -32690,7 +32690,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -33280,7 +33280,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -33846,7 +33846,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -34415,7 +34415,7 @@ window.KODIAK_RECIPE_CARDS = {
             "tomatoes",
             "august"
           ],
-          "moment": "August — tomatoes (auto-patched for 26-season coverage)",
+          "moment": "August — tomatoes",
           "months": [
             8
           ],
@@ -42145,7 +42145,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -42713,7 +42713,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -43333,7 +43333,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -43922,7 +43922,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -44490,7 +44490,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -45082,7 +45082,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -45637,7 +45637,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -46202,7 +46202,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -46770,7 +46770,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -47341,7 +47341,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -47912,7 +47912,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -48472,7 +48472,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage apples (auto-patched for 26-season coverage)",
+          "moment": "March — storage apples",
           "months": [
             3
           ],
@@ -49091,7 +49091,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -49111,7 +49111,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -49686,7 +49686,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -49706,7 +49706,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -50276,7 +50276,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -50296,7 +50296,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -50860,7 +50860,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -50880,7 +50880,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -51454,7 +51454,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -51474,7 +51474,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -52035,7 +52035,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -52055,7 +52055,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -52616,7 +52616,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -52636,7 +52636,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -53202,7 +53202,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -53222,7 +53222,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -53776,7 +53776,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -53796,7 +53796,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -54368,7 +54368,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -54388,7 +54388,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -54955,7 +54955,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -54975,7 +54975,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -55529,7 +55529,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -55549,7 +55549,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -56165,7 +56165,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -56185,7 +56185,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -56757,7 +56757,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -56777,7 +56777,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -57344,7 +57344,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -57364,7 +57364,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -57939,7 +57939,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -57959,7 +57959,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -58521,7 +58521,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -58541,7 +58541,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -59086,7 +59086,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -59106,7 +59106,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -59659,7 +59659,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -59679,7 +59679,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -60239,7 +60239,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -60259,7 +60259,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -60804,7 +60804,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -60824,7 +60824,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -61387,7 +61387,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -61407,7 +61407,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -61969,7 +61969,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -61989,7 +61989,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -62556,7 +62556,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -62576,7 +62576,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -69592,7 +69592,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -69612,7 +69612,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -70185,7 +70185,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -70205,7 +70205,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -70757,7 +70757,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -70777,7 +70777,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -71339,7 +71339,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -71359,7 +71359,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -71931,7 +71931,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -71951,7 +71951,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -72500,7 +72500,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -72520,7 +72520,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -73078,7 +73078,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -73098,7 +73098,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -73682,7 +73682,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -73702,7 +73702,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -74246,7 +74246,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -74266,7 +74266,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -74836,7 +74836,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -74856,7 +74856,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -75421,7 +75421,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -75441,7 +75441,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -76009,7 +76009,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -76029,7 +76029,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -76283,7 +76283,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -76545,7 +76545,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -76844,7 +76844,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -77106,7 +77106,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -77398,7 +77398,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -77660,7 +77660,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -77967,7 +77967,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -78229,7 +78229,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -78531,7 +78531,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -78793,7 +78793,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -79097,7 +79097,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -79359,7 +79359,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -79665,7 +79665,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -79927,7 +79927,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -80209,7 +80209,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -80471,7 +80471,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -80765,7 +80765,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -81027,7 +81027,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -81330,7 +81330,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -81592,7 +81592,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -81895,7 +81895,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -82157,7 +82157,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -82473,7 +82473,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -82735,7 +82735,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -83403,7 +83403,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -83967,7 +83967,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -84500,7 +84500,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -85054,7 +85054,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -85620,7 +85620,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -86185,7 +86185,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -86733,7 +86733,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -87262,7 +87262,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -87855,7 +87855,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -88421,7 +88421,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -88968,7 +88968,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -89525,7 +89525,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -90147,7 +90147,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -90723,7 +90723,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -91290,7 +91290,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -91857,7 +91857,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -92432,7 +92432,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -92998,7 +92998,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -93560,7 +93560,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -94143,7 +94143,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -94743,7 +94743,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -95298,7 +95298,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -95862,7 +95862,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -96413,7 +96413,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -103299,7 +103299,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -103911,7 +103911,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -104480,7 +104480,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -105047,7 +105047,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -105619,7 +105619,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -106182,7 +106182,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -106766,7 +106766,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -107325,7 +107325,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -107904,7 +107904,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -108475,7 +108475,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -109087,7 +109087,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -109656,7 +109656,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -110280,7 +110280,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -110300,7 +110300,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -110880,7 +110880,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -110900,7 +110900,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -111455,7 +111455,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -111475,7 +111475,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -112053,7 +112053,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -112073,7 +112073,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -112643,7 +112643,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -112663,7 +112663,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -113254,7 +113254,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -113274,7 +113274,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -113846,7 +113846,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -113866,7 +113866,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -114441,7 +114441,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -114461,7 +114461,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -115084,7 +115084,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -115104,7 +115104,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -115698,7 +115698,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -115718,7 +115718,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -116290,7 +116290,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -116310,7 +116310,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -116877,7 +116877,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -116897,7 +116897,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -123766,7 +123766,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -124307,7 +124307,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -124850,7 +124850,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -125387,7 +125387,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -125928,7 +125928,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -126468,7 +126468,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -127005,7 +127005,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -127546,7 +127546,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -128111,7 +128111,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -128655,7 +128655,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -129204,7 +129204,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -129746,7 +129746,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and snap peas (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and snap peas",
           "months": [
             3
           ],
@@ -130371,7 +130371,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -130963,7 +130963,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -131536,7 +131536,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -132122,7 +132122,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -132692,7 +132692,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -133289,7 +133289,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -133865,7 +133865,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -134440,7 +134440,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -135032,7 +135032,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -135623,7 +135623,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -136199,7 +136199,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -136762,7 +136762,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -137385,7 +137385,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -137964,7 +137964,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -138518,7 +138518,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -139083,7 +139083,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -139661,7 +139661,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -140238,7 +140238,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -140802,7 +140802,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -141372,7 +141372,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -141938,7 +141938,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -142527,7 +142527,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -143101,7 +143101,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -143673,7 +143673,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -151086,7 +151086,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -151668,7 +151668,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -152229,7 +152229,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -152813,7 +152813,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -153385,7 +153385,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -153978,7 +153978,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -154538,7 +154538,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -155105,7 +155105,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -155686,7 +155686,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -156261,7 +156261,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -156833,7 +156833,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -157394,7 +157394,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -157983,7 +157983,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -158003,7 +158003,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -158556,7 +158556,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -158576,7 +158576,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -159115,7 +159115,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -159135,7 +159135,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -159679,7 +159679,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -159699,7 +159699,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -160224,7 +160224,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -160244,7 +160244,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -160799,7 +160799,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -160819,7 +160819,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -161360,7 +161360,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -161380,7 +161380,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -161932,7 +161932,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -161952,7 +161952,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -162467,7 +162467,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -162487,7 +162487,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -163007,7 +163007,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -163027,7 +163027,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -163562,7 +163562,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -163582,7 +163582,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -164119,7 +164119,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (high tunnel) (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens (high tunnel)",
           "months": [
             3
           ],
@@ -164139,7 +164139,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -164737,7 +164737,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -164757,7 +164757,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -165338,7 +165338,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -165358,7 +165358,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -165896,7 +165896,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -165916,7 +165916,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -166460,7 +166460,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -166480,7 +166480,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -167036,7 +167036,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -167056,7 +167056,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -167603,7 +167603,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -167623,7 +167623,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -168167,7 +168167,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -168187,7 +168187,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -168718,7 +168718,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -168738,7 +168738,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -169266,7 +169266,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -169286,7 +169286,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -169849,7 +169849,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -169869,7 +169869,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -170422,7 +170422,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -170442,7 +170442,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -170991,7 +170991,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -171011,7 +171011,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -171046,7 +171046,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "storage apples",
       "ingredients": [
         {
@@ -171608,7 +171608,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -171628,7 +171628,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -171678,7 +171678,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "maple syrup",
       "ingredients": [
         {
@@ -172196,7 +172196,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -172216,7 +172216,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -172252,7 +172252,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "spring greens (high tunnel)",
       "ingredients": [
         {
@@ -172766,7 +172766,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -172786,7 +172786,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -172819,7 +172819,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "asparagus",
       "ingredients": [
         {
@@ -173341,7 +173341,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -173361,7 +173361,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -173397,7 +173397,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "strawberries",
       "ingredients": [
         {
@@ -173907,7 +173907,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -173927,7 +173927,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -173959,7 +173959,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "sweet cherries",
       "ingredients": [
         {
@@ -174493,7 +174493,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -174513,7 +174513,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -174555,7 +174555,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "black-dirt onions",
       "ingredients": [
         {
@@ -175065,7 +175065,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -175085,7 +175085,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -175118,7 +175118,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "peaches",
       "ingredients": [
         {
@@ -175618,7 +175618,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -175638,7 +175638,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -175670,7 +175670,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "apples",
       "ingredients": [
         {
@@ -176162,7 +176162,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -176182,7 +176182,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -176213,7 +176213,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "fresh cider",
       "ingredients": [
         {
@@ -176743,7 +176743,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -176763,7 +176763,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -176797,7 +176797,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "winter squash",
       "ingredients": [
         {
@@ -177310,7 +177310,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -177330,7 +177330,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -177363,7 +177363,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "storage onions",
       "ingredients": [
         {
@@ -177873,7 +177873,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -177893,7 +177893,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -177928,7 +177928,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "storage apples",
       "ingredients": [
         {
@@ -178490,7 +178490,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -178510,7 +178510,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -178560,7 +178560,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "maple syrup",
       "ingredients": [
         {
@@ -179066,7 +179066,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -179086,7 +179086,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -179120,7 +179120,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "spring greens (high tunnel)",
       "ingredients": [
         {
@@ -179634,7 +179634,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -179654,7 +179654,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -179687,7 +179687,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "asparagus",
       "ingredients": [
         {
@@ -180209,7 +180209,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -180229,7 +180229,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -180265,7 +180265,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "strawberries",
       "ingredients": [
         {
@@ -180771,7 +180771,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -180791,7 +180791,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -180826,7 +180826,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "sweet cherries",
       "ingredients": [
         {
@@ -181360,7 +181360,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -181380,7 +181380,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -181422,7 +181422,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "black-dirt onions",
       "ingredients": [
         {
@@ -181932,7 +181932,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -181952,7 +181952,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -181985,7 +181985,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "peaches",
       "ingredients": [
         {
@@ -182477,7 +182477,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -182497,7 +182497,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -182528,7 +182528,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "apples",
       "ingredients": [
         {
@@ -183058,7 +183058,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -183078,7 +183078,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -183119,7 +183119,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "fresh cider",
       "ingredients": [
         {
@@ -183649,7 +183649,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -183669,7 +183669,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -183703,7 +183703,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "winter squash",
       "ingredients": [
         {
@@ -184216,7 +184216,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -184236,7 +184236,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -184269,7 +184269,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "storage onions",
       "ingredients": [
         {
@@ -184779,7 +184779,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -184799,7 +184799,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -185376,7 +185376,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -186003,7 +186003,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -186595,7 +186595,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -187150,7 +187150,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -187735,7 +187735,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -188329,7 +188329,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -188890,7 +188890,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -189463,7 +189463,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -190034,7 +190034,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -190624,7 +190624,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -191199,7 +191199,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -191774,7 +191774,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -192383,7 +192383,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -192953,7 +192953,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -193520,7 +193520,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -194089,7 +194089,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -194661,7 +194661,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -195241,7 +195241,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -195789,7 +195789,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -196332,7 +196332,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -196923,7 +196923,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -197486,7 +197486,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -198053,7 +198053,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -198611,7 +198611,7 @@ window.KODIAK_RECIPE_CARDS = {
             "maple",
             "march"
           ],
-          "moment": "March — maple syrup (auto-patched for 26-season coverage)",
+          "moment": "March — maple syrup",
           "months": [
             3
           ],
@@ -199208,7 +199208,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -199776,7 +199776,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -200327,7 +200327,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -200870,7 +200870,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -201425,7 +201425,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -201979,7 +201979,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -202524,7 +202524,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -203091,7 +203091,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -203622,7 +203622,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -204175,7 +204175,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -204723,7 +204723,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -205244,7 +205244,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "june"
           ],
-          "moment": "June — strawberries (auto-patched for 26-season coverage)",
+          "moment": "June — strawberries",
           "months": [
             6
           ],
@@ -205276,7 +205276,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "storage apples",
       "ingredients": [
         {
@@ -205838,7 +205838,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -205858,7 +205858,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -205908,7 +205908,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "maple syrup",
       "ingredients": [
         {
@@ -206426,7 +206426,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -206446,7 +206446,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -206482,7 +206482,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "spring greens (high tunnel)",
       "ingredients": [
         {
@@ -206996,7 +206996,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -207016,7 +207016,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -207049,7 +207049,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "asparagus",
       "ingredients": [
         {
@@ -207571,7 +207571,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -207591,7 +207591,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -207627,7 +207627,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "strawberries",
       "ingredients": [
         {
@@ -208129,7 +208129,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -208149,7 +208149,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -208184,7 +208184,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "sweet cherries",
       "ingredients": [
         {
@@ -208718,7 +208718,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -208738,7 +208738,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -208780,7 +208780,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "black-dirt onions",
       "ingredients": [
         {
@@ -209290,7 +209290,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -209310,7 +209310,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -209343,7 +209343,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "peaches",
       "ingredients": [
         {
@@ -209839,7 +209839,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -209859,7 +209859,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -209890,7 +209890,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "apples",
       "ingredients": [
         {
@@ -210452,7 +210452,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -210472,7 +210472,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -210522,7 +210522,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "fresh cider",
       "ingredients": [
         {
@@ -211052,7 +211052,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -211072,7 +211072,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -211106,7 +211106,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "winter squash",
       "ingredients": [
         {
@@ -211619,7 +211619,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -211639,7 +211639,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -211672,7 +211672,7 @@ window.KODIAK_RECIPE_CARDS = {
         "raw_ingredient": null,
         "technique": null
       },
-      "frontier_market": null,
+      "frontier_market": "US-NY-WARWICK",
       "ingredient": "storage onions",
       "ingredients": [
         {
@@ -212182,7 +212182,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -212202,7 +212202,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -212799,7 +212799,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -212819,7 +212819,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -213399,7 +213399,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -213419,7 +213419,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -213969,7 +213969,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -213989,7 +213989,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -214544,7 +214544,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -214564,7 +214564,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -215106,7 +215106,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -215126,7 +215126,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -215695,7 +215695,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -215715,7 +215715,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -216267,7 +216267,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -216287,7 +216287,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -216816,7 +216816,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -216836,7 +216836,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -217413,7 +217413,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -217433,7 +217433,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -218002,7 +218002,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -218022,7 +218022,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -218569,7 +218569,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -218589,7 +218589,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -219132,7 +219132,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet cherries (auto-patched for 26-season coverage)",
+          "moment": "June — sweet cherries",
           "months": [
             6
           ],
@@ -219152,7 +219152,7 @@ window.KODIAK_RECIPE_CARDS = {
             "peaches",
             "august"
           ],
-          "moment": "August — peaches (auto-patched for 26-season coverage)",
+          "moment": "August — peaches",
           "months": [
             8
           ],
@@ -219396,7 +219396,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -219659,7 +219659,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -219747,7 +219747,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -219989,7 +219989,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -220252,7 +220252,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -220340,7 +220340,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -220580,7 +220580,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -220843,7 +220843,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -220931,7 +220931,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -221181,7 +221181,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -221444,7 +221444,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -221532,7 +221532,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -221771,7 +221771,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -222034,7 +222034,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -222122,7 +222122,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -222386,7 +222386,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -222649,7 +222649,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -222737,7 +222737,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -222982,7 +222982,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -223245,7 +223245,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -223333,7 +223333,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -223581,7 +223581,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -223844,7 +223844,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -223932,7 +223932,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -224177,7 +224177,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -224440,7 +224440,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -224528,7 +224528,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -224804,7 +224804,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -225067,7 +225067,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -225155,7 +225155,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -225406,7 +225406,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -225669,7 +225669,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -225757,7 +225757,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -225999,7 +225999,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall apple + Thanksgiving (Oct-Nov)",
+          "moment": "Apple harvest Thanksgiving (Oct-Nov)",
           "months": [
             10,
             11
@@ -226262,7 +226262,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -226350,7 +226350,7 @@ window.KODIAK_RECIPE_CARDS = {
             "shiitake",
             "march"
           ],
-          "moment": "March — shiitake mushrooms (auto-patched for 26-season coverage)",
+          "moment": "March — shiitake mushrooms",
           "months": [
             3
           ],
@@ -233288,7 +233288,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -233627,7 +233627,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -233844,7 +233844,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -234183,7 +234183,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -234402,7 +234402,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -234741,7 +234741,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -234974,7 +234974,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -235313,7 +235313,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -235516,7 +235516,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -235855,7 +235855,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -236061,7 +236061,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -236400,7 +236400,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -236623,7 +236623,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -236962,7 +236962,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -237161,7 +237161,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -237500,7 +237500,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -237715,7 +237715,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -238054,7 +238054,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -238287,7 +238287,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -238626,7 +238626,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -238840,7 +238840,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -239179,7 +239179,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -239406,7 +239406,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -239745,7 +239745,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -261556,7 +261556,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -262117,7 +262117,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -262678,7 +262678,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -263251,7 +263251,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -263815,7 +263815,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -264394,7 +264394,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -264972,7 +264972,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -265534,7 +265534,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -266095,7 +266095,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -266667,7 +266667,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -267241,7 +267241,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -267804,7 +267804,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and radishes (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and radishes",
           "months": [
             3
           ],
@@ -268363,7 +268363,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -268916,7 +268916,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -269474,7 +269474,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -270027,7 +270027,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -270600,7 +270600,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -271174,7 +271174,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -271732,7 +271732,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -272289,7 +272289,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -272849,7 +272849,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -273416,7 +273416,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -273986,7 +273986,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -274544,7 +274544,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -275124,7 +275124,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -275690,7 +275690,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -276261,7 +276261,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -276841,7 +276841,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -277437,7 +277437,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -278032,7 +278032,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -278611,7 +278611,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -279189,7 +279189,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -279786,7 +279786,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -280373,7 +280373,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -280964,7 +280964,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -281547,7 +281547,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -282137,7 +282137,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -282788,7 +282788,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -283405,7 +283405,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -284005,7 +284005,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -284605,7 +284605,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -285187,7 +285187,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -285773,7 +285773,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -286380,7 +286380,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -287032,7 +287032,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -287697,7 +287697,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -288311,7 +288311,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -288910,7 +288910,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cold-hardy",
             "march"
           ],
-          "moment": "March — cold-hardy greens (auto-patched for 26-season coverage)",
+          "moment": "March — cold-hardy greens",
           "months": [
             3
           ],
@@ -295914,7 +295914,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -296481,7 +296481,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -297048,7 +297048,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -297633,7 +297633,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -298185,7 +298185,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -298731,7 +298731,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -299277,7 +299277,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -299837,7 +299837,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -300413,7 +300413,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -300996,7 +300996,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -301576,7 +301576,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -302153,7 +302153,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blackberries",
             "august"
           ],
-          "moment": "August — blackberries (late) (auto-patched for 26-season coverage)",
+          "moment": "August — blackberries (late)",
           "months": [
             8
           ],
@@ -302302,7 +302302,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -302641,7 +302641,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -302857,7 +302857,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -303196,7 +303196,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -303414,7 +303414,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -303753,7 +303753,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -303973,7 +303973,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -304312,7 +304312,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -304518,7 +304518,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -304857,7 +304857,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -305056,7 +305056,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -305395,7 +305395,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -305617,7 +305617,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -305956,7 +305956,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -306175,7 +306175,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -306514,7 +306514,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -306731,7 +306731,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -307070,7 +307070,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -307272,7 +307272,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -307611,7 +307611,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -307826,7 +307826,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -308165,7 +308165,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -308382,7 +308382,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter strawberry season",
+          "moment": "Easter strawberry season",
           "months": [
             3,
             4
@@ -308721,7 +308721,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -309373,7 +309373,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -309393,7 +309393,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -309972,7 +309972,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -309992,7 +309992,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -310557,7 +310557,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -310577,7 +310577,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -311163,7 +311163,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -311183,7 +311183,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -311765,7 +311765,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -311785,7 +311785,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -312361,7 +312361,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -312381,7 +312381,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -312960,7 +312960,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -312980,7 +312980,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -313575,7 +313575,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -313595,7 +313595,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -314175,7 +314175,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -314195,7 +314195,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -314768,7 +314768,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -314788,7 +314788,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -315366,7 +315366,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -315386,7 +315386,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -315967,7 +315967,7 @@ window.KODIAK_RECIPE_CARDS = {
             "strawberries",
             "march"
           ],
-          "moment": "March — strawberries (auto-patched for 26-season coverage)",
+          "moment": "March — strawberries",
           "months": [
             3
           ],
@@ -315987,7 +315987,7 @@ window.KODIAK_RECIPE_CARDS = {
             "field",
             "august"
           ],
-          "moment": "August — field peas (cowpeas) (auto-patched for 26-season coverage)",
+          "moment": "August — field peas (cowpeas)",
           "months": [
             8
           ],
@@ -316240,7 +316240,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -316477,7 +316477,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -316833,7 +316833,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -317070,7 +317070,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -317406,7 +317406,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -317643,7 +317643,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -317981,7 +317981,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -318218,7 +318218,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -318560,7 +318560,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -318797,7 +318797,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -319156,7 +319156,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -319393,7 +319393,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -319740,7 +319740,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -319977,7 +319977,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -320315,7 +320315,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -320552,7 +320552,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -320882,7 +320882,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -321119,7 +321119,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -321474,7 +321474,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -321711,7 +321711,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -322062,7 +322062,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -322299,7 +322299,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -322632,7 +322632,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring pea",
             "easter"
           ],
-          "moment": "Spring / Easter fresh-harvest tail",
+          "moment": "Easter fresh-harvest tail",
           "months": [
             1,
             2,
@@ -322869,7 +322869,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "asparagus + lamb (Easter) (Easter)"
+            "asparagus + lamb (Easter)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -357513,7 +357513,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -358107,7 +358107,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -358697,7 +358697,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -359279,7 +359279,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -359890,7 +359890,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -360501,7 +360501,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -361092,7 +361092,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -361686,7 +361686,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -362288,7 +362288,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -362884,7 +362884,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -363476,7 +363476,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -364074,7 +364074,7 @@ window.KODIAK_RECIPE_CARDS = {
             "mirlitons",
             "march"
           ],
-          "moment": "March — mirlitons (spring) (auto-patched for 26-season coverage)",
+          "moment": "March — mirlitons (spring)",
           "months": [
             3
           ],
@@ -370800,7 +370800,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -371377,7 +371377,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -371942,7 +371942,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -372508,7 +372508,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -373078,7 +373078,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -373651,7 +373651,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -374244,7 +374244,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -374817,7 +374817,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -375391,7 +375391,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -375946,7 +375946,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -376509,7 +376509,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -377075,7 +377075,7 @@ window.KODIAK_RECIPE_CARDS = {
             "avocado",
             "august"
           ],
-          "moment": "August — avocado (Florida) (auto-patched for 26-season coverage)",
+          "moment": "August — avocado (Florida)",
           "months": [
             8
           ],
@@ -377636,7 +377636,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -377656,7 +377656,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -378216,7 +378216,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -378236,7 +378236,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -378796,7 +378796,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -378816,7 +378816,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -379372,7 +379372,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -379392,7 +379392,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -379948,7 +379948,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -379968,7 +379968,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -380544,7 +380544,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -380564,7 +380564,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -381141,7 +381141,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -381161,7 +381161,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -381722,7 +381722,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -381742,7 +381742,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -382303,7 +382303,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -382323,7 +382323,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -382883,7 +382883,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -382903,7 +382903,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -383471,7 +383471,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -383491,7 +383491,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -384061,7 +384061,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -384081,7 +384081,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet corn and summer squash (auto-patched for 26-season coverage)",
+          "moment": "June — sweet corn and summer squash",
           "months": [
             6
           ],
@@ -384670,7 +384670,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -384690,7 +384690,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -384710,7 +384710,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -385253,7 +385253,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -385273,7 +385273,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -385293,7 +385293,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -385819,7 +385819,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -385839,7 +385839,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -385859,7 +385859,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -386397,7 +386397,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -386417,7 +386417,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -386437,7 +386437,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -386971,7 +386971,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -386991,7 +386991,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -387011,7 +387011,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -387541,7 +387541,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -387561,7 +387561,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -387581,7 +387581,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -388115,7 +388115,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -388135,7 +388135,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -388155,7 +388155,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -388689,7 +388689,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -388709,7 +388709,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -388729,7 +388729,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -389274,7 +389274,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -389294,7 +389294,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -389314,7 +389314,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -389851,7 +389851,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -389871,7 +389871,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -389891,7 +389891,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -390433,7 +390433,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -390453,7 +390453,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -390473,7 +390473,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -391009,7 +391009,7 @@ window.KODIAK_RECIPE_CARDS = {
             "lettuce,",
             "june"
           ],
-          "moment": "June — lettuce, radishes, herbs (auto-patched for 26-season coverage)",
+          "moment": "June — lettuce, radishes, herbs",
           "months": [
             6
           ],
@@ -391029,7 +391029,7 @@ window.KODIAK_RECIPE_CARDS = {
             "u-pick",
             "august"
           ],
-          "moment": "August — u-pick berries and squash (auto-patched for 26-season coverage)",
+          "moment": "August — u-pick berries and squash",
           "months": [
             8
           ],
@@ -391049,7 +391049,7 @@ window.KODIAK_RECIPE_CARDS = {
             "pinon",
             "november"
           ],
-          "moment": "November — pinon nuts (harvest) (auto-patched for 26-season coverage)",
+          "moment": "November — pinon nuts (harvest)",
           "months": [
             11
           ],
@@ -397716,7 +397716,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -397736,7 +397736,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -397756,7 +397756,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -398337,7 +398337,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -398357,7 +398357,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -398377,7 +398377,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -398953,7 +398953,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -398973,7 +398973,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -398993,7 +398993,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -399569,7 +399569,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -399589,7 +399589,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -399609,7 +399609,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -400185,7 +400185,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -400205,7 +400205,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -400225,7 +400225,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -400803,7 +400803,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -400823,7 +400823,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -400843,7 +400843,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -401421,7 +401421,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -401441,7 +401441,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -401461,7 +401461,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -402038,7 +402038,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -402058,7 +402058,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -402078,7 +402078,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -402655,7 +402655,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -402675,7 +402675,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -402695,7 +402695,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -403272,7 +403272,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -403292,7 +403292,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -403312,7 +403312,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -403897,7 +403897,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -403917,7 +403917,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -403937,7 +403937,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -404518,7 +404518,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring onions and greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring onions and greens",
           "months": [
             3
           ],
@@ -404538,7 +404538,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "june"
           ],
-          "moment": "June — sweet onions and melons (auto-patched for 26-season coverage)",
+          "moment": "June — sweet onions and melons",
           "months": [
             6
           ],
@@ -404558,7 +404558,7 @@ window.KODIAK_RECIPE_CARDS = {
             "green",
             "august"
           ],
-          "moment": "August — green chile (peak roasting) and melons (auto-patched for 26-season coverage)",
+          "moment": "August — green chile (peak roasting) and melons",
           "months": [
             8
           ],
@@ -405120,7 +405120,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -405676,7 +405676,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -406227,7 +406227,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -406766,7 +406766,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -407314,7 +407314,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -407861,7 +407861,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -408408,7 +408408,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -408975,7 +408975,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -409523,7 +409523,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -410082,7 +410082,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -410643,7 +410643,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -411207,7 +411207,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus and spring greens",
           "months": [
             3
           ],
@@ -411776,7 +411776,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -411796,7 +411796,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -411816,7 +411816,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -412378,7 +412378,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -412398,7 +412398,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -412418,7 +412418,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -412987,7 +412987,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -413007,7 +413007,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -413027,7 +413027,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -413601,7 +413601,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -413621,7 +413621,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -413641,7 +413641,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -414211,7 +414211,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -414231,7 +414231,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -414251,7 +414251,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -414807,7 +414807,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -414827,7 +414827,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -414847,7 +414847,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -415403,7 +415403,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -415423,7 +415423,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -415443,7 +415443,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -415999,7 +415999,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -416019,7 +416019,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -416039,7 +416039,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -416595,7 +416595,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -416615,7 +416615,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -416635,7 +416635,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -417209,7 +417209,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -417229,7 +417229,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -417249,7 +417249,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -417825,7 +417825,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -417845,7 +417845,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -417865,7 +417865,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -418432,7 +418432,7 @@ window.KODIAK_RECIPE_CARDS = {
             "citrus",
             "march"
           ],
-          "moment": "March — citrus and spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — citrus and spring greens",
           "months": [
             3
           ],
@@ -418452,7 +418452,7 @@ window.KODIAK_RECIPE_CARDS = {
             "melons",
             "june"
           ],
-          "moment": "June — melons and early dates (auto-patched for 26-season coverage)",
+          "moment": "June — melons and early dates",
           "months": [
             6
           ],
@@ -418472,7 +418472,7 @@ window.KODIAK_RECIPE_CARDS = {
             "dates",
             "august"
           ],
-          "moment": "August — dates and melons (auto-patched for 26-season coverage)",
+          "moment": "August — dates and melons",
           "months": [
             8
           ],
@@ -419009,7 +419009,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -419029,7 +419029,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -419561,7 +419561,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -419581,7 +419581,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -420108,7 +420108,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -420128,7 +420128,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -420671,7 +420671,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -420691,7 +420691,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -421235,7 +421235,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -421255,7 +421255,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -421782,7 +421782,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -421802,7 +421802,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -422329,7 +422329,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -422349,7 +422349,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -422877,7 +422877,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -422897,7 +422897,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -423425,7 +423425,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -423445,7 +423445,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -423973,7 +423973,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -423993,7 +423993,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -424529,7 +424529,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -424549,7 +424549,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -425081,7 +425081,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens and onions (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens and onions",
           "months": [
             3
           ],
@@ -425101,7 +425101,7 @@ window.KODIAK_RECIPE_CARDS = {
             "squash",
             "june"
           ],
-          "moment": "June — squash and melons (auto-patched for 26-season coverage)",
+          "moment": "June — squash and melons",
           "months": [
             6
           ],
@@ -431777,7 +431777,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -432342,7 +432342,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -432893,7 +432893,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -433433,7 +433433,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -433988,7 +433988,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -434540,7 +434540,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -435100,7 +435100,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -435670,7 +435670,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -436235,7 +436235,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -436783,7 +436783,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -437323,7 +437323,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -437878,7 +437878,7 @@ window.KODIAK_RECIPE_CARDS = {
             "apples",
             "august"
           ],
-          "moment": "August — apples (early) and honey (auto-patched for 26-season coverage)",
+          "moment": "August — apples (early) and honey",
           "months": [
             8
           ],
@@ -438466,7 +438466,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -439040,7 +439040,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -439617,7 +439617,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -440194,7 +440194,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -440791,7 +440791,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -441397,7 +441397,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -442031,7 +442031,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -442625,7 +442625,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -443195,7 +443195,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -443772,7 +443772,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -444357,7 +444357,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -444931,7 +444931,7 @@ window.KODIAK_RECIPE_CARDS = {
             "spring",
             "march"
           ],
-          "moment": "March — spring greens (auto-patched for 26-season coverage)",
+          "moment": "March — spring greens",
           "months": [
             3
           ],
@@ -445166,7 +445166,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -445449,7 +445449,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -445724,7 +445724,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -446007,7 +446007,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -446276,7 +446276,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -446559,7 +446559,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -446843,7 +446843,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -447126,7 +447126,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -447405,7 +447405,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -447688,7 +447688,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -447969,7 +447969,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -448252,7 +448252,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -448535,7 +448535,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -448818,7 +448818,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -449123,7 +449123,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -449406,7 +449406,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -449686,7 +449686,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -449969,7 +449969,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -450249,7 +450249,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -450532,7 +450532,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -450812,7 +450812,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -451095,7 +451095,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -451388,7 +451388,7 @@ window.KODIAK_RECIPE_CARDS = {
             "fall",
             "thanksgiving"
           ],
-          "moment": "Fall storage harvest / Thanksgiving (Sep-Nov)",
+          "moment": "Storage harvest Thanksgiving (Sep-Nov)",
           "months": [
             9,
             11
@@ -451671,7 +451671,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "cranberries + sage (Thanksgiving) (Thanksgiving)"
+            "cranberries + sage (Thanksgiving)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -452339,7 +452339,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -452958,7 +452958,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -453537,7 +453537,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -454112,7 +454112,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -454695,7 +454695,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -455278,7 +455278,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -455893,7 +455893,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -456512,7 +456512,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -457091,7 +457091,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -457666,7 +457666,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -458281,7 +458281,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -458868,7 +458868,7 @@ window.KODIAK_RECIPE_CARDS = {
             "storage",
             "march"
           ],
-          "moment": "March — storage cabbage and root vegetables (auto-patched for 26-season coverage)",
+          "moment": "March — storage cabbage and root vegetables",
           "months": [
             3
           ],
@@ -459438,7 +459438,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -460007,7 +460007,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -460580,7 +460580,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -461153,7 +461153,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -461734,7 +461734,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -462310,7 +462310,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -462885,7 +462885,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -463454,7 +463454,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -464026,7 +464026,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -464647,7 +464647,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -465229,7 +465229,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -465774,7 +465774,7 @@ window.KODIAK_RECIPE_CARDS = {
             "microgreens",
             "march"
           ],
-          "moment": "March — microgreens (auto-patched for 26-season coverage)",
+          "moment": "March — microgreens",
           "months": [
             3
           ],
@@ -466399,7 +466399,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -466419,7 +466419,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -467001,7 +467001,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -467021,7 +467021,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -467578,7 +467578,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -467598,7 +467598,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -468170,7 +468170,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -468190,7 +468190,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -468755,7 +468755,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -468775,7 +468775,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -469364,7 +469364,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -469384,7 +469384,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -469936,7 +469936,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -469956,7 +469956,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -470518,7 +470518,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -470538,7 +470538,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -471103,7 +471103,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -471123,7 +471123,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -471691,7 +471691,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -471711,7 +471711,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -472278,7 +472278,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -472298,7 +472298,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -472855,7 +472855,7 @@ window.KODIAK_RECIPE_CARDS = {
             "local",
             "march"
           ],
-          "moment": "March — local honey (storage) (auto-patched for 26-season coverage)",
+          "moment": "March — local honey (storage)",
           "months": [
             3
           ],
@@ -472875,7 +472875,7 @@ window.KODIAK_RECIPE_CARDS = {
             "cherries",
             "june"
           ],
-          "moment": "June — cherries (auto-patched for 26-season coverage)",
+          "moment": "June — cherries",
           "months": [
             6
           ],
@@ -480564,7 +480564,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -481144,7 +481144,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -481704,7 +481704,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -482274,7 +482274,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -482823,7 +482823,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -483374,7 +483374,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -483937,7 +483937,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -484501,7 +484501,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -485059,7 +485059,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -485614,7 +485614,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -486168,7 +486168,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -486722,7 +486722,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kumquats",
             "march"
           ],
-          "moment": "March — kumquats (auto-patched for 26-season coverage)",
+          "moment": "March — kumquats",
           "months": [
             3
           ],
@@ -500770,7 +500770,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -500790,7 +500790,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -501370,7 +501370,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -501390,7 +501390,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -501978,7 +501978,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -501998,7 +501998,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -502569,7 +502569,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -502589,7 +502589,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -503190,7 +503190,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -503210,7 +503210,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -503799,7 +503799,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -503819,7 +503819,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -504399,7 +504399,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -504419,7 +504419,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -505001,7 +505001,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -505021,7 +505021,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -505601,7 +505601,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -505621,7 +505621,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -506203,7 +506203,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -506223,7 +506223,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -506815,7 +506815,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -506835,7 +506835,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -507410,7 +507410,7 @@ window.KODIAK_RECIPE_CARDS = {
             "asparagus",
             "march"
           ],
-          "moment": "March — asparagus (auto-patched for 26-season coverage)",
+          "moment": "March — asparagus",
           "months": [
             3
           ],
@@ -507430,7 +507430,7 @@ window.KODIAK_RECIPE_CARDS = {
             "sweet",
             "august"
           ],
-          "moment": "August — sweet corn (auto-patched for 26-season coverage)",
+          "moment": "August — sweet corn",
           "months": [
             8
           ],
@@ -522129,7 +522129,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -522706,7 +522706,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -523266,7 +523266,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -523822,7 +523822,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -524390,7 +524390,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -524935,7 +524935,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -525497,7 +525497,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -526064,7 +526064,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -526621,7 +526621,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -527189,7 +527189,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -527750,7 +527750,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -528306,7 +528306,7 @@ window.KODIAK_RECIPE_CARDS = {
             "blueberries",
             "august"
           ],
-          "moment": "August — blueberries (auto-patched for 26-season coverage)",
+          "moment": "August — blueberries",
           "months": [
             8
           ],
@@ -528888,7 +528888,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -529468,7 +529468,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -530048,7 +530048,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -530630,7 +530630,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -531232,7 +531232,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -531839,7 +531839,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -532426,7 +532426,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -533006,7 +533006,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -533588,7 +533588,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -534173,7 +534173,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -534755,7 +534755,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -535357,7 +535357,7 @@ window.KODIAK_RECIPE_CARDS = {
             "kale",
             "november"
           ],
-          "moment": "November — kale (auto-patched for 26-season coverage)",
+          "moment": "November — kale",
           "months": [
             11
           ],
@@ -535667,7 +535667,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -535904,7 +535904,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -535973,7 +535973,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -536246,7 +536246,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -536483,7 +536483,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -536552,7 +536552,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -536802,7 +536802,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -537039,7 +537039,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -537108,7 +537108,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -537370,7 +537370,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -537607,7 +537607,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -537676,7 +537676,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -537949,7 +537949,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -538186,7 +538186,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -538255,7 +538255,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -538527,7 +538527,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -538764,7 +538764,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -538833,7 +538833,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -539096,7 +539096,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -539333,7 +539333,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -539402,7 +539402,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -539642,7 +539642,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -539879,7 +539879,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -539948,7 +539948,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -540183,7 +540183,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -540420,7 +540420,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -540489,7 +540489,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -540750,7 +540750,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -540987,7 +540987,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -541056,7 +541056,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -541311,7 +541311,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -541548,7 +541548,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -541617,7 +541617,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -541859,7 +541859,7 @@ window.KODIAK_RECIPE_CARDS = {
             "eggnog",
             "christmas"
           ],
-          "moment": "Winter holidays / Christmas trees",
+          "moment": "Christmas tree season",
           "months": [
             1,
             9,
@@ -542096,7 +542096,7 @@ window.KODIAK_RECIPE_CARDS = {
         },
         {
           "available_ingredients": [
-            "peppermint + chocolate (Christmas) (Christmas)"
+            "peppermint + chocolate (Christmas)"
           ],
           "confidence": "medium",
           "favorite_flavors": [
@@ -542165,7 +542165,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb",
           "months": [
             3
           ],
@@ -549491,7 +549491,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -550068,7 +550068,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -550622,7 +550622,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -551188,7 +551188,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -551749,7 +551749,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -552327,7 +552327,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -552894,7 +552894,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -553430,7 +553430,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -553964,7 +553964,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -554520,7 +554520,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -555080,7 +555080,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -555640,7 +555640,7 @@ window.KODIAK_RECIPE_CARDS = {
             "rhubarb",
             "march"
           ],
-          "moment": "March — rhubarb (forced) (auto-patched for 26-season coverage)",
+          "moment": "March — rhubarb (forced)",
           "months": [
             3
           ],
@@ -556246,7 +556246,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -556822,7 +556822,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -557394,7 +557394,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -557962,7 +557962,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -558520,7 +558520,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -559123,7 +559123,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -559731,7 +559731,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -560293,7 +560293,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -560896,7 +560896,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -561472,7 +561472,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -562044,7 +562044,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
@@ -562615,7 +562615,7 @@ window.KODIAK_RECIPE_CARDS = {
             "razor",
             "march"
           ],
-          "moment": "March — razor clams (auto-patched for 26-season coverage)",
+          "moment": "March — razor clams",
           "months": [
             3
           ],
