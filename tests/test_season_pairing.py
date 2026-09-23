@@ -76,6 +76,24 @@ def test_normalize_holiday_accepts_dash_form():
     assert sp.normalize_holiday("funday") is None
 
 
+def test_slug_holiday_forms_pair_like_labels():
+    # QA sweep: hyphen/underscore holiday slugs silently compoted while labels
+    # paired (new-year served Apple Cinnamon Compote + Trail Stack instead of
+    # Apple Cider Donuts). All multiword holidays resolve in every separator.
+    for slug, label in [
+        ("new-year", "new year"),
+        ("new_year", "new year"),
+        ("memorial-day", "memorial day"),
+        ("labor-day", "labor day"),
+        ("holiday-season", "holiday season"),
+        ("valentine's-day", "valentine's day"),
+    ]:
+        assert sp.normalize_holiday(slug) == label, slug
+        assert sp.resolve_request(slug)["kind"] == "holiday", slug
+        assert sp.pairing_for_season(slug)["source"] == "season-table", slug
+        assert sp.pairing_for_season(slug)["recipe_id"] == sp.pairing_for_season(label)["recipe_id"], slug
+
+
 def test_season_for_month_maps_meteorological_seasons():
     assert sp.season_for_month("2026-01") == "winter"
     assert sp.season_for_month("2026-02") == "winter"

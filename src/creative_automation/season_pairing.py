@@ -176,14 +176,16 @@ def normalize_season(value: object) -> str | None:
 def normalize_holiday(value: object) -> str | None:
     """Normalize a holiday request to a canonical HOLIDAYS key, or None.
 
-    Case-insensitive; surrounding whitespace collapsed; curly apostrophes and
-    the apostrophe-less "valentines day" map via HOLIDAY_ALIASES. Blank/None
-    stays None. Any other value returns None rather than raising so loose
-    brief dicts degrade to the default pairing instead of crashing the card.
+    Case-insensitive; surrounding whitespace collapsed; hyphens/underscores
+    read as spaces so slug forms ("new-year", "memorial-day") resolve like
+    their labels; curly apostrophes and the apostrophe-less "valentines day"
+    map via HOLIDAY_ALIASES. Blank/None stays None. Any other value returns
+    None rather than raising so loose brief dicts degrade to the default
+    pairing instead of crashing the card.
     """
     if value is None:
         return None
-    text = _WS_RE.sub(" ", str(value).strip().lower())
+    text = _WS_RE.sub(" ", str(value).strip().lower().replace("-", " ").replace("_", " "))
     if not text:
         return None
     text = HOLIDAY_ALIASES.get(text, text)
