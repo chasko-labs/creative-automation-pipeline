@@ -8588,9 +8588,10 @@
   {
     "id": "maple-bacon-donuts",
     "name": "Maple Bacon Donuts",
+    "description": "Maple is to bacon as these donuts are to you: the ultimate breakfast duo. Our Maple Bacon Donut recipe, featuring Kodiak Buttermilk Power Cakes, adds the perfect balance of sweet 'n salty taste to a deliciously hearty breakfast you can feel good about grabbing on your way out the door. Each donut is dipped in a rich maple glaze that's complemented by a smoky, salty crunch from crispy bacon crumbles sprinkled on top. Dish up a batch at your next weekend brunch, or prep 'em for the week; either way, there's no denying these maple bacon donuts will make their way onto your regular breakfast menu!",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "3/4 cup whole milk; 3 tablespoons butter; 2-1/4 teaspoons instant yeast; 2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1/4 cup granulated sugar; 1/2 teaspoon salt; 1 egg, room temperature; 1 cup powdered sugar; 1 tablespoon maple syrup; 1/2 teaspoon vanilla extract; 1 teaspoon milk; 5 tablespoons cooked bacon, chopped",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/maple-bacon-donuts",
     "localize": {
       "peppers": "\u2014",
@@ -8604,7 +8605,39 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "3/4 cup whole milk",
+      "3 tablespoons butter",
+      "2-1/4 teaspoons instant yeast",
+      "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1/4 cup granulated sugar",
+      "1/2 teaspoon salt",
+      "1 egg, room temperature",
+      "1 cup powdered sugar",
+      "1 tablespoon maple syrup",
+      "1/2 teaspoon vanilla extract",
+      "1 teaspoon milk",
+      "5 tablespoons cooked bacon, chopped"
+    ],
+    "instructions": [
+      "Place the Kodiak mix, sugar, and salt in a mixing bowl fitted to a stand mixer and set aside.",
+      "Place the milk and 3 tablespoons of the butter in a small saucepan and heat just until the butter starts to melt. Remove from heat, stirring occasionally until butter melts fully and let cool until warm (no longer hot to the touch). Add the yeast and whisk until dissolved.",
+      "Pour the milk mixture into the bowl of dry ingredients along with the egg and stir to combine. Beat with whisk attachment for 5 minutes, to form a smooth dough.",
+      "Cover and let rest for 10 minutes.",
+      "Place the dough on a floured surface. Roll to a thickness of 3/4 inch. Cut donut shapes out of the dough and place on a parchment lined baking sheet.",
+      "Cover the sheet with a cloth or plastic wrap and let donuts rise for about 1 hour or until doubled in size.",
+      "Bake donuts at 350 degrees for 11 to 12 minutes, or until cooked through.",
+      "Remove from oven and let cool.",
+      "Place the powdered sugar, maple syrup, vanilla, and milk in a mixing bowl and whisk until smooth. Add more milk if needed to achieve a thick glaze that drizzles from the whisk in ribbons.",
+      "Dip the cooled donuts in the glaze and place on a wire rack. Sprinkle the tops of the donuts with bacon crumbles, about 1/2 tablespoon per donut.",
+      "Store in an airtight container."
+    ],
+    "prepTime": "80 mins",
+    "cookTime": "12 mins",
+    "yield": "10",
+    "dietary": []
   },
   {
     "id": "dark-chocolate-pumpkin-cookies",
@@ -9321,9 +9354,10 @@
   {
     "id": "pecan-pie",
     "name": "Pecan Pie",
+    "description": "Baking a delectable pecan pie is easier than you might think, and it's the perfect way to gather everyone together around the table. This simple recipe comes together with a hearty base made using Kodiak Buttermilk Power Cakes, and is filled with the perfectly sweet crunch of caramelized pecans. With this step-by-step guide, you'll create a stunning centerpiece for your holiday feast that's sure to spark conversation and create cherished memories. So, roll up your sleeves, gather your favorite people, and enjoy a slice of delicious pie that's made for sharing and celebrating the joys of good food!",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "Crust:; 2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1/4 cup shortening; 12 tablespoons (1-1/2 sticks) butter, cold and cut into small cubes; 1/4 cup of ice water; Filling:; 1/2 cup granulated sugar; 1/2 cup brown sugar, packed; 1/2 cup light corn syrup; 3 tablespoons butter, melted; 3 eggs; 2 teaspoons vanilla extract; 2 tablespoons Kodiak Buttermilk Power Cakes Mix; 1/4 teaspoon salt; 2 cups pecan halves; 1 egg, beaten",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/pecan-pie",
     "localize": {
       "peppers": "\u2014",
@@ -9337,7 +9371,52 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "desserts",
+    "ingredients": [
+      "Crust:",
+      "2-1/2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1/4 cup shortening",
+      "12 tablespoons (1-1/2 sticks) butter, cold and cut into small cubes",
+      "1/4 cup of ice water",
+      "Filling:",
+      "1/2 cup granulated sugar",
+      "1/2 cup brown sugar, packed",
+      "1/2 cup light corn syrup",
+      "3 tablespoons butter, melted",
+      "3 eggs",
+      "2 teaspoons vanilla extract",
+      "2 tablespoons Kodiak Buttermilk Power Cakes Mix",
+      "1/4 teaspoon salt",
+      "2 cups pecan halves",
+      "1 egg, beaten"
+    ],
+    "instructions": [
+      "Crust: Place the Kodiak mix in the food processor bowl fitted with an 's' blade.",
+      "Add the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+      "With the processor running, drizzle in the ice water until the mixture starts to form into large clumps. Do not add too much water. Dough should not be sticky or wet, but should come together to form a nice dough.",
+      "Divide the dough in half, wrap up one half and set aside.",
+      "Roll the other half of dough into a ball and place it between two sheets of parchment paper. Roll to a circle that is 1-1/2 to 2 inches larger in circumference than your pie dish.",
+      "Place the sheet of dough over the top of your pie dish and remove parchment paper. Press the dough in to fit the bottom and sides of the dish. There should be a little bit of dough left hanging over the edges. Trim dough so that it evenly hangs over the edge about 1/2 inch.",
+      "Cut the dough about 1/2 inch in from the rim.",
+      "Prick the dough all over with a fork. Line with parchment paper and fill with pie weights or beans.",
+      "Par-bake in an oven preheated to 375 degrees F for 10 minutes. Remove from the oven and take out the parchment and pie weights.",
+      "Set aside and make the pie filling.",
+      "Filling: Preheat the oven to 375 degrees F.",
+      "Place the sugar, brown sugar, corn syrup, butter, eggs, vanilla, Kodiak mix, and salt in a large bowl and whisk together until the mixture is smooth.",
+      "Fold the pecan halves into the mixture.",
+      "Pour the mixture into the par-baked pie crust.",
+      "Roll out the remaining dough and cut out small shapes with a cookie cutter.",
+      "Brush the beaten egg along the rim of the pie and place the shapes all along the rim. Brush the dough shapes with the beaten egg.",
+      "Tent the pie with tin foil.",
+      "Bake the pie in the preheated oven for 15 minutes, then reduce the heat to 350 degrees F.",
+      "Bake for an additional 40 minutes, removing the tin foil tent after 30 minutes.",
+      "Remove and cool to room temperature before serving."
+    ],
+    "prepTime": "45 mins",
+    "cookTime": "55 mins",
+    "yield": "12",
+    "dietary": []
   },
   {
     "id": "apple-cinnamon-and-oat-muffins",
