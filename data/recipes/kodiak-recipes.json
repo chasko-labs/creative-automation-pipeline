@@ -9227,9 +9227,10 @@
   {
     "id": "blood-orange-chocolate-tart",
     "name": "Blood Orange Chocolate Tart",
+    "description": "Perfect for dessert lovers, get-togethers, and wintertime dinner parties, this blood orange dark chocolate tart recipe is an easy way to make great-tasting dessert the talk of the table. Savor the complimentary flavors of chocolate and blood orange blended in a \u201cwow, can I get this tart recipe?\u201d kind of impressive. Plus, it packs a punch of protein your guests will adore, thanks to our Kodiak Dark Chocolate Power Cakes Mix.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "KODIAK\u00ae Dark Chocolate Power Cakes Flapjack & Waffle Mix",
+    "base": "2 cups Kodiak Dark Chocolate Flapjack & Waffle mix; 2 tablespoons of sugar; 1-1/2 cups butter, cold; 2 eggs; 4 orange dark chocolate bar (4 bars), of choice; 1-1/4 cup heavy cream; 1 blood orange, sliced; 2 tablespoons of pomegranate seeds",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/blood-orange-chocolate-tart",
     "localize": {
       "peppers": "\u2014",
@@ -9243,7 +9244,33 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "ingredients": [
+      "2 cups Kodiak Dark Chocolate Flapjack & Waffle mix",
+      "2 tablespoons of sugar",
+      "1-1/2 cups butter, cold",
+      "2 eggs",
+      "4 orange dark chocolate bar (4 bars), of choice",
+      "1-1/4 cup heavy cream",
+      "1 blood orange, sliced",
+      "2 tablespoons of pomegranate seeds"
+    ],
+    "instructions": [
+      "Place Kodiak mix and sugar in a large bowl.",
+      "Cut the butter into cubes and work into the mix by hand until crumbly.",
+      "Stir in eggs until a dough is formed.",
+      "Wrap the dough in plastic and place in the fridge for 1 hour.",
+      "Preheat oven to 375 degrees F.",
+      "On a clean, generously floured surface, roll the dough into a 1/4 inch thick circle. Press into a tart or pie pan. Use a fork to poke multiple holes in the dough.",
+      "Blind bake the tart shell for 8-10 minutes.",
+      "Chop the chocolate into small pieces and place in a large bowl. Heat the cream until it starts to simmer. Remove the cream from heat and pour over the chocolate. Stir until smooth and shiny.",
+      "Pour the filling into the tart shell and place in the fridge for 3-4 hours.",
+      "Garnish the tart with sliced blood oranges and pomegranate seeds. Serve chilled."
+    ],
+    "prepTime": "60 mins",
+    "cookTime": "10 mins",
+    "yield": "16",
+    "dietary": []
   },
   {
     "id": "caramel-brownie-bites",
@@ -12244,9 +12271,10 @@
   {
     "id": "baked-pear-cardamom-porridge",
     "name": "Baked Pear Cardamom Porridge",
+    "description": "This Baked Pear Cardamom Porridge recipe is anything but basic. Each spoonful serves a sweet pear slice complemented by a smidge of warm cardamom spice to satisfy your fall breakfast cravings. And thanks to Kodiak Classic Rolled Oats Canister, you can count on a boost of protein in each bowl to help keep you fueled and filling fuller, longer. This unboring breakfast brings all the cozy and satisfying vibes to your table.",
     "category": "general",
-    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "product": "KODIAK\u00ae Classic Rolled Oats Canister",
+    "base": "1 pear; 1 teaspoon coconut oil; 1 teaspoon pure maple syrup; 1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister; 3/4 cup milk; 2 tablespoons flax seeds; 1 tablespoon pure maple syrup; 1/2 teaspoon vanilla; 1/8 teaspoon cinnamon; 1/8 teaspoon cardamom; pomegranate seeds, almond butter, honey (optional)",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/baked-pear-cardamom-porridge",
     "localize": {
       "peppers": "Hatch green chile",
@@ -12268,14 +12296,33 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "1 pear",
+      "1 teaspoon coconut oil",
+      "1 teaspoon pure maple syrup",
+      "1/2 cup Kodiak Classic Rolled Oats Oatmeal Canister",
+      "3/4 cup milk",
+      "2 tablespoons flax seeds",
+      "1 tablespoon pure maple syrup",
+      "1/2 teaspoon vanilla",
+      "1/8 teaspoon cinnamon",
+      "1/8 teaspoon cardamom",
+      "pomegranate seeds, almond butter, honey (optional)"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "instructions": [
+      "Preheat oven to 400 degrees F.",
+      "Cut one pear in half and place in a baking dish cut side up. Spread coconut oil over the top of the pears and drizzle over 1 teaspoon of maple syrup. Bake at 400 degrees F for about 25 minutes.",
+      "In a sauce pan, heat 3/4 cup milk. Add in oats, flax seeds, pure maple syrup, vanilla, cinnamon, and cardamom. Simmer over low heat for 5-10 minutes stirring every couple minutes.",
+      "Remove pears from oven and transfer into serving bowl. Remove porridge from heat and pour over the baked pears. Optionally, drizzle the top with honey and almond butter and pour in a couple tablespoons of pomegranate seeds."
+    ],
+    "prepTime": "5 mins",
+    "cookTime": "25 mins",
+    "yield": "2"
   },
   {
     "id": "baked-pizza-muffins",
