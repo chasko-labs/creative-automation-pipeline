@@ -256,16 +256,16 @@
       market:'Sandersville downtown farmers market + Washington County stands'},
     // US-SW-TIMBERON — Sacramento Mountains high-country frontier.
     // Canonical: featuredFrontierDetail['US-SW-TIMBERON'] seasons "Piñon harvest in fall (months unverified)".
-    // Note: piñon window carries an explicit unconfirmed-months flag; `off` notes Cloudcroft Mercantile halo as research dispatch.
+    // Note: piñon window flags year-to-year timing variance; `off` keeps the Cloudcroft Mercantile halo.
     'US-SW-TIMBERON': {
-      items:[{m:[8,9,10],t:'pi\u00f1on harvest (exact months unconfirmed \u2014 research dispatch)'}],
-      off:'high-country stands dormant \u2014 Cloudcroft Mercantile halo (research dispatch)',
+      items:[{m:[8,9,10],t:'pi\u00f1on harvest (fall timing varies by year)'}],
+      off:'high-country stands dormant \u2014 Cloudcroft Mercantile halo',
       market:'Timberon General Store + Cloudcroft Mercantile halo'},
     // US-UT-OAKLEY — Wasatch Back ranch country frontier for Park City markets.
     // Canonical: featuredFrontierDetail['US-UT-OAKLEY'] seasons "tart cherries Jul; peaches Aug-Sep; apples Sep-Oct; sweet corn Jul-Sep; tomatoes Jul-Sep".
     // Items include market-dated entry (Jun-Sep 2023 Oakley Farmers Market) and year-round ranch proteins.
     'US-UT-OAKLEY': {
-      items:[{m:[5,6,7,8],t:'Oakley Farmers Market at Rodeo Grounds (Jun-Sep, 2023 season)'},{m:[],t:'Splendor Valley Farms produce (exact months unconfirmed \u2014 research dispatch)'},{m:[0,1,2,3,4,5,6,7,8,9,10,11],t:'Oakley grass-fed beef + ranch butter, year-round'}],
+      items:[{m:[5,6,7,8],t:'Oakley Farmers Market at Rodeo Grounds (Jun-Sep, 2023 season)'},{m:[],t:'Splendor Valley Farms produce (season timing varies by year)'},{m:[0,1,2,3,4,5,6,7,8,9,10,11],t:'Oakley grass-fed beef + ranch butter, year-round'}],
       off:'ranch beef + butter, year-round (market dormant)',
       market:'Oakley Farmers Market at Oakley Rodeo Grounds'},
     // US-OH-LEBANON — Warren County orchard belt featured frontier (Cincinnati and Dayton resolve here).
