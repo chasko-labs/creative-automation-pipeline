@@ -10998,7 +10998,39 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Football Whoopie Pies",
+    "title": "Football Whoopie Pies",
+    "course": "desserts",
+    "ingredients": [
+      "Batter:",
+      "1 box Kodiak Chocolate Fudge Brownie mix",
+      "2 egg",
+      "1/2 cup Greek yogurt",
+      "Filling:",
+      "1/4 cup unsalted butter, softened",
+      "2 oz. cream cheese",
+      "3 cups powdered sugar",
+      "2 tablespoons milk",
+      "1/2 teaspoon vanilla extract"
+    ],
+    "directions": "1. Cookies:\n2. Preheat oven to 350° F.\n3. In a large mixing bowl, stir the Kodiak mix, eggs, and Greek yogurt together until smooth.\n4. Scoop the batter into a piping bag with a large round tip or resealable plastic bag with a slit in the corner.\n5. Draw small football shapes onto a parchment-lined baking sheet and bake for 10-15 minutes or until bottoms are golden. Filling:\n6. Cream the butter and cream cheese together until smooth.\n7. Add the powdered sugar and beat until light and fluffy.\n8. Add milk and vanilla extract and mix until combined.\n9. Sandwich the football cookies together with filling.\n10. Place remaining filling into a separate piping bag with a small tip or resealable plastic bag with a small slit in the corner and use it to draw the laces on the top of each football whoopie pie.",
+    "instructions": [
+      "Cookies:",
+      "Preheat oven to 350° F.",
+      "In a large mixing bowl, stir the Kodiak mix, eggs, and Greek yogurt together until smooth.",
+      "Scoop the batter into a piping bag with a large round tip or resealable plastic bag with a slit in the corner.",
+      "Draw small football shapes onto a parchment-lined baking sheet and bake for 10-15 minutes or until bottoms are golden. Filling:",
+      "Cream the butter and cream cheese together until smooth.",
+      "Add the powdered sugar and beat until light and fluffy.",
+      "Add milk and vanilla extract and mix until combined.",
+      "Sandwich the football cookies together with filling.",
+      "Place remaining filling into a separate piping bag with a small tip or resealable plastic bag with a small slit in the corner and use it to draw the laces on the top of each football whoopie pie."
+    ],
+    "prep_minutes": 30,
+    "cook_minutes": 15,
+    "servings": "12",
+    "source": "brand_json_ld"
   },
   {
     "id": "heart-shaped-pizza",
@@ -11146,7 +11178,36 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Chocolate Covered Strawberry Brownie Cup",
+    "title": "Chocolate Covered Strawberry Brownie Cup",
+    "course": "desserts",
+    "ingredients": [
+      "Chocolate covered strawberries:",
+      "6 strawberries",
+      "1/2 cup white candy coating chocolate, melted",
+      "1/4 cup dark candy coating chocolate, melted",
+      "Chocolate sauce:",
+      "1/4 cup dark chocolate, chopped",
+      "1/4 cup heavy whipping cream",
+      "Brownie:",
+      "3 Kodiak Chocolate Fudge Brownie Cups",
+      "3/4 cup water"
+    ],
+    "directions": "1. Wash and dry the strawberries.\n2. Dip strawberries in the melted white chocolate and drizzle with melted dark chocolate.\n3. Set aside to dry.\n4. Combine dark chocolate and heavy cream in a small saucepan.\n5. Stir over medium heat until melted and combined.\n6. Stir 1/4 cup water into each Kodiak Brownie Cup and microwave one at a time on high for 1 minute.\n7. Top the brownies with chocolate sauce and chocolate covered strawberries.",
+    "instructions": [
+      "Wash and dry the strawberries.",
+      "Dip strawberries in the melted white chocolate and drizzle with melted dark chocolate.",
+      "Set aside to dry.",
+      "Combine dark chocolate and heavy cream in a small saucepan.",
+      "Stir over medium heat until melted and combined.",
+      "Stir 1/4 cup water into each Kodiak Brownie Cup and microwave one at a time on high for 1 minute.",
+      "Top the brownies with chocolate sauce and chocolate covered strawberries."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 5,
+    "servings": "3",
+    "source": "brand_json_ld"
   },
   {
     "id": "angel-food-cake",
