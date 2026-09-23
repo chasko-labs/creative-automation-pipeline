@@ -1883,12 +1883,15 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
      fits 900px. (Specificity note: .wrap>#buildStamp outranks the lone-ID
      stamp rule — repeat the full selector here.) */
   .wrap>#buildStamp{margin-top:2px;margin-bottom:0;font-size:11px}
-  .wrap{padding-bottom:10px}
+  .wrap{padding-bottom:6px}
   .ff-timeline{margin-bottom:4px}
   .ff-setup{margin-top:4px}
-  .ff-about{margin-bottom:8px}
-  /* decorative about-art strip matches the 28px divider standard */
-  .ff-about-art .ff-about-range{height:28px}
+  .ff-about{margin-bottom:4px}
+  /* about strip at 36px: shows ridge peaks + pine tops with air (the 28px
+     crop filled the window with pine bodies and read as a solid dark bar).
+     the +8px is paid back below: wrap bottom padding 10->6, about bottom
+     margin 8->4, so State-0 still fits 900. */
+  .ff-about-art .ff-about-range{height:36px}
 }
 /* badge overhang clearance (861–1136px): the .wrap is full-bleed below
    ~1136px so the timeline starts at the left edge, directly under the
