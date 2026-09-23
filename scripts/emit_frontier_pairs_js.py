@@ -42,6 +42,11 @@ def flatten(entry: dict) -> dict:
                 "moment": mo.get("moment"),
                 "status": mo.get("status"),
                 "available": mo.get("available_ingredients", []),
+                # favorite_flavors threads taste detail into the brief suffix
+                # (autocomplete buildSuffix) — dropping it starves every
+                # market-month brief of flavor (found by QA image sweep:
+                # Manhattan/Halloween carried no flavors parenthetical).
+                "favorite_flavors": mo.get("favorite_flavors", []),
                 "seasons": mo.get("seasons", []),
                 "months": mo.get("months", []),
             }
