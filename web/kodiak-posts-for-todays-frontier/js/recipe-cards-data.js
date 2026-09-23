@@ -187037,38 +187037,70 @@ window.KODIAK_RECIPE_CARDS = {
       "ingredients": [
         {
           "price": null,
-          "qty_name": "2 eggs"
+          "qty_name": "1 box Kodiak Original Gluten-Free Flapjack & Waffle Mix"
         },
         {
           "price": null,
-          "qty_name": "1/2 cup cottage cheese"
+          "qty_name": "1-1/4 cups plain Greek yogurt"
         },
         {
           "price": null,
-          "qty_name": "1/4 cup shredded cheddar cheese"
+          "qty_name": "1/4 cup whole milk"
         },
         {
           "price": null,
-          "qty_name": "1 tablespoon bacon bits"
+          "qty_name": "4 eggs"
         },
         {
           "price": null,
-          "qty_name": "3/4 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          "qty_name": "1 cup canned roasted red peppers, diced and dried"
+        },
+        {
+          "price": null,
+          "qty_name": "2 cups ground chicken sausage"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 cup shredded sharp cheddar cheese"
+        },
+        {
+          "price": null,
+          "qty_name": "2 teaspoons baking powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon garlic powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon onion powder"
+        },
+        {
+          "price": null,
+          "qty_name": "1 teaspoon salt"
+        },
+        {
+          "price": null,
+          "qty_name": "1/2 teaspoon black pepper"
+        },
+        {
+          "price": null,
+          "qty_name": "Optional: top with additional shredded cheese"
         }
       ],
       "lang": "en",
       "market": "US-NE-BURLINGTON",
       "meta": {
-        "cook": "5 mins",
+        "cook": "22",
         "est_cost": null,
-        "prep": "5 mins",
-        "serves": "2"
+        "prep": "25",
+        "serves": "12"
       },
       "month": "2026-04",
       "provenance": {
         "pairing": {
-          "reason": "ingredient rotation: protein-supreme-kodiak-waffle chosen deterministically for US-NE-BURLINGTON|2026-04 among recipes naming the ingredient",
-          "recipe_id": "protein-supreme-kodiak-waffle",
+          "reason": "ingredient rotation: savory-gf-protein-breakfast-biscuits chosen deterministically for US-NE-BURLINGTON|2026-04 among recipes naming the ingredient",
+          "recipe_id": "savory-gf-protein-breakfast-biscuits",
           "season": "spring",
           "source": "ingredient-rotation"
         },
@@ -187084,8 +187116,8 @@ window.KODIAK_RECIPE_CARDS = {
         ]
       },
       "recipe": {
-        "id": "protein-supreme-kodiak-waffle",
-        "name": "Protein Supreme Kodiak Waffle"
+        "id": "savory-gf-protein-breakfast-biscuits",
+        "name": "Savory Gluten-Free Protein Breakfast Biscuits"
       },
       "render": {
         "canvas": {
@@ -187580,13 +187612,15 @@ window.KODIAK_RECIPE_CARDS = {
         "finished_plate_sketch"
       ],
       "steps": [
-        "PREHEAT and spray waffle iron with avocado or olive oil spray.",
-        "BEAT eggs in small mixing bowl",
-        "MIX in both cheeses and the bacon bits",
-        "STIR in the Kodiak Cakes mix a little at a time. Depending on the size of your eggs, you may need a little more or less mix (you should be able to pour your batter onto the waffle iron slowly, using a rubber scrapper to clean the bowl)."
+        "PREHEAT oven to 350°F and line two baking sheets with parchment paper.",
+        "IN a medium pan, cook the ground chicken sausage over medium high heat until fully cooked. Set aside to cool slightly.",
+        "IN a large bowl, whisk together Kodiak Cakes mix, baking powder, garlic powder, onion powder, salt, and black pepper until evenly combined.",
+        "IN a separate bowl, whisk together Greek yogurt, milk, and eggs until smooth. Pour the wet ingredients into the dry ingredients and stir until just combined. Fold in the cooked sausage cheese, and roasted red peppers.",
+        "LET batter rest for 3–5 minutes to thicken slightly then scoop into 24 biscuits (2 biscuits/serving), dividing evenly between the two baking sheets. Bake for 18–22 minutes, until golden. Add optional shredded cheese for the last 5 mins of baking if desired.",
+        "COOL slightly before serving. Store in an airtight container in the refrigerator for up to 4–5 days, or freeze for longer storage. Reheat Instructions: From the fridge, microwave for 20-30 seconds or in a 350°F oven for 5-8 mins. Thaw in fridge overnight if frozen and reheat as above, or microwave 45-60 seconds until hot. *Not Gluten Free? Use 3-1/3 cups of Buttermilk Power Cakes in place of Kodiak Cakes Gluten-Free Mix for a little more protein and fiber in each serving!"
       ],
       "substrate": "kraft",
-      "title": "Protein Supreme Kodiak Cakes Waffle",
+      "title": "Savory Gluten-Free Protein Breakfast Biscuits",
       "variant": "hero-plus-layout"
     },
     "2026-05": {

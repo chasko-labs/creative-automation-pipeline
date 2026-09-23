@@ -12119,7 +12119,36 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Hot Honey Chicken & Waffle Casserole",
+    "title": "Hot Honey Chicken & Waffle Casserole",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "6 Kodiak Buttermilk & Vanilla Power Waffles, thawed",
+      "1 cup chicken, precooked and shredded or cubed(rotisserie chicken is great for this)",
+      "6 large eggs",
+      "1 cup cheddar cheese, shredded",
+      "2 cup whole milk",
+      "1/2 teaspoon salt",
+      "1 small red or green jalapeño",
+      "1/4 cup honey",
+      "3 green onions, sliced"
+    ],
+    "directions": "1. Preheat the oven to 375 degrees. Grease a 9x9” baking pan.\n2. Cut the waffles into 1” cubes. Add the the baking pan along with the chicken, tossing both together and dispersing evenly through pan.\n3. Place the eggs, cheese, milk, and salt in a mixing bowl and whisk together until well combined. Pour evenly over the waffle mixture.\n4. Let sit for 10 minutes.\n5. Bake in the preheated oven for 20-25 minutes, or until golden brown on top.\n6. While the casserole is baking, remove seeds from the jalapeño and finely dice. Add to a bowl with the honey and mix together.\n7. After removing the casserole from the oven, drizzle the hot honey over the top and sprinkle with green onion.\n8. Serve warm.",
+    "instructions": [
+      "Preheat the oven to 375 degrees. Grease a 9x9” baking pan.",
+      "Cut the waffles into 1” cubes. Add the the baking pan along with the chicken, tossing both together and dispersing evenly through pan.",
+      "Place the eggs, cheese, milk, and salt in a mixing bowl and whisk together until well combined. Pour evenly over the waffle mixture.",
+      "Let sit for 10 minutes.",
+      "Bake in the preheated oven for 20-25 minutes, or until golden brown on top.",
+      "While the casserole is baking, remove seeds from the jalapeño and finely dice. Add to a bowl with the honey and mix together.",
+      "After removing the casserole from the oven, drizzle the hot honey over the top and sprinkle with green onion.",
+      "Serve warm."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 25,
+    "servings": "6",
+    "source": "brand_json_ld"
   },
   {
     "id": "waffle-cut-outs",
@@ -12140,7 +12169,31 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Waffle Cut-Outs",
+    "title": "Waffle Cut-Outs",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "Kodiak Power Waffles, any flavor",
+      "Whipping cream",
+      "Standard chocolate chips",
+      "Mini chocolate chips",
+      "Fresh berries, sliced where applicable",
+      "Fresh banana slices",
+      "Fresh kiwi slices",
+      "Fresh citrus slices",
+      "Any other toppings of choice!"
+    ],
+    "directions": "1. Toast Kodiak waffles according to package instructions.\n2. Assemble your bear and other shapes with the various ingredients, using cookie cutters for different shapes and whipping cream to hold them together.\n3. Once your masterpiece is complete, drizzle with maple syrup or, our personal favorite, Kodiak Real Fruit Syrup and dig in!",
+    "instructions": [
+      "Toast Kodiak waffles according to package instructions.",
+      "Assemble your bear and other shapes with the various ingredients, using cookie cutters for different shapes and whipping cream to hold them together.",
+      "Once your masterpiece is complete, drizzle with maple syrup or, our personal favorite, Kodiak Real Fruit Syrup and dig in!"
+    ],
+    "prep_minutes": 20,
+    "cook_minutes": 5,
+    "servings": "5",
+    "source": "brand_json_ld"
   },
   {
     "id": "acai-bowl",
