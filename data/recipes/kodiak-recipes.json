@@ -9780,7 +9780,31 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Cinnamon Pancake French Toast",
+    "title": "Cinnamon Pancake French Toast",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1 cup Kodiak Cinnamon Oat Power Cakes Flapjack & Waffle Mix",
+      "3/4 cup water",
+      "1/4 cup milk",
+      "1/4 cup brown sugar",
+      "2 eggs",
+      "1 teaspoon cinnamon",
+      "1 teaspoon vanilla"
+    ],
+    "directions": "1. In a medium bowl, combine Kodiak mix and water.\n2. Make pancakes on a hot griddle.\n3. In a separate bowl, whisk milk, brown sugar, eggs, cinnamon, and vanilla.\n4. Dip cooled pancakes in the mixture and place back on the griddle for 1-2 minutes on each side.\n5. Serve with fresh fruit and maple syrup.",
+    "instructions": [
+      "In a medium bowl, combine Kodiak mix and water.",
+      "Make pancakes on a hot griddle.",
+      "In a separate bowl, whisk milk, brown sugar, eggs, cinnamon, and vanilla.",
+      "Dip cooled pancakes in the mixture and place back on the griddle for 1-2 minutes on each side.",
+      "Serve with fresh fruit and maple syrup."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": 10,
+    "servings": "2",
+    "source": "brand_json_ld"
   },
   {
     "id": "chocolate-chip-breakfast-cookies",
@@ -9801,7 +9825,30 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Chocolate Chip Breakfast Cookies",
+    "title": "Chocolate Chip Breakfast Cookies",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "3 packets Kodiak Chocolate Chip Oatmeal Packets",
+      "1/2 cup banana, mashed (about one medium banana)",
+      "1 large egg",
+      "3 tablespoons almond or cashew butter",
+      "2 tablespoons whole milk"
+    ],
+    "directions": "1. Preheat the oven to 350° F. Line a baking sheet with parchment paper.\n2. Place the oatmeal, banana, nut butter, egg, and milk in a small bowl and mix well with a spoon.\n3. Let the mixture sit for 5 minutes so that the liquid can absorb.\n4. Place scoops of cookie dough on the parchment-lined baking sheet, 2 inches apart. There should be enough batter to make six cookies.\n5. Bake for 10-12 minutes in the preheated oven, or until lightly golden brown on top.\n6. Remove and let cool. Store in an airtight container.",
+    "instructions": [
+      "Preheat the oven to 350° F. Line a baking sheet with parchment paper.",
+      "Place the oatmeal, banana, nut butter, egg, and milk in a small bowl and mix well with a spoon.",
+      "Let the mixture sit for 5 minutes so that the liquid can absorb.",
+      "Place scoops of cookie dough on the parchment-lined baking sheet, 2 inches apart. There should be enough batter to make six cookies.",
+      "Bake for 10-12 minutes in the preheated oven, or until lightly golden brown on top.",
+      "Remove and let cool. Store in an airtight container."
+    ],
+    "prep_minutes": 7,
+    "cook_minutes": 10,
+    "servings": "6",
+    "source": "brand_json_ld"
   },
   {
     "id": "churro-bites",
