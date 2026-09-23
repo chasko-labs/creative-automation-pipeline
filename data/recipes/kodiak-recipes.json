@@ -10073,7 +10073,30 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Double Chocolate Cookies",
+    "title": "Double Chocolate Cookies",
+    "course": "desserts",
+    "ingredients": [
+      "1/2 cup butter, softened",
+      "1/2 cup Sun Butter Natural Sunflower Seed Butter",
+      "3/4 cup brown sugar",
+      "2 eggs",
+      "1-1/2 cup Kodiak Dark Chocolate Power Cakes Flapjack & Waffle Mix"
+    ],
+    "directions": "1. Preheat oven to 350° F.\n2. Cream the butter, Sun Butter, and brown sugar until fluffy.\n3. Mix in eggs.\n4. Add Kodiak mix.\n5. Scoop cookies onto a baking sheet.\n6. Bake for 8-10 minutes.",
+    "instructions": [
+      "Preheat oven to 350° F.",
+      "Cream the butter, Sun Butter, and brown sugar until fluffy.",
+      "Mix in eggs.",
+      "Add Kodiak mix.",
+      "Scoop cookies onto a baking sheet.",
+      "Bake for 8-10 minutes."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 10,
+    "servings": "24",
+    "source": "brand_json_ld"
   },
   {
     "id": "waffle-breakfast-sandwich",
@@ -10282,7 +10305,28 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Cookie Dough Dip",
+    "title": "Cookie Dough Dip",
+    "course": "desserts",
+    "ingredients": [
+      "1/2 cup (1 package) cream cheese",
+      "1/2 cup butter",
+      "1/2 cup brown sugar",
+      "2 teaspoons vanilla",
+      "1 cup mini chocolate chips",
+      "Kodiak French Toast Sticks for dipping"
+    ],
+    "directions": "1. Mix the cream cheese, butter, and brown sugar using an electric mixer until smooth.\n2. Mix in vanilla and chocolate chips until combined.\n3. Transfer to a bowl and serve with prepared Kodiak French Toast Sticks.",
+    "instructions": [
+      "Mix the cream cheese, butter, and brown sugar using an electric mixer until smooth.",
+      "Mix in vanilla and chocolate chips until combined.",
+      "Transfer to a bowl and serve with prepared Kodiak French Toast Sticks."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": null,
+    "servings": "6",
+    "source": "brand_json_ld"
   },
   {
     "id": "blueberry-cheesecake-baked-oatmeal",
