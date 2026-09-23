@@ -10,6 +10,10 @@ const marketLangsOffline = {
   "US-CA-PESCADERO": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":12},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":6}],
   "US-WA-NEAHBAY": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":1.5}],
   "US-MW-PARKCITY-84098": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":9},{"lang_code":"de","lang_name":"German","translate_code":"de","pct_home":0.6}],
+  "US-NE-NYC": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":14.2},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":4.1}],
+  "US-NE-BROOKLYN": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":14.2},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":4.1}],
+  "US-NE-MANHATTAN": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es"}],
+  "US-NE-BRONX": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es"}],
   "US-SW-ALBQ": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":22.3},{"lang_code":"nv","lang_name":"Navajo","translate_code":"nv","pct_home":1.1,"machine_translate":false,"review":"community","review_note":"Community-authorized translation required — not machine-generated (language sovereignty)."}],
   "_default": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"fr","lang_name":"French","translate_code":"fr","pct_home":0.5}]
 };

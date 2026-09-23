@@ -91,14 +91,14 @@
  * copy if present). `Localized<T>` below is keyed by this union, so indexing
  * with a non-caption code is a type error by design.
  *
- * @typedef {'en'|'es'|'pt'} CaptionLang
+ * @typedef {'en'|'es'|'pt'|'zh'} CaptionLang
  */
 
 /**
  * One value per caption language. Generic so the same shape serves caption
  * strings, label maps, and anything else the tiles weave per language.
  *
- * Example: `Localized<string>` is `{ en: string, es: string, pt: string }`.
+ * Example: `Localized<string>` is `{ en: string, es: string, pt: string, zh: string }`.
  * Used for tile captions, `metaLabels`, `colLabels`, and any per-language
  * woven value. Market language selection (`MarketLang[]`) remains an open
  * `string` array; this generic is ONLY for the rendered caption bundle.
@@ -887,7 +887,7 @@
    * @returns {CaptionLang|null}
    */
   function localeFromLang(lang) {
-    return lang === 'en' || lang === 'es' || lang === 'pt' ? lang : null;
+    return lang === 'en' || lang === 'es' || lang === 'pt' || lang === 'zh' ? lang : null;
   }
 
   /**

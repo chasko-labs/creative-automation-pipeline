@@ -130,9 +130,8 @@ def resolve_seasonal_moments(market: str, path: str | None = None) -> list[dict]
 # market-languages.json lists the top-2 NON-English languages per market (ACS 2022,
 # each entry carrying lang_code/translate_code/pct_home). English is implicit and
 # always shipped. The delivery goal is the top-3 most-spoken languages per market:
-# English + that market's top-2. When the market is unknown or lists fewer than 2
-# non-English languages, the default set [en, es, pt] fills to three. English is
-# always first and never dropped.
+# English + that market's top-2. Only an unknown market falls back to the default
+# set [en, es, pt] to fill to three. English is always first and never dropped.
 # --------------------------------------------------------------------------- #
 
 MARKET_LANGUAGES_PATH = data_path("localization", "market-languages.json")
@@ -160,18 +159,21 @@ def _load_market_languages(path: str | None = None) -> dict[str, dict]:
 def resolve_target_languages(
     market: str | None, path: str | None = None
 ) -> list[dict]:
-    """Resolve a market to its top-3 target languages: English + market top-2.
+    """Resolve a market to its target languages: English + market top-2.
 
-    Always returns exactly 3 entries with English first. Each entry is
-    {lang_code, translate_code, lang_name}. Unknown market or a market listing fewer
-    than 2 non-English languages falls back to the [en, es, pt] default to fill to
-    three (English is never dropped, duplicates are de-duped by lang_code).
+    Returns English first plus the market's listed non-English languages
+    (usually 3 entries). Each entry is {lang_code, translate_code, lang_name}.
+    Only an unknown market falls back to the [en, es, pt] default to fill to
+    three — a known market listing fewer than 2 non-English languages is
+    returned as-is so no language is invented for it (English is never
+    dropped, duplicates are de-duped by lang_code).
     """
     english = {"lang_code": "en", "translate_code": "en", "lang_name": "English"}
     out: list[dict] = [english]
     seen = {"en"}
 
     entry = _load_market_languages(path).get(market or "")
+    known = entry is not None
     if entry:
         for lang in entry.get("top_languages", []):
             code = lang.get("lang_code")
@@ -188,15 +190,18 @@ def resolve_target_languages(
             if len(out) == 3:
                 break
 
-    # fill to three from the EN/ES/PT default when the market gave us fewer than 2
-    # non-English languages (or was unknown entirely).
-    for lang in DEFAULT_TARGET_LANGUAGES:
-        if len(out) == 3:
-            break
-        if lang["lang_code"] in seen:
-            continue
-        out.append(dict(lang))
-        seen.add(lang["lang_code"])
+    # fill to three from the EN/ES/PT default only when the market is unknown.
+    # a known market keeps exactly what it lists, even when that is fewer
+    # than 2 non-English languages — the default must never invent a
+    # language (e.g. Portuguese) for a market that does not speak it.
+    if not known:
+        for lang in DEFAULT_TARGET_LANGUAGES:
+            if len(out) == 3:
+                break
+            if lang["lang_code"] in seen:
+                continue
+            out.append(dict(lang))
+            seen.add(lang["lang_code"])
 
     return out[:3]
 
