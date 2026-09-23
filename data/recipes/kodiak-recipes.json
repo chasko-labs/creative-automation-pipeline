@@ -11431,7 +11431,28 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Dark Chocolate Banana Bread",
+    "title": "Dark Chocolate Banana Bread",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1 box Kodiak Double Dark Chocolate Muffin Mix",
+      "2 bananas, mashed",
+      "2 eggs",
+      "3/4 cup milk",
+      "1/4 cup oil"
+    ],
+    "directions": "1. Preheat oven to 350° F.\n2. Mix all ingredients in a large bowl until combined.\n3. Place batter in a greased loaf pan.\n4. Bake for 35-45 minutes.",
+    "instructions": [
+      "Preheat oven to 350° F.",
+      "Mix all ingredients in a large bowl until combined.",
+      "Place batter in a greased loaf pan.",
+      "Bake for 35-45 minutes."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 45,
+    "servings": "9",
+    "source": "brand_json_ld"
   },
   {
     "id": "chocolate-chip-coffee-cake-muffins",
@@ -11977,7 +11998,28 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Banana Chocolate Chip Muffins",
+    "title": "Banana Chocolate Chip Muffins",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1 box Kodiak Chocolate Chip Muffin Mix",
+      "1 cup milk",
+      "2 eggs",
+      "1/4 cup banana, mashed"
+    ],
+    "directions": "1. Preheat oven to 375° F.\n2. Combine ingredients in a mixing bowl and hand stir until blended.\n3. Divide batter among 12 cups in a lined or greased muffin pan.\n4. Bake for 15-18 minutes or until a toothpick comes out clean.\n5. Cool for 5 minutes before removing from the pan.",
+    "instructions": [
+      "Preheat oven to 375° F.",
+      "Combine ingredients in a mixing bowl and hand stir until blended.",
+      "Divide batter among 12 cups in a lined or greased muffin pan.",
+      "Bake for 15-18 minutes or until a toothpick comes out clean.",
+      "Cool for 5 minutes before removing from the pan."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 18,
+    "servings": "12",
+    "source": "brand_json_ld"
   },
   {
     "id": "banana-cream-waffle-parfait",
