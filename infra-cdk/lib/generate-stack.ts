@@ -2,7 +2,6 @@ import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as lambda from "aws-cdk-lib/aws-lambda";
-import * as scheduler from "aws-cdk-lib/aws-scheduler";
 import {
   KODIAK_VECTOR_BUCKET_NAME,
   KODIAK_VECTOR_INDEX_NAME,
@@ -308,46 +307,11 @@ export class GenerateStack extends cdk.Stack {
       description: "ARN of the Lambda execution role",
     });
 
-    // ---- art-director pre-warm (DISABLED by default) ------------------------
-    // Imported voice models bill per copy-minute while loaded, so a 24/7
-    // 4-minute ping kept a ~$38/day charge alive with zero traffic value
-    // (cost incident 2026-09-23). The rule is DISABLED by default — opt in
-    // per deploy with `-c artDirectorPrewarm=on`, only for an active voice
-    // test window. Rollback is flag-off + off here.
-    const prewarmState = this.node.tryGetContext("artDirectorPrewarm") === "on"
-      ? "ENABLED"
-      : "DISABLED";
-    const schedulerRole = new iam.CfnRole(this, "ArtDirectorPrewarmRole", {
-      assumeRolePolicyDocument: {
-        Version: "2012-10-17",
-        Statement: [{
-          Effect: "Allow",
-          Principal: { Service: "scheduler.amazonaws.com" },
-          Action: "sts:AssumeRole",
-        }],
-      },
-      policies: [{
-        policyName: "InvokeGenerateForWarmPing",
-        policyDocument: {
-          Version: "2012-10-17",
-          Statement: [{
-            Effect: "Allow",
-            Action: "lambda:InvokeFunction",
-            Resource: generateLambda.attrArn,
-          }],
-        },
-      }],
-    });
-    new scheduler.CfnSchedule(this, "ArtDirectorPrewarmSchedule", {
-      state: prewarmState,
-      scheduleExpression: "rate(4 minutes)",
-      flexibleTimeWindow: { mode: "OFF" },
-      target: {
-        arn: generateLambda.attrArn,
-        roleArn: schedulerRole.attrArn,
-        input: JSON.stringify({ warm: "art-director" }),
-        retryPolicy: { maximumRetryAttempts: 0 },
-      },
-    });
+    // ---- art-director pre-warm REMOVED (cost incident 2026-09-23) -----------
+    // A 24/7 4-minute ping kept a ~$38/day imported-model copy charge alive
+    // with zero traffic value. Disabled is not enough (it can be re-enabled);
+    // the schedule and its role are deleted from IaC so nothing can fire.
+    // If a voice test window ever needs warming again, re-add the schedule
+    // deliberately — do not resurrect the 4-minute default.
   }
 }
