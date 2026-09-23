@@ -100,9 +100,9 @@ describe('header untouched', () => {
   });
 });
 
-// Backlog: the about art band must sit flush on the About tool card, no gap.
-describe('flush about art', () => {
-  it('kills the card top margin where the band meets the tool', () => {
-    expect(css).toMatch(/\.ff-about-art\+\.ff-about\{[^}]*margin-top:0/);
+// Backlog: the shared forest cap must sit flush on the About tool card, no gap.
+describe('flush about cap', () => {
+  it('the forest divider carries zero surrounding margins', () => {
+    expect(css).toMatch(/\.ff-forest\{[^}]*margin:0 var\(--radii-lg\) 0/);
   });
 });

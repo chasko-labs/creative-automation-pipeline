@@ -9,31 +9,25 @@ const index = readFileSync(
 const css = readFileSync(
   resolve(root, 'web/kodiak-posts-for-todays-frontier/design/components.css'), 'utf8');
 
-// About art lives in a full-bleed band ABOVE #aboutTool (mirroring the
-// ff-ridge / ff-forest dividers), never buried in .body padding — and carries
-// pine sections between the peaks, a mix of the other two motifs.
-describe('about art band', () => {
-  it('art band precedes the about disclosure', () => {
-    const art = index.indexOf('class="ff-about-art"');
+// About shares the single forest-divider cap with the Output and Generate
+// cards: one component, zero surrounding margins, flush with the card below.
+// (A bespoke about svg slice-cropped to the wrong band at divider height and
+// floated pale above the card, so it was retired.)
+describe('about forest cap', () => {
+  it('a forest divider precedes the about disclosure', () => {
+    const lastForest = index.lastIndexOf('class="ff-forest"');
     const tool = index.indexOf('id="aboutTool"');
-    expect(art).toBeGreaterThan(-1);
+    expect(lastForest).toBeGreaterThan(-1);
     expect(tool).toBeGreaterThan(-1);
-    expect(art).toBeLessThan(tool);
+    expect(lastForest).toBeLessThan(tool);
   });
 
-  it('no svg remains inside the about body', () => {
-    const body = index.slice(index.indexOf('id="aboutTool"'));
-    expect(body).not.toMatch(/<svg/);
+  it('no svg remains inside or directly above the about card', () => {
+    const fromAbout = index.slice(index.indexOf('id="aboutTool"') - 600);
+    expect(fromAbout).not.toMatch(/<svg/);
   });
 
-  it('pines stand between the peaks (more than the original seven)', () => {
-    const band = index.slice(index.indexOf('class="ff-about-art"'), index.indexOf('id="aboutTool"'));
-    const pines = band.match(/<path d="M\d+ 1(0|1)\d l\d/g) || [];
-    expect(pines.length).toBeGreaterThan(7);
-  });
-
-  it('band is full-bleed with a spacing-token cap height', () => {
-    expect(css).toMatch(/\.ff-about-art\{[^}]*line-height:0/);
-    expect(css).toMatch(/\.ff-about-art \.ff-about-range\{[^}]*width:100%;height:var\(--spacing-2xl/);
+  it('the forest cap carries zero surrounding margins (flush)', () => {
+    expect(css).toMatch(/\.ff-forest\{[^}]*margin:0 var\(--radii-lg\) 0/);
   });
 });

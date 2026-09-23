@@ -883,13 +883,8 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 .ff-hidden{display:none}
 /* Wasatch ridge divider — decorative silhouette band; cap height from the shared spacing scale */
 .ff-ridge{height:var(--spacing-xl,32px);background:var(--mountain) no-repeat center/100% var(--spacing-xl,32px);margin:0 var(--radii-lg) 0}
-/* === About art band — full-bleed mountains-with-pines, FLUSH with the section below ===
-   (no top margin: the art is the section's cap, not a separate stacked block) */
-.ff-about-art{margin:0 var(--radii-lg);line-height:0}
-/* the band sits flush on the About tool card — the .card top margin would float it */
-.ff-about-art+.ff-about{margin-top:0}
-.ff-about-art .ff-about-range{width:100%;height:var(--spacing-2xl,48px);display:block;margin:0}
-/* forest treeline divider - mirrors .ff-ridge, uses the conifer --forest silhouette */
+/* forest treeline divider - mirrors .ff-ridge, uses the conifer --forest silhouette.
+   shared cap above the Output, Generate, and About cards (one component, flush). */
 .ff-forest{height:var(--spacing-xl,32px);background:var(--forest) no-repeat center/100% var(--spacing-xl,32px);margin:0 var(--radii-lg) 0}
 /* preview filenames line — hidden until populated */
 .ff-filenames{margin-top:10px;display:none}
@@ -1761,7 +1756,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .kodiak-header__logos{position:absolute;top:0;left:1.5rem;width:96px;height:112px;z-index:60;aspect-ratio:auto;transition:height .25s ease,width .25s ease}
   .kodiak-header__logos .kodiak-header__logo--primary{transform:none}
   .kodiak-headline-plate{min-width:0;flex:1 1 auto}
-  .kodiak-headline-plate h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(15px,1.8vw,21px)}
+  .kodiak-headline-plate h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(18px,2vw,24px)}
   /* scrolled: badge frame shrinks into the bar; the alt-logo crossfade (.is-sticky) is untouched */
   .kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:52px}
   /* 2. slim timeline: single row, tighter reset */
@@ -1887,8 +1882,6 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .ff-timeline{margin-bottom:4px}
   .ff-setup{margin-top:4px}
   .ff-about{margin-bottom:8px}
-  /* decorative about-art strip matches the 28px divider standard */
-  .ff-about-art .ff-about-range{height:28px}
 }
 /* stale-glyph kill: the legacy open-state text markers below lose to the
    badge above by specificity — silence them at winning specificity so no
@@ -1920,10 +1913,8 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 #generateCampaignSection>:not(summary):last-child{margin-bottom:0}
 #generateCampaignSection>:not(summary):empty{margin:0}
 #generateCampaignBtns:has(>#genFullCampaign:only-child[hidden]){display:none}
-/* 3. the mountain art is the about card's top cap: .wrap>.card outranks the
-      adjacent-sibling flush rule and floats the card ~3px (fractional) below
-      the art. this wins by specificity at equal source order. */
-.wrap>.ff-about-art+.ff-about{margin-top:0}
+/* 3. retired: the bespoke about svg is gone — About shares the .ff-forest cap,
+      whose own zero margins keep it flush with the card below. */
 /* 4. header title authority: display face stays gin 800; uppercase + wider
       tracking so the title holds the row against the step pills. ellipsis and
       the 60px bar are untouched. */

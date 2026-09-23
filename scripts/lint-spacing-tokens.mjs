@@ -52,7 +52,7 @@ if (distinct.size !== 1) {
 
 // 3. dividers integrate flush with the card below (bottom margin 0) and end
 // at the card's corner curve (horizontal inset, one radius token each side).
-for (const cls of [".ff-ridge", ".ff-forest", ".ff-about-art"]) {
+for (const cls of [".ff-ridge", ".ff-forest"]) {
 	const rule = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].find((r) =>
 		r[1].split(",").map((s) => s.trim()).includes(cls),
 	);

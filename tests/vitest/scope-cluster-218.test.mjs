@@ -141,12 +141,12 @@ describe('scope cluster (#218, #236, #237, #223)', () => {
     // layered page wash from house tokens at low alpha — token refs only, never raw hex
     expect(css).toMatch(/color-mix\(in srgb,var\(--colors-brand-frontier-green\)/);
     expect(css).toMatch(/color-mix\(in srgb,var\(--colors-brand-bear-brown\)/);
-    // about art flush with its section (no stacked top margin)
-    expect(css).toMatch(/\.ff-about-art\{margin:0/);
+    // about shares the forest cap with its section (no stacked top margin;
+    // the bespoke about svg was retired for slice-cropping pale at cap height)
+    expect(css).toMatch(/\.ff-forest\{height:var\(--spacing-xl/);
+    expect(css).toMatch(/\.ff-forest\{[^}]*margin:0 var\(--radii-lg\) 0/);
     // inter-section caps shrink via shared spacing tokens
     expect(css).toMatch(/\.ff-ridge\{height:var\(--spacing-xl/);
-    expect(css).toMatch(/\.ff-forest\{height:var\(--spacing-xl/);
-    expect(css).toMatch(/\.ff-about-art \.ff-about-range\{[^}]*height:var\(--spacing-2xl/);
   });
 
   it('product picks still reset directions (documented own-start semantics)', () => {
