@@ -5,7 +5,7 @@ The frontier-frontend prompt chips (#promptChips in
 web/kodiak-posts-for-todays-frontier/index.html) each carry a campaign brief.
 Today every chip composes on the same power-cakes pack-shot because there is no
 theme->asset routing. This map fixes that: each of the 6 chip themes resolves to
-a small pool of REAL on-theme Kodiak lifestyle photography in the DAM, so the
+a small pool of REAL on-theme Kodiak lifestyle photography in the asset store, so the
 live generator composes each chip on the right kind of scene.
 
 Deterministic keyword / metadata scorer — NO vector cosine, NO network by
@@ -13,7 +13,7 @@ default. Same inputs -> byte-identical output. The optional S3 existence check
 is skippable via --no-verify so the script runs in CI without credentials.
 
 Mirrors scripts/build-sku-photo-map.py exactly for structure, determinism,
-DAM-key reconciliation, and channel weighting. The differences from the sku map:
+asset-key reconciliation, and channel weighting. The differences from the sku map:
   - the query is a fixed set of theme match-tokens (not product-derived)
   - each theme keeps a pool of up to 5 photo_keys (chips rotate; sku picks 1+2)
   - the "wild-grizzly-bears" theme applies a NEGATIVE weight guardrail (see BEARS_ below)
@@ -26,7 +26,7 @@ Output (committed, reproducible via --no-verify):
   data/products/theme-asset-map.json
 
 Run:
-  uv run python scripts/build-theme-asset-map.py --no-verify --dam-keys /tmp/dam-real-keys.txt
+  uv run python scripts/build-theme-asset-map.py --no-verify --dam-keys /tmp/asset-store-real-keys.txt
   AWS_PROFILE=bryanchasko-kiro uv run python scripts/build-theme-asset-map.py \
       --profile bryanchasko-kiro --region us-east-1
 """
@@ -42,16 +42,16 @@ from collections import Counter
 
 EMBEDDINGS = pathlib.Path("data/vectors/kodiak-embeddings.jsonl")
 OUT = pathlib.Path("data/products/theme-asset-map.json")
-DEFAULT_DAM_KEYS = pathlib.Path("/tmp/dam-real-keys.txt")
+DEFAULT_ASSET_KEYS = pathlib.Path("/tmp/asset-store-real-keys.txt")
 
 # embeddings metadata image_file carries a rendered size variant suffix
-# (e.g. "..._1200x1200.jpg") that the actual DAM object key does not have.
+# (e.g. "..._1200x1200.jpg") that the actual asset store object key does not have.
 # reconcile() strips it — but only when the exact name is NOT already a real
 # key (a few real keys, e.g. "..._520x500.jpg", carry the suffix natively).
 VARIANT_SUFFIX_RE = re.compile(r"_\d+x\d+(?=\.[a-z0-9]+$)", re.IGNORECASE)
 
-DAM_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
-DAM_BUCKET = "chasko-creative-dam-946179428633-us-east-1"
+ASSET_STORE_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
+ASSET_STORE_BUCKET = "chasko-creative-dam-946179428633-us-east-1"
 
 MODEL_NOTE = (
     "deterministic keyword+metadata overlap scoring (no vector cosine); "
@@ -62,7 +62,7 @@ MODEL_NOTE = (
     "no named-person themes ship, so no likeness boost or person front-run; "
     "primaries are globally de-duped in alphabetical slug order "
     "so all themes carry distinct primary photo_keys; top-1 + up to 4 "
-    "fallbacks per theme, all reconciled to real DAM keys"
+    "fallbacks per theme, all reconciled to real asset keys"
 )
 
 # Retired slugs: never carried over from a prior map on rebuild. zac-efron
@@ -122,7 +122,7 @@ STOPWORDS = {
 
 # ---------------------------------------------------------------------------
 # THEME DEFINITIONS — this block is the product spec. Each theme maps a chip
-# (by slug) to its brief and the match-tokens that describe its real DAM pool.
+# (by slug) to its brief and the match-tokens that describe its real asset store pool.
 # slugs match the brief; order here fixes summary/iteration order.
 # ---------------------------------------------------------------------------
 THEMES: list[dict] = [
@@ -200,7 +200,7 @@ THEMES: list[dict] = [
             "Southern family table, framed to the selected market."
         ),
         # southern porch / family-table pool; resolves to hero food shots
-        # when the DAM carries no retailer-specific rows.
+        # when the asset store carries no retailer-specific rows.
         "tokens": [
             "publix",
             "southern",
@@ -284,7 +284,7 @@ THEMES: list[dict] = [
 # whose caption strongly implies a live captive-bear portrait is penalized
 # hard (effectively excluded) so it can never surface as the chosen asset or a
 # fallback. Wild-habitat / trail / landscape cues and the Bear Bites product
-# (bear-shaped food) are explicitly NOT penalized. In the current DAM none of
+# (bear-shaped food) are explicitly NOT penalized. In the current asset store none of
 # the resolvable rows are captive-bear portraits, so this guardrail is
 # defensive — it protects against future ingest adding such a row.
 BEARS_CAPTIVE_TOKENS = {
@@ -380,7 +380,7 @@ def load_images(path: pathlib.Path) -> list[dict]:
     return rows
 
 
-def load_dam_keys(path: pathlib.Path) -> set[str]:
+def load_asset_keys(path: pathlib.Path) -> set[str]:
     keys: set[str] = set()
     with path.open(encoding="utf-8") as fh:
         for line in fh:
@@ -391,7 +391,7 @@ def load_dam_keys(path: pathlib.Path) -> set[str]:
 
 
 def reconcile_basename(image_file: str, real_keys: set[str]) -> str | None:
-    """Resolve an embeddings image_file to a REAL DAM basename, or None.
+    """Resolve an embeddings image_file to a REAL asset store basename, or None.
 
     Order (a real key with a native size suffix must win before we strip):
       a. exact match in real_keys -> use as-is
@@ -458,7 +458,7 @@ def resolve_pool(
     """Pick the best RESOLVABLE, UNCLAIMED candidate + reconciled pool for a theme.
 
     Walks the ranked list; the first candidate whose image_file reconciles to a
-    real DAM key AND is not already another theme's PRIMARY becomes this theme's
+    real asset key AND is not already another theme's PRIMARY becomes this theme's
     primary (FLAG 2 global de-dup). Up to POOL_SIZE-1 further resolvable, deduped
     candidates become the fallback pool — a key claimed as another theme's
     primary MAY still appear here; only PRIMARIES must be globally unique.
@@ -497,7 +497,7 @@ def resolve_pool(
         raise RuntimeError(
             "theme has no unclaimed resolvable primary candidate (all top "
             f"{len(resolved)} on-theme assets are already other themes' "
-            "primaries); widen the theme token set or DAM pool"
+            "primaries); widen the theme token set or asset store pool"
         )
 
     top_score, top_meta, top_key = resolved[primary_idx]
@@ -531,12 +531,12 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str]) -> di
         entry = {
             "theme": theme["slug"],
             "brief": theme["brief"],
-            "photo_key": DAM_PREFIX + primary_key,
+            "photo_key": ASSET_STORE_PREFIX + primary_key,
             "image_file": primary_key,
             "channel": top_meta.get("channel"),
             "caption": caption_for(top_meta),
             "score": round(float(top_score), 4),
-            "pool": [DAM_PREFIX + k for k in pool],
+            "pool": [ASSET_STORE_PREFIX + k for k in pool],
         }
         if theme["slug"] == "wild-grizzly-bears":
             entry["guardrail"] = (
@@ -583,7 +583,7 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str]) -> di
         output["metadata"]["verified"] = True
         output["metadata"]["missing_keys"] = sorted(missing)
         if missing:
-            print(f"WARNING: {len(missing)} photo_key(s) not found in DAM", file=sys.stderr)
+            print(f"WARNING: {len(missing)} photo_key(s) not found in asset store", file=sys.stderr)
 
     return output
 
@@ -594,7 +594,7 @@ def verify_keys(keys: list[str], profile: str, region: str) -> list[str]:
     for key in keys:
         cmd = [
             "aws", "s3api", "head-object",
-            "--bucket", DAM_BUCKET,
+            "--bucket", ASSET_STORE_BUCKET,
             "--key", key,
             "--profile", profile,
             "--region", region,
@@ -642,12 +642,12 @@ def main() -> int:
     ap.add_argument("--profile", default="bryanchasko-kiro", help="AWS profile for --verify")
     ap.add_argument("--region", default="us-east-1", help="AWS region for --verify")
     ap.add_argument(
-        "--dam-keys",
-        default=str(DEFAULT_DAM_KEYS),
+        "--asset-keys", "--dam-keys",
+        default=str(DEFAULT_ASSET_KEYS),
         help=(
-            "file of real DAM object basenames (one per line) used to reconcile "
+            "file of real asset store object basenames (one per line) used to reconcile "
             "embeddings image_file variant suffixes to real keys "
-            f"(default {DEFAULT_DAM_KEYS})"
+            f"(default {DEFAULT_ASSET_KEYS})"
         ),
     )
     args = ap.parse_args()
@@ -660,18 +660,18 @@ def main() -> int:
         )
         return 2
 
-    dam_keys_path = pathlib.Path(args.dam_keys)
-    if not dam_keys_path.exists():
+    asset_keys_path = pathlib.Path(args.asset_keys)
+    if not asset_keys_path.exists():
         print(
-            f"ERROR: --dam-keys file {dam_keys_path} not found. Every theme must "
-            "reconcile to a real DAM key; regenerate it (e.g. aws s3 ls of the "
-            f"'{DAM_PREFIX}' prefix, basenames one per line) before building.",
+            f"ERROR: --dam-keys file {asset_keys_path} not found. Every theme must "
+            "reconcile to a real asset key; regenerate it (e.g. aws s3 ls of the "
+            f"'{ASSET_STORE_PREFIX}' prefix, basenames one per line) before building.",
             file=sys.stderr,
         )
         return 2
 
-    real_keys = load_dam_keys(dam_keys_path)
-    print(f"loaded {len(real_keys)} real DAM keys from {dam_keys_path}")
+    real_keys = load_asset_keys(asset_keys_path)
+    print(f"loaded {len(real_keys)} real asset keys from {asset_keys_path}")
 
     output = build(
         no_verify=args.no_verify,

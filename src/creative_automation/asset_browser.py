@@ -1,4 +1,4 @@
-"""Read-only DAM asset browser — the ONE implementation of the marketer-facing picker.
+"""Read-only asset browser — the ONE implementation of the marketer-facing picker.
 
 Both surfaces call list_library(category, limit, offset):
   - api.py's GET /assets/library (dev/local FastAPI)
@@ -7,9 +7,9 @@ Both surfaces call list_library(category, limit, offset):
 Six marketer-facing tabs replace the old 4-prefix model:
   products | recipes | lifestyle | ideas | themes | brand
 
-The DAM bucket is fully private, so every item carries a presigned GET url (public urls
-403). Bucket is resolved from dam._s3_bucket_and_prefix() — never hardcoded. Keys are
-presigned VERBATIM via dam.presign_get (no prefix join — matches fetch_dam_key contract).
+The asset store bucket is fully private, so every item carries a presigned GET url (public urls
+403). Bucket is resolved from asset_store._s3_bucket_and_prefix() — never hardcoded. Keys are
+presigned VERBATIM via asset_store.presign_get (no prefix join — matches fetch_asset_key contract).
 
 PERF: products/recipes/lifestyle all read the SAME raw-ingest prefix. It is listed ONCE,
 every key classified in a single pass, then routed into the three buckets — never
@@ -19,7 +19,7 @@ PAGINATION: the FULL ordered key list is gathered per category first (total = le
 ONLY keys[offset:offset+limit] are presigned. No presign is ever minted outside the
 window.
 
-Offline / CI path (dam._s3_enabled() False) and per-category failures both degrade to the
+Offline / CI path (asset_store._s3_enabled() False) and per-category failures both degrade to the
 SAME shape (total=0, offset=0, count=0, has_more=false, next_offset=null, items=[]) so the
 frontend never branches on shape.
 """
@@ -32,7 +32,7 @@ import re
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 
-from . import dam
+from . import asset_store
 from ._datapaths import data_path
 
 # ---------------------------------------------------------------- category model
@@ -79,16 +79,16 @@ def thumb_url(key: str, client, bucket: str) -> str | None:
     except Exception:  # noqa: BLE001 — thumb probe never throws
         return None
     try:
-        return dam.presign_get(_thumb_key(key))
+        return asset_store.presign_get(_thumb_key(key))
     except Exception:  # noqa: BLE001 — presign fallback is None
         return None
 
 
 # ---------------------------------------------------------------- curation
-# data/dam/curation.json (optional): {"strength": {key: number}, "omit": [key]}.
+# data/asset-library/curation.json (optional): {"strength": {key: number}, "omit": [key]}.
 # Ideas tab ranks strongest-first; omitted keys (mock-hero slop) never list.
 # Unrated keys keep listing order behind rated ones. Missing file -> no-op.
-_CURATION_PATH = data_path("dam", "curation.json")
+_CURATION_PATH = data_path("asset-library", "curation.json")
 _CURATION_CACHE: dict | None = None
 
 
@@ -219,7 +219,7 @@ _CAMEL = re.compile(r"(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])")
 
 
 def _label(key: str) -> str:
-    """Marketer-facing label from a DAM key. Seven ordered steps; empty -> "" (caller
+    """Marketer-facing label from a asset key. Seven ordered steps; empty -> "" (caller
     falls back). See module tests for worked examples."""
     # 1. stem
     stem = pathlib.Path(key).stem
@@ -298,7 +298,7 @@ def _gather_themes(map_path) -> list[str]:
     try:
         data = json.loads(pathlib.Path(map_path).read_text(encoding="utf-8"))
     except Exception as e:  # noqa: BLE001 — absent/unreadable map is a soft-empty tab
-        print(f"[dam_library] theme map load skipped {map_path}: {e}")
+        print(f"[asset_browser] theme map load skipped {map_path}: {e}")
         return []
     # unwrap a top-level "map" envelope when present (the shipped shape)
     themes = data.get("map", data) if isinstance(data, dict) else {}
@@ -368,7 +368,7 @@ def _brand_label_index(cfg: dict, client, bucket: str) -> dict[str, tuple[bool, 
 def _load_product_line_index(map_path=_SKU_MAP_PATH, catalog_path=_CATALOG_PATH) -> dict[str, str]:
     """Invert the sku-photo-map into raw-ingest-key -> catalog category (product line).
 
-    One DAM photo routinely serves several products (and even several product
+    One asset photo routinely serves several products (and even several product
     lines), so photo_key claims (the map's authoritative depiction) outrank
     fallback claims, and within each tier the most-claimed category wins with
     an alphabetical tiebreak. Fully deterministic: map iteration order never
@@ -380,7 +380,7 @@ def _load_product_line_index(map_path=_SKU_MAP_PATH, catalog_path=_CATALOG_PATH)
         sku_map = json.loads(pathlib.Path(map_path).read_text(encoding="utf-8"))
         catalog = json.loads(pathlib.Path(catalog_path).read_text(encoding="utf-8"))
     except Exception as e:  # noqa: BLE001 — absent/unreadable data is a soft-empty tab
-        print(f"[dam_library] product-line index skipped: {e}")
+        print(f"[asset_browser] product-line index skipped: {e}")
         return {}
     by_handle: dict[str, str] = {}
     products = catalog.get("products", []) if isinstance(catalog, dict) else []
@@ -471,13 +471,13 @@ def _item_for(
 # fires a synchronous S3 HEAD in thumb_url (thumb-cache gate) and, on the ideas tab, a
 # second HEAD in head_metadata. Serial, a 24-tile window = up to 48 serial HEAD round
 # trips before the Lambda responds — on a cold container that blows the 12s client abort
-# (see web/.../prompt-chips.js DAM_TIMEOUT_MS). presign_get itself is CPU-only (no round
+# (see web/.../prompt-chips.js ASSET_STORE_TIMEOUT_MS). presign_get itself is CPU-only (no round
 # trip), so the HEADs are the whole cost. Fanning the per-item work across a bounded
 # thread pool collapses N serial HEADs into ~1-2 round-trip-times. botocore's low-level
 # client is thread-safe for these independent read calls (head_object / generate_presigned
 # _url share no mutable state across calls). Bound the pool so a large page cannot spawn
-# an unbounded thread storm; default 16, override via DAM_LIBRARY_MAX_WORKERS.
-_DAM_LIBRARY_MAX_WORKERS = max(1, int(os.getenv("DAM_LIBRARY_MAX_WORKERS", "16")))
+# an unbounded thread storm; default 16, override via ASSET_STORE_LIBRARY_MAX_WORKERS.
+_ASSET_STORE_LIBRARY_MAX_WORKERS = max(1, int(os.getenv("ASSET_STORE_LIBRARY_MAX_WORKERS", "").strip() or os.getenv("DAM_LIBRARY_MAX_WORKERS", "").strip() or "16"))
 
 
 def _resolve_window_items(
@@ -500,10 +500,10 @@ def _resolve_window_items(
     """
     def _one(key: str) -> dict:
         plats = (
-            _platforms_from_meta(dam.head_metadata(key)) if name == "ideas" else None
+            _platforms_from_meta(asset_store.head_metadata(key)) if name == "ideas" else None
         )
         item = _item_for(key, name, brand_index, product_index, plats)
-        item["url"] = dam.presign_get(key)
+        item["url"] = asset_store.presign_get(key)
         # grid tiles use thumb (cached 320px derivative) and fall back to the full
         # url when no derivative exists yet — thumb_url returns None on a HEAD miss.
         item["thumb"] = thumb_url(key, client, bucket)
@@ -512,7 +512,7 @@ def _resolve_window_items(
     if not window:
         return []
     # cap workers at the window size — never spin more threads than there is work.
-    workers = min(_DAM_LIBRARY_MAX_WORKERS, len(window))
+    workers = min(_ASSET_STORE_LIBRARY_MAX_WORKERS, len(window))
     with ThreadPoolExecutor(max_workers=workers) as pool:
         return list(pool.map(_one, window))
 
@@ -531,7 +531,7 @@ def _empty_page(offset: int) -> dict:
 
 # ---------------------------------------------------------------- public API
 def list_library(category: str | None = None, limit: int = 60, offset: int = 0) -> dict:
-    """List a marketer-facing DAM tab (or all seven) with presigned GET urls, paginated.
+    """List a marketer-facing asset tab (or all seven) with presigned GET urls, paginated.
 
     category: products|recipes|food|lifestyle|ideas|themes|brand; all seven when
     absent/unknown.
@@ -547,23 +547,23 @@ def list_library(category: str | None = None, limit: int = 60, offset: int = 0) 
     the grid falls back to url). product_line is the catalog category for
     classified-tab tiles the sku-photo-map knows (else None); platforms is the
     publish-time x-amz-meta-platforms slugs for ideas tiles (else []).
-    data/dam/curation.json optionally omits keys and ranks ideas strongest-first.
+    data/asset-library/curation.json optionally omits keys and ranks ideas strongest-first.
     Never raises — S3-disabled and per-category failures both degrade to _empty_page.
     """
     cap = max(1, min(int(limit), 200))
     off = max(0, int(offset))
     wanted = [category] if category in _CATEGORIES else list(_CATEGORIES)
 
-    if not dam._s3_enabled():
+    if not asset_store._s3_enabled():
         return {
             "enabled": False,
             "bucket": None,
             "categories": {name: _empty_page(off) for name in wanted},
-            "note": "DAM S3 not configured — set DAM_S3_BUCKET",
+            "note": "asset store S3 not configured — set ASSET_STORE_S3_BUCKET",
         }
 
-    bucket, _ = dam._s3_bucket_and_prefix()
-    client = dam._s3_client()
+    bucket, _ = asset_store._s3_bucket_and_prefix()
+    client = asset_store._s3_client()
     categories: dict[str, dict] = {}
     # memoize the single raw-ingest classification pass across products/recipes/lifestyle
     classified_cache: dict[str, dict] = {}
@@ -606,7 +606,7 @@ def list_library(category: str | None = None, limit: int = 60, offset: int = 0) 
                 "items": items,
             }
         except Exception as e:  # noqa: BLE001 — one bad tab must not sink the listing
-            print(f"[dam_library] category {name} failed: {e}")
+            print(f"[asset_browser] category {name} failed: {e}")
             page = _empty_page(off)
             page["error"] = str(e)
             categories[name] = page

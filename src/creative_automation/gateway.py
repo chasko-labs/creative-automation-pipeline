@@ -4,7 +4,7 @@ C2 exposes the already-built local lookups as uniform, agent-callable tools so a
 AgentCore agent (or any MCP client) can invoke them by name with a JSON argument object and
 get a JSON-serializable result back. Per the backlog, the C-epic is the wrap layered on top
 of the always-present local pipeline — this module builds NO new lookup logic. Every tool is a
-thin wrapper that composes an existing unit (context_pack, retailers, dam, asset_library,
+thin wrapper that composes an existing unit (context_pack, retailers, asset_store, asset_library,
 recipe_card, locales) or the C1 runtime handler; the wrapper's only jobs are shaping the input,
 calling the done code, and sanitizing the output.
 
@@ -17,7 +17,7 @@ Contract (mirrors runtime.handle_campaign_request):
 
 Sanitization reuses runtime._json_safe, so no callables (the context pack's to_prompt_text
 closure), Paths, sets, or dataclasses leak into a payload — every dispatch result round-trips
-through json.dumps. Tools that lean on S3/creds (asset_library_browse, dam_hero_lookup) degrade
+through json.dumps. Tools that lean on S3/creds (asset_library_browse, asset_hero_lookup) degrade
 to an empty/None result plus a note rather than raising, so the whole registry stays offline-safe.
 
 Local shim:
@@ -35,14 +35,14 @@ from typing import Any
 from . import locales
 from .asset_library import AssetKind, AssetLibrary
 from .context_pack import build_context_pack
-from .dam import find_hero_asset
+from .asset_store import find_hero_asset
 from .recipe_card import build_recipe_card
 from .retailers import resolve_retailer
 from .runtime import _json_safe, handle_campaign_request
 
-# default DAM root — same local fallback the pipeline uses when no S3 bucket is set
+# default asset root — same local fallback the pipeline uses when no S3 bucket is set
 _ROOT = Path(__file__).parents[2]
-_DEFAULT_DAM_ROOT = _ROOT / "input_assets"
+_DEFAULT_ASSET_ROOT = _ROOT / "input_assets"
 _LIBRARY_PREFIX = "brands/kodiak/library/"
 
 
@@ -81,23 +81,25 @@ def _h_retailer_lookup(args: dict) -> dict:
     }
 
 
-def _h_dam_hero_lookup(args: dict) -> dict:
-    """find_hero_asset(product_id, dam_root) -> resolved hero path or null. Offline-safe.
+def _h_asset_hero_lookup(args: dict) -> dict:
+    """find_hero_asset(product_id, asset_root) -> resolved hero path or null. Offline-safe.
 
-    No S3 env set -> the S3 branch inside dam is skipped, so this is a pure local
-    input_assets lookup. A miss returns hero_path None plus a note, never raises.
+    No S3 env set -> the S3 branch inside the asset store is skipped, so this is
+    a pure local input_assets lookup. A miss returns hero_path None plus a note,
+    never raises. Accepts the legacy dam_root key for old callers.
     """
     product_id = args["product_id"]
-    dam_root = Path(args["dam_root"]) if args.get("dam_root") else _DEFAULT_DAM_ROOT
-    hero = find_hero_asset(product_id, dam_root, explicit=args.get("explicit"))
+    root_arg = args.get("asset_root") or args.get("dam_root")
+    asset_root = Path(root_arg) if root_arg else _DEFAULT_ASSET_ROOT
+    hero = find_hero_asset(product_id, asset_root, explicit=args.get("explicit"))
     return {
         "product_id": product_id,
-        "dam_root": str(dam_root),
+        "asset_root": str(asset_root),
         "hero_path": str(hero) if hero else None,
         "found": hero is not None,
         "note": None
         if hero is not None
-        else f"no local hero under {dam_root / product_id}; drop hero.png there or set DAM_S3_BUCKET",
+        else f"no local hero under {asset_root / product_id}; drop hero.png there or set ASSET_STORE_S3_BUCKET",
     }
 
 
@@ -249,28 +251,28 @@ TOOLS: list[dict[str, Any]] = [
         "handler": _h_retailer_lookup,
     },
     {
-        "name": "dam_hero_lookup",
+        "name": "asset_hero_lookup",
         "description": (
-            "Resolve a product hero image path. S3-first when DAM_S3_BUCKET is set, else pure local "
+            "Resolve a product hero image path. S3-first when ASSET_STORE_S3_BUCKET is set, else pure local "
             "input_assets/<product_id>/hero.* fallback. Offline-safe: a miss returns hero_path null + "
-            "a note, never raises. Composes dam.find_hero_asset."
+            "a note, never raises. Composes asset_store.find_hero_asset."
         ),
         "input_schema": {
             "type": "object",
             "properties": {
                 "product_id": {"type": "string", "description": "e.g. power-cakes, bear-bites, oatmeal-cup"},
-                "dam_root": {"type": "string", "description": "DAM root dir; default input_assets"},
+                "asset_root": {"type": "string", "description": "asset root dir; default input_assets"},
                 "explicit": {"type": "string", "description": "Explicit local or s3:// path override"},
             },
             "required": ["product_id"],
         },
         "required": ["product_id"],
-        "handler": _h_dam_hero_lookup,
+        "handler": _h_asset_hero_lookup,
     },
     {
         "name": "asset_library_browse",
         "description": (
-            "Browse the DAM asset library (optionally filtered by kind: raster/vector/doc/copy) and "
+            "Browse the asset library (optionally filtered by kind: raster/vector/doc/copy) and "
             "return AssetRef dicts. Offline-safe: with no S3/creds the library runs in no-s3 mode and "
             "returns an empty list + a note. Composes asset_library.AssetLibrary.list_assets."
         ),
@@ -280,7 +282,7 @@ TOOLS: list[dict[str, Any]] = [
                 "kind": {"type": "string", "enum": ["raster", "vector", "doc", "copy"]},
                 "limit": {"type": "integer", "default": 100},
                 "cursor": {"type": "string", "description": "Opaque pagination cursor"},
-                "bucket": {"type": "string", "description": "Override DAM bucket"},
+                "bucket": {"type": "string", "description": "Override asset store bucket"},
             },
         },
         "required": [],

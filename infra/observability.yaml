@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: Kodiak creative pipeline - standalone observability stack (CloudWatch log group + X-Ray sampling rule + write policy). Separate from the main kodiak-creatives stack to avoid the existing-DAM-bucket create collision.
+Description: Kodiak creative pipeline - standalone observability stack (CloudWatch log group + X-Ray sampling rule + write policy). Separate from the main kodiak-creatives stack to avoid the existing-asset-store bucket create collision.
 
 Parameters:
   ProjectName:

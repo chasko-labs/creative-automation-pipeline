@@ -1,9 +1,9 @@
-"""S3 DAM fallback for hero source discovery — no real AWS.
+"""S3 asset store fallback for hero source discovery — no real AWS.
 
 The Lambda container ships with no assets baked in, so _find_source_asset must
 pull the real hero from S3 (s3://<bucket>/brands/kodiak/heroes/<product>/
 hero-real.png|hero.png) when the local filesystem misses. These tests monkeypatch
-the dam S3 primitives (_s3_enabled / _s3_download) rather than hit S3, mirroring
+the asset_store S3 primitives (_s3_enabled / _s3_download) rather than hit S3, mirroring
 the monkeypatch style in test_generate_lambda.py and test_asset_pack.py.
 """
 from __future__ import annotations
@@ -12,7 +12,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from creative_automation import dam, generate
+from creative_automation import asset_store, generate
 
 
 def _write_png(path: Path) -> None:
@@ -22,11 +22,11 @@ def _write_png(path: Path) -> None:
 
 # --------------------------------------------------------------- fetch_hero_to_tmp
 def test_fetch_hero_to_tmp_offline_returns_none(monkeypatch, tmp_path: Path) -> None:
-    """S3 disabled (no DAM_S3_BUCKET / boto3) -> None, no raise, no download."""
-    monkeypatch.setattr(dam, "_s3_enabled", lambda: False)
+    """S3 disabled (no ASSET_STORE_S3_BUCKET / boto3) -> None, no raise, no download."""
+    monkeypatch.setattr(asset_store, "_s3_enabled", lambda: False)
     called = {"n": 0}
-    monkeypatch.setattr(dam, "_s3_download", lambda *a, **k: called.__setitem__("n", called["n"] + 1) or True)
-    assert dam.fetch_hero_to_tmp("power-cakes", cache_root=tmp_path) is None
+    monkeypatch.setattr(asset_store, "_s3_download", lambda *a, **k: called.__setitem__("n", called["n"] + 1) or True)
+    assert asset_store.fetch_hero_to_tmp("power-cakes", cache_root=tmp_path) is None
     assert called["n"] == 0
 
 
@@ -45,11 +45,11 @@ class _FakeListClient:
 
 def test_fetch_hero_to_tmp_prefers_hero_real(monkeypatch, tmp_path: Path) -> None:
     """hero-real.png wins over hero.png and resolves to the /tmp cache path."""
-    monkeypatch.setattr(dam, "_s3_enabled", lambda: True)
-    monkeypatch.setenv("DAM_S3_BUCKET", "test-dam-bucket")
+    monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
+    monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
     prefix = "brands/kodiak/heroes/power-cakes/"
     client = _FakeListClient([prefix + "hero.png", prefix + "hero-real.png", prefix + "notes.txt"])
-    monkeypatch.setattr(dam, "_s3_client", lambda: client)
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: client)
     requested: list[str] = []
 
     def fake_download(bucket: str, key: str, dest: Path) -> bool:
@@ -59,8 +59,8 @@ def test_fetch_hero_to_tmp_prefers_hero_real(monkeypatch, tmp_path: Path) -> Non
             return True
         return False
 
-    monkeypatch.setattr(dam, "_s3_download", fake_download)
-    hit = dam.fetch_hero_to_tmp("power-cakes", cache_root=tmp_path)
+    monkeypatch.setattr(asset_store, "_s3_download", fake_download)
+    hit = asset_store.fetch_hero_to_tmp("power-cakes", cache_root=tmp_path)
     assert hit is not None and hit.exists()
     assert hit == tmp_path / "power-cakes" / "hero-real.png"
     # one LIST resolved the dir, exactly one GET fetched the winner — no hero.*
@@ -71,10 +71,10 @@ def test_fetch_hero_to_tmp_prefers_hero_real(monkeypatch, tmp_path: Path) -> Non
 
 def test_fetch_hero_to_tmp_falls_back_to_hero(monkeypatch, tmp_path: Path) -> None:
     """No hero-real.* listed -> hero.png is downloaded instead."""
-    monkeypatch.setattr(dam, "_s3_enabled", lambda: True)
-    monkeypatch.setenv("DAM_S3_BUCKET", "test-dam-bucket")
+    monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
+    monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
     prefix = "brands/kodiak/heroes/bear-bites/"
-    monkeypatch.setattr(dam, "_s3_client", lambda: _FakeListClient([prefix + "hero.png"]))
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: _FakeListClient([prefix + "hero.png"]))
 
     def fake_download(bucket: str, key: str, dest: Path) -> bool:
         if key.endswith("hero.png"):
@@ -82,34 +82,34 @@ def test_fetch_hero_to_tmp_falls_back_to_hero(monkeypatch, tmp_path: Path) -> No
             return True
         return False
 
-    monkeypatch.setattr(dam, "_s3_download", fake_download)
-    hit = dam.fetch_hero_to_tmp("bear-bites", cache_root=tmp_path)
+    monkeypatch.setattr(asset_store, "_s3_download", fake_download)
+    hit = asset_store.fetch_hero_to_tmp("bear-bites", cache_root=tmp_path)
     assert hit is not None and hit.name == "hero.png"
 
 
 def test_fetch_hero_to_tmp_miss_costs_one_list_zero_gets(monkeypatch, tmp_path: Path) -> None:
     """Empty product dir -> None with exactly 1 LIST and 0 GETs (the wall repair)."""
-    monkeypatch.setattr(dam, "_s3_enabled", lambda: True)
-    monkeypatch.setenv("DAM_S3_BUCKET", "test-dam-bucket")
+    monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
+    monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
     client = _FakeListClient([])
-    monkeypatch.setattr(dam, "_s3_client", lambda: client)
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: client)
     gets = {"n": 0}
-    monkeypatch.setattr(dam, "_s3_download", lambda *a, **k: gets.__setitem__("n", gets["n"] + 1) or False)
-    assert dam.fetch_hero_to_tmp("no-such-product", cache_root=tmp_path) is None
+    monkeypatch.setattr(asset_store, "_s3_download", lambda *a, **k: gets.__setitem__("n", gets["n"] + 1) or False)
+    assert asset_store.fetch_hero_to_tmp("no-such-product", cache_root=tmp_path) is None
     assert client.lists == 1
     assert gets["n"] == 0
 
 
 def test_fetch_hero_to_tmp_list_denied_uses_serial_fallback(monkeypatch, tmp_path: Path) -> None:
     """Narrow IAM (list raises) -> legacy serial GETs still resolve the hero."""
-    monkeypatch.setattr(dam, "_s3_enabled", lambda: True)
-    monkeypatch.setenv("DAM_S3_BUCKET", "test-dam-bucket")
+    monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
+    monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
 
     class _DenyList:
         def list_objects_v2(self, **kwargs) -> dict:
             raise RuntimeError("AccessDenied: no ListBucket")
 
-    monkeypatch.setattr(dam, "_s3_client", lambda: _DenyList())
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: _DenyList())
 
     def fake_download(bucket: str, key: str, dest: Path) -> bool:
         if key.endswith("hero-real.png"):
@@ -117,8 +117,8 @@ def test_fetch_hero_to_tmp_list_denied_uses_serial_fallback(monkeypatch, tmp_pat
             return True
         return False
 
-    monkeypatch.setattr(dam, "_s3_download", fake_download)
-    hit = dam.fetch_hero_to_tmp("power-cakes", cache_root=tmp_path)
+    monkeypatch.setattr(asset_store, "_s3_download", fake_download)
+    hit = asset_store.fetch_hero_to_tmp("power-cakes", cache_root=tmp_path)
     assert hit is not None and hit.name == "hero-real.png"
 
 
@@ -131,7 +131,7 @@ def test_rank_hero_key_orders_deterministically() -> None:
         "brands/kodiak/heroes/p/hero-real.webp",
         "brands/kodiak/heroes/p/random.png",
     ]
-    assert sorted(keys, key=dam._rank_hero_key) == [
+    assert sorted(keys, key=asset_store._rank_hero_key) == [
         "brands/kodiak/heroes/p/hero-real.png",
         "brands/kodiak/heroes/p/hero-real.jpeg",
         "brands/kodiak/heroes/p/hero-real.webp",
@@ -148,7 +148,7 @@ def test_find_source_asset_local_miss_s3_hit(monkeypatch, tmp_path: Path) -> Non
     monkeypatch.chdir(tmp_path)
     cached = tmp_path / "cache" / "power-cakes" / "hero-real.png"
     _write_png(cached)
-    monkeypatch.setattr("creative_automation.dam.fetch_hero_to_tmp", lambda product_id: cached)
+    monkeypatch.setattr("creative_automation.asset_store.fetch_hero_to_tmp", lambda product_id: cached)
 
     got = generate._find_source_asset("power-cakes", "Power Cakes")
     assert got == cached
@@ -157,7 +157,7 @@ def test_find_source_asset_local_miss_s3_hit(monkeypatch, tmp_path: Path) -> Non
 def test_find_source_asset_local_miss_s3_miss(monkeypatch, tmp_path: Path) -> None:
     """Both local and S3 miss -> None (caller degrades to mock)."""
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr("creative_automation.dam.fetch_hero_to_tmp", lambda product_id: None)
+    monkeypatch.setattr("creative_automation.asset_store.fetch_hero_to_tmp", lambda product_id: None)
     assert generate._find_source_asset("power-cakes", "Power Cakes") is None
 
 
@@ -168,7 +168,7 @@ def test_find_source_asset_s3_discovery_never_raises(monkeypatch, tmp_path: Path
     def boom(product_id: str) -> Path:
         raise RuntimeError("simulated boto3 failure")
 
-    monkeypatch.setattr("creative_automation.dam.fetch_hero_to_tmp", boom)
+    monkeypatch.setattr("creative_automation.asset_store.fetch_hero_to_tmp", boom)
     assert generate._find_source_asset("power-cakes", "Power Cakes") is None
 
 
@@ -215,7 +215,7 @@ def test_generate_hero_no_asset_yields_fallback_label(monkeypatch, tmp_path: Pat
 
 def test_generate_hero_missing_product_no_default_hero_fallback(monkeypatch, tmp_path: Path) -> None:
     """The default-brand-hero (power-cakes) intermediate fallback was RETIRED when the
-    real-photo scene composer landed. Precedence is now: sku-photo-map DAM photo ->
+    real-photo scene composer landed. Precedence is now: sku-photo-map asset photo ->
     disk _find_source_asset -> _mock_hero. A non-default SKU with no sku-photo-map
     entry and no disk asset of its own goes straight to the last-resort label — it
     does NOT silently compose on power-cakes anymore. _find_source_asset is called at
@@ -228,7 +228,7 @@ def test_generate_hero_missing_product_no_default_hero_fallback(monkeypatch, tmp
         calls.append(pid)
 
     # bear-bites-limited is not in the sku-photo-map -> resolver returns None
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", discover)
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
 

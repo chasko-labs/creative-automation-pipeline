@@ -47,7 +47,7 @@ flowchart TB
 
     subgraph AWS["AWS — account 946179428633 / us-east-1"]
         Bedrock["Amazon Bedrock<br/>Nova Pro vision, Nova Micro, Titan Embed"]
-        S3["S3 DAM + S3 Vectors"]
+        S3["S3 asset store + S3 Vectors"]
         DDB["DynamoDB<br/>localization + retail network"]
         Obs["CloudWatch Logs + X-Ray"]
     end
@@ -138,7 +138,7 @@ Seven MCP tools registered in `src/creative_automation/gateway.py`, mirrored by 
 | ---------------------- | ---------------------------------------- | ------------------------------- |
 | `context_pack`         | `context_pack.build_context_pack`        | market or full brief            |
 | `retailer_lookup`      | `retailers.resolve_retailer`             | name (costco / publix / target) |
-| `dam_hero_lookup`      | `dam.find_hero_asset`                    | product                         |
+| `asset_hero_lookup`      | `dam.find_hero_asset`                    | product                         |
 | `asset_library_browse` | `asset_library.AssetLibrary.list_assets` | (optional kind filter)          |
 | `recipe_card_plan`     | `recipe_card.build_recipe_card`          | market                          |
 | `monthly_ingredient`   | `locales.resolve_this_month`             | market                          |
@@ -148,7 +148,7 @@ Seven MCP tools registered in `src/creative_automation/gateway.py`, mirrored by 
 
 ## 5. Data and schema
 
-Two DynamoDB tables plus the S3 Vectors index plus the DAM object store. Key schemas below are verified against `infra/template.yaml`.
+Two DynamoDB tables plus the S3 Vectors index plus the asset store object store. Key schemas below are verified against `infra/template.yaml`.
 
 ```mermaid
 erDiagram
@@ -199,7 +199,7 @@ Storage facts:
 - DynamoDB `kodiak-creatives-localization-memory` — PK `market`, SK `place_message_id`, PAY_PER_REQUEST, point-in-time recovery on, retain-on-delete
 - DynamoDB `kodiak-creatives-retail-network` — PK `store_id`, GSI `byMarket` (all attributes projected), PAY_PER_REQUEST, retain-on-delete
 - S3 Vectors — managed vector store behind the Bedrock Knowledge Base, 1024-dim
-- DAM object layout — `brands/kodiak/library/<asset_id>/<filename>` plus an `asset.json` metadata sidecar; distinct from `renders/` (pipeline output) and `references/` (training corpus)
+- asset store object layout — `brands/kodiak/library/<asset_id>/<filename>` plus an `asset.json` metadata sidecar; distinct from `renders/` (pipeline output) and `references/` (training corpus)
 - `AssetRef` is the seam contract between the asset-library service, the pipeline, and the frontend. Adding an optional field is safe; renaming or removing one is a seam event — see [asset library + observability design](asset-library-and-observability.md)
 
 `AssetRef` dedup by `sha256` means the same file added twice returns the first ref, no duplicate object. `asset_id` is a ULID so records sort by time and never collide on filename.
@@ -208,13 +208,13 @@ Storage facts:
 
 ## 6. Infrastructure and deployment
 
-One CloudFormation template (`infra/template.yaml`) provisions the whole cloud footprint. The legacy Terraform file (`infra/s3-dam.tf`) created the original DAM bucket; the template now wraps that footprint. All stateful resources carry `DeletionPolicy: Retain` and `UpdateReplacePolicy: Retain`.
+One CloudFormation template (`infra/template.yaml`) provisions the whole cloud footprint. The legacy Terraform file (`infra/s3-dam.tf`) created the original asset store bucket; the template now wraps that footprint. All stateful resources carry `DeletionPolicy: Retain` and `UpdateReplacePolicy: Retain`.
 
 ```mermaid
 flowchart TB
     subgraph IaC["Infrastructure as code — infra/"]
         CFN["template.yaml<br/>CloudFormation, retain-on-delete"]
-        TF["s3-dam.tf<br/>legacy DAM bucket (wrapped)"]
+        TF["s3-dam.tf<br/>legacy asset store bucket (wrapped)"]
     end
 
     subgraph Storage["Storage"]
@@ -242,7 +242,7 @@ flowchart TB
 Deployment surfaces:
 
 - Local (live today): `uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak`
-- Cloud asset library mirror: `scripts/sync-dam.sh` to `brands/kodiak/` — see [Asset library runbook](../asset-library-runbook.md)
+- Cloud asset library mirror: `scripts/sync-asset-store.sh` to `brands/kodiak/` — see [Asset library runbook](../asset-library-runbook.md)
 - Planned: wrap `run_pipeline()` as a Bedrock AgentCore Runtime — see [AgentCore promotion path](../agentcore.md). The `ObservabilityWritePolicy` exists now for that future runtime role to attach; the runtime role itself is not defined in the template yet.
 
 ---
@@ -323,9 +323,9 @@ Path-by-path ownership is defined in [team lanes](team-lanes.md); dispatch rules
 | ------------- | ----------------------------------------------------------------------------- | ----------------------------------------------- |
 | team-pipeline | engine `src/creative_automation/*.py`, AgentCore design, `rust/kodiak-local/` | one brief becomes hundreds of on-brand assets   |
 | team-frontend | `web/`, design tokens, render templates, brand + UX docs                      | how a marketer picks a prompt and sees a result |
-| team-platform | `infra/`, DAM + ops scripts, runbooks                                            | how it deploys and stays healthy                |
+| team-platform | `infra/`, asset store + ops scripts, runbooks                                            | how it deploys and stays healthy                |
 
-The seams — shared contracts where lanes touch — are design tokens (`design/tokens/kodiak.json`), API response shapes, the sample-prompt JSONL schema, the ISO naming regex (`naming.py`, single source of truth), and the DAM bucket layout. Changing either side of a seam without the other is how one team breaks another; every seam has a named contract owner.
+The seams — shared contracts where lanes touch — are design tokens (`design/tokens/kodiak.json`), API response shapes, the sample-prompt JSONL schema, the ISO naming regex (`naming.py`, single source of truth), and the asset store bucket layout. Changing either side of a seam without the other is how one team breaks another; every seam has a named contract owner.
 
 ---
 
@@ -343,13 +343,13 @@ Every AWS resource the deployed pipeline touches, verified live in account 94617
 | Model        | Amazon Bedrock Nova Pro   | `amazon.nova-pro-v1:0` (Converse, vision)                                                            | reads the real pack shot, writes on-brand headline + layout                                                                                                   |
 | Model        | Amazon Bedrock embeddings | `amazon.nova-2-multimodal-embeddings-v1:0` (1024-dim), Titan fallback `amazon.titan-embed-text-v2:0` | corpus + retrieval embeddings                                                                                                                                 |
 | Model        | Amazon Translate          | translate service                                                                                    | per-market localization (Nova Micro fallback)                                                                                                                 |
-| Storage      | S3 DAM                    | `chasko-creative-dam-946179428633-us-east-1`                                                         | source heroes (brands/kodiak/heroes/), renders, vectors, raw-ingest                                                                                           |
+| Storage      | S3 asset store                    | `chasko-creative-dam-946179428633-us-east-1`                                                         | source heroes (brands/kodiak/heroes/), renders, vectors, raw-ingest                                                                                           |
 | Storage      | S3 site + package         | `frontier-bryanchasko-com`                                                                           | hosted app + reviewer zip                                                                                                                                     |
 | Storage      | S3 logs                   | `kodiak-creatives-logs-946179428633-us-east-1`, `kodiak-creatives-cf-logs-946179428633-us-east-1`    | access + CloudFront logs                                                                                                                                      |
 | Data         | DynamoDB                  | `kodiak-creatives-localization-memory`, `kodiak-creatives-retail-network`                            | market memory + retail network                                                                                                                                |
 | CI           | local gate                 | `scripts/hooks/full-check.sh`                                                                            | repository-owned quality gate                                                                            |
 
-Note: this project deploys exactly ONE Lambda (`kodiak-creatives-generate`). The generate request path a browser hits is: kodiak.bryanchasko.com/generate -> CloudFront E3GEX8LSRX6OYS (/generate\* behavior) -> API Gateway mcaptnm7vh -> Lambda -> Bedrock Nova Pro -> render to S3 DAM -> presigned URL back.
+Note: this project deploys exactly ONE Lambda (`kodiak-creatives-generate`). The generate request path a browser hits is: kodiak.bryanchasko.com/generate -> CloudFront E3GEX8LSRX6OYS (/generate\* behavior) -> API Gateway mcaptnm7vh -> Lambda -> Bedrock Nova Pro -> render to S3 asset store -> presigned URL back.
 
 ## 10. Live today vs planned
 
@@ -361,7 +361,7 @@ The maturity view a CIO wants up front. The local pipeline is the always-present
 | prompt->image generate endpoint (browser-reachable)           | live                  | CloudFront /generate\* -> API Gateway mcaptnm7vh -> Lambda kodiak-creatives-generate -> Nova Pro; wired to the frontend button (PR #67) with the display-image CORS fix (PR #68)                                                   |
 | real AI image generation (Nova Pro asset composition)         | live                  | generate.py composes real pack shots via Nova Pro Converse vision, RAG-grounded; source=bedrock:nova-pro. A product without its own asset composes on the flagship brand hero, so every campaign returns a real Nova Pro composite |
 | per-market language chips (top-2 per market)                  | live                  | PR #57, market-languages.json, deployed to kodiak.bryanchasko.com                                                                                                                                                                  |
-| DAM on S3, KMS, versioned                                     | live                  | `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`                                                                                                                                                                   |
+| asset store on S3, KMS, versioned                                     | live                  | `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`                                                                                                                                                                   |
 | CloudFormation footprint (buckets, tables, observability) | live                  | `infra/template.yaml`                                                                                                                                                                                                              |
 | local gate                                             | live                  | `scripts/hooks/full-check.sh`                                                                                                                                                                     |
 | 7 AgentCore Gateway tools                                     | live (local dispatch) | `gateway.py`, PR #13                                                                                                                                                                                                               |

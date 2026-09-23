@@ -27,7 +27,7 @@ PATHS: dict[str, list[str]] = {
     "partner": ["us-ski-snowboard"],
 }
 
-_FIXTURE = pathlib.Path("tests/fixtures/dam-real-keys.txt")
+_FIXTURE = pathlib.Path("tests/fixtures/asset_store-real-keys.txt")
 _PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
 
 
@@ -46,11 +46,11 @@ def _png(path: pathlib.Path, color=(120, 30, 200)) -> pathlib.Path:
 
 def _seed_offline(tmp_path, monkeypatch) -> None:
     seed = _png(tmp_path / "seed.png")
-    from creative_automation import dam
+    from creative_automation import asset_store
 
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: _png(dest))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: _png(dest))
     monkeypatch.setattr(generate, "_stability_control_hero",
                          lambda seed_path, prompt, out: _png(out))
     monkeypatch.setattr(generate, "_stability_outpaint", lambda *a, **k: None)
@@ -86,10 +86,10 @@ def _score_theme(theme: str, tmp_path, monkeypatch) -> dict:
         "1x1": (1080, 1080), "4x5": (1080, 1350),
         "9x16": (1080, 1920), "16x9": (1920, 1080),
     }
-    # DoD 2: theme seed is a real DAM key, never fabricated — and the run
+    # DoD 2: theme seed is a real asset key, never fabricated — and the run
     # actually consumed the theme-photo path (not a silent product fallback)
     theme_key = generate._resolve_theme_photo(theme) or ""
-    cards["real-dam-seed"] = theme_key.startswith(_PREFIX) and theme_key[len(_PREFIX):] in real
+    cards["real-asset_store-seed"] = theme_key.startswith(_PREFIX) and theme_key[len(_PREFIX):] in real
     cards["theme-photo-path-taken"] = prov.get("seed_selection") == "theme-photo"
     # DoD 3: scene prompt carries an explicit dispatch (no bare-noun branding)
     scene = str(prov.get("scene_prompt") or "")

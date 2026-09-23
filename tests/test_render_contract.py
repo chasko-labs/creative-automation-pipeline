@@ -15,7 +15,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from creative_automation import dam, generate_lambda
+from creative_automation import asset_store, generate_lambda
 from creative_automation import generate as generate_mod
 from creative_automation.compose import compose_creative
 
@@ -38,7 +38,7 @@ def _local_box_fetch(_tmp: Path):
 def _isolate_from_seeds(monkeypatch):
     """No theme/sku/disk seed — the ladder sees only what each test stages."""
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
 
 
@@ -150,7 +150,7 @@ def test_clean_default_skips_packshot_probe(tmp_path, monkeypatch):
         probes["n"] += 1
         return _make_box_png(tmp_path / "box.png")
 
-    monkeypatch.setattr(dam, "resolve_packshot", _probe)
+    monkeypatch.setattr(asset_store, "resolve_packshot", _probe)
 
     result, _source, prov = generate_mod.generate_hero(**_hero_kwargs(tmp_path, layers={}))
 
@@ -166,7 +166,7 @@ def test_clean_default_skips_packshot_probe(tmp_path, monkeypatch):
 
 def test_clean_product_layer_pastes_without_baked_text(tmp_path, monkeypatch):
     """Selected product_image layer: rung A composite, thirds placement, no text bar."""
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
     _isolate_from_seeds(monkeypatch)
     monkeypatch.setattr(
         generate_mod, "_stability_control_hero", lambda s, p, o: None
@@ -189,7 +189,7 @@ def test_clean_product_layer_pastes_without_baked_text(tmp_path, monkeypatch):
 
 def test_legacy_none_keeps_packshot_and_overlay(tmp_path, monkeypatch):
     """layers=None preserves the legacy ladder byte-for-behavior."""
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
     _isolate_from_seeds(monkeypatch)
     monkeypatch.setattr(
         generate_mod, "_stability_control_hero", lambda s, p, o: None

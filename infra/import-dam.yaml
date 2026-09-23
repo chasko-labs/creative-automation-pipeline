@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: >-
-  Kodiak DAM bucket + TLS policy - phase-1 IMPORT template (mirrors live
+  Kodiak asset store bucket + TLS policy - phase-1 IMPORT template (mirrors live
   terraform-created bucket exactly so CloudFormation can adopt it). After import,
   the main infra/template.yaml UPDATE transitions tags to the standard strategy
   and adds the rest of the stack.
@@ -26,7 +26,7 @@ Parameters:
     Type: String
     Default: chasko-creative-dam-946179428633-us-east-1
     Description: >-
-      Live DAM bucket name (us-east-1, acct 946179428633). Must equal the
+      Live asset store bucket name (us-east-1, acct 946179428633). Must equal the
       existing bucket exactly - this is the resource being imported.
 
 Resources:

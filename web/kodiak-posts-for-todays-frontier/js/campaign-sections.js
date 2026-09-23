@@ -214,10 +214,10 @@
   }
 
   // Download Campaign Pack (#242) — one click, one ISO zip via the #204 endpoint.
-  // POSTs the campaign renders' DAM keys (+ copy sidecars where present) to
+  // POSTs the campaign renders' asset keys (+ copy sidecars where present) to
   // /assets/pack and saves the single presigned zip. Browsers cap automatic
   // multi-downloads, which is why the old per-file loop saved 1 photo instead
-  // of 4. Falls back to the per-file loop only when no DAM keys exist.
+  // of 4. Falls back to the per-file loop only when no asset keys exist.
   window.downloadCampaignPack = function(){
     var status = document.getElementById('generateCampaignStatus');
     if(!campaignRenders.length){ if(status) status.textContent = 'Generate a campaign first, then download the pack.'; return 0; }
@@ -284,9 +284,9 @@
     var controller = new AbortController();
     var timeoutId = setTimeout(function(){ controller.abort(); }, 100000);
     try{
-      // staged DAM pick rides as the seed (same contract as the preview path above).
+      // staged staged asset pick rides as the seed (same contract as the preview path above).
       var stagedKey = null;
-      try{ var staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='dam' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
+      try{ var staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='asset-library' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
       var body = {
         prompt: currentBrief(),
         market: selectedMarket(),

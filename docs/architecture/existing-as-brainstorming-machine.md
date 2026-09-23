@@ -2,7 +2,7 @@
 
 > A vision doc grounded in files that already exist on `main`. The pipeline did not just build a fallback image bank — it mechanically laid down a gold-standard historical corpus of real Kodiak Cakes assets and text, then embedded most of it. This doc argues that corpus should be a first-class front-end mode called **Existing**: a way to query what the brand has already done, set role models, and seed new work. The retrieval spine for it is already in the code. Surfacing it is wiring, not building.
 
-Audience: the pipeline team deciding what to ship next, and anyone who needs to see why the scrape is an asset rather than exhaust. Every count and every file path below is verified against the repo and the DAM bucket, not intent. For the system as a whole, start at [SYSTEM-OVERVIEW.md](SYSTEM-OVERVIEW.md); for the DAM write-path this loop folds back into, see [asset library + observability](asset-library-and-observability.md).
+Audience: the pipeline team deciding what to ship next, and anyone who needs to see why the scrape is an asset rather than exhaust. Every count and every file path below is verified against the repo and the asset store bucket, not intent. For the system as a whole, start at [SYSTEM-OVERVIEW.md](SYSTEM-OVERVIEW.md); for the asset store write-path this loop folds back into, see [asset library + observability](asset-library-and-observability.md).
 
 - Account: `946179428633` (bryanchasko-kiro), region `us-east-1`
 - Live corpus root: `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/raw-ingest/kodiakcakes/`
@@ -23,7 +23,7 @@ The ingest run walked kodiakcakes.com, its retail surfaces, and its social chann
 | youtube deep   | video pull with SRT transcripts (searchable text)   | `youtube-deep/`       | `youtube-deep/*.srt` + `*.json`                                                                                                                               |
 | brand lore     | ambassador guides, store copy, print guides         | `brand-lore/`         | `brand-lore/` (html + txt + pdf + manifest)                                                                                                                   |
 | tailoring spec | the per-brand ingest recipe that produced the above | `tailoring-spec.json` | `tailoring-spec.json`                                                                                                                                         |
-| S3 live copy   | the product image scrape mirrored to the DAM        | ~2328 objects         | `s3://.../brands/kodiak/raw-ingest/kodiakcakes/images/`                                                                                                       |
+| S3 live copy   | the product image scrape mirrored to the asset store        | ~2328 objects         | `s3://.../brands/kodiak/raw-ingest/kodiakcakes/images/`                                                                                                       |
 
 Of that base, **3146 rows are already embedded** — `data/vectors/manifest.json` reports `count: 3146`, `model: amazon.nova-2-multimodal-embeddings-v1:0`, `dim: 1024`. That number is the whole argument: the corpus is not raw material waiting for a project. It is a live index waiting for a search box.
 
@@ -54,7 +54,7 @@ The single most important fact in this doc: the "query Existing" capability is n
 - `kodiak_reference_search` — the agent-callable MCP tool registered in `.agents/mcp-kodiak-reference.json`, so a Muse / kiro agent can query the corpus with no HTTP hop. Confirmed in the manifest and wired through `src/creative_automation/api.py`.
 - Keyword fallback — when vectors are thin or a query is hashtag/locale specific, `_keyword_fallback` greps the localization, recipe, and hashtag files so the answer degrades to real grep hits instead of an empty list.
 
-The embedding layer under it is `src/creative_automation/embeddings.py`: Amazon Nova-2 multimodal embeddings (`amazon.nova-2-multimodal-embeddings-v1:0`), dimension **1024**, purpose `GENERIC_INDEX` (built to be a vector-store index across all modalities), with a Titan text fallback. The write-path that lets new work rejoin the base is `src/creative_automation/asset_library.py` — the `AssetLibrary` service that classifies by `AssetKind`, dedups by sha256, and writes object + sidecar into the DAM.
+The embedding layer under it is `src/creative_automation/embeddings.py`: Amazon Nova-2 multimodal embeddings (`amazon.nova-2-multimodal-embeddings-v1:0`), dimension **1024**, purpose `GENERIC_INDEX` (built to be a vector-store index across all modalities), with a Titan text fallback. The write-path that lets new work rejoin the base is `src/creative_automation/asset_library.py` — the `AssetLibrary` service that classifies by `AssetKind`, dedups by sha256, and writes object + sidecar into the asset store.
 
 So the front end already has an endpoint that answers "what has the brand done that looks or reads like this?" against 3146 embedded rows. Existing is a mode built on that endpoint. Nothing in section 4 requires a new retrieval engine.
 
@@ -106,11 +106,11 @@ The maturity view, same discipline as the system overview: what stands on a veri
 
 | capability                                      | status | evidence                                                            |
 | ----------------------------------------------- | ------ | ------------------------------------------------------------------- |
-| historical corpus scraped + mirrored to DAM     | live   | `data/raw-ingest/kodiakcakes/`, `counts.json`, S3 raw-ingest prefix |
+| historical corpus scraped + mirrored to asset store     | live   | `data/raw-ingest/kodiakcakes/`, `counts.json`, S3 raw-ingest prefix |
 | corpus embedded (3146 rows, Nova-2, 1024-dim)   | live   | `data/vectors/manifest.json`                                        |
 | `/search` retrieval endpoint + `search()` + MCP | live   | `reference_api.py`, `.agents/mcp-kodiak-reference.json`             |
 | keyword fallback for thin-vector queries        | live   | `_keyword_fallback` in `reference_api.py`                           |
-| DAM write-path to fold new work back in         | live   | `AssetLibrary` in `asset_library.py`                                |
+| asset store write-path to fold new work back in         | live   | `AssetLibrary` in `asset_library.py`                                |
 | Existing as a front-end mode (search box UI)    | next   | section 4.1 — wiring over the live endpoint                         |
 | transcripts + social + lore embedded for Q&A    | next   | section 4.2 — text surfaces into the same index                     |
 | per-category role-model tagging                 | next   | section 4.3 — consume harness `asset-catalog.json`                  |

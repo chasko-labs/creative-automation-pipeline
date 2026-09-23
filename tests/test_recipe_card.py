@@ -78,12 +78,12 @@ def test_publish_offline_returns_none_key(tmp_path):
     result = build_recipe_card(
         "US-SE-ATL", month="2026-09", out_dir=tmp_path, publish=True
     )
-    # DAM unconfigured in CI: card still composes, dam_key degrades to None.
+    # asset store unconfigured in CI: card still composes, asset_key degrades to None.
     assert Path(result["card_path"]).exists()
-    assert result["dam_key"] is None
+    assert result["asset_key"] is None
 
 
-def test_publish_card_never_throws_without_dam(tmp_path):
+def test_publish_card_never_throws_without_asset_store(tmp_path):
     from creative_automation.recipe_card import publish_card
 
     assert publish_card(tmp_path / "nope.jpg") is None
@@ -344,11 +344,11 @@ def test_build_recipe_card_marks_v1_contract(tmp_path):
 
 
 def test_recipe_art_overlay_prefers_published_zones(monkeypatch):
-    import creative_automation.dam as dam
+    import creative_automation.asset_store as asset_store
     from creative_automation.recipe_card import _overlay_recipe_art
 
     monkeypatch.setattr(
-        dam,
+        asset_store,
         "recipe_art_exists",
         lambda slug, zone: slug == "winter-squash-griddle-cakes"
         and zone in ("technique", "finished_plate"),

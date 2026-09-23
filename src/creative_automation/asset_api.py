@@ -1,4 +1,4 @@
-"""Asset library API + MCP surface — browse/select/add for the DAM library prefix.
+"""Asset library API + MCP surface — browse/select/add for the asset library prefix.
 
 Mirrors reference_api.py: HAS_FASTAPI graceful degrade, module-level `app`, __main__ uvicorn runner.
 Upload uses a raw request body + filename query param (no python-multipart dependency); a multipart
@@ -30,10 +30,10 @@ from .asset_library import (
 )
 from .observability import get_observer
 
-DAM_S3_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
+ASSET_STORE_S3_BUCKET = os.getenv("ASSET_STORE_S3_BUCKET", "").strip() or os.getenv("DAM_S3_BUCKET", "").strip() or "chasko-creative-dam-946179428633-us-east-1"
 LIBRARY_PREFIX = "brands/kodiak/library/"
 
-library = AssetLibrary(bucket=DAM_S3_BUCKET, prefix=LIBRARY_PREFIX)
+library = AssetLibrary(bucket=ASSET_STORE_S3_BUCKET, prefix=LIBRARY_PREFIX)
 obs = get_observer()
 
 

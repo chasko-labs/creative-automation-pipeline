@@ -13,7 +13,7 @@ selecting the "Zac Efron" chip renders generic faceless-family output with no Za
 three compounding defects, all confirmed by reading the source:
 
 - wrong seed. `data/products/theme-asset-map.json` -> `zac-efron.photo_key` is `2023-Outdoor-Cooking-Family-Lifestyle-2051_fe0443fc-...jpg` — a generic family-lifestyle shot. the real Zac still (`2023-Cooking-with-Zac-2636_1_59086e86-...jpg`) sits buried at `pool[4]`, never selected as primary. the metadata claims an "additive athlete/lifestyle filename boost so real licensed brand-athlete photography ranks first" but the primary key is still the generic family photo.
-- everything gets restyled. `generate.py :: generate_hero` (L991) resolves a seed (theme photo, else sku-mapped DAM photo, else disk) then ALWAYS runs it through `_stability_control_hero` (Bedrock Stability control-structure) at the mode-3 seam (L1091). there is no serve-verbatim path. even if the real Zac photo were the primary seed, control-structure would regenerate it — losing the real likeness and honoring the faceless archetype instead.
+- everything gets restyled. `generate.py :: generate_hero` (L991) resolves a seed (theme photo, else sku-mapped asset photo, else disk) then ALWAYS runs it through `_stability_control_hero` (Bedrock Stability control-structure) at the mode-3 seam (L1091). there is no serve-verbatim path. even if the real Zac photo were the primary seed, control-structure would regenerate it — losing the real likeness and honoring the faceless archetype instead.
 - the archetype is faceless-by-design. `generate.py :: _THEME_PERSONA_MAP` (L116) maps `zac-efron -> "energetic athletic young man, morning-fitness lifestyle vibe"`, and `_safe_prompt_text` (L150) strips the literal name "Zac Efron" out of any incoming prompt before it reaches Stability. that name-strip is correct FOR THE GENERATION PATH (a real name trips Stability's content filter), but it is being applied universally — there is no branch that says "for zac-efron, skip generation and serve the real asset".
 
 net effect: the campaign can only ever produce a generated faceless figure. today that figure is seeded from a family photo, so it reads as faceless kids.
@@ -113,7 +113,7 @@ shape:
 
 field notes:
 
-- `licensed_stills[]` — the real DAM keys served verbatim as the foreground. both keys above are confirmed present (the first is already in the theme-asset-map pool; the second is per the intake brief). `_resolve_served_asset` walks these in order, first `fetch_dam_key` hit wins.
+- `licensed_stills[]` — the real asset keys served verbatim as the foreground. both keys above are confirmed present (the first is already in the theme-asset-map pool; the second is per the intake brief). `_resolve_served_asset` walks these in order, first `fetch_asset_key` hit wins.
 - `video_posters[]` — empty now; populated after the ceros grab lands licensed stills at `brands/kodiak/zac-efron/`. resolver treats them as additional `licensed_stills` candidates.
 - `signature_asset` — his signature graphic, pending grab. null now; when present, an optional overlay layer (a second `compose_creative` paste in a corner slot).
 - `persona_card` — the UX business card being made separately. null now; consumed by the frontend persona subtitle (section 4), not by image generation.

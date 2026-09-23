@@ -56,7 +56,7 @@ describe('ff-log console bus', () => {
   });
 
   it('dam outcomes flow into the buffer', () => {
-    expect(chips).toMatch(/window\.ffLog\('dam', \{outcome: outcome, latency_ms: latencyMs/);
+    expect(chips).toMatch(/window\.ffLog\('asset-library', \{outcome: outcome, latency_ms: latencyMs/);
   });
 
   it('full-campaign runs emit start/done/fail with wall-timing', () => {

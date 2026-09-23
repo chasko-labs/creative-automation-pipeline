@@ -280,7 +280,7 @@ let skuList = [
   // kept so older cached responses still read honestly.
   /** @type {Object<string, string>} */
   const ENGINE_LABELS = {
-    'packshot-composite':'Packshot composite (DAM verbatim)',
+    'packshot-composite':'Packshot composite (asset store verbatim)',
     'stability-restyle':'Stability restyle (GenAI)',
     'stability-control-structure':'Control-structure restyle (Stability)',
     'pillow-compose':'Pillow compose (brand overlay)',
@@ -879,7 +879,7 @@ let skuList = [
       if(activeSeason && !new RegExp('season:\\s*'+activeSeason.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i').test(brief)){
         brief = brief + ' — season: ' + activeSeason;
       }
-      // 4. user-supplied assets: staged locally, uploaded to the DAM on hosted origins
+      // 4. user-supplied assets: staged locally, uploaded to the asset store on hosted origins
       // (market-disclosure uploadAsset POSTs raw bytes to /library/assets and threads
       // the returned asset_id onto the staged rec; file:// + localhost stay
       // staging-only with no fetch). Thread a marker so the generate path is aware
@@ -1188,7 +1188,7 @@ let skuList = [
         // hero download targets the 1x1 (primary) render
         const primary = renders.find(r=>r.ratio==='1x1') || renders[0];
         if(primary) window.__lastHeroUrl = primary.image_url;
-        // pack download (#204) needs the DAM keys, not the presigned urls — record
+        // pack download (#204) needs the asset keys, not the presigned urls — record
         // the set's s3_uris + ratios alongside the hero so downloadAllPreview can
         // POST them to /assets/pack for a real ISO-named zip.
         try{
@@ -1452,11 +1452,11 @@ let skuList = [
       const oneGenerate = async (productSlug, wantTheme)=>{
         // scope-first: Create reads the segmented control's selection (window.__campaignScope, default local)
         const scope = window.__campaignScope || 'local';
-        // staged DAM pick (Browse past assets) rides as the seed — the backend prefers
+        // staged staged asset pick (Browse past assets) rides as the seed — the backend prefers
         // it over all probed seeds, so the customer's pick drives the pixels. Most
         // recently staged dam asset wins; absent key = today's path untouched.
         let stagedKey = null;
-        try{ const staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='dam' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
+        try{ const staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='asset-library' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
         // Compose layers (#199/#200): independently-selected, default OFF. An empty
         // object means a clean standalone image + copy sidecars from the backend.
         let reqLayers = {};
@@ -1503,7 +1503,7 @@ let skuList = [
           if(hit && hit.img) heroSrc = hit.img;
           // historical shape: the local products here is string[], so this lookup always
         // misses (the id/img list lives in data-core). flagged, not changed — see README.
-        else if(typeof products!=='undefined'){ const damList = /** @type {Array<{id?: string, img?: string}>} */ (/** @type {unknown} */ (products)); const pr = damList.find && damList.find(x=>x && (x.id===sku)); if(pr && pr.img) heroSrc = pr.img; }
+        else if(typeof products!=='undefined'){ const assetList = /** @type {Array<{id?: string, img?: string}>} */ (/** @type {unknown} */ (products)); const pr = assetList.find && assetList.find(x=>x && (x.id===sku)); if(pr && pr.img) heroSrc = pr.img; }
         }catch(e){}
         const isRealHero = typeof heroSrc==='string' && /^https?:\/\//.test(heroSrc) && heroSrc.indexOf('input_assets/')===-1;
         const tile = document.createElement('div');

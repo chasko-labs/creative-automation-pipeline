@@ -17,7 +17,7 @@ from creative_automation.gateway import TOOLS, dispatch_tool, list_tools
 _EXPECTED_TOOLS = {
     "context_pack",
     "retailer_lookup",
-    "dam_hero_lookup",
+    "asset_hero_lookup",
     "asset_library_browse",
     "recipe_card_plan",
     "monthly_ingredient",
@@ -79,9 +79,9 @@ def test_monthly_ingredient_returns_muscadine_grapes():
     assert json.loads(json.dumps(resp))
 
 
-def test_dam_hero_lookup_offline_safe_returns_json():
+def test_asset_store_hero_lookup_offline_safe_returns_json():
     # unknown product with no local asset -> found False + note, never raises
-    resp = dispatch_tool("dam_hero_lookup", {"product_id": "does-not-exist-xyz"})
+    resp = dispatch_tool("asset_hero_lookup", {"product_id": "does-not-exist-xyz"})
     assert resp["ok"] is True
     assert resp["result"]["found"] is False
     assert resp["result"]["hero_path"] is None
@@ -145,7 +145,7 @@ def test_every_tool_dispatch_round_trips_through_json_dumps():
     calls = {
         "context_pack": {"market": "US-SE-ATL", "month": "2026-09"},
         "retailer_lookup": {"name": "target"},
-        "dam_hero_lookup": {"product_id": "power-cakes"},
+        "asset_hero_lookup": {"product_id": "power-cakes"},
         "asset_library_browse": {},
         "recipe_card_plan": {"market": "US-SE-ATL", "month": "2026-09"},
         "monthly_ingredient": {"market": "US-SE-ATL", "month": "2026-09"},

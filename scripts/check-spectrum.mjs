@@ -124,7 +124,7 @@ try {
 
   // 2. focus rings — focus each control, read resolved outline
   const focusSels = ['#generateCampaign', '.ff-scope-opt[data-scope="local"]', '.ff-chip',
-    '#marketDisclosure summary', '#productSearch', '#campaignBrief', '#damBrowseTrigger'];
+    '#marketDisclosure summary', '#productSearch', '#campaignBrief', '#assetBrowseTrigger'];
   for (const sel of focusSels) {
     const o = await page.evaluate((s) => {
       const el = document.querySelector(s);

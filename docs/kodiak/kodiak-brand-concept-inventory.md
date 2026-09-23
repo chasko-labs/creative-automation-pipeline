@@ -6,7 +6,7 @@ full brand-concept audit of kodiakcakes.com and the scraped brand-lore/social co
 - our pipeline repo: `chasko-labs/creative-automation-pipeline`
 - our front end: `web/kodiak-posts-for-todays-frontier/index.html`
 - scraped corpus: `~/code/chasko-labs/creative-automation-pipeline/data/raw-ingest/kodiakcakes/`
-- DAM bucket for served assets: `chasko-creative-dam-946179428633-us-east-1`, prefix `brands/kodiak/raw-ingest/kodiakcakes/images/`
+- asset store bucket for served assets: `chasko-creative-dam-946179428633-us-east-1`, prefix `brands/kodiak/raw-ingest/kodiakcakes/images/`
 - companion specs already in this dir: `compose-fix-spec.md` (serve real packshots), `zac-efron-campaign-fix-spec.md` (serve real Zac assets)
 
 confirmed vs inferred is marked per line. no hex or font is asserted without a source. anything unverified says so.
@@ -52,7 +52,7 @@ pipeline action:
 
 - add the bear-head as an optional composable brand overlay in `compose.py` — a new layer analogous to the existing `brand_logo` param, gated by a `bear_overlay: bool | path` flag. default corner slot (top-left or bottom-right, inside the safe area, not crossing the message bar at `H*0.68`)
 - expose a "bear sightings" motif variant: the bear-head peeking / partially cropped at a frame edge, matching the playful newsletter voice. this is a placement preset over the same asset, not a new asset
-- serve the real mark verbatim (fetch from DAM or the ceros full-res URL), never generate a bear face — same serve-not-synthesize guardrail as the Zac spec
+- serve the real mark verbatim (fetch from asset store or the ceros full-res URL), never generate a bear face — same serve-not-synthesize guardrail as the Zac spec
 - confidence: confirmed for the concept and the ceros URL; the exact local logomark file should be visually confirmed before wiring
 
 ## 2. Keep It Wild conservation program (Vital Ground co-badge)
@@ -275,7 +275,7 @@ real kodiak asset URLs captured for the follow-up full-res pull. flagged by whet
 
 ### real assets already in our local corpus (no pull needed — already downloaded)
 
-these are confirmed present at `~/code/chasko-labs/creative-automation-pipeline/data/raw-ingest/kodiakcakes/images/` and mirrored (or mirror-able) to the DAM at `brands/kodiak/raw-ingest/kodiakcakes/images/`:
+these are confirmed present at `~/code/chasko-labs/creative-automation-pipeline/data/raw-ingest/kodiakcakes/images/` and mirrored (or mirror-able) to the asset store at `brands/kodiak/raw-ingest/kodiakcakes/images/`:
 
 | asset                                              | local filename                                                                                | confidence                                                      |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |

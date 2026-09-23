@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Final re-verify of the DAM Type facet after the curated-chip fix deployed.
+Final re-verify of the asset store Type facet after the curated-chip fix deployed.
 
 Chromium fallback path (NOVA_ACT_API_KEY absent): drives the LIVE CloudFront
 origin with Playwright chromium, mirroring Nova Act page.* / act() semantics.
@@ -24,7 +24,7 @@ WHAT THIS RUN PROVES
 visible tile = NOT [hidden] AND computed display != none AND offsetParent != null
 
 Usage:
-  .venv/bin/python scripts/nova-act-dam-typefacet-reverify.py --headless \
+  .venv/bin/python scripts/nova-act-asset_store-typefacet-reverify.py --headless \
       --out /tmp/kodiak-typefacet.json --shot-dir /tmp/kodiak-typefacet-shots
 """
 from __future__ import annotations
@@ -47,8 +47,8 @@ STALE_RE = re.compile(r"0\.1\.0(0\d|1\d|2[0-5])-")
 
 VISIBLE_JS = r"""
 () => {
-  const panel = document.querySelector('#damPanel') || document;
-  const tiles = Array.from(panel.querySelectorAll('.ff-dam-tile'));
+  const panel = document.querySelector('#assetPanel') || document;
+  const tiles = Array.from(panel.querySelectorAll('.ff-assets-tile'));
   const isVisible = (el) => {
     if (el.hasAttribute('hidden')) return false;
     const cs = getComputedStyle(el);
@@ -72,9 +72,9 @@ VISIBLE_JS = r"""
 # Excludes tab buttons and the Load-more control by scoping to the facet chip row.
 CHIPS_JS = r"""
 () => {
-  const panel = document.querySelector('#damPanel');
+  const panel = document.querySelector('#assetPanel');
   if (!panel) return {found:false, chips:[]};
-  const sels = ['.ff-dam-facet-chip', '.ff-dam-chip', '[data-facet]', '.ff-dam-facet button'];
+  const sels = ['.ff-assets-facet-chip', '.ff-assets-chip', '[data-facet]', '.ff-assets-facet button'];
   let row = null, used = null;
   for (const s of sels) {
     const n = panel.querySelectorAll(s);
@@ -94,10 +94,10 @@ CHIPS_JS = r"""
 # Read the marketer category tabs + counts.
 TABS_JS = r"""
 () => {
-  const panel = document.querySelector('#damPanel');
+  const panel = document.querySelector('#assetPanel');
   if (!panel) return {found:false, tabs:[]};
   let nodes = panel.querySelectorAll("[role='tab']");
-  if (!nodes.length) nodes = panel.querySelectorAll('.ff-dam-tab');
+  if (!nodes.length) nodes = panel.querySelectorAll('.ff-assets-tab');
   const clean = (el) => (el.innerText || el.textContent || '').replace(/\s+/g,' ').trim();
   const tabs = Array.from(nodes).map(el => {
     const t = clean(el);
@@ -143,7 +143,7 @@ def _read_stamp(page):
 
 
 def _panel(page):
-    return page.locator("#damPanel")
+    return page.locator("#assetPanel")
 
 
 def _vis(page) -> dict:
@@ -156,7 +156,7 @@ def _vis(page) -> dict:
 def _click_tab(page, name: str) -> bool:
     panel = _panel(page)
     for sel in [f"[role='tab']:has-text('{name}')",
-                f".ff-dam-tab:has-text('{name}')",
+                f".ff-assets-tab:has-text('{name}')",
                 f"button:has-text('{name}')",
                 f"text={name}"]:
         try:
@@ -270,9 +270,9 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
             return _finish(report, out_path, browser, console_errors, page_errors)
         print(f"[info] build stamp confirmed: {stamp}", file=sys.stderr)
 
-        # ---- open DAM panel ----
+        # ---- open asset store panel ----
         opened = False
-        for sel in ["#damBrowseTrigger", ".ff-dam-trigger", "text=Browse past assets"]:
+        for sel in ["#assetBrowseTrigger", ".ff-assets-trigger", "text=Browse past assets"]:
             try:
                 loc = page.locator(sel).first
                 if loc.count() > 0:
@@ -289,7 +289,7 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
             print(f"[warn] panel visible wait timed out: {e}", file=sys.stderr)
         for _ in range(40):
             try:
-                body_txt = page.locator("#damBody").inner_text()[:40]
+                body_txt = page.locator("#assetBody").inner_text()[:40]
             except Exception:  # noqa: BLE001 — body poll; empty text retries next tick
                 body_txt = ""
             if "Loading" not in body_txt and _panel(page).locator("[role='tab']").count() > 0:
@@ -394,7 +394,7 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
                 tf["verdict"] = "FAIL"
                 tf["note"] = f"dead-end chips: {dead_ends or 'none'}; bars={tf['bars_check']}"
         # ensure reset before search check
-        _click_chip_by_label(page, chip_selector or ".ff-dam-facet-chip", "All")
+        _click_chip_by_label(page, chip_selector or ".ff-assets-facet-chip", "All")
         time.sleep(0.5)
         report["type_facet"] = tf
 
@@ -402,9 +402,9 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
         before_s = _vis(page)
         sc = {"visible_before": before_s["visible"]}
         search_sel = None
-        for sel in ["input.ff-dam-filter-input",
+        for sel in ["input.ff-assets-filter-input",
                     "input[placeholder*='Search this stack']",
-                    "#damSearch", ".ff-dam-search input",
+                    "#assetSearch", ".ff-assets-search input",
                     "input[type='search']", "input[placeholder*='Search']"]:
             try:
                 if _panel(page).locator(sel).count() > 0:
@@ -458,8 +458,8 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
         cleared = _vis(page)
         lm["visible_before"] = cleared["visible"]
         clicked_lm = False
-        for sel in ["button:has-text('Load more')", "#damLoadMore",
-                    ".ff-dam-loadmore", "text=Load more"]:
+        for sel in ["button:has-text('Load more')", "#assetLoadMore",
+                    ".ff-assets-loadmore", "text=Load more"]:
             try:
                 loc = _panel(page).locator(sel).first
                 if loc.count() > 0:

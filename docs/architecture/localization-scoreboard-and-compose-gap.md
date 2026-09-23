@@ -14,9 +14,9 @@ these are three separable gaps. observations below, each with a recommendation.
 
 ### gap 1 — product-image embedding
 
-the composed hero references the selected SKU by name/text but does not appear to composite the real product packshot into the frame. the DAM holds roughly 200 real `705599*` packshots that are clean-background — close to ideal for compositing.
+the composed hero references the selected SKU by name/text but does not appear to composite the real product packshot into the frame. the asset store holds roughly 200 real `705599*` packshots that are clean-background — close to ideal for compositing.
 
-recommendation: `compose.py` pulls the DAM packshot for the selected SKU and composites it into the hero rather than relying on the generator to hallucinate a product. clean-background packshots make this a straight composite step, not a generative one.
+recommendation: `compose.py` pulls the asset store packshot for the selected SKU and composites it into the hero rather than relying on the generator to hallucinate a product. clean-background packshots make this a straight composite step, not a generative one.
 
 ### gap 2 — regional flair
 

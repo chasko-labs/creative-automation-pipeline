@@ -83,7 +83,7 @@ def test_retrieve_empty_library_yields_no_examples(monkeypatch):
 
 
 def test_load_library_drops_filename_captions(tmp_path, monkeypatch):
-    # the committed library is ~95% DAM titles; only voice-grade sentences load.
+    # the committed library is ~95% asset titles; only voice-grade sentences load.
     lib = tmp_path / "lib.jsonl"
     entries_jsonl = [
         '{"id": "junk", "metadata": {"caption": "88b5787ee037 Kodiak Recipe Waffle 0725 4eb0b2"}, "vector": [1.0, 0.0]}',
@@ -349,7 +349,7 @@ def test_rung_c_headline_uses_grounded_director(monkeypatch, tmp_path):
     _enable(monkeypatch)
     seed = _make_seed(tmp_path / "seed.png")
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
@@ -382,7 +382,7 @@ def test_rung_c_headline_stock_nova_normalized(monkeypatch, tmp_path):
     # kill-switch OFF (conftest): stock caption path, still house-styled.
     seed = _make_seed(tmp_path / "seed.png")
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")

@@ -38,7 +38,7 @@ def _half_split(path: Path) -> Path:
 
 def _ladder_stubs(monkeypatch, seed: Path) -> None:
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "wild frontier restyle")
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)

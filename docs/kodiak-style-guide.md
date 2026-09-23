@@ -1,6 +1,6 @@
 # Kodiak Style Guide — 7-part (tokens + S3 style library)
 
-> consumable by humans and by `src/creative_automation/*` via `design/tokens/kodiak.json` (W3C DTFM, S3-backed). local mirror `design/tokens/kodiak.json` <-> `s3://$DAM_S3_BUCKET/brands/kodiak/tokens/kodiak.tokens.json` with fallback. single-line sync: `./scripts/sync-dam.sh pull|push`.
+> consumable by humans and by `src/creative_automation/*` via `design/tokens/kodiak.json` (W3C DTFM, S3-backed). local mirror `design/tokens/kodiak.json` <-> `s3://$ASSET_STORE_S3_BUCKET/brands/kodiak/tokens/kodiak.tokens.json` with fallback. single-line sync: `./scripts/sync-asset-store.sh pull|push`.
 
 ## 1. brand story
 Park City UT, Wasatch Mountains — 1982 Joel Clark red wagon heirloom whole wheat, 1995 incorporation by brother Jon, 2014 Shark Tank $3.6m->$6.7m beating Aunt Jemima 20% at Target, 26k doors, 2021 L Catterton majority. purpose: "Nourishment for Today's Frontier" — heirloom recipe, 100% whole grains, 14g protein per serving. promise: rugged nourishment for active families + cubs.
@@ -52,7 +52,7 @@ Whole grain craft cues: kraft parchment + wood + enamel, minimal flat bear line-
 ## S3 style library — how to use
 
 ```
-design/tokens/kodiak.json                <-> s3://$DAM_S3_BUCKET/brands/kodiak/tokens/kodiak.tokens.json
+design/tokens/kodiak.json                <-> s3://$ASSET_STORE_S3_BUCKET/brands/kodiak/tokens/kodiak.tokens.json
 input_assets/brand/logo.png              <-> s3://.../logos/kodiak-bear.png
 input_assets/<product>/hero.png          <-> s3://.../heroes/{product}/hero.png
 references/keep-it-wild/*.json            <-> s3://.../references/keep-it-wild/
@@ -61,15 +61,15 @@ output_kodiak/*                           -> s3://.../renders/{product}/{ratio}/
 ```
 
 ```bash
-./scripts/sync-dam.sh pull        # s3 -> local (tokens/heroes/logos/references) before run
+./scripts/sync-asset-store.sh pull        # s3 -> local (tokens/heroes/logos/references) before run
 uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak
-./scripts/sync-dam.sh push        # publish style library
-./scripts/sync-dam.sh push-renders output_kodiak
+./scripts/sync-asset-store.sh push        # publish style library
+./scripts/sync-asset-store.sh push-renders output_kodiak
 # seed once:
-./scripts/seed-kodiak-s3.sh       # needs DAM_S3_BUCKET set
+./scripts/seed-kodiak-s3.sh       # needs ASSET_STORE_S3_BUCKET set
 ```
 
-Pipeline reads tokens via `src/creative_automation/token_loader.py` — S3 first if `DAM_S3_BUCKET` + creds, else local `design/tokens/kodiak.json` else `src/.../tokens/kodiak.tokens.json`. no hard-coded colors/fonts/dims in compose/compliance/generate — all via tokens.
+Pipeline reads tokens via `src/creative_automation/token_loader.py` — S3 first if `ASSET_STORE_S3_BUCKET` + creds, else local `design/tokens/kodiak.json` else `src/.../tokens/kodiak.tokens.json`. no hard-coded colors/fonts/dims in compose/compliance/generate — all via tokens.
 
 ## verification
 

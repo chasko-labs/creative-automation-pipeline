@@ -55,7 +55,7 @@ describe('one-screen load: brainstorm collapse', () => {
     );
     for (const id of ['id="scopeWrap"', 'id="locationSection"', 'class="ff-season-details"',
       'id="creativeDirection"', 'id="existingAssets"', 'id="promptUpload"',
-      'id="damBrowseTrigger"', 'id="selectionTray"']) {
+      'id="assetBrowseTrigger"', 'id="selectionTray"']) {
       expect(wrap).toContain(id);
     }
   });

@@ -101,7 +101,7 @@ try:
 except ImportError:  # boto3 optional — offline path returns source="mock"
     boto3 = None  # type: ignore
 
-# env-driven region / model — same resolution order as localize.py and dam.py
+# env-driven region / model — same resolution order as localize.py and asset_store.py
 BEDROCK_REGION = os.getenv("BEDROCK_REGION", os.getenv("AWS_REGION", "us-east-1"))
 TRANSLATE_REGION = os.getenv("TRANSLATE_REGION", BEDROCK_REGION)
 # larger model than Nova Micro for low-resource gap-language quality (per spec)

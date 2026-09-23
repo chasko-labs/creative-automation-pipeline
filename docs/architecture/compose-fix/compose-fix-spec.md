@@ -4,7 +4,7 @@ authoritative fix contract for the pipeline PR. read-only planning doc — no co
 
 - target repo: `chasko-labs/creative-automation-pipeline`
 - grounding branch at authoring time: `docs/localization-scoreboard-compose-gap`
-- DAM bucket: `chasko-creative-dam-946179428633-us-east-1`
+- asset store bucket: `chasko-creative-dam-946179428633-us-east-1`
 - packshot prefix: `brands/kodiak/raw-ingest/kodiakcakes/images/` (215 real UPC `705599*` box images)
 
 ## the problem in one line
@@ -14,16 +14,16 @@ the composed hero paints food from a text/scene prompt (or restyles a lifestyle 
 ## verified root cause (this session, against live source)
 
 - `src/creative_automation/campaign.py :: _render_asset` (def L455) calls `generate_hero(...)` directly at **L478**. generate_hero produces a scene, not a product composite. the composed hero for a planned asset flips to `generated=True` here with `hero_source` `bedrock:nova-pro` or `mock`
-- `src/creative_automation/generate.py :: generate_hero` (def L991) resolves a seed via `_resolve_dam_photo(product_id)` (def L259) then feeds it to `_stability_control_hero` as a **control-structure seed** — Stability _restyles_ the seed into a themed scene. even when a real photo resolves, the pixels are regenerated. there is no verbatim-box compositing path anywhere
-- `_resolve_dam_photo` reads `photo_key` then `fallbacks[]` from the sku-photo-map. by the map's own metadata these keys are "channel-weighted toward blog/instagram lifestyle scenes over catalog pack-shots" — they are recipe/food photos, not boxes
-- `src/creative_automation/dam.py :: find_hero_asset` (def L324) does not read the sku-photo-map at all. it goes S3 fuzzy-prefix (`_s3_try_fetch_product_asset` L82) then local glob (`_local_find_hero` L280)
-- `data/products/sku-photo-map.json` shape is `{ "map": { <handle>: { caption, channel, fallbacks[], image_file, matched, photo_key, score } }, "metadata": {...} }`. **88 entries. zero `packshot_key` fields. zero `705599*` references.** the 215 real boxes exist in the DAM but are unlinked from every SKU
+- `src/creative_automation/generate.py :: generate_hero` (def L991) resolves a seed via `_resolve_asset_photo(product_id)` (def L259) then feeds it to `_stability_control_hero` as a **control-structure seed** — Stability _restyles_ the seed into a themed scene. even when a real photo resolves, the pixels are regenerated. there is no verbatim-box compositing path anywhere
+- `_resolve_asset_photo` reads `photo_key` then `fallbacks[]` from the sku-photo-map. by the map's own metadata these keys are "channel-weighted toward blog/instagram lifestyle scenes over catalog pack-shots" — they are recipe/food photos, not boxes
+- `src/creative_automation/asset_store.py :: find_hero_asset` (def L324) does not read the sku-photo-map at all. it goes S3 fuzzy-prefix (`_s3_try_fetch_product_asset` L82) then local glob (`_local_find_hero` L280)
+- `data/products/sku-photo-map.json` shape is `{ "map": { <handle>: { caption, channel, fallbacks[], image_file, matched, photo_key, score } }, "metadata": {...} }`. **88 entries. zero `packshot_key` fields. zero `705599*` references.** the 215 real boxes exist in the asset store but are unlinked from every SKU
 - retailer lockup machinery already exists (`retailers.py`, `lockup.py`) but `_render_asset` never invokes it — `compose_creative`'s `retailer_logo` param (L84) is never passed
 
 ### corrections to the intake brief (grounded, so the PR is not built on a wrong premise)
 
 - the brief said `chocolate fudge` is MISSING from the map. it is present — as `chocolate-fudge-brownie-mix` and `chocolate-fudge-brownie-power-cup`. both resolve, but to recipe photos ("Holiday Double Chocolate Peppermint Brownie Jar", "Chocolate Covered Strawberry Brownie Cup"). the real defect is not a missing key, it is that every key points at food and no key points at a box. a SKU-id mismatch (lookup handle vs map handle) may also have caused a hard miss for the specific June SKU — the resolver must normalize handles (see data contract)
-- the brief cited `dam.py :: get_asset_by_key at ~L204`. the function at L201 is `fetch_dam_key(key, dest)` — verbatim full-key S3 fetch, no prefix join. this is the correct primitive to reuse; there is no `get_asset_by_key`
+- the brief cited `dam.py :: get_asset_by_key at ~L204`. the function at L201 is `fetch_asset_key(key, dest)` — verbatim full-key S3 fetch, no prefix join. this is the correct primitive to reuse; there is no `get_asset_by_key`
 - the brief's retailer path convention `brands/kodiak/logos/retailers/<retailer>.png` conflicts with the existing code convention `input_assets/retailer-logos/<retailer>.svg`. reuse the existing convention — do not invent a second one (see retailer section)
 
 ## fix scope (image layer only)
@@ -36,7 +36,7 @@ precedence, highest first, evaluated inside `_render_asset` **before** the curre
 
 | order | mode              | condition                                              | action                                                                                                                                      |
 | ----- | ----------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| a     | product-composite | `resolve_packshot(product_id)` returns a real box path | composite the verbatim packshot as a product layer over a background (generated scene OR DAM lifestyle background). do NOT restyle the box. |
+| a     | product-composite | `resolve_packshot(product_id)` returns a real box path | composite the verbatim packshot as a product layer over a background (generated scene OR asset store lifestyle background). do NOT restyle the box. |
 | b     | generated-scene   | no packshot resolves                                   | fall back to the existing `generate_hero(...)` path unchanged                                                                               |
 
 ### where the branch goes (campaign.py `_render_asset`, L455-522)
@@ -47,7 +47,7 @@ insert between the work-hero setup (~L475) and the current step-1 `generate_hero
 packshot = resolve_packshot(product["id"])            # new dam.py resolver, step 2
 if packshot is not None:
     # background: reuse generate_hero to paint a scene bg (no product in prompt),
-    # or resolve a DAM lifestyle key as a flat background
+    # or resolve a asset store lifestyle key as a flat background
     bg_path = _resolve_scene_background(product, campaign_message, market, audience, work_hero, idx)
     compose_creative(
         hero_path=bg_path,
@@ -94,20 +94,20 @@ extended entry shape (backward compatible — new fields optional):
 
 field semantics:
 
-- `packshot_key` — full verbatim DAM key to the real product BOX image (`705599*`). the box layer. REQUIRED for product-composite mode to trigger
-- `lifestyle_keys[]` — real DAM lifestyle scene keys usable as the composited background (superset/alias of `photo_key`+`fallbacks`; may be omitted, resolver falls back to `photo_key`/`fallbacks`)
+- `packshot_key` — full verbatim asset key to the real product BOX image (`705599*`). the box layer. REQUIRED for product-composite mode to trigger
+- `lifestyle_keys[]` — real asset store lifestyle scene keys usable as the composited background (superset/alias of `photo_key`+`fallbacks`; may be omitted, resolver falls back to `photo_key`/`fallbacks`)
 - `caption` — unchanged
 - existing fields (`photo_key`, `fallbacks`, `channel`, `image_file`, `matched`, `score`) — unchanged
 
 ### new resolver: `dam.py :: resolve_packshot(product_id) -> Optional[Path]`
 
-place alongside `fetch_dam_key` (L201). it MUST read the manifest first (unlike `find_hero_asset`). fallback chain, in order:
+place alongside `fetch_asset_key` (L201). it MUST read the manifest first (unlike `find_hero_asset`). fallback chain, in order:
 
 | step | source                                      | mechanism                                                                                        |
 | ---- | ------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| 1    | manifest `packshot_key`                     | `fetch_dam_key(packshot_key, /tmp/kodiak-assets/packshot/<name>)` (verbatim key, no prefix join) |
-| 2    | manifest `fallbacks[]` that look like boxes | same `fetch_dam_key` per candidate                                                               |
-| 3    | fuzzy glob                                  | existing `find_hero_asset(product_id, dam_root)` (S3 prefix + local glob)                        |
+| 1    | manifest `packshot_key`                     | `fetch_asset_key(packshot_key, /tmp/kodiak-assets/packshot/<name>)` (verbatim key, no prefix join) |
+| 2    | manifest `fallbacks[]` that look like boxes | same `fetch_asset_key` per candidate                                                               |
+| 3    | fuzzy glob                                  | existing `find_hero_asset(product_id, asset_root)` (S3 prefix + local glob)                        |
 | 4    | none                                        | return `None` -> caller falls to generated-scene mode                                            |
 
 handle normalization: the resolver must normalize the incoming `product_id` to the map handle (lowercase, spaces -> hyphens) so "chocolate fudge" matches `chocolate-fudge-brownie-*`. reuse the slug logic already in generate.py `_find_source_asset` (L377). where one product_id maps to multiple box variants (mix vs power-cup), prefer exact-handle match, then longest-prefix match.
@@ -132,10 +132,10 @@ compose-mode flag: expose behavior as `product_layer` being non-None (on) vs Non
 reuse the existing machinery — do not build a parallel one:
 
 - resolution: `retailers.py :: resolve_retailer(name)` (aliases costco/publix/target, `LOGO_DIR = input_assets/retailer-logos/`), degradation via `lockup.py :: compose_retailer_lockup` (svg -> png -> text band)
-- asset convention: **keep** `input_assets/retailer-logos/<retailer>.svg` (vector preferred) with `<retailer>.png` raster fallback. the intake brief's `brands/kodiak/logos/retailers/<retailer>.png` is a reasonable DAM S3 mirror location, but the in-code convention is the local `input_assets/retailer-logos/` dir — if a DAM-hosted source is desired, add it as a fetch step that caches INTO `input_assets/retailer-logos/`, keeping the resolver contract unchanged
+- asset convention: **keep** `input_assets/retailer-logos/<retailer>.svg` (vector preferred) with `<retailer>.png` raster fallback. the intake brief's `brands/kodiak/logos/retailers/<retailer>.png` is a reasonable asset store S3 mirror location, but the in-code convention is the local `input_assets/retailer-logos/` dir — if a asset-hosted source is desired, add it as a fetch step that caches INTO `input_assets/retailer-logos/`, keeping the resolver contract unchanged
 - activation: only when the brief/market carries a retailer. wire `_render_asset` to derive the retailer from the brief (normalize via `retailers.normalize_retailer`) and pass either `retailer_logo=<resolved path>` into `compose_creative` (L84 param, currently never passed) OR post-process the ISO through `compose_retailer_lockup`. prefer the single `compose_creative` path so all layers land in one pass; `compose_retailer_lockup` remains the standalone/address-band variant
 - placement: bottom-right, ~18% width, white backing, kept inside `bar_top+20 .. H-8` — this is already implemented at compose.py L182-203, just unreached
-- **SOURCE GAP (separate deliverable):** zero retailer logos exist in the DAM today (only kodiak-bear.png + kodiak logos). `retailers.missing_logos()` will list all three (costco/publix/target) as missing. sourcing the vector marks is a distinct task from this pipeline PR. until sourced, `compose_retailer_lockup` degrades to a clean text band (retailer name + optional store address) — acceptable interim, not the target state
+- **SOURCE GAP (separate deliverable):** zero retailer logos exist in the asset store today (only kodiak-bear.png + kodiak logos). `retailers.missing_logos()` will list all three (costco/publix/target) as missing. sourcing the vector marks is a distinct task from this pipeline PR. until sourced, `compose_retailer_lockup` degrades to a clean text band (retailer name + optional store address) — acceptable interim, not the target state
 
 ## 5. accuracy win (structural, not incidental)
 
@@ -146,7 +146,7 @@ compositing a verbatim box structurally eliminates the "wrong food" class of def
 | file                                  | function / region                                                | change                                                                                                                                                     |
 | ------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | `data/products/sku-photo-map.json`    | every `map` entry                                                | add `packshot_key` (705599\* box key) + optional `lifestyle_keys[]`; link the 215 boxes to their SKUs; keep existing fields                                |
-| `src/creative_automation/dam.py`      | new `resolve_packshot(product_id)` near `fetch_dam_key` (L201)   | manifest-first resolver; chain packshot_key -> fallbacks -> `find_hero_asset` fuzzy -> None; handle normalization                                          |
+| `src/creative_automation/asset_store.py`      | new `resolve_packshot(product_id)` near `fetch_asset_key` (L201)   | manifest-first resolver; chain packshot_key -> fallbacks -> `find_hero_asset` fuzzy -> None; handle normalization                                          |
 | `src/creative_automation/campaign.py` | `_render_asset` (L455-522), branch before `generate_hero` (L478) | precedence: product-composite when packshot resolves, else existing generated-scene; pass `product_layer` + `retailer_logo` into `compose_creative` (L505) |
 | `src/creative_automation/compose.py`  | `compose_creative` (L84)                                         | add `product_layer: Path                                                                                                                                   | None`param; composite verbatim box with drop shadow + safe-area above`bar_top`; wire the already-present `retailer_logo` path |
 | `src/creative_automation/generate.py` | `_load_sku_photo_map` (L240) / `_resolve_map_path` (L218)        | reuse from `resolve_packshot` (shared loader/cache); no behavior change to generate_hero itself                                                            |

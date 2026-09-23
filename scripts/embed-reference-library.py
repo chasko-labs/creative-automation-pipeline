@@ -13,7 +13,7 @@ Run locally (mock when no creds, real when AWS_PROFILE=bryanchasko-kiro):
 
 Agent-friendly: exits 0 on success, writes data/vectors/kodiak-embeddings.jsonl + manifest.json.
 S3 Vectors ingest (when bucket exists):
-  aws s3 sync data/vectors/ s3://$DAM_S3_BUCKET/brands/kodiak/vectors/ --region us-east-1
+  aws s3 sync data/vectors/ s3://$ASSET_STORE_S3_BUCKET/brands/kodiak/vectors/ --region us-east-1
 """
 from __future__ import annotations
 

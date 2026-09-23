@@ -43,7 +43,6 @@
 - 16x9: YouTube player + thumbnail base 1920x1080 → export 1280x720 JPG for thumbnails.set
 - 1x1: Community post / cross-post square crop — not uploaded via videos.insert but useful for YouTube Community tab
 - 9x16: YouTube Shorts 1080x1920 — 7–18s cutdown, #Shorts tag, vertical hero crop
-- dam reuse: DAM hero.mp4 / hero.png at input_assets/power-cakes/ + data/raw-ingest/kodiakcakes/images/* — find_hero_asset() prioritizes DAM before generation
 - compliance: src/creative_automation/compliance.py — caption, hashtag, scrim checks run per creative
 - recipe cards: Nova-authored copy with deterministic fallback; card template runs in full mode
 

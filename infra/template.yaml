@@ -285,7 +285,7 @@ Resources:
 Outputs:
   StyleLibraryBucketName:
     Value: !Ref StyleLibraryBucket
-    Description: Cloud storage bucket - use as DAM_S3_BUCKET with prefix brands/kodiak/
+    Description: Cloud storage bucket - use as ASSET_STORE_S3_BUCKET with prefix brands/kodiak/
   StyleLibraryPrefix:
     Value: brands/kodiak/
   LocalizationMemoryTableName:
@@ -307,4 +307,4 @@ Outputs:
     Value: !GetAtt CodeBuildServiceRole.Arn
     Description: Least-privilege CodeBuild service role arn (CloudWatch Logs only)
   NextSteps:
-    Value: !Sub "export DAM_S3_BUCKET=${StyleLibraryBucket} DAM_S3_PREFIX=brands/kodiak/ && ./scripts/sync-dam.sh push"
+    Value: !Sub "export ASSET_STORE_S3_BUCKET=${StyleLibraryBucket} ASSET_STORE_S3_PREFIX=brands/kodiak/ && ./scripts/sync-asset-store.sh push"

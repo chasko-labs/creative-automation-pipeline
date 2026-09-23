@@ -60,7 +60,7 @@ timestamps; only a static build-comment line precedes the assignment.
 #   The frontend preview toggle swaps languages fully offline via these
 #   companion files (file://, no /localize fetch).
 #
-# Art: seed_recipe_art() head-checks DAM before Bedrock spend; art_by_slug
+# Art: seed_recipe_art() head-checks asset store before Bedrock spend; art_by_slug
 #   uses art_slug_candidates() (full slug + paren-stripped slug) so qualifier
 #   variants like "pumpkins (corn maze)" reuse the base "pumpkins" drawing.
 #   _load_seeded_art() is the emit-time best-effort presign path (no spend
@@ -262,7 +262,7 @@ def seed_recipe_art(
     Dedupe + idempotence:
       - within a run, each ingredient slug is generated at most once (the returned
         map is the cache)
-      - across runs, dam.recipe_art_exists head-checks the S3 key first; an existing
+      - across runs, asset_store.recipe_art_exists head-checks the S3 key first; an existing
         object is reused (presigned, not regenerated) so re-running does not re-bill
 
     Offline / no-creds: generate_recipe_art returns None per zone and the url map
@@ -273,14 +273,14 @@ def seed_recipe_art(
     #   -> art_slug_candidates() = ["tomatoes-late-harvest", "tomatoes"]
     #   -> canonical slug = candidates[0] (full) first, then base ("tomatoes")
     #   -> _ingredient_seed(canonical_slug) -> deterministic seed
-    #   -> dam.recipe_art_exists(c, zone) head-check per candidate (base hit
+    #   -> asset_store.recipe_art_exists(c, zone) head-check per candidate (base hit
     #      reuses "tomatoes" drawing for the qualifier variant)
     #   -> generate_recipe_art(ingredient, zone, seed=seed) when missing
-    #   -> dam.upload_recipe_art(local, candidates[-1], zone) publishes under
+    #   -> asset_store.upload_recipe_art(local, candidates[-1], zone) publishes under
     #      the canonical (paren-stripped) slug so qualifier variants share one object.
     #   Covers Ohio "strawberries (late)", SoCal "pumpkins (Julian)", etc.
     """
-    from . import dam as _dam  # lazy import so offline/no-DAM still imports this module
+    from . import asset_store as _asset_store  # lazy import so offline/no-asset store still imports this module
     from .recipe_art import art_slug_candidates, generate_recipe_art  # slug + Bedrock generator
 
     art_by_slug: dict[str, dict[str, str | None]] = {}  # ingredient_slug -> {zone: url|None}
@@ -300,13 +300,13 @@ def seed_recipe_art(
                 # paren-qualified values fall back to the base-ingredient drawing
                 # (e.g. "pumpkins (corn maze)" reuses "pumpkins").
                 hit = next(
-                    (c for c in candidates if _dam.recipe_art_exists(c, zone)),
+                    (c for c in candidates if _asset_store.recipe_art_exists(c, zone)),
                     None,
                 )
                 if hit is not None:
                     # permanent site url, never a presign (session-bound presigns
                     # ExpiredToken within hours and blank every card overnight).
-                    zone_urls[zone] = _dam.recipe_art_site_url(hit, zone)
+                    zone_urls[zone] = _asset_store.recipe_art_site_url(hit, zone)
                     print(f"[seed] reuse existing s3 recipe-art {hit}/{zone}")
                     continue
                 local = generate_recipe_art(ingredient, zone, seed=seed)  # Bedrock Nova Canvas; None offline/no-creds/heavy-ink
@@ -316,7 +316,7 @@ def seed_recipe_art(
                 # new drawings publish under the canonical (paren-stripped) slug so
                 # qualifier variants share one object instead of forking per note.
                 # Ohio "strawberries (late)" and "strawberries" both publish as "strawberries".
-                url = _dam.upload_recipe_art(local, candidates[-1], zone)
+                url = _asset_store.upload_recipe_art(local, candidates[-1], zone)
                 zone_urls[zone] = url
             art_by_slug[slug] = zone_urls
     return art_by_slug  # caller threads this into build_recipe_cards_matrix
@@ -326,7 +326,7 @@ def seed_recipe_art(
 # generates (and publishes) art for zone objects that do not exist yet
 # instead of leaving null -> SVG placeholder. Default OFF so a plain emit
 # can never spend. Same escalation + gate as seed_recipe_art.
-# Env is read once at import so tests can monkeypatch dam easily.
+# Env is read once at import so tests can monkeypatch asset_store easily.
 GENERATE_MISSING_ART = os.getenv("KODIAK_RECIPE_ART_GENERATE_MISSING", "") == "1"
 
 
@@ -347,14 +347,14 @@ def _load_seeded_art(
     # Why not generate by default: emit_recipe_cards_js is the deterministic
     # offline build. It should never silently bill Bedrock when a pair is
     # newly seeded. The separate seed_recipe_art() step owns spend; this
-    # helper just presigns what already exists (dam.recipe_art_exists +
-    # dam.recipe_art_site_url) per candidate, falling back to base slug for
+    # helper just presigns what already exists (asset_store.recipe_art_exists +
+    # asset_store.recipe_art_site_url) per candidate, falling back to base slug for
     # qualifiers (see art_slug_candidates doc). SoCal "heirloom tomatoes
     # (late harvest)" presigns "heirloom-tomatoes" when "heirloom-tomatoes-
     # late-harvest" is missing. Only with generate_missing=True does it
     # escalate to Bedrock and publish under the canonical slug.
     """
-    from . import dam as _dam
+    from . import asset_store as _asset_store
     from .recipe_art import ZONES, art_slug_candidates, generate_recipe_art
 
     if generate_missing is None:
@@ -374,18 +374,18 @@ def _load_seeded_art(
             seed = _ingredient_seed(slug)  # deterministic seed per canonical ingredient
             for zone in ZONES:  # all three zones (raw_ingredient, technique, finished_plate)
                 hit = next(
-                    (c for c in candidates if _dam.recipe_art_exists(c, zone)),
+                    (c for c in candidates if _asset_store.recipe_art_exists(c, zone)),
                     None,
                 )
                 if hit is not None:
-                    zone_urls[zone] = _dam.recipe_art_site_url(hit, zone)  # permanent URL, not presigned
+                    zone_urls[zone] = _asset_store.recipe_art_site_url(hit, zone)  # permanent URL, not presigned
                     continue
                 if not generate_missing:
                     continue  # HONEST null -> frontend keeps SVG placeholder (no spend)
                 local = generate_recipe_art(ingredient, zone, seed=seed)  # only when explicitly opted in
                 if local is None:
                     continue  # no creds / heavy-ink rejection -> stays missing
-                url = _dam.upload_recipe_art(local, candidates[-1], zone)  # canonical slug upload
+                url = _asset_store.upload_recipe_art(local, candidates[-1], zone)  # canonical slug upload
                 if url:
                     print(f"[load] generated missing s3 recipe-art {candidates[-1]}/{zone}")
                 zone_urls[zone] = url
@@ -641,7 +641,7 @@ def coverage_report(
     """Read-only breadth numbers for the 100x proof — never generates.
 
     Walks the (market, month) grid, collects the distinct in-season ingredients,
-    then head-checks the DAM (dam.recipe_art_exists) to count how many already have
+    then head-checks the asset store (asset_store.recipe_art_exists) to count how many already have
     published art. total_market_months is the count of (market, month) cells that
     actually resolve to a non-null ingredient (the honest filled breadth), not the
     naive N*12.
@@ -653,7 +653,7 @@ def coverage_report(
     # so the "100x proof" is real coverage, not grid size. Art existence
     # checks per candidate fallback to base (reuses base drawing for qualifier).
     """
-    from . import dam as _dam
+    from . import asset_store as _asset_store
     from .recipe_art import art_slug_candidates
 
     distinct: dict[str, list[str]] = {}  # canonical slug -> [full, base] candidates
@@ -670,7 +670,7 @@ def coverage_report(
     with_art = sum(
         1
         for cands in distinct.values()
-        if any(_dam.recipe_art_exists(c, "raw_ingredient") for c in cands)  # base fallback: "pumpkins (Julian)" hits "pumpkins"
+        if any(_asset_store.recipe_art_exists(c, "raw_ingredient") for c in cands)  # base fallback: "pumpkins (Julian)" hits "pumpkins"
     )
     return {
         "markets": len(markets),
@@ -698,7 +698,7 @@ def main() -> None:
     # recipe_card, so this sweep does not need per-market branching.
     """
     markets = all_seeded_markets()  # dynamic universe (one re-read after any reseed)
-    art = seed_recipe_art(markets, MONTHS_2026)  # idempotent: reuses existing DAM keys, only missing art generates
+    art = seed_recipe_art(markets, MONTHS_2026)  # idempotent: reuses existing asset keys, only missing art generates
     path = emit_recipe_cards_js(markets, MONTHS_2026, art_by_slug=art)  # deterministic JS assignment
     print(f"wrote {path} across {len(markets)} markets")
 

@@ -36,9 +36,9 @@ from .platform_copy import clean_brand_copy
 from .recipe_i18n import translate_recipe_texts
 from .text_rewriter import rewrite_headline
 
-# Composed cards publish here so the recipes DAM tab (extra_prefixes) picks
+# Composed cards publish here so the recipes asset tab (extra_prefixes) picks
 # them up among past assets. Publish is opt-in and never fails a card.
-DAM_RECIPES_PREFIX = "brands/kodiak/recipes/"
+ASSET_STORE_RECIPES_PREFIX = "brands/kodiak/recipes/"
 
 # Repo checkout and Lambda image resolve data/ differently (pip install . does
 # not bundle data/); data_path picks the layout that actually exists.
@@ -879,24 +879,24 @@ def _clean_step(raw: str) -> str:
 
 
 def publish_card(card_path: str | Path) -> str | None:
-    """Upload a composed card PNG so the recipes DAM tab lists it. Returns the
-    full DAM key, or None when DAM is unconfigured or the upload fails. Never
+    """Upload a composed card PNG so the recipes asset tab lists it. Returns the
+    full asset key, or None when asset store is unconfigured or the upload fails. Never
     throws — publishing must never fail a campaign.
 
-    s3_upload_and_presign joins keys to the configured DAM prefix, so the key
+    s3_upload_and_presign joins keys to the configured asset prefix, so the key
     is relativized against it (brands/kodiak/recipes/x.jpg under the standard
     brands/kodiak/ prefix uploads as recipes/x.jpg and reads back verbatim).
     """
     try:
-        from . import dam as _dam
+        from . import asset_store as _asset_store
 
-        full = DAM_RECIPES_PREFIX + Path(card_path).name
-        _, prefix = _dam._s3_bucket_and_prefix()
+        full = ASSET_STORE_RECIPES_PREFIX + Path(card_path).name
+        _, prefix = _asset_store._s3_bucket_and_prefix()
         rel = full[len(prefix):] if prefix and full.startswith(prefix) else full.lstrip("/")
-        if _dam.s3_upload_and_presign(str(card_path), rel) is None:
+        if _asset_store.s3_upload_and_presign(str(card_path), rel) is None:
             return None
         return full
-    except Exception:  # noqa: BLE001 — any DAM/network/import failure degrades to None by contract
+    except Exception:  # noqa: BLE001 — any asset store/network/import failure degrades to None by contract
         return None
 
 
@@ -1015,11 +1015,11 @@ def build_recipe_card(
     """Generate a recipe card for a market + month.
 
     Returns:
-        {card_path, ingredient, recipe, text_blocks, safety[, dam_key]} on
+        {card_path, ingredient, recipe, text_blocks, safety[, asset_key]} on
         success, or a no-ingredient result {ingredient: None, reason, ...} when
         the month has no seeded local ingredient (never fabricated).
-        publish=True also uploads the PNG to the DAM recipes prefix (best
-        effort — dam_key None when DAM is unavailable).
+        publish=True also uploads the PNG to the asset store recipes prefix (best
+        effort — asset_key None when asset store is unavailable).
 
     Also carries a deterministic `meta` block resolved from the recipe-card
     template (schema kodiak/recipe-card@v1): template_schema_version, the
@@ -1155,7 +1155,7 @@ def build_recipe_card(
     out_root = Path(out_dir) if out_dir else DEFAULT_OUT_DIR
     card_path = _compose_card(hero, text_blocks, out_root / iso_name)
 
-    dam_key = publish_card(card_path) if publish else None
+    asset_key = publish_card(card_path) if publish else None
     return {
         "schema": RECIPE_CARD_DATA_SCHEMA,
         "variant": RECIPE_CARD_VARIANTS[0],
@@ -1166,7 +1166,7 @@ def build_recipe_card(
         "safety": card_safety,
         "month": resolved_month,
         "step_results": step_results,
-        "dam_key": dam_key,
+        "asset_key": asset_key,
         "meta": _recipe_card_meta(
             _tmpl, substrate=substrate, ingredient=ingredient, pairing=pairing
         ),
@@ -1294,12 +1294,12 @@ def _overlay_recipe_art(
     if not slug:
         return art_block
     try:
-        from . import dam as _dam
+        from . import asset_store as _asset_store
 
         out = dict(art_block)
         for zone in _ART_KEYS:
-            if _dam.recipe_art_exists(slug, zone):
-                out[zone] = _dam.recipe_art_site_url(slug, zone)
+            if _asset_store.recipe_art_exists(slug, zone):
+                out[zone] = _asset_store.recipe_art_site_url(slug, zone)
         return out
     except Exception:  # noqa: BLE001 — art overlay is best-effort
         return art_block

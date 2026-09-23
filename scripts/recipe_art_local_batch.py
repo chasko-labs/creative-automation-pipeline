@@ -68,7 +68,7 @@ ZONE_SIZE = {
     "technique": (1344, 768),
     "finished_plate": (1344, 896),
 }
-# The one shipped-DAM gap: emitted cards reference this subject, no art exists.
+# The one shipped-asset store gap: emitted cards reference this subject, no art exists.
 KNOWN_RAW_GAP = "Waialua coffee (harvest) and papaya"
 
 

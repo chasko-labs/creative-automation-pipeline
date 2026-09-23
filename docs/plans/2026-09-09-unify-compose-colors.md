@@ -21,14 +21,14 @@ De-redden the interface around the approved ember CTA, give the secondary button
   - The inventory flags `var(--red)` #B51E14 as D1 drift (:483); the canonical root `design/tokens/kodiak.json` sanctions `signalRed` as accent/link/cta. Unit 0 narrows that sanction to alert/error/links in the token metadata (links grandfathered) and de-reddens everything else; `--colors-brand-signal-red` remains available for genuine alerts.
 - Offending red today (`design/components.css`): chevron rules :336, :374, :390, :625, :627; timeline active badge :939; `.btn.orange` flat red fill :175 (the Generate Campaign button); focus-visible rings (e.g. :417).
 - Timeline: active badge red, done badge frontier green, todo/locked bear-brown/grey.
-- Secondary buttons have no system: `ff-dam-trigger` pale outline pill (:1018), `ff-products-random` smaller pale box (:727).
+- Secondary buttons have no system: `ff-assets-trigger` pale outline pill (:1018), `ff-products-random` smaller pale box (:727).
 - Section 4 reality: the requested merge already exists in logic, not in layout. `js/prompt-chips.js` two-way syncs chips ⇄ compose checkboxes (`syncLayersFromChips` :206, `syncChipsFromLayers` :294); `js/generate.js` :216-220 reads `layerProduct` / `layerRetailer`+`layerRetailerSelect` / `layerPartner`. All three flags exist in markup (`index.html` :300, :306, :341) — nothing was lost; they render in two visual languages under two "Compose" subheadings, with the retailer `<select>` duplicating what the chips already know.
 - Dead code in the blast radius: `generate.js` :228/231 references retired `#layerPicker` (guarded/empty, harmless).
 
 ## Constraints And Non-goals
 
 - Create Campaign Preview button untouched (approved). Copy untouched ("composed under the grain", "never center-pasted", sidecar note).
-- Numbering stays 4.1/4.2/4.3. No backend, DAM, or copy changes. Share-gate untouched.
+- Numbering stays 4.1/4.2/4.3. No backend, asset store, or copy changes. Share-gate untouched.
 - No new Spectrum runtime, no new dependencies, no bundler. Token-bridge `--mod-*` seam in `styles.css` left intact.
 - Assumption (reversible): frontier-green replaces red as the interactive-marker hue; bear-brown carries filled secondary buttons.
 

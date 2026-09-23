@@ -138,8 +138,8 @@ def _pipeline_lines() -> list[str]:
     ratios = mapping.get("compose_ratios", {}) or {}
     for ratio in sorted(ratios):
         lines.append(f"- {ratio}: {_clean(ratios[ratio], 140)}")
-    if mapping.get("dam_reuse"):
-        lines.append(f"- dam reuse: {_clean(mapping['dam_reuse'], 160)}")
+    if mapping.get("asset_reuse"):
+        lines.append(f"- asset reuse: {_clean(mapping['asset_reuse'], 160)}")
     lines.append("- compliance: src/creative_automation/compliance.py — caption, hashtag, scrim checks run per creative")
     lines.append("- recipe cards: Nova-authored copy with deterministic fallback; card template runs in full mode")
     return lines

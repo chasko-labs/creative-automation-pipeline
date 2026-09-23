@@ -1,7 +1,7 @@
 {
   "$schema": "https://kodiakcakes.com/schema/market-featured-frontiers-v1.json",
   "metadata": {
-    "generated": "2026-09-23T00:21:08Z",
+    "generated": "2026-09-23T02:03:47Z",
     "source": "generated from web/kodiak-posts-for-todays-frontier/js/data-core.js via scripts/build-frontier-mapping.py — do not hand-edit",
     "markets": 83,
     "frontier_self_entries": 69,
@@ -1142,7 +1142,7 @@
       "seasons": "Onion harvest Aug-Sep",
       "farmers_market": "Warwick Valley Farmers Market https://www.hellowarwickvalley.com/events-one/wv-farmers-market-102625",
       "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
-      "link_note": "Nearby rural counterpart to Brooklyn + Manhattan, New York; subscription-credible."
+      "link_note": "Nearby rural counterpart to New York City; subscription-credible."
     },
     "US-NE-BROOKLYN": {
       "market": "US-NE-BROOKLYN",

@@ -58,37 +58,37 @@ describe('campaign carousel mounts only with renders', () => {
 describe('riff-without-asset visible cue', () => {
   it('cue markup lives beside the cards, hidden at rest, announced politely', () => {
     expect(index).toMatch(/<p class="ff-riff-cue" id="riffCue" role="status" aria-live="polite" hidden><\/p>/);
-    // inside the creative-direction disclosure, not inside the DAM dialog panel
+    // inside the creative-direction disclosure, not inside the asset store dialog panel
     const dirAt = index.indexOf('id="creativeDirection"');
     const cueAt = index.indexOf('id="riffCue"');
-    const damAt = index.indexOf('id="damPanel"');
+    const assetAt = index.indexOf('id="assetPanel"');
     expect(dirAt).toBeGreaterThan(-1);
     expect(cueAt).toBeGreaterThan(dirAt);
-    expect(cueAt).toBeLessThan(damAt);
+    expect(cueAt).toBeLessThan(assetAt);
   });
 
   it('checking the riff card refreshes the visible cue; the cue never hides in the dialog', () => {
     expect(chips).toMatch(/function refreshRiffCue\(\)/);
     expect(chips).toMatch(/getElementById\('riffCue'\)/);
     expect(chips).toMatch(/Riff on past content riffs on your staged pick/);
-    expect(chips).not.toMatch(/getElementById\('damFlash'\)[^]*riffs on your staged pick/);
+    expect(chips).not.toMatch(/getElementById\('assetFlash'\)[^]*riffs on your staged pick/);
   });
 
-  it('cue clears on uncheck, on clear-all, and once a DAM pick is staged', () => {
+  it('cue clears on uncheck, on clear-all, and once a staged asset pick is staged', () => {
     expect(chips).toMatch(/if\(slug === 'riff-on-past-content'\)/);
     expect(chips).toMatch(/__clearActiveTheme[^]*refreshRiffCue\(\)/);
     expect(chips).toMatch(/__kodiakRefreshRiffCue/);
   });
 
   it('removing the staged pick re-shows the cue when riff is still checked', () => {
-    // the shared tray-chip remove handler (market-disclosure buildChip, used by DAM
+    // the shared tray-chip remove handler (market-disclosure buildChip, used by asset store
     // staging too) refreshes the cue right after filtering __userAssets.
     expect(market).toMatch(/window\.__userAssets = window\.__userAssets\.filter\(function\(a\)\{ return a\.id!==rec\.id; \}\)/);
     const rmAt = market.indexOf('window.__userAssets = window.__userAssets.filter(function(a){ return a.id!==rec.id; })');
     expect(rmAt).toBeGreaterThan(-1);
     const rmBlock = market.slice(rmAt, rmAt + 600);
     expect(rmBlock).toMatch(/__kodiakRefreshRiffCue/);
-    // staging a DAM pick still clears the cue via the same hook.
+    // staging a staged asset pick still clears the cue via the same hook.
     expect(chips).toMatch(/__kodiakRefreshRiffCue/);
   });
 

@@ -1,4 +1,4 @@
-"""Retailer asset-pack builder — zip a market's creatives + manifest for DAM download.
+"""Retailer asset-pack builder — zip a market's creatives + manifest for asset download.
 
 Composes existing units, reinvents nothing:
   - naming.slugify / _region_field-style rules build the ISO-style pack filename
@@ -7,7 +7,7 @@ Composes existing units, reinvents nothing:
   - market-languages.json top_languages -> BCP-47 language tags for the manifest
 
 The zip + manifest are pure stdlib (zipfile + tempfile). S3 upload/presign lives in
-dam.s3_upload_and_presign; this module stays offline-safe so the endpoint and tests
+asset_store.s3_upload_and_presign; this module stays offline-safe so the endpoint and tests
 work with no boto3 / no creds (local file path fallback).
 
 The pack name is a .zip sibling of the 7-field .png ISO name — it swaps the

@@ -1,8 +1,8 @@
-"""Staged-DAM seed_key wiring: frontend request -> handler -> seed order.
+"""Staged-asset store seed_key wiring: frontend request -> handler -> seed order.
 
 Covers the handler layer (generate_lambda preview + full), which had no
 seed_key coverage: the request's ``seed_key`` must reach generate_hero /
-generate_hero_set verbatim, staged-dam-asset provenance must surface, and a
+generate_hero_set verbatim, staged-asset provenance must surface, and a
 dead staged pick must fall through silently (200, never 503).
 """
 from __future__ import annotations
@@ -42,7 +42,7 @@ def _capture_hero(captured: dict, provenance: dict):
 
 def test_preview_forwards_seed_key_to_generate_hero(monkeypatch) -> None:
     captured: dict = {}
-    prov = {"seed_source": "past-hero", "seed_selection": "staged-dam-asset", "engine": "x"}
+    prov = {"seed_source": "past-hero", "seed_selection": "staged-asset", "engine": "x"}
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured, prov))
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
 
@@ -54,7 +54,7 @@ def test_preview_forwards_seed_key_to_generate_hero(monkeypatch) -> None:
     assert captured["seed_key"] == "brands/kodiak/renders/past-hero.png"
     body = json.loads(resp["body"])
     assert body["ok"] is True
-    assert body["provenance"]["seed_selection"] == "staged-dam-asset"
+    assert body["provenance"]["seed_selection"] == "staged-asset"
 
 
 def test_preview_without_seed_key_sends_none(monkeypatch) -> None:
@@ -83,7 +83,7 @@ def test_full_forwards_seed_key_to_generate_hero_set(monkeypatch, tmp_path: Path
             p = out_dir / f"hero-{ratio}.png"
             Image.new("RGB", (16, 16), (200, 120, 40)).save(p, "PNG")
             renders.append({"ratio": ratio, "path": p, "w": w, "h": h})
-        prov = {"seed_source": "past-hero", "seed_selection": "staged-dam-asset", "engine": "x"}
+        prov = {"seed_source": "past-hero", "seed_selection": "staged-asset", "engine": "x"}
         return renders, "bedrock:nova-pro", prov
 
     monkeypatch.setattr(generate_lambda, "generate_hero_set", _spy)
@@ -102,19 +102,19 @@ def test_full_forwards_seed_key_to_generate_hero_set(monkeypatch, tmp_path: Path
 
 
 def test_staged_fetch_none_falls_through_silently(monkeypatch, tmp_path: Path) -> None:
-    # fetch_dam_key returning None (offline / missing object) must fall through
+    # fetch_asset_key returning None (offline / missing object) must fall through
     # to disk resolution — real pixels, no raise, never a 503-shaped failure.
     from PIL import Image
 
-    from creative_automation import dam
+    from creative_automation import asset_store
     from creative_automation import generate as generate_mod
 
     disk = tmp_path / "disk-seed.png"
     Image.new("RGB", (1024, 1024), (20, 120, 60)).save(disk, "PNG")
 
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: None)
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: disk)
     monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")

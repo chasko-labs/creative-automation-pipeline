@@ -11,7 +11,7 @@ DESIGN_TOKENS = Path(__file__).parents[2] / "design" / "tokens" / "kodiak.json"
 
 
 def _try_s3_tokens() -> dict | None:
-    bucket = os.getenv("DAM_S3_BUCKET")
+    bucket = os.getenv("ASSET_STORE_S3_BUCKET", "").strip() or os.getenv("DAM_S3_BUCKET", "").strip() or None
     if not bucket:
         return None
     # only attempt if creds likely present

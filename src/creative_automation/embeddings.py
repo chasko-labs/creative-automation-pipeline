@@ -35,7 +35,7 @@ FALLBACK_TEXT_MODEL = os.getenv("BEDROCK_TITAN_EMBED_MODEL", "amazon.titan-embed
 # Fail-fast client config (wall repair): the embed call sits inside the
 # grounded-director attempt, itself bounded at 8s — but a bare client (no
 # timeouts, default retries) turned one slow Nova embed + Titan fallback into a
-# ~14s hole PROVEN IN PROD, starving the restyle rung. Same fix dam.py already
+# ~14s hole PROVEN IN PROD, starving the restyle rung. Same fix asset_store.py already
 # carries: bound every call so a stall fails fast into the attempt bound.
 try:
     from botocore.config import Config as _BotoConfig
@@ -55,7 +55,7 @@ def _boto_client():
                 read_timeout=5,
                 # max_attempts=1 (no retry): a transient embed blip fails fast
                 # into the Titan fallback, which has the same bound — mirrors
-                # dam.py. Merged total is initial + 1 retry-config slot.
+                # asset_store.py. Merged total is initial + 1 retry-config slot.
                 retries={"max_attempts": 1, "mode": "standard"},
             )
         return boto3.client("bedrock-runtime", region_name=BEDROCK_REGION, config=cfg)

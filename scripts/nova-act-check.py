@@ -39,7 +39,7 @@ exit 1 on I/O / usage error. CI should fail the job on exit 2.
 Env:
   AWS_PROFILE=bryanchasko-kiro   — AgentCore / Bedrock credential profile
   BEDROCK_REGION=us-east-1       — AgentCore Browser region
-  DAM_S3_BUCKET / DAM_S3_PREFIX  — not required for this check (local preview)
+  ASSET_STORE_S3_BUCKET / ASSET_STORE_S3_PREFIX  — not required for this check (local preview)
 
 References:
   - Bedrock AgentCore Browser: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-tool.html

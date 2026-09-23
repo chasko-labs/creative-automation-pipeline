@@ -42,13 +42,13 @@ This is the master brand campaign — the always-on Kodiak story. Born from the 
 - **Audience:** Active families and outdoor enthusiasts, 25–45, Midwest + Mountain West,蛋白-forward breakfast seekers — the people who choose whole grains because they hike before work.
 - **Message:** *"Protein-packed whole grains for today's frontier."* — the one approved, class-action-safe headline.
 - **Market / Region:** US-MW
-- **Products:** Buttermilk Power Cakes (14g protein, real DAM photo reused), Bear Bites Graham Crackers (cubs, cinnamon & honey), Protein Oatmeal Cup (maple & brown sugar).
+- **Products:** Buttermilk Power Cakes (14g protein, real asset photo reused), Bear Bites Graham Crackers (cubs, cinnamon & honey), Protein Oatmeal Cup (maple & brown sugar).
 
 **What you'll see:** A warm, rugged stack against a blurred Wasatch cover with scrim. The real hero photo for Power Cakes grounds it; Bear Bites and oatmeal are generated in the frontier palette so the whole board still feels like Kodiak.
 
 **Embedded preview (square):**
 
-| Power Cakes (DAM hero) | Bear Bites (generated) | Oatmeal Cup (generated) |
+| Power Cakes (asset store hero) | Bear Bites (generated) | Oatmeal Cup (generated) |
 |---|---|---|
 | ![Kodiak Frontier — Power Cakes 1x1](assets/previews/kodiak/power-cakes/1x1/power-cakes_1x1.png) | ![Kodiak Frontier — Bear Bites 1x1](assets/previews/kodiak/bear-bites/1x1/bear-bites_1x1.png) | ![Kodiak Frontier — Oatmeal 1x1](assets/previews/kodiak/oatmeal-cup/1x1/oatmeal-cup_1x1.png) |
 | `power-cakes/1x1` · 1080×1080 | `bear-bites/1x1` | `oatmeal-cup/1x1` |
@@ -303,7 +303,7 @@ These aren't opinions — they're tokens from [`design/tokens/kodiak.json`](../d
 - **Six-piece template:** Blurred Wasatch cover + 0.18 scrim (#1A1110CC), hero contained at min(W×0.82/hw, H×0.58/hh) centered 8% down, 48px outer pad / 24px logo offset / 8px Blaze Orange bar, message bar at 68% down, logo 140px at 24,24, footer "KODIAK • kodiakcakes.com • Keep It Wild".
 - **Type:** Headline slab (56px at 1x1, 64px at 9x16, 72px at 16x9, max 3 lines, stroke 2), footer Inter 500 uppercase 22/24px, 0.06em tracking.
 - **Checks:** Every PNG is probed for logo presence, palette presence (Bear Brown / Blaze Orange / Frontier Green), and prohibited legal terms. Green PASS in the preview = ready to ship. The report that proves it lives next to the preview: `report.json` + `report.jsonl` (one line per creative).
-- **Heros:** DAM first (`input_assets/power-cakes/hero.png` reused), then S3 `brands/kodiak/` if `DAM_S3_BUCKET` is set, then generated (mock Pillow locally, Nova Canvas `amazon.nova-canvas-v1:0` with creds). No blank heroes.
+- **Heros:** asset store first (`input_assets/power-cakes/hero.png` reused), then S3 `brands/kodiak/` if `ASSET_STORE_S3_BUCKET` is set, then generated (mock Pillow locally, Nova Canvas `amazon.nova-canvas-v1:0` with creds). No blank heroes.
 
 **Rebuild any board yourself:**
 

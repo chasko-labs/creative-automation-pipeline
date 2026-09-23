@@ -33,7 +33,7 @@ GROUND TRUTH (verified last sprint — do NOT re-assume these are greenfield):
 - /generate returns 200 live. /localize returns 403 at the deployed edge (route EXISTS in api.py:132 +
   localize_service.py + localize_memory.py with 219 precomputed variants) — the edge config rejects it, so
   live translated TEXT does not render yet; the frontend already degrades honestly to EN-source.
-- DAM bucket chasko-creative-dam-946179428633-us-east-1 is FULLY PRIVATE (all public-access blocks true,
+- asset store bucket chasko-creative-dam-946179428633-us-east-1 is FULLY PRIVATE (all public-access blocks true,
   no CloudFront OAC). Contents under brands/kodiak/: zac-efron/ (5), renders/ (496 past campaigns),
   heroes/ (5), logos/ (2), raw-ingest/kodiakcakes/images/ (1000+ product boxes), tokens/, vectors/.
 - The two pages are hand-authored VANILLA JS, one HTML file each (index.html = the app; details.html =
@@ -69,7 +69,7 @@ SIX TRACKS (sequence roughly top-to-bottom; tracks 5-6 can run parallel to 1-4):
    cliff); whether a second Nova call for labels/caption is in scope or the vector alone IS the
    "understanding."
 
-3. DAM ASSET BROWSER — the "/assets route" path Bryan chose (live, uses the backend's existing S3 creds).
+3. asset store ASSET BROWSER — the "/assets route" path Bryan chose (live, uses the backend's existing S3 creds).
    Add a backend route that lists brands/kodiak/{zac-efron,renders,heroes,logos} and returns presigned GET
    URLs; the front-page "+" gains a "Browse past assets" tab that reads it and stages a chosen asset into
    the tray like a local upload. EXCLUDE the 1000+ raw-ingest boxes from the human picker (pipeline seed

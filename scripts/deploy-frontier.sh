@@ -141,14 +141,14 @@ fi
 	exit 1
 }
 
-# mirror DAM recipe-art into the site tree BEFORE the dir preflight below.
+# mirror asset store recipe-art into the site tree BEFORE the dir preflight below.
 # Card art urls are permanent site paths (/recipe-art/<slug>/<zone>.png), never
 # presigns (session-bound presigns ExpiredToken within hours and blank every
 # card). The mirror is the other half of that contract: fresh drawings land on
 # the next deploy with no script change. Honors DRY_RUN.
-DAM_RECIPE_ART_S3_URI="${DAM_RECIPE_ART_S3_URI:-s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/recipe-art/}"
-echo "[deploy-frontier] mirror recipe-art: $DAM_RECIPE_ART_S3_URI -> $WEB_SRC/recipe-art/"
-run aws s3 sync "$DAM_RECIPE_ART_S3_URI" "$WEB_SRC/recipe-art/" \
+ASSET_STORE_RECIPE_ART_S3_URI="${ASSET_STORE_RECIPE_ART_S3_URI:-s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/recipe-art/}"
+echo "[deploy-frontier] mirror recipe-art: $ASSET_STORE_RECIPE_ART_S3_URI -> $WEB_SRC/recipe-art/"
+run aws s3 sync "$ASSET_STORE_RECIPE_ART_S3_URI" "$WEB_SRC/recipe-art/" \
 	"${AWS_ARGS[@]}" --only-show-errors
 DIRS+=("recipe-art")
 

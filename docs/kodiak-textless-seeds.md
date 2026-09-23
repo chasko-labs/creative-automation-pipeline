@@ -23,7 +23,7 @@ the brand carriers; scenes are backdrops.
 ## Drop point
 
 `web/kodiak-posts-for-todays-frontier/input_assets/textless/` (gitignored — large
-binaries stay out of the repo; the DAM heroes remain the fallback).
+binaries stay out of the repo; the asset store heroes remain the fallback).
 
 ## Wiring (lands with the files)
 

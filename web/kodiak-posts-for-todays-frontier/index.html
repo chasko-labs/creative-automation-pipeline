@@ -305,7 +305,7 @@
     </div>
   </div>
   <!-- Visible non-blocking cue when "Riff on past content" is checked with no staged
-       pick: lives beside the cards that trigger it, never inside the unopened DAM dialog. -->
+       pick: lives beside the cards that trigger it, never inside the unopened asset store dialog. -->
   <p class="ff-riff-cue" id="riffCue" role="status" aria-live="polite" hidden></p>
   </details>
 
@@ -340,10 +340,10 @@
 
     <!-- 4.3 staging row: new uploads + past assets + tray live with the group that stages them -->
     <div class="ff-assetrow" role="group" aria-label="Staged assets">
-      <button type="button" class="ff-dam-trigger" id="promptUpload" aria-label="Add new assets — upload an image or document" title="Upload an image or document">Add new assets</button>
-      <!-- Browse past approved assets — an additional staging path that opens #damPanel
+      <button type="button" class="ff-assets-trigger" id="promptUpload" aria-label="Add new assets — upload an image or document" title="Upload an image or document">Add new assets</button>
+      <!-- Browse past approved assets — an additional staging path that opens #assetPanel
            and places a chosen item in the shared #selectionTray. -->
-      <button type="button" class="ff-dam-trigger" id="damBrowseTrigger" aria-haspopup="dialog" aria-controls="damPanel" aria-expanded="false" title="Browse past approved assets">Browse past assets</button>
+      <button type="button" class="ff-assets-trigger" id="assetBrowseTrigger" aria-haspopup="dialog" aria-controls="assetPanel" aria-expanded="false" title="Browse past approved assets">Browse past assets</button>
       <!-- Shared selection tray — staged uploads + selected SKUs render here as removable chips. Zero-height when empty. -->
       <div class="ff-tray" id="selectionTray" role="group" aria-label="Selected products and staged assets"></div>
     </div>
@@ -380,15 +380,15 @@
 
 <!-- Browse past approved assets panel — positioned dialog and backdrop using the market-panel
      disclosure style. Hidden until the browse trigger opens it. -->
-<div class="ff-dam-backdrop" id="damBackdrop" hidden></div>
-<div class="ff-dam-panel" id="damPanel" role="dialog" aria-modal="true" aria-labelledby="damPanelTitle" hidden>
-  <div class="ff-dam-head">
-    <span class="ff-dam-title" id="damPanelTitle">Browse past assets</span>
-    <button type="button" class="ff-dam-close" id="damPanelClose" aria-label="Close browse past assets">&times;</button>
+<div class="ff-assets-backdrop" id="assetBackdrop" hidden></div>
+<div class="ff-assets-panel" id="assetPanel" role="dialog" aria-modal="true" aria-labelledby="assetPanelTitle" hidden>
+  <div class="ff-assets-head">
+    <span class="ff-assets-title" id="assetPanelTitle">Browse past assets</span>
+    <button type="button" class="ff-assets-close" id="assetPanelClose" aria-label="Close browse past assets">&times;</button>
   </div>
-  <div class="ff-dam-flash" id="damFlash" role="status" aria-live="polite"></div>
-  <div class="ff-dam-body" id="damBody">
-    <p class="ff-dam-status" id="damStatus">Loading past assets&hellip;</p>
+  <div class="ff-assets-flash" id="assetFlash" role="status" aria-live="polite"></div>
+  <div class="ff-assets-body" id="assetBody">
+    <p class="ff-assets-status" id="assetStatus">Loading past assets&hellip;</p>
   </div>
 </div>
 

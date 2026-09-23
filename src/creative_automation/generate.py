@@ -1,6 +1,6 @@
 """Hero image generation — Bedrock Stability image-conditioning on real brand assets.
 
-Precedence (see generate_hero): a real seed asset (theme photo, sku-mapped DAM photo,
+Precedence (see generate_hero): a real seed asset (theme photo, sku-mapped asset photo,
 or disk asset) restyled to the theme by Bedrock Stability control-structure so the
 theme lands in the pixels (source bedrock:stability-control-structure); else the same
 seed composed by Pillow under Nova Pro art-direction (source bedrock:nova-pro); else a
@@ -132,7 +132,7 @@ _DIRECTOR_LIVE_SOURCE = "bedrock:kodiak-artdirector"
 # nothing shared. The per-container memo still makes repeat calls ~free.
 _DIRECTOR_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=2)
 # Refusal guard: a live voice model can still decline (junk retrieved examples make
-# refusal likely — PROVEN IN PROD 2026-09-08: hash-laden DAM titles as in-voice
+# refusal likely — PROVEN IN PROD 2026-09-08: hash-laden asset titles as in-voice
 # examples produced "I Can't Fulfill This Request" as the campaign headline). A
 # refusal is a failed attempt, not a headline — fall back to stock Nova.
 _REFUSAL_PHRASES = (
@@ -162,14 +162,14 @@ def _director_enabled() -> bool:
     return os.getenv("KODIAK_DIRECTOR_GROUNDED", "true").strip().lower() in (
         "1", "true", "yes", "on",
     )
-# Restyled-background cache (DAM prefix): the rung-A bg restyle costs ~10s of Bedrock,
+# Restyled-background cache (asset prefix): the rung-A bg restyle costs ~10s of Bedrock,
 # which fits a preview but never a full set (base + pads + uploads must clear the same
 # 22s wall). The cache is content-addressed on (seed bytes + prompt inputs): a preview
 # warms it, the set base reuses the SAME pixels — no second Bedrock call, wall holds,
 # preview and pack stay consistent. Best-effort everywhere: any S3 failure degrades to
 # the uncached behavior (fresh restyle when budget allows, else raw seed).
 _RESTYLE_CACHE_PREFIX = "brands/kodiak/renders/restyle-cache/"
-_RESTYLE_CACHE_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
+_RESTYLE_CACHE_BUCKET = os.getenv("ASSET_STORE_S3_BUCKET", "").strip() or os.getenv("DAM_S3_BUCKET", "").strip() or "chasko-creative-dam-946179428633-us-east-1"
 # NOTE: the prefix MUST stay under brands/kodiak/renders/ — the GenerateLambda role grants
 # PutObject/GetObject only on renders/* and library/* (generate-stack.ts). A top-level
 # restyle-cache/ prefix is denied and the cache silently never warms.
@@ -220,7 +220,7 @@ class _RungBBudgetSkip(Exception):
 
 
 # Image engine: Bedrock Stability control-structure
-# (us.stability.stable-image-control-structure-v1:0) — seed a real DAM photo and the
+# (us.stability.stable-image-control-structure-v1:0) — seed a real asset photo and the
 # theme lands in the pixels (composition preserved, style restyled). Nova Pro
 # (amazon.nova-pro-v1:0, Converse) is the art-director: it writes the localized
 # headline AND the control-structure prompt that drives the restyle. Amazon Nova
@@ -236,7 +236,7 @@ STABILITY_CONTROL_MODEL = os.getenv(
 # How strongly the seed composition constrains the restyle (0..1). 0.6 lets the
 # painterly style head dominate the seed photo's texture (0.7 kept too much
 # photographic gloss). Product identity is safe: the packshot composites via
-# Pillow from the real DAM asset, never from restyled pixels.
+# Pillow from the real asset, never from restyled pixels.
 STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.35"))
 # Brief-aware jitter so the same market/product/brief doesn't produce pixel-identical
 # oranges every time — small ±0.06 range on top of the 0.35 base, keyed by brief hash.
@@ -290,7 +290,7 @@ STYLE_HEAD = os.getenv(
     "KODIAK_STYLE_HEAD",
     # no brand token in the image prompt: the model renders any brand word it
     # sees as packaging glyphs and garbles it ("KODA CAKTS"). brand identity
-    # ships via the composited real DAM packshot/logo (Pillow), never pixels.
+    # ships via the composited real asset store packshot/logo (Pillow), never pixels.
     # Photographic editorial is the default: real light, real food, no painterly
     # flat color blocks or camo-like patches. Palette is light-biased.
     "Soft natural-light photographic editorial, documentary food photography, "
@@ -373,7 +373,7 @@ STABILITY_OUTPAINT_MODEL = os.getenv(
     "BEDROCK_STABILITY_OUTPAINT_MODEL", "us.stability.stable-outpaint-v1:0"
 )
 # Stability seed constraint: total pixels 4096..9437184, each dim >= 64. A real
-# 1024x1024 DAM photo sits well inside the range; a seed below the floor in either
+# 1024x1024 asset photo sits well inside the range; a seed below the floor in either
 # dim is upscaled to 1024x1024 before invoke to avoid a ValidationException.
 _STABILITY_MIN_DIM = 64
 _STABILITY_UPSCALE_TO = 1024
@@ -383,7 +383,7 @@ BEDROCK_REGION = os.getenv("BEDROCK_REGION", "us-east-1")
 
 # Default brand hero: when a requested SKU has no asset of its own, we still owe the
 # campaign a real, on-brand Kodiak composite — so we compose on the flagship product
-# shot. The DAM ships real heroes at brands/kodiak/heroes/<product>/hero-real.png|hero.png
+# shot. The asset store ships real heroes at brands/kodiak/heroes/<product>/hero-real.png|hero.png
 # for power-cakes, bear-bites, oatmeal-cup; power-cakes is the flagship fallback.
 DEFAULT_HERO_PRODUCT = "power-cakes"
 DEFAULT_HERO_NAME = "Power Cakes"
@@ -396,10 +396,10 @@ STABILITY_SOURCE = "bedrock:stability-control-structure"
 # Source label for the packshot-first composite path: a real product BOX resolved for
 # the SKU and was pasted VERBATIM over a background scene — NO generative step ever
 # touched the product pixels, so it structurally cannot render as bread or candy. This
-# mirrors campaign.py::_render_asset's dam:packshot-composite provenance so the live
+# mirrors campaign.py::_render_asset's asset-store:packshot-composite provenance so the live
 # /generate endpoint reports the composite path the same way the batch pipeline does.
 # See docs/architecture/compose-fix/compose-fix-spec.md precedence table (order a/b).
-PACKSHOT_SOURCE = "dam:packshot-composite"
+PACKSHOT_SOURCE = "asset-store:packshot-composite"
 
 # ---- degradation-ladder engine labels + provenance rungs.
 # The ladder's four rungs each emit a distinct provenance.engine + rung letter so the
@@ -456,14 +456,14 @@ _OUTPAINT_RESERVE_MS = int(os.getenv("GENERATE_OUTPAINT_RESERVE_MS", "6000"))
 # Per-ratio headline slab size (C06: 56/64/72).
 _HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72, "4x5": 60}
 
-# sku-photo-map: catalog handle -> best real lifestyle DAM key (full key, NOT under
-# the dam/ prefix). Loaded once; the file ships in the deployment (Lambda-safe).
+# sku-photo-map: catalog handle -> best real lifestyle asset key (full key, NOT under
+# the asset-library/ prefix). Loaded once; the file ships in the deployment (Lambda-safe).
 # Default (repo-checkout) location. _resolve_map_path() picks the first candidate
 # that actually exists at runtime — the install layout differs between local dev
 # (parents[2] IS the repo root with data/) and the Lambda image (pip install .
 # lands the module under site-packages, where parents[2]/data does not exist).
 _SKU_PHOTO_MAP_PATH = Path(__file__).parents[2] / "data" / "products" / "sku-photo-map.json"
-# theme-asset-map: theme-slug -> best real thematic DAM key. Sibling of sku-photo-map,
+# theme-asset-map: theme-slug -> best real thematic asset key. Sibling of sku-photo-map,
 # same 3-candidate resolve pattern. A chip theme drives the IMAGE (theme wins over the
 # product default) — see generate_hero precedence.
 _THEME_ASSET_MAP_PATH = Path(__file__).parents[2] / "data" / "products" / "theme-asset-map.json"
@@ -514,7 +514,7 @@ _THEME_SCENE_HINT: dict[str, str] = {
     # here on purpose. Retailer direction no longer steers the generated pixels
     # (aisle/pack cues risk baked pseudo-text and off-brand scenes); it ships as
     # the composited logo mark (costco/publix/target/walmart via the retailer
-    # layer, DAM brands/retailers/logos/) + the copy-sidecar retailer-framing
+    # layer, asset store brands/retailers/logos/) + the copy-sidecar retailer-framing
     # line (_THEME_COPY_HINT, which keeps every retailer incl. copy-only
     # kroger/heb/whole-foods). Retailer themes fall through to the generic
     # persona/brief prompt below.
@@ -672,8 +672,8 @@ def _load_sku_photo_map() -> dict:
     return _SKU_PHOTO_MAP_CACHE
 
 
-def _resolve_dam_photo(product_id: str) -> str | None:
-    """Return the best real lifestyle DAM key for a catalog handle, else None.
+def _resolve_asset_photo(product_id: str) -> str | None:
+    """Return the best real lifestyle asset key for a catalog handle, else None.
 
     Exact-match lookup on product_id. Prefers photo_key; if absent, walks the
     fallbacks list. Returns None when the handle is not in the map.
@@ -735,7 +735,7 @@ def _load_theme_asset_map() -> dict:
 
 
 def _resolve_theme_photo(theme_slug: str) -> str | None:
-    """Return the best real thematic DAM key for a theme slug, else None.
+    """Return the best real thematic asset key for a theme slug, else None.
 
     Prefers photo_key; if somehow absent, walks the pool list. Returns None when
     the theme is not in the map.
@@ -942,7 +942,7 @@ def _brand_floor(product_name: str, ratio: str, out_path: Path) -> Path:
 def _call_with_optional_deadline(fn, *args, deadline_ms=None):
     """Call fn(*args, deadline_ms=...) but tolerate callables without that kwarg.
 
-    The real probe fns (_find_source_asset, dam.resolve_packshot) accept deadline_ms so
+    The real probe fns (_find_source_asset, asset_store.resolve_packshot) accept deadline_ms so
     the fan-out can bail mid-loop. Test stubs and older signatures may not — fall back to
     the bare call so threading the deadline never breaks a monkeypatched path.
     """
@@ -957,7 +957,7 @@ def _find_source_asset(product_id: str, product_name: str, deadline_ms=None) -> 
 
     Order: input_assets/<product_id>/hero-real.png, then hero.png, then any image
     in that product dir, then a name-matching glob across the asset roots, then an
-    S3 DAM fallback (fetch_hero_to_tmp) for Lambda where no assets are baked in.
+    S3 asset store fallback (fetch_hero_to_tmp) for Lambda where no assets are baked in.
 
     deadline_ms (optional zero-arg callable -> remaining ms) bounds the step-3 S3
     fan-out so an unmapped-SKU probe abandons mid-loop rather than running to ~37s.
@@ -987,15 +987,15 @@ def _find_source_asset(product_id: str, product_name: str, deadline_ms=None) -> 
                 if any(tok and tok in stem for tok in tokens):
                     return cand
 
-    # 3) S3 DAM fallback — the Lambda container ships with NO assets baked in, so
-    # the real heroes live only in S3 (s3://<DAM bucket>/brands/kodiak/heroes/
+    # 3) S3 asset store fallback — the Lambda container ships with NO assets baked in, so
+    # the real heroes live only in S3 (s3://<asset store bucket>/brands/kodiak/heroes/
     # <product>/hero-real.png|hero.png). Materialize into /tmp (Lambda's only
     # writable path) and return the local copy so the existing Nova Pro compose
     # flow runs on the real asset. Offline-safe: fetch_hero_to_tmp returns None
     # when S3 is disabled / boto3 missing / key absent, so local dev and CI keep
     # falling through to mock without raising.
     try:
-        from .dam import fetch_hero_to_tmp  # local import — keeps offline path import-light
+        from .asset_store import fetch_hero_to_tmp  # local import — keeps offline path import-light
 
         s3_hit = _call_with_optional_deadline(fetch_hero_to_tmp, product_id, deadline_ms=deadline_ms)
         if s3_hit is not None and s3_hit.exists():
@@ -2234,7 +2234,7 @@ def _ensure_writable_out_path(out_path: Path, provenance: dict) -> Path:
 def _resolve_retailer_mark(slug: str) -> Path | None:
     """Best-effort raster retailer mark for a slug. None when missing/unusable.
 
-    DAM-first via retailers.resolve_retailer_logo
+    asset-store-first via retailers.resolve_retailer_logo
     (brands/retailers/logos/<slug>.png, local raster fallback). Copy-only
     retailers (kroger/heb/whole-foods), subscription, unknown slugs, missing
     files, and SVG-only lockups (Pillow cannot rasterize SVG here) all resolve
@@ -2506,13 +2506,13 @@ def generate_hero(
       D brand-floor         — bundled Kodiak brand asset on a brand-color canvas, ZERO I/O
 
     Seed resolution (which real photo becomes the rung-B seed), theme wins:
-    0. theme provided AND _resolve_theme_photo(theme) resolves -> that thematic DAM
+    0. theme provided AND _resolve_theme_photo(theme) resolves -> that thematic asset store
        photo is the seed (the chip theme drives the IMAGE, not the product default).
-    0b. staged DAM pick (seed_key from the asset browser) -> that exact photo is the
+    0b. staged staged asset pick (seed_key from the asset browser) -> that exact photo is the
        seed (the customer's pick drives the IMAGE). Fetched verbatim, never probed.
     a. no theme (or unresolved) -> sku-photo-map resolves the handle -> a REAL
-       lifestyle DAM photo (dam.fetch_dam_key -> /tmp) is the seed.
-    b. no map entry OR the DAM fetch fails -> disk _find_source_asset is the seed
+       lifestyle asset photo (asset_store.fetch_asset_key -> /tmp) is the seed.
+    b. no map entry OR the asset store fetch fails -> disk _find_source_asset is the seed
        (unchanged discovery), so nothing regresses offline.
 
     PART A — provenance: a JSON-serializable dict explaining what was provided vs what
@@ -2681,16 +2681,16 @@ def generate_hero(
         if reason is not None:
             provenance["fallthrough_reason"] = reason
 
-    # ---- seed resolution: theme photo, else sku-mapped DAM photo, else disk asset.
+    # ---- seed resolution: theme photo, else sku-mapped asset photo, else disk asset.
     seed: Path | None = None
     if theme:
         theme_key = _resolve_theme_photo(theme)
         if theme_key:
             try:
-                from .dam import fetch_dam_key
+                from .asset_store import fetch_asset_key
 
                 dest = Path("/tmp/kodiak-assets/theme") / Path(theme_key).name
-                photo = fetch_dam_key(theme_key, dest)
+                photo = fetch_asset_key(theme_key, dest)
                 if photo is not None and photo.exists():
                     seed = photo
                     provenance["seed_selection"] = "theme-photo"
@@ -2698,17 +2698,17 @@ def generate_hero(
             except Exception as e:  # noqa: BLE001 — falls through to product precedence
                 print(f"[generate] theme seed fetch failed: {e}", file=sys.stderr)
     if seed is None and seed_key:
-        # staged DAM pick from the asset browser: the exact photo the customer chose.
+        # staged staged asset pick from the asset browser: the exact photo the customer chose.
         # Fetched verbatim by full key (no prefix join — browser contract); any failure
         # falls through to the normal resolution below, so a stale pick never sinks a rung.
         try:
-            from .dam import fetch_dam_key
+            from .asset_store import fetch_asset_key
 
             dest = Path("/tmp/kodiak-assets/staged") / Path(seed_key).name
-            photo = fetch_dam_key(seed_key, dest)
+            photo = fetch_asset_key(seed_key, dest)
             if photo is not None and photo.exists():
                 seed = photo
-                provenance["seed_selection"] = "staged-dam-asset"
+                provenance["seed_selection"] = "staged-asset"
                 provenance["seed_source"] = Path(seed_key).stem
                 if theme == "riff-on-past-content":
                     provenance["riff_on"] = seed_key
@@ -2716,10 +2716,10 @@ def generate_hero(
             print(f"[generate] staged seed fetch failed: {e}", file=sys.stderr)
     if seed is None:
         # Non-deterministic but brief-aware: the brief (your campaign idea) picks the seed
-        # among the SKU's DAM pool, so peaches vs pumpkins vs a custom idea don't all get
+        # among the SKU's asset store pool, so peaches vs pumpkins vs a custom idea don't all get
         # the same deterministic Community Kitchen frame — we rotate through the fallbacks.
         candidates: list[str] = []
-        primary = _resolve_dam_photo(product_id)
+        primary = _resolve_asset_photo(product_id)
         if primary:
             candidates.append(primary)
             # Pull fallbacks from sku-photo-map for this SKU so the same product can
@@ -2752,18 +2752,18 @@ def generate_hero(
                 print(f"[generate] dynamic seed pick {photo_key} from {len(candidates)} candidates", file=sys.stderr)
         if photo_key:
             try:
-                from .dam import fetch_dam_key
+                from .asset_store import fetch_asset_key
 
                 dest = Path("/tmp/kodiak-assets/scene") / Path(photo_key).name
-                photo = fetch_dam_key(photo_key, dest)
+                photo = fetch_asset_key(photo_key, dest)
                 if photo is not None and photo.exists():
                     seed = photo
-                    provenance["seed_selection"] = "sku-mapped-dam"
+                    provenance["seed_selection"] = "sku-mapped-asset"
                     provenance["seed_source"] = Path(photo_key).stem
             except Exception as e:  # noqa: BLE001 — falls through to disk
                 print(f"[generate] sku-mapped seed fetch failed: {e}", file=sys.stderr)
     if seed is None:
-        # _find_source_asset's step 3 is an S3 DAM fan-out (sequential hero-real/hero x
+        # _find_source_asset's step 3 is an S3 asset store fan-out (sequential hero-real/hero x
         # ext misses ~10s+ on an unmapped SKU) that runs BEFORE any rung gate. Enter it
         # only while the wall still leaves room for a probe + the C reservation; past the
         # wall, abandon the seed probe (treat as no-seed) so the ladder still reaches a
@@ -2792,7 +2792,7 @@ def generate_hero(
     # box is pasted over the restyled scene, never fed into the restyle. Generation
     # remains the FALLBACK below for the no-packshot case. See
     # docs/architecture/compose-fix/compose-fix-spec.md.
-    from .dam import resolve_packshot  # local import — keeps the offline path import-light
+    from .asset_store import resolve_packshot  # local import — keeps the offline path import-light
 
     # HARD WALL: resolve_packshot's step 3 (find_hero_asset) is another S3 fan-out on an
     # unmapped SKU. Only probe for a packshot while the wall still leaves a probe + the C
@@ -2828,7 +2828,7 @@ def generate_hero(
             bg_path.parent.mkdir(parents=True, exist_ok=True)
             # AI background: restyle the seed scene (rung-B machinery, same budget
             # gate rung B itself uses) BEFORE the verbatim box paste, so a mapped
-            # SKU ships fresh photographic pixels instead of recycling the raw DAM
+            # SKU ships fresh photographic pixels instead of recycling the raw asset store
             # photo. The box is pasted over the restyle below — never an input to
             # it. Any skip/failure keeps the unstyled seed; rung A never fails.
             #
@@ -2905,10 +2905,10 @@ def generate_hero(
             provenance["rung"] = "A"
             provenance["model"] = "pillow:compose-creative"
             provenance["packshot"] = str(packshot)
-            # A staged DAM pick stays labelled: the box is pasted over the exact
+            # A staged staged asset pick stays labelled: the box is pasted over the exact
             # photo the customer chose, so seed_selection must say so (the pick
             # drives the render — mislabelling it "packshot" hides that).
-            if provenance.get("seed_selection") != "staged-dam-asset":
+            if provenance.get("seed_selection") != "staged-asset":
                 provenance["seed_selection"] = "packshot"
             provenance["overlay_applied"] = bool(overlay_on)
             provenance["headline"] = headline if overlay_on else None

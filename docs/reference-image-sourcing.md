@@ -97,7 +97,7 @@ keep OUT of the conditioning bucket: all consumer stock (Unsplash/Pexels/Pixabay
 CC-BY-SA (share-alike is a redistribution trap), and any THIRD-PARTY trademarked mark or
 real athlete likeness. the brand's OWN bear logo, packaging art, and illustration library
 are the exception — those are owned assets and belong in the conditioning bucket, pulled
-clean from the brand DAM / press kit.
+clean from the brand asset store / press kit.
 
 ## first-party assets — the brand's own marks are the brand's to use
 
@@ -107,7 +107,7 @@ protects the owner against others copying the mark; it does not fence the owner 
 their own mark. so the official bear, the URB packaging art, the brand illustration library
 are all fair game as reference, as conditioning input, and as an output target. they belong
 in both buckets, sourced from the brand's own asset library (not scraped off the web — pull
-the real files from the brand DAM / press kit so you get clean, licensed originals).
+the real files from the brand asset store / press kit so you get clean, licensed originals).
 
 ## the risk classes to keep flagged, always — third-party rights only
 

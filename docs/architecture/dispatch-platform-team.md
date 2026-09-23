@@ -11,12 +11,12 @@ Two other teams are already working this repo in parallel:
 - **team-pipeline** — the engine: training data, Bedrock AgentCore, python + rust tooling
 - **team-frontend** — the web ui, css, sample-prompt browser
 
-You are **team 3 — infra + data-platform**: the ground both other teams stand on. Read `docs/architecture/team-lanes.md` and `docs/architecture/dispatch-guideline.md` before editing platform-owned files. Your lane: `infra/`, `scripts/sync-dam.sh` + ops scripts, DNS/CloudFront, S3 (the DAM bucket + the S3 Vectors index), secrets, and local gate governance.
+You are **team 3 — infra + data-platform**: the ground both other teams stand on. Read `docs/architecture/team-lanes.md` and `docs/architecture/dispatch-guideline.md` before editing platform-owned files. Your lane: `infra/`, `scripts/sync-asset-store.sh` + ops scripts, DNS/CloudFront, S3 (the asset store bucket + the S3 Vectors index), secrets, and local gate governance.
 
 ## aws context you need
 
-- account: **bryanchasko-kiro (946179428633)**, region **us-east-1** for the DAM + pipeline, **us-west-2** for the valkey EC2 + S3 Vectors. always pass `--profile bryanchasko-kiro` and an explicit `--region`.
-- DAM bucket (live): `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`
+- account: **bryanchasko-kiro (946179428633)**, region **us-east-1** for the asset store + pipeline, **us-west-2** for the valkey EC2 + S3 Vectors. always pass `--profile bryanchasko-kiro` and an explicit `--region`.
+- asset store bucket (live): `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/`
 - S3 Vectors bucket (exists): `herald-vectors-nova` (arn `arn:aws:s3vectors:us-east-1:946179428633:bucket/herald-vectors-nova`)
 - valkey: remote EC2 `i-086f8ce0938d64ef9` (10.99.0.118:6379) reached via SSM tunnel on localhost:16379, systemd unit `ssm-valkey-tunnel.service`
 - secrets: AWS SSM Parameter Store only. never write secrets to disk, never `docker login ghcr`.
@@ -65,7 +65,7 @@ This unblocks the pipeline team's critical path (unit A1 → B1 → campaign fan
 - **never `git add -A`** — stage explicitly by path. the 46MB `data/vectors/kodiak-embeddings.jsonl` and `data/raw-ingest/kodiakcakes/blog-images/` are gitignored (S3-hosted); do not re-add them.
 - **coders don't commit** — commits go through `ghost-orin-ci-cd` on a branch + PR. never push to main. current active branch: `feat/kodiak-rust-accelerator-and-cli` (PR #1 open, 12 commit groups). your infra work should be its own branch `feat/platform-<topic>` off main, or coordinate with the open PR.
 - **use git worktrees** so you don't collide with the other teams' uncommitted files: `git worktree add ../cap-platform feat/platform-<topic>` (see CONTRIBUTING.md "Three teams, one repo").
-- **aws calls need explicit `--profile bryanchasko-kiro` and `--region`** — the DAM is us-east-1, valkey + S3 Vectors are us-west-2. never rely on a default region.
+- **aws calls need explicit `--profile bryanchasko-kiro` and `--region`** — the asset store is us-east-1, valkey + S3 Vectors are us-west-2. never rely on a default region.
 - **secrets: SSM only.** no `.env`, no secrets in committed files, no `docker login ghcr`.
 
 ## the rule in one sentence

@@ -40,18 +40,18 @@
 
   // Honest riff cue: the "Riff on past content" card directs a STAGED pick, it is
   // not retrieval. The cue is a VISIBLE non-blocking note beside the cards
-  // (#riffCue, static markup next to #promptChips) — never the #damFlash line
-  // hidden inside the unopened DAM dialog. It never gates Create: generate.js
+  // (#riffCue, static markup next to #promptChips) — never the #assetFlash line
+  // hidden inside the unopened asset store dialog. It never gates Create: generate.js
   // threads seed_key only when a pick is staged and generates fresh otherwise.
   var RIFF_CUE_TEXT = 'Riff on past content riffs on your staged pick — Browse past assets and stage one, or Create generates fresh.';
-  function hasStagedDamAsset(){
-    try{ return (window.__userAssets||[]).some(function(a){ return a && a.source==='dam' && a.key; }); }catch(e){ return false; }
+  function hasStagedAsset(){
+    try{ return (window.__userAssets||[]).some(function(a){ return a && a.source==='asset-library' && a.key; }); }catch(e){ return false; }
   }
   function refreshRiffCue(){
     var cue = document.getElementById('riffCue');
     if(!cue) return;
     var input = cardInputFor('riff-on-past-content');
-    var show = !!(input && input.checked) && !hasStagedDamAsset();
+    var show = !!(input && input.checked) && !hasStagedAsset();
     cue.textContent = show ? RIFF_CUE_TEXT : '';
     cue.hidden = !show;
   }
@@ -395,18 +395,18 @@
     if(input){ try{ input.click(); }catch(e){} }
   });
 
-  // ---- Browse past assets (DAM) — ADDITIVE second staging path into the SAME #selectionTray ----
-  // Reads GET /assets/library and stages a chosen asset via the shared KODIAK_buildChip so a DAM asset
+  // ---- Browse past assets (asset store) — ADDITIVE second staging path into the SAME #selectionTray ----
+  // Reads GET /assets/library and stages a chosen asset via the shared KODIAK_buildChip so a asset
   // behaves like a local upload downstream (window.__userAssets threads name/label into the brief).
   // Fully guarded: enabled:false, HTTP 500, malformed JSON, timeout, or offline all show the friendly
   // "unavailable" message and never throw. Does NOT touch the local-file upload path or Track 6 routing.
   (function(){
-    var trigger  = document.getElementById('damBrowseTrigger');
-    var backdrop = document.getElementById('damBackdrop');
-    var panel    = document.getElementById('damPanel');
-    var closeBtn = document.getElementById('damPanelClose');
-    var body     = document.getElementById('damBody');
-    var flashEl  = document.getElementById('damFlash');
+    var trigger  = document.getElementById('assetBrowseTrigger');
+    var backdrop = document.getElementById('assetBackdrop');
+    var panel    = document.getElementById('assetPanel');
+    var closeBtn = document.getElementById('assetPanelClose');
+    var body     = document.getElementById('assetBody');
+    var flashEl  = document.getElementById('assetFlash');
     if(!trigger || !panel || !backdrop || !body) return;  // markup missing — degrade to no-op
 
     // resolve the library endpoint the same way localizeText resolves /localize: hosted origin only.
@@ -437,14 +437,14 @@
     var COPY_END                = 'That\u2019s the whole stack.';
     var SPARSE_THRESHOLD        = 20;   // total <= this (but > 0) shows the "run lean" note
     var PAGE_LIMIT = 24;   // #171: 60-item presign fan-out measured 6.4s > 6s abort; 24 keeps p95 under timeout
-    var DAM_TIMEOUT_MS = 12000;
+    var ASSET_STORE_TIMEOUT_MS = 12000;
     var COPY_TIMEOUT = 'Past assets timed out. Try again.';
     var COPY_ERROR = 'Past assets unavailable right now. Try again.';
-    function damLog(outcome, failureClass, latencyMs, extra){
-      try{ console.info('[dam] outcome=' + outcome + ' latency_ms=' + latencyMs + ' class=' + failureClass + (extra ? ' ' + extra : '')); }catch(e){}
-      try{ if(window.ffLog) window.ffLog('dam', {outcome: outcome, latency_ms: latencyMs, failureClass: failureClass}); }catch(e){}
+    function assetLog(outcome, failureClass, latencyMs, extra){
+      try{ console.info('[asset-store] outcome=' + outcome + ' latency_ms=' + latencyMs + ' class=' + failureClass + (extra ? ' ' + extra : '')); }catch(e){}
+      try{ if(window.ffLog) window.ffLog('asset-library', {outcome: outcome, latency_ms: latencyMs, failureClass: failureClass}); }catch(e){}
     }
-    function damClassify(err, json){
+    function assetClassify(err, json){
       if(!navigator.onLine) return 'offline';
       if(err && (err.name === 'AbortError' || /abort/i.test(String((err && err.message) || '')))) return 'abort';
       if(err && /HTTP\s+\d+/.test(String((err && err.message) || ''))) return 'http';
@@ -488,12 +488,12 @@
 
     function flash(msg){ try{ if(flashEl) flashEl.textContent = String(msg||''); }catch(e){} }
 
-    // status line lives inside #damBody but MUST NOT wipe the shell (tabs+filter) once built.
+    // status line lives inside #assetBody but MUST NOT wipe the shell (tabs+filter) once built.
     function setStatus(msg){
       try{
         clearGrid();
-        if(!gridEl){ body.innerHTML=''; var p=document.createElement('p'); p.className='ff-dam-status'; p.textContent=String(msg||''); body.appendChild(p); return; }
-        var s=document.createElement('p'); s.className='ff-dam-status'; s.textContent=String(msg||''); gridEl.appendChild(s);
+        if(!gridEl){ body.innerHTML=''; var p=document.createElement('p'); p.className='ff-assets-status'; p.textContent=String(msg||''); body.appendChild(p); return; }
+        var s=document.createElement('p'); s.className='ff-assets-status'; s.textContent=String(msg||''); gridEl.appendChild(s);
       }catch(e){}
     }
 
@@ -522,7 +522,7 @@
     }
 
     // document-level keydown trap, added with capture on open / removed on close (symmetry matters
-    // for the leak-audit history). Only job: Escape closes the modal DAM panel. Everything else
+    // for the leak-audit history). Only job: Escape closes the modal asset store panel. Everything else
     // passes through untouched — tab/tile arrow nav is owned by onTabKeydown/onTileKeydown on their
     // own elements, so this handler must not preventDefault or interfere with other keys.
     function onDocKeydown(e){
@@ -544,19 +544,19 @@
     // GET /assets/library (no category param -> all groups). 6s AbortController timeout, mirrors localizeText.
     function loadLibrary(){
       if(!LIB_ENDPOINT){ buildShell(); renderUnavailable(COPY_OFFLINE); loaded = true; return; }
-      body.innerHTML = ''; var p=document.createElement('p'); p.className='ff-dam-status'; p.textContent=COPY_LOADING; body.appendChild(p);
+      body.innerHTML = ''; var p=document.createElement('p'); p.className='ff-assets-status'; p.textContent=COPY_LOADING; body.appendChild(p);
       var t0 = Date.now();
       var controller = new AbortController();
-      var timer = setTimeout(function(){ controller.abort(); }, DAM_TIMEOUT_MS || 12000);
+      var timer = setTimeout(function(){ controller.abort(); }, ASSET_STORE_TIMEOUT_MS || 12000);
       fetch(LIB_ENDPOINT + '?limit=' + PAGE_LIMIT, {signal: controller.signal})
         .then(function(r){ if(!r.ok) throw new Error('library HTTP '+r.status); return r.json(); })
         .then(function(j){
           if(!j || j.enabled !== true){ buildShell(); renderUnavailable(COPY_OFFLINE); }
-          if(!j || j.enabled !== true){ buildShell(); renderUnavailable(COPY_OFFLINE); damLog('unavailable','empty', Date.now()-t0, 'enabled!=true'); }
-          else { ingest(j); buildShell(); renderActiveTab(); focusFirstControl(); damLog('ok','none', Date.now()-t0, 'limit='+PAGE_LIMIT); }
+          if(!j || j.enabled !== true){ buildShell(); renderUnavailable(COPY_OFFLINE); assetLog('unavailable','empty', Date.now()-t0, 'enabled!=true'); }
+          else { ingest(j); buildShell(); renderActiveTab(); focusFirstControl(); assetLog('ok','none', Date.now()-t0, 'limit='+PAGE_LIMIT); }
           loaded = true;
         })
-        .catch(function(err){ var lat = Date.now()-t0; var cls = damClassify(err); var msg = (cls==='offline') ? COPY_OFFLINE : (cls==='abort') ? COPY_TIMEOUT : (cls==='http') ? COPY_ERROR : COPY_OFFLINE; damLog('error', cls, lat, String((err && err.message)||err)); buildShell(); renderUnavailable(msg); loaded = true; })
+        .catch(function(err){ var lat = Date.now()-t0; var cls = assetClassify(err); var msg = (cls==='offline') ? COPY_OFFLINE : (cls==='abort') ? COPY_TIMEOUT : (cls==='http') ? COPY_ERROR : COPY_OFFLINE; assetLog('error', cls, lat, String((err && err.message)||err)); buildShell(); renderUnavailable(msg); loaded = true; })
         .finally(function(){ clearTimeout(timer); });
     }
 
@@ -619,26 +619,26 @@
       setStatus(msg || COPY_OFFLINE);
     }
 
-    // build the persistent shell inside #damBody: tab bar + filter input + empty grid listbox.
-    // Rebuilt fresh each load; child of #damBody only (index.html untouched).
+    // build the persistent shell inside #assetBody: tab bar + filter input + empty grid listbox.
+    // Rebuilt fresh each load; child of #assetBody only (index.html untouched).
     function buildShell(){
       body.innerHTML = '';
       var cats = Object.keys(model);
       if(!cats.length){ return; }  // nothing to tab over — caller shows status
 
       var controls = document.createElement('div');
-      controls.className = 'ff-dam-controls';
+      controls.className = 'ff-assets-controls';
 
       tablist = document.createElement('div');
-      tablist.className = 'ff-dam-tabs';
+      tablist.className = 'ff-assets-tabs';
       tablist.setAttribute('role','tablist');
       tablist.setAttribute('aria-label','Asset categories');
       cats.forEach(function(cat){
         var tab = document.createElement('button');
         tab.type = 'button';
-        tab.className = 'ff-dam-tab';
+        tab.className = 'ff-assets-tab';
         tab.setAttribute('role','tab');
-        tab.id = 'dam-tab-' + cat;
+        tab.id = 'asset-tab-' + cat;
         tab.dataset.cat = cat;
         var isActive = (cat === activeCat);
         tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
@@ -652,10 +652,10 @@
       controls.appendChild(tablist);
 
       var filterWrap = document.createElement('div');
-      filterWrap.className = 'ff-dam-filter';
+      filterWrap.className = 'ff-assets-filter';
       filterInput = document.createElement('input');
       filterInput.type = 'search';
-      filterInput.className = 'ff-dam-filter-input';
+      filterInput.className = 'ff-assets-filter-input';
       filterInput.setAttribute('placeholder', COPY_SEARCH_PLACEHOLDER);
       filterInput.setAttribute('aria-label','Filter assets in this category');
       filterInput.addEventListener('input', applyFilter);
@@ -666,44 +666,44 @@
 
       // "run lean" note under the tab bar — shown only when the active category is a small set.
       sparseEl = document.createElement('p');
-      sparseEl.className = 'ff-dam-sparse';
+      sparseEl.className = 'ff-assets-sparse';
       sparseEl.hidden = true;
       body.appendChild(sparseEl);
 
       // two client-side facet rows (Type, Ratio) between tab bar and grid. Populated per tab.
       typeRowEl = document.createElement('div');
-      typeRowEl.className = 'ff-dam-facets ff-dam-facets-type';
+      typeRowEl.className = 'ff-assets-facets ff-assets-facets-type';
       typeRowEl.setAttribute('role','group');
       typeRowEl.setAttribute('aria-label','Filter by type');
       body.appendChild(typeRowEl);
 
       ratioRowEl = document.createElement('div');
-      ratioRowEl.className = 'ff-dam-facets ff-dam-facets-ratio';
+      ratioRowEl.className = 'ff-assets-facets ff-assets-facets-ratio';
       ratioRowEl.setAttribute('role','group');
       ratioRowEl.setAttribute('aria-label','Filter by ratio');
       body.appendChild(ratioRowEl);
 
       gridEl = document.createElement('div');
-      gridEl.className = 'ff-dam-grid';
+      gridEl.className = 'ff-assets-grid';
       gridEl.setAttribute('role','listbox');
       gridEl.setAttribute('aria-label','Past assets');
       body.appendChild(gridEl);
 
       // load-more / end-of-stack line lives after the grid.
       moreEl = document.createElement('div');
-      moreEl.className = 'ff-dam-more';
+      moreEl.className = 'ff-assets-more';
       body.appendChild(moreEl);
 
       // selection footer — reflects selectedKey; persists across tab switches.
       footerEl = document.createElement('p');
-      footerEl.className = 'ff-dam-footer';
+      footerEl.className = 'ff-assets-footer';
       footerEl.setAttribute('role','status');
       footerEl.setAttribute('aria-live','polite');
       body.appendChild(footerEl);
       renderFooter();
     }
 
-    // footer line: count of DAM-staged selection, or the "pick one" prompt when nothing selected.
+    // footer line: count of asset-staged selection, or the "pick one" prompt when nothing selected.
     function renderFooter(){
       if(!footerEl) return;
       if(selectedKey){ footerEl.textContent = COPY_FOOTER_SELECTED.replace('{n}', '1'); }
@@ -776,7 +776,7 @@
     function makeFacetChip(label, isActive, onClick){
       var chip = document.createElement('button');
       chip.type = 'button';
-      chip.className = 'ff-dam-facet-chip';
+      chip.className = 'ff-assets-facet-chip';
       chip.textContent = label;
       chip.dataset.facet = label;
       chip.setAttribute('aria-pressed', isActive ? 'true' : 'false');
@@ -788,7 +788,7 @@
       if(which === 'type') activeType = label; else activeRatio = label;
       var row = (which === 'type') ? typeRowEl : ratioRowEl;
       if(row){
-        row.querySelectorAll('.ff-dam-facet-chip').forEach(function(c){
+        row.querySelectorAll('.ff-assets-facet-chip').forEach(function(c){
           c.setAttribute('aria-pressed', (c.dataset.facet === label) ? 'true' : 'false');
         });
       }
@@ -797,7 +797,7 @@
 
     // arrow-key navigation across the tab bar (WAI-ARIA tablist pattern) + roving tabindex.
     function onTabKeydown(e){
-      var tabs = Array.prototype.slice.call(tablist.querySelectorAll('.ff-dam-tab'));
+      var tabs = Array.prototype.slice.call(tablist.querySelectorAll('.ff-assets-tab'));
       var i = tabs.indexOf(e.currentTarget);
       if(i === -1) return;
       var next = -1;
@@ -816,7 +816,7 @@
       if(!model[cat] || cat === activeCat){ if(cat===activeCat) return; }
       activeCat = cat;
       if(tablist){
-        tablist.querySelectorAll('.ff-dam-tab').forEach(function(t){
+        tablist.querySelectorAll('.ff-assets-tab').forEach(function(t){
           var on = (t.dataset.cat === cat);
           t.setAttribute('aria-selected', on ? 'true' : 'false');
           t.tabIndex = on ? 0 : -1;
@@ -834,7 +834,7 @@
       renderFacets();
       var entry = model[activeCat];
       var items = (entry && entry.items) || [];
-      if(!items.length){ var s=document.createElement('p'); s.className='ff-dam-status'; s.textContent=COPY_EMPTY; gridEl.appendChild(s); renderMore(); return; }
+      if(!items.length){ var s=document.createElement('p'); s.className='ff-assets-status'; s.textContent=COPY_EMPTY; gridEl.appendChild(s); renderMore(); return; }
 
       io = makeObserver();
       var firstOption = true;
@@ -856,13 +856,13 @@
       if(entry.has_more && typeof entry.next_offset === 'number'){
         var btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'ff-dam-load-more';
+        btn.className = 'ff-assets-load-more';
         btn.textContent = COPY_LOAD_MORE;
         btn.addEventListener('click', function(){ loadMore(btn); });
         moreEl.appendChild(btn);
       } else if(entry.total > 0){
         var end = document.createElement('p');
-        end.className = 'ff-dam-end';
+        end.className = 'ff-assets-end';
         end.textContent = COPY_END;
         moreEl.appendChild(end);
       }
@@ -875,7 +875,7 @@
       if(!LIB_ENDPOINT || !entry || !entry.has_more || typeof entry.next_offset !== 'number'){ return; }
       if(btn){ btn.disabled = true; btn.textContent = COPY_LOADING; }
       var controller = new AbortController();
-      var timer = setTimeout(function(){ controller.abort(); }, DAM_TIMEOUT_MS || 12000);
+      var timer = setTimeout(function(){ controller.abort(); }, ASSET_STORE_TIMEOUT_MS || 12000);
       var url = LIB_ENDPOINT + '?category=' + encodeURIComponent(cat) + '&limit=' + PAGE_LIMIT + '&offset=' + entry.next_offset;
       fetch(url, {signal: controller.signal})
         .then(function(r){ if(!r.ok) throw new Error('library HTTP '+r.status); return r.json(); })
@@ -916,8 +916,8 @@
     // renderFacets resets active facets to 'All'; after a load-more we want the user's picks kept.
     // Re-apply the aria-pressed state to match the retained activeType/activeRatio.
     function reassertActiveFacets(){
-      if(typeRowEl){ typeRowEl.querySelectorAll('.ff-dam-facet-chip').forEach(function(c){ c.setAttribute('aria-pressed', (c.dataset.facet === activeType) ? 'true' : 'false'); }); }
-      if(ratioRowEl){ ratioRowEl.querySelectorAll('.ff-dam-facet-chip').forEach(function(c){ c.setAttribute('aria-pressed', (c.dataset.facet === activeRatio) ? 'true' : 'false'); }); }
+      if(typeRowEl){ typeRowEl.querySelectorAll('.ff-assets-facet-chip').forEach(function(c){ c.setAttribute('aria-pressed', (c.dataset.facet === activeType) ? 'true' : 'false'); }); }
+      if(ratioRowEl){ ratioRowEl.querySelectorAll('.ff-assets-facet-chip').forEach(function(c){ c.setAttribute('aria-pressed', (c.dataset.facet === activeRatio) ? 'true' : 'false'); }); }
     }
 
     // IntersectionObserver drives BOTH directions: load src on enter, drop src when far out of view.
@@ -926,7 +926,7 @@
       if(typeof IntersectionObserver === 'undefined') return null;
       return new IntersectionObserver(function(entries){
         entries.forEach(function(ent){
-          var img = ent.target.querySelector('.ff-dam-thumb-img');
+          var img = ent.target.querySelector('.ff-assets-thumb-img');
           if(!img) return;
           if(ent.isIntersecting){
             if(!img.getAttribute('src') && img.dataset.src){ img.src = img.dataset.src; }
@@ -948,7 +948,7 @@
       var key = it.key || it.url;
 
       var tile = document.createElement('div');
-      tile.className = 'ff-dam-tile';
+      tile.className = 'ff-assets-tile';
       tile.setAttribute('role','option');
       tile.dataset.cat = cat;
       tile.dataset.key = key;
@@ -965,16 +965,16 @@
       tile.setAttribute('aria-label', desc);
 
       var frame = document.createElement('span');
-      frame.className = 'ff-dam-tile-frame';
+      frame.className = 'ff-assets-tile-frame';
 
       if(kind === 'video'){
         var vbox = document.createElement('span');
-        vbox.className = 'ff-dam-thumb-video';
+        vbox.className = 'ff-assets-thumb-video';
         vbox.textContent = 'VIDEO';
         frame.appendChild(vbox);
       } else {
         var img = document.createElement('img');
-        img.className = 'ff-dam-thumb-img';
+        img.className = 'ff-assets-thumb-img';
         img.alt = '';                      // decorative; the tile carries the aria-label
         img.decoding = 'async';
         img.width = 150; img.height = 150; // sized decode hint — kills layout shift
@@ -987,13 +987,13 @@
 
       if(ratio){
         var badge = document.createElement('span');
-        badge.className = 'ff-dam-ratio-badge';
+        badge.className = 'ff-assets-ratio-badge';
         badge.textContent = ratio;
         frame.appendChild(badge);
       }
 
       var check = document.createElement('span');
-      check.className = 'ff-dam-tile-check';
+      check.className = 'ff-assets-tile-check';
       check.setAttribute('aria-hidden','true');
       check.textContent = '\u2713';
       frame.appendChild(check);
@@ -1001,7 +1001,7 @@
       tile.appendChild(frame);
 
       var lab = document.createElement('span');
-      lab.className = 'ff-dam-thumb-label';
+      lab.className = 'ff-assets-thumb-label';
       lab.textContent = label;
       tile.appendChild(lab);
 
@@ -1013,11 +1013,11 @@
     // branded fallback: replace the broken <img> with a kraft-tone block carrying the label.
     // Idempotent — only injects once even if error fires repeatedly.
     function showPlaceholder(frame, label){
-      var img = frame.querySelector('.ff-dam-thumb-img');
+      var img = frame.querySelector('.ff-assets-thumb-img');
       if(img){ img.remove(); }
-      if(frame.querySelector('.ff-dam-thumb-ph')) return;
+      if(frame.querySelector('.ff-assets-thumb-ph')) return;
       var ph = document.createElement('span');
-      ph.className = 'ff-dam-thumb-ph';
+      ph.className = 'ff-assets-thumb-ph';
       ph.textContent = label || 'asset';
       // keep the badge/check overlays on top — insert placeholder as the first child
       frame.insertBefore(ph, frame.firstChild);
@@ -1030,7 +1030,7 @@
         chooseTile(tile, cat, it, kind, label);
         return;
       }
-      var visible = Array.prototype.slice.call(gridEl.querySelectorAll('.ff-dam-tile')).filter(function(t){ return !t.hidden; });
+      var visible = Array.prototype.slice.call(gridEl.querySelectorAll('.ff-assets-tile')).filter(function(t){ return !t.hidden; });
       var i = visible.indexOf(tile);
       if(i === -1) return;
       var next = -1;
@@ -1052,24 +1052,24 @@
     // estimate columns from rendered tile widths so ArrowUp/Down move a visual row.
     function gridColumns(){
       if(!gridEl) return 1;
-      var first = gridEl.querySelector('.ff-dam-tile');
+      var first = gridEl.querySelector('.ff-assets-tile');
       if(!first) return 1;
       var gw = gridEl.clientWidth || 1;
       var tw = first.offsetWidth || gw;
       return Math.max(1, Math.round(gw / tw));
     }
 
-    // stage + mark selected (ring + checkmark + aria-selected). Reuses the existing stageDamAsset path.
+    // stage + mark selected (ring + checkmark + aria-selected). Reuses the existing stageAsset path.
     function chooseTile(tile, cat, it, kind, label){
       selectedKey = tile.dataset.key;
       if(gridEl){
-        gridEl.querySelectorAll('.ff-dam-tile').forEach(function(t){
+        gridEl.querySelectorAll('.ff-assets-tile').forEach(function(t){
           var on = (t.dataset.key === selectedKey);
           t.classList.toggle('is-selected', on);
           t.setAttribute('aria-selected', on ? 'true' : 'false');
         });
       }
-      stageDamAsset(cat, it, kind, label);
+      stageAsset(cat, it, kind, label);
       renderFooter();
     }
 
@@ -1084,7 +1084,7 @@
         typeTokens = TYPE_KEYWORDS[key] || [key];
       }
       var ratioWant = (activeRatio && activeRatio !== 'All') ? activeRatio : null;
-      var tiles = gridEl.querySelectorAll('.ff-dam-tile');
+      var tiles = gridEl.querySelectorAll('.ff-assets-tile');
       var firstVisible = null;
       tiles.forEach(function(t){
         var hay = t.dataset.search || '';
@@ -1099,13 +1099,13 @@
         }
         // toggle the `hidden` attribute (not inline style.display): the grid used to carry
         // content-visibility:auto, which size/paint-contained the subtree so inline display:none
-        // mutations never reflowed. `hidden` + `.ff-dam-tile[hidden]{display:none!important}` in CSS
+        // mutations never reflowed. `hidden` + `.ff-assets-tile[hidden]{display:none!important}` in CSS
         // makes the collapse robust regardless of any containment/flex interplay.
         t.hidden = !show;
         if(show && !firstVisible) firstVisible = t;
       });
       // keep roving tabindex valid: ensure one visible tile is tabbable
-      var current = gridEl.querySelector('.ff-dam-tile[tabindex="0"]');
+      var current = gridEl.querySelector('.ff-assets-tile[tabindex="0"]');
       if(!current || current.hidden){
         tiles.forEach(function(t){ t.tabIndex = -1; });
         if(firstVisible) firstVisible.tabIndex = 0;
@@ -1114,7 +1114,7 @@
 
     function focusFirstControl(){
       try{
-        if(tablist){ var active = tablist.querySelector('.ff-dam-tab[aria-selected="true"]') || tablist.querySelector('.ff-dam-tab'); if(active){ active.focus(); return; } }
+        if(tablist){ var active = tablist.querySelector('.ff-assets-tab[aria-selected="true"]') || tablist.querySelector('.ff-assets-tab'); if(active){ active.focus(); return; } }
         if(closeBtn) closeBtn.focus();
       }catch(e){}
     }
@@ -1127,23 +1127,23 @@
     }
 
     // STAGE into the shared tray exactly like a local upload — reuse KODIAK_buildChip so the chip is identical.
-    // De-dupe on source:'dam' && key. Presigned url used directly as the thumb <img> src (no blob: to revoke).
-    function stageDamAsset(cat, it, kind, label){
+    // De-dupe on source:'asset-library' && key. Presigned url used directly as the thumb <img> src (no blob: to revoke).
+    function stageAsset(cat, it, kind, label){
       window.__userAssets = window.__userAssets || [];
       var key = it.key || it.url;
-      // de-dupe: same DAM key already staged -> flash a note, do not stage twice
-      var dup = window.__userAssets.some(function(a){ return a && a.source==='dam' && a.key===key; });
+      // de-dupe: same asset key already staged -> flash a note, do not stage twice
+      var dup = window.__userAssets.some(function(a){ return a && a.source==='asset-library' && a.key===key; });
       if(dup){ flash('already added: ' + label); return; }
 
       var buildChip = window.KODIAK_buildChip;
       var docLabel  = window.KODIAK_docLabel;
       if(typeof buildChip !== 'function'){ flash('could not add: staging unavailable'); return; }
 
-      var id = 'dam-asset-' + (window.__damSeq = (window.__damSeq||0) + 1);
-      var rec = { id:id, name:label, kind:kind, source:'dam', key:key, url:it.url, category:cat };
+      var id = 'asset-' + (window.__assetSeq = (window.__assetSeq||0) + 1);
+      var rec = { id:id, name:label, kind:kind, source:'asset-library', key:key, url:it.url, category:cat };
       window.__userAssets.push(rec);
       try{ if(typeof window.__kodiakMarkDirty === 'function') window.__kodiakMarkDirty(); }catch(e){}
-      // a staged DAM pick satisfies the riff cue — clear the visible note (it re-shows
+      // a staged staged asset pick satisfies the riff cue — clear the visible note (it re-shows
       // when the staged pick is removed with riff still checked, or on re-check with no pick staged).
       try{ if(typeof window.__kodiakRefreshRiffCue === 'function') window.__kodiakRefreshRiffCue(); }catch(e){}
 
@@ -1167,7 +1167,7 @@
       closePanel();
     }
 
-    // Viewport-anchor guard: #damBackdrop + #damPanel are authored inside
+    // Viewport-anchor guard: #assetBackdrop + #assetPanel are authored inside
     // .wrap. position:fixed centers on the viewport ONLY when no ancestor
     // creates a containing block. .wrap is position:relative today (safe), but
     // this page actively uses transforms (.card:hover, --logo-hero-scale) and
@@ -1243,7 +1243,7 @@
     var date = new Date().toISOString().slice(0,10).replace(/-/g,'');
     var product = window.__requestedSku || 'savory-waffles';
     var region = 'US-UT', locality = 'park-city-84098', channel = 'retailers';
-    // #204: the real ISO asset-pack zip. When a hosted set was rendered, its DAM
+    // #204: the real ISO asset-pack zip. When a hosted set was rendered, its asset store
     // keys are on window.__lastPack — POST them to /assets/pack and save the
     // presigned zip (the button's data-mcp-description promise, kept). Any
     // failure falls through to the per-PNG flow below, so the button never dies.

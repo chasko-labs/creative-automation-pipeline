@@ -1,7 +1,7 @@
 """Contract tests for the committed data/products/sku-photo-map.json.
 
 Guards the invariants the live generator relies on: every catalog SKU has an
-entry, every entry points at a real DAM photo (never a solid-color placeholder),
+entry, every entry points at a real asset photo (never a solid-color placeholder),
 and channels come from the known set.
 """
 from __future__ import annotations
@@ -16,11 +16,11 @@ REPO = pathlib.Path(__file__).resolve().parents[1]
 MAP_PATH = REPO / "data" / "products" / "sku-photo-map.json"
 CATALOG_PATH = REPO / "data" / "products" / "kodiak-full-catalog.json"
 
-DAM_PREFIX = "brands/kodiak/raw-ingest/"
+ASSET_STORE_PREFIX = "brands/kodiak/raw-ingest/"
 KNOWN_CHANNELS = {"blog", "instagram", "tiktok", "amazon", "catalog"}
 
 # a rendered size variant suffix ("_1200x1200") before the extension. embeddings
-# metadata carries it, real DAM object keys (mostly) do not. reconciliation in
+# metadata carries it, real asset store object keys (mostly) do not. reconciliation in
 # scripts/build-sku-photo-map.py must strip it so keys resolve — this regex guards
 # the committed artifact against that regression returning.
 VARIANT_SUFFIX_RE = re.compile(r"_\d+x\d+\.[a-z0-9]+$", re.IGNORECASE)
@@ -55,11 +55,11 @@ def test_every_catalog_handle_has_entry(sku_map: dict, catalog_handles: set[str]
     assert not missing, f"catalog handles absent from map: {sorted(missing)}"
 
 
-def test_photo_keys_are_dam_paths(sku_map: dict) -> None:
+def test_photo_keys_are_asset_store_paths(sku_map: dict) -> None:
     for handle, entry in sku_map["map"].items():
         key = entry.get("photo_key")
         assert key, f"{handle} has empty photo_key"
-        assert key.startswith(DAM_PREFIX), f"{handle} photo_key not in DAM: {key}"
+        assert key.startswith(ASSET_STORE_PREFIX), f"{handle} photo_key not in asset store: {key}"
 
 
 def test_no_empty_photo_key(sku_map: dict) -> None:
@@ -73,10 +73,10 @@ def test_channels_from_known_set(sku_map: dict) -> None:
         assert chan in KNOWN_CHANNELS, f"{handle} has unknown channel: {chan}"
 
 
-def test_fallbacks_are_dam_paths(sku_map: dict) -> None:
+def test_fallbacks_are_asset_store_paths(sku_map: dict) -> None:
     for handle, entry in sku_map["map"].items():
         for fb in entry.get("fallbacks", []):
-            assert fb.startswith(DAM_PREFIX), f"{handle} fallback not in DAM: {fb}"
+            assert fb.startswith(ASSET_STORE_PREFIX), f"{handle} fallback not in asset store: {fb}"
 
 
 def test_metadata_totals_match(sku_map: dict, catalog_handles: set[str]) -> None:
@@ -86,7 +86,7 @@ def test_metadata_totals_match(sku_map: dict, catalog_handles: set[str]) -> None
 
 def test_no_variant_suffix_in_photo_keys(sku_map: dict) -> None:
     """Regression guard: reconciliation must strip rendered "_NNNNxNNNN" variant
-    suffixes so photo_key references a real DAM object. Only the handful of real
+    suffixes so photo_key references a real asset store object. Only the handful of real
     keys that carry a native size suffix are allowed to keep it (exact match).
     Static check on the committed artifact — no network.
     """

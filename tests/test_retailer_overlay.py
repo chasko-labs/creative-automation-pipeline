@@ -1,6 +1,6 @@
 """Retailer overlay wiring — OFFLINE, cred-free.
 
-Resolver (retailers.resolve_retailer_logo, DAM-first with local fallback) +
+Resolver (retailers.resolve_retailer_logo, asset-store-first with local fallback) +
 retailer_logo layer compositing (generate._resolve_retailer_mark /
 _apply_layer_marks) for costco/publix/target/walmart; kroger/heb/whole-foods
 stay copy-sidecar only.
@@ -11,7 +11,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from creative_automation import dam, generate, retailers
+from creative_automation import asset_store, generate, retailers
 
 
 def test_overlay_sets():
@@ -36,10 +36,10 @@ def test_normalize_overlay_retailer():
     assert retailers.normalize_retailer("kroger") is None
 
 
-def test_dam_keys():
-    assert retailers.dam_key_for_retailer("walmart") == "brands/retailers/logos/walmart.png"
-    assert retailers.dam_key_for_retailer("costco") == "brands/retailers/logos/costco.png"
-    assert retailers.dam_key_for_retailer("target", variant="mono") == (
+def test_asset_store_keys():
+    assert retailers.asset_key_for_retailer("walmart") == "brands/retailers/logos/walmart.png"
+    assert retailers.asset_key_for_retailer("costco") == "brands/retailers/logos/costco.png"
+    assert retailers.asset_key_for_retailer("target", variant="mono") == (
         "brands/retailers/logos/target-mono.png"
     )
 
@@ -66,7 +66,7 @@ def test_resolve_logo_local_fallback(tmp_path):
     assert hit == tmp_path / "walmart.png"
 
 
-def test_resolve_mark_delegates_to_dam_first_resolver(tmp_path, monkeypatch):
+def test_resolve_mark_delegates_to_asset_store_first_resolver(tmp_path, monkeypatch):
     Image.new("RGBA", (200, 80), (0, 90, 180, 255)).save(tmp_path / "target.png", "PNG")
     monkeypatch.setattr(retailers, "LOGO_DIR", tmp_path)
     assert generate._resolve_retailer_mark("target") == tmp_path / "target.png"
@@ -108,7 +108,7 @@ def test_layer_marks_composites_mark_bottom_right(tmp_path, monkeypatch):
 
 
 # ------------------------------------------------- Pillow verification (sprint-2)
-# Garbage bytes in EITHER mark source (the DAM /tmp cache or the repo-local
+# Garbage bytes in EITHER mark source (the asset store /tmp cache or the repo-local
 # logo_dir) resolve to None — the render ships clean with the copy-sidecar
 # retailer line, never a paste-time blowup.
 _GARBAGE = b"\x00\x01garbage-not-an-image" * 64
@@ -118,13 +118,13 @@ _TRUNCATED_PNG = (
 
 
 def _isolate_resolution(monkeypatch, tmp_path):
-    """Offline + hermetic: DAM fetch stubbed, logo sources are tmp dirs."""
+    """Offline + hermetic: asset store fetch stubbed, logo sources are tmp dirs."""
     cache = tmp_path / "cache"
     cache.mkdir()
     empty = tmp_path / "empty-logos"
     empty.mkdir()
     monkeypatch.setattr(retailers, "RETAILER_LOGO_CACHE_DIR", cache)
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: None)
     return cache, empty
 
 
@@ -136,7 +136,7 @@ def test_resolve_logo_garbage_bytes_in_logo_dir_is_none(tmp_path, monkeypatch):
     assert retailers.resolve_retailer_logo("costco", logo_dir=tmp_path) is None
 
 
-def test_resolve_logo_garbage_bytes_in_dam_cache_is_none(tmp_path, monkeypatch):
+def test_resolve_logo_garbage_bytes_in_asset_store_cache_is_none(tmp_path, monkeypatch):
     _cache, empty = _isolate_resolution(monkeypatch, tmp_path)
 
     def _garbage_fetch(key: str, dest: Path):
@@ -144,12 +144,12 @@ def test_resolve_logo_garbage_bytes_in_dam_cache_is_none(tmp_path, monkeypatch):
         dest.write_bytes(_GARBAGE)
         return dest
 
-    monkeypatch.setattr(dam, "fetch_dam_key", _garbage_fetch)
-    # garbage in the DAM cache + empty local dir -> None, never raises.
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _garbage_fetch)
+    # garbage in the asset store cache + empty local dir -> None, never raises.
     assert retailers.resolve_retailer_logo("walmart", logo_dir=empty) is None
 
 
-def test_resolve_logo_dam_garbage_falls_back_to_valid_local(tmp_path, monkeypatch):
+def test_resolve_logo_asset_store_garbage_falls_back_to_valid_local(tmp_path, monkeypatch):
     _cache, _empty = _isolate_resolution(monkeypatch, tmp_path)
 
     def _garbage_fetch(key: str, dest: Path):
@@ -157,7 +157,7 @@ def test_resolve_logo_dam_garbage_falls_back_to_valid_local(tmp_path, monkeypatc
         dest.write_bytes(_TRUNCATED_PNG)
         return dest
 
-    monkeypatch.setattr(dam, "fetch_dam_key", _garbage_fetch)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _garbage_fetch)
     Image.new("RGBA", (200, 80), (0, 90, 180, 255)).save(tmp_path / "walmart.png", "PNG")
     # the corrupt cache entry is skipped; the valid local mark still resolves.
     assert retailers.resolve_retailer_logo("walmart", logo_dir=tmp_path) == (
@@ -165,7 +165,7 @@ def test_resolve_logo_dam_garbage_falls_back_to_valid_local(tmp_path, monkeypatc
     )
 
 
-def test_resolve_logo_dam_valid_hit_still_resolves(tmp_path, monkeypatch):
+def test_resolve_logo_asset_store_valid_hit_still_resolves(tmp_path, monkeypatch):
     _cache, empty = _isolate_resolution(monkeypatch, tmp_path)
 
     def _valid_fetch(key: str, dest: Path):
@@ -173,8 +173,8 @@ def test_resolve_logo_dam_valid_hit_still_resolves(tmp_path, monkeypatch):
         Image.new("RGBA", (200, 80), (0, 90, 180, 255)).save(dest, "PNG")
         return dest
 
-    monkeypatch.setattr(dam, "fetch_dam_key", _valid_fetch)
-    # verification is not a blanket reject: a decodable DAM mark still resolves.
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _valid_fetch)
+    # verification is not a blanket reject: a decodable asset store mark still resolves.
     assert retailers.resolve_retailer_logo("walmart", logo_dir=empty) == (
         retailers.RETAILER_LOGO_CACHE_DIR / "walmart.png"
     )
@@ -188,7 +188,7 @@ def test_layer_marks_garbage_mark_ships_clean(tmp_path, monkeypatch):
     before = base.read_bytes()
     (tmp_path / "walmart.png").write_bytes(_GARBAGE)
     monkeypatch.setattr(retailers, "LOGO_DIR", tmp_path)
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: None)
     prov: dict = {}
     generate._apply_layer_marks(base, {"retailer": "walmart"}, prov)
     assert base.read_bytes() == before
@@ -201,9 +201,9 @@ def test_layer_marks_garbage_mark_ships_clean(tmp_path, monkeypatch):
 # regular file (no chmod, so it holds whatever uid runs the suite).
 def _isolate_ladder(monkeypatch):
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
-    monkeypatch.setattr(dam, "resolve_packshot", lambda pid, dam_root=None: None)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
 
 
 def test_generate_hero_unwritable_out_dir_degrades_to_rung_d(tmp_path, monkeypatch):

@@ -4,11 +4,11 @@ sourcing + technical spec for the retailer logo assets the Kodiak composed-previ
 
 ## readiness statement (read first)
 
-retailer lockup is BLOCKED on legitimately-sourced logo assets plus co-marketing permission. the pipeline should treat the retailer layer as optional and OFF by default until real assets land at the DAM path below. composed previews render correctly without retailer marks - the retailer lockup is an enhancement layer, not a dependency of the base composite
+retailer lockup is BLOCKED on legitimately-sourced logo assets plus co-marketing permission. the pipeline should treat the retailer layer as optional and OFF by default until real assets land at the asset store path below. composed previews render correctly without retailer marks - the retailer lockup is an enhancement layer, not a dependency of the base composite
 
 ## current state
 
-- the DAM holds ZERO retailer logos. the only brand mark present under the Kodiak logo paths is `kodiak-bear.png` / `kodiak-primary-logo_optimized.png` (Kodiak's own marks, not retailer marks)
+- the asset store holds ZERO retailer logos. the only brand mark present under the Kodiak logo paths is `kodiak-bear.png` / `kodiak-primary-logo_optimized.png` (Kodiak's own marks, not retailer marks)
 - every region record in `tools/kodiak-scoreboard/regions/*.json` names retailers in its `retailers[]` block, and the pipeline compose path already accepts a `retailer_logo` param (compose.py `compose_creative`), so the compositing slot exists - it just has nothing to load
 
 ## retailers referenced across the scoreboard
@@ -28,9 +28,9 @@ derived from the `retailers[]` block of every region record. banner-to-parent no
 
 these eight cover every retailer named in the scoreboard region set. Smith's + Kroger can share sourcing effort (same parent) but need distinct marks - Smith's uses its own banner wordmark, not the Kroger logo
 
-## DAM path convention
+## asset store path convention
 
-the compose spec expects each retailer mark at a predictable slug-keyed path in the DAM:
+the compose spec expects each retailer mark at a predictable slug-keyed path in the asset store:
 
 ```
 brands/kodiak/logos/retailers/<retailer-slug>.png
@@ -53,10 +53,10 @@ brands/kodiak/logos/retailers/amazon.png
 
 the pipeline's existing `retailers.py` uses a DIFFERENT convention: `input_assets/retailer-logos/<retailer>.svg` (local, SVG-first with png/text-band degradation in `lockup.py`). two conventions exist:
 
-- brief / DAM convention: `brands/kodiak/logos/retailers/<slug>.png` (S3 DAM, transparent PNG)
+- brief / asset store convention: `brands/kodiak/logos/retailers/<slug>.png` (S3 asset store, transparent PNG)
 - pipeline-local convention: `input_assets/retailer-logos/<slug>.svg` (repo-local, SVG)
 
-recommendation: make the DAM path the canonical source of truth and have `retailers.py` resolve DAM-first (fetch `brands/kodiak/logos/retailers/<slug>.png` via the same verbatim-key fetch the packshot layer uses), falling back to the local `input_assets/retailer-logos/` dir for offline dev. add a monochrome variant path `brands/kodiak/logos/retailers/<slug>-mono.png` for dark/light lockup selection. do NOT ship two divergent asset stores - pick DAM as primary
+recommendation: make the asset store path the canonical source of truth and have `retailers.py` resolve asset-store-first (fetch `brands/kodiak/logos/retailers/<slug>.png` via the same verbatim-key fetch the packshot layer uses), falling back to the local `input_assets/retailer-logos/` dir for offline dev. add a monochrome variant path `brands/kodiak/logos/retailers/<slug>-mono.png` for dark/light lockup selection. do NOT ship two divergent asset stores - pick asset store as primary
 
 ## legal / sourcing note (per retailer, non-negotiable)
 
@@ -75,9 +75,9 @@ this is a legal / partnerships action item. it does NOT auto-download and it is 
 
 ## technical spec per asset (once legitimately obtained)
 
-apply to every `<retailer-slug>.png` delivered to the DAM path:
+apply to every `<retailer-slug>.png` delivered to the asset store path:
 
-- format: transparent-background PNG (alpha channel), lossless. an SVG master is preferred upstream; export the DAM PNG from the vector master
+- format: transparent-background PNG (alpha channel), lossless. an SVG master is preferred upstream; export the asset store PNG from the vector master
 - color: deliver a full-color primary variant AND a monochrome (single-color, typically white-knockout and/or solid-black) variant. the monochrome variant is for dark-lockup placement where full color would clash with the region palette or the message bar
   - full color: `brands/kodiak/logos/retailers/<slug>.png`
   - monochrome: `brands/kodiak/logos/retailers/<slug>-mono.png`
@@ -88,5 +88,5 @@ apply to every `<retailer-slug>.png` delivered to the DAM path:
 
 ## enforcement / guardrail
 
-- no retailer mark is committed to this repo, the pipeline repo, or the DAM without a documented usage right. `governance/secret-handling` does not cover trademarks, but the same discipline applies: assets with usage constraints do not get bundled casually
-- the pipeline default: `retailer_layer_enabled = false` until the eight DAM paths are populated with legitimately-sourced, spec-compliant assets. a composed preview must never block or error on a missing retailer logo - it renders without the lockup and logs the retailer slug as unavailable
+- no retailer mark is committed to this repo, the pipeline repo, or the asset store without a documented usage right. `governance/secret-handling` does not cover trademarks, but the same discipline applies: assets with usage constraints do not get bundled casually
+- the pipeline default: `retailer_layer_enabled = false` until the eight asset store paths are populated with legitimately-sourced, spec-compliant assets. a composed preview must never block or error on a missing retailer logo - it renders without the lockup and logs the retailer slug as unavailable

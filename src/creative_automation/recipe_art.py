@@ -10,7 +10,7 @@ drawing"); ink coverage <= 0.35.
 
 Reuses spin._bedrock_client so there is one Bedrock client factory in the codebase.
 Stable Image Core ON_DEMAND lives in us-west-2, so the client is forced to that region
-via the region kwarg regardless of BEDROCK_REGION (which the DAM path may set to
+via the region kwarg regardless of BEDROCK_REGION (which the asset store path may set to
 us-east-1). Image generation can exceed the default 60s socket read, so the client is
 built with read_timeout=300.
 
@@ -185,7 +185,7 @@ _MAX_ATTEMPTS = 3
 
 MODEL_ID = os.getenv("KODIAK_BEDROCK_IMAGE_MODEL", "stability.stable-image-core-v1:1")
 # Stable Image Core ON_DEMAND lives in us-west-2, not us-east-1. Force it regardless
-# of BEDROCK_REGION so the DAM path setting us-east-1 does not break recipe art.
+# of BEDROCK_REGION so the asset store path setting us-east-1 does not break recipe art.
 IMAGE_REGION = os.getenv("KODIAK_BEDROCK_IMAGE_REGION", "us-west-2")
 DEFAULT_OUT_ROOT = Path(__file__).parents[2] / "output" / "recipe-art"
 

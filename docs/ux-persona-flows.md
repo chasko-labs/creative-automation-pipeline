@@ -17,7 +17,7 @@ four are stretched, so there is nothing honest to approve.
 
 ## 2. Creative, Design, Ops (Brett, Arnoldo, Sam, Amber)
 
-Flow: stage DAM assets (riff on past content) → set creative direction →
+Flow: stage assets (riff on past content) → set creative direction →
 preview → inspect seed, scene prompt, engine, rung per tile → download the
 asset pack → hand off.
 Bar: the staged asset drives the pixels; every tile reports its seed and

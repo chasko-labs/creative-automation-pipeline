@@ -46,7 +46,7 @@ dispatch queue. Re-rate each NO-GO item when its unblock lands.
 ## Work Plan
 
 ENTER (GO):
-1. orin / staged-DAM seed_key priority end to end — 9/10. No impediment.
+1. orin / staged-asset store seed_key priority end to end — 9/10. No impediment.
 2. liora / declutter removal-only pass — 7/10. Non-blocking caveat: Nova Act
    driver needs API key; chromium fallback acceptable.
 3. voss / voice enablement in wall budget — 7/10 CONDITIONAL on co-flag

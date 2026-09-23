@@ -49,7 +49,7 @@ def test_provenance_shape_and_json_serializable(tmp_path: Path, monkeypatch) -> 
             return {"output": {"message": {"content": [{"text": "Keep It Wild\nLAYOUT: center"}]}}}
 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: _Fake())
 
@@ -94,7 +94,7 @@ def test_provenance_pillow_path_records_headline_and_engine(tmp_path: Path, monk
     # stays None (only set on the stability path).
     seed = _make_seed(tmp_path / "seed.png")
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_stability_control_hero", lambda s, p, o: None)
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
@@ -137,7 +137,7 @@ def test_generate_hero_set_three_ratios_via_outpaint(tmp_path: Path, monkeypatch
             return {"output": {"message": {"content": [{"text": "Keep It Wild\nLAYOUT: center"}]}}}
 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: _Fake())
 
@@ -176,7 +176,7 @@ def test_generate_hero_set_pillow_outpaint_fallback(tmp_path: Path, monkeypatch)
     # primary and provenance marks the engine "pillow-outpaint-fallback".
     seed = _make_seed(tmp_path / "seed.png")
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     # primary hero via stability succeeds; outpaint fails -> pillow fallback
     def _fake_control(seed_path, prompt, out):
@@ -214,7 +214,7 @@ def test_generate_hero_set_outpaint_sabotage_degrades_to_pad(tmp_path: Path, mon
     # never propagates the failure.
     seed = _make_seed(tmp_path / "seed.png")
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
 
     def _fake_control(seed_path, prompt, out):
@@ -254,7 +254,7 @@ def test_generate_hero_set_outpaint_budget_gate_skips_without_call(tmp_path: Pat
     # entirely (helper never invoked) and pad instead.
     seed = _make_seed(tmp_path / "seed.png")
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
 
     def _fake_control(seed_path, prompt, out):
@@ -437,7 +437,7 @@ def _seeded_hero_set(tmp_path: Path, monkeypatch) -> None:
     """Wire generate_hero_set so a stability hero is produced offline (no AWS)."""
     seed = _make_seed(tmp_path / "seed.png")
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
 
     def _fake_control(seed_path, prompt, out):

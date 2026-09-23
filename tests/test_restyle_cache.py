@@ -6,7 +6,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from creative_automation import dam, generate
+from creative_automation import asset_store, generate
 
 
 class _StubS3Error(Exception):
@@ -61,8 +61,8 @@ def test_cache_hit_skips_bedrock(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(generate, "boto3", _Boto())
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
-    monkeypatch.setattr(dam, "resolve_packshot", lambda pid: _local_box(tmp_path))
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid: _local_box(tmp_path))
     monkeypatch.setattr(
         generate, "_nova_pro_scene_prompt",
         lambda *a, **k: (_ for _ in ()).throw(AssertionError("must not run")),
@@ -106,8 +106,8 @@ def test_set_base_miss_uses_raw_seed(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(generate, "boto3", _Boto())
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
-    monkeypatch.setattr(dam, "resolve_packshot", lambda pid: _local_box(tmp_path))
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid: _local_box(tmp_path))
     monkeypatch.setattr(
         generate, "_nova_pro_scene_prompt",
         lambda *a, **k: (_ for _ in ()).throw(AssertionError("set base must not restyle")),

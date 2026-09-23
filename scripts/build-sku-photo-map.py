@@ -2,7 +2,7 @@
 """Offline SKU -> real lifestyle photo mapper for the Kodiak catalog.
 
 Maps each catalog product (by handle) to the single best-matching REAL lifestyle
-photo in the DAM, so the live generator can render real Kodiak scene photography
+photo in the asset store, so the live generator can render real Kodiak scene photography
 (blog / social style) per product instead of a pack-shot on a solid ellipse.
 
 Deterministic keyword / metadata scorer — NO vector cosine, NO network by default.
@@ -34,16 +34,16 @@ from collections import Counter
 EMBEDDINGS = pathlib.Path("data/vectors/kodiak-embeddings.jsonl")
 CATALOG = pathlib.Path("data/products/kodiak-full-catalog.json")
 OUT = pathlib.Path("data/products/sku-photo-map.json")
-DEFAULT_DAM_KEYS = pathlib.Path("/tmp/dam-real-keys.txt")
+DEFAULT_ASSET_KEYS = pathlib.Path("/tmp/asset-store-real-keys.txt")
 
 # embeddings metadata image_file carries a rendered size variant suffix
-# (e.g. "..._1200x1200.jpg") that the actual DAM object key does not have.
+# (e.g. "..._1200x1200.jpg") that the actual asset store object key does not have.
 # reconcile() strips it — but only when the exact name is NOT already a real
 # key (a few real keys, e.g. "..._480x480.jpg", carry the suffix natively).
 VARIANT_SUFFIX_RE = re.compile(r"_\d+x\d+(?=\.[a-z0-9]+$)", re.IGNORECASE)
 
-DAM_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
-DAM_BUCKET = "chasko-creative-dam-946179428633-us-east-1"
+ASSET_STORE_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
+ASSET_STORE_BUCKET = "chasko-creative-dam-946179428633-us-east-1"
 
 MODEL_NOTE = (
     "deterministic keyword+metadata overlap scoring (no vector cosine); "
@@ -185,8 +185,8 @@ def load_images(path: pathlib.Path) -> list[dict]:
     return rows
 
 
-def load_dam_keys(path: pathlib.Path) -> set[str]:
-    """Load the real DAM object basenames (one per line) into a set."""
+def load_asset_keys(path: pathlib.Path) -> set[str]:
+    """Load the real asset store object basenames (one per line) into a set."""
     keys: set[str] = set()
     with path.open(encoding="utf-8") as fh:
         for line in fh:
@@ -197,7 +197,7 @@ def load_dam_keys(path: pathlib.Path) -> set[str]:
 
 
 def reconcile_basename(image_file: str, real_keys: set[str]) -> str | None:
-    """Resolve an embeddings image_file to a REAL DAM basename, or None.
+    """Resolve an embeddings image_file to a REAL asset store basename, or None.
 
     Order (a real key with a native size suffix must win before we strip):
       a. exact match in real_keys -> use as-is
@@ -250,15 +250,15 @@ def best_lifestyle_fallback(images: list[dict]) -> dict:
 def photo_entry(meta: dict, score: float, resolved_file: str, fallback_files: list[str]) -> dict:
     """Build an entry from already-reconciled real basenames.
 
-    resolved_file / fallback_files MUST be real DAM basenames (post-reconcile).
+    resolved_file / fallback_files MUST be real asset store basenames (post-reconcile).
     """
     return {
-        "photo_key": DAM_PREFIX + resolved_file,
+        "photo_key": ASSET_STORE_PREFIX + resolved_file,
         "image_file": resolved_file,
         "channel": meta.get("channel"),
         "caption": caption_for(meta),
         "score": round(float(score), 4),
-        "fallbacks": [DAM_PREFIX + f for f in fallback_files],
+        "fallbacks": [ASSET_STORE_PREFIX + f for f in fallback_files],
     }
 
 
@@ -284,13 +284,13 @@ def resolve_ranked(
     """Pick the best RESOLVABLE candidate + reconciled fallbacks for a SKU.
 
     Walks the ranked list; the first candidate whose image_file reconciles to a
-    real DAM key becomes the primary. Up to two further resolvable candidates
+    real asset key becomes the primary. Up to two further resolvable candidates
     (deduped by resolved key) become fallbacks. If NOTHING in the ranked list
     resolves, falls to the generic lifestyle photo (itself reconciled).
 
     Returns (chosen_meta, chosen_score, resolved_primary, resolved_fallbacks).
     Raises RuntimeError only if even the generic cannot resolve — an unusable
-    DAM key set, which must fail loudly rather than emit a broken artifact.
+    asset key set, which must fail loudly rather than emit a broken artifact.
     """
     resolved: list[tuple[float, dict, str]] = []
     for score, meta in ranked:
@@ -315,7 +315,7 @@ def resolve_ranked(
     grk = reconcile_basename(generic.get("image_file", ""), real_keys)
     if grk is None:
         raise RuntimeError(
-            "generic lifestyle fallback does not resolve to a real DAM key; "
+            "generic lifestyle fallback does not resolve to a real asset key; "
             "the --dam-keys set is unusable"
         )
     return generic, 0.0, grk, []
@@ -327,7 +327,7 @@ def verify_keys(keys: list[str], profile: str, region: str) -> list[str]:
     for key in keys:
         cmd = [
             "aws", "s3api", "head-object",
-            "--bucket", DAM_BUCKET,
+            "--bucket", ASSET_STORE_BUCKET,
             "--key", key,
             "--profile", profile,
             "--region", region,
@@ -414,7 +414,7 @@ def build(no_verify: bool, profile: str, region: str, real_keys: set[str] | None
         output["metadata"]["verified"] = True
         output["metadata"]["missing_keys"] = sorted(missing)
         if missing:
-            print(f"WARNING: {len(missing)} photo_key(s) not found in DAM", file=sys.stderr)
+            print(f"WARNING: {len(missing)} photo_key(s) not found in asset store", file=sys.stderr)
 
     return output
 
@@ -451,12 +451,12 @@ def main() -> int:
     ap.add_argument("--profile", default="bryanchasko-kiro", help="AWS profile for --verify")
     ap.add_argument("--region", default="us-east-1", help="AWS region for --verify")
     ap.add_argument(
-        "--dam-keys",
-        default=str(DEFAULT_DAM_KEYS),
+        "--asset-keys", "--dam-keys",
+        default=str(DEFAULT_ASSET_KEYS),
         help=(
-            "file of real DAM object basenames (one per line) used to reconcile "
+            "file of real asset store object basenames (one per line) used to reconcile "
             "embeddings image_file variant suffixes to real keys "
-            f"(default {DEFAULT_DAM_KEYS})"
+            f"(default {DEFAULT_ASSET_KEYS})"
         ),
     )
     args = ap.parse_args()
@@ -472,23 +472,23 @@ def main() -> int:
         print(f"ERROR: {CATALOG} not found.", file=sys.stderr)
         return 2
 
-    dam_keys_path = pathlib.Path(args.dam_keys)
+    asset_keys_path = pathlib.Path(args.asset_keys)
     real_keys: set[str] | None = None
-    if dam_keys_path.exists():
-        real_keys = load_dam_keys(dam_keys_path)
-        print(f"loaded {len(real_keys)} real DAM keys from {dam_keys_path}")
+    if asset_keys_path.exists():
+        real_keys = load_asset_keys(asset_keys_path)
+        print(f"loaded {len(real_keys)} real asset keys from {asset_keys_path}")
     elif args.no_verify:
         print(
             "=" * 72 + "\n"
-            f"WARNING: --dam-keys file {dam_keys_path} not found and --no-verify set.\n"
+            f"WARNING: --dam-keys file {asset_keys_path} not found and --no-verify set.\n"
             "Emitting UNRECONCILED image_file basenames — photo_key values may 404\n"
-            "against the DAM. The committed sku-photo-map.json MUST be rebuilt with\n"
+            "against the asset store. The committed sku-photo-map.json MUST be rebuilt with\n"
             "the real-key file present so every key resolves.\n" + "=" * 72,
             file=sys.stderr,
         )
     else:
         print(
-            f"ERROR: --dam-keys file {dam_keys_path} not found. Provide it, or pass "
+            f"ERROR: --dam-keys file {asset_keys_path} not found. Provide it, or pass "
             "--no-verify to run in degraded (unreconciled) mode.",
             file=sys.stderr,
         )

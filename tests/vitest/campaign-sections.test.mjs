@@ -93,7 +93,7 @@ describe('de-reddened decorative UI', () => {
   it('asset actions have one solid primary and outline secondaries', () => {
     expect(css).toMatch(/#promptUpload\{background:var\(--colors-brand-bear-brown\);border-color:var\(--colors-brand-bear-brown\)/);
     expect(css).toMatch(/#promptUpload::before\{content:"\+"[^}]*\}/);
-    expect(css).toMatch(/\.ff-dam-trigger\{[^}]*border:1px solid var\(--colors-border-strong\)/);
+    expect(css).toMatch(/\.ff-assets-trigger\{[^}]*border:1px solid var\(--colors-border-strong\)/);
     expect(css).toMatch(/\.ff-products \.ff-products-random\{[^}]*border:1px solid var\(--colors-border-strong\)/);
   });
 });

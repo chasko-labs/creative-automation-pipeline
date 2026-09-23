@@ -10,7 +10,7 @@
 
 ## account + region
 
-- account: **bryanchasko-kiro (946179428633)**, region **us-east-1** (the DAM + pipeline region). always pass `--profile bryanchasko-kiro --region us-east-1` on the CLI; MCP calls pass `aws_profile="bryanchasko-kiro"` + `region_name="us-east-1"`.
+- account: **bryanchasko-kiro (946179428633)**, region **us-east-1** (the asset store + pipeline region). always pass `--profile bryanchasko-kiro --region us-east-1` on the CLI; MCP calls pass `aws_profile="bryanchasko-kiro"` + `region_name="us-east-1"`.
 
 ---
 
