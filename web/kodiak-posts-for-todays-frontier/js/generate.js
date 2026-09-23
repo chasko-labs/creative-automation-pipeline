@@ -1601,11 +1601,15 @@ let skuList = [
           // auto-open the collapsed Preview card so the user sees the freshly-composed output
           openPreviewCard();
         } else {
-          // Multi-product fan-out: one themed-less request per selected product; render each tile as it returns.
+          // Multi-product fan-out: one themed-less request per selected product, run
+          // SERIALLY and render each tile as it returns. Parallel full preview
+          // ladders contend for shared model quota inside the backend 22s wall
+          // and all fall through to rung D together; serial keeps each request
+          // inside its own budget (first tile still paints fast).
           if(preview) preview.innerHTML = '';
           if(status) status.textContent = 'Composing ' + products.length + ' product variants with Nova Pro…';
           let firstDone = false, okCount = 0;
-          await Promise.all(products.map(async (name)=>{
+          for(const name of products){
             const slug = slugify(name);
             try{
               const json = await oneGenerate(slug, undefined);
@@ -1618,7 +1622,7 @@ let skuList = [
               const p = document.getElementById('preview');
               if(p){ const t=document.createElement('div'); t.className='tile'; t.innerHTML=`<div class="meta"><b>${name}</b><div class="small flag-err">variant failed — try again</div></div>`; p.appendChild(t); }
             }
-          }));
+          }
           if(status) status.textContent = okCount ? ('Campaign preview ready — ' + okCount + ' of ' + products.length + ' product variants composed') : 'Some variants could not reach the server — check your connection and try again';
           // #281 — fan-out upgrade from the first variant's real response.
           try{ if(window.__lastCopyJson) paintCopyPanel({phase:'used', json: window.__lastCopyJson}); }catch(e){}

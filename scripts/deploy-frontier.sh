@@ -203,7 +203,7 @@ for dir in "${DIRS[@]}"; do
 		"${AWS_ARGS[@]}" --only-show-errors
 
 	# re-put the types where a wrong guess breaks loading/rendering
-	for ext_ct in "svg|image/svg+xml" "woff2|font/woff2" "json|application/json" "js|application/javascript"; do
+	for ext_ct in "svg|image/svg+xml" "woff2|font/woff2" "json|application/json; charset=utf-8" "js|application/javascript; charset=utf-8"; do
 		IFS='|' read -r ext ct <<<"$ext_ct"
 		echo "[deploy-frontier]   fix content-type *.$ext -> $ct in $dir/"
 		run aws s3 cp "s3://$BUCKET/$dir" "s3://$BUCKET/$dir" \
