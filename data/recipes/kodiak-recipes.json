@@ -9137,9 +9137,10 @@
   {
     "id": "mountain-berry-parfait",
     "name": "Mountain Berry Parfait",
+    "description": "No need for a cherry on top of the wildly delicious parfait breakfast, we're bringing the vibrant swirl into this Mountain Berry Parfait recipe. Fresh mountain berries and maple syrup make the perfect complement to the tart taste of Greek yogurt in this recipe. But the best part is, our Kodiak Granola pairs well with just about any yogurt and fruit combination so you can customize your parfait just the way you like it. However you choose to build your parfait, you can count on whole grains, a boost of protein, and delicious fiber in every serving for a healthy and filling way to start your day.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "KODIAK\u00ae Honey Oat Granola",
+    "base": "1/2 cup Greek yogurt; 1 tablespoon Maple Syrup; 1/4 cup Mixed berries; 1/4 cup Kodiak Granola",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/mountain-berry-parfait",
     "localize": {
       "peppers": "\u2014",
@@ -9153,7 +9154,21 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1/2 cup Greek yogurt",
+      "1 tablespoon Maple Syrup",
+      "1/4 cup Mixed berries",
+      "1/4 cup Kodiak Granola"
+    ],
+    "instructions": [
+      "In a small bowl, stir the Greek yogurt and maple syrup together.",
+      "Layer with mixed berries and Kodiak granola and serve!"
+    ],
+    "prepTime": "5 mins",
+    "yield": "1",
+    "dietary": []
   },
   {
     "id": "trail-mix",
@@ -9919,9 +9934,10 @@
   {
     "id": "local-honey-pancakes",
     "name": "Local Honey Pancakes",
+    "description": "This Local Honey Pancakes recipe is a breakfast essential for those looking to satisfy a simple, sweet craving in the morning. From griddle to table in just 10 minutes, these honey pancakes taste delicious and are so easy to make they'll become a breakfast staple. Made using Kodiak Buttermilk Power Cakes, each stack of pancakes is packed with protein and whole grains that makes every bite better than the one before.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "Pancake Ingredients:; 1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1 cup water; Toppings:; 1/4 teaspoon bee pollen; 1/4 cup local honey",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/local-honey-pancakes",
     "localize": {
       "peppers": "\u2014",
@@ -9935,7 +9951,26 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "Pancake Ingredients:",
+      "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 cup water",
+      "Toppings:",
+      "1/4 teaspoon bee pollen",
+      "1/4 cup local honey"
+    ],
+    "instructions": [
+      "Stir Kodiak mix and water together until combined.",
+      "Pour 1/4 cup of batter onto a heated and greased pan or griddle. Cook on medium-high heat or 375 degrees F until bubbles form on the top.",
+      "Flip and continue to cook until golden.",
+      "Top with bee pollen and honey."
+    ],
+    "prepTime": "5 mins",
+    "cookTime": "5 mins",
+    "yield": "2",
+    "dietary": []
   },
   {
     "id": "golden-milk-pancakes",
