@@ -11174,9 +11174,10 @@
   {
     "id": "apple-stack-cake",
     "name": "Apple Stack Cake",
+    "description": "Whether you're hosting an autumn gathering or simply craving something sweet and tart to kick off the season, this Apple Butter Stack Cake delivers big flavor. Made using Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix helps pack in 100% whole grains and protein to keep you feeling full and satisfied throughout your fall adventures. Each layer is slathered with a richly spiced salted apple butter that brings out that perfect balance between sweet and savory taste. Dig in, and find out just how dang irresistible this warm cinnamon and apple flavored dessert can be!",
     "category": "general",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "4 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1 teaspoon ground cinnamon; 3/4 cup unsalted butter, softened; 1-1/2 cup sugar; 2 eggs; 2 teaspoons vanilla; 1/2 cup buttermilk; 2-1/2 cups apple butter",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/apple-stack-cake",
     "localize": {
       "peppers": "Hatch green chile",
@@ -11195,24 +11196,48 @@
       "audience"
     ],
     "example_localization": {},
-    "course": "breakfast & brunch",
+    "course": "desserts",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "4 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 teaspoon ground cinnamon",
+      "3/4 cup unsalted butter, softened",
+      "1-1/2 cup sugar",
+      "2 eggs",
+      "2 teaspoons vanilla",
+      "1/2 cup buttermilk",
+      "2-1/2 cups apple butter"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "instructions": [
+      "Preheat oven to 350 degrees F and trim 8-9 inch circles out of parchment paper.",
+      "In a large bowl, combine Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix and cinnamon; set aside.",
+      "In a separate large bowl, use an electric mixer to beat the butter and sugar together until light and fluffy.",
+      "Add the eggs one at a time. Then, mix in vanilla.",
+      "Add the dry mixture alternatively with the buttermilk, making sure to begin and end with the dry.",
+      "Evenly divide the dough into 8 pieces and form each into a disk in the center of the parchment circles.",
+      "Dust the top of each disk with Kodiak mix or flour and use a rolling pin to roll the dough out to the edges of each parchment circle.",
+      "Transfer the parchment circles with the rolled-out dough onto a sheet pan.",
+      "Bake for 10-12 minutes or until the edges are lightly browned. Repeat with remaining dough until all layers are baked.",
+      "Once all the layers have cooled, assemble the cake by spreading 1/3 cup of apple butter between each layer. Dust the top layer with powdered sugar.",
+      "Cover and refrigerate for 24 hours before serving. (Refrigerating for 24 hours before serving will allow the cake to moisten and become easier to slice.)"
+    ],
+    "prepTime": "45 mins",
+    "cookTime": "40 mins",
+    "yield": "12"
   },
   {
     "id": "apple-stuffed-kodiak-blueberry-muffins",
     "name": "Apple Stuffed Kodiak Blueberry Muffins",
+    "description": "Apple-stuffed blueberry muffins \u2014 slow roasted over an open fire \ud83e\udd24. It's only natural to salivate over this dish, as many of the ingredients come from nature. When in the wild, amiright? Take a scrumptious box of Kodiak Blueberry Muffin mix, Mountain Berry Syrup, and a few other essentials to cook a delicious, hearty dish you'll be thinking about the whole hike home.",
     "category": "muffins",
-    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "product": "KODIAK\u00ae Blueberry Muffin Mix",
+    "base": "To Make:; 4 granny smith apples; zest of 1 lemon; 1 box Kodiak Blueberry Muffin Mix; To Serve:; Kodiak Mountain Berry Super Fruit Syrup; butter; blueberries; Equipment:; Fire pit",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/apple-stuffed-kodiak-blueberry-muffins",
     "localize": {
       "peppers": "Hatch green chile",
@@ -11234,14 +11259,33 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "To Make:",
+      "4 granny smith apples",
+      "zest of 1 lemon",
+      "1 box Kodiak Blueberry Muffin Mix",
+      "To Serve:",
+      "Kodiak Mountain Berry Super Fruit Syrup",
+      "butter",
+      "blueberries",
+      "Equipment:",
+      "Fire pit"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "instructions": [
+      "Light a fire and let it burn down for 1 hour or until you obtain a medium heat.",
+      "Slice the tops off the apples and set aside. Using a corer, core the apples three-quarters of the way through, but keep the bases intact. Scoop out most of the apple flesh and roughly chop.",
+      "Add the apple and lemon zest to the muffin mix and make up the batter according to the packet instructions. Spoon the batter into the hollowed-out apples and place the apple lids on top. Wrap the apples in foil.",
+      "Use a shovel to make space among the coals away from the center of the fire. Add the apples, shovel some coals on top and cook for 15-20 minutes, until soft.",
+      "Unwrap the apples and serve with Kodiak Fruit Syrup, soft butter, and a few blueberries."
+    ],
+    "prepTime": "15 mins",
+    "cookTime": "20 mins",
+    "yield": "12"
   },
   {
     "id": "asparagus-and-goat-cheese-frittata",
