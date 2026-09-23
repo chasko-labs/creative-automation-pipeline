@@ -2,9 +2,9 @@
 
 poc runs locally with mock fallback. promote to Bedrock AgentCore Runtime in one step:
 
-1. handler wraps run_pipeline(brief, dam_root, out_root) — s3 dam via boto3 s3 sync or Gateway tool
+1. handler wraps run_pipeline(brief, asset_root, out_root) — s3 asset store via boto3 s3 sync or Gateway tool
 2. create runtime: aws bedrock-agentcore-control create-agent-runtime ...
-3. gateway: expose dam list/get + approval webhook as MCP tools via bedrock-agentcore-control create-gateway
+3. gateway: expose asset list/get + approval webhook as MCP tools via bedrock-agentcore-control create-gateway
 4. nova act: browser automation for visual qa — open preview.html at 3 viewports, verify logo/text/brand colors, write back compliance
 5. observability: agentcore otel -> cloudwatch, report.jsonl -> s3 vectors for "what drives ctr" learning loop
 

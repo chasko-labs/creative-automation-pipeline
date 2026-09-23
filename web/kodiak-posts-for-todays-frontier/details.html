@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.1.012-9c7e18f-20260922">
+<link rel="stylesheet" href="design/styles.css?v=0.1.021-19f2858-20260923">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>KODIAK® Posts for Today's Frontier — Design System Inventory</title>
 <meta name="robots" content="noindex, nofollow, noarchive">
@@ -225,7 +225,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 
 <div class="card inv-section" id="start-here"><div class="hd"><h2>Start here — what this page is <span class="badge">reference</span></h2></div><div class="body">
 <p class="inv-lead">This page is the visual guide for a campaign that turns local seasonal ingredients into printable Kodiak recipe cards. Color, type, cards, and previews are described in plain language first; the live scorecards at the bottom check the same choices automatically. The recipe card itself — the printable keepsake — is specified under <a href="#recipe-card-standard">recipe card standard</a>, with its field-by-field inventory in the <a href="#recipe-card-inventory">template inventory</a> just above it.</p>
-<p class="inv-lead">Terms, introduced once then shortened: Digital Asset Library (DAM) — the approved image store · artificial intelligence (AI) — the generation tools · Scalable Vector Graphics (SVG) — the placeholder sketches · stock-keeping unit (SKU) — the product catalog entry · call to action (CTA) — the create button · Web Content Accessibility Guidelines (WCAG) — the contrast rules.</p>
+<p class="inv-lead">Terms, introduced once then shortened: Digital Asset Library (asset store) — the approved image store · artificial intelligence (AI) — the generation tools · Scalable Vector Graphics (SVG) — the placeholder sketches · stock-keeping unit (SKU) — the product catalog entry · call to action (CTA) — the create button · Web Content Accessibility Guidelines (WCAG) — the contrast rules.</p>
 <p class="inv-lead">How it works: generation steps are on <a href="pipeline.html">pipeline: generation and localization</a>; hosting is on <a href="infrastructure.html">infrastructure: hosting and delivery</a>.</p>
 <p class="inv-lead">The logo default is <code>input_assets/brand/logo.png</code> (lockups enforced by brand-guard.js). The header bear crossfades to the alt logo past 40px scroll (<code>js/scroll-swap.js</code>); canvas covers use a bear placeholder when cover art is missing (<code>js/data-core.js</code>). Shared types live in <code>js/globals.d.ts</code>; the Spectrum token mapping is §12 of <a href="../../docs/design-system-inventory.md" target="_blank">design-system-inventory</a>.</p>
 </div></div>
@@ -238,7 +238,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 <!-- Design system inventory — a human-readable companion to the live scorecards.
      The inventory appears before the scorecards so the page reads from design guidance
      into the live quality summary. -->
-<div class="card wide-track inv-section" id="inventory"><div class="hd"><h2>Design system — living inventory <span class="badge">reference</span></h2><p>This page explains the visible building blocks of the campaign tool: color, type, spacing, controls, cards, previews, localization, accessibility, and the reasoning behind the visual system. The live scorecards below provide an additional quality check. Reference files remain available through <a href="../../design/tokens/kodiak.json" target="_blank">the design tokens</a>, <a href="design/styles.css?v=0.1.012-9c7e18f-20260922" target="_blank">the shared styles</a>, and the <a href="../../docs/kodiak-style-guide.md" target="_blank">brand style guide</a>.</p></div><div class="body">
+<div class="card wide-track inv-section" id="inventory"><div class="hd"><h2>Design system — living inventory <span class="badge">reference</span></h2><p>This page explains the visible building blocks of the campaign tool: color, type, spacing, controls, cards, previews, localization, accessibility, and the reasoning behind the visual system. The live scorecards below provide an additional quality check. Reference files remain available through <a href="../../design/tokens/kodiak.json" target="_blank">the design tokens</a>, <a href="design/styles.css?v=0.1.021-19f2858-20260923" target="_blank">the shared styles</a>, and the <a href="../../docs/kodiak-style-guide.md" target="_blank">brand style guide</a>.</p></div><div class="body">
 <p class="inv-lead">Use this page as a shared vocabulary for client conversations. It describes what people see and why the interface uses each pattern, without requiring knowledge of the services that deliver the page.</p>
 </div></div>
 
@@ -728,7 +728,7 @@ graph TD
 <p class="inv-lead">The visual system keeps color, type, spacing, shape, and depth in one shared vocabulary. When a new interface component is introduced, it receives those same brand values so the campaign experience remains recognizable and consistent.</p>
 
 <h3>Shared brand values</h3>
-<p><a href="design/styles.css?v=0.1.012-9c7e18f-20260922" target="_blank">The shared styles</a> provide one set of brand values for color, spacing, shape, depth, and type. New interface elements use the same values so the campaign experience remains recognizable from page to page.</p>
+<p><a href="design/styles.css?v=0.1.021-19f2858-20260923" target="_blank">The shared styles</a> provide one set of brand values for color, spacing, shape, depth, and type. New interface elements use the same values so the campaign experience remains recognizable from page to page.</p>
 
 <h3>Consistent component styling</h3>
 <p>When a shared control pattern is introduced, its colors, spacing, focus treatment, and shape follow the same kodiak values. This keeps buttons, pickers, disclosures, and search fields familiar while preserving their keyboard and screen-reader behavior.</p>
@@ -755,7 +755,7 @@ graph TD
 <tr><td>Ingredients + prices</td><td>full ingredient lines with quantities, verbatim from the catalog record; per-line prices only from a complete verified cost record</td><td>price an em-dash unless verified, never $0.00</td><td>recipe registry (lines + costs)</td></tr>
 <tr><td>Steps</td><td>up to 5 recipe instructions, real leading word uppercased as the bold verb</td><td>quantity-led steps keep wording; no verb invented</td><td>recipe registry</td></tr>
 <tr><td>Market + month</td><td>market and resolved month on every card</td><td>empty states carry the reason</td><td>market-month localization</td></tr>
-<tr><td>Artwork urls</td><td>one drawing per zone, deduped by ingredient slug, reused when already published</td><td>null url renders the placeholder</td><td>DAM-via-emit (seed step embeds urls into the offline data file)</td></tr>
+<tr><td>Artwork urls</td><td>one drawing per zone, deduped by ingredient slug, reused when already published</td><td>null url renders the placeholder</td><td>asset store-via-emit (seed step embeds urls into the offline data file)</td></tr>
 <tr><td>Provenance</td><td>source-backed vs proposed vs unknown, kept in card data</td><td>never printed on the card face, by design decision</td><td>emit data (unprinted)</td></tr>
 </tbody></table>
 <span class="std"><b>Honest nulls.</b> Any field without a backing source renders as an em-dash and is listed unknown in provenance — the card never guesses a time, temperature, price, or serving count.</span>
@@ -875,7 +875,7 @@ graph TD
 
   <!-- BABYLON BOARD PREVIEW PLACEHOLDER — the board agent owns the script + fill -->
   <div class="recipe-card-board" id="recipe-card-board" data-substrate="kraft" aria-label="physical board preview of the recipe card">
-    <img class="recipe-card-board__fallback" src="assets/recipe-card-board-fallback.svg?v=0.1.012-9c7e18f-20260922" alt="recipe card shown as a 20 point brown kraft board, 8.5 by 11 inches" />
+    <img class="recipe-card-board__fallback" src="assets/recipe-card-board-fallback.svg?v=0.1.021-19f2858-20260923" alt="recipe card shown as a 20 point brown kraft board, 8.5 by 11 inches" />
     <p class="recipe-card-board__status" role="status"></p>
   </div>
 
@@ -1114,7 +1114,7 @@ graph TD
     { id:'perf', title:'Performance Readiness', weight:1.5, desc:'APP 4 load-bearing controls mounted + chips interactive + preview canvas post-Generate (neutral until run) + app shell 20-100k', check: function(){
         if(!appReady) return noApp();
         const subs=[]; let s=0,m=4;
-        const ctrls=['generateCampaign','productSearch','useMyLocation','damBrowseTrigger'].filter(id=>appDoc.getElementById(id));
+        const ctrls=['generateCampaign','productSearch','useMyLocation','assetBrowseTrigger'].filter(id=>appDoc.getElementById(id));
         if(ctrls.length===4){s++; subs.push('✓ 4 controls');} else subs.push('✗ '+ctrls.length+'/4');
         const canv=appDoc.querySelectorAll('#preview canvas').length;
         const untouched=appDoc.querySelectorAll('#preview > *').length===0;
@@ -1255,7 +1255,7 @@ graph TD
      origin (the deployed site) to fetch its chunks; it does not run the
      three-dimensional path from a file:// Uniform Resource Locator. The static
      fallback still works from file:// and on any chunk-fetch failure. -->
-<script type="module" src="vendor/kodiak-ember.esm.js?v=0.1.012-9c7e18f-20260922"></script>
+<script type="module" src="vendor/kodiak-ember.esm.js?v=0.1.021-19f2858-20260923"></script>
 <!-- Boot as a SECOND module script. ECMAScript-module scripts are deferred and
      execute in document order, so this runs AFTER the entry module above has
      evaluated and assigned window.KodiakEmber. The guard still returns early if

@@ -1,7 +1,7 @@
-"""AssetLibrary — first DAM write-path: classify, dedup, put object + sidecar, browse/select.
+"""AssetLibrary — first asset store write-path: classify, dedup, put object + sidecar, browse/select.
 
 Typed, dependency-injected S3 client + Observer so it is unit-testable offline (inject a fake
-client) and degrades gracefully when boto3/creds are absent (mirrors dam.py's _s3_enabled pattern).
+client) and degrades gracefully when boto3/creds are absent (mirrors asset_store.py's _s3_enabled pattern).
 """
 from __future__ import annotations
 
@@ -169,7 +169,7 @@ def _selectable_kinds() -> set[AssetKind]:
 
 
 class AssetLibrary:
-    """Storage + metadata service for user-contributed source assets under the DAM library prefix."""
+    """Storage + metadata service for user-contributed source assets under the asset library prefix."""
 
     def __init__(
         self,
@@ -185,11 +185,11 @@ class AssetLibrary:
 
     # ------------------------------------------------------------------ s3 wiring
     def _build_s3_client(self) -> Any:
-        """Lazily build a boto3 S3 client (us-east-1), guarded like dam.py; None if absent."""
+        """Lazily build a boto3 S3 client (us-east-1), guarded like asset_store.py; None if absent."""
         if not HAS_BOTO3:
             return None
         region = os.getenv(
-            "DAM_S3_REGION", os.getenv("BEDROCK_REGION", os.getenv("AWS_REGION", "us-east-1"))
+            "ASSET_STORE_S3_REGION", os.getenv("BEDROCK_REGION", os.getenv("AWS_REGION", "us-east-1"))
         )
         try:
             return boto3.client("s3", region_name=region)

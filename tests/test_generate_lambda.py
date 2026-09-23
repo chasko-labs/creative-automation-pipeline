@@ -376,7 +376,7 @@ def test_preview_pads_upload_real_pngs_at_matrix_dims(monkeypatch, tmp_path: Pat
 
     assert len(fake_s3.puts) == 5
     keys = [p["Key"] for p in fake_s3.puts]
-    assert len(set(keys)) == 5  # every tile persists under its own DAM key
+    assert len(set(keys)) == 5  # every tile persists under its own asset key
     for put in fake_s3.puts:
         assert put["ContentType"] == "image/png"
         with Image.open(io.BytesIO(put["Body"])) as im:
@@ -614,7 +614,15 @@ def test_art_director_flag_on_fast_return_uses_art_director_line(
         _ad, "art_direct", lambda prompt, voice: {"text": "Keep It Wild — Frontier Fuel"}
     )
 
-    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    event = {
+        "body": json.dumps(
+            {
+                "prompt": "a bear eating pancakes",
+                "product": "power-cakes",
+                "art_director": True,
+            }
+        )
+    }
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
@@ -627,7 +635,7 @@ def test_art_director_flag_on_fast_return_uses_art_director_line(
 
 
 # --------------------------------------------------------------------------- #
-# PUBLISH-TIME PLATFORM TAGS: renders ship x-amz-meta-platforms so the DAM
+# PUBLISH-TIME PLATFORM TAGS: renders ship x-amz-meta-platforms so the asset store
 # browser can filter by platform. No real AWS — _FakeS3 captures put_object.
 # --------------------------------------------------------------------------- #
 
@@ -694,8 +702,8 @@ def test_pack_zips_renders_with_iso_names(monkeypatch) -> None:
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: s3)
     resp = generate_lambda.handler(_pack_event({
         "files": [
-            {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
-            {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/b2.png", "ratio": "9x16"},
+            {"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
+            {"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/brands/kodiak/renders/b2.png", "ratio": "9x16"},
         ],
         "product": "blueberry-muffin-mix",
         "region": "US-UT",
@@ -721,7 +729,7 @@ def test_pack_zips_renders_with_iso_names(monkeypatch) -> None:
 
 def test_pack_rejects_non_render_keys(monkeypatch) -> None:
     resp, body = _pack_body(monkeypatch, {"files": [
-        {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/tokens/secret.json", "ratio": "1x1"},
+        {"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/brands/kodiak/tokens/secret.json", "ratio": "1x1"},
     ]})
     assert resp["statusCode"] == 400
     assert body["ok"] is False
@@ -737,7 +745,7 @@ def test_pack_rejects_foreign_bucket(monkeypatch) -> None:
 
 def test_pack_missing_member_is_400_not_partial(monkeypatch) -> None:
     resp, body = _pack_body(monkeypatch, {"files": [
-        {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/nope.png", "ratio": "1x1"},
+        {"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/brands/kodiak/renders/nope.png", "ratio": "1x1"},
     ]})
     assert resp["statusCode"] == 400
     assert "nope.png" in body["error"]
@@ -757,7 +765,7 @@ def test_pack_includes_text_extras(monkeypatch) -> None:
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: s3)
     resp = generate_lambda.handler(_pack_event({
         "files": [
-            {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
+            {"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
         ],
         "extras": [
             {"name": "copy.txt", "text": "Keep It Wild"},
@@ -774,7 +782,7 @@ def test_pack_includes_text_extras(monkeypatch) -> None:
 
 def test_pack_rejects_bad_extra_name(monkeypatch) -> None:
     resp, body = _pack_body(monkeypatch, {"files": [
-        {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
+        {"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
     ], "extras": [{"name": "../evil.sh", "text": "x"}]})
     assert resp["statusCode"] == 400
     assert body["ok"] is False
@@ -782,7 +790,7 @@ def test_pack_rejects_bad_extra_name(monkeypatch) -> None:
 
 def test_pack_rejects_oversize_extra(monkeypatch) -> None:
     resp, body = _pack_body(monkeypatch, {"files": [
-        {"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
+        {"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/brands/kodiak/renders/a1.png", "ratio": "1x1"},
     ], "extras": [{"name": "big.txt", "text": "x" * 70000}]})
     assert resp["statusCode"] == 400
     assert body["ok"] is False
@@ -805,7 +813,15 @@ def test_art_upgrade_records_headline_post_render_without_rewriting_brief(
         lambda *a, **k: {"text": "Lace up. Keep it wild.", "source": "bedrock:kodiak-artdirector"},
     )
 
-    event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
+    event = {
+        "body": json.dumps(
+            {
+                "prompt": "a bear eating pancakes",
+                "product": "power-cakes",
+                "art_director": True,
+            }
+        )
+    }
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
@@ -872,7 +888,12 @@ def test_kick_voice_dark_resolves_prompt_instantly() -> None:
     import concurrent.futures as _fut
 
     assert generate_lambda.ART_DIRECTOR_ENABLED is False
-    fut = generate_lambda._kick_voice({"product": "power-cakes"}, "wild mornings")
+    # no per-request opt-in: nothing is kicked at all
+    assert generate_lambda._kick_voice({"product": "power-cakes"}, "wild mornings") is None
+    # opted in but flag dark: resolves instantly to the prompt
+    fut = generate_lambda._kick_voice(
+        {"product": "power-cakes", "art_director": True}, "wild mornings"
+    )
     assert isinstance(fut, _fut.Future)
     assert fut.result(timeout=5) == "wild mornings"
 

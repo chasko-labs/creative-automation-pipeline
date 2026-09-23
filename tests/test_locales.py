@@ -3,6 +3,7 @@ from creative_automation.locales import (
     FrontierPair,
     load_pairs,
     resolve_pair,
+    resolve_target_languages,
     resolve_this_month,
 )
 
@@ -93,3 +94,24 @@ def test_load_pairs_indexes_by_market():
     pairs = load_pairs()
     assert "US-SE-ATL" in pairs
     assert "US-CA-PESCADERO" in pairs
+
+
+def test_known_market_never_invents_a_language():
+    codes = [lang["lang_code"] for lang in resolve_target_languages("US-NE-BRONX")]
+    assert codes[0] == "en"
+    assert "pt" not in codes  # Bronx lists Spanish + French — no Portuguese fill
+
+
+def test_manhattan_resolves_spanish_and_chinese():
+    codes = [lang["lang_code"] for lang in resolve_target_languages("US-NE-MANHATTAN")]
+    assert codes == ["en", "es", "zh"]
+
+
+def test_brooklyn_resolves_spanish_and_chinese():
+    codes = [lang["lang_code"] for lang in resolve_target_languages("US-NE-BROOKLYN")]
+    assert codes == ["en", "es", "zh"]
+
+
+def test_unknown_market_keeps_default_fill():
+    codes = [lang["lang_code"] for lang in resolve_target_languages("US-XX-NOWHERE")]
+    assert codes == ["en", "es", "pt"]

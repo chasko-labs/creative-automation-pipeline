@@ -39,12 +39,12 @@ Open `output_kodiak/preview.html` or `/tmp/kodiak-verify/preview.html` after any
 Kodiak is already national, so "local footprint" doesn't mean entering a new country. It means winning one retail corridor at a time. The same three products need different stories in different aisles.
 
 ### 1. Keep It Wild — the always-on brand campaign
-*Hero product:* Buttermilk Power Cakes (the original, the DAM has a real hero photo).
+*Hero product:* Buttermilk Power Cakes (the original, the asset store has a real hero photo).
 *Idea:* Every pack funds grizzly habitat via Vital Ground. Social ads carry the wild, not just the food — Wasatch dawn hero, bear-safe photography, co-badge in the footer, and the tagline "Keep It Wild."
 *Where it localizes:* Wasatch ski towns in winter (snow, cabin, Vital Ground acreage counter), southeast family porches in spring (Publix humidity-green, Bear Bites for cubs). Same system, different sky. Nova Canvas prompts `kodiak-01` and `kodiak-06` seed these.
 
 ### 2. Frontier Breakfast — the retail velocity campaign
-*Hero products:* Power Cakes, Bear Bites, Protein Oatmeal Cup (three SKUs = three heroes; Power Cakes reuses a DAM photo, the other two generate when no hero exists).
+*Hero products:* Power Cakes, Bear Bites, Protein Oatmeal Cup (three SKUs = three heroes; Power Cakes reuses a asset photo, the other two generate when no hero exists).
 *Idea:* "Protein-packed whole grains for today's frontier" — the honest claim that moves boxes. Each retailer gets its own pack: Publix in the southeast (family breakfast, porch light), Target in the Midwest (Gen Z health, clean light), Costco bulk (family value, bigger stack). That's 3 products × 3 ratios × 3 retailers = 27 variants before we even change language.
 *Where it localizes:* US-MW (mountain haze, Wasatch) vs US-SE (Publix porch) — we already have two briefs `briefs/kodiak.yaml` (US-MW) and `briefs/kodiak-se.yaml` (US-SE) that render 9 + 9 creatives with different `region` tags in `report.jsonl` so merch can see what drove lift per corridor.
 
@@ -61,15 +61,15 @@ You don't need AWS credentials to see it work, but the path is the same with or 
 
 1. **Brief in.** A YAML or JSON file names the campaign, the three products, the target market (e.g., US-MW vs US-SE), the audience, and one headline. `briefs/kodiak.yaml` is the source you can edit.
 
-2. **Dam first, generate only if missing.** The pipeline looks in `input_assets/power-cakes/hero.png` (real photo, reused) first, then in S3 at `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/power-cakes/hero.png` if `DAM_S3_BUCKET` is set, then generates a new hero if nothing is there. When it generates, it uses the frontier palette from the tokens and either a deterministic Pillow mock or, with credentials, Amazon Bedrock Nova Canvas (`amazon.nova-canvas-v1:0` in us-east-1, 1024×1024, cfgScale 7.5) seeded from the eight prompts in `references/keep-it-wild/nova-canvas-prompts.json`.
+2. **Dam first, generate only if missing.** The pipeline looks in `input_assets/power-cakes/hero.png` (real photo, reused) first, then in S3 at `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/power-cakes/hero.png` if `ASSET_STORE_S3_BUCKET` is set, then generates a new hero if nothing is there. When it generates, it uses the frontier palette from the tokens and either a deterministic Pillow mock or, with credentials, Amazon Bedrock Nova Canvas (`amazon.nova-canvas-v1:0` in us-east-1, 1024×1024, cfgScale 7.5) seeded from the eight prompts in `references/keep-it-wild/nova-canvas-prompts.json`.
 
 3. **Compose to three ratios deterministically.** Pillow does the layout, not another model, so the bear stays the bear. Every hero is covered to the ratio (ImageOps.fit), dimmed 0.18 with the token scrim #1A1110CC, contained at min(W*0.82/hw, H*0.58/hh) centered at 8% down, then overlayed with the headline (slab 56px at 1:1, 64px at 9:16, 72px at 16:9, max 3 lines, stroke 2), the Kodiak footer ("KODIAK • kodiakcakes.com • Keep It Wild" at 22/24px uppercase), the bear logo at 24,24, and the 8px Blaze Orange bar. Colors, spacing, and type all come from `design/tokens/kodiak.json` via `token_loader.py` (S3 first, local fallback). That's `s3://.../tokens/kodiak.tokens.json` in production.
 
 4. **Check the brand and the law.** Every rendered PNG runs through logo presence, palette presence (does the image actually contain bear brown / blaze orange / frontier green), and prohibited words ("guaranteed," "miracle," "FDA approved," etc.). A failing creative still renders but is marked fail in the report — that's how we keep the 17% class action from recurring.
 
-5. **Save and learn.** Assets land organized by product and ratio: `output_kodiak/power-cakes/1x1/power-cakes_1x1.png` and so on, plus `output_kodiak/report.json`, `report.jsonl` (one JSON line per creative — product, ratio, region, hero_source dam vs mock vs bedrock, compliance pass), and `output_kodiak/preview.html`. Local lives in `output_*`; with creds, `scripts/sync-dam.sh push-renders output_kodiak` mirrors to `s3://.../brands/kodiak/renders/`.
+5. **Save and learn.** Assets land organized by product and ratio: `output_kodiak/power-cakes/1x1/power-cakes_1x1.png` and so on, plus `output_kodiak/report.json`, `report.jsonl` (one JSON line per creative — product, ratio, region, hero_source asset library vs mock vs bedrock, compliance pass), and `output_kodiak/preview.html`. Local lives in `output_*`; with creds, `scripts/sync-asset-store.sh push-renders output_kodiak` mirrors to `s3://.../brands/kodiak/renders/`.
 
-6. **Style library stays in sync.** Tokens, references, logos, and templates live in S3 under `brands/kodiak/` and mirror to `design/tokens/`, `references/`, `input_assets/` locally. `./scripts/sync-dam.sh pull` before a run, `push` after you publish a new token or Keep It Wild reference. Infra is `infra/s3-dam.tf` (versioned, KMS, public-blocked, lifecycle to IA/Glacier/Deep Archive).
+6. **Style library stays in sync.** Tokens, references, logos, and templates live in S3 under `brands/kodiak/` and mirror to `design/tokens/`, `references/`, `input_assets/` locally. `./scripts/sync-asset-store.sh pull` before a run, `push` after you publish a new token or Keep It Wild reference. Infra is `infra/s3-dam.tf` (versioned, KMS, public-blocked, lifecycle to IA/Glacier/Deep Archive).
 
 **To see it yourself from a fresh shell:**
 
@@ -85,10 +85,10 @@ Or with the live bucket:
 
 ```bash
 export AWS_PROFILE=bryanchasko-kiro
-export DAM_S3_BUCKET=chasko-creative-dam-946179428633-us-east-1 DAM_S3_PREFIX=brands/kodiak/
-./scripts/sync-dam.sh pull
-DAM_S3_BUCKET=... uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak
-aws s3 ls s3://$DAM_S3_BUCKET/brands/kodiak/ --recursive | head -n 20
+export ASSET_STORE_S3_BUCKET=chasko-creative-dam-946179428633-us-east-1 ASSET_STORE_S3_PREFIX=brands/kodiak/
+./scripts/sync-asset-store.sh pull
+ASSET_STORE_S3_BUCKET=... uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak
+aws s3 ls s3://$ASSET_STORE_S3_BUCKET/brands/kodiak/ --recursive | head -n 20
 ```
 
 The brand you see in S3 and in `design/tokens/` is the same brand you see in `output_kodiak/preview.html` — one system, rendered three ways, ready for the next retail corridor.

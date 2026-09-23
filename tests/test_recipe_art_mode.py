@@ -1,4 +1,4 @@
-"""mode=recipe-art: seeded DAM hit, generate+publish, bad inputs. Offline."""
+"""mode=recipe-art: seeded asset store hit, generate+publish, bad inputs. Offline."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -40,10 +40,10 @@ def test_seeded_hit_returns_site_url(monkeypatch, tmp_path: Path) -> None:
             return ["roasted-grape-flapjack-topper"]
 
     import creative_automation.generate_lambda as _gl
-    import creative_automation.dam as _real_dam
+    import creative_automation.asset_store as _real_asset_store
 
-    monkeypatch.setattr(_real_dam, "recipe_art_exists", _Dam.recipe_art_exists)
-    monkeypatch.setattr(_real_dam, "recipe_art_site_url", _Dam.recipe_art_site_url)
+    monkeypatch.setattr(_real_asset_store, "recipe_art_exists", _Dam.recipe_art_exists)
+    monkeypatch.setattr(_real_asset_store, "recipe_art_site_url", _Dam.recipe_art_site_url)
     import creative_automation.recipe_art as _real_ra
 
     monkeypatch.setattr(_real_ra, "art_slug_candidates", _Ra.art_slug_candidates)
@@ -61,12 +61,12 @@ def test_generate_publish_path(monkeypatch, tmp_path: Path) -> None:
     made = tmp_path / "raw_ingredient.png"
     made.write_bytes(b"png")
 
-    import creative_automation.dam as _real_dam
+    import creative_automation.asset_store as _real_asset_store
     import creative_automation.recipe_art as _real_ra
 
-    monkeypatch.setattr(_real_dam, "recipe_art_exists", lambda slug, zone: False)
+    monkeypatch.setattr(_real_asset_store, "recipe_art_exists", lambda slug, zone: False)
     monkeypatch.setattr(
-        _real_dam, "upload_recipe_art", lambda local, slug, zone: f"/recipe-art/{slug}/{zone}.png"
+        _real_asset_store, "upload_recipe_art", lambda local, slug, zone: f"/recipe-art/{slug}/{zone}.png"
     )
     monkeypatch.setattr(_real_ra, "art_slug_candidates", lambda subject: ["roasted-grape"])
     monkeypatch.setattr(_real_ra, "generate_recipe_art", lambda *a, **k: made)
@@ -78,10 +78,10 @@ def test_generate_publish_path(monkeypatch, tmp_path: Path) -> None:
 
 def test_generate_none_keeps_placeholder(monkeypatch) -> None:
     _stub_recipe(monkeypatch)
-    import creative_automation.dam as _real_dam
+    import creative_automation.asset_store as _real_asset_store
     import creative_automation.recipe_art as _real_ra
 
-    monkeypatch.setattr(_real_dam, "recipe_art_exists", lambda slug, zone: False)
+    monkeypatch.setattr(_real_asset_store, "recipe_art_exists", lambda slug, zone: False)
     monkeypatch.setattr(_real_ra, "art_slug_candidates", lambda subject: ["roasted-grape"])
     monkeypatch.setattr(_real_ra, "generate_recipe_art", lambda *a, **k: None)
     resp = gl._handle_recipe_art({"recipe_id": "r1", "zone": "finished_plate"})

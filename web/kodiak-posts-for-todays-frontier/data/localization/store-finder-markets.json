@@ -6,12 +6,12 @@
     "counts": {
       "seeded_regions": 18,
       "synthesized_new": 50,
-      "total_markets": 79,
+      "total_markets": 82,
       "bay_area_frontier_added": 1,
       "total": 71
     },
     "locator_url": "https://kodiakcakes.com/pages/store-locator",
-    "total_markets": 79
+    "total_markets": 82
   },
   "markets": [
     {
@@ -221,12 +221,42 @@
     },
     {
       "market": "US-NE-NYC",
-      "place": "Brooklyn + Manhattan, New York",
+      "place": "New York City",
       "audience": "City-active, bodega-adjacent",
       "message": "City frontier \u2014 protein-packed whole grains for the hustle",
       "cue": "Bodega coffee, oatmeal cup on subway platform",
       "retailer": "Target, Whole Foods",
       "zip": "11201",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-BROOKLYN",
+      "place": "Brooklyn, New York",
+      "zip": "11201",
+      "retailer": "Target, Whole Foods",
+      "audience": "Borough-active, bodega-adjacent",
+      "message": "City frontier \u2014 protein-packed whole grains for the Brooklyn hustle",
+      "cue": "Bodega coffee, oatmeal cup on the Brooklyn-bound platform",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-MANHATTAN",
+      "place": "Manhattan, New York",
+      "zip": "10001",
+      "retailer": "Target, Whole Foods",
+      "audience": "Borough-active, bodega-adjacent",
+      "message": "City frontier \u2014 protein-packed whole grains for the Manhattan hustle",
+      "cue": "Bodega coffee, oatmeal cup on the uptown platform",
+      "brand": "KODIAK"
+    },
+    {
+      "market": "US-NE-BRONX",
+      "place": "Bronx, New York",
+      "zip": "10451",
+      "retailer": "Target, Whole Foods",
+      "audience": "Borough-active, bodega-adjacent",
+      "message": "City frontier \u2014 protein-packed whole grains for the Bronx hustle",
+      "cue": "Bodega coffee, oatmeal cup on the Grand Concourse platform",
       "brand": "KODIAK"
     },
     {

@@ -1,7 +1,7 @@
 """Sprint-1 runbook coverage — OFFLINE, cred-free.
 
 Pins docs/sprints/sprint-1-runbook.md to the shipped code: one section per
-shipped item, copy-only retailers named with their DAM toolkit pointers, and
+shipped item, copy-only retailers named with their asset store toolkit pointers, and
 overlay marks present on disk. If an item ships without a runbook section, or
 a copy-only retailer gains pixels without enablement, this fails loudly.
 """
@@ -17,7 +17,7 @@ LOGO_DIR = ROOT / "input_assets" / "retailer-logos"
 
 # one anchor per shipped item at 9332fab (runbook headings, in order).
 SHIPPED_ITEMS = (
-    "staged-DAM seed_key",
+    "staged-asset store seed_key",
     "campaign carousel",
     "engine-key contract",
     "similarity gate",
@@ -47,9 +47,9 @@ def test_runbook_records_copy_only_toolkit_pointers():
     body = _text()
     assert set(retailers.COPY_ONLY_RETAILERS) == {"kroger", "heb", "whole-foods"}
     for slug in retailers.COPY_ONLY_RETAILERS:
-        dam_key = retailers.dam_key_for_retailer(slug)
+        asset_key = retailers.asset_key_for_retailer(slug)
         assert slug in body, f"runbook never names copy-only retailer: {slug}"
-        assert dam_key in body, f"runbook missing toolkit pointer {dam_key}"
+        assert asset_key in body, f"runbook missing toolkit pointer {asset_key}"
         # copy-only slugs must never be promised pixels in the runbook.
         assert retailers.resolve_retailer_logo(slug, logo_dir=LOGO_DIR) is None
 

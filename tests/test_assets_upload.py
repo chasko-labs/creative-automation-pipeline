@@ -2,11 +2,11 @@
 
 This is the unblocker for #39: /pipeline/run and /suggest/run take a filesystem PATH,
 so a browser-local photo could never enter. This endpoint accepts the bytes, writes
-input_assets/{product}/hero.{ext}, registers the copy in the DAM, and hands back an
+input_assets/{product}/hero.{ext}, registers the copy in the asset store, and hands back an
 asset id + presigned url (null offline).
 
-Every assertion runs with no S3 and no boto3 creds: dam.s3_upload_and_presign returns
-None when DAM_S3_BUCKET is unset, so the endpoint takes its local-write fallback. The
+Every assertion runs with no S3 and no boto3 creds: asset_store.s3_upload_and_presign returns
+None when ASSET_STORE_S3_BUCKET is unset, so the endpoint takes its local-write fallback. The
 FastAPI TestClient cases skip under bare python (no fastapi / no python-multipart),
 matching how test_asset_pack.py exercises the no-FastAPI graceful path. Uploads are
 redirected to tmp_path via the CAP_INPUT_ASSETS_ROOT env override so the real
@@ -53,8 +53,8 @@ def _client(monkeypatch, tmp_path):
     """A TestClient with S3 disabled and input_assets redirected under tmp_path."""
     from fastapi.testclient import TestClient
 
-    monkeypatch.delenv("DAM_S3_BUCKET", raising=False)
-    monkeypatch.delenv("DAM_S3_URI", raising=False)
+    monkeypatch.delenv("ASSET_STORE_S3_BUCKET", raising=False)
+    monkeypatch.delenv("ASSET_STORE_S3_URI", raising=False)
     monkeypatch.setenv("CAP_INPUT_ASSETS_ROOT", str(tmp_path / "input_assets"))
     return TestClient(app)
 
@@ -144,7 +144,7 @@ def test_offline_branch_presigned_url_is_null_file_still_written(monkeypatch, tm
     assert resp.status_code == 200, resp.text
     body = resp.json()
     assert body["presigned_url"] is None
-    assert body["note"] and "DAM_S3_BUCKET" in body["note"]
+    assert body["note"] and "ASSET_STORE_S3_BUCKET" in body["note"]
     assert (tmp_path / "input_assets" / "power-cakes" / "hero.png").exists()
 
 

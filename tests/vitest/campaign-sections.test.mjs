@@ -24,7 +24,9 @@ const index = readFileSync(
 describe('numbered collapse flow 6/7/8', () => {
   it('mounts generate as a collapsed details on the shared output card', () => {
     expect(sections).toMatch(/<details id="generateCampaignSection" class="ff-output ff-generate-campaign preview-card is-gated"/);
-    expect(sections).toMatch(/<span class="ff-stepnum" aria-hidden="true">7<\/span>/);
+    // UI simplification: step numbers live only in the status timeline — the
+    // generate summary carries no number badge.
+    expect(sections).not.toMatch(/ff-stepnum/);
   });
 
   it('refuses gated toggles: stays collapsed, explains, pulses the lock', () => {
@@ -40,9 +42,16 @@ describe('numbered collapse flow 6/7/8', () => {
     expect(sections).toMatch(/btn\.hidden = false/);
   });
 
-  it('numbers preview 6 and assets 8', () => {
-    expect(index).toMatch(/<span class="ff-stepnum" aria-hidden="true">6<\/span>/);
-    expect(sections).toMatch(/<span class="ff-stepnum" aria-hidden="true">8<\/span>/);
+  it('numbers live only in the status timeline (preview, generate, assets unnumbered)', () => {
+    const timeline = index.slice(index.indexOf('id="progressTimeline"'), index.indexOf('id="resetDefaults"'));
+    expect(timeline).toMatch(/<span class="ff-stepnum" aria-hidden="true">6<\/span>/);
+    expect(timeline).toMatch(/<span class="ff-stepnum" aria-hidden="true">7<\/span>/);
+    expect(timeline).toMatch(/<span class="ff-stepnum" aria-hidden="true">8<\/span> Download campaign assets/);
+    // outside the timeline there are no number badges left…
+    const rest = index.slice(0, index.indexOf('id="progressTimeline"')) + index.slice(index.indexOf('id="resetDefaults"'));
+    expect(rest).not.toMatch(/ff-stepnum/);
+    // …and the JS-mounted sections carry none either.
+    expect(sections).not.toMatch(/ff-stepnum/);
   });
 
   it('shares step-chip + gated-grey styling, generate at preview width', () => {
@@ -84,7 +93,7 @@ describe('de-reddened decorative UI', () => {
   it('asset actions have one solid primary and outline secondaries', () => {
     expect(css).toMatch(/#promptUpload\{background:var\(--colors-brand-bear-brown\);border-color:var\(--colors-brand-bear-brown\)/);
     expect(css).toMatch(/#promptUpload::before\{content:"\+"[^}]*\}/);
-    expect(css).toMatch(/\.ff-dam-trigger\{[^}]*border:1px solid var\(--colors-border-strong\)/);
+    expect(css).toMatch(/\.ff-assets-trigger\{[^}]*border:1px solid var\(--colors-border-strong\)/);
     expect(css).toMatch(/\.ff-products \.ff-products-random\{[^}]*border:1px solid var\(--colors-border-strong\)/);
   });
 });

@@ -3,8 +3,9 @@
 Single source of truth is web/kodiak-posts-for-todays-frontier/js/data-core.js
 (places[] + featuredFrontierDetail + marketFeaturedFrontier). The backend JSON
 is a generated mirror so the two can never drift: every market resolves its own
-nearby frontier (only the declared Cincinnati+Dayton share of Lebanon is shared),
-every frontier target self-resolves.
+nearby frontier (only the declared Cincinnati+Dayton share of Lebanon and the
+declared NYC-metro share of Warwick are shared), every frontier target
+self-resolves.
 
 Ingredient months are integers 1-12 parsed from each entry's own seasons text;
 entries whose seasons are unconfirmed keep months:null + a research-dispatch
@@ -260,10 +261,14 @@ def build() -> dict:
         if code != entry["frontier_market"]:
             shared.setdefault(entry["frontier_market"], []).append(code)
     # Declared shares: Cincinnati + Dayton intentionally resolve to the Lebanon
-    # orchard belt (one metro pair, not an accident). Anything else sharing a
-    # frontier is still a bug.
+    # orchard belt (one metro pair, not an accident), and the NYC metro rollup +
+    # three boroughs resolve to Warwick (one Hudson Valley foodshed). Anything
+    # else sharing a frontier is still a bug.
     dupes = {k: v for k, v in shared.items() if len(v) > 1}
-    allowed = {"US-OH-LEBANON": {"US-OH-CINCINNATI", "US-OH-DAYTON"}}
+    allowed = {
+        "US-OH-LEBANON": {"US-OH-CINCINNATI", "US-OH-DAYTON"},
+        "US-NY-WARWICK": {"US-NE-NYC", "US-NE-BROOKLYN", "US-NE-MANHATTAN", "US-NE-BRONX"},
+    }
     bad = {
         k: v
         for k, v in dupes.items()
@@ -285,7 +290,8 @@ def build() -> dict:
             "markets": len([k for k in markets if k in mapping]),
             "frontier_self_entries": len([k for k in markets if k not in mapping]),
             "model": "each market resolves its nearby frontier; "
-            "only the declared Cincinnati+Dayton share of Lebanon is shared",
+            "only the declared Cincinnati+Dayton share of Lebanon and the "
+            "declared NYC-metro share of Warwick are shared",
         },
         "markets": markets,
     }

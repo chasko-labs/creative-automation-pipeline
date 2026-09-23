@@ -6,14 +6,14 @@ Module contract (read this before touching any function below):
        Every pixel position, palette pick, type scale and safe-area
        inset is computed by plain Python math over token values.
        The generative model (Bedrock Stability / Nova Pro) supplies
-       ONLY the hero photo pixels when no verbatim DAM asset exists.
+       ONLY the hero photo pixels when no verbatim asset exists.
        It NEVER decides layout, NEVER places the logo, NEVER sets
        type, NEVER draws the accent bar.  If the model hallucinated
        a logo or lettering, this module would still overwrite it
        with the real brand asset in code.
 
     2. Cutouts paste VERBATIM with a soft drop shadow.
-       Both the product-box packshot (705599* DAM) and the licensed
+       Both the product-box packshot (705599* asset store) and the licensed
        partner-person cutout (transparent-background PNG) are
        composited as-is: no cover-fit, no scrim blend, no enhance,
        no face synthesis, no color regrade.  A single soft drop
@@ -23,7 +23,7 @@ Module contract (read this before touching any function below):
        synthesized pixel that touches the cutout path.
 
     3. Tokens arrive S3-first, local fallback.
-       token_loader.load_tokens() tries DAM_S3_BUCKET first
+       token_loader.load_tokens() tries ASSET_STORE_S3_BUCKET first
        (s3://<bucket>/brands/kodiak/tokens/kodiak.tokens.json) via
        boto3; any failure (no bucket env, no creds, no object,
        network) falls back to the committed
@@ -74,10 +74,10 @@ from .token_loader import get_brand_colors, get_canvas_dims, load_tokens
 # ---------------------------------------------------------------------------
 # Tokens: S3-first, local fallback — import-time, never raises.
 # ---------------------------------------------------------------------------
-# Why S3 first: prod DAM is the single source of truth for brand tokens.
+# Why S3 first: prod asset store is the single source of truth for brand tokens.
 # A token change shipped to S3 propagates without a code deploy; the local
 # committed JSON is only the CI/offline safety net.  load_tokens() hides
-# that split: it tries s3.get_object(DAM_S3_BUCKET,
+# that split: it tries s3.get_object(ASSET_STORE_S3_BUCKET,
 # brands/kodiak/tokens/kodiak.tokens.json) via boto3 and, on ANY
 # exception (no env, no creds, NoSuchKey, network), falls through to
 # design/tokens/kodiak.json.  Every consumer in this file reads _tokens
@@ -89,7 +89,7 @@ from .token_loader import get_brand_colors, get_canvas_dims, load_tokens
 # missing — the card still needs to render with sane legacy defaults.
 _tokens = None  # populated below; None means "tokens unreadable, use literals"
 try:
-    # S3-first inside load_tokens(): DAM_S3_BUCKET env -> boto3 get_object.
+    # S3-first inside load_tokens(): ASSET_STORE_S3_BUCKET env -> boto3 get_object.
     _tokens = load_tokens()
 except Exception:  # noqa: BLE001 — import-time token fallback; compose must import offline
     # Any load failure (no file, JSON parse, boto3 not installed, no bucket)
@@ -616,7 +616,7 @@ def compose_creative(
          _apply_paper_texture as the final finishing pass before save.
 
     Args:
-        hero_path:     local image path for the hero photo (real DAM photo,
+        hero_path:     local image path for the hero photo (real asset photo,
                        mock brand floor, or Stability/Canvas scene — caller
                        decides; this function treats it as opaque pixels).
         out_path:      output PNG path (parents are created).

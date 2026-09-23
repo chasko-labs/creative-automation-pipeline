@@ -1,16 +1,16 @@
 # asset library + observability — design + seam announcement
 
-> team-platform design for two coupled capabilities: (1) an asset-library ingest + browse/select service so a user can add a source file (png/svg/jpg/jpeg/pdf/copy) to the DAM and later browse the library to build or riff a campaign off a chosen asset, and (2) structured logging + AWS X-Ray tracing across the infra so results are visible in the AWS console. UI is out of scope here — this defines the backend hooks the frontend/api teams consume, plus a webmcp surface and docs. built typed + object-oriented, self-reviewed, shipped by PR.
+> team-platform design for two coupled capabilities: (1) an asset-library ingest + browse/select service so a user can add a source file (png/svg/jpg/jpeg/pdf/copy) to the asset store and later browse the library to build or riff a campaign off a chosen asset, and (2) structured logging + AWS X-Ray tracing across the infra so results are visible in the AWS console. UI is out of scope here — this defines the backend hooks the frontend/api teams consume, plus a webmcp surface and docs. built typed + object-oriented, self-reviewed, shipped by PR.
 
 ## why these two ship together
 
-the asset-library service is the first new write-path into the DAM. it is also the first place we want end-to-end visibility (a user adds a file -> it lands in S3 -> it becomes selectable -> a campaign is built off it). so the observability layer is designed as the substrate the asset-library service is the first consumer of. every asset-library operation emits a structured log record and opens an X-Ray subsegment. that gives the frontend/api teams a reporting surface from day one instead of bolting it on later.
+the asset-library service is the first new write-path into the asset store. it is also the first place we want end-to-end visibility (a user adds a file -> it lands in S3 -> it becomes selectable -> a campaign is built off it). so the observability layer is designed as the substrate the asset-library service is the first consumer of. every asset-library operation emits a structured log record and opens an X-Ray subsegment. that gives the frontend/api teams a reporting surface from day one instead of bolting it on later.
 
 ## lane + seam boundaries (read before touching)
 
 per `team-lanes.md`:
 
-- team-platform (this work) OWNS: the DAM bucket layout + prefixes, the S3 storage contract, the observability substrate, the IAM/infra for logs + traces. that is `infra/`, the new prefix, `observability.py`, and the storage-facing service.
+- team-platform (this work) OWNS: the asset store bucket layout + prefixes, the S3 storage contract, the observability substrate, the IAM/infra for logs + traces. that is `infra/`, the new prefix, `observability.py`, and the storage-facing service.
 - team-pipeline OWNS: `src/creative_automation/*.py` engine core, and the act of a campaign CONSUMING a chosen asset (pipeline/compose/generate). we do NOT write engine internals.
 - the seam: the asset-library service produces a stable **AssetRef** contract (below). the pipeline consumes an AssetRef when a user picks an asset to build/riff. the frontend consumes the browse/select API + the AssetRef. changing AssetRef fields is a seam event — announce it.
 
@@ -27,7 +27,7 @@ this placement was chosen over a separate top-level package to keep imports simp
 
 ### storage contract (platform-owned)
 
-new DAM prefix, collision-free against the 12 existing prefixes (heroes/, logos/, renders/, references/, vectors/, ...):
+new asset prefix, collision-free against the 12 existing prefixes (heroes/, logos/, renders/, references/, vectors/, ...):
 
 ```
 s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/library/<asset_id>/<original_filename>
@@ -189,4 +189,4 @@ no other new deps — pillow (raster dims), boto3 (S3), pydantic (models), fasta
 
 ## the rule in one sentence
 
-the asset-library service is the first DAM write-path and the first observability consumer: add_asset is the "add to tool = add to library" hook, browse/select returns the stable AssetRef the pipeline builds off, and every op emits a structured log + X-Ray subsegment so results are visible in the console — all platform-owned, seam-announced to pipeline + frontend, UI dispatched separately.
+the asset-library service is the first asset store write-path and the first observability consumer: add_asset is the "add to tool = add to library" hook, browse/select returns the stable AssetRef the pipeline builds off, and every op emits a structured log + X-Ray subsegment so results are visible in the console — all platform-owned, seam-announced to pipeline + frontend, UI dispatched separately.

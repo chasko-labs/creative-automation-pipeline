@@ -1,6 +1,6 @@
 """US Ski & Snowboard theme — OFFLINE, cred-free.
 
-No network, no AWS. Asserts the us-ski-snowboard theme resolves a real generic DAM seed
+No network, no AWS. Asserts the us-ski-snowboard theme resolves a real generic asset store seed
 (no named athlete), routes through generate_hero_set like other themes (provenance/theme
 present), and that the Nova Pro scene prompt carries the winter/alpine guidance while
 NEVER leaking a real athlete name.
@@ -49,11 +49,11 @@ def test_scene_prompt_carries_winter_guidance_no_athlete_name(tmp_path):
 
 def test_theme_routes_through_generate_hero_set(tmp_path, monkeypatch):
     # theme flows through the set builder like any other theme: provenance carries the
-    # theme and the three delivery ratios, brand overlay applied. Offline: DAM disabled,
+    # theme and the three delivery ratios, brand overlay applied. Offline: asset store disabled,
     # engines patched to None so the deterministic fallback path is exercised.
-    from creative_automation import dam
+    from creative_automation import asset_store
 
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
 

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-Focused re-verification of the two DAM filter checks that FAILED last run (1c, 1d).
+Focused re-verification of the two asset store filter checks that FAILED last run (1c, 1d).
 
 Chromium fallback path (NOVA_ACT_API_KEY absent): drives the LIVE CloudFront
 origin with Playwright chromium, mirroring the Nova Act page.* / act() semantics.
 
-Root cause of the previous FAIL: content-visibility:auto on .ff-dam-grid paint-
+Root cause of the previous FAIL: content-visibility:auto on .ff-assets-grid paint-
 contained the subtree so display toggles never reflowed; the counter also counted
 HIDDEN nodes. Fix under test: filter toggles the `hidden` attribute +
-.ff-dam-tile[hidden]{display:none!important}, content-visibility removed.
+.ff-assets-tile[hidden]{display:none!important}, content-visibility removed.
 
 This run measures VISIBLE tiles only — a tile counts as visible iff it is NOT
 [hidden] AND its computed display is not 'none' AND offsetParent is not null.
@@ -18,8 +18,8 @@ CHECK 1d — search "muffin" filters (visible set shrinks; first visible is a mu
            Load more still appends.
 
 Usage:
-  .venv/bin/python scripts/nova-act-dam-filter-reverify.py --headless \
-      --out /tmp/kodiak-dam-reverify.json --shot-dir /tmp/kodiak-dam-reverify-shots
+  .venv/bin/python scripts/nova-act-asset_store-filter-reverify.py --headless \
+      --out /tmp/kodiak-asset_store-reverify.json --shot-dir /tmp/kodiak-asset_store-reverify-shots
 """
 from __future__ import annotations
 
@@ -43,8 +43,8 @@ STALE_RE = re.compile(r"0\.1\.0(0\d|1\d|2[0-4])-")
 #   not [hidden]  AND  getComputedStyle(display) !== 'none'  AND  offsetParent !== null
 VISIBLE_JS = r"""
 () => {
-  const panel = document.querySelector('#damPanel') || document;
-  const tiles = Array.from(panel.querySelectorAll('.ff-dam-tile'));
+  const panel = document.querySelector('#assetPanel') || document;
+  const tiles = Array.from(panel.querySelectorAll('.ff-assets-tile'));
   const isVisible = (el) => {
     if (el.hasAttribute('hidden')) return false;
     const cs = getComputedStyle(el);
@@ -102,7 +102,7 @@ def _read_stamp(page):
 
 
 def _panel(page):
-    return page.locator("#damPanel")
+    return page.locator("#assetPanel")
 
 
 def _vis(page) -> dict:
@@ -116,7 +116,7 @@ def _vis(page) -> dict:
 def _click_tab(page, name: str) -> bool:
     panel = _panel(page)
     for sel in [f"[role='tab']:has-text('{name}')",
-                f".ff-dam-tab:has-text('{name}')",
+                f".ff-assets-tab:has-text('{name}')",
                 f"button:has-text('{name}')",
                 f"text={name}"]:
         try:
@@ -132,8 +132,8 @@ def _click_tab(page, name: str) -> bool:
 
 
 def _find_facet_row(page):
-    for sel in [".ff-dam-facet-chip", ".ff-dam-facet", ".dam-facet", "[data-facet]",
-                ".ff-dam-facets button", ".ff-dam-chip"]:
+    for sel in [".ff-assets-facet-chip", ".ff-assets-facet", ".asset_store-facet", "[data-facet]",
+                ".ff-assets-facets button", ".ff-assets-chip"]:
         try:
             if _panel(page).locator(sel).count() > 0:
                 return sel
@@ -250,9 +250,9 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
             return _finish(report, out_path, browser, console_errors, page_errors)
         print(f"[info] build stamp confirmed: {stamp}", file=sys.stderr)
 
-        # ---- open DAM panel, ensure Products tab ----
+        # ---- open asset store panel, ensure Products tab ----
         opened = False
-        for sel in ["#damBrowseTrigger", ".ff-dam-trigger", "text=Browse past assets"]:
+        for sel in ["#assetBrowseTrigger", ".ff-assets-trigger", "text=Browse past assets"]:
             try:
                 loc = page.locator(sel).first
                 if loc.count() > 0:
@@ -270,7 +270,7 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
         # wait out the async "Loading…" state
         for _ in range(40):
             try:
-                body_txt = page.locator("#damBody").inner_text()[:40]
+                body_txt = page.locator("#assetBody").inner_text()[:40]
             except Exception:  # noqa: BLE001 — body poll; empty text retries next tick
                 body_txt = ""
             if "Loading" not in body_txt and _panel(page).locator("[role='tab']").count() > 0:
@@ -344,9 +344,9 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
             "first_labels_before": before_s["visibleLabels"][:5],
         }
         search_sel = None
-        for sel in ["input.ff-dam-filter-input",
+        for sel in ["input.ff-assets-filter-input",
                     "input[placeholder*='Search this stack']",
-                    "#damSearch", ".ff-dam-search input",
+                    "#assetSearch", ".ff-assets-search input",
                     "input[type='search']", "input[placeholder*='Search']"]:
             try:
                 if _panel(page).locator(sel).count() > 0:
@@ -404,8 +404,8 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
         cleared = _vis(page)
         lm["visible_before"] = cleared["visible"]
         clicked_lm = False
-        for sel in ["button:has-text('Load more')", "#damLoadMore",
-                    ".ff-dam-loadmore", "text=Load more"]:
+        for sel in ["button:has-text('Load more')", "#assetLoadMore",
+                    ".ff-assets-loadmore", "text=Load more"]:
             try:
                 loc = _panel(page).locator(sel).first
                 if loc.count() > 0:
@@ -475,8 +475,8 @@ def _finish(report, out_path, browser, console_errors, page_errors) -> int:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--headless", action="store_true")
-    ap.add_argument("--out", default="/tmp/kodiak-dam-reverify.json")
-    ap.add_argument("--shot-dir", default="/tmp/kodiak-dam-reverify-shots")
+    ap.add_argument("--out", default="/tmp/kodiak-asset_store-reverify.json")
+    ap.add_argument("--shot-dir", default="/tmp/kodiak-asset_store-reverify-shots")
     args = ap.parse_args()
     return run(args.headless, Path(args.out), Path(args.shot_dir))
 

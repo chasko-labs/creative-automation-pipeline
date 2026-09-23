@@ -2,7 +2,6 @@ import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as lambda from "aws-cdk-lib/aws-lambda";
-import * as scheduler from "aws-cdk-lib/aws-scheduler";
 import {
   KODIAK_VECTOR_BUCKET_NAME,
   KODIAK_VECTOR_INDEX_NAME,
@@ -98,13 +97,21 @@ export class GenerateStack extends cdk.Stack {
               {
                 Sid: "BedrockInvokeArtDirector",
                 Effect: "Allow",
-                // Art-director voice model -- custom imported model in us-west-2 (isolated
+                // Art-director voice model -- Nova Micro in us-west-2 (isolated
                 // from the us-east-1 pipeline on purpose; art_director.py carries
-                // KODIAK_ARTDIRECTOR_REGION and never falls back to AWS_REGION). Gated dark
-                // at runtime behind KODIAK_ARTDIRECTOR_ENABLED.
+                // KODIAK_ARTDIRECTOR_REGION and never falls back to AWS_REGION).
+                // Pay-per-token, $0 idle (the imported copy billed ~$38/day and
+                // was deleted 2026-09-23). Gated dark at runtime behind
+                // KODIAK_ARTDIRECTOR_ENABLED plus per-request opt-in.
                 Action: "bedrock:InvokeModel",
-                Resource:
-                  "arn:aws:bedrock:us-west-2:946179428633:imported-model/cx15b77k5nge",
+                // Region narrowed to us-* (flag 2026-09-23): cross-region
+                // routing demonstrably lands outside us-west-2 (observed
+                // us-east-2), so a us-west-2-only scope breaks the proven
+                // path. us-* keeps every US route working, nothing abroad.
+                Resource: [
+                  "arn:aws:bedrock:us-*::foundation-model/amazon.nova-micro-v1:0",
+                  "arn:aws:bedrock:us-west-2:946179428633:inference-profile/us.amazon.nova-micro-v1:0",
+                ],
               },
               {
                 Sid: "BedrockInvokeStabilityControlStructure",
@@ -256,12 +263,16 @@ export class GenerateStack extends cdk.Stack {
           // overridden here.
           KODIAK_VECTOR_BUCKET: KODIAK_VECTOR_BUCKET_NAME,
           KODIAK_VECTOR_INDEX: KODIAK_VECTOR_INDEX_NAME,
-          // Voice enablement (sprint-2 item 10): art-director voice ON behind
-          // its runtime flag, with the pre-warm schedule ENABLED below. The
-          // runtime stays flag-gated (generate_lambda.ART_DIRECTOR_ENABLED
-          // reads this env) so rollback is flag-off — pixels unaffected.
-          // No other defaults change here.
-          KODIAK_ARTDIRECTOR_ENABLED: "true",
+          // Voice enablement: OFF by default (cost incident 2026-09-23 — the
+          // imported voice model bills per copy-minute 24/7, ~$38/day, and a
+          // default-ON prewarm kept it loaded with zero traffic value).
+          // Opt in per deploy with `-c artDirectorVoice=on`. The runtime stays
+          // flag-gated (generate_lambda.ART_DIRECTOR_ENABLED reads this env)
+          // so rollback is flag-off — pixels unaffected. No other defaults
+          // change here.
+          KODIAK_ARTDIRECTOR_ENABLED: this.node.tryGetContext("artDirectorVoice") === "on"
+            ? "true"
+            : "false",
         },
       },
     });
@@ -304,46 +315,11 @@ export class GenerateStack extends cdk.Stack {
       description: "ARN of the Lambda execution role",
     });
 
-    // ---- art-director pre-warm (Unit 1, ON with voice enablement) -----------
-    // Imported voice models scale to zero and throw ModelNotReadyException on the
-    // first invoke after idle. This Scheduler rule pings the handler's warm path
-    // ({"warm": "art-director"}) every 4 minutes so the model stays warm. The rule
-    // is ENABLED alongside the voice flag above (sprint-2 item 10) — deploy with
-    // `-c artDirectorPrewarm=off` to silence it. Rollback is flag-off + off here.
-    const prewarmState = this.node.tryGetContext("artDirectorPrewarm") === "off"
-      ? "DISABLED"
-      : "ENABLED";
-    const schedulerRole = new iam.CfnRole(this, "ArtDirectorPrewarmRole", {
-      assumeRolePolicyDocument: {
-        Version: "2012-10-17",
-        Statement: [{
-          Effect: "Allow",
-          Principal: { Service: "scheduler.amazonaws.com" },
-          Action: "sts:AssumeRole",
-        }],
-      },
-      policies: [{
-        policyName: "InvokeGenerateForWarmPing",
-        policyDocument: {
-          Version: "2012-10-17",
-          Statement: [{
-            Effect: "Allow",
-            Action: "lambda:InvokeFunction",
-            Resource: generateLambda.attrArn,
-          }],
-        },
-      }],
-    });
-    new scheduler.CfnSchedule(this, "ArtDirectorPrewarmSchedule", {
-      state: prewarmState,
-      scheduleExpression: "rate(4 minutes)",
-      flexibleTimeWindow: { mode: "OFF" },
-      target: {
-        arn: generateLambda.attrArn,
-        roleArn: schedulerRole.attrArn,
-        input: JSON.stringify({ warm: "art-director" }),
-        retryPolicy: { maximumRetryAttempts: 0 },
-      },
-    });
+    // ---- art-director pre-warm REMOVED (cost incident 2026-09-23) -----------
+    // A 24/7 4-minute ping kept a ~$38/day imported-model copy charge alive
+    // with zero traffic value. Disabled is not enough (it can be re-enabled);
+    // the schedule and its role are deleted from IaC so nothing can fire.
+    // If a voice test window ever needs warming again, re-add the schedule
+    // deliberately — do not resurrect the 4-minute default.
   }
 }

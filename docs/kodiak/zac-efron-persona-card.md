@@ -10,9 +10,9 @@ companions in this dir:
 
 ## guardrail (inherited, non-negotiable)
 
-the persona card displays a REAL licensed still, served verbatim. never a synthesized face, never a generated likeness, never img2img of a face. this is the same structural guardrail as the campaign fix spec: Zac is Chief Brand Officer — his real image is a brand asset to serve, exactly like a product box. the card's `photo_key` resolves to a licensed DAM asset and is pasted as-is.
+the persona card displays a REAL licensed still, served verbatim. never a synthesized face, never a generated likeness, never img2img of a face. this is the same structural guardrail as the campaign fix spec: Zac is Chief Brand Officer — his real image is a brand asset to serve, exactly like a product box. the card's `photo_key` resolves to a licensed asset and is pasted as-is.
 
-real assets staged in the DAM at `brands/kodiak/zac-efron/`:
+real assets staged in the asset store at `brands/kodiak/zac-efron/`:
 
 - `zac-cooking-2023.jpg` — primary card photo
 - `zac-waffle-nachos-2024.jpg` — secondary / alternate
@@ -55,9 +55,9 @@ so every athlete reuses the same shape. this is the content contract the fronten
 | -------------------- | -------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `name`               | yes      | string        | display name, rendered Bear Brown in gin                                                                                         |
 | `role_or_discipline` | yes      | string        | "Chief Brand Officer" for Zac; the sport/discipline for athletes (ultrarunning, climbing, cycling) — rendered museo-sans caption |
-| `photo_key`          | yes      | string        | DAM key of the REAL licensed still, served verbatim as the card photo + composite foreground                                     |
+| `photo_key`          | yes      | string        | asset key of the REAL licensed still, served verbatim as the card photo + composite foreground                                     |
 | `narrative`          | yes      | string        | one line, true, on-brand — their real story with Kodiak                                                                          |
-| `signature_asset`    | optional | string / null | signature graphic DAM key; null until sourced. CBO-tier flourish, not expected on athlete cards                                  |
+| `signature_asset`    | optional | string / null | signature graphic asset key; null until sourced. CBO-tier flourish, not expected on athlete cards                                  |
 | `default_product`    | optional | string        | product NAME to preselect when this card is active (Zac -> the LTO oatmeal); soft default, user overrides freely                 |
 
 ### how it maps to the frontend component

@@ -76,7 +76,10 @@ def test_every_entry_has_place_ingredients_seasons_market_context() -> None:
     assert not failures, "mapping gaps:\n" + "\n".join(failures)
 
 
-ALLOWED_SHARES = {"US-OH-LEBANON": {"US-OH-CINCINNATI", "US-OH-DAYTON"}}
+ALLOWED_SHARES = {
+    "US-OH-LEBANON": {"US-OH-CINCINNATI", "US-OH-DAYTON"},
+    "US-NY-WARWICK": {"US-NE-NYC", "US-NE-BROOKLYN", "US-NE-MANHATTAN", "US-NE-BRONX"},
+}
 
 
 def test_no_shared_frontiers_every_target_self_resolves() -> None:

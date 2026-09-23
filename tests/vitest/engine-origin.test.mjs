@@ -54,7 +54,7 @@ describe('engine-key contract and origin', () => {
       seed_selection: 'packshot', seed_source: 'catalog', fallthrough_reason: '',
     })).toEqual([
       'Rung: Rung A · packshot verbatim',
-      'Engine: Packshot composite (DAM verbatim)',
+      'Engine: Packshot composite (asset store verbatim)',
       'Seed: packshot via catalog',
       'Fallback: none reported',
     ]);

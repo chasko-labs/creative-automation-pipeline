@@ -123,6 +123,6 @@ The compose step does not use another model at all — it is deterministic code 
 
 ## Live today vs planned
 
-- **Live today** — local pipeline via `uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak`, style library mirrored to cloud storage at `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/` via `scripts/sync-dam.sh`, report and preview written locally and synced to `brands/kodiak/renders/`.
+- **Live today** — local pipeline via `uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak`, style library mirrored to cloud storage at `s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/` via `scripts/sync-asset-store.sh`, report and preview written locally and synced to `brands/kodiak/renders/`.
 - **Planned on top of live** — wrap `run_pipeline()` as an AgentCore Runtime, expose photo fetch and store lookup as Gateway tools, give it Memory so Diego's Las Cruces green chile win is remembered cross-session, let Browser via Nova Act open `preview.html` at the three viewports and block the retail handoff if the bear or bar fails. The diagram above shows the planned blocks in the same place as the live ones — no second account, no hidden stack.
 

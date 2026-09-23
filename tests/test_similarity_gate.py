@@ -38,7 +38,7 @@ def _half_split(path: Path) -> Path:
 
 def _ladder_stubs(monkeypatch, seed: Path) -> None:
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "wild frontier restyle")
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
@@ -89,7 +89,7 @@ def test_gate_pass_ships_rung_b(tmp_path: Path, monkeypatch) -> None:
     seed = _png(tmp_path / "seed.png")
     _ladder_stubs(monkeypatch, seed)
 
-    def _near(s, _p, o):
+    def _near(s, _p, o, **_k):
         return _png(o, color=(180, 90, 30))
 
     monkeypatch.setattr(generate, "_stability_control_hero", _near)
@@ -104,9 +104,9 @@ def test_gate_pass_ships_rung_b(tmp_path: Path, monkeypatch) -> None:
 def test_gate_fail_falls_to_rung_c(tmp_path: Path, monkeypatch) -> None:
     seed = _png(tmp_path / "seed.png")
     _ladder_stubs(monkeypatch, seed)
-    # Force distance > current threshold (64) so the seasonal-raise still gates this fixture.
+    # Force distance > current threshold so the preserve-mode gate rejects this fixture.
     monkeypatch.setattr(generate, "_similarity_distance", lambda s, c: generate.SIMILARITY_GATE_THRESHOLD + 1)
-    monkeypatch.setattr(generate, "_stability_control_hero", lambda s, _p, o: _half_split(o))
+    monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, _prompt, out, **_ignored: _half_split(out))
     _, source, prov = generate.generate_hero(**_hero_kwargs(tmp_path))
     assert source == "bedrock:nova-pro"
     assert prov["rung"] == "C"
@@ -119,7 +119,7 @@ def test_gate_disabled_ships_drifted_b(tmp_path: Path, monkeypatch) -> None:
     seed = _png(tmp_path / "seed.png")
     _ladder_stubs(monkeypatch, seed)
     monkeypatch.setenv("KODIAK_SIMILARITY_GATE", "0")
-    monkeypatch.setattr(generate, "_stability_control_hero", lambda s, _p, o: _half_split(o))
+    monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, _prompt, out, **_ignored: _half_split(out))
     _, source, prov = generate.generate_hero(**_hero_kwargs(tmp_path))
     assert source == generate.STABILITY_SOURCE
     assert prov["rung"] == "B"
@@ -129,12 +129,61 @@ def test_gate_disabled_ships_drifted_b(tmp_path: Path, monkeypatch) -> None:
 def test_gate_boundary_distance_equals_threshold_passes(tmp_path: Path, monkeypatch) -> None:
     seed = _png(tmp_path / "seed.png")
     _ladder_stubs(monkeypatch, seed)
-    monkeypatch.setattr(generate, "_stability_control_hero", lambda s, _p, o: _png(o))
+    monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, _prompt, out, **_ignored: _png(out))
     monkeypatch.setattr(
         generate, "_similarity_distance", lambda s, c: generate.SIMILARITY_GATE_THRESHOLD
     )
     _, source, prov = generate.generate_hero(**_hero_kwargs(tmp_path))
     assert prov["similarity_gate"] == "pass"
+    assert source == generate.STABILITY_SOURCE
+
+
+# ------------------------------------------------------- two-mode gate
+def test_preserve_mode_rejects_calibrated_drift(tmp_path: Path, monkeypatch) -> None:
+    # No season/theme: a distance-30 restyle is drift, rejected at the
+    # calibrated default 8 even though diverge mode would accept it.
+    assert generate.SIMILARITY_GATE_THRESHOLD == 8
+    seed = _png(tmp_path / "seed.png")
+    _ladder_stubs(monkeypatch, seed)
+    monkeypatch.setattr(generate, "_similarity_distance", lambda seed, candidate: 30)
+    monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, _prompt, out, **_ignored: _half_split(out))
+    _, source, prov = generate.generate_hero(**_hero_kwargs(tmp_path))
+    assert prov["similarity_mode"] == "preserve"
+    assert prov["similarity_gate"] == "fail"
+    assert prov["rung"] == "C"
+
+
+def test_diverge_mode_accepts_far_restyle(tmp_path: Path, monkeypatch) -> None:
+    # Season requested: the same distance-30 restyle is the brief, not drift.
+    seed = _png(tmp_path / "seed.png")
+    _ladder_stubs(monkeypatch, seed)
+    monkeypatch.setattr(generate, "_similarity_distance", lambda seed, candidate: 30)
+    monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, _prompt, out, **_ignored: _half_split(out))
+    kwargs = _hero_kwargs(tmp_path)
+    kwargs["season"] = "october"
+    _, source, prov = generate.generate_hero(**kwargs)
+    assert prov["similarity_mode"] == "diverge"
+    assert prov["similarity_gate"] == "pass"
+    assert prov["rung"] == "B"
+
+
+def test_diverge_mode_retries_seed_echo(tmp_path: Path, monkeypatch) -> None:
+    # Season requested but the model echoed the seed (distance 0): one retry
+    # with the next seed, then accept. Sibling file keeps the first restyle.
+    seed = _png(tmp_path / "seed.png")
+    _ladder_stubs(monkeypatch, seed)
+
+    def _echo(seed, _prompt, out, **_ignored):
+        return _png(out, color=(180, 90, 30))
+
+    monkeypatch.setattr(generate, "_stability_control_hero", _echo)
+    kwargs = _hero_kwargs(tmp_path)
+    kwargs["season"] = "october"
+    _, source, prov = generate.generate_hero(**kwargs)
+    assert prov["similarity_mode"] == "diverge"
+    assert prov["similarity_gate"] == "retry-accept"
+    assert prov["similarity_retry_seed"] == prov["seed"]
+    assert prov["similarity_retry_distance"] is not None
     assert source == generate.STABILITY_SOURCE
 
 
@@ -148,6 +197,6 @@ def test_scene_prompt_source_default_branch(tmp_path: Path, monkeypatch) -> None
         "_nova_pro_scene_prompt",
         lambda s, pn, bm, r, a, t, *e: generate._default_scene_prompt(pn, bm, r, a, t),
     )
-    monkeypatch.setattr(generate, "_stability_control_hero", lambda s, _p, o: _png(o))
+    monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, _prompt, out, **_ignored: _png(out))
     _, _, prov = generate.generate_hero(**_hero_kwargs(tmp_path))
     assert prov["scene_prompt_source"] == "default"

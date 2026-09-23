@@ -16,7 +16,7 @@ Unify section-4 selectors around checkboxes, remove redundant and artifact copy,
 ## Context And Current Facts
 
 - Section 4 today, verified this run: retailer row is 3 pills + 1 mark checkbox (`index.html:284-290`); partner row is 1 pill + 1 mark checkbox + mark preview (`index.html:297-306`); product flag is 1 checkbox + the sidecar hint line (`index.html:335-336`). The pill↔flag two-way sync lives in `js/prompt-chips.js` (`activeRetailerValue:199`, `syncLayersFromChips`, `syncChipsFromLayers`); ids and `data-theme` slugs are pinned by `tests/vitest/scope-cluster-218.test.mjs:94-110`.
-- Chip-state consumers that the merge must migrate, verified this run (`grep ff-chip|aria-pressed|__activeTheme|data-theme`): `prompt-chips.js` core (toggle, brief assembly, retailer value, reset/restore), `autocomplete.js:97` (suggestion apply), `coach-about.js:47,105` (theme collection + confirm-to-apply), `coach-insights.js:66` (payload theme), `generate.js:454,730` (theme read + run-lock), `lifecycle-persist.js:146` (snapshot/restore). DAM facet chips (`prompt-chips.js:748-882`) are a separate system, out of scope.
+- Chip-state consumers that the merge must migrate, verified this run (`grep ff-chip|aria-pressed|__activeTheme|data-theme`): `prompt-chips.js` core (toggle, brief assembly, retailer value, reset/restore), `autocomplete.js:97` (suggestion apply), `coach-about.js:47,105` (theme collection + confirm-to-apply), `coach-insights.js:66` (payload theme), `generate.js:454,730` (theme read + run-lock), `lifecycle-persist.js:146` (snapshot/restore). asset store facet chips (`prompt-chips.js:748-882`) are a separate system, out of scope.
 - Backend contract, verified this run: `normalize_layers` keeps `retailer` as ONE non-empty slug string (`src/creative_automation/generate.py:1848-1867`); one mark per image is by design. Scene moods exist for target, walmart, whole-foods, publix, kroger, heb, plus the localized trio and subscription (`generate.py:429-487`); albertsons has no mood key.
 - About art, verified this run: `.ff-about-art{margin:var(--spacing-sm) 0 0}` plus `.ff-about-range{margin:2px 0 10px}` (`design/components.css:769-770,983`) stack the gap the user sees; peaks reach y=30/36 in a 120-tall `xMidYMid slice` viewBox (`index.html:474`), so wide crops clip them.
 - Page background today is one radial + one linear (`components.css:1238`); grain tokens (`--wood` et al.) exist and are already used on the CTA.
@@ -52,14 +52,14 @@ One UI agent does the selector + background + art work sequentially (all three t
 
 ## Validation Plan
 
-- `npx vitest run` — 126+ pass, including updated scope-cluster pins (slugs preserved on checkboxes, sync-function pins removed, zero `.ff-chip[data-theme]` references remain outside DAM facets) and a layers-equivalence test (brief+layers output for each concept before/after identical; All-retailers brief text; retailer switch; restore-path re-check).
+- `npx vitest run` — 126+ pass, including updated scope-cluster pins (slugs preserved on checkboxes, sync-function pins removed, zero `.ff-chip[data-theme]` references remain outside asset store facets) and a layers-equivalence test (brief+layers output for each concept before/after identical; All-retailers brief text; retailer switch; restore-path re-check).
 - `python3 -m pytest tests/test_market_featured_frontiers.py tests/test_locales.py tests/test_local_flavor.py` green; `scripts/build-frontier-mapping.py --check` clean.
 - Headless render past the gate: partner row is one control, retailer row is three checkboxes, artifact copy absent, background layered with no banding, about art flush with unclipped peaks, 390px zero spill, zero page errors.
 - Live: curl new selectors + version stamp agreement post-invalidation.
 
 ## Risks / Rollback
 
-- Risk: a consumer migration misses a chip query (7 files). Mitigation: the Context list names every one; a repo-wide grep for `.ff-chip[data-theme]`, `aria-pressed`, `__activeTheme` outside DAM facets must come back clean; equivalence matrix + restore-path probe gate it. Rollback: revert Unit 1 commit (Unit 2 is independent CSS/SVG).
+- Risk: a consumer migration misses a chip query (7 files). Mitigation: the Context list names every one; a repo-wide grep for `.ff-chip[data-theme]`, `aria-pressed`, `__activeTheme` outside asset store facets must come back clean; equivalence matrix + restore-path probe gate it. Rollback: revert Unit 1 commit (Unit 2 is independent CSS/SVG).
 - Risk: research returns guesses dressed as facts. Mitigation: agents must cite a source URL per month window; integration keeps the unverified fallback wherever sources fail; builder asserts no sharing, tests assert month ranges.
 - Risk: background layering bands on wide screens. Mitigation: low-alpha token gradients only; screenshot proof at 1600px before ship.
 

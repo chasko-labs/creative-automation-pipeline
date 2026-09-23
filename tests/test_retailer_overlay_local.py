@@ -2,7 +2,7 @@
 
 #40: the canonical logo dir (input_assets/retailer-logos/) carries real PNG
 marks (costco/publix/target). These tests prove the overlay resolve hits the
-local PNGs end to end on a dev box with no DAM/creds: Pillow-decodes, DAM-miss
+local PNGs end to end on a dev box with no asset store/creds: Pillow-decodes, asset-miss
 falls through to the repo-local file, the lockup compositor takes the PNG
 source path (not the text band), and the generate overlay mark resolves.
 No mocks — real files, real functions. SVG vectors are still absent; vector
@@ -54,7 +54,7 @@ def test_local_png_marks_exist_and_decode():
 
 
 def test_overlay_resolve_hits_local_png_end_to_end():
-    # dev box: no DAM creds, so the DAM-first fetch misses and the resolve
+    # dev box: no asset store creds, so the asset-store-first fetch misses and the resolve
     # must land on the repo-local PNG (exercises the full function, both tiers).
     for slug in ("costco", "publix", "target"):
         hit = resolve_retailer_logo(slug)

@@ -11,8 +11,8 @@ the FALLBACK:
      (product_layer set on compose_creative), NEVER reaching generate_hero for its pixels
   b) an unmapped SKU resolves no packshot and falls through to generate_hero (generation)
 
-These tests exercise the resolver (dam.resolve_packshot) and the _render_asset branch
-offline: fetch_dam_key is monkeypatched to hand back a local box PNG for mapped keys, so
+These tests exercise the resolver (asset_store.resolve_packshot) and the _render_asset branch
+offline: fetch_asset_key is monkeypatched to hand back a local box PNG for mapped keys, so
 the S3 layer is not required and CI stays deterministic.
 """
 from pathlib import Path
@@ -20,7 +20,7 @@ from pathlib import Path
 from PIL import Image
 
 from creative_automation import campaign as campaign_mod
-from creative_automation import dam
+from creative_automation import asset_store
 
 
 # --------------------------------------------------------------------------- #
@@ -34,7 +34,7 @@ def _make_box_png(path: Path) -> Path:
 
 
 def _local_box_fetch(tmp_path: Path):
-    """Return a fetch_dam_key replacement that materializes any 705599* key locally."""
+    """Return a fetch_asset_key replacement that materializes any 705599* key locally."""
     def _fetch(key: str, dest: Path):
         if key and "705599" in key.rsplit("/", 1)[-1]:
             return _make_box_png(Path(dest))
@@ -48,49 +48,49 @@ def _asset(iso_name: str = "kodiak_us-sw_banana_1x1_en.png") -> dict:
 
 
 # --------------------------------------------------------------------------- #
-# resolver — dam.resolve_packshot reads sku-packshot-map.json
+# resolver — asset_store.resolve_packshot reads sku-packshot-map.json
 # --------------------------------------------------------------------------- #
 def test_resolver_reads_packshot_map_for_mapped_skus():
     # the map is loaded from the committed manifest and carries the three flagship boxes
-    m = dam._load_packshot_map()
+    m = asset_store._load_packshot_map()
     assert m, "packshot manifest did not load"
     for sku in (
         "banana-muffin-quick-bread-mix",
         "chocolate-fudge-brownie-mix",
         "blueberry-muffin-mix",
     ):
-        entry = dam._packshot_entry_for(sku)
+        entry = asset_store._packshot_entry_for(sku)
         assert entry is not None, f"{sku} not resolved from the manifest"
         assert "705599" in entry["packshot_key"], f"{sku} packshot_key is not a real box"
 
 
 def test_resolver_returns_box_path_for_mapped_sku(tmp_path, monkeypatch):
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
-    hit = dam.resolve_packshot("banana-muffin-quick-bread-mix")
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
+    hit = asset_store.resolve_packshot("banana-muffin-quick-bread-mix")
     assert hit is not None, "mapped SKU should resolve to a real box"
     assert Path(hit).exists()
     assert "705599" in Path(hit).name
 
 
 def test_resolver_normalizes_handles(tmp_path, monkeypatch):
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
     # display-name form (spaces, mixed case) still lands the chocolate-fudge box
-    hit = dam.resolve_packshot("Chocolate Fudge Brownie Mix")
+    hit = asset_store.resolve_packshot("Chocolate Fudge Brownie Mix")
     assert hit is not None
     assert Path(hit).exists()
 
 
 def test_resolver_returns_none_for_unmapped_sku(tmp_path, monkeypatch):
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
     # no manifest entry and no local box on disk -> None (caller falls to generation)
-    assert dam.resolve_packshot("totally-made-up-sku-xyz") is None
+    assert asset_store.resolve_packshot("totally-made-up-sku-xyz") is None
 
 
 # --------------------------------------------------------------------------- #
 # _render_asset branch — packshot precedence over generation
 # --------------------------------------------------------------------------- #
 def test_mapped_sku_takes_packshot_path_and_skips_generate_hero(tmp_path, monkeypatch):
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
 
     # generate_hero must NOT paint the product pixels for a mapped SKU. It is still used
     # to paint the BACKGROUND scene, so we stub it to a plain background and record calls.
@@ -125,7 +125,7 @@ def test_mapped_sku_takes_packshot_path_and_skips_generate_hero(tmp_path, monkey
     assert seen["product_layer"] is not None, "packshot not passed to compose_creative"
     assert "705599" in Path(seen["product_layer"]).name
     # hero_source records the packshot-composite mode, not a bare generated scene
-    assert patch["hero_source"] == "dam:packshot-composite"
+    assert patch["hero_source"] == "asset-store:packshot-composite"
     assert patch["packshot"] is not None and "705599" in patch["packshot"]
     # the rendered ISO exists on disk
     assert Path(patch["file_path"]).exists()
@@ -133,7 +133,7 @@ def test_mapped_sku_takes_packshot_path_and_skips_generate_hero(tmp_path, monkey
 
 def test_flagship_skus_all_take_packshot_path(tmp_path, monkeypatch):
     # Banana Muffin, Chocolate Fudge Brownie, Blueberry Muffin — the three retro exemplars
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
 
     def _fake_generate_hero(*, product_id, product_name, brief_msg, region, audience, out_path, idx):
         Path(out_path).parent.mkdir(parents=True, exist_ok=True)
@@ -155,12 +155,12 @@ def test_flagship_skus_all_take_packshot_path(tmp_path, monkeypatch):
             "Fuel your frontier morning", "US-SW-LASCRUCES", "families",
             pack={}, out_root=out_root, idx=i,
         )
-        assert patch["hero_source"] == "dam:packshot-composite", f"{pid} did not composite the box"
+        assert patch["hero_source"] == "asset-store:packshot-composite", f"{pid} did not composite the box"
         assert "705599" in patch["packshot"], f"{pid} packshot is not a real box"
 
 
 def test_unmapped_sku_falls_through_to_generation(tmp_path, monkeypatch):
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
 
     calls = {"generate_hero": 0}
 
@@ -240,18 +240,18 @@ from creative_automation import generate as generate_mod  # noqa: E402 — mid-f
 
 def test_generate_hero_mapped_sku_takes_packshot_and_skips_stability(tmp_path, monkeypatch):
     # a mapped SKU (banana-muffin) resolves a real 705599* box -> generate_hero returns
-    # the dam:packshot-composite source, sets provenance.packshot, and NEVER invokes the
+    # the asset_store:packshot-composite source, sets provenance.packshot, and NEVER invokes the
     # Stability control-structure restyle (the generative step must not touch the box).
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
     # no theme/sku/disk seed so the background falls to the deterministic mock backdrop —
     # keeps the test offline and isolates the packshot branch from seed resolution.
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
 
     stability_calls = {"n": 0}
 
-    def _spy_stability(seed, prompt, out_path):
+    def _spy_stability(seed, prompt, out_path, **_k):
         stability_calls["n"] += 1
 
     monkeypatch.setattr(generate_mod, "_stability_control_hero", _spy_stability)
@@ -269,7 +269,7 @@ def test_generate_hero_mapped_sku_takes_packshot_and_skips_stability(tmp_path, m
 
     assert result.exists()
     # the endpoint's provenance field (top-level source) reports the composite path
-    assert source == generate_mod.PACKSHOT_SOURCE == "dam:packshot-composite"
+    assert source == generate_mod.PACKSHOT_SOURCE == "asset-store:packshot-composite"
     # provenance carries the additive packshot fields the /generate response ships
     assert prov["engine"] == "packshot-composite"
     assert prov["seed_selection"] == "packshot"
@@ -282,9 +282,9 @@ def test_generate_hero_mapped_sku_composites_verbatim_box(tmp_path, monkeypatch)
     # the real box reaches compose_creative's product_layer verbatim on the generate_hero
     # path (same guarantee _render_asset gives): compose is the only thing that paints the
     # product, and it pastes the box as-is (no cover-fit, no scrim, no restyle).
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
     monkeypatch.setattr(generate_mod, "_stability_control_hero", lambda s, p, o: None)
 
@@ -309,7 +309,7 @@ def test_generate_hero_mapped_sku_composites_verbatim_box(tmp_path, monkeypatch)
         idx=0,
     )
     assert result.exists()
-    assert source == "dam:packshot-composite"
+    assert source == "asset-store:packshot-composite"
     assert seen.get("product_layer") is not None, "packshot not passed to compose_creative"
     assert "705599" in Path(seen["product_layer"]).name
 
@@ -317,17 +317,17 @@ def test_generate_hero_mapped_sku_composites_verbatim_box(tmp_path, monkeypatch)
 def test_generate_hero_unmapped_sku_falls_through_to_generation(tmp_path, monkeypatch):
     # an unmapped SKU resolves NO packshot -> generate_hero must reach the generative
     # seam (Stability restyle on a real seed), NOT the packshot-composite branch.
-    monkeypatch.setattr(dam, "fetch_dam_key", _local_box_fetch(tmp_path))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
     seed = tmp_path / "seed.png"
     seed.parent.mkdir(parents=True, exist_ok=True)
     Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: seed)
 
     stability_calls = {"n": 0}
 
-    def _spy_stability(s, prompt, out_path):
+    def _spy_stability(s, prompt, out_path, **_k):
         stability_calls["n"] += 1
 
     monkeypatch.setattr(generate_mod, "_stability_control_hero", _spy_stability)

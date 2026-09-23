@@ -55,7 +55,7 @@ uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets inp
 The optional Kodiak generation reference workflow may use the project’s configured model or data library. Keep it behind an explicit generation command. Data synchronization remains manual and requires the project’s existing AWS profile only when the command needs cloud storage access
 
 ```bash
-AWS_PROFILE=bryanchasko-kiro ./scripts/sync-dam.sh pull
+AWS_PROFILE=bryanchasko-kiro ./scripts/sync-asset-store.sh pull
 AWS_PROFILE=bryanchasko-kiro uv run python scripts/embed-social-corpus.py --out data/vectors
 ```
 

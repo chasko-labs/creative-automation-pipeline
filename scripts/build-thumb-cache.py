@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fill the DAM thumb cache: 320px JPEG derivatives under thumbs/.
+"""Fill the asset store thumb cache: 320px JPEG derivatives under thumbs/.
 
 Reads every library category key list, HEADs thumbs/<key>.thumb.jpg, and for
 misses downloads the full file, resizes to 320px wide (PIL, JPEG q70), and
@@ -10,7 +10,7 @@ files (slow but correct).
 Usage:
   python3 scripts/build-thumb-cache.py [--category ideas] [--limit 200] [--dry-run]
 
-Writes to the real DAM bucket — this is the feature, not an accident. Bounded
+Writes to the real asset store bucket — this is the feature, not an accident. Bounded
 by --limit per category (default 200, matches the list cap).
 """
 
@@ -24,12 +24,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from creative_automation import dam, dam_library  # noqa: E402 — sys.path bootstrap above must precede repo imports
+from creative_automation import asset_store, asset_browser  # noqa: E402 — sys.path bootstrap above must precede repo imports
 
 
 def _fetch(key: str, dest: Path) -> bool:
     try:
-        return bool(dam.fetch_dam_key(key, dest))
+        return bool(asset_store.fetch_asset_key(key, dest))
     except Exception as e:  # noqa: BLE001
         print(f"  fetch failed {key}: {e}")
         return False
@@ -60,25 +60,25 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    if not dam._s3_enabled():
-        print("DAM S3 not configured — nothing to do.")
+    if not asset_store._s3_enabled():
+        print("asset store S3 not configured — nothing to do.")
         return 0
-    bucket, _ = dam._s3_bucket_and_prefix()
-    client = dam._s3_client()
+    bucket, _ = asset_store._s3_bucket_and_prefix()
+    client = asset_store._s3_client()
     if not bucket or client is None:
         print("S3 client init failed.")
         return 1
 
     wanted = (
         [args.category]
-        if args.category in dam_library._CATEGORIES
-        else list(dam_library._CATEGORIES)
+        if args.category in asset_browser._CATEGORIES
+        else list(asset_browser._CATEGORIES)
     )
     for name in wanted:
         made = skipped = failed = 0
-        cfg = dam_library._CATEGORIES[name]
+        cfg = asset_browser._CATEGORIES[name]
         try:
-            keys = dam_library._gather_keys(name, cfg, client, bucket, {})
+            keys = asset_browser._gather_keys(name, cfg, client, bucket, {})
         except Exception as e:  # noqa: BLE001
             print(f"{name}: gather failed: {e}")
             continue
@@ -88,7 +88,7 @@ def main() -> int:
             if Path(key).suffix.lower() not in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
                 skipped += 1
                 continue
-            tkey = dam_library._thumb_key(key)
+            tkey = asset_browser._thumb_key(key)
             thumb_exists = True
             try:
                 client.head_object(Bucket=bucket, Key=tkey)

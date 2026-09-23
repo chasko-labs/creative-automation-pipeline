@@ -2,7 +2,7 @@
 // Acceptance: the #196 photographic preload resolves 200 and decodes to a
 // real photo on first paint.
 // Root cause was scripts/deploy-frontier.sh, not the markup: the photo is
-// committed (force-added under the gitignored input_assets/ DAM dir) and
+// committed (force-added under the gitignored input_assets/ asset store dir) and
 // preloaded in <head>, but the deploy DIRS set never synced input_assets/.
 // This test guards the served result; the deploy include set is pinned by
 // tests/vitest/deploy-asset-coverage.test.mjs.

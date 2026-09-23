@@ -20,7 +20,7 @@ Auth (provided by @kodiakcakes owner, never scraped):
 Usage (no scrape, fully compliant):
 
   # 1) Dry-run / scaffold (no creds): generates 20+ compliant placeholders from locally licensed
-  #    kodiakcakes.com + DAM assets. Does NOT hit instagram.com HTML, does not scrape.
+  #    kodiakcakes.com + assets. Does NOT hit instagram.com HTML, does not scrape.
   uv run python scripts/instagram_graph_ingest.py --scaffold --limit 25
 
   # 2) Authenticated fetch (requires owner token):
@@ -92,7 +92,7 @@ def _compliance_note(authenticated: bool) -> dict[str, Any]:
             "https://developers.facebook.com/docs/instagram-basic-display-api",
         ],
         "copyright": "Media remains property of @kodiakcakes. Storage is Graph API fields via authorized token. Bulk redistribution requires owner permission.",
-        "scaffold_note": "Without token, script generates synthetic placeholders from locally licensed kodiakcakes.com/DAM assets (not IG scrape) to keep pipeline functional; replace with authenticated fetch for real IG media.",
+        "scaffold_note": "Without token, script generates synthetic placeholders from locally licensed kodiakcakes.com/assets (not IG scrape) to keep pipeline functional; replace with authenticated fetch for real IG media.",
     }
 
 # ------------------------------------------------------------------ Graph API fetch
@@ -230,7 +230,7 @@ SCAFFOLD_CAPTIONS = [
 
 def build_scaffold(limit: int = 25) -> list[dict[str, Any]]:
     """Build compliant placeholders from licensed local assets (no IG scrape)."""
-    # Use locally licensed image references (kodiakcakes.com/DAM) — never IG HTML scrape
+    # Use locally licensed image references (kodiakcakes.com/asset store) — never IG HTML scrape
     images_root = ROOT / "data/raw-ingest/kodiakcakes/images"
     # pick real licensed images in sorted order
     licensed = sorted(images_root.glob("*.jpg")) + sorted(images_root.glob("*.png")) + sorted(images_root.glob("*.webp"))

@@ -5,7 +5,7 @@ and returns a canned base64 image. Asserts the Stability request schema (NOT Nov
 taskType), the inference-profile modelId, base64 decode-to-out_path, the
 bedrock:stability-control-structure source tag, and the full fallback chain
 (Stability raises -> Pillow compose; no seed -> placeholder). Map-resolution assertions
-run against the committed fixture tests/fixtures/dam-real-keys.txt (not /tmp).
+run against the committed fixture tests/fixtures/asset_store-real-keys.txt (not /tmp).
 """
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ from PIL import Image
 
 from creative_automation import generate
 
-_FIXTURE = Path(__file__).parent / "fixtures" / "dam-real-keys.txt"
+_FIXTURE = Path(__file__).parent / "fixtures" / "asset_store-real-keys.txt"
 
 
 def _png_bytes(size: tuple[int, int] = (1024, 1024), color=(180, 90, 30)) -> bytes:
@@ -168,7 +168,7 @@ def test_generate_hero_stability_primary_on_disk_seed(tmp_path: Path, monkeypatc
     fake = _FakeBedrockClient(canned)
 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: fake)
 
@@ -200,7 +200,7 @@ def test_generate_hero_falls_back_to_compose_when_stability_fails(tmp_path: Path
     # source bedrock:nova-pro. This is the documented fallback chain step 2.
     seed = _make_seed(tmp_path / "seed.png")
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_stability_control_hero", lambda s, p, o: None)
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
@@ -234,7 +234,7 @@ def test_generate_hero_dev_flag_skips_stability_uses_nova_pro_pillow(tmp_path: P
 
     seed = _make_seed(tmp_path / "seed.png")
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
 
     # tripwire: if the generative rung is honored, this must NEVER be called in dev.
@@ -275,11 +275,11 @@ def test_generate_hero_no_seed_returns_brand_floor(tmp_path: Path, monkeypatch) 
     # no theme, no sku photo, no disk asset, no packshot -> Stability never runs, the
     # ladder ends at rung D (brand-floor): real Kodiak pixels, zero network, non-lying label.
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
-    from creative_automation import dam
+    from creative_automation import asset_store
 
-    monkeypatch.setattr(dam, "resolve_packshot", lambda pid, dam_root=None: None)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
     called = {"stability": 0}
     monkeypatch.setattr(
         generate, "_stability_control_hero",
@@ -306,15 +306,15 @@ def test_generate_hero_no_seed_returns_brand_floor(tmp_path: Path, monkeypatch) 
 
 
 def test_generate_hero_theme_seed_wins_and_conditions(tmp_path: Path, monkeypatch) -> None:
-    # theme resolves to a DAM key, fetch returns a real seed -> Stability conditions
+    # theme resolves to a asset key, fetch returns a real seed -> Stability conditions
     # that thematic seed -> stability tag. Theme drives the pixels.
     seed = _make_seed(tmp_path / "theme-seed.png")
     canned = base64.b64encode(_png_bytes(color=(120, 30, 200))).decode("ascii")
     fake = _FakeBedrockClient(canned)
-    from creative_automation import dam
+    from creative_automation import asset_store
 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: "brands/kodiak/raw-ingest/theme.jpg")
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: seed)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
     monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: fake)
 
     out = tmp_path / "hero.png"
@@ -333,9 +333,9 @@ def test_generate_hero_theme_seed_wins_and_conditions(tmp_path: Path, monkeypatc
 
 
 # --------------------------------------------------------------- map resolution vs fixture
-# tests/fixtures/dam-real-keys.txt is the committed real-DAM-key set (one basename per
+# tests/fixtures/asset_store-real-keys.txt is the committed real-asset-key set (one basename per
 # line, no prefix) — the same fixture test_theme_asset_map.py validates pools against.
-_DAM_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
+_ASSET_STORE_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
 
 
 def _real_key_basenames() -> set[str]:
@@ -343,19 +343,19 @@ def _real_key_basenames() -> set[str]:
 
 
 def test_theme_resolver_returns_real_committed_key() -> None:
-    # a known chip theme resolves to a full DAM key whose basename is in the committed
+    # a known chip theme resolves to a full asset key whose basename is in the committed
     # real-key fixture — the resolved seed is a real asset, not a fabricated path.
     real = _real_key_basenames()
     key = generate._resolve_theme_photo("wild-grizzly-bears")
-    assert key is not None and key.startswith(_DAM_PREFIX)
-    assert key[len(_DAM_PREFIX):] in real
+    assert key is not None and key.startswith(_ASSET_STORE_PREFIX)
+    assert key[len(_ASSET_STORE_PREFIX):] in real
 
 
 def test_sku_resolver_returns_real_committed_key() -> None:
     real = _real_key_basenames()
-    key = generate._resolve_dam_photo("apple-cinnamon-oatmeal-packets")
-    assert key is not None and key.startswith(_DAM_PREFIX)
-    assert key[len(_DAM_PREFIX):] in real
+    key = generate._resolve_asset_photo("apple-cinnamon-oatmeal-packets")
+    assert key is not None and key.startswith(_ASSET_STORE_PREFIX)
+    assert key[len(_ASSET_STORE_PREFIX):] in real
 
 
 # ------------------------------------------------------- _parse_layout LAYOUT hygiene
@@ -385,32 +385,59 @@ def test_parse_layout_invalid_side_line_never_becomes_headline() -> None:
     assert side == "center"
 
 
-# --------------------------------------------------------------- mascot lock (Unit 2)
+# --------------------------------------------------------------- bear law (brand standard)
 def test_style_sandwich_default_has_no_mascot_block(monkeypatch) -> None:
-    # lock OFF (default): existing renders are byte-identical, no descriptor injected.
-    monkeypatch.delenv("KODIAK_MASCOT_LOCK", raising=False)
+    # The frozen mascot block is deleted: no env flag can inject bear identity,
+    # and the module carries no mascot descriptor at all.
+    monkeypatch.setenv("KODIAK_MASCOT_LOCK", "1")
+    monkeypatch.setenv("KODIAK_MASCOT_DESCRIPTOR", "friendly bear mascot")
     out = generate._style_sandwich("wild frontier restyle")
     assert out == f"{generate.STYLE_HEAD}wild frontier restyle{generate.STYLE_TAIL}"
-    assert generate.MASCOT_DESCRIPTOR_BLOCK not in out
+    assert not hasattr(generate, "MASCOT_DESCRIPTOR_BLOCK")
+    assert not hasattr(generate, "_mascot_lock_on")
+    assert not hasattr(generate, "_mascot_block")
+    assert "friendly" not in out and "mascot" not in out.lower()
 
 
-def test_style_sandwich_mascot_lock_pins_frozen_block(monkeypatch) -> None:
-    # lock ON: the frozen descriptor lands in the SUBJECT slot ahead of the scene,
-    # inside the frozen style ends; repeated wrapping is idempotent (one block only).
-    monkeypatch.setenv("KODIAK_MASCOT_LOCK", "1")
-    once = generate._style_sandwich("log cabin at dawn")
-    assert once.startswith(generate.STYLE_HEAD)
-    assert once.endswith(generate.STYLE_TAIL)
-    # brand scrub: the bear-identity words survive but the brand token never
-    # reaches the image model, even inside the frozen mascot block.
-    assert "kodiak" not in once.lower()
-    scrubbed_block = generate._BRAND_SCRUB_RE.sub(
-        "", generate.MASCOT_DESCRIPTOR_BLOCK
-    ).strip()
-    assert scrubbed_block in once
-    assert once.index(scrubbed_block) < once.index("log cabin at dawn")
-    twice = generate._style_sandwich(once)
-    assert twice == once
+def test_bear_law_clause_request_driven() -> None:
+    # Bear-free by default; the wild-grizzly-bears theme or a bear-naming
+    # brief earns the constraint clause — never a mascot.
+    assert generate._bear_law_clause(None, "wild mornings") == ""
+    assert generate._bear_law_clause("us-ski-snowboard", "wild mornings") == ""
+    themed = generate._bear_law_clause("wild-grizzly-bears", "wild mornings")
+    assert themed and "no mascot" in themed and "human-free" in themed
+    assert "friendly" not in themed and "amber" not in themed
+    briefed = generate._bear_law_clause(None, "grizzly country at dawn")
+    assert briefed == generate._BEAR_LAW_CLAUSE
+    # "bear-brown timber" is palette language, not a bear request.
+    assert generate._bear_law_clause(None, "bear-brown timber and kraft tones") == ""
+
+
+def test_default_scene_prompt_bear_law_only_when_requested() -> None:
+    plain = generate._default_scene_prompt("P", "wild mornings", "us", "f", None)
+    assert "Bear direction" not in plain
+    assert "mascot" not in plain.lower()
+    themed = generate._default_scene_prompt(
+        "P", "wild mornings", "us", "f", "wild-grizzly-bears"
+    )
+    assert "Bear direction (brand law)" in themed
+    assert "no bear touching product" in themed
+
+
+def test_conservation_badge_layer_normalizes_and_ships_clean(tmp_path) -> None:
+    # The slot normalizes like any layer flag; with no raster on disk the
+    # render ships clean and records unresolved — never a fabricated mark.
+    normed = generate.normalize_layers({"conservation_badge": True})
+    assert normed == {generate.LAYER_COBADGE: True}
+    assert generate.normalize_layers({"bogus_mark": True}) == {}
+    from PIL import Image
+
+    base = tmp_path / "base.png"
+    Image.new("RGB", (640, 640), (200, 150, 100)).save(base, "PNG")
+    prov: dict = {}
+    generate._apply_layer_marks(base, {generate.LAYER_COBADGE: True}, prov)
+    assert prov.get("cobadge_layer") == "unresolved:asset-missing"
+    assert "conservation_badge" not in (prov.get("layer_marks") or [])
 
 
 def test_deterministic_mode_stable_across_hash_seeds(monkeypatch) -> None:
@@ -442,7 +469,7 @@ def test_deterministic_mode_stable_across_hash_seeds(monkeypatch) -> None:
 def test_style_sandwich_scrubs_brand_token() -> None:
     # proven 2026-09-10: any brand word in the stability prompt renders as
     # hallucinated pack copy ("KODA CAKTS"). the scrub removes the token and
-    # its "on-brand" prefix; brand identity ships via composited DAM art.
+    # its "on-brand" prefix; brand identity ships via composited asset store art.
     p = generate._style_sandwich(
         "Buttermilk Power Cakes family breakfast, Kodiak Cakes subscription, "
         "on-brand Kodiak"

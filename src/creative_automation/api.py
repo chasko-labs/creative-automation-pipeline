@@ -27,7 +27,7 @@ try:
 except ImportError:
     HAS_FASTAPI = False  # fallback still allows import for tests without FastAPI
 
-from . import dam, dam_library, localize_memory
+from . import asset_store, asset_browser, localize_memory
 from .asset_api import library as asset_library_instance
 from .asset_api import mount_library_routes
 from .asset_pack import (
@@ -59,7 +59,7 @@ if HAS_FASTAPI:
         allow_headers=["*"],
     )
 
-    # Mount the DAM library routes (/library/assets POST+GET, get-by-id, select, health) onto
+    # Mount the asset library routes (/library/assets POST+GET, get-by-id, select, health) onto
     # this main app so the frontend — which hits the main-API origin — reaches them. Same
     # registration + same AssetLibrary instance the standalone asset_api :8183 surface uses, so
     # there is no drift and add_asset logic is not duplicated (POST goes through ingest_asset for
@@ -166,7 +166,7 @@ if HAS_FASTAPI:
     @app.post("/assets/sync")  # type: ignore
     def asset_sync():
         """Nightly Canto → Shopify sync that Arnoldo's heartbeat hits — mirrors input_assets to cloud."""
-        return {"next": "./scripts/sync-dam.sh pull/push", "s3_prefix": "s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/", "local": "input_assets/"}
+        return {"next": "./scripts/sync-asset_store.sh pull/push", "s3_prefix": "s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/", "local": "input_assets/"}
 
     @app.get("/retail/stores")  # type: ignore
     def retail_stores(market: str = Query(..., description="US-SW-LASCRUCES, US-MW-WASATCH, etc."), retailer: str | None = None):
@@ -315,17 +315,17 @@ if HAS_FASTAPI:
         retailer: str | None = Query(None, description="Optional retailer filter (costco/publix/target)"),
         ratio: str | None = Query(None, description="Optional single ratio 1x1|9x16|16x9; default all three"),
     ):
-        """Build a retailer asset-pack zip for a market, upload to the S3 DAM, return a download url.
+        """Build a retailer asset-pack zip for a market, upload to the S3 asset store, return a download url.
 
         The frontend (issue #30) hits this to replace the 'S3 zip wiring pending' stub. The
         pack bundles this market's creatives + a manifest.json (market, product, retailers,
         BCP-47 language tags, ISO names of contents, generated timestamp) named
         KODIAK-CAKES-{product}-{REGION}-{locality}-retailers-pack-{YYYYMMDD}-v01.zip .
 
-        S3 path (DAM_S3_BUCKET set): uploads under the DAM 'packs/' prefix and returns a
+        S3 path (ASSET_STORE_S3_BUCKET set): uploads under the asset store 'packs/' prefix and returns a
         presigned {url, key, filename, expires_in, asset_count}. Offline / CI path (no S3):
         returns the same shape with url=null plus local_path + a note so the endpoint still
-        works with no boto3 / no creds — mirrors dam.py's graceful S3-disabled fallback.
+        works with no boto3 / no creds — mirrors asset_store.py's graceful S3-disabled fallback.
         """
         # asset list — compose the existing campaigns() builder, do not duplicate its logic
         camp = campaigns(market=market, retailer=retailer, ratio=ratio)
@@ -367,7 +367,7 @@ if HAS_FASTAPI:
 
         key = f"packs/{pack_name}"
         expires_in = 3600
-        url = dam.s3_upload_and_presign(zip_path, key, expires=expires_in)
+        url = asset_store.s3_upload_and_presign(zip_path, key, expires=expires_in)
         if url is not None:
             return {
                 "url": url,
@@ -390,7 +390,7 @@ if HAS_FASTAPI:
             "language_tags": language_tags,
             "local_path": str(zip_path),
             "manifest": manifest,
-            "note": "S3 DAM not configured (DAM_S3_BUCKET unset or boto3 missing) — returning local pack path. Set DAM_S3_BUCKET to get a presigned download url.",
+            "note": "S3 asset store not configured (ASSET_STORE_S3_BUCKET unset or boto3 missing) — returning local pack path. Set ASSET_STORE_S3_BUCKET to get a presigned download url.",
         }
 
     @app.get("/assets/library")  # type: ignore
@@ -398,25 +398,25 @@ if HAS_FASTAPI:
         category: str | None = Query(None, description="Filter to one of products|recipes|food|lifestyle|ideas|themes|brand; all seven when absent"),
         limit: int = Query(60, description="Max presigned URLs minted per category (default 60, hard max 200)"),
     ):
-        """Read-only DAM asset browser — curated Kodiak picker prefixes with presigned GETs.
+        """Read-only asset browser — curated Kodiak picker prefixes with presigned GETs.
 
-        Powers the front-page '+' 'Browse past assets' tab. The DAM bucket is fully
+        Powers the front-page '+' 'Browse past assets' tab. The asset store bucket is fully
         private, so every item carries a presigned GET url (public urls 403). Bucket is
-        resolved from dam._s3_bucket_and_prefix() — never hardcoded. raw-ingest/ is never
+        resolved from asset_store._s3_bucket_and_prefix() — never hardcoded. raw-ingest/ is never
         listed (pipeline seed data, not picker assets).
 
-        Offline / CI path (dam._s3_enabled() False): returns {"enabled": false, "bucket":
+        Offline / CI path (asset_store._s3_enabled() False): returns {"enabled": false, "bucket":
         null, "categories": {...empty...}, "note": ...} with HTTP 200 — mirrors the
         graceful S3-disabled fallback the other /assets routes use, never 500.
 
         Per-category errors (list or presign failure) degrade to that category's items=[]
         plus an "error" note rather than failing the whole route.
 
-        The listing logic lives in dam_library.list_library — the ONE implementation both
+        The listing logic lives in asset_browser.list_library — the ONE implementation both
         this dev/local route and generate_lambda's production dispatcher call, so there is
         no drift between the two surfaces.
         """
-        return dam_library.list_library(category, limit)
+        return asset_browser.list_library(category, limit)
 
     # content-type -> file extension: the only image types the pipeline hero slot accepts
     _UPLOAD_EXT_BY_CT = {"image/jpeg": "jpg", "image/png": "png"}
@@ -447,7 +447,7 @@ if HAS_FASTAPI:
         POST /pipeline/run and /suggest/run take a filesystem PATH string, so a photo that
         lives only in a browser (e.g. a macmini Downloads jpeg) can never enter. This
         multipart endpoint closes that gap: it accepts the uploaded bytes, writes them to
-        input_assets/{product}/hero.{ext}, registers the copy in the S3 DAM, and returns the
+        input_assets/{product}/hero.{ext}, registers the copy in the S3 asset store, and returns the
         asset id + a presigned url. It feeds the main Create Campaign Preview /generate flow
         as a browser-sourced photo input.
 
@@ -456,7 +456,7 @@ if HAS_FASTAPI:
         an earlier upload is never the only casualty of a re-upload.
 
         Offline / CI path (no S3): the local file is still written and the same shape returns
-        with presigned_url=null — mirrors dam.py's graceful S3-disabled fallback, so the
+        with presigned_url=null — mirrors asset_store.py's graceful S3-disabled fallback, so the
         endpoint works with no boto3 / no creds.
         """
         content_type = (file.content_type or "").split(";", 1)[0].strip().lower()
@@ -494,7 +494,7 @@ if HAS_FASTAPI:
         hero_path.write_bytes(data)
 
         key = f"uploads/{asset_id}/hero.{ext}"
-        presigned_url = dam.s3_upload_and_presign(hero_path, key)
+        presigned_url = asset_store.s3_upload_and_presign(hero_path, key)
 
         # hand back repo-relative hero path when possible, else the absolute path
         try:
@@ -514,7 +514,7 @@ if HAS_FASTAPI:
             "note": (
                 None
                 if presigned_url is not None
-                else "S3 DAM not configured (DAM_S3_BUCKET unset or boto3 missing) — file written locally, presigned_url null. Set DAM_S3_BUCKET for a download url."
+                else "S3 asset store not configured (ASSET_STORE_S3_BUCKET unset or boto3 missing) — file written locally, presigned_url null. Set ASSET_STORE_S3_BUCKET for a download url."
             ),
         }
 

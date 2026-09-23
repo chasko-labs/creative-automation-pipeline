@@ -1,6 +1,6 @@
 """Brutal image pipeline scorecards — scored cards only, 100% threshold, no lenient C.
 
-Covers DAM determinism, enhance, compose template, font/logo determinism, palette, legal, naming, dims.
+Covers asset library determinism, enhance, compose template, font/logo determinism, palette, legal, naming, dims.
 Uses Pillow histogram + regex + json schema — no generative leniency.
 Honesty rule (#203): every card either runs a real pixel/config test or is
 marked unscored ("scored": False) and excluded from totals and the overall
@@ -34,10 +34,10 @@ def score_image_determinism(image_path: Path) -> dict:
     """12 brutal cards for a single generated creative."""
     cards: list[dict] = []
     subs: list[str]
-    # Card 1: DAM determinism — hero source must be dam+enhanced when available
+    # Card 1: asset library determinism — hero source must be asset-library+enhanced when available
     # We infer from path: if image exists, check metadata via report — here we just check file exists
     exists = image_path.exists()
-    cards.append({"id":"dam","title":"DAM Determinism","max":1,"score":1 if exists else 0,"pass":exists,"detail":"✓ exists dam+enhanced" if exists else "✗ missing","subs":["✓ dam+enhanced" if exists else "✗ missing"]})
+    cards.append({"id":"asset-library","title":"Asset Library Determinism","max":1,"score":1 if exists else 0,"pass":exists,"detail":"✓ exists asset-library+enhanced" if exists else "✗ missing","subs":["✓ asset-library+enhanced" if exists else "✗ missing"]})
     # Card 2: Enhance determinism — must have been via enhance_hero with exact params
     # We check for presence of enhance artifacts: file should contain bear brown + blaze within tolerance
     try:
@@ -131,7 +131,7 @@ def score_image_determinism(image_path: Path) -> dict:
     # but are excluded from totals and the overall verdict.
     cards.append({"id":"report","title":"Report Completeness","max":0,"score":0,"pass":True,"scored":False,"detail":"○ unscored — no report.json/preview.html check implemented","subs":["○ unscored"]})
     cards.append({"id":"variants","title":"Language Variants","max":0,"score":0,"pass":True,"scored":False,"detail":"○ unscored — no EN/top-2 variant check implemented","subs":["○ unscored"]})
-    cards.append({"id":"provenance","title":"Provenance","max":0,"score":0,"pass":True,"scored":False,"detail":"○ unscored — no DAM/Nova provenance check implemented","subs":["○ unscored"]})
+    cards.append({"id":"provenance","title":"Provenance","max":0,"score":0,"pass":True,"scored":False,"detail":"○ unscored — no asset store/Nova provenance check implemented","subs":["○ unscored"]})
 
     scored = [c for c in cards if c.get("scored", True)]
     total = sum(c["score"] for c in scored)

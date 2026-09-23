@@ -279,7 +279,7 @@ between runs; ComfyUI queue empty at start.
   technique still-life style alongside `atl-sep-sparse2-a.png`.
 
 Backlog note (2026-09-15): emitted `recipe-cards-data.js` has 876
-cards; shipped DAM art covers all but one raw_ingredient
+cards; shipped asset store art covers all but one raw_ingredient
 (US-W-HONOLULU 2026-10, "Waialua coffee (harvest) and papaya")
 and zero finished_plate / technique (all null) — so plate and
 technique styles gate all bulk work in those zones.

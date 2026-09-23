@@ -32,12 +32,12 @@
     try{ snap.season   = document.getElementById('seasonalSelect')?.value; }catch(e){}
     try{ snap.skus     = checkedSkus(); }catch(e){}
     try{ snap.userAssetNames = (window.__userAssets || []).map(function(a){ return a && a.name; }).filter(Boolean); }catch(e){}
-    // staged DAM picks rehydrate by KEY (small strings, re-fetchable server-side) —
+    // staged asset store picks rehydrate by KEY (small strings, re-fetchable server-side) —
     // presigned urls and blob object urls never survive a discard, so only the key
     // travels. Local file uploads have no key and keep the names-only re-add note.
     try{
-      snap.userDamAssets = (window.__userAssets || [])
-        .filter(function(a){ return a && a.source === 'dam' && a.key; })
+      snap.userAssets = (window.__userAssets || [])
+        .filter(function(a){ return a && a.source === 'asset-library' && a.key; })
         .map(function(a){ return {name: a.name, key: a.key, category: a.category, kind: a.kind}; });
     }catch(e){}
     return snap;
@@ -65,7 +65,7 @@
       var prev = readStored() || {};
       var snap = readSnapshot();
       // identical state (modulo timestamps) -> skip the write so ts/born never refresh.
-      var prevBare = {brief:prev.brief, locality:prev.locality, season:prev.season, skus:prev.skus, userAssetNames:prev.userAssetNames, userDamAssets:prev.userDamAssets};
+      var prevBare = {brief:prev.brief, locality:prev.locality, season:prev.season, skus:prev.skus, userAssetNames:prev.userAssetNames, userAssets:prev.userAssets};
       if(sameSnap(prevBare, snap)) return;
       snap.ts = Date.now();
       snap.born = (typeof prev.born === 'number') ? prev.born : snap.ts;  // absolute lifetime: first persist wins
@@ -117,7 +117,7 @@
     }catch(e){}
   }
 
-  // restored-picks note: DAM picks came back by key and work at the next Create.
+  // restored-picks note: asset store picks came back by key and work at the next Create.
   function showRestoredNote(names){
     try{
       if(document.getElementById('ffAssetRestoredNote')) return;   // idempotent
@@ -301,20 +301,20 @@
         if(typeof window.__kodiakSyncSkuChips === 'function'){ window.__kodiakSyncSkuChips(); }
       }catch(e){}
 
-      // staged DAM picks — rehydrate by key: the request path re-fetches server-side
-      // (fetch_dam_key), so no presigned url is needed. Chips rebuild without thumbs;
+      // staged asset store picks — rehydrate by key: the request path re-fetches server-side
+      // (fetch_asset_key), so no presigned url is needed. Chips rebuild without thumbs;
       // the pick is fully functional at the next Create.
       try{
-        var damList = Array.isArray(snap.userDamAssets) ? snap.userDamAssets : [];
+        var assetList = Array.isArray(snap.userAssets) ? snap.userAssets : [];
         var buildChip = window.KODIAK_buildChip;
         var rehydrated = [];
-        damList.forEach(function(d){
+        assetList.forEach(function(d){
           if(!d || !d.key) return;
           try{
-            var exists = (window.__userAssets || []).some(function(a){ return a && a.source === 'dam' && a.key === d.key; });
+            var exists = (window.__userAssets || []).some(function(a){ return a && a.source === 'asset-library' && a.key === d.key; });
             if(exists) return;
             window.__userAssets = window.__userAssets || [];
-            var rec = {id: 'dam-asset-restore-' + rehydrated.length, name: d.name || d.key, kind: d.kind, source: 'dam', key: d.key, url: null, category: d.category};
+            var rec = {id: 'asset-library-restore-' + rehydrated.length, name: d.name || d.key, kind: d.kind, source: 'asset-library', key: d.key, url: null, category: d.category};
             window.__userAssets.push(rec);
             if(typeof buildChip === 'function'){ buildChip(rec, null); }
             rehydrated.push(rec.name);
@@ -324,10 +324,10 @@
       }catch(e){}
 
       // staged uploads — blob URLs are gone after a discard; show a non-blocking re-add note (no fake assets).
-      // DAM picks restored above are excluded: their keys (not names) identify them.
+      // asset store picks restored above are excluded: their keys (not names) identify them.
       try{
         var restoredKeys = {};
-        (Array.isArray(snap.userDamAssets) ? snap.userDamAssets : []).forEach(function(d){ if(d && d.name) restoredKeys[d.name] = true; });
+        (Array.isArray(snap.userAssets) ? snap.userAssets : []).forEach(function(d){ if(d && d.name) restoredKeys[d.name] = true; });
         var missing = (Array.isArray(snap.userAssetNames) ? snap.userAssetNames : []).filter(function(n){ return !restoredKeys[n]; });
         if(missing.length){ showAssetReAddNote(missing); }
       }catch(e){}

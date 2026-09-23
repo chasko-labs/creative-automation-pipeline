@@ -1,4 +1,4 @@
 ### 2. Frontier Breakfast — the retail velocity campaign
-*Hero products:* Power Cakes, Bear Bites, Protein Oatmeal Cup (three SKUs = three heroes; Power Cakes reuses a DAM photo, the other two generate when no hero exists).
+*Hero products:* Power Cakes, Bear Bites, Protein Oatmeal Cup (three SKUs = three heroes; Power Cakes reuses a asset photo, the other two generate when no hero exists).
 *Idea:* "Protein-packed whole grains for today's frontier" — the honest claim that moves boxes. Each retailer gets its own pack: Publix in the southeast (family breakfast, porch light), Target in the Midwest (Gen Z health, clean light), Costco bulk (family value, bigger stack). That's 3 products × 3 ratios × 3 retailers = 27 variants before we even change language.
 *Where it localizes:* US-MW (mountain haze, Wasatch) vs US-SE (Publix porch) — we already have two briefs `briefs/kodiak.yaml` (US-MW) and `briefs/kodiak-se.yaml` (US-SE) that render 9 + 9 creatives with different `region` tags in `report.jsonl` so merch can see what drove lift per corridor.

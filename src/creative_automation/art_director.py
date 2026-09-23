@@ -50,10 +50,12 @@ try:
 except ImportError:  # boto3/botocore are hard deps; defensive for offline CI
     BotoCoreError = ClientError = Exception  # type: ignore
 
-# The live, proven imported-model ARN. Overridable by env for a rebuilt/re-imported model.
-DEFAULT_MODEL_ARN = (
-    "arn:aws:bedrock:us-west-2:946179428633:imported-model/cx15b77k5nge"
-)
+# Voice model: Nova Micro via cross-region inference profile, pay-per-token,
+# $0 idle (cost incident 2026-09-23 — the imported 1b copy billed ~$38/day
+# in copy-minutes and was deleted). The bare model id rejects on-demand
+# Converse in us-west-2; the us.* profile is required. Overridable by env
+# for a rebuilt/re-imported custom model.
+DEFAULT_MODEL_ARN = "us.amazon.nova-micro-v1:0"
 KODIAK_ARTDIRECTOR_MODEL_ARN = os.getenv(
     "KODIAK_ARTDIRECTOR_MODEL_ARN", DEFAULT_MODEL_ARN
 )
@@ -71,8 +73,8 @@ KNOWN_VOICES = ("adventurous", "nourishing")
 # Cold-start retry policy — custom-imported models scale to zero and throw
 # ModelNotReadyException on the first invoke after idle. Bounded HARD: 2 attempts x
 # 1x2s sleep (worst case ~2s of sleep + inference) — one fast warming probe, then
-# out. A pre-warm Scheduler ping (see infra-cdk, disabled by default alongside the
-# voice flag) keeps the model warm so the probe rarely fires. PROVEN IN PROD
+# out. (The old pre-warm Scheduler ping was deleted 2026-09-23: it kept a
+# ~$38/day copy charge alive.) PROVEN IN PROD
 # (2026-09-08): longer loops blew the wall to rung-D brand-floor on every request
 # while the model warmed — a retry must never outlive its caller.
 # CI never reaches this path (it has no creds); `sleep` stays injectable for tests.
@@ -113,7 +115,13 @@ def _build_ask(ask: str, voice: str) -> str:
     if v == "nourishing":
         framed = f"In Kodiak's nourishing voice (whole-grain, protein, honest): {ask}"
     elif v == "adventurous":
-        framed = f"In Kodiak's adventurous voice (trail, outdoor, imperative): {ask}"
+        # Cost-incident fix 2026-09-23: the old "(trail, outdoor, imperative)"
+        # descriptor baited recruit-speak ("listen up, recruit") that the
+        # military filter then quarantined — guaranteed wasted resamples on
+        # any model. The agricultural-frontier lane says the same brand thing
+        # in words the filter allows, without prescribing a season or warmth
+        # the brief never chose.
+        framed = f"In Kodiak's voice (agricultural frontier, honest morning fuel): {ask}"
     else:
         framed = f"In Kodiak's {v} voice: {ask}"
     return INSTRUCTION_TEMPLATE.format(ask=framed)

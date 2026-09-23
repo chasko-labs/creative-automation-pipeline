@@ -42,7 +42,7 @@ from pathlib import Path
 from . import naming, retailers, safety
 from .compose import compose_creative
 from .context_pack import build_context_pack
-from .dam import resolve_packshot
+from .asset_store import resolve_packshot
 from .enhance import enhance_hero
 from .generate import generate_hero
 from .recipe_card import build_recipe_card
@@ -575,7 +575,7 @@ def _render_asset(
         # 4) post-render cohesion check (cr-3) — creds-gated, skipped-not-faked offline
         cohesion = _cohesion_check(iso_path, pack)
         if packshot is not None:
-            base_source = "dam:packshot-composite"
+            base_source = "asset-store:packshot-composite"
         elif hero_source.startswith("mock"):
             base_source = "mock"
         else:

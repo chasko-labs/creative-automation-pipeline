@@ -2,7 +2,7 @@
 
 Offline: the combo rule + scene fold + sidecar lines are pure deterministic
 code over the committed theme-asset-map; the end-to-end hero tests mock the
-DAM fetch + Stability rung so no AWS is touched.
+asset store fetch + Stability rung so no AWS is touched.
 """
 from __future__ import annotations
 
@@ -122,12 +122,12 @@ def test_nova_scene_prompt_offline_fallback_folds_extras(monkeypatch) -> None:
 # ------------------------------------------------------- hero end to end
 def _mock_theme_seed(monkeypatch, tmp_path: Path):
     seed = _make_seed(tmp_path / "theme-seed.png")
-    from creative_automation import dam
+    from creative_automation import asset_store
 
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: seed)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
-    monkeypatch.setattr(dam, "resolve_packshot", lambda pid, dam_root=None: None)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
     # rung B records the scene prompt, then the mocked restyle falls to rung C
     monkeypatch.setattr(generate, "_stability_control_hero", lambda s, p, o: None)
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: "")

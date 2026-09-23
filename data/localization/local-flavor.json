@@ -5,7 +5,7 @@
     "purpose": "Canonical locale -> season -> local produce/source lookup for the 'Local flavor' island. Month-aware: each market lists produce entries with an inclusive month window (1-12). local_flavor_for(market_code, month) returns the in-season entries for that month plus the sourcing string. Seeded from the frontend flavorMap so the DATA layer is authoritative and the UI can fetch this file instead of hardcoding JS.",
     "month_convention": "months are integers 1-12 (January=1). Windows are inclusive and may wrap the year end (e.g. start 11, end 2 spans Nov-Feb). year_round entries use months 1-12.",
     "consumed_by": "src/creative_automation/local_flavor.py :: local_flavor_for(market_code, month) -> {produce, source, months, in_season}",
-    "markets": 81,
+    "markets": 84,
     "model": "1:1 — every market carries its own frontier produce; unconfirmed seasons stay unscheduled (produce:[]) with the sourcing line intact"
   },
   "markets": {
@@ -2378,7 +2378,7 @@
       ]
     },
     "US-NE-NYC": {
-      "place": "Brooklyn + Manhattan, New York",
+      "place": "New York City",
       "source": "Warwick, New York 10990 — Warwick farm stands (standalone URL unconfirmed — research dispatch)",
       "produce": [
         {
@@ -6268,6 +6268,267 @@
           "months": [
             10,
             11
+          ]
+        }
+      ]
+    },
+    "US-NE-BROOKLYN": {
+      "place": "Brooklyn, New York",
+      "source": "Warwick, New York 10990 — Warwick farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "black-dirt onions",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "sweet cherries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "fresh cider",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "storage onions",
+          "months": [
+            12
+          ]
+        }
+      ]
+    },
+    "US-NE-MANHATTAN": {
+      "place": "Manhattan, New York",
+      "source": "Warwick, New York 10990 — Warwick farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "black-dirt onions",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "sweet cherries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "fresh cider",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "storage onions",
+          "months": [
+            12
+          ]
+        }
+      ]
+    },
+    "US-NE-BRONX": {
+      "place": "Bronx, New York",
+      "source": "Warwick, New York 10990 — Warwick farm stands (standalone URL unconfirmed — research dispatch)",
+      "produce": [
+        {
+          "name": "black-dirt onions",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "storage apples",
+          "months": [
+            1
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "months": [
+            2
+          ]
+        },
+        {
+          "name": "spring greens",
+          "months": [
+            3
+          ]
+        },
+        {
+          "name": "asparagus",
+          "months": [
+            4
+          ]
+        },
+        {
+          "name": "strawberries",
+          "months": [
+            5
+          ]
+        },
+        {
+          "name": "sweet cherries",
+          "months": [
+            6
+          ]
+        },
+        {
+          "name": "peaches",
+          "months": [
+            8
+          ]
+        },
+        {
+          "name": "apples",
+          "months": [
+            9
+          ]
+        },
+        {
+          "name": "fresh cider",
+          "months": [
+            10
+          ]
+        },
+        {
+          "name": "winter squash",
+          "months": [
+            11
+          ]
+        },
+        {
+          "name": "storage onions",
+          "months": [
+            12
           ]
         }
       ]

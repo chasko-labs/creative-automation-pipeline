@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Publish campaign pool renders to the DAM ideas prefix (Browse past assets).
+"""Publish campaign pool renders to the asset store ideas prefix (Browse past assets).
 
 Target: brands/kodiak/renders/campaign/<market>/<file>.png — the ideas tab
 lists this prefix verbatim. HEAD-first idempotency: existing keys are
 skipped, so re-runs cost nothing.
 
-Usage: AWS_PROFILE=bryanchasko-kiro python scripts/publish_campaign_to_dam.py [--limit N]
+Usage: AWS_PROFILE=bryanchasko-kiro python scripts/publish_campaign_to_asset_store.py [--limit N]
 """
 from __future__ import annotations
 
@@ -22,11 +22,11 @@ ROOT = Path(__file__).resolve().parent.parent
 POOL = ROOT / "input_assets" / "campaign"
 DEST_PREFIX = "brands/kodiak/renders/campaign/"
 sys.path.insert(0, str(ROOT / "src"))
-from creative_automation.dam import _s3_bucket_and_prefix  # noqa: E402
+from creative_automation.asset_store import _s3_bucket_and_prefix  # noqa: E402
 
 BUCKET, _ = _s3_bucket_and_prefix()
 if not BUCKET:
-    print("no DAM bucket configured (DAM_S3_BUCKET/DAM_S3_URI)", file=sys.stderr)
+    print("no asset store bucket configured (ASSET_STORE_S3_BUCKET/ASSET_STORE_S3_URI)", file=sys.stderr)
     raise SystemExit(2)
 
 

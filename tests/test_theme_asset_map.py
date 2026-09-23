@@ -1,7 +1,7 @@
 """Offline validation of the theme-asset-map artifact.
 
 No network. Asserts the committed data/products/theme-asset-map.json is
-well-formed, covers all chip themes, resolves only real DAM keys, and that
+well-formed, covers all chip themes, resolves only real asset keys, and that
 the thematic routing landed on-theme (wild-grizzly-bears -> wild-habitat
 set, not an obvious captive-bear close-up).
 """
@@ -14,10 +14,10 @@ import re
 MAP_PATH = pathlib.Path("data/products/theme-asset-map.json")
 # Committed fixture is the source of truth in CI (no /tmp scratch there);
 # fall back to the legacy /tmp scratch path only if the fixture is absent.
-_FIXTURE_KEYS = pathlib.Path(__file__).parent / "fixtures" / "dam-real-keys.txt"
-_TMP_KEYS = pathlib.Path("/tmp/dam-real-keys.txt")
-DAM_KEYS_PATH = _FIXTURE_KEYS if _FIXTURE_KEYS.exists() else _TMP_KEYS
-DAM_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
+_FIXTURE_KEYS = pathlib.Path(__file__).parent / "fixtures" / "asset_store-real-keys.txt"
+_TMP_KEYS = pathlib.Path("/tmp/asset_store-real-keys.txt")
+ASSET_STORE_KEYS_PATH = _FIXTURE_KEYS if _FIXTURE_KEYS.exists() else _TMP_KEYS
+ASSET_STORE_PREFIX = "brands/kodiak/raw-ingest/kodiakcakes/images/"
 VARIANT_SUFFIX_RE = re.compile(r"_\d+x\d+(?=\.[a-z0-9]+$)", re.IGNORECASE)
 
 EXPECTED_THEMES = {
@@ -54,8 +54,8 @@ def _load_map() -> dict:
 
 
 def _load_real_keys() -> set[str]:
-    assert DAM_KEYS_PATH.exists(), f"{DAM_KEYS_PATH} not found — needed to verify real keys"
-    return {line.strip() for line in DAM_KEYS_PATH.read_text().splitlines() if line.strip()}
+    assert ASSET_STORE_KEYS_PATH.exists(), f"{ASSET_STORE_KEYS_PATH} not found — needed to verify real keys"
+    return {line.strip() for line in ASSET_STORE_KEYS_PATH.read_text().splitlines() if line.strip()}
 
 
 def test_json_loads_and_has_map():
@@ -70,12 +70,12 @@ def test_all_theme_slugs_present():
     assert set(data["map"].keys()) == EXPECTED_THEMES
 
 
-def test_every_photo_key_is_real_dam_path_no_variant_suffix():
+def test_every_photo_key_is_real_asset_store_path_no_variant_suffix():
     data = _load_map()
     for slug, entry in data["map"].items():
         pk = entry["photo_key"]
-        assert pk.startswith(DAM_PREFIX), f"{slug}: photo_key not a DAM path: {pk}"
-        base = pk[len(DAM_PREFIX):]
+        assert pk.startswith(ASSET_STORE_PREFIX), f"{slug}: photo_key not a asset store path: {pk}"
+        base = pk[len(ASSET_STORE_PREFIX):]
         # no unstripped _NNNNxNNNN variant suffix survives in a chosen key.
         # (native-suffix real keys are allowed, but those exist verbatim in the
         # real-key set — checked separately in the real-key test.)
@@ -91,16 +91,16 @@ def test_every_entry_resolves_and_is_never_null():
         assert entry.get("image_file"), f"{slug}: null/empty image_file"
 
 
-def test_every_pool_entry_is_a_real_dam_path():
+def test_every_pool_entry_is_a_real_asset_store_path():
     data = _load_map()
     real = _load_real_keys()
     for slug, entry in data["map"].items():
         pool = entry.get("pool", [])
         assert pool, f"{slug}: empty pool"
         for pk in pool:
-            assert pk.startswith(DAM_PREFIX), f"{slug}: pool entry not a DAM path: {pk}"
-            base = pk[len(DAM_PREFIX):]
-            assert base in real, f"{slug}: pool entry not a real DAM key: {base}"
+            assert pk.startswith(ASSET_STORE_PREFIX), f"{slug}: pool entry not a asset store path: {pk}"
+            base = pk[len(ASSET_STORE_PREFIX):]
+            assert base in real, f"{slug}: pool entry not a real asset key: {base}"
         # primary photo_key must be the head of the pool
         assert entry["photo_key"] == pool[0], f"{slug}: photo_key is not pool[0]"
 

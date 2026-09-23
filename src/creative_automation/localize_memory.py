@@ -6,7 +6,7 @@ strings live in DynamoDB and most reads should hit here rather than call a live 
 Transport boundary (named, not hidden): one DynamoDB get_item against a single-table key
 shape. Offline / no-table / no-creds is a documented path, not a swallowed exception — every
 guard returns None so the caller (localize_service) falls through to live MT or the offline
-mock. Mirrors dam.py's graceful S3-disabled fallback: defensive boto3 import, env-driven
+mock. Mirrors asset_store.py's graceful S3-disabled fallback: defensive boto3 import, env-driven
 region + table name, bounded client, never raises.
 
 Key shape (the contract the precompute WRITER and this reader must agree on):
@@ -32,7 +32,7 @@ except ImportError:  # boto3 optional — offline / CI still works, get_precompu
     boto3 = None  # type: ignore
     _BotoConfig = None  # type: ignore
 
-# env-driven region + table, same resolution order localize.py / dam.py use
+# env-driven region + table, same resolution order localize.py / asset_store.py use
 DYNAMODB_REGION = os.getenv(
     "LOCALIZATION_MEMORY_REGION",
     os.getenv("BEDROCK_REGION", os.getenv("AWS_REGION", "us-east-1")),
@@ -81,7 +81,7 @@ def _table_enabled() -> bool:
 
 
 def _client():
-    """Bounded DynamoDB client, or None when disabled. Fail-fast timeouts like dam.py."""
+    """Bounded DynamoDB client, or None when disabled. Fail-fast timeouts like asset_store.py."""
     if not _table_enabled():
         return None
     try:

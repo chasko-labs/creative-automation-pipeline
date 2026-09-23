@@ -51,17 +51,17 @@ _CHAIN_ORDER: tuple[str, ...] = ("costco", "publix", "target")
 SUBSCRIPTION_FULFILLMENT = "DTC subscription — free shipping $45+"
 
 # ------------------------------------------------------- retailer overlay wiring
-# DAM-backed retailer-mark overlay. Canonical mark source of truth is the DAM
+# asset-backed retailer-mark overlay. Canonical mark source of truth is the asset store
 # (transparent PNGs, lossless, >=512px longest edge); the repo-local
 # input_assets/retailer-logos/ dir is the offline-dev fallback. Marks are NEVER
 # fabricated — a missing mark resolves to None and the render ships clean while
 # the copy sidecar still carries the retailer framing line.
-DAM_RETAILER_LOGO_PREFIX = "brands/retailers/logos/"
+ASSET_STORE_RETAILER_LOGO_PREFIX = "brands/retailers/logos/"
 
-# Local cache for DAM-fetched marks (mirrors the packshot cache layout).
+# Local cache for asset-fetched marks (mirrors the packshot cache layout).
 RETAILER_LOGO_CACHE_DIR = Path("/tmp/kodiak-assets/retailer-logos")
 
-# Retailers with a composable logo mark (DAM brands/retailers/logos/<slug>.png).
+# Retailers with a composable logo mark (asset store brands/retailers/logos/<slug>.png).
 OVERLAY_RETAILERS: tuple[str, ...] = ("costco", "publix", "target", "walmart")
 
 # Retailers with NO composable mark: direction ships as the copy-sidecar
@@ -110,7 +110,7 @@ def normalize_overlay_retailer(name: str) -> str | None:
 def _pillow_verified(path: Path) -> bool:
     """True when path decodes as a real image via Pillow. False otherwise.
 
-    Guards BOTH mark sources (the DAM /tmp cache and the repo-local logo_dir):
+    Guards BOTH mark sources (the asset store /tmp cache and the repo-local logo_dir):
     a cache entry or local file that is missing, empty, truncated, or plain
     garbage bytes resolves to None downstream so the render ships clean and
     the defect surfaces as an unresolved layer, never a paste-time blowup.
@@ -128,14 +128,14 @@ def _pillow_verified(path: Path) -> bool:
         return False
 
 
-def dam_key_for_retailer(key: str, *, variant: str = "color") -> str:
-    """Full verbatim DAM key for a retailer mark.
+def asset_key_for_retailer(key: str, *, variant: str = "color") -> str:
+    """Full verbatim asset key for a retailer mark.
 
     Full color: brands/retailers/logos/<slug>.png; monochrome (dark-lockup
     placement): brands/retailers/logos/<slug>-mono.png.
     """
     stem = key if variant == "color" else f"{key}-mono"
-    return f"{DAM_RETAILER_LOGO_PREFIX}{stem}.png"
+    return f"{ASSET_STORE_RETAILER_LOGO_PREFIX}{stem}.png"
 
 
 def resolve_retailer_logo(
@@ -146,8 +146,8 @@ def resolve_retailer_logo(
 ) -> Path | None:
     """Resolve a retailer name to a local raster mark path, or None.
 
-    Order: DAM fetch (brands/retailers/logos/<slug>[-mono].png via
-    dam.fetch_dam_key into the tmp cache) -> repo-local
+    Order: asset store fetch (brands/retailers/logos/<slug>[-mono].png via
+    asset_store.fetch_asset_key into the tmp cache) -> repo-local
     input_assets/retailer-logos/<slug>[-mono].png fallback. Copy-only
     retailers (kroger/heb/whole-foods), subscription, and unknown names all
     resolve to None — their direction ships as the copy-sidecar line only.
@@ -162,15 +162,15 @@ def resolve_retailer_logo(
     if key is None or key in COPY_ONLY_RETAILERS or key not in OVERLAY_RETAILERS:
         return None
     filename = f"{key}.png" if variant == "color" else f"{key}-mono.png"
-    # 1) DAM-first: verbatim-key fetch into the tmp cache.
+    # 1) asset-store-first: verbatim-key fetch into the tmp cache.
     try:
-        from . import dam as _dam
+        from . import asset_store as _asset_store
 
         dest = RETAILER_LOGO_CACHE_DIR / filename
-        hit = _dam.fetch_dam_key(dam_key_for_retailer(key, variant=variant), dest)
+        hit = _asset_store.fetch_asset_key(asset_key_for_retailer(key, variant=variant), dest)
         if hit is not None and hit.exists() and hit.stat().st_size > 0 and _pillow_verified(hit):
             return hit
-    except Exception:  # noqa: BLE001 — DAM miss falls through to local, then None
+    except Exception:  # noqa: BLE001 — asset store miss falls through to local, then None
         pass
     # 2) repo-local offline fallback (raster only).
     local = (Path(logo_dir) if logo_dir else LOGO_DIR) / filename

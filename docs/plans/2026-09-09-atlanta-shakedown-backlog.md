@@ -77,7 +77,7 @@ mapping --check, panda-parity, render gate, deploy + curl-verify).
 
 ## I — asset browser: thumbnails, not full files
 
-- Owner diagnosis confirmed: the DAM grid (`prompt-chips.js` ~line 871+)
+- Owner diagnosis confirmed: the asset store grid (`prompt-chips.js` ~line 871+)
   lazy-loads via IntersectionObserver with 150px decode hints — good
   foundation, do NOT overhaul — but `data-src` is the FULL presigned file.
 - Serve thumbnail variants in the grid (backend thumb URLs or resized

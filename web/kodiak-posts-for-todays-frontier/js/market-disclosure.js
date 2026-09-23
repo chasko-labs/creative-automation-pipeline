@@ -253,6 +253,8 @@
     'US-W-LA':{lat:34.0522,lon:-118.2437}, 'US-SE-NASH':{lat:36.1627,lon:-86.7816},
     'US-SE-LOU':{lat:38.2527,lon:-85.7585}, 'US-NE-BOS':{lat:42.3601,lon:-71.0589},
     'US-SW-PHX':{lat:33.4484,lon:-112.0740}, 'US-NE-NYC':{lat:40.6782,lon:-73.9442},
+    'US-NE-BROOKLYN':{lat:40.6782,lon:-73.9442}, 'US-NE-MANHATTAN':{lat:40.7831,lon:-73.9712},
+    'US-NE-BRONX':{lat:40.8448,lon:-73.8648},
     'US-SW-TIMBERON':{lat:32.6376,lon:-105.6947}, 'US-MW-WASATCH-SLC':{lat:40.7608,lon:-111.8910},
     'US-W-SF':{lat:37.7749,lon:-122.4194}, 'US-W-SD':{lat:32.7157,lon:-117.1611},
     'US-W-VEGAS':{lat:36.1699,lon:-115.1398}, 'US-MW-PHX2':{lat:32.2226,lon:-110.9747},
@@ -397,14 +399,14 @@
     });
   }
 
-  // ---- 4. add-your-own-asset (frontend staging only, no DAM upload) ----
+  // ---- 4. add-your-own-asset (frontend staging only, no asset store upload) ----
   // stages a pending asset chip and threads a marker into the brief so the generate path can read it.
   var addAssetInput = document.getElementById('addAssetInput');
   var pendingWrap = document.getElementById('selectionTray');
   var pendingSeq = 0;
   window.__userAssets = window.__userAssets || [];
 
-  // DAM upload gate (T2). Same "hosted origin only" guard prompt-chips/data-core use: file:// +
+  // asset store upload gate (T2). Same "hosted origin only" guard prompt-chips/data-core use: file:// +
   // localhost have no backend, so ASSET_ENDPOINT stays null and the upload path is skipped entirely
   // (staging-only, no fetch, no throw). A dev/server context can set window.KODIAK_LIBRARY_UPLOAD_ENDPOINT
   // to re-enable. Mirrors prompt-chips LIB_ENDPOINT resolution exactly.
@@ -413,15 +415,15 @@
 
   // POST the raw file bytes to /library/assets (T2 backend contract). ADDITIVE to client-side staging:
   // on 201 it records the returned asset_id on the staged rec so the generate path can reference a real
-  // DAM asset later. 415 -> assetError with backend detail. network/offline/local -> silent honest degrade
+  // asset later. 415 -> assetError with backend detail. network/offline/local -> silent honest degrade
   // (the chip already staged locally). NEVER throws into stagePendingAsset. rec is already in window.__userAssets.
   function uploadAsset(file, rec){
     if(!ASSET_ENDPOINT || !file || !rec) return;   // offline/local -> staging-only, no fetch
-    // DAM-sourced recs never re-upload (they already live in the library); only local files reach here.
-    if(rec.source === 'dam') return;
+    // asset-sourced recs never re-upload (they already live in the library); only local files reach here.
+    if(rec.source === 'asset-library') return;
     var qs = '?filename=' + encodeURIComponent(rec.name || file.name || 'asset') +
              '&added_by=' + encodeURIComponent('frontier-ui');
-    // tag with the detected kind so the DAM carries useful metadata; skip when unknown.
+    // tag with the detected kind so the asset store carries useful metadata; skip when unknown.
     if(rec.kind && rec.kind !== 'unknown'){ qs += '&tags=' + encodeURIComponent(rec.kind); }
     try{
       var ctrl = (typeof AbortController!=='undefined') ? new AbortController() : null;
@@ -443,7 +445,7 @@
             return;
           }
           if(!r.ok || !data){ return; }   // any other non-2xx or unparseable body -> silent staging-only degrade
-          if(data.asset_id){ rec.asset_id = data.asset_id; }   // thread the real DAM id onto the staged rec
+          if(data.asset_id){ rec.asset_id = data.asset_id; }   // thread the real asset store id onto the staged rec
           if(data.embed_status){ rec.embed_status = data.embed_status; }
           // soft, non-blocking note for the pending-index case; not an error.
           if(data.embed_status === 'embed_pending'){ assetError('uploaded \u2014 indexing shortly'); }
@@ -527,7 +529,7 @@
     box.textContent = text;
     return box;
   }
-  // expose the shared stagers so the DAM browse path stages identically into the same tray (buildChip == same chip look)
+  // expose the shared stagers so the asset store browse path stages identically into the same tray (buildChip == same chip look)
   window.KODIAK_buildChip = buildChip;
   window.KODIAK_docLabel = docLabel;
   window.KODIAK_refreshUserAssetMarker = refreshUserAssetMarker;

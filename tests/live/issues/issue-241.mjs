@@ -86,7 +86,7 @@ export async function run(page, { baseUrl } = {}) {
   await page.waitForTimeout(3000);
   await page.unroute("**/assets/pack");
   assert(packBody && Array.isArray(packBody.files) && packBody.files.length >= 1,
-    `pack request carries DAM files (${packBody?.files?.length ?? 0})`);
+    `pack request carries asset store files (${packBody?.files?.length ?? 0})`);
   const extraNames = (packBody.extras || []).map((e) => e.name);
   assert(extraNames.includes("copy.txt"), `pack request carries copy.txt (${extraNames})`);
   assert(extraNames.includes("copy.csv"), `pack request carries copy.csv (${extraNames})`);

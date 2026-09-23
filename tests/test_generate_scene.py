@@ -1,6 +1,6 @@
 """Offline tests for the real-photo scene composer + sku-photo-map resolver.
 
-No network: DAM is disabled (no DAM_S3_BUCKET), the logo fetch is mocked to None,
+No network: asset store is disabled (no ASSET_STORE_S3_BUCKET), the logo fetch is mocked to None,
 and the scene composer is fed a small local temp PNG as the "real photo".
 """
 from __future__ import annotations
@@ -27,14 +27,14 @@ def _make_photo(path: Path, size: tuple[int, int] = (400, 300)) -> Path:
     return path
 
 
-def test_resolve_dam_photo_known_handle() -> None:
-    key = generate._resolve_dam_photo("blueberry-muffin-mix")
+def test_resolve_asset_store_photo_known_handle() -> None:
+    key = generate._resolve_asset_photo("blueberry-muffin-mix")
     assert key is not None
     assert key.startswith("brands/kodiak/raw-ingest/")
 
 
-def test_resolve_dam_photo_unknown_handle() -> None:
-    assert generate._resolve_dam_photo("nonexistent-sku") is None
+def test_resolve_asset_store_photo_unknown_handle() -> None:
+    assert generate._resolve_asset_photo("nonexistent-sku") is None
 
 
 def test_compose_scene_canvas_sizes_and_not_solid(tmp_path: Path) -> None:
@@ -53,13 +53,13 @@ def test_compose_scene_canvas_sizes_and_not_solid(tmp_path: Path) -> None:
             assert len(colors) > 50
 
 
-def test_generate_hero_dam_disabled_falls_back_gracefully(tmp_path: Path, monkeypatch) -> None:
-    # map entry exists but DAM is disabled (no creds) -> must fall back to disk or
-    # mock, never raise. Force fetch_dam_key + disk discovery + logo to None.
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: "brands/kodiak/raw-ingest/x.jpg")
-    from creative_automation import dam
+def test_generate_hero_asset_store_disabled_falls_back_gracefully(tmp_path: Path, monkeypatch) -> None:
+    # map entry exists but asset store is disabled (no creds) -> must fall back to disk or
+    # mock, never raise. Force fetch_asset_key + disk discovery + logo to None.
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: "brands/kodiak/raw-ingest/x.jpg")
+    from creative_automation import asset_store
 
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
 
     out = tmp_path / "hero.png"
@@ -73,7 +73,7 @@ def test_generate_hero_dam_disabled_falls_back_gracefully(tmp_path: Path, monkey
         idx=0,
     )
     assert result.exists()
-    # DAM + disk both unavailable, no packshot -> the ladder's rung D (brand-floor)
+    # asset store + disk both unavailable, no packshot -> the ladder's rung D (brand-floor)
     assert source == generate.BRAND_FLOOR_SOURCE
     assert "mock" not in source
 
@@ -104,7 +104,7 @@ def test_resolve_map_path_env_override(tmp_path: Path, monkeypatch) -> None:
     generate._SKU_PHOTO_MAP_CACHE = None
     try:
         assert generate._resolve_map_path() == map_file
-        assert generate._resolve_dam_photo("x-sku") == "brands/kodiak/raw-ingest/x.jpg"
+        assert generate._resolve_asset_photo("x-sku") == "brands/kodiak/raw-ingest/x.jpg"
     finally:
         generate._SKU_PHOTO_MAP_CACHE = None
 
@@ -123,13 +123,13 @@ def test_resolve_theme_photo_unknown_theme() -> None:
     assert generate._resolve_theme_photo("nonexistent") is None
 
 
-def test_generate_hero_theme_dam_disabled_falls_back_gracefully(tmp_path: Path, monkeypatch) -> None:
-    # theme resolves to a real key, but DAM is disabled (fetch -> None) and there is
+def test_generate_hero_theme_asset_store_disabled_falls_back_gracefully(tmp_path: Path, monkeypatch) -> None:
+    # theme resolves to a real key, but asset store is disabled (fetch -> None) and there is
     # no disk asset -> must fall back to the placeholder, never raise.
-    from creative_automation import dam
+    from creative_automation import asset_store
 
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: None)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: None)
 
     out = tmp_path / "hero-theme.png"
@@ -148,13 +148,13 @@ def test_generate_hero_theme_dam_disabled_falls_back_gracefully(tmp_path: Path, 
 
 
 def test_generate_hero_theme_composes_on_fetched_photo(tmp_path: Path, monkeypatch) -> None:
-    # theme resolves and fetch_dam_key returns a real local png. With the Stability
+    # theme resolves and fetch_asset_key returns a real local png. With the Stability
     # engine unavailable (patched -> None), generate_hero downgrades to the Pillow
     # scene composer and reports "bedrock:nova-pro" (the chip theme drove the image).
     photo = _make_photo(tmp_path / "theme-src.png")
-    from creative_automation import dam
+    from creative_automation import asset_store
 
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: photo)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: photo)
     # Nova Pro offline -> caption None -> brief headline used; keep deterministic
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
     # Stability offline -> None so the compose fallback (bedrock:nova-pro) is exercised
@@ -189,7 +189,7 @@ def test_generate_hero_theme_none_preserves_product_path(tmp_path: Path, monkeyp
     # regression: theme=None (default) must NOT touch the theme resolver — the product
     # sku-photo-map path drives the image exactly as before.
     photo = _make_photo(tmp_path / "product-src.png")
-    from creative_automation import dam
+    from creative_automation import asset_store
 
     called = {"theme_resolver": 0}
 
@@ -197,8 +197,8 @@ def test_generate_hero_theme_none_preserves_product_path(tmp_path: Path, monkeyp
         called["theme_resolver"] += 1
 
     monkeypatch.setattr(generate, "_resolve_theme_photo", _spy_theme)
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: "brands/kodiak/raw-ingest/x.jpg")
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: photo)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: "brands/kodiak/raw-ingest/x.jpg")
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: photo)
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
     # Stability offline -> None so the compose fallback (bedrock:nova-pro) is exercised
     monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, prompt, out: None)
@@ -224,9 +224,9 @@ def test_theme_photo_seed_skips_nova_scene_prompt(tmp_path: Path, monkeypatch) -
     # Theme-photo fast path: the seed already carries the theme, so rung B must
     # NOT spend a Nova vision call — deterministic default instead, rung C kept.
     photo = _make_photo(tmp_path / "wild-src.png")
-    from creative_automation import dam
+    from creative_automation import asset_store
 
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: photo)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: photo)
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
     monkeypatch.setattr(generate, "_stability_control_hero", lambda seed, prompt, out: None)
     calls: list = []

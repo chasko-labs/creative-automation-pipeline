@@ -4,7 +4,7 @@ set -euo pipefail
 # frontier web app, so the version is bumped mechanically on change — not by memory.
 #
 # The version string format is:  v<SEMVER>-<gitshort>-<YYYYMMDD>
-#   SEMVER    release number, default "0.1.012" (build-metadata stamp, not a release bump).
+#   SEMVER    release number, default "0.1.021" (build-metadata stamp, not a release bump).
 #             Override by passing an arg:  ./scripts/bump-version.sh 0.1.013
 #   gitshort  `git rev-parse --short=7 HEAD` — used as the build id.
 #   YYYYMMDD  `date -u +%Y%m%d` — UTC date.
@@ -33,7 +33,7 @@ set -euo pipefail
 #   web/kodiak-posts-for-todays-frontier/infrastructure.html (same meta)
 #
 # Usage:
-#   ./scripts/bump-version.sh            # stamp with existing semver 0.1.012
+#   ./scripts/bump-version.sh            # stamp with existing semver 0.1.021
 #   ./scripts/bump-version.sh 0.1.013    # stamp with a new semver
 #   ./scripts/bump-version.sh --check    # read-only: exit 0 if all sinks agree, 1 on drift
 #
@@ -42,7 +42,7 @@ set -euo pipefail
 # macos and perl ships on both by default. No new dependency.
 
 # ---- config -------------------------------------------------------------------
-DEFAULT_SEMVER="0.1.012"
+DEFAULT_SEMVER="0.1.021"
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WEB_SRC="${WEB_SRC:-$REPO_ROOT/web/kodiak-posts-for-todays-frontier}"

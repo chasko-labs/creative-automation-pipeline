@@ -10,6 +10,7 @@
     "build:ember": "node scripts/build-ember.mjs",
     "bundle:babylon": "node scripts/build-ember.mjs",
     "check:frontier": "tsc -p web/kodiak-posts-for-todays-frontier/js",
+    "lint:css": "node scripts/lint-spacing-tokens.mjs",
     "test:vitest": "vitest run --exclude '**/.muse/**' tests/vitest/",
     "test:live": "node tests/live/harness.mjs",
     "test:render": "playwright test --config playwright.config.mjs"

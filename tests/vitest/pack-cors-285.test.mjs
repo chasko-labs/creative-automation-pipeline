@@ -9,10 +9,10 @@ const dataStack = readFileSync(
 const genStack = readFileSync(
   resolve(root, 'infra-cdk/lib/generate-stack.ts'), 'utf8');
 
-// #285 — presigned DAM GETs failed CORS (no bucket config) and POST
+// #285 — presigned asset store GETs failed CORS (no bucket config) and POST
 // /assets/pack 500'd (lambda role lacked brands/kodiak/packs/*).
 describe('pack cors + grant (#285)', () => {
-  it('DAM bucket allows cross-origin GET/HEAD from the site origins only', () => {
+  it('asset store bucket allows cross-origin GET/HEAD from the site origins only', () => {
     expect(dataStack).toMatch(/corsConfiguration/);
     expect(dataStack).toMatch(/allowedMethods: \["GET", "HEAD"\]/);
     expect(dataStack).toMatch(/FRONTIER_ALIASES/);

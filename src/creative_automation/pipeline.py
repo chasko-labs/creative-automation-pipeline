@@ -1,4 +1,4 @@
-"""Orchestrator — brief -> dam -> generate -> compose -> compliance -> report.
+"""Orchestrator — brief -> assets -> generate -> compose -> compliance -> report.
 Nova costs documented: Canvas per-image, Micro per-translate, Translate per-char, CloudFront per-GB — unlimited budget, go ham on amazon.nova-2-multimodal-embeddings-v1:0 1024 for vectors."""
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from pathlib import Path
 from .brief import CampaignBrief
 from .compliance import run_all_checks
 from .compose import compose_creative
-from .dam import find_brand_logo, find_hero_asset
+from .asset_store import find_brand_logo, find_hero_asset
 from .enhance import enhance_hero
 from .generate import generate_hero
 from .localize import localize_message
@@ -63,7 +63,7 @@ def _load_market_languages(region: str) -> list[str]:
 
 def run_pipeline(
     brief: CampaignBrief,
-    dam_root: Path,
+    asset_root: Path,
     out_root: Path,
     ratios: list[str] | None = None,
     lang: str | None = None,
@@ -98,7 +98,7 @@ def run_pipeline(
     languages = _langs
     out_root.mkdir(parents=True, exist_ok=True)
 
-    brand_logo = find_brand_logo(dam_root)
+    brand_logo = find_brand_logo(asset_root)
 
     report: dict = {
         "campaign": brief.campaign_name,
@@ -126,8 +126,8 @@ def run_pipeline(
     batch_locality = derive_locality(brief.region)
 
     for idx, product in enumerate(brief.products):
-        hero = find_hero_asset(product.id, dam_root, product.hero_asset)
-        hero_source = "dam"
+        hero = find_hero_asset(product.id, asset_root, product.hero_asset)
+        hero_source = "asset-library"
         hero_prov: dict = {}
         # stage hero to a working path if reused, or generate
         work_hero = out_root / "_work" / f"{product.id}_hero.png"
@@ -137,15 +137,15 @@ def run_pipeline(
             # copy to work then optionally enhance (contrast/texture/framing/watermark)
             shutil.copy2(hero, work_hero)
             hero_prov = {
-                "seed_selection": "staged-dam-asset",
+                "seed_selection": "staged-asset",
                 "seed_source": hero.stem,
-                "engine": "dam",
+                "engine": "asset-library",
             }
             if enhance:
                 try:
                     enhance_hero(work_hero, work_hero, contrast=1.08, brightness=1.02, sharpness=1.12, texture=True, frame=False, watermark=False, vignette=True)
                     hero_source = f"{hero_source}+enhanced"
-                    hero_prov["engine"] = "dam+enhanced"
+                    hero_prov["engine"] = "asset-library+enhanced"
                     hero_prov["enhance_applied"] = True
                 except Exception as e:  # noqa: BLE001 — enhance is best-effort; skip on any failure
                     print(f"[pipeline] enhance skip {product.id}: {e}")

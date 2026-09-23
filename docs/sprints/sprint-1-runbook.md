@@ -4,7 +4,7 @@ One operate/verify/recover line-set per shipped sprint item. All commands run
 from the repo root, offline unless marked LIVE. Source of truth is the code +
 tests named per item, not this file.
 
-## 1. staged-DAM seed_key end-to-end
+## 1. staged-asset store seed_key end-to-end
 
 - Operate: pass `seed_key: brands/kodiak/renders/<past-hero>.png` in the
   `/generate` preview or full request; the handler forwards it verbatim to
@@ -13,7 +13,7 @@ tests named per item, not this file.
   provenance carries `seed_selection: staged-dam-asset`.
 - Recover: a dead staged pick falls through to the normal seed path with
   HTTP 200 — never 503. If you see 503 on preview, the regression is in the
-  handler, not the DAM.
+  handler, not the asset store.
 
 ## 2. campaign carousel + riff cue
 
@@ -86,11 +86,11 @@ tests named per item, not this file.
 - Recover: wrong-season card = check the structured `season` field reached
   the pairing call; off-season copy words are innocent by design.
 
-## 8. retailer overlay wiring (DAM-first)
+## 8. retailer overlay wiring (asset-store-first)
 
-- Operate: overlay marks resolve DAM-first
+- Operate: overlay marks resolve asset-store-first
   (`brands/retailers/logos/<slug>.png`, mono variant `<slug>-mono.png` via
-  `retailers.dam_key_for_retailer`) with repo-local
+  `retailers.asset_key_for_retailer`) with repo-local
   `input_assets/retailer-logos/` raster fallback; missing marks resolve to
   `None` and the render ships clean. Composable marks: costco, publix,
   target, walmart. Retailer direction NEVER enters pixel prompts
@@ -98,7 +98,7 @@ tests named per item, not this file.
   composited mark + the copy-sidecar framing line.
 - Verify: `python3 -m pytest tests/test_retailer_overlay.py tests/test_retailer_direction.py -q`.
 - Recover: aisle/pack pseudo-text baked into pixels = scene-hint leak
-  (defect 1); a missing mark on an overlay retailer = check DAM key, then
+  (defect 1); a missing mark on an overlay retailer = check asset key, then
   local fallback, then `RETAILER_LOGO_CACHE_DIR` (`/tmp/kodiak-assets/retailer-logos`).
 
 ## 8b. copy-only retailers — kroger / heb / whole-foods (TOOLKIT POINTERS)
@@ -109,13 +109,13 @@ returns `None` for them even when a file is present (pinned by
 `test_resolve_logo_copy_only_never_resolves_even_with_file`).
 
 - Toolkit pointers (where the mark WILL resolve when files land — no code
-  change needed, `dam_key_for_retailer` already computes them):
+  change needed, `asset_key_for_retailer` already computes them):
   - kroger → `brands/retailers/logos/kroger.png` (mono: `kroger-mono.png`)
   - heb → `brands/retailers/logos/heb.png` (mono: `heb-mono.png`)
   - whole-foods → `brands/retailers/logos/whole-foods.png` (mono: `whole-foods-mono.png`)
   - offline-dev fallback mirrors: `input_assets/retailer-logos/<slug>.png`
 - Enablement (only with per-retailer co-marketing permission on file):
-  drop the transparent PNG (lossless, ≥512px longest edge) at the DAM key
+  drop the transparent PNG (lossless, ≥512px longest edge) at the asset key
   above, then move the slug from `COPY_ONLY_RETAILERS` to
   `OVERLAY_RETAILERS` in `src/creative_automation/retailers.py` with tests.
   Until then: no overlay, no pixel text — copy line only.

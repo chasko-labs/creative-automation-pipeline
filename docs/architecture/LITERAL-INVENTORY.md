@@ -139,7 +139,7 @@ Discovery contract `list_tools()`; invocation contract `dispatch_tool(name, args
 | ---------------------- | ---------------------------------------- | ------------------------------- |
 | `context_pack`         | `context_pack.build_context_pack`        | market or full brief            |
 | `retailer_lookup`      | `retailers.resolve_retailer`             | name (costco / publix / target) |
-| `dam_hero_lookup`      | `dam.find_hero_asset`                    | product                         |
+| `asset_hero_lookup`      | `dam.find_hero_asset`                    | product                         |
 | `asset_library_browse` | `asset_library.AssetLibrary.list_assets` | (optional kind filter)          |
 | `recipe_card_plan`     | `recipe_card.build_recipe_card`          | market                          |
 | `monthly_ingredient`   | `locales.resolve_this_month`             | market                          |
@@ -179,9 +179,9 @@ Every field above is verbatim from the live corpus (source tag `regional-cultura
 
 A single market can carry a much deeper seed. Live-read `brands/kodiak/localization/park-city-84098.json` (schema `locality-v1`, generated 2026-09-02) carries: market `US-MW-PARKCITY-84098`, Summit County / Wasatch Back, coordinates `40.6461, -111.498`, named retailer storefronts (Target + Walmart Kimball Junction on UT-224, Smith's on Kearns Blvd, plus a natural-channel halo), and structured `audience_segments` — e.g. "mountain families" age 30-48 with cues `weekend griddle`, `Bear Bites in lunchboxes`, `cast iron at cabin`, `enamel mugs`. This is the granularity that lets the same three products produce a Park-City-specific ad distinct from an Austin one.
 
-### 4.3 Seeded photos and renders — real DAM objects
+### 4.3 Seeded photos and renders — real asset store objects
 
-The DAM holds 296 objects under `brands/kodiak/` (live count). Seeded source heroes and generated renders both live there:
+The asset store holds 296 objects under `brands/kodiak/` (live count). Seeded source heroes and generated renders both live there:
 
 - source heroes (`LIVE`): `brands/kodiak/heroes/power-cakes/hero-real.png`, `.../bear-bites/hero.png`, `.../oatmeal-cup/hero.png`, plus the bear logo `brands/kodiak/logos/kodiak-bear.png`
 - generated renders (`LIVE`), organized by campaign / product / ratio, e.g. the Costco campaign: `brands/kodiak/renders/docs-assets/kodiak-costco/power-cakes/1x1/power-cakes_1x1.png`, `.../9x16/power-cakes_9x16.png`, `.../16x9/power-cakes_16x9.png`, plus a `preview.html` per campaign
@@ -200,7 +200,7 @@ Account `946179428633`, region `us-east-1`. Every row confirmed by a live API ca
 
 | bucket                                            | role                                                             |
 | ------------------------------------------------- | ---------------------------------------------------------------- |
-| `chasko-creative-dam-946179428633-us-east-1`      | the DAM — style library, heroes, renders, references, `library/` |
+| `chasko-creative-dam-946179428633-us-east-1`      | the asset store — style library, heroes, renders, references, `library/` |
 | `frontier-bryanchasko-com`                        | static website origin                                            |
 | `kodiak-creatives-cf-logs-946179428633-us-east-1` | CloudFront access logs                                           |
 | `kodiak-creatives-logs-946179428633-us-east-1`    | pipeline log bucket                                              |
@@ -245,10 +245,10 @@ AgentCore deployment status, live-checked: `ListGateways` = 0, `ListAgentRuntime
 | capability                                   | status         | evidence                                                |
 | -------------------------------------------- | -------------- | ------------------------------------------------------- |
 | frontend SPA (offline + hosted)              | `LIVE`         | CloudFront E3GEX8LSRX6OYS Deployed                      |
-| S3 DAM + logs + website + CF-logs buckets    | `LIVE`         | 4 buckets confirmed                                     |
+| S3 asset store + logs + website + CF-logs buckets    | `LIVE`         | 4 buckets confirmed                                     |
 | DynamoDB tables (empty, seed at runtime)     | `LIVE`         | 2 tables, 0 rows (live-scanned)                         |
 | seeded localization corpus (6+ markets)      | `LIVE`         | S3 `localization-training-data.jsonl`, feeds Bedrock KB |
-| seeded photos + renders (296 DAM objects)    | `LIVE`         | `brands/kodiak/` heroes + renders + raw-ingest          |
+| seeded photos + renders (296 asset store objects)    | `LIVE`         | `brands/kodiak/` heroes + renders + raw-ingest          |
 | repository-owned local gate                 | `LIVE`         | repository scripts and hooks                    |
 | CloudWatch Logs + X-Ray                      | `LIVE`         | log group + rule + 1 real trace                         |
 | Bedrock Nova + Titan access                  | `LIVE`         | ListFoundationModels                                    |

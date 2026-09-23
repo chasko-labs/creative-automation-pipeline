@@ -1,15 +1,15 @@
 """Tests for the browse-depth backend: product-line facet + per-platform axis.
 
-Covers dam_library's catalog join (sku-photo-map photo_key/fallbacks -> catalog
+Covers asset_browser's catalog join (sku-photo-map photo_key/fallbacks -> catalog
 category), the always-present item keys, the x-amz-meta-platforms parse, and
-dam.head_metadata's degrade-to-{} contract. No real AWS — S3 is faked.
+asset_store.head_metadata's degrade-to-{} contract. No real AWS — S3 is faked.
 """
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from creative_automation import dam, dam_library
+from creative_automation import asset_store, asset_browser
 
 
 def _write_json(path: Path, payload: dict) -> Path:
@@ -69,7 +69,7 @@ def _fixtures(tmp_path: Path) -> tuple[Path, Path]:
 
 def test_index_maps_photo_key_and_fallbacks(tmp_path: Path) -> None:
     map_path, catalog_path = _fixtures(tmp_path)
-    index = dam_library._load_product_line_index(map_path, catalog_path)
+    index = asset_browser._load_product_line_index(map_path, catalog_path)
     assert index["brands/kodiak/raw-ingest/kodiakcakes/images/PC-Flapjack.jpg"] == (
         "flapjack-waffle-mix"
     )
@@ -88,7 +88,7 @@ def test_index_maps_photo_key_and_fallbacks(tmp_path: Path) -> None:
 
 
 def test_index_missing_files_soft_empty(tmp_path: Path) -> None:
-    index = dam_library._load_product_line_index(
+    index = asset_browser._load_product_line_index(
         tmp_path / "no-map.json", tmp_path / "no-catalog.json"
     )
     assert index == {}
@@ -96,38 +96,38 @@ def test_index_missing_files_soft_empty(tmp_path: Path) -> None:
 
 def test_item_carries_product_line_on_classified_tabs(tmp_path: Path) -> None:
     map_path, catalog_path = _fixtures(tmp_path)
-    index = dam_library._load_product_line_index(map_path, catalog_path)
+    index = asset_browser._load_product_line_index(map_path, catalog_path)
     key = "brands/kodiak/raw-ingest/kodiakcakes/images/PC-Flapjack.jpg"
     for tab in ("products", "recipes", "lifestyle"):
-        item = dam_library._item_for(key, tab, None, index)
+        item = asset_browser._item_for(key, tab, None, index)
         assert item["product_line"] == "flapjack-waffle-mix"
         assert item["platforms"] == []
     # unknown key: None, never fabricated
-    item = dam_library._item_for("brands/kodiak/raw-ingest/kodiakcakes/images/Other.jpg",
+    item = asset_browser._item_for("brands/kodiak/raw-ingest/kodiakcakes/images/Other.jpg",
                                  "products", None, index)
     assert item["product_line"] is None
 
 
 def test_item_non_classified_tabs_carry_none_and_platforms() -> None:
-    item = dam_library._item_for(
+    item = asset_browser._item_for(
         "brands/kodiak/renders/abc123.png", "ideas", None, None, ["facebook", "blog"]
     )
     assert item["product_line"] is None
     assert item["platforms"] == ["facebook", "blog"]
-    brand = dam_library._item_for("brands/kodiak/logos/mark.svg", "brand", None, None, None)
+    brand = asset_browser._item_for("brands/kodiak/logos/mark.svg", "brand", None, None, None)
     assert brand["product_line"] is None
     assert brand["platforms"] == []
 
 
 def test_platforms_from_meta_parses_and_degrades() -> None:
-    assert dam_library._platforms_from_meta({"platforms": "facebook, instagram ,x"}) == [
+    assert asset_browser._platforms_from_meta({"platforms": "facebook, instagram ,x"}) == [
         "facebook",
         "instagram",
         "x",
     ]
-    assert dam_library._platforms_from_meta({"Platforms": "blog"}) == ["blog"]
-    assert dam_library._platforms_from_meta({}) == []
-    assert dam_library._platforms_from_meta({"other": "x"}) == []
+    assert asset_browser._platforms_from_meta({"Platforms": "blog"}) == ["blog"]
+    assert asset_browser._platforms_from_meta({}) == []
+    assert asset_browser._platforms_from_meta({"other": "x"}) == []
 
 
 class _FakeHeadClient:
@@ -145,24 +145,24 @@ class _FakeHeadClient:
 
 def test_head_metadata_returns_lowercased_tags(monkeypatch) -> None:
     fake = _FakeHeadClient({"Platforms": "facebook,blog"})
-    monkeypatch.setattr(dam, "_s3_enabled", lambda: True)
-    monkeypatch.setattr(dam, "_s3_bucket_and_prefix", lambda: ("bkt", ""))
-    monkeypatch.setattr(dam, "_s3_client", lambda: fake)
-    assert dam.head_metadata("brands/kodiak/renders/a.png") == {"platforms": "facebook,blog"}
+    monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
+    monkeypatch.setattr(asset_store, "_s3_bucket_and_prefix", lambda: ("bkt", ""))
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: fake)
+    assert asset_store.head_metadata("brands/kodiak/renders/a.png") == {"platforms": "facebook,blog"}
     assert fake.calls[0]["Key"] == "brands/kodiak/renders/a.png"
 
 
 def test_head_metadata_degrades_to_empty(monkeypatch) -> None:
     # s3 disabled
-    monkeypatch.setattr(dam, "_s3_enabled", lambda: False)
-    assert dam.head_metadata("k") == {}
+    monkeypatch.setattr(asset_store, "_s3_enabled", lambda: False)
+    assert asset_store.head_metadata("k") == {}
     # head failure
-    monkeypatch.setattr(dam, "_s3_enabled", lambda: True)
-    monkeypatch.setattr(dam, "_s3_bucket_and_prefix", lambda: ("bkt", ""))
-    monkeypatch.setattr(dam, "_s3_client", lambda: _FakeHeadClient(fail=True))
-    assert dam.head_metadata("k") == {}
+    monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
+    monkeypatch.setattr(asset_store, "_s3_bucket_and_prefix", lambda: ("bkt", ""))
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: _FakeHeadClient(fail=True))
+    assert asset_store.head_metadata("k") == {}
     # empty key never calls
-    assert dam.head_metadata("") == {}
+    assert asset_store.head_metadata("") == {}
 
 
 def test_real_committed_join_is_nonempty() -> None:
@@ -170,7 +170,7 @@ def test_real_committed_join_is_nonempty() -> None:
     resolves to a category claimed by one of its photo owners (photo-priority
     contract), and every catalog category appears on at least one tile."""
     repo = Path(__file__).resolve().parents[1]
-    index = dam_library._load_product_line_index(
+    index = asset_browser._load_product_line_index(
         repo / "data" / "products" / "sku-photo-map.json",
         repo / "data" / "products" / "kodiak-full-catalog.json",
     )

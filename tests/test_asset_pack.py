@@ -1,7 +1,7 @@
 """Retailer asset-pack builder + /assets/pack/{market} endpoint — OFFLINE, cred-free.
 
-Every assertion runs with no S3 and no boto3 creds: dam.s3_upload_and_presign returns
-None when DAM_S3_BUCKET is unset, so the endpoint takes its local-path fallback. The
+Every assertion runs with no S3 and no boto3 creds: asset_store.s3_upload_and_presign returns
+None when ASSET_STORE_S3_BUCKET is unset, so the endpoint takes its local-path fallback. The
 zip/manifest/naming logic is pure stdlib and importable without FastAPI, mirroring how
 the rest of the suite exercises the no-S3 / no-FastAPI graceful paths.
 """
@@ -11,7 +11,7 @@ from pathlib import Path
 
 import pytest
 
-from creative_automation import dam
+from creative_automation import asset_store
 from creative_automation.asset_pack import (
     PACK_NAME_RE,
     build_asset_pack_zip,
@@ -129,14 +129,14 @@ def test_build_asset_pack_zip_includes_present_files(tmp_path):
         assert fname in zf.namelist()
 
 
-# --------------------------------------------------------------- dam helper (offline)
+# --------------------------------------------------------------- asset_store helper (offline)
 def test_s3_upload_and_presign_returns_none_when_disabled(tmp_path, monkeypatch):
-    # ensure no DAM bucket configured -> S3 disabled -> None (graceful offline)
-    monkeypatch.delenv("DAM_S3_BUCKET", raising=False)
-    monkeypatch.delenv("DAM_S3_URI", raising=False)
+    # ensure no asset store bucket configured -> S3 disabled -> None (graceful offline)
+    monkeypatch.delenv("ASSET_STORE_S3_BUCKET", raising=False)
+    monkeypatch.delenv("ASSET_STORE_S3_URI", raising=False)
     artifact = tmp_path / "pack.zip"
     artifact.write_bytes(b"PK\x03\x04 fake zip")
-    assert dam.s3_upload_and_presign(artifact, "packs/pack.zip") is None
+    assert asset_store.s3_upload_and_presign(artifact, "packs/pack.zip") is None
 
 
 # --------------------------------------------------------------- endpoint (offline fallback)
@@ -145,8 +145,8 @@ def test_pack_endpoint_offline_fallback(monkeypatch):
     from fastapi.testclient import TestClient
 
     # force S3 disabled so the endpoint takes the local-path fallback branch
-    monkeypatch.delenv("DAM_S3_BUCKET", raising=False)
-    monkeypatch.delenv("DAM_S3_URI", raising=False)
+    monkeypatch.delenv("ASSET_STORE_S3_BUCKET", raising=False)
+    monkeypatch.delenv("ASSET_STORE_S3_URI", raising=False)
 
     client = TestClient(app)
     resp = client.get("/assets/pack/US-MW-PARKCITY-84098", params={"product": "savory-waffles"})
@@ -171,8 +171,8 @@ def test_pack_endpoint_offline_fallback(monkeypatch):
 def test_pack_endpoint_single_ratio_query(monkeypatch):
     from fastapi.testclient import TestClient
 
-    monkeypatch.delenv("DAM_S3_BUCKET", raising=False)
-    monkeypatch.delenv("DAM_S3_URI", raising=False)
+    monkeypatch.delenv("ASSET_STORE_S3_BUCKET", raising=False)
+    monkeypatch.delenv("ASSET_STORE_S3_URI", raising=False)
     client = TestClient(app)
     resp = client.get("/assets/pack/US-MW-PARKCITY-84098", params={"ratio": "1x1"})
     assert resp.status_code == 200

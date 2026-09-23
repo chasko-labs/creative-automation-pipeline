@@ -8,9 +8,9 @@ from creative_automation.pipeline import run_pipeline
 
 def test_pipeline_generates_three_ratios(tmp_path):
     brief = load_brief("briefs/example.yaml")
-    dam = Path("input_assets")
+    asset_store = Path("input_assets")
     out = tmp_path / "out"
-    report = run_pipeline(brief, dam, out)
+    report = run_pipeline(brief, asset_store, out)
     assert report["summary"]["total_creatives"] == 9  # 3 products x 3 ratios
     for prod in brief.products:
         for ratio in ["1x1", "9x16", "16x9"]:
@@ -25,16 +25,16 @@ def test_pipeline_generates_three_ratios(tmp_path):
             elif ratio == "16x9":
                 assert img.size == (1920, 1080)
 
-def test_dam_reuse_vs_generate(tmp_path):
+def test_asset_store_reuse_vs_generate(tmp_path):
     brief = load_brief("briefs/example.yaml")
-    dam = Path("input_assets")
+    asset_store = Path("input_assets")
     out = tmp_path / "out2"
-    report = run_pipeline(brief, dam, out)
-    # hydrating-serum has real dam asset (now dam+enhanced with institutional grading)
+    report = run_pipeline(brief, asset_store, out)
+    # hydrating-serum has real asset_store asset (now asset-library+enhanced with institutional grading)
     hs = next(p for p in report["products"] if p["id"] == "hydrating-serum")
-    assert hs["hero_source"] in ("dam", "dam+enhanced")
+    assert hs["hero_source"] in ("asset-library", "asset-library+enhanced")
     rm = next(p for p in report["products"] if p["id"] == "radiant-moisturizer")
-    # radiant-moisturizer has no DAM asset of its own and no sku-photo-map entry, and
+    # radiant-moisturizer has no asset of its own and no sku-photo-map entry, and
     # the default-brand-hero fallback was retired when the real-photo scene composer
     # landed. With no seed and no packshot the never-fail ladder ends at rung D
     # (brand-floor): real pixels, zero I/O, non-shaming label. Never "mock"/"preview".

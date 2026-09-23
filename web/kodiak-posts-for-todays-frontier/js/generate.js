@@ -280,7 +280,7 @@ let skuList = [
   // kept so older cached responses still read honestly.
   /** @type {Object<string, string>} */
   const ENGINE_LABELS = {
-    'packshot-composite':'Packshot composite (DAM verbatim)',
+    'packshot-composite':'Packshot composite (asset store verbatim)',
     'stability-restyle':'Stability restyle (GenAI)',
     'stability-control-structure':'Control-structure restyle (Stability)',
     'pillow-compose':'Pillow compose (brand overlay)',
@@ -560,7 +560,7 @@ let skuList = [
   try{ renderPlatformMatrix(); }catch(e){}
 
   // Compose layers — independently-selectable, ALL OFF by default. Reads the creative-direction
-  // checkbox cards into the {product_image, retailer, partner_logo} contract the /generate backend
+  // checkbox cards into the {product_image, retailer, partner_logo, conservation_badge} contract the /generate backend
   // normalizes; an empty object means a clean standalone image. Each card drives its own mark
   // directly — no standalone mark flags. Retailer composes iff a SPECIFIC retailer is checked
   // (window.__activeRetailerValue, most-recent checked wins; All alone -> brief only, no mark).
@@ -572,6 +572,7 @@ let skuList = [
       const retailerVal = (typeof window.__activeRetailerValue === 'function' && window.__activeRetailerValue()) || null;
       if(retailerVal) layers.retailer = retailerVal;
       if((/** @type {HTMLInputElement|null} */ (document.querySelector('#promptChips .ff-check-card__input[data-theme="us-ski-snowboard"]')))?.checked) layers.partner_logo = true;
+      if((/** @type {HTMLInputElement|null} */ (document.querySelector('#promptChips .ff-check-card__input[data-theme="wild-grizzly-bears"]')))?.checked) layers.conservation_badge = true;
     }catch(e){}
     return layers;
   };
@@ -611,6 +612,25 @@ let skuList = [
     const card = /** @type {HTMLDetailsElement|null} */ (document.getElementById('previewCard'));
     if(card && !card.open){ card.open = true; }
   }
+  // Closed-card fold guard: a closed #previewCard must not lay out its .body
+  // (author display rules beat the UA closed-details rule, so the ~1991px body
+  // paints clipped under card overflow). Inline display + hidden win over any
+  // author rule; the toggle listener re-syncs on every open/close so
+  // openPreviewCard() on Create and the resting renderDefaultHero content show
+  // correctly when reopened.
+  function syncPreviewCardBody(){
+    const card = /** @type {HTMLDetailsElement|null} */ (document.getElementById('previewCard'));
+    if(!card) return;
+    const body = /** @type {HTMLElement|null} */ (card.querySelector(':scope > .body'));
+    if(!body) return;
+    if(card.open){ body.hidden = false; body.style.display = ''; }
+    else { body.hidden = true; body.style.display = 'none'; }
+  }
+  try{
+    const __previewCard = document.getElementById('previewCard');
+    if(__previewCard){ __previewCard.addEventListener('toggle', syncPreviewCardBody); }
+    syncPreviewCardBody();
+  }catch(e){}
 
   // Render per-platform messaging copy — an accordion of native <details>, one per platform.
   // Consumes /generate and /campaigns/platform-copy response entries without dropping
@@ -860,7 +880,7 @@ let skuList = [
       if(activeSeason && !new RegExp('season:\\s*'+activeSeason.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i').test(brief)){
         brief = brief + ' — season: ' + activeSeason;
       }
-      // 4. user-supplied assets: staged locally, uploaded to the DAM on hosted origins
+      // 4. user-supplied assets: staged locally, uploaded to the asset store on hosted origins
       // (market-disclosure uploadAsset POSTs raw bytes to /library/assets and threads
       // the returned asset_id onto the staged rec; file:// + localhost stay
       // staging-only with no fetch). Thread a marker so the generate path is aware
@@ -1169,7 +1189,7 @@ let skuList = [
         // hero download targets the 1x1 (primary) render
         const primary = renders.find(r=>r.ratio==='1x1') || renders[0];
         if(primary) window.__lastHeroUrl = primary.image_url;
-        // pack download (#204) needs the DAM keys, not the presigned urls — record
+        // pack download (#204) needs the asset keys, not the presigned urls — record
         // the set's s3_uris + ratios alongside the hero so downloadAllPreview can
         // POST them to /assets/pack for a real ISO-named zip.
         try{
@@ -1433,11 +1453,11 @@ let skuList = [
       const oneGenerate = async (productSlug, wantTheme)=>{
         // scope-first: Create reads the segmented control's selection (window.__campaignScope, default local)
         const scope = window.__campaignScope || 'local';
-        // staged DAM pick (Browse past assets) rides as the seed — the backend prefers
+        // staged staged asset pick (Browse past assets) rides as the seed — the backend prefers
         // it over all probed seeds, so the customer's pick drives the pixels. Most
         // recently staged dam asset wins; absent key = today's path untouched.
         let stagedKey = null;
-        try{ const staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='dam' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
+        try{ const staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='asset-library' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
         // Compose layers (#199/#200): independently-selected, default OFF. An empty
         // object means a clean standalone image + copy sidecars from the backend.
         let reqLayers = {};
@@ -1484,7 +1504,7 @@ let skuList = [
           if(hit && hit.img) heroSrc = hit.img;
           // historical shape: the local products here is string[], so this lookup always
         // misses (the id/img list lives in data-core). flagged, not changed — see README.
-        else if(typeof products!=='undefined'){ const damList = /** @type {Array<{id?: string, img?: string}>} */ (/** @type {unknown} */ (products)); const pr = damList.find && damList.find(x=>x && (x.id===sku)); if(pr && pr.img) heroSrc = pr.img; }
+        else if(typeof products!=='undefined'){ const assetList = /** @type {Array<{id?: string, img?: string}>} */ (/** @type {unknown} */ (products)); const pr = assetList.find && assetList.find(x=>x && (x.id===sku)); if(pr && pr.img) heroSrc = pr.img; }
         }catch(e){}
         const isRealHero = typeof heroSrc==='string' && /^https?:\/\//.test(heroSrc) && heroSrc.indexOf('input_assets/')===-1;
         const tile = document.createElement('div');
@@ -1582,11 +1602,15 @@ let skuList = [
           // auto-open the collapsed Preview card so the user sees the freshly-composed output
           openPreviewCard();
         } else {
-          // Multi-product fan-out: one themed-less request per selected product; render each tile as it returns.
+          // Multi-product fan-out: one themed-less request per selected product, run
+          // SERIALLY and render each tile as it returns. Parallel full preview
+          // ladders contend for shared model quota inside the backend 22s wall
+          // and all fall through to rung D together; serial keeps each request
+          // inside its own budget (first tile still paints fast).
           if(preview) preview.innerHTML = '';
           if(status) status.textContent = 'Composing ' + products.length + ' product variants with Nova Pro…';
           let firstDone = false, okCount = 0;
-          await Promise.all(products.map(async (name)=>{
+          for(const name of products){
             const slug = slugify(name);
             try{
               const json = await oneGenerate(slug, undefined);
@@ -1599,7 +1623,7 @@ let skuList = [
               const p = document.getElementById('preview');
               if(p){ const t=document.createElement('div'); t.className='tile'; t.innerHTML=`<div class="meta"><b>${name}</b><div class="small flag-err">variant failed — try again</div></div>`; p.appendChild(t); }
             }
-          }));
+          }
           if(status) status.textContent = okCount ? ('Campaign preview ready — ' + okCount + ' of ' + products.length + ' product variants composed') : 'Some variants could not reach the server — check your connection and try again';
           // #281 — fan-out upgrade from the first variant's real response.
           try{ if(window.__lastCopyJson) paintCopyPanel({phase:'used', json: window.__lastCopyJson}); }catch(e){}

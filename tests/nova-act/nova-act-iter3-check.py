@@ -9,7 +9,7 @@ CI fallback when the Nova Act SDK key is not present.
 
 Two areas, eight checks, one screenshot per area (plus per-check diagnostics).
 
-AREA 1 — DAM "browse past assets": reworked 6-tab marketer taxonomy with real data
+AREA 1 — asset store "browse past assets": reworked 6-tab marketer taxonomy with real data
   1a TABS     six marketer tabs (Products/Recipes/Lifestyle/Ideas/Themes/Brand)
               with non-trivial counts, NOT the old Heroes/Renders; Products/
               Recipes/Lifestyle must be in the hundreds, not zero.
@@ -120,15 +120,15 @@ def _gate_up(page) -> bool:
 
 
 def _panel(page):
-    return page.locator("#damPanel")
+    return page.locator("#assetPanel")
 
 
 def _tab_texts(page) -> list[str]:
-    """Collect visible tab label strings inside the DAM panel."""
+    """Collect visible tab label strings inside the asset store panel."""
     panel = _panel(page)
     texts: list[str] = []
-    # real tab bar: role=tab .ff-dam-tab inside #damBody, label form "Products (1688)"
-    for sel in ["[role='tab']", ".ff-dam-tab", ".dam-tab", "button"]:
+    # real tab bar: role=tab .ff-assets-tab inside #assetBody, label form "Products (1688)"
+    for sel in ["[role='tab']", ".ff-assets-tab", ".asset_store-tab", "button"]:
         try:
             loc = panel.locator(sel)
             n = loc.count()
@@ -165,8 +165,8 @@ def _count_for(tab_text: str) -> int | None:
 
 def _tile_count(page) -> int:
     panel = _panel(page)
-    for sel in [".ff-dam-tile", ".dam-tile", "[role='option']",
-                ".ff-dam-grid img", "#damGrid img", "img"]:
+    for sel in [".ff-assets-tile", ".asset_store-tile", "[role='option']",
+                ".ff-assets-grid img", "#assetGrid img", "img"]:
         try:
             n = panel.locator(sel).count()
             if n:
@@ -178,7 +178,7 @@ def _tile_count(page) -> int:
 
 def _tile_labels(page, limit: int = 12) -> list[str]:
     panel = _panel(page)
-    for sel in [".ff-dam-tile", ".dam-tile", "[role='option']"]:
+    for sel in [".ff-assets-tile", ".asset_store-tile", "[role='option']"]:
         try:
             loc = panel.locator(sel)
             n = loc.count()
@@ -221,7 +221,7 @@ def _tile_labels(page, limit: int = 12) -> list[str]:
 def _click_tab(page, name: str) -> bool:
     panel = _panel(page)
     for sel in [f"[role='tab']:has-text('{name}')",
-                f".ff-dam-tab:has-text('{name}')",
+                f".ff-assets-tab:has-text('{name}')",
                 f"button:has-text('{name}')",
                 f"text={name}"]:
         try:
@@ -310,7 +310,7 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
 
         print(f"[info] build stamp confirmed: {stamp_seen}", file=sys.stderr)
 
-        # ============ AREA 1: DAM 6-tab taxonomy ============
+        # ============ AREA 1: asset store 6-tab taxonomy ============
         _area1(page, shot_dir, checks)
 
         # ============ AREA 2: Output Preview cleanup ============
@@ -337,7 +337,7 @@ def _console_summary(console_errors: list[str], page_errors: list[str]) -> str:
 def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     # open the panel
     opened = False
-    for sel in ["#damBrowseTrigger", ".ff-dam-trigger",
+    for sel in ["#assetBrowseTrigger", ".ff-assets-trigger",
                 "text=Browse past assets"]:
         try:
             loc = page.locator(sel).first
@@ -354,14 +354,14 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
         checks.append(CheckResult("1a-tabs", "FAIL",
             "could not open Browse past assets panel", shot))
         return
-    # wait for panel visible + async content load (#damBody shows "Loading…" first)
+    # wait for panel visible + async content load (#assetBody shows "Loading…" first)
     try:
         _panel(page).wait_for(state="visible", timeout=5000)
     except Exception as e:  # noqa: BLE001 — wait is best-effort; poll loop decides
         print(f"[warn] panel visible wait timed out: {e}", file=sys.stderr)
     for _ in range(40):
         try:
-            body_txt = page.locator("#damBody").inner_text()[:40]
+            body_txt = page.locator("#assetBody").inner_text()[:40]
         except Exception:  # noqa: BLE001 — body poll; empty text retries next tick
             body_txt = ""
         if "Loading" not in body_txt and _panel(page).locator("[role='tab']").count() > 0:
@@ -383,7 +383,7 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     prod = counts.get("Products")
     rec = counts.get("Recipes")
     life = counts.get("Lifestyle")
-    shot1a = _shot(page, shot_dir, "1a-dam-tabs")
+    shot1a = _shot(page, shot_dir, "1a-asset_store-tabs")
     # task contract: Products/Recipes in the hundreds; Lifestyle non-trivial (~96);
     # none of the six may be zero (zero was the bug just fixed).
     hundreds_ok = all((v is not None and v >= 100) for v in (prod, rec))
@@ -431,8 +431,8 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     # --- CHECK 1c: Type facet row + filtering ---
     facet_chips = []
     facet_row = None
-    for sel in [".ff-dam-facet-chip", ".ff-dam-facet", ".dam-facet", "[data-facet]",
-                ".ff-dam-facets button", ".ff-dam-chip"]:
+    for sel in [".ff-assets-facet-chip", ".ff-assets-facet", ".asset_store-facet", "[data-facet]",
+                ".ff-assets-facets button", ".ff-assets-chip"]:
         try:
             loc = _panel(page).locator(sel)
             if loc.count() > 0:
@@ -495,9 +495,9 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
     search_ok = False
     search_note = ""
     search_sel = None
-    for sel in ["input.ff-dam-filter-input",
+    for sel in ["input.ff-assets-filter-input",
                 "input[placeholder*='Search this stack']",
-                "#damSearch", ".ff-dam-search input",
+                "#assetSearch", ".ff-assets-search input",
                 "input[type='search']", "input[placeholder*='Search']"]:
         try:
             if _panel(page).locator(sel).count() > 0:
@@ -532,8 +532,8 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
 
     load_more_ok = False
     lm_note = ""
-    for sel in ["button:has-text('Load more')", "#damLoadMore",
-                ".ff-dam-loadmore", "text=Load more"]:
+    for sel in ["button:has-text('Load more')", "#assetLoadMore",
+                ".ff-assets-loadmore", "text=Load more"]:
         try:
             loc = _panel(page).locator(sel).first
             if loc.count() > 0:
@@ -580,7 +580,7 @@ def _area1(page, shot_dir: Path, checks: list[CheckResult]) -> None:
             f"tab switch failed ideas={ideas_ok} themes={themes_ok}", shot1e_themes))
 
     # close panel
-    for sel in ["#damPanelClose", ".ff-dam-close"]:
+    for sel in ["#assetPanelClose", ".ff-assets-close"]:
         try:
             if page.locator(sel).count() > 0:
                 page.locator(sel).first.click(timeout=2000)

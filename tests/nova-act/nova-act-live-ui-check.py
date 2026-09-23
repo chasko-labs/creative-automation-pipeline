@@ -202,8 +202,8 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
             ))
             return _finish(checks, stamp_seen, out_path)
 
-        # --- CHECK 1: DAM panel renders real thumbnail tiles -----------------
-        checks.append(_check1_dam_thumbnails(nova, shot_dir))
+        # --- CHECK 1: asset store panel renders real thumbnail tiles -----------------
+        checks.append(_check1_asset_store_thumbnails(nova, shot_dir))
 
         # --- CHECK 2: default market Park City, no auto-geo ------------------
         checks.append(_check2_default_market(nova, shot_dir))
@@ -214,11 +214,11 @@ def run(headless: bool, out_path: Path, shot_dir: Path) -> int:
         return _finish(checks, stamp_seen, out_path)
 
 
-def _check1_dam_thumbnails(nova, shot_dir: Path) -> CheckResult:
+def _check1_asset_store_thumbnails(nova, shot_dir: Path) -> CheckResult:
     try:
         nova.act("Click the 'Browse past assets' button near the upload plus icon")
         time.sleep(2)
-        panel = nova.page.locator("#damPanel")
+        panel = nova.page.locator("#assetPanel")
         # tabs: role=tab OR the known category labels
         tab_labels = ["Renders", "Heroes", "Logos", "Zac Efron"]
         tabs_found = []
@@ -235,31 +235,31 @@ def _check1_dam_thumbnails(nova, shot_dir: Path) -> CheckResult:
             img_tiles = 0
         try:
             # kraft placeholder tiles still count if they carry labels; probe grid role
-            grid_tiles = panel.locator("[role='option'], .ff-dam-tile, .dam-tile").count()
+            grid_tiles = panel.locator("[role='option'], .ff-assets-tile, .asset_store-tile").count()
         except Exception:  # noqa: BLE001 — tile probe; zero tiles is the fallback
             grid_tiles = 0
-        shot = _screenshot(nova, _shot_path(shot_dir, "check1-dam-panel"))
+        shot = _screenshot(nova, _shot_path(shot_dir, "check1-asset_store-panel"))
 
         has_tabs = len(tabs_found) >= 3
         has_grid = img_tiles > 0 or grid_tiles > 0
         if has_tabs and has_grid:
             return CheckResult(
-                "1-dam-thumbnails", "PASS",
+                "1-asset_store-thumbnails", "PASS",
                 f"Panel shows tab bar {tabs_found} and a tile grid "
                 f"({img_tiles} img tiles, {grid_tiles} grid tiles). Renders is "
                 f"the default category.",
                 shot,
             )
         return CheckResult(
-            "1-dam-thumbnails", "FAIL",
+            "1-asset_store-thumbnails", "FAIL",
             f"Panel opened but expected grid+tabs not both present. tabs={tabs_found} "
             f"img_tiles={img_tiles} grid_tiles={grid_tiles}. If only a vertical "
             f"text list rendered, this is the old word-salad bug.",
             shot,
         )
     except Exception as e:  # noqa: BLE001
-        shot = _screenshot(nova, _shot_path(shot_dir, "check1-dam-panel-error"))
-        return CheckResult("1-dam-thumbnails", "FAIL", f"error driving DAM panel: {e}", shot)
+        shot = _screenshot(nova, _shot_path(shot_dir, "check1-asset_store-panel-error"))
+        return CheckResult("1-asset_store-thumbnails", "FAIL", f"error driving asset store panel: {e}", shot)
     finally:
         # close the panel so it does not overlay the next checks
         try:

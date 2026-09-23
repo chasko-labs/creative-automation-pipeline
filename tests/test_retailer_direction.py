@@ -2,7 +2,7 @@
 
 Retailer direction ships as TWO legs, never via the generated pixels:
 
-- image leg: the composited logo mark (retailer layer, DAM
+- image leg: the composited logo mark (retailer layer, asset store
   brands/retailers/logos/ for costco/publix/target/walmart). Per the overlay
   spec defect 1, _THEME_SCENE_HINT carries NO retailer entries — retailer
   themes fall through to the generic prompt so no aisle/pack pseudo-text is

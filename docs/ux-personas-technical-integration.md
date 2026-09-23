@@ -44,7 +44,7 @@ Shared power-user role — one owns storefront bundles, the other owns lifecycle
 
 **Who he is:** Manages how the site looks and that the brown kraft box looks right online. He lives inside Canto and Adobe Creative Cloud connectors — his connectors keep product photos sliding into Shopify without anyone re-uploading the hero `715599011627_FlapjackMix_Buttermilk_Front_1.png` after the 736-image raw ingest at `data/raw-ingest/kodiakcakes/images/`.
 
-**What that means:** For him the interface is `GET /assets/{product}/hero` and `GET /assets/brand/logo` and `POST /assets/sync` — the same path the offline page uses when it does `img.src = "../../input_assets/power-cakes/hero.png"`. In production that same read becomes `GET https://cdn.kodiakcakes.com/.../power-cakes/hero.png` via Canto sync plus Shopify `files` endpoint, both wrapped by `src/creative_automation/dam.py` (local `input_assets/` fallback when the connector sleeps). The Swagger for him lives at `/docs` tag `assets` — living docs show `200 image/png, ETag: ...` so he can bind cache.
+**What that means:** For him the interface is `GET /assets/{product}/hero` and `GET /assets/brand/logo` and `POST /assets/sync` — the same path the offline page uses when it does `img.src = "../../input_assets/power-cakes/hero.png"`. In production that same read becomes `GET https://cdn.kodiakcakes.com/.../power-cakes/hero.png` via Canto sync plus Shopify `files` endpoint, both wrapped by `src/creative_automation/asset_store.py` (local `input_assets/` fallback when the connector sleeps). The Swagger for him lives at `/docs` tag `assets` — living docs show `200 image/png, ETag: ...` so he can bind cache.
 
 **Pain he guards:** Prior pack shot was stretched 105 percent to fill 9×16 — brand style failed but the social post still shipped. Now every render is checked at three viewports (1080×1080, 1080×1920, 1920×1080) by `scripts/nova-act-check.py` before the retail handoff — `nova-act-report.json` must say `REG-001` before the same image can be written to Shopify.
 
@@ -121,7 +121,7 @@ curl https://kodiakcakes.com/admin/api/2024-01/webhooks.json \
 
 **Pain they inherit:** Last vendor stored a token in a repo — rotation broke at Black Friday. Now `infra/template.yaml` keeps the log bucket and the retail network table `kodiak-creatives-retail-network` with point-in-time recovery, and the managed control plane reads the hardware-backed lock at `heraldstack-...:16379` — no token on disk.
 
-**Sprint anchor:** They maintain the interface endpoints — their pull request must touch `src/creative_automation/api.py` (FastAPI) and `CONTRIBUTING.md` gateway plus the end-to-end `tests/test_e2e.py` that exercises `GET /search?q=green chile` alongside `POST /pipeline/run` so living docs and background interface stay in sync. Agency branch protection is enforced via `CODEOWNERS` on `src/creative_automation/dam.py` and `src/creative_automation/token_loader.py`.
+**Sprint anchor:** They maintain the interface endpoints — their pull request must touch `src/creative_automation/api.py` (FastAPI) and `CONTRIBUTING.md` gateway plus the end-to-end `tests/test_e2e.py` that exercises `GET /search?q=green chile` alongside `POST /pipeline/run` so living docs and background interface stay in sync. Agency branch protection is enforced via `CODEOWNERS` on `src/creative_automation/asset_store.py` and `src/creative_automation/token_loader.py`.
 
 ---
 

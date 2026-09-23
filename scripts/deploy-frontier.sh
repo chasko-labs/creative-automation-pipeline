@@ -134,14 +134,21 @@ if [[ "$missing" == "1" ]]; then
 	exit 1
 fi
 
-# mirror DAM recipe-art into the site tree BEFORE the dir preflight below.
+# version discipline: every build ships a fresh stamp, and all sinks agree.
+# bump BEFORE committing (./scripts/bump-version.sh); the deploy refuses drift.
+"$REPO_ROOT/scripts/bump-version.sh" --check || {
+	echo "[deploy-frontier] abort: version sinks disagree — run ./scripts/bump-version.sh, commit, retry" >&2
+	exit 1
+}
+
+# mirror asset store recipe-art into the site tree BEFORE the dir preflight below.
 # Card art urls are permanent site paths (/recipe-art/<slug>/<zone>.png), never
 # presigns (session-bound presigns ExpiredToken within hours and blank every
 # card). The mirror is the other half of that contract: fresh drawings land on
 # the next deploy with no script change. Honors DRY_RUN.
-DAM_RECIPE_ART_S3_URI="${DAM_RECIPE_ART_S3_URI:-s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/recipe-art/}"
-echo "[deploy-frontier] mirror recipe-art: $DAM_RECIPE_ART_S3_URI -> $WEB_SRC/recipe-art/"
-run aws s3 sync "$DAM_RECIPE_ART_S3_URI" "$WEB_SRC/recipe-art/" \
+ASSET_STORE_RECIPE_ART_S3_URI="${ASSET_STORE_RECIPE_ART_S3_URI:-s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/recipe-art/}"
+echo "[deploy-frontier] mirror recipe-art: $ASSET_STORE_RECIPE_ART_S3_URI -> $WEB_SRC/recipe-art/"
+run aws s3 sync "$ASSET_STORE_RECIPE_ART_S3_URI" "$WEB_SRC/recipe-art/" \
 	"${AWS_ARGS[@]}" --only-show-errors
 DIRS+=("recipe-art")
 
@@ -196,7 +203,7 @@ for dir in "${DIRS[@]}"; do
 		"${AWS_ARGS[@]}" --only-show-errors
 
 	# re-put the types where a wrong guess breaks loading/rendering
-	for ext_ct in "svg|image/svg+xml" "woff2|font/woff2" "json|application/json" "js|application/javascript"; do
+	for ext_ct in "svg|image/svg+xml" "woff2|font/woff2" "json|application/json; charset=utf-8" "js|application/javascript; charset=utf-8"; do
 		IFS='|' read -r ext ct <<<"$ext_ct"
 		echo "[deploy-frontier]   fix content-type *.$ext -> $ct in $dir/"
 		run aws s3 cp "s3://$BUCKET/$dir" "s3://$BUCKET/$dir" \

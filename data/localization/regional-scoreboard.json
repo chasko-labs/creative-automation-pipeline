@@ -9698,10 +9698,11 @@
     "state": "MA",
     "zip": "02108"
   },
-  "US-NE-BROOKLYN": {
+  "US-NE-BRONX": {
     "aliases": [
       "US-NE-BROOKLYN",
-      "US-NE-MANHATTAN"
+      "US-NE-MANHATTAN",
+      "US-NE-BRONX"
     ],
     "audience": "Brooklyn + Manhattan apartment families and young professionals; Greenmarket-and-bodega urban shoppers; delivery-first households (FreshDirect, Amazon); brownstone-belt weekend brunch culture",
     "campaign_type_fit": {
@@ -9839,7 +9840,329 @@
       }
     ],
     "market_code": "US-NE-NYC",
-    "place": "Brooklyn + Manhattan, New York",
+    "place": "New York City",
+    "provenance": {
+      "generated": "2026-09-04T00:00:00Z",
+      "sourced_from": [
+        "web: GrowNYC Greenmarket (Union Square flagship, four days/week) -- grownyc.org/greenmarket",
+        "web: Brownstone -- en.wikipedia.org (Triassic brown-sandstone rowhouse facades, Brooklyn/Manhattan)",
+        "web: Bodega (store) -- en.wikipedia.org (corner neighborhood grocery, NYC cultural fixture)",
+        "web: Hudson Valley apple production framing -- New York apple growers / Cornell extension",
+        "note: language percentages INFERRED -- ACS/market-languages source file absent in checkout; no exact ACS numbers used"
+      ]
+    },
+    "readiness": {
+      "fields": {
+        "audience": "ready",
+        "campaign_type_fit": "ready",
+        "city_center": "ready",
+        "cultural_notes": "ready",
+        "design_palette": "ready",
+        "featured_frontier": "ready",
+        "languages": "thin",
+        "retailers": "ready",
+        "seasonal": "ready"
+      },
+      "notes": "Palette grounded in Brooklyn brownstone + bodega + cast iron + subway tile + Greenmarket produce. Four seasonal windows from real Hudson Valley / upstate produce with Greenmarket + bodega sourcing. Home retailer mapped as the corner bodega (true NYC channel), Whole Foods/Trader Joe's/FreshDirect secondary. languages THIN -- percentages INFERRED because ACS source file is absent; no exact ACS numbers fabricated. Palette hex pending brand-fit review.",
+      "ready_to_rock": true,
+      "score": 0.86
+    },
+    "region_id": "nyc",
+    "retailers": [
+      {
+        "distance_mi": 0,
+        "name": "corner bodega",
+        "notes": "everyday NYC neighborhood grocery; the true home channel",
+        "role": "home"
+      },
+      {
+        "name": "Whole Foods",
+        "notes": "metro grocery, Union Square / Brooklyn",
+        "role": "primary"
+      },
+      {
+        "name": "Trader Joe's",
+        "role": "primary"
+      },
+      {
+        "name": "FreshDirect",
+        "notes": "delivery-first urban channel",
+        "role": "secondary"
+      },
+      {
+        "name": "Costco",
+        "notes": "Brooklyn (Sunset Park) / Harlem bulk channel",
+        "role": "secondary"
+      }
+    ],
+    "seasonal": [
+      {
+        "in_season_produce": [
+          {
+            "name": "Hudson Valley apples (Empire, Honeycrisp, McIntosh)",
+            "pancake_tie": "Hudson Valley apple-cinnamon compote over Power Cakes -- Greenmarket fall staple",
+            "peak_month": 10
+          },
+          {
+            "name": "upstate NY concord grapes + pears",
+            "pancake_tie": "concord-grape or pear spoon over Buttermilk Power Cakes",
+            "peak_month": 9
+          }
+        ],
+        "months": [
+          9,
+          10,
+          11
+        ],
+        "season": "harvest-fall",
+        "where_to_buy": [
+          {
+            "name": "Union Square Greenmarket",
+            "notes": "flagship; Hudson Valley apples + grapes in fall",
+            "type": "farmers-market",
+            "url": "https://www.grownyc.org/greenmarket"
+          },
+          {
+            "name": "corner bodega",
+            "notes": "everyday neighborhood grocery",
+            "type": "general-store"
+          }
+        ]
+      },
+      {
+        "in_season_produce": [
+          {
+            "name": "stored Hudson Valley apples + upstate maple",
+            "pancake_tie": "maple-apple holiday Power Cakes for a cold-morning apartment stack"
+          }
+        ],
+        "months": [
+          12,
+          1,
+          2
+        ],
+        "season": "winter-holidays",
+        "where_to_buy": [
+          {
+            "name": "corner bodega",
+            "type": "general-store"
+          },
+          {
+            "name": "FreshDirect / Amazon Fresh",
+            "notes": "delivery-first urban channel",
+            "type": "dtc-subscription"
+          },
+          {
+            "name": "Whole Foods / Trader Joe's",
+            "notes": "metro grocery",
+            "type": "chain-grocer"
+          }
+        ]
+      },
+      {
+        "in_season_produce": [
+          {
+            "name": "upstate maple + spring greens",
+            "pancake_tie": "fresh upstate maple over Power Cakes -- spring sugaring pour",
+            "peak_month": 4
+          },
+          {
+            "name": "rhubarb + early strawberries",
+            "pancake_tie": "rhubarb-strawberry compote over Power Waffles",
+            "peak_month": 5
+          }
+        ],
+        "months": [
+          4,
+          5
+        ],
+        "season": "spring-easter",
+        "where_to_buy": [
+          {
+            "name": "Union Square Greenmarket",
+            "notes": "spring maple + first greens",
+            "type": "farmers-market"
+          }
+        ]
+      },
+      {
+        "in_season_produce": [
+          {
+            "name": "Hudson Valley stone fruit + berries",
+            "pancake_tie": "peach or blueberry compote over Power Cakes -- Greenmarket summer peak",
+            "peak_month": 7
+          },
+          {
+            "name": "Long Island / upstate sweet corn",
+            "pancake_tie": "sweet-corn savory Power Cakes for a summer griddle",
+            "peak_month": 8
+          }
+        ],
+        "months": [
+          6,
+          7,
+          8
+        ],
+        "season": "summer-fourth",
+        "where_to_buy": [
+          {
+            "name": "Union Square Greenmarket",
+            "notes": "stone fruit + berries at summer peak",
+            "type": "farmers-market"
+          },
+          {
+            "name": "corner bodega",
+            "type": "general-store"
+          }
+        ]
+      }
+    ],
+    "state": "NY",
+    "zip": "11201"
+  },
+  "US-NE-BROOKLYN": {
+    "aliases": [
+      "US-NE-BROOKLYN",
+      "US-NE-MANHATTAN",
+      "US-NE-BRONX"
+    ],
+    "audience": "Brooklyn + Manhattan apartment families and young professionals; Greenmarket-and-bodega urban shoppers; delivery-first households (FreshDirect, Amazon); brownstone-belt weekend brunch culture",
+    "campaign_type_fit": {
+      "bears": {
+        "angle": "Bear Bites lunchbox angle carries nationally; no metro bear hook (Catskills black bear is a drive north) -- conservation-toned only",
+        "fit": "weak"
+      },
+      "keep-it-wild": {
+        "angle": "dense metro; Keep It Wild lands better on the upstate/Catskills edge than on Brooklyn",
+        "fit": "weak"
+      },
+      "localized-costco": {
+        "angle": "Costco exists (Sunset Park / Harlem) but NYC shopping is bodega + delivery + small-format; bulk is a secondary urban angle, not the home story",
+        "fit": "weak"
+      },
+      "recipe-cards": {
+        "angle": "Hudson Valley apple card (fall) + upstate maple card (spring) + Greenmarket stone-fruit card (summer) -- real regional produce sourced steps from a Brooklyn stoop",
+        "fit": "strong"
+      },
+      "riff-on-past-content": {
+        "angle": "the brownstone-stoop + bodega + Greenmarket triad is a rich, highly recognizable NYC visual language to build a repeatable content series on",
+        "fit": "strong"
+      },
+      "us-ski-and-snowboard": {
+        "angle": "dense metro; Catskills/Hunter ski is a drive north but no city ski identity",
+        "fit": "na"
+      },
+      "zac-efron": {
+        "angle": "no celebrity tie identified for this region; archetype/partnership only, never likeness",
+        "fit": "na"
+      }
+    },
+    "city_center": {
+      "landmark": "Union Square Greenmarket (est. 1976, four days/week); Brooklyn brownstone stoops; the bodega on every corner",
+      "name": "Brooklyn brownstone belt (Brooklyn Heights / Park Slope) + Manhattan Union Square Greenmarket",
+      "notes": "GrowNYC's Union Square Greenmarket is the flagship of the city's farmers-market network, running four days a week year-round. Brooklyn's signature residential fabric is 19th-century brownstone rowhouses. The corner bodega is the everyday neighborhood grocery. sources: grownyc.org; en.wikipedia.org Brownstone / Bodega (store)."
+    },
+    "classification": "metro",
+    "coordinates": {
+      "lat": 40.7128,
+      "lon": -74.006
+    },
+    "county": "Kings County",
+    "cultural_notes": [
+      "the corner bodega is the everyday New York neighborhood grocery -- a cultural fixture especially across Brooklyn, the Bronx, and Manhattan (source: Bodega (store), en.wikipedia.org)",
+      "GrowNYC Greenmarkets bring regional Hudson Valley / upstate producers into the city; Union Square is the flagship, running four days a week (source: grownyc.org)",
+      "Brooklyn's brownstone rowhouse belt (Brooklyn Heights, Park Slope, Bed-Stuy, Fort Greene) is a defining architectural identity -- 19th-century brown Triassic sandstone facades and stoops (source: Brownstone, en.wikipedia.org)",
+      "New York apartment life leans on grocery delivery and small-format shopping; weekend brunch is a strong occasion (source: general market framing, publicly documented)"
+    ],
+    "design_palette": {
+      "_provenance_note": "brownstone brown grounded in the Triassic brown-sandstone facades of Brooklyn/Manhattan rowhouses (Brownstone, en.wikipedia.org). bodega awning green + apple red from street-level retail and Greenmarket produce. cast-iron black + subway-tile white from characteristic NYC materials. hex values are perceptual approximations, not sampled -- flag for brand-fit review against fixed brand palette.",
+      "building_materials": [
+        "brown Triassic sandstone (brownstone facade)",
+        "fired red brick",
+        "cast iron (stoops, fire escapes, storefront columns)",
+        "glazed subway tile",
+        "bluestone sidewalk paving"
+      ],
+      "colors": [
+        {
+          "hex": "#6E4A34",
+          "name": "Brooklyn brownstone brown",
+          "use": "structure / facade"
+        },
+        {
+          "hex": "#2C5A3A",
+          "name": "bodega awning green",
+          "use": "storefront accent"
+        },
+        {
+          "hex": "#EDEDE8",
+          "name": "subway-tile white",
+          "use": "interior / negative space"
+        },
+        {
+          "hex": "#2A2A2C",
+          "name": "cast-iron stoop black",
+          "use": "railing / hard line"
+        },
+        {
+          "hex": "#B5352C",
+          "name": "Greenmarket apple red",
+          "use": "produce hero / warm pop"
+        }
+      ],
+      "landscape_motifs": [
+        "brownstone stoop row",
+        "bodega corner at street level",
+        "Greenmarket stalls under bare trees",
+        "elevated-train and bridge steel",
+        "city skyline behind a low residential block"
+      ],
+      "textures": [
+        "brownstone sandstone facade",
+        "cast-iron stoop railing",
+        "subway-tile white gloss",
+        "bodega awning canvas",
+        "weathered fire-escape steel",
+        "Greenmarket burlap and crate wood",
+        "worn bluestone sidewalk"
+      ]
+    },
+    "featured_frontier": {
+      "cross_promo": {
+        "activation": "Hudson Valley apple + upstate maple compote card, bodega-and-Greenmarket dual retail story",
+        "consent_status": "n/a",
+        "partner": "GrowNYC Greenmarket network",
+        "url": "https://www.grownyc.org/greenmarket"
+      },
+      "hook": "Hudson Valley apple + upstate maple compote on Power Cakes, eaten on a Brooklyn brownstone stoop -- Greenmarket produce meets the corner bodega",
+      "photo_cue": "cast-iron flapjack stack on a brownstone stoop, Union Square Greenmarket stall behind, bodega awning, autumn city light",
+      "signature_ingredient": "Hudson Valley apples (Sep-Nov) + upstate NY maple; Greenmarket stone fruit + berries in summer"
+    },
+    "languages": [
+      {
+        "lang_code": "es",
+        "lang_name": "Spanish",
+        "pct_home": 24.0,
+        "reason": "INFERRED (ACS source file absent): NYC has one of the largest Spanish-speaking populations in the US (Dominican, Puerto Rican, Mexican, Ecuadorian communities); pct is a web-informed estimate, not exact ACS",
+        "translate_code": "es"
+      },
+      {
+        "lang_code": "zh",
+        "lang_name": "Chinese",
+        "pct_home": 6.5,
+        "reason": "INFERRED (ACS source file absent): NYC holds the largest Chinese population outside Asia (Manhattan Chinatown, Sunset Park, Flushing); pct estimated",
+        "translate_code": "zh"
+      },
+      {
+        "lang_code": "ht",
+        "lang_name": "Haitian Creole",
+        "pct_home": 1.5,
+        "reason": "INFERRED (ACS source file absent): large Haitian community in Brooklyn (Flatbush, East Flatbush); pct estimated",
+        "translate_code": "ht"
+      }
+    ],
+    "market_code": "US-NE-NYC",
+    "place": "New York City",
     "provenance": {
       "generated": "2026-09-04T00:00:00Z",
       "sourced_from": [
@@ -10953,7 +11276,8 @@
   "US-NE-MANHATTAN": {
     "aliases": [
       "US-NE-BROOKLYN",
-      "US-NE-MANHATTAN"
+      "US-NE-MANHATTAN",
+      "US-NE-BRONX"
     ],
     "audience": "Brooklyn + Manhattan apartment families and young professionals; Greenmarket-and-bodega urban shoppers; delivery-first households (FreshDirect, Amazon); brownstone-belt weekend brunch culture",
     "campaign_type_fit": {
@@ -11091,7 +11415,7 @@
       }
     ],
     "market_code": "US-NE-NYC",
-    "place": "Brooklyn + Manhattan, New York",
+    "place": "New York City",
     "provenance": {
       "generated": "2026-09-04T00:00:00Z",
       "sourced_from": [
@@ -11597,7 +11921,8 @@
   "US-NE-NYC": {
     "aliases": [
       "US-NE-BROOKLYN",
-      "US-NE-MANHATTAN"
+      "US-NE-MANHATTAN",
+      "US-NE-BRONX"
     ],
     "audience": "Brooklyn + Manhattan apartment families and young professionals; Greenmarket-and-bodega urban shoppers; delivery-first households (FreshDirect, Amazon); brownstone-belt weekend brunch culture",
     "campaign_type_fit": {
@@ -11735,7 +12060,7 @@
       }
     ],
     "market_code": "US-NE-NYC",
-    "place": "Brooklyn + Manhattan, New York",
+    "place": "New York City",
     "provenance": {
       "generated": "2026-09-04T00:00:00Z",
       "sourced_from": [

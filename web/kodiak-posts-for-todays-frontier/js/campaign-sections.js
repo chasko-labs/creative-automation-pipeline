@@ -24,13 +24,16 @@
   // toggle is refused with the message instead of failing silently.
   var GATED_MSG = 'generate campaign to preview and approve, then try again';
   function mountSections(){
-    if(document.getElementById('generateCampaignSection')) return true;   // idempotent
+    // static-first: index.html now ships this markup collapsed, so first layout
+    // already includes it. keep the injected template below as the fallback and
+    // still wire (both wirings are idempotent) when the static nodes won.
+    if(document.getElementById('generateCampaignSection')){ wireButtons(); wireGate(); return true; }
     // anchor: the forest treeline divider that precedes the placeholder comment
     var forest = document.querySelector('.ff-forest');
     var wrap = document.createElement('div');
     wrap.innerHTML =
       '<details id="generateCampaignSection" class="ff-output ff-generate-campaign preview-card is-gated" data-gated="true">'+
-        '<summary aria-labelledby="generateCampaignHeading"><span class="ff-stepnum" aria-hidden="true">7</span>'+
+        '<summary aria-labelledby="generateCampaignHeading">'+
         '<span id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</span>'+
         ' <span class="badge" id="generateCampaignLock">locked until preview</span></summary>'+
         '<p class="hint" id="generateCampaignHint">The full campaign unlocks after your first preview — every ratio, every platform, localized to your chosen scope.</p>'+
@@ -40,7 +43,7 @@
         '<div class="hint" id="generateCampaignStatus" role="status" aria-live="polite"></div>'+
       '</details>'+
       '<section id="campaignAssetsSection" class="ff-output ff-campaign-assets" aria-labelledby="campaignAssetsHeading" hidden>'+
-        '<h2 id="campaignAssetsHeading" class="ff-output-heading"><span class="ff-stepnum" aria-hidden="true">8</span> Campaign Assets Created</h2>'+
+        '<h2 id="campaignAssetsHeading" class="ff-output-heading">Campaign Assets Created</h2>'+
         '<div class="row"><button type="button" class="btn orange" id="downloadCampaignPackTop" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
         <!-- #campaignAssetsCarousel mounts here only once campaign renders exist (renderCampaignCarousel) -->'+
         '<div class="row mt-sm"><button type="button" class="btn orange" id="downloadCampaignPackBottom" data-mcp="download-campaign-pack">Download Campaign Pack</button></div>'+
@@ -214,10 +217,10 @@
   }
 
   // Download Campaign Pack (#242) — one click, one ISO zip via the #204 endpoint.
-  // POSTs the campaign renders' DAM keys (+ copy sidecars where present) to
+  // POSTs the campaign renders' asset keys (+ copy sidecars where present) to
   // /assets/pack and saves the single presigned zip. Browsers cap automatic
   // multi-downloads, which is why the old per-file loop saved 1 photo instead
-  // of 4. Falls back to the per-file loop only when no DAM keys exist.
+  // of 4. Falls back to the per-file loop only when no asset keys exist.
   window.downloadCampaignPack = function(){
     var status = document.getElementById('generateCampaignStatus');
     if(!campaignRenders.length){ if(status) status.textContent = 'Generate a campaign first, then download the pack.'; return 0; }
@@ -284,9 +287,9 @@
     var controller = new AbortController();
     var timeoutId = setTimeout(function(){ controller.abort(); }, 100000);
     try{
-      // staged DAM pick rides as the seed (same contract as the preview path above).
+      // staged staged asset pick rides as the seed (same contract as the preview path above).
       var stagedKey = null;
-      try{ var staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='dam' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
+      try{ var staged = (window.__userAssets||[]).filter(function(a){ return a && a.source==='asset-library' && a.key; }); if(staged.length) stagedKey = staged[staged.length-1].key; }catch(e){}
       var body = {
         prompt: currentBrief(),
         market: selectedMarket(),

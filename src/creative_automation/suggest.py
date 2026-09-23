@@ -4,7 +4,7 @@ Like Linda's film crew VariantsSpec (Director/Editor/Cinematographer agents
 picking clips for 16:9, 9:16, 1:1), we treat each existing hero as a source
 clip and generate a variant per aspect ratio with localized messaging.
 
-Pipeline: scan dam_root for hero.* → enhance → compose ×3 ratios → preview sheet.
+Pipeline: scan asset_root for hero.* → enhance → compose ×3 ratios → preview sheet.
 No new GenAI needed; reuses what the brand already shot.
 """
 from __future__ import annotations
@@ -15,12 +15,12 @@ from pathlib import Path
 
 from .compliance import run_all_checks
 from .compose import compose_creative
-from .dam import find_brand_logo
+from .asset_store import find_brand_logo
 from .enhance import enhance_hero
 
 
 def suggest_variants(
-    dam_root: Path,
+    asset_root: Path,
     out_root: Path,
     ratios: list[str] | None = None,
     messages: list[str] | None = None,
@@ -29,7 +29,7 @@ def suggest_variants(
 ) -> dict:
     """Generate suggested posts from existing heroes.
 
-    - dam_root: input_assets (contains product-id/hero.*)
+    - asset_root: input_assets (contains product-id/hero.*)
     - out_root: where to write suggested/ hierarchy
     - ratios: defaults to 1x1, 9x16, 16x9
     - messages: list of headline strings to cycle through; falls back to product name
@@ -40,11 +40,11 @@ def suggest_variants(
     ratios = ratios or ["1x1", "9x16", "16x9"]
     brand_colors = brand_colors or ["#3B2316", "#E8530E", "#1A3C34"]
     messages = messages or []
-    brand_logo = find_brand_logo(dam_root)
+    brand_logo = find_brand_logo(asset_root)
 
-    # Find all hero assets under dam_root/*/hero.* plus hero.enhanced.*
+    # Find all hero assets under asset_root/*/hero.* plus hero.enhanced.*
     heroes: list[Path] = []
-    for p in sorted(dam_root.rglob("hero.*")):
+    for p in sorted(asset_root.rglob("hero.*")):
         if p.suffix.lower() not in {".png", ".jpg", ".jpeg", ".webp"}:
             continue
         # skip generated enhanced duplicates as primary source — we enhance on the fly
@@ -70,9 +70,9 @@ def suggest_variants(
         # enhance (contrast/texture/vignette; framing/watermark handled in compose to avoid double-frame)
         try:
             enhance_hero(work, work, contrast=1.08, brightness=1.02, sharpness=1.12, texture=True, frame=False, watermark=False, vignette=True)
-            hero_source = "dam+enhanced"
+            hero_source = "asset-library+enhanced"
         except (OSError, ValueError):
-            hero_source = "dam"
+            hero_source = "asset-library"
 
         # Pick message for this hero: cycle messages or fallback
         msg_idx = heroes.index(hero) % max(1, len(messages)) if messages else 0

@@ -28,7 +28,7 @@ FRONTEND_DATA = (
     REPO_ROOT / "web" / "kodiak-posts-for-todays-frontier" / "js" / "data-core.js"
 )
 
-EXPECTED_FRONTEND_CODES = 78
+EXPECTED_FRONTEND_CODES = 81
 
 # import the build script's validator so the test enforces the same contract
 _spec = importlib.util.spec_from_file_location(

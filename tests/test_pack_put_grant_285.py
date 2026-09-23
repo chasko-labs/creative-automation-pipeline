@@ -39,7 +39,7 @@ class _FakeS3:
         return {}
 
     def generate_presigned_url(self, op, Params, ExpiresIn):
-        return f"https://dam.example/{Params['Key']}?presigned=1"
+        return f"https://asset_store.example/{Params['Key']}?presigned=1"
 
 
 def _pack_event(files, extras=None):
@@ -55,14 +55,14 @@ def test_handle_pack_puts_zip_under_packs_prefix(monkeypatch):
     fake = _FakeS3(objects={key: b"\x89PNG\r\n\x1a\nfake"})
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: fake)
     resp = generate_lambda.handler(
-        _pack_event([{"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/{key}", "ratio": "1x1"}],
+        _pack_event([{"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/{key}", "ratio": "1x1"}],
                     extras=[{"name": "copy.txt", "text": "headline"}]),
         None,
     )
     assert resp["statusCode"] == 200
     body = json.loads(resp["body"])
     assert body["ok"] is True
-    assert body["zip_url"].startswith("https://dam.example/")
+    assert body["zip_url"].startswith("https://asset_store.example/")
     assert len(fake.puts) == 1
     put = fake.puts[0]
     assert put["Key"].startswith("brands/kodiak/packs/")
@@ -80,7 +80,7 @@ def test_handle_pack_put_denied_surfaces_500(monkeypatch):
     fake = _FakeS3(objects={key: b"\x89PNG\r\n\x1a\nfake"}, deny_put=True)
     monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: fake)
     resp = generate_lambda.handler(
-        _pack_event([{"s3_uri": f"s3://{generate_lambda.DAM_S3_BUCKET}/{key}"}]),
+        _pack_event([{"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/{key}"}]),
         None,
     )
     assert resp["statusCode"] == 500

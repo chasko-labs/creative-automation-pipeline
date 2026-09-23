@@ -39,7 +39,7 @@ prompt drove the call (Nova Pro output vs deterministic fallback). A
 seed-similarity floor fails the render to rung C instead of shipping unrelated
 pixels.
 
-Today: seed `0272fd970269--2-09b132_e70c8e` (pulled from the DAM — a waffle-iron
+Today: seed `0272fd970269--2-09b132_e70c8e` (pulled from the asset store — a waffle-iron
 photo, no bear, no mountains) plus an aisle restyle prompt at control 0.7
 produced a grizzly on a log in the mountains. Seed resolution worked
 (`seed_selection: theme-photo`); the pixels match neither seed nor prompt.

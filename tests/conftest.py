@@ -3,8 +3,9 @@
 The grounded-director headline path is live-capable (Bedrock embed + voice-model
 invoke) and budget-gated — unit tests must never touch it implicitly. Force the
 kill-switch OFF for every test; tests covering the grounded loop opt back in
-explicitly with monkeypatch.setenv("KODIAK_DIRECTOR_GROUNDED", "true") plus
-mocked retrieve/director transports.
+explicitly with monkeypatch.setenv("KODIAK_DIRECTOR_GROUNDED", "true") AND
+monkeypatch.setenv("KODIAK_ARTDIRECTOR_ENABLED", "true") plus mocked
+retrieve/director transports (both flags required since 2026-09-23).
 """
 from __future__ import annotations
 

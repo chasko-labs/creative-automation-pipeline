@@ -76,6 +76,24 @@ def test_normalize_holiday_accepts_dash_form():
     assert sp.normalize_holiday("funday") is None
 
 
+def test_slug_holiday_forms_pair_like_labels():
+    # QA sweep: hyphen/underscore holiday slugs silently compoted while labels
+    # paired (new-year served Apple Cinnamon Compote + Trail Stack instead of
+    # Apple Cider Donuts). All multiword holidays resolve in every separator.
+    for slug, label in [
+        ("new-year", "new year"),
+        ("new_year", "new year"),
+        ("memorial-day", "memorial day"),
+        ("labor-day", "labor day"),
+        ("holiday-season", "holiday season"),
+        ("valentine's-day", "valentine's day"),
+    ]:
+        assert sp.normalize_holiday(slug) == label, slug
+        assert sp.resolve_request(slug)["kind"] == "holiday", slug
+        assert sp.pairing_for_season(slug)["source"] == "season-table", slug
+        assert sp.pairing_for_season(slug)["recipe_id"] == sp.pairing_for_season(label)["recipe_id"], slug
+
+
 def test_season_for_month_maps_meteorological_seasons():
     assert sp.season_for_month("2026-01") == "winter"
     assert sp.season_for_month("2026-02") == "winter"
@@ -231,30 +249,57 @@ def test_serving_line_never_outvotes_ingredient():
     # "radishes and lettuce" once routed to salmon patties through a
     # "Butter lettuce ..., for serving (optional)" garnish line.
     # Serving/garnish suggestions are display text, not matching text.
+    # Winner follows catalog truth: veggie-cheese-tart (brand JSON-LD,
+    # real "1 bunch radishes" + greens, zero serving lines) outscores the
+    # radish-only draft on content — the salmon garnish record still loses.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance(
         "radishes and lettuce", "Buttermilk Power Cakes",
         market="US-SW-ALBQ", month="2026-04",
     )
-    assert recipe["id"] == "skillet-radish-fritters-draft"
+    assert recipe["id"] == "veggie-cheese-tart"
     assert pairing["source"] == "ingredient-overlap"
 
 
 def test_product_only_overlap_falls_to_season_table():
     # Every catalog recipe carries the product token, so "buttermilk" alone
     # crowned an arbitrary winner (white-chocolate-raspberry-cake took 45
-    # such cells: passionfruit, oysters, lettuce). Only ingredient tokens
-    # count; otherwise the curated season table serves the pick.
+    # such cells: passionfruit, oysters). Only ingredient tokens count;
+    # otherwise the curated season table serves the pick.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance(
-        "leaf lettuce", "Buttermilk Power Cakes",
+        "oysters", "Buttermilk Power Cakes",
         market="US-CA-CASTROVILLE", month="2026-06",
     )
     assert recipe is not None
     assert pairing["source"] == "season-table"
     assert recipe["id"] == pairing["recipe_id"]
+
+
+def test_real_food_token_beats_product_only_tie():
+    # QA sweep (82 markets x 26 seasons): October "fresh cider" tied
+    # apple-cider-donuts ("cider") with summer-vegetable-tostada (product
+    # "buttermilk") and the id tiebreak served the summer tostada. Real
+    # (non-product) overlap now decides ties, so the food token wins.
+    # Same class: "leaf lettuce" genuinely appears in smash-burger-tacos,
+    # which must beat the season table for Castroville's lettuce month.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "fresh cider", "Buttermilk Power Cakes",
+        market="US-NE-NYC", month="2026-10",
+    )
+    assert recipe["id"] == "apple-cider-donuts"
+    assert pairing["source"] == "ingredient-overlap"
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "leaf lettuce", "Buttermilk Power Cakes",
+        market="US-CA-CASTROVILLE", month="2026-06",
+    )
+    assert recipe["id"] == "smash-burger-tacos"
+    assert pairing["source"] == "ingredient-overlap"
 
 
 def test_draft_recipes_split_tropical_and_chile_blocks():
@@ -403,7 +448,7 @@ def test_month_derived_season_serves_unmatched_ingredient():
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance("zzqx unobtanium", None, month="2026-01")
-    assert recipe["id"] == "pear-spice-muffins-draft"
+    assert recipe["id"] == "campfire-baked-apple-oats"
     assert pairing["season"] == "winter"
     assert pairing["source"] == "season-table"
 
@@ -563,7 +608,7 @@ def test_empty_subject_with_full_date_month_serves_season_table():
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance("", "", month="2026-01-20")
-    assert recipe["id"] == "pear-spice-muffins-draft"
+    assert recipe["id"] == "campfire-baked-apple-oats"
     assert pairing["season"] == "winter"
     assert pairing["source"] == "season-table"
     assert pairing["recipe_id"] == recipe["id"]
@@ -821,3 +866,25 @@ def test_conjunction_split_month_serves_each_named_item():
         "red-chile-cornbread-muffins-draft",
         "green-chile-cheddar-bake-draft",
     }
+
+
+def test_iso_month_key_pairs_like_month_name():
+    # A "2026-10" season must ride the month path (fall table), never degrade
+    # to the static default while the display (month= resolved separately)
+    # names a real pairing — found by QA sweep: all 12 YYYY-MM keys compoted.
+    assert sp.resolve_request("2026-10") == {"kind": "month", "key": "october", "season": "fall"}
+    assert sp.pairing_for_season("2026-10")["source"] == "season-table"
+    assert sp.pairing_for_season("2026-10")["recipe_id"] == sp.pairing_for_season("october")["recipe_id"]
+    assert sp.resolve_request("2026-01") == {"kind": "month", "key": "january", "season": "winter"}
+
+
+def test_bare_and_full_date_month_keys():
+    assert sp.resolve_request("10")["key"] == "october"
+    assert sp.resolve_request("2026-10-31")["key"] == "october"
+    assert sp.pairing_for_season("10")["source"] == "season-table"
+
+
+def test_bad_month_keys_stay_default():
+    for bad in ("2026-13", "2026-00", "2026-10-99", "10-2026", "october-2026", "blorpt", None, ""):
+        assert sp.resolve_request(bad) == {"kind": None, "key": None, "season": None}, bad
+        assert sp.pairing_for_season(bad)["source"] == "static-default", bad

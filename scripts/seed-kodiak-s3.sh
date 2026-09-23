@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # Seed Kodiak style library to S3 — idempotent, local-first
-BUCKET="${DAM_S3_BUCKET:?set DAM_S3_BUCKET}"
-PREFIX="${DAM_S3_PREFIX:-brands/kodiak/}"
-REGION="${DAM_S3_REGION:-${AWS_REGION:-us-east-1}}"
+BUCKET="${ASSET_STORE_S3_BUCKET:?set ASSET_STORE_S3_BUCKET}"
+PREFIX="${ASSET_STORE_S3_PREFIX:-brands/kodiak/}"
+REGION="${ASSET_STORE_S3_REGION:-${AWS_REGION:-us-east-1}}"
 
 echo "[seed] seeding kodiak tokens + references -> s3://$BUCKET/$PREFIX"
 aws s3 cp design/tokens/kodiak.json "s3://$BUCKET/${PREFIX}tokens/kodiak.tokens.json" --region "$REGION"

@@ -36,9 +36,9 @@ from .platform_copy import clean_brand_copy
 from .recipe_i18n import translate_recipe_texts
 from .text_rewriter import rewrite_headline
 
-# Composed cards publish here so the recipes DAM tab (extra_prefixes) picks
+# Composed cards publish here so the recipes asset tab (extra_prefixes) picks
 # them up among past assets. Publish is opt-in and never fails a card.
-DAM_RECIPES_PREFIX = "brands/kodiak/recipes/"
+ASSET_STORE_RECIPES_PREFIX = "brands/kodiak/recipes/"
 
 # Repo checkout and Lambda image resolve data/ differently (pip install . does
 # not bundle data/); data_path picks the layout that actually exists.
@@ -100,7 +100,13 @@ HERO_H = 560  # top region is the text-free image layer
 
 _STOP = frozenset(
     {"the", "and", "for", "with", "your", "kodiak", "cakes", "mix", "a", "of", "to",
-     "in", "on", "power", "cup", "cups", "box", "pouch", "flapjack", "waffle"}
+     "in", "on", "power", "cup", "cups", "box", "pouch", "flapjack", "waffle",
+     # QA sweep (82x26): "fresh" is garnish noise, not a food token. It tied the
+     # true "cider" hit in "fresh cider" with summer-vegetable-tostada (via its
+     # "fresh microgreens") and the id tiebreak crowned the summer tostada for
+     # an October market. Dropping it from both sides lets the real food token
+     # decide (apple-cider-donuts wins outright).
+     "fresh"}
 )
 
 
@@ -680,7 +686,14 @@ def _pick_recipe_detail(
             "reason": "empty ingredient and product — no pairing attempted",
         }
 
-    scored: list[tuple[int, int, str, dict]] = []
+    # Food-token overlap decides ties before the id lottery: product tokens
+    # ("buttermilk") ride in the subject and tie true food hits ("cider") with
+    # unrelated recipes whose product line matches, and the old id tiebreak
+    # crowned summer-vegetable-tostada for October "fresh cider" (QA sweep).
+    # Ranking real (non-product) overlap second lets the food token win ties
+    # without changing any unique winner.
+    product_tokens = _tokens(product) if product else set()
+    scored: list[tuple[int, int, int, int, str, dict]] = []
     hays: dict[str, str] = {}
     for r in recipes:
         hay = " ".join(
@@ -693,19 +706,19 @@ def _pick_recipe_detail(
         # garnish suggestions never outvote the built-on ingredient.
         hay += " " + " ".join(_matchable_fields(r))
         hays[r.get("id", "")] = hay
-        overlap = len(subject & _tokens(hay))
+        hay_tokens = _tokens(hay)
+        overlap = len(subject & hay_tokens)
+        real_overlap = len((subject - product_tokens) & hay_tokens)
         has_image = 1 if r.get("image") else 0
-        scored.append((overlap, has_image, r.get("id", ""), r))
+        scored.append((overlap, real_overlap, has_image, r.get("id", ""), r))
 
-    scored.sort(key=lambda x: (x[0], x[1], x[2]), reverse=True)
-    best_overlap, _hi, _best_id, best = scored[0]
+    scored.sort(key=lambda x: (x[0], x[1], x[2], x[3]), reverse=True)
+    best_overlap, real_overlap, _hi, _best_id, best = scored[0]
     # Product-only overlap is no match: every catalog recipe carries the
     # product token, so "buttermilk" alone would crown an arbitrary winner
     # (white-chocolate-raspberry-cake won 45 such cells: passionfruit,
     # oysters, lettuce, and empty-ingredient months). Only ingredient tokens
     # count toward a real match; otherwise the season table serves the pick.
-    product_tokens = _tokens(product) if product else set()
-    real_overlap = len((subject - product_tokens) & _tokens(hays[_best_id]))
     if best_overlap == 0 or real_overlap == 0:
         # no token match — season-indexed pairing table first, static default as
         # last resort. Never fabricated: both point at real catalog records.
@@ -730,7 +743,7 @@ def _pick_recipe_detail(
         }
     if market or month:
         strong = sorted(
-            (r for (_ov, _hh, _ii, r) in scored if _ov > 0 and _names_ingredient(r, ingredient)),
+            (r for (_ov, _ro, _hh, _ii, r) in scored if _ov > 0 and _names_ingredient(r, ingredient)),
             key=lambda r: r.get("id", ""),
         )
         if len(strong) > 1:
@@ -879,24 +892,24 @@ def _clean_step(raw: str) -> str:
 
 
 def publish_card(card_path: str | Path) -> str | None:
-    """Upload a composed card PNG so the recipes DAM tab lists it. Returns the
-    full DAM key, or None when DAM is unconfigured or the upload fails. Never
+    """Upload a composed card PNG so the recipes asset tab lists it. Returns the
+    full asset key, or None when asset store is unconfigured or the upload fails. Never
     throws — publishing must never fail a campaign.
 
-    s3_upload_and_presign joins keys to the configured DAM prefix, so the key
+    s3_upload_and_presign joins keys to the configured asset prefix, so the key
     is relativized against it (brands/kodiak/recipes/x.jpg under the standard
     brands/kodiak/ prefix uploads as recipes/x.jpg and reads back verbatim).
     """
     try:
-        from . import dam as _dam
+        from . import asset_store as _asset_store
 
-        full = DAM_RECIPES_PREFIX + Path(card_path).name
-        _, prefix = _dam._s3_bucket_and_prefix()
+        full = ASSET_STORE_RECIPES_PREFIX + Path(card_path).name
+        _, prefix = _asset_store._s3_bucket_and_prefix()
         rel = full[len(prefix):] if prefix and full.startswith(prefix) else full.lstrip("/")
-        if _dam.s3_upload_and_presign(str(card_path), rel) is None:
+        if _asset_store.s3_upload_and_presign(str(card_path), rel) is None:
             return None
         return full
-    except Exception:  # noqa: BLE001 — any DAM/network/import failure degrades to None by contract
+    except Exception:  # noqa: BLE001 — any asset store/network/import failure degrades to None by contract
         return None
 
 
@@ -1015,11 +1028,11 @@ def build_recipe_card(
     """Generate a recipe card for a market + month.
 
     Returns:
-        {card_path, ingredient, recipe, text_blocks, safety[, dam_key]} on
+        {card_path, ingredient, recipe, text_blocks, safety[, asset_key]} on
         success, or a no-ingredient result {ingredient: None, reason, ...} when
         the month has no seeded local ingredient (never fabricated).
-        publish=True also uploads the PNG to the DAM recipes prefix (best
-        effort — dam_key None when DAM is unavailable).
+        publish=True also uploads the PNG to the asset store recipes prefix (best
+        effort — asset_key None when asset store is unavailable).
 
     Also carries a deterministic `meta` block resolved from the recipe-card
     template (schema kodiak/recipe-card@v1): template_schema_version, the
@@ -1155,7 +1168,7 @@ def build_recipe_card(
     out_root = Path(out_dir) if out_dir else DEFAULT_OUT_DIR
     card_path = _compose_card(hero, text_blocks, out_root / iso_name)
 
-    dam_key = publish_card(card_path) if publish else None
+    asset_key = publish_card(card_path) if publish else None
     return {
         "schema": RECIPE_CARD_DATA_SCHEMA,
         "variant": RECIPE_CARD_VARIANTS[0],
@@ -1166,7 +1179,7 @@ def build_recipe_card(
         "safety": card_safety,
         "month": resolved_month,
         "step_results": step_results,
-        "dam_key": dam_key,
+        "asset_key": asset_key,
         "meta": _recipe_card_meta(
             _tmpl, substrate=substrate, ingredient=ingredient, pairing=pairing
         ),
@@ -1294,12 +1307,12 @@ def _overlay_recipe_art(
     if not slug:
         return art_block
     try:
-        from . import dam as _dam
+        from . import asset_store as _asset_store
 
         out = dict(art_block)
         for zone in _ART_KEYS:
-            if _dam.recipe_art_exists(slug, zone):
-                out[zone] = _dam.recipe_art_site_url(slug, zone)
+            if _asset_store.recipe_art_exists(slug, zone):
+                out[zone] = _asset_store.recipe_art_site_url(slug, zone)
         return out
     except Exception:  # noqa: BLE001 — art overlay is best-effort
         return art_block

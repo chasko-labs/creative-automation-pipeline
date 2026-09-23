@@ -33,7 +33,7 @@ def test_extend_rejects_unreadable_hero(tmp_path: Path, monkeypatch) -> None:
 
     monkeypatch.setattr(gl, "_s3_client", lambda: DeadS3())
     resp = gl._handle_extend(
-        {"ratio": "9x16", "hero_s3_uri": f"s3://{gl.DAM_S3_BUCKET}/missing.png"},
+        {"ratio": "9x16", "hero_s3_uri": f"s3://{gl.ASSET_STORE_S3_BUCKET}/missing.png"},
         "prompt",
     )
     assert resp["ok"] is False
@@ -54,7 +54,7 @@ def test_extend_rejects_garbage_bytes(tmp_path: Path, monkeypatch) -> None:
 
     monkeypatch.setattr(gl, "_s3_client", lambda: S3())
     resp = gl._handle_extend(
-        {"ratio": "9x16", "hero_s3_uri": f"s3://{gl.DAM_S3_BUCKET}/junk.png"},
+        {"ratio": "9x16", "hero_s3_uri": f"s3://{gl.ASSET_STORE_S3_BUCKET}/junk.png"},
         "prompt",
     )
     assert resp["ok"] is False
@@ -83,7 +83,7 @@ def test_extend_falls_back_to_pad(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(gl, "_s3_client", lambda: S3())
     monkeypatch.setattr(gl, "_stability_outpaint", lambda *a: None)
     resp = gl._handle_extend(
-        {"ratio": "9x16", "hero_s3_uri": f"s3://{gl.DAM_S3_BUCKET}/hero.png"},
+        {"ratio": "9x16", "hero_s3_uri": f"s3://{gl.ASSET_STORE_S3_BUCKET}/hero.png"},
         "prompt",
     )
     assert resp["ok"] is True

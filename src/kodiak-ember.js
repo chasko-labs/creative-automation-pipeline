@@ -20,6 +20,7 @@ import { Engine } from "@babylonjs/core/Engines/engine";
 import { DirectionalLight } from "@babylonjs/core/Lights/directionalLight";
 import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
 import { PointLight } from "@babylonjs/core/Lights/pointLight";
+import { RectAreaLight } from "@babylonjs/core/Lights/rectAreaLight";
 import { PBRMaterial } from "@babylonjs/core/Materials/PBR/pbrMaterial";
 import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
 import { DynamicTexture } from "@babylonjs/core/Materials/Textures/dynamicTexture";
@@ -34,6 +35,11 @@ import { Scene } from "@babylonjs/core/scene";
 import { Logger } from "@babylonjs/core/Misc/logger";
 import { ShaderStore } from "@babylonjs/core/Engines/shaderStore";
 
+// Engine multi-canvas views (registerView/unRegisterView/activeView) live in a
+// side-effect module in 9.4.1 — the Engine class import alone leaves them
+// undefined and every shared-engine mount (all waves) throws at
+// registerSceneView on real hardware. Hardware-verified fix, kept.
+import "@babylonjs/core/Engines/AbstractEngine/abstractEngine.views.js";
 // ArcRotateCamera pointer/keyboard controls are registered as a side-effect;
 // the camera input manager is not pulled in by the class import alone.
 import "@babylonjs/core/Cameras/Inputs/arcRotateCameraPointersInput.js";
@@ -122,12 +128,20 @@ function ensureEngine() {
 function registerSceneView(canvas, camera, customRender) {
 	const engine = ensureEngine();
 	if (_views.has(canvas) || _deferredObservers.has(canvas)) return;
+	// clearBeforeCopy=true: the vendored 9.4.1 _renderViewStep blits the shared
+	// WebGL canvas onto each 2d view canvas with drawImage and skips the
+	// clearRect when this flag is falsy, so frames source-over composite onto
+	// stale pixels — motion smears and opaque residue lingers where the scene
+	// has since gone transparent. Clearing first keeps every view a faithful
+	// copy of the current frame. (This is copy-path hygiene, not the stage
+	// band fix: hardware pixels show the band is freshly rendered mesh, its
+	// camera-facing slope unlit — see createStageScene below.)
 	if (canvas.clientWidth === 0 || canvas.clientHeight === 0) {
 		const obs = new ResizeObserver(() => {
 			if (canvas.clientWidth > 0 && canvas.clientHeight > 0) {
 				obs.disconnect();
 				_deferredObservers.delete(canvas);
-				engine.registerView(canvas, camera);
+				engine.registerView(canvas, camera, true);
 				_views.set(canvas, { customRender, paused: false });
 			}
 		});
@@ -135,7 +149,7 @@ function registerSceneView(canvas, camera, customRender) {
 		_deferredObservers.set(canvas, obs);
 		return;
 	}
-	engine.registerView(canvas, camera);
+	engine.registerView(canvas, camera, true);
 	_views.set(canvas, { customRender, paused: false });
 }
 function unregisterSceneView(canvas) {
@@ -932,8 +946,10 @@ class PaperboardCard {
 		this.rake = new PointLight("boardRake", this._rakeRest.clone(), this.scene);
 		this.rake.diffuse = AMBER;
 		this.rake.specular = PARCHMENT; // #FFF8F0 gloss catch
-		this.rake.intensity = 0.5;
-		this.rake.range = 4;
+		// whisper, not a lamp: the rake is a broad soak of warm light so the
+		// clearcoat reads as traveling sheen, never as a glowing orb.
+		this.rake.intensity = 0.22;
+		this.rake.range = 6;
 
 		const plane = MeshBuilder.CreatePlane(
 			"boardPlane",
@@ -951,8 +967,8 @@ class PaperboardCard {
 		mat.sheen.color = BLAZE.scale(0.5); // warm, derived from blazeOrange token; subtle
 		// ── UV spot-gloss coat (matte base, glossy coat) ──
 		mat.clearCoat.isEnabled = true;
-		mat.clearCoat.intensity = 0.6; // partial coat, like selective spot-coating
-		mat.clearCoat.roughness = 0.12; // sharp gloss the matte base cannot produce
+		mat.clearCoat.intensity = 0.35; // partial coat, like selective spot-coating
+		mat.clearCoat.roughness = 0.28; // soft wide gloss, never a hard hotspot
 		// ── base fiber normal (reuse the procedural kraft normal from section 9) ──
 		const baseNormal = kraftNormalTexture(this.scene);
 		baseNormal.uScale = 8;
@@ -968,8 +984,25 @@ class PaperboardCard {
 		plane.material = mat;
 		this.plane = plane;
 		this._mat = mat;
+		this._fitPlane(); // cover-fit: no visible plane edges (no "box")
 		this.attachPointerDrift(); // rakes this.rake from pointer, idle lissajous
 		registerSceneView(canvas, this.camera, () => this.scene.render());
+	}
+
+	// _fitPlane — scale the 6x4 board so it always COVERS the canvas. Without
+	// this, wide cards show the plane as a centered rectangle with hard edges
+	// (reads as a "box" floating in the card) because the camera frustum is far
+	// wider than the unit plane.
+	_fitPlane() {
+		this.engine.resize();
+		const w = this.engine.getRenderWidth();
+		const h = this.engine.getRenderHeight();
+		if (!w || !h) return;
+		const dist = Math.abs(this.camera.position.z - this.plane.position.z);
+		const visH = 2 * dist * Math.tan(this.camera.fov / 2);
+		const visW = visH * (w / h);
+		this.plane.scaling.x = Math.max(visW / 6, 1e-3);
+		this.plane.scaling.y = Math.max(visH / 4, 1e-3);
 	}
 
 	// attachPointerDrift — self-contained (Trial 2 / KraftCard is not present in
@@ -1018,6 +1051,7 @@ class PaperboardCard {
 
 	resize() {
 		this.engine.resize();
+		this._fitPlane();
 	}
 
 	dispose() {
@@ -1141,7 +1175,339 @@ function mountPaperboardCards(selector = ".card") {
 	return state;
 }
 
-// ── public API (WAVE 1 surface) ──
+// ── Wave 3 — Timeline signage: area-light strip behind #progressTimeline ──
+// A dark frontier-green signage plate lit by two warm RectAreaLight fixtures,
+// mounted BEHIND the timeline steps as a low-z backing layer. Follows the
+// mountSheenRim lazy/gated pattern: device gate (gateReason) + deferred build
+// via IntersectionObserver (~200px rootMargin) + reduced-motion still path (no
+// breathe animation, static fixture intensities). CAPPED at one live view —
+// the timeline appears once per page, so a second mount is refused and the CSS
+// signage plate (owned by the stylesheet) stands. The overlay canvas is purely
+// ambient: non-interactive (pointer-events none), aria-hidden, z-index 0
+// behind the steps the stylesheet raises to z-index 1.
+//
+// RectAreaLight is used only if reachable: both fixture constructions run
+// inside try/catch, and any failure drops to an emissive StandardMaterial
+// plane. Proven imports/constructors only — no invented engine APIs.
+const TIMELINE_SIGNAGE_MAX_VIEWS = 1; // hard cap: one timeline per page
+let _timelineSignageLive = 0;
+
+class TimelineSignage {
+	constructor(canvas, host) {
+		this.canvas = canvas;
+		this.host = host;
+		this.engine = ensureEngine();
+		this._reduceMotion = prefersReducedMotion();
+		this.scene = new Scene(this.engine);
+		this.scene.clearColor = new Color4(0, 0, 0, 0); // transparent — sit on the CSS plate
+		this.camera = new FreeCamera(
+			"tlSignCam",
+			new Vector3(0, 0, -3),
+			this.scene,
+		);
+		this.camera.setTarget(Vector3.Zero());
+		const hemi = new HemisphericLight(
+			"tlSignHemi",
+			new Vector3(0, 0, -1),
+			this.scene,
+		);
+		hemi.intensity = 0.5;
+		hemi.diffuse = PARCHMENT;
+		hemi.groundColor = hex("#1A3C34"); // frontier-green bounce off the plate
+		this.hemi = hemi;
+
+		// signage plate — dark frontier-green, matte, warm sheen at grazing angles.
+		const plate = MeshBuilder.CreatePlane(
+			"tlSignPlate",
+			{ width: 8, height: 2 },
+			this.scene,
+		);
+		const mat = new PBRMaterial("tlSignMat", this.scene);
+		mat.albedoColor = hex("#1A3C34"); // frontier-green signage plate token
+		mat.metallic = 0; // painted metal is never metal
+		mat.roughness = 0.85; // matte plate
+		mat.sheen.isEnabled = true;
+		mat.sheen.intensity = 0.3;
+		mat.sheen.color = AMBER.scale(0.5); // warm wash, derived from amber token
+		mat.sheen.roughness = 0.6; // soft, wide wash — not a hard glint
+		const nm = kraftNormalTexture(this.scene);
+		nm.uScale = 10;
+		nm.vScale = 3;
+		mat.bumpTexture = nm;
+		plate.material = mat;
+		this.plate = plate;
+		this._mat = mat;
+		this._fitPlate(); // cover-fit: no visible plane edges (no "box")
+		this._fallback = null;
+		this._areaLights = [];
+		// RectAreaLight fixtures — warm key + parchment fill washing the plate.
+		// Emission is -Z by engine contract, so the fixtures sit BEHIND the
+		// plate (z > 0) washing toward the viewer. Any construction failure
+		// drops to the emissive-plane fallback below.
+		try {
+			if (typeof RectAreaLight !== "function")
+				throw new Error("RectAreaLight unreachable");
+			const key = new RectAreaLight(
+				"tlSignKey",
+				new Vector3(-2.2, 0.8, 1.4),
+				3,
+				1.2,
+				this.scene,
+			);
+			key.diffuse = AMBER;
+			key.specular = PARCHMENT;
+			key.intensity = 2.2;
+			const fill = new RectAreaLight(
+				"tlSignFill",
+				new Vector3(2.2, -0.4, 1.4),
+				3,
+				1.2,
+				this.scene,
+			);
+			fill.diffuse = PARCHMENT;
+			fill.specular = PARCHMENT;
+			fill.intensity = 1.1;
+			this._areaLights = [key, fill];
+		} catch {
+			// emissive-plane fallback — a self-lit warm wash just in front of
+			// the plate, no area-light support needed. StandardMaterial only.
+			const glow = MeshBuilder.CreatePlane(
+				"tlSignGlow",
+				{ width: 8, height: 2 },
+				this.scene,
+			);
+			const glowMat = new StandardMaterial("tlSignGlowMat", this.scene);
+			glowMat.diffuseColor = hex("#1A3C34");
+			glowMat.specularColor = new Color3(0.02, 0.02, 0.02); // matte
+			glowMat.emissiveColor = AMBER.scale(0.35); // warm self-lit wash
+			glow.position.z = -0.02; // in front of the plate — no z-fighting
+			glow.material = glowMat;
+			this._fallback = glow;
+		}
+		this.attachGlow(); // very slow fixture breathe, sheen tempo
+		registerSceneView(canvas, this.camera, () => this.scene.render());
+	}
+
+	// _fitPlate — scale the 8x2 plate so it always COVERS the canvas. Without
+	// this, wide strips show the plate as a centered rectangle with hard edges.
+	_fitPlate() {
+		this.engine.resize();
+		const w = this.engine.getRenderWidth();
+		const h = this.engine.getRenderHeight();
+		if (!w || !h) return;
+		const dist = Math.abs(this.camera.position.z - this.plate.position.z);
+		const visH = 2 * dist * Math.tan(this.camera.fov / 2);
+		const visW = visH * (w / h);
+		this.plate.scaling.x = Math.max(visW / 8, 1e-3);
+		this.plate.scaling.y = Math.max(visH / 2, 1e-3);
+		if (this._fallback) {
+			this._fallback.scaling.x = this.plate.scaling.x;
+			this._fallback.scaling.y = this.plate.scaling.y;
+		}
+	}
+
+	attachGlow() {
+		// reduced-motion: leave the fixtures static at base intensity — no breathe.
+		if (this._reduceMotion) return;
+		// reuse the sheen 140-frame SineEase tempo on fixture intensity (~4.6s).
+		const fps = 30,
+			cycle = 140;
+		const ease = new SineEase();
+		ease.setEasingMode(EasingFunction.EASINGMODE_EASEINOUT);
+		const target = this._areaLights.length ? this._areaLights[0] : this.hemi;
+		const base = target.intensity;
+		const anim = new Animation(
+			"tlSignGlow",
+			"intensity",
+			fps,
+			Animation.ANIMATIONTYPE_FLOAT,
+			Animation.ANIMATIONLOOPMODE_CYCLE,
+		);
+		anim.setKeys([
+			{ frame: 0, value: base },
+			{ frame: Math.round(cycle * 0.5), value: base * 1.25 },
+			{ frame: cycle, value: base },
+		]);
+		anim.setEasingFunction(ease);
+		target.animations = [anim];
+		this.scene.beginAnimation(target, 0, cycle, true);
+	}
+
+	resize() {
+		this.engine.resize();
+		this._fitPlate();
+	}
+
+	dispose() {
+		this.scene.dispose();
+		unregisterSceneView(this.canvas);
+		if (_timelineSignageLive > 0) _timelineSignageLive--;
+	}
+}
+
+// mountTimelineSignage — lazy, gated, CAPPED mount of the area-light signage
+// layer behind the progress timeline. The CSS frontier-green signage plate
+// (owned by the stylesheet) is the DEFAULT visual and stands on its own; the
+// 3D wash only mounts after gateReason(host) passes, and only when the strip
+// approaches the viewport (IntersectionObserver, ~200px rootMargin). On
+// gate-fail, cap-hit, or any construction error we do nothing — the CSS plate
+// remains. Timeline scope only: default selector is #progressTimeline.
+function mountTimelineSignage(selector = "#progressTimeline") {
+	const host =
+		typeof selector === "string"
+			? document.querySelector(selector)
+			: selector;
+	if (!host) return null;
+	if (_timelineSignageLive >= TIMELINE_SIGNAGE_MAX_VIEWS) {
+		console.info("KodiakEmber timeline-signage: view cap reached — CSS plate stands.");
+		return null;
+	}
+
+	const state = { signage: null, mounted: false };
+
+	const tryMount = () => {
+		if (state.mounted) return; // never leak a second scene
+		if (_timelineSignageLive >= TIMELINE_SIGNAGE_MAX_VIEWS) return; // cap — CSS plate stands
+		const reason = gateReason(host);
+		if (reason) {
+			// gate fail -> CSS signage plate stands. Quiet developer diagnostic.
+			console.info("KodiakEmber timeline-signage:", reason.message);
+			return;
+		}
+		state.mounted = true;
+		const canvas = document.createElement("canvas");
+		canvas.className = "timeline-signage__canvas";
+		// ambient-only overlay: never interactive, always behind the steps.
+		canvas.style.cssText =
+			"position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:0";
+		canvas.setAttribute("aria-hidden", "true");
+		if (getComputedStyle(host).position === "static") {
+			host.style.position = "relative";
+		}
+		host.appendChild(canvas);
+		try {
+			state.signage = new TimelineSignage(canvas, host);
+			_timelineSignageLive++;
+		} catch {
+			// silent failure — remove the dead canvas, leave the CSS plate.
+			state.mounted = false;
+			canvas.remove();
+		}
+	};
+
+	if ("IntersectionObserver" in window) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) {
+					if (e.isIntersecting) {
+						io.disconnect();
+						tryMount();
+						break;
+					}
+				}
+			},
+			{ rootMargin: "200px 0px" }, // approach the viewport before mounting
+		);
+		io.observe(host);
+	} else {
+		tryMount();
+	}
+	return state;
+}
+
+// ── frontier stage scene factory ──
+// createStageScene(engine) builds the procedural transparent stage scene for
+// web/.../js/frontier-stage.js. ADDITIVE: no existing export, gate, loop, or
+// behavior above is touched.
+//
+// Contract, all enforced below:
+//  - Takes the harness-created engine. Never creates its own Engine (that
+//    would bypass the shared singleton AND the gateReason/canMount3D device
+//    gate — the SwiftShader/llvmpipe refusal stays authoritative because this
+//    factory never consults or overrides it, it only renders when mounted).
+//  - Never calls runRenderLoop: the harness owns the single _masterTick loop;
+//    the caller registers the returned camera via registerSceneView.
+//  - Transparent: scene.clearColor alpha is 0, so the canvas composites over
+//    the page background instead of masking it (the opaque-mask lesson).
+//  - Procedural only: MeshBuilder boxes + StandardMaterial flat colors from
+//    the brand tokens. No textures (not even DynamicTexture), no PBR, no
+//    asset loads, no remote fetches — nothing beyond the already-vendored
+//    @babylonjs/core 9.4.1 classes imported at the top of this file.
+//  - Static by construction: no animations, no beforeRender hooks, so there
+//    is nothing to pause under prefers-reduced-motion — the scene is a still
+//    ambient wash re-rendered by the shared tick.
+// Returns { scene, camera }. Throws leave the caller on its fallback path.
+function createStageScene(engine) {
+	if (!engine) throw new Error("createStageScene needs the harness engine");
+	const scene = new Scene(engine);
+	scene.clearColor = new Color4(0, 0, 0, 0); // transparent — never mask the page
+
+	// Fixed wide camera, never interactive (no attachControl): the stage sits
+	// behind DOM content and must not capture input.
+	const camera = new FreeCamera(
+		"frontierStageCam",
+		new Vector3(0, 1.2, -11),
+		scene,
+	);
+	camera.setTarget(Vector3.Zero());
+
+	// Flat ambient light so the matte bands read evenly; no shadows, no fixtures.
+	const hemi = new HemisphericLight(
+		"frontierStageHemi",
+		new Vector3(0.2, 1, 0.3),
+		scene,
+	);
+	hemi.intensity = 0.9;
+	hemi.groundColor = new Color3(0.16, 0.13, 0.11);
+
+	// Camera-side fill: the slab's camera-facing slope points -z, which the
+	// top-down hemi barely grazes, so the deep-green matte rendered near-black
+	// ([11,18,16,235] on RX 6700 XT hardware) and read as an opaque mask over
+	// the page. This dim fill from the camera side lifts the facing slope to
+	// its true green. No shadows, no fixtures — same cost class as the hemi.
+	const fill = new DirectionalLight(
+		"frontierStageFill",
+		new Vector3(0.25, -0.45, 1),
+		scene,
+	);
+	fill.intensity = 0.65;
+	fill.diffuse = PARCHMENT;
+
+	// Horizon band — deep frontier-green matte slab low in frame. Alpha 0.55
+	// (was 0.92): a translucent wash the page ghosts through, never a mask.
+	const horizon = MeshBuilder.CreateBox(
+		"frontierStageHorizon",
+		{ width: 34, height: 1.6, depth: 0.5 },
+		scene,
+	);
+	horizon.position = new Vector3(0, -2.4, 0);
+	const horizonMat = new StandardMaterial("frontierStageHorizonMat", scene);
+	horizonMat.diffuseColor = hex("#1A2F29");
+	horizonMat.specularColor = new Color3(0.02, 0.02, 0.02); // matte
+	horizonMat.alpha = 0.55;
+	horizon.material = horizonMat;
+
+	// Ember glow line — self-lit warm wash riding the top edge of the band.
+	// disableLighting makes it pure emissive: no light/shader cost beyond flat.
+	// Centered z=-0.55 so its front face (-0.75) clears the slab's camera face
+	// (-0.25): previously coplanar at z=0 it hid behind the slab and only the
+	// dark band showed.
+	const glow = MeshBuilder.CreateBox(
+		"frontierStageGlow",
+		{ width: 34, height: 0.16, depth: 0.4 },
+		scene,
+	);
+	glow.position = new Vector3(0, -1.62, -0.55);
+	const glowMat = new StandardMaterial("frontierStageGlowMat", scene);
+	glowMat.disableLighting = true;
+	glowMat.emissiveColor = AMBER.scale(0.55);
+	glowMat.alpha = 0.85;
+	glow.material = glowMat;
+
+	return { scene, camera };
+}
+
+// ── public API (WAVE 1 surface + frontier stage factory) ──
 // Later waves add mountEmberBar / mountKraftCards / finishLineBloom here. This
 // wave exposes the recipe-card board mount plus the device gate and version
 // stamp, so the details.html <script> boot guard is wireable and testable now.
@@ -1149,9 +1515,11 @@ const KodiakEmber = {
 	mountRecipeCardBoard,
 	mountSheenRim,
 	mountPaperboardCards,
+	mountTimelineSignage,
+	createStageScene,
 	canMount3D,
 	gateReason,
-	_version: "0.5.0",
+	_version: "0.6.0",
 	// harness internals surfaced for later-wave scene modules + tests; not a
 	// stable public contract.
 	_harness: Object.freeze({
@@ -1160,6 +1528,7 @@ const KodiakEmber = {
 		unregisterSceneView,
 		probeWebGL,
 		prefersReducedMotion,
+		createStageScene,
 	}),
 	_palette,
 };

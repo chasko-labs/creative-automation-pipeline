@@ -95,8 +95,8 @@ SEASON_RECIPE_PAIRINGS: dict[str, dict[str, str]] = {
         "reason": "fall harvest pairing: pumpkin is the fall-curated ingredient",
     },
     "winter": {
-        "recipe_id": "pear-spice-muffins-draft",
-        "reason": "winter storage-fruit pairing: pears (storage) are the winter-curated ingredient",
+        "recipe_id": "campfire-baked-apple-oats",
+        "reason": "winter storage-fruit pairing: honeycrisp apples (storage) with cinnamon are the winter-curated ingredients",
     },
 }
 
@@ -176,18 +176,49 @@ def normalize_season(value: object) -> str | None:
 def normalize_holiday(value: object) -> str | None:
     """Normalize a holiday request to a canonical HOLIDAYS key, or None.
 
-    Case-insensitive; surrounding whitespace collapsed; curly apostrophes and
-    the apostrophe-less "valentines day" map via HOLIDAY_ALIASES. Blank/None
-    stays None. Any other value returns None rather than raising so loose
-    brief dicts degrade to the default pairing instead of crashing the card.
+    Case-insensitive; surrounding whitespace collapsed; hyphens/underscores
+    read as spaces so slug forms ("new-year", "memorial-day") resolve like
+    their labels; curly apostrophes and the apostrophe-less "valentines day"
+    map via HOLIDAY_ALIASES. Blank/None stays None. Any other value returns
+    None rather than raising so loose brief dicts degrade to the default
+    pairing instead of crashing the card.
     """
     if value is None:
         return None
-    text = _WS_RE.sub(" ", str(value).strip().lower())
+    text = _WS_RE.sub(" ", str(value).strip().lower().replace("-", " ").replace("_", " "))
     if not text:
         return None
     text = HOLIDAY_ALIASES.get(text, text)
     return text if text in HOLIDAYS else None
+
+
+#: Month names in calendar order — index m-1 names month number m.
+_MONTH_NAMES: tuple[str, ...] = tuple(MONTH_TO_SEASON)
+
+
+def _month_number(value: object) -> int | None:
+    """Month number 1..12 for an ISO 'YYYY-MM' / 'YYYY-MM-DD' key or a bare
+    numeric month, else None. Same shape as season_for_month's parsing (numeric
+    year, day 1..31 when present); never raises."""
+    if not value or not isinstance(value, str):
+        return None
+    parts = value.strip().split("-")
+    try:
+        if len(parts) == 1:
+            month = int(parts[0])
+        elif len(parts) == 2:
+            int(parts[0])  # year must be numeric, like the YYYY-MM contract
+            month = int(parts[1])
+        elif len(parts) == 3:
+            int(parts[0])  # year must be numeric, like the YYYY-MM-DD contract
+            month = int(parts[1])
+            if not 1 <= int(parts[2]) <= 31:
+                return None
+        else:
+            return None
+    except (ValueError, IndexError):
+        return None
+    return month if 1 <= month <= 12 else None
 
 
 def resolve_request(value: object) -> dict:
@@ -209,6 +240,18 @@ def resolve_request(value: object) -> dict:
                 "kind": "month",
                 "key": month_key,
                 "season": MONTH_TO_SEASON[month_key],
+            }
+        # ISO month keys ("2026-10") and bare numbers ("10") ride the same
+        # month path as names — a month-key season must pair like its month
+        # name, never degrade to the static default while the display (which
+        # resolves month= separately) names a real pairing.
+        month_num = _month_number(value)
+        if month_num is not None:
+            month_name = _MONTH_NAMES[month_num - 1]
+            return {
+                "kind": "month",
+                "key": month_name,
+                "season": MONTH_TO_SEASON[month_name],
             }
     holiday = normalize_holiday(value)
     if holiday is not None:

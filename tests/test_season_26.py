@@ -41,7 +41,7 @@ SEASON_RECIPE = {
     "spring": "single-serve-lemon-ricotta-flapjack-cup",
     "summer": "cherry-pie-bars",
     "fall": "pumpkin-oat-muffins",
-    "winter": "pear-spice-muffins-draft",
+    "winter": "campfire-baked-apple-oats",
 }
 HOLIDAY_RECIPE = {
     "Christmas": "christmas-tree-waffles",

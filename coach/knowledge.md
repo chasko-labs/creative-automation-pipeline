@@ -37,13 +37,12 @@
 - image topics (12 clusters): c0 (n=332, catalog): pancakes, power, waffles, flapjack, waffle; c1 (n=324, catalog): waffle, waffles, power, breakfast, buttermilk; c2 (n=305, catalog): ingredients, power, chocolate, cup, oatmeal; c3 (n=293, catalog): oatmeal, granola, banana, breakfast, protein; c4 (n=265, catalog): buttermilk, power, waffle, protein, flapjack; c5 (n=235, catalog): chocolate, brownie, waffle, power, cake; c6 (n=229, catalog): chocolate, cookies, chip, protein, banana; c7 (n=225, catalog): blueberry, lemon, power, cake, waffle; c8 (n=221, catalog): apple, cinnamon, power, flapjack, buttermilk; c9 (n=219, catalog): news, 0526, protein, blueberry, chocolate; c10 (n=208, catalog): cookies, power, buttermilk, waffle, flapjack; c11 (n=192, catalog): muffins, muffin, protein, desserts, prep
 - sample voice 1: Sometimes your scrumptious flapjacks call for apple cinnamon compote that’s worth drooling over. Finish your homemade breakfast with a heap of spiced, tart flav
 - sample voice 2: Whole grains, refined grains, and enriched grains—what’s the difference? We're breaking this down for you and talking about the benefits of whole grains.
-- market languages: 79 markets, 237 localized variants
+- market languages: 82 markets, 246 localized variants
 
 ## Pipeline tools the counsel can steer toward
 - 16x9: YouTube player + thumbnail base 1920x1080 → export 1280x720 JPG for thumbnails.set
 - 1x1: Community post / cross-post square crop — not uploaded via videos.insert but useful for YouTube Community tab
 - 9x16: YouTube Shorts 1080x1920 — 7–18s cutdown, #Shorts tag, vertical hero crop
-- dam reuse: DAM hero.mp4 / hero.png at input_assets/power-cakes/ + data/raw-ingest/kodiakcakes/images/* — find_hero_asset() prioritizes DAM before generation
 - compliance: src/creative_automation/compliance.py — caption, hashtag, scrim checks run per creative
 - recipe cards: Nova-authored copy with deterministic fallback; card template runs in full mode
 

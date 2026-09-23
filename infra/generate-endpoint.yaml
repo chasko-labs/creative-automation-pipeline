@@ -3,7 +3,7 @@ Description: >-
   Kodiak creatives - standalone prompt-to-image generation endpoint stack
   (kodiak-creatives-generate). Container-image Lambda that runs Bedrock
   (Nova Pro art-direction + Stability control-structure and outpaint inference
-  profiles) plus pillow, uploads the rendered PNG to the DAM S3
+  profiles) plus pillow, uploads the rendered PNG to the asset store S3
   bucket under brands/kodiak/renders/, and returns a presigned url. Fronted by a
   public (dev-open) Lambda Function URL that the site calls directly. The
   container image must be built and pushed to ECR BEFORE deploy - its uri is
@@ -176,7 +176,7 @@ Resources:
       MemorySize: 3008
       Environment:
         Variables:
-          DAM_S3_BUCKET: chasko-creative-dam-946179428633-us-east-1
+          ASSET_STORE_S3_BUCKET: chasko-creative-dam-946179428633-us-east-1
           AWS_XRAY_SDK_ENABLED: "false"
       Tags:
         - Key: project

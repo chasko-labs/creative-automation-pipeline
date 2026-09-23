@@ -147,7 +147,7 @@ describe('adoptPlatformMatrix', () => {
 });
 
 describe('localeFromLang', () => {
-  it.each([['en'], ['es'], ['pt']])('%s is a caption locale', (lang) => {
+  it.each([['en'], ['es'], ['pt'], ['zh']])('%s is a caption locale', (lang) => {
     expect(localeFromLang(lang)).toBe(lang);
   });
 

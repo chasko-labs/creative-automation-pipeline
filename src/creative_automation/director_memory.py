@@ -31,7 +31,7 @@ _NUMERIC_TOKEN = re.compile(r"^\d{1,8}$")
 
 
 def _is_voice_caption(text: str) -> bool:
-    """True when a caption reads like brand voice, not a DAM filename.
+    """True when a caption reads like brand voice, not a asset filename.
 
     PROVEN IN PROD (2026-09-08): 2,289 of the library's 2,403 "captions" are
     hash-laden asset titles (e.g. "88b5787ee037 Kodiak Recipe ... 4eb0b2").
@@ -67,7 +67,7 @@ def _load_library() -> list[dict]:
     """Parse the committed embedding library once; cache voice-quality entries.
 
     Filename-grade captions are dropped at load (see _is_voice_caption) so
-    cosine ranks real brand sentences, not DAM titles.
+    cosine ranks real brand sentences, not asset titles.
     """
     global _library_cache
     if _library_cache is not None:

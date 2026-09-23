@@ -71,7 +71,7 @@ def test_cincinnati_september_brief_is_stunning_not_vague():
 def test_generation_not_stuck_on_single_packshot():
     """Preview generation must not be stuck on the same single verbatim packshot for every ratio.
 
-    The recent bug showed [Image #1][2][3] identical — packshot composite (DAM verbatim)
+    The recent bug showed [Image #1][2][3] identical — packshot composite (asset store verbatim)
     returned for every ratio with pillow-outpaint-fallback. That happens when the
     scene prompt is vague (just zip/month or plain brief) so every frontier renders
     the same generic pumpkin-patch background. The prompt that reaches Bedrock must be

@@ -332,7 +332,9 @@
       metroSide.appendChild(el('h3', 'rx-pair__place', metroMarket));
       var metroMeta = [];
       if (metro.retailer) metroMeta.push(metro.retailer);
-      if (metro.address) metroMeta.push(metro.address);
+      // Unconfirmed store addresses stay tracking-only in the source data —
+      // the "confirm —" marker never renders as user-facing copy.
+      if (metro.address && !/^confirm\s+—/.test(metro.address)) metroMeta.push(metro.address);
       if (metroMeta.length) metroSide.appendChild(el('p', 'rx-pair__meta', metroMeta.join(' · ')));
       if (pair.retailers && pair.retailers.length) {
         var chips = el('p', 'rx-pair__chips');

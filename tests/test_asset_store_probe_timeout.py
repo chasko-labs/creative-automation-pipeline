@@ -4,7 +4,7 @@ Live root cause: an unmapped SKU misses every S3 key, and the seed/packshot prob
 runs ~50 SERIAL S3 HeadObject/GetObject misses with a no-timeout boto3 client, so the
 Lambda runs ~37s and API Gateway 503s at the 30s edge. This test proves the probe
 phase is now BOUNDED: with an always-miss S3 (monkeypatched _s3_download -> False), the
-loop-level deadline (DAM_PROBE_FLOOR_MS) abandons the fan-out mid-flight rather than
+loop-level deadline (ASSET_STORE_PROBE_FLOOR_MS) abandons the fan-out mid-flight rather than
 walking all ~50 candidates, and generate_hero still returns rung C/D real pixels well
 inside the soft budget. No AWS is touched — the S3 primitives are monkeypatched.
 """
@@ -14,7 +14,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from creative_automation import dam
+from creative_automation import asset_store
 from creative_automation import generate as generate_mod
 
 
@@ -26,7 +26,7 @@ def _distinct_colors(path: Path) -> int:
 
 def test_unmapped_sku_probe_is_bounded_and_lands_rung_cd(tmp_path, monkeypatch):
     # S3 is "enabled" (bucket set) so the fan-out is entered, but every key misses.
-    monkeypatch.setenv("DAM_S3_BUCKET", "test-dam-bucket")
+    monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
     # count every S3 candidate attempt; always-miss so the loop keeps trying.
     miss_calls = {"n": 0}
 
@@ -34,21 +34,21 @@ def test_unmapped_sku_probe_is_bounded_and_lands_rung_cd(tmp_path, monkeypatch):
         miss_calls["n"] += 1
         return False
 
-    monkeypatch.setattr(dam, "_s3_download", _always_miss)
+    monkeypatch.setattr(asset_store, "_s3_download", _always_miss)
     # step-2 list is also an always-miss (no Contents) so the product-asset fan-out
     # cannot resolve via listing either.
     monkeypatch.setattr(
-        dam, "_s3_client",
+        asset_store, "_s3_client",
         lambda: type("C", (), {"list_objects_v2": lambda self, **k: {"Contents": []}})(),
     )
     # no theme / sku-mapped seed -> the ladder reaches the disk/S3 fan-out probe.
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
-    monkeypatch.setattr(generate_mod, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
 
     # SQUEEZE the loop floor up to the full soft budget so _deadline_exceeded fires on
     # the FIRST probe iteration — this is the "budget already thin" state that must abandon
     # the fan-out immediately instead of walking all ASSET_EXTS x HERO_NAMES candidates.
-    monkeypatch.setattr(dam, "DAM_PROBE_FLOOR_MS", 999999)
+    monkeypatch.setattr(asset_store, "ASSET_STORE_PROBE_FLOOR_MS", 999999)
 
     out = tmp_path / "hero.png"
     result, source, prov = generate_mod.generate_hero(

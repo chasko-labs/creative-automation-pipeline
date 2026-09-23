@@ -19,9 +19,9 @@ const finder = JSON.parse(readFileSync(
 // then left the picker (shared Cincinnati+Dayton frontier, not a market):
 // 79 -> 78 places.
 describe('bay area markets (#279)', () => {
-  it('places holds 78 unique markets including the Bay Area adds', () => {
+  it('places holds 81 unique markets including the Bay Area adds', () => {
     const ids = core.match(/\{market:"([^"]*)"/g).map(s => s.slice(9, -1));
-    expect(ids.length).toBe(78);
+    expect(ids.length).toBe(81);
     expect(new Set(ids).size).toBe(ids.length);
     expect(core).toMatch(/market:"US-W-SF"/);
     expect(core).toMatch(/market:"US-W-SANJOSE"/);
@@ -47,11 +47,11 @@ describe('bay area markets (#279)', () => {
     expect(disclosure).toMatch(/'US-CA-CASTROVILLE':\{lat:36\.7656,lon:-121\.7588\}/);
   });
 
-  it('language + store-finder companions cover all 79', () => {
-    expect(langs.markets.length).toBe(79);
-    expect(langs.metadata.total_markets).toBe(79);
-    expect(finder.markets.length).toBe(79);
-    expect(finder.metadata.total_markets).toBe(79);
+  it('language + store-finder companions cover all 82', () => {
+    expect(langs.markets.length).toBe(82);
+    expect(langs.metadata.total_markets).toBe(82);
+    expect(finder.markets.length).toBe(82);
+    expect(finder.metadata.total_markets).toBe(82);
     for (const m of ['US-W-SF', 'US-W-SANJOSE', 'US-CA-CASTROVILLE']) {
       expect(langs.markets.map(x => x.market)).toContain(m);
     }

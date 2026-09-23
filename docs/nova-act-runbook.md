@@ -66,7 +66,7 @@ Brand source of truth: `design/tokens/kodiak.json` + `docs/kodiak-style-guide.md
                                     ▼
                      ┌───────────────────────────────────┐
                      │  Gate: exit 0 pass / exit 2 fail   │
-                     │  Block: ./scripts/sync-dam.sh push │
+                     │  Block: ./scripts/sync-asset-store.sh push │
                      │  and retailer handoff on fail      │
                      └───────────────────────────────────┘
 ```
@@ -119,7 +119,7 @@ Dependencies: Python ≥3.11 + `pillow` (existing). Optional: `playwright`, `nov
 uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak
 uv run python scripts/nova-act-check.py --all          # or --preview output_kodiak/preview.html
 # exit 0 → ok to promote; exit 2 → block
-./scripts/sync-dam.sh push-renders output_kodiak       # only on pass
+./scripts/sync-asset-store.sh push-renders output_kodiak       # only on pass
 ```
 
 CI example (`.github/workflows/creative.yml`):
@@ -127,7 +127,7 @@ CI example (`.github/workflows/creative.yml`):
 ```yaml
 - run: uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak
 - run: uv run python scripts/nova-act-check.py --all --out nova-act-report.json
-- run: ./scripts/sync-dam.sh push-renders output_kodiak
+- run: ./scripts/sync-asset-store.sh push-renders output_kodiak
   if: success()
 ```
 
@@ -135,21 +135,21 @@ The report JSON includes `summary.overall_passed`, `summary.gates_brand_complian
 
 ## How it would run with `AWS_PROFILE=bryanchasko-kiro`
 
-Live path uses the `bryanchasko-kiro` SSO profile (which has Bedrock + AgentCore + DAM S3 access). The mock fallback still passes locally, but with creds the script attempts Nova Act first and records screenshots.
+Live path uses the `bryanchasko-kiro` SSO profile (which has Bedrock + AgentCore + asset store S3 access). The mock fallback still passes locally, but with creds the script attempts Nova Act first and records screenshots.
 
 ```bash
 # 1. Ensure profile + region (us-east-1 holds Nova Pro + Nova Micro + AgentCore Browser)
 export AWS_PROFILE=bryanchasko-kiro
 export BEDROCK_REGION=us-east-1
-export DAM_S3_BUCKET=chasko-creative-dam-946179428633-us-east-1
-export DAM_S3_PREFIX=brands/kodiak/
+export ASSET_STORE_S3_BUCKET=chasko-creative-dam-946179428633-us-east-1
+export ASSET_STORE_S3_PREFIX=brands/kodiak/
 
 # 2. Verify Bedrock access (Nova Pro for hero composition + Nova Micro for localize)
 aws bedrock list-foundation-models --region us-east-1 | grep -E "nova-pro|nova-micro"
 aws sts get-caller-identity --profile bryanchasko-kiro   # sanity
 
 # 3. Pull style library (optional — check is local, but parity matters)
-./scripts/sync-dam.sh pull
+./scripts/sync-asset-store.sh pull
 
 # 4. (Re)render previews if needed — or use existing output_kodiak*/
 uv run python -m creative_automation.cli --brief briefs/kodiak.yaml --assets input_assets --out output_kodiak
@@ -177,7 +177,7 @@ uv run python scripts/nova-act-check.py --preview output_kodiak-target/preview.h
 uv run python scripts/nova-act-check.py --preview output_kodiak/preview.html --mode nova-act --json | jq .summary
 
 # 8. Gate: only publish if exit 0
-uv run python scripts/nova-act-check.py --all && ./scripts/sync-dam.sh push-renders output_kodiak
+uv run python scripts/nova-act-check.py --all && ./scripts/sync-asset-store.sh push-renders output_kodiak
 # With aggregated JSON gate:
 # uv run python scripts/nova-act-check.py --all --json | jq -e '.summary.overall_passed' && echo "gate PASS"
 

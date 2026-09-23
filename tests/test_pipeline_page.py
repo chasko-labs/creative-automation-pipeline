@@ -53,6 +53,6 @@ def test_schema_card_names_sources():
         "data/recipes/kodiak-recipes.json",
         "kodiak-creatives-localization-memory",
         "kodiak-creatives-retail-network",
-        "DAM_S3_BUCKET",
+        "ASSET_STORE_S3_BUCKET",
     ]:
         assert snippet in text, f"schema card missing: {snippet}"

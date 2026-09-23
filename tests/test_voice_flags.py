@@ -16,6 +16,11 @@ ENABLED); the module default stays dark (false). A module-ON default would
 run mock-voice in every offline/CI context and widen the blast radius, while
 the CDK flip keeps rollback at flag-off with pixels unaffected. No other
 defaults change here.
+
+DECISION (cost incident 2026-09-23): the deploy-scoped default is now OFF
+(CDK env false unless `-c artDirectorVoice=on`) and the pre-warm Scheduler
+rule is deleted from IaC. The imported voice model bills per copy-minute
+24/7; default-ON kept a ~$38/day charge alive with zero traffic value.
 """
 import json
 import os
@@ -31,10 +36,31 @@ def test_voice_flag_dark_by_default():
     assert generate_lambda.ART_DIRECTOR_ENABLED is False
 
 
-def test_grounded_director_on_by_default_in_prod(monkeypatch):
-    # conftest forces the kill-switch OFF for hermetic tests; prod default is ON.
+def test_grounded_director_requires_primary_voice_flag(monkeypatch):
+    # cost incident 2026-09-23: the legacy per-path default is ON in prod, but
+    # the voice must still stay off unless the primary flag opts in.
     monkeypatch.delenv("KODIAK_DIRECTOR_GROUNDED", raising=False)
+    monkeypatch.delenv("KODIAK_ARTDIRECTOR_ENABLED", raising=False)
+    assert generate._director_enabled() is False
+    monkeypatch.setenv("KODIAK_ARTDIRECTOR_ENABLED", "true")
     assert generate._director_enabled() is True
+
+
+def test_primary_flag_off_blocks_grounded_path_with_zero_transport(monkeypatch):
+    # prod-shaped env (legacy flag ON, primary flag OFF): the headline path
+    # must return None before retrieve/embed/voice — zero Bedrock calls.
+    monkeypatch.setenv("KODIAK_DIRECTOR_GROUNDED", "true")
+    monkeypatch.delenv("KODIAK_ARTDIRECTOR_ENABLED", raising=False)
+
+    def _boom(*a, **k):
+        raise AssertionError("no transport may run while the primary flag is off")
+
+    from creative_automation import art_director, director_memory
+
+    monkeypatch.setattr(director_memory, "retrieve", _boom)
+    monkeypatch.setattr(art_director, "art_direct_grounded", _boom)
+    out = generate._director_headline_text("Power Cakes", "wild mornings", "us", "families")
+    assert out is None
 
 
 def test_stability_rung_on_by_default_in_prod(monkeypatch):
@@ -150,16 +176,20 @@ def test_fast_probe_shape():
 
 
 def test_cdk_voice_flip_and_prewarm_on():
-    # Deploy-scoped flip (carry-10): the CDK stack ships the voice flag ON and
-    # the 4-minute pre-warm Scheduler rule ENABLED by default (opt-out only
-    # via `-c artDirectorPrewarm=off`). If either is silenced in IaC, the
-    # deploy loses voice + warm model while the runtime tests stay green —
-    # so pin the IaC text here.
+    # Cost incident 2026-09-23 ($139 imported-model copy-minute burn): the
+    # CDK stack ships the voice flag OFF (opt-IN per deploy via `-c
+    # artDirectorVoice=on` for an active voice test window only), and the
+    # pre-warm Scheduler rule is DELETED from IaC — disabled is not enough
+    # because it can be re-enabled. If the flag default flips back to
+    # always-on, or any Scheduler pre-warm returns, the deploy resumes a
+    # 24/7 copy-minute charge while the runtime tests stay green — so pin
+    # the safe IaC text (and the schedule's absence) here.
     root = Path(__file__).resolve().parent.parent
     stack = (root / "infra-cdk" / "lib" / "generate-stack.ts").read_text()
-    assert 'KODIAK_ARTDIRECTOR_ENABLED: "true"' in stack
-    assert "rate(4 minutes)" in stack
-    assert ': "ENABLED"' in stack  # prewarm default arm of the off-context ternary
+    assert 'artDirectorVoice") === "on"' in stack  # flag opt-in arm
+    assert ': "false"' in stack  # flag default arm
+    assert "ArtDirectorPrewarmSchedule" not in stack
+    assert "rate(4 minutes)" not in stack
 
 
 def test_async_upgrade_records_live_line(monkeypatch):
@@ -179,9 +209,9 @@ def test_async_upgrade_records_live_line(monkeypatch):
     )
     prompt = "morning fuel"
     provenance: dict = {}
-    fut = generate_lambda._kick_voice({"voice": "adventurous"}, prompt)
+    fut = generate_lambda._kick_voice({"voice": "adventurous", "art_director": True}, prompt)
     assert fut is not None
-    generate_lambda._apply_art_upgrade_future(fut, {"voice": "adventurous"}, prompt, provenance)
+    generate_lambda._apply_art_upgrade_future(fut, {"voice": "adventurous", "art_director": True}, prompt, provenance)
     assert provenance == {"art_headline": "Lace up. Keep it wild."}
 
 
@@ -199,9 +229,9 @@ def test_async_upgrade_slow_voice_ships_pixels_voice_off(monkeypatch):
     monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
     provenance: dict = {}
     try:
-        fut = generate_lambda._kick_voice({}, "morning fuel")
+        fut = generate_lambda._kick_voice({"art_director": True}, "morning fuel")
         generate_lambda._apply_art_upgrade_future(
-            fut, {}, "morning fuel", provenance, timeout_s=0.05
+            fut, {"art_director": True}, "morning fuel", provenance, timeout_s=0.05
         )
     finally:
         release.set()
@@ -240,8 +270,8 @@ def test_unknown_voice_falls_back_to_default(monkeypatch):
         return {"text": "Lace up. Keep it wild.", "source": "bedrock:kodiak-artdirector"}
 
     monkeypatch.setattr(_ad, "art_direct", _capture)
-    generate_lambda._maybe_art_direct({"voice": "feral"}, "morning fuel")
-    generate_lambda._maybe_art_direct({"voice": "nourishing"}, "morning fuel")
+    generate_lambda._maybe_art_direct({"voice": "feral", "art_director": True}, "morning fuel")
+    generate_lambda._maybe_art_direct({"voice": "nourishing", "art_director": True}, "morning fuel")
     assert seen == [
         generate_lambda._ART_DIRECTOR_DEFAULT_VOICE,
         "nourishing",

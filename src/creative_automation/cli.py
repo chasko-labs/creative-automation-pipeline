@@ -26,7 +26,7 @@ RECIPES_PATH = Path(__file__).parents[2] / "data" / "recipes" / "kodiak-recipes.
 
 def _add_generate_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("--brief", required=True, help="path to brief YAML or JSON")
-    p.add_argument("--assets", default="input_assets", help="dam root folder (local mock or s3-synced)")
+    p.add_argument("--assets", default="input_assets", help="asset root folder (local mock or s3-synced)")
     p.add_argument("--out", default="output", help="output root")
     p.add_argument("--ratios", nargs="*", default=["1x1", "9x16", "16x9"], help="aspect ratios")
     p.add_argument("--lang", default=None, help="override language e.g. fr, es, ja")
@@ -95,14 +95,14 @@ def build_parser() -> argparse.ArgumentParser:
 
 def cmd_generate(args: argparse.Namespace) -> int:
     brief = load_brief(args.brief)
-    dam_root = Path(args.assets)
+    asset_root = Path(args.assets)
     out_root = Path(args.out)
 
     print(f"[brief] {brief.campaign_name} | {brief.brand} | region={brief.region} | products={len(brief.products)}")
-    print(f"[dam] root={dam_root} exists={dam_root.exists()}")
+    print(f"[asset-store] root={asset_root} exists={asset_root.exists()}")
     print(f"[out] {out_root} ratios={args.ratios} lang={args.lang or brief.language}")
 
-    report = run_pipeline(brief, dam_root, out_root, ratios=args.ratios, lang=args.lang)
+    report = run_pipeline(brief, asset_root, out_root, ratios=args.ratios, lang=args.lang)
 
     print(f"[done] creatives={report['summary']['total_creatives']} pass={report['summary']['compliance_pass_rate']} elapsed={report['summary']['elapsed_sec']}s")
     print(f"[report] {out_root / 'report.json'}")

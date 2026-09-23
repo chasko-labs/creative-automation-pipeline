@@ -11,7 +11,7 @@ cross-region concern in `us-west-2`.
 
 | stack id                             | region    | contents                                                      |
 | ------------------------------------ | --------- | ------------------------------------------------------------- |
-| KodiakCreativesData                  | us-east-1 | DAM S3 bucket + 2 DynamoDB tables (all RETAIN)                |
+| KodiakCreativesData                  | us-east-1 | asset store S3 bucket + 2 DynamoDB tables (all RETAIN)                |
 | KodiakCreativesObservability         | us-east-1 | app log group + X-Ray sampling rule + write managed policy    |
 | KodiakCreativesGenerate              | us-east-1 | container-image lambda + public function url + bedrock/S3 IAM |
 | KodiakCreativesBedrockLoggingUsEast1 | us-east-1 | bedrock invocation log group + role + singleton enable        |
@@ -85,7 +85,7 @@ npx cdk deploy KodiakCreativesGenerate -c generateEcrRepo=kodiak-creatives-gener
 
 ## adopting the LIVE resources with `cdk import` (zero-destroy)
 
-The DAM bucket and the two DynamoDB tables already exist and hold production
+The asset store bucket and the two DynamoDB tables already exist and hold production
 data. Do NOT `cdk deploy` DataStack against a live environment before importing
 -- a plain deploy would try to CREATE resources whose names already exist and
 fail (bucket) or collide (tables). Every resource in DataStack is
@@ -219,7 +219,7 @@ shared), so a delete leaves logging enabled -- disable by hand if intended.
 
 ## notes / discrepancies flagged during porting
 
-- The DAM bucket SSE is `aws:kms` (KMS-managed default key) with
+- The asset store bucket SSE is `aws:kms` (KMS-managed default key) with
   `bucketKeyEnabled`, NOT plain SSE-S3. Ported from the live `template.yaml` /
   `import-dam.yaml`; the `s3-dam.tf` default was `aws:kms` too. If the task brief
   said SSE-S3, the live truth is KMS-managed -- ported live truth to keep import

@@ -19,9 +19,11 @@ from botocore.config import Config
 from botocore.exceptions import ConnectTimeoutError, ReadTimeoutError
 from PIL import Image
 
-from . import dam_library, text_rewriter
+from . import asset_browser, text_rewriter
 from .generate import (
     GENERATE_SOFT_BUDGET_MS,
+    KEEP_IT_WILD_THEME,
+    LAYER_COBADGE,
     _apply_brand_overlay,
     _brand_floor,
     _finalize_render,
@@ -142,6 +144,37 @@ _ART_DIRECTOR_DEFAULT_VOICE = "adventurous"
 # the outer wall: an abandoned voice worker writes nothing shared.
 _VOICE_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=1)
 _VOICE_COLLECT_TIMEOUT_S = 2.0
+# Reserve (ms) kept for response assembly + upload after the voice collect.
+_VOICE_COLLECT_RESERVE_MS = 1500.0
+
+
+def _voice_collect_timeout_s(remaining_ms=None) -> float:
+    """Wall-aware voice wait (cost-incident follow-up).
+
+    The old fixed 2s gave up on an opted-in headline even with 20s of wall
+    left; renders take the minutes, the headline may take its seconds. Wait
+    up to the wall remainder minus the response reserve — fallback stays for
+    hard errors and true timeouts only. No clock (full path) keeps the old
+    fixed bound.
+    """
+    if remaining_ms is None:
+        return _VOICE_COLLECT_TIMEOUT_S
+    try:
+        return max(0.1, (remaining_ms() - _VOICE_COLLECT_RESERVE_MS) / 1000.0)
+    except Exception:  # noqa: BLE001 — broken clock degrades to the fixed bound
+        return _VOICE_COLLECT_TIMEOUT_S
+
+
+def _voice_requested(data: dict[str, Any]) -> bool:
+    """Per-request voice opt-in (cost incident 2026-09-23).
+
+    Default requests never touch a voice model, whatever the env flags say —
+    the caller must pass "art_director": true explicitly. Env flags remain as
+    the kill-switch (both must allow AND the request must ask).
+    """
+    return str((data or {}).get("art_director") or "").strip().lower() in (
+        "1", "true", "yes", "on",
+    )
 
 
 def _kick_voice(data: dict[str, Any], prompt: str):
@@ -151,7 +184,10 @@ def _kick_voice(data: dict[str, Any], prompt: str):
     _maybe_art_direct only reads data (never mutates), so sharing the dict with
     the pixel path is safe; a shallow copy is passed anyway as belt-and-braces.
     When the voice flag is dark this resolves near-instantly to the prompt.
+    Without an explicit per-request opt-in no future is kicked at all.
     """
+    if not _voice_requested(data):
+        return None
     try:
         return _VOICE_POOL.submit(_maybe_art_direct, dict(data), prompt)
     except Exception as e:  # noqa: BLE001 — voice must never break the kick
@@ -221,6 +257,8 @@ def _maybe_art_direct(data: dict[str, Any], prompt: str) -> str:
     """
     if not ART_DIRECTOR_ENABLED:
         return prompt
+    if not _voice_requested(data):
+        return prompt
 
     voice = (data.get("voice") or "").strip().lower()
     if voice not in _ART_DIRECTOR_KNOWN_VOICES:
@@ -259,9 +297,9 @@ def _maybe_art_direct(data: dict[str, Any], prompt: str) -> str:
         print(f"[generate_lambda] art-director fallback: {e}", file=sys.stderr)
     return prompt
 
-DAM_S3_BUCKET = os.getenv("DAM_S3_BUCKET", "chasko-creative-dam-946179428633-us-east-1")
+ASSET_STORE_S3_BUCKET = os.getenv("ASSET_STORE_S3_BUCKET", "").strip() or os.getenv("DAM_S3_BUCKET", "").strip() or "chasko-creative-dam-946179428633-us-east-1"
 CORS_HEADERS = {
-    "Content-Type": "application/json",
+    "Content-Type": "application/json; charset=utf-8",
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
@@ -369,9 +407,9 @@ def _handle_localize(event: dict[str, Any]) -> dict[str, Any]:
 
 
 def _handle_assets_library(event: dict[str, Any]) -> dict[str, Any]:
-    """GET /assets/library — read-only DAM picker listing via the shared dam_library module.
+    """GET /assets/library — read-only asset store picker listing via the shared asset_browser module.
 
-    category + limit come from the query string (this is a GET). dam_library.list_library
+    category + limit come from the query string (this is a GET). asset_browser.list_library
     is the ONE implementation shared with api.py's route, so there is no drift. Never
     raises — S3-disabled and per-category failures degrade inside list_library.
     """
@@ -383,14 +421,14 @@ def _handle_assets_library(event: dict[str, Any]) -> dict[str, Any]:
     except (TypeError, ValueError):
         limit = 60
     try:
-        return _response(200, dam_library.list_library(category, limit))
+        return _response(200, asset_browser.list_library(category, limit))
     except Exception as e:  # noqa: BLE001 — a path handler error is a clean JSON, never a crash
         print(f"[generate_lambda] /assets/library failed: {e}", file=sys.stderr)
         return _response(500, {"ok": False, "error": str(e)})
 
 
 # Asset-pack zip (#204): only keys under this prefix may enter a pack, so a pack
-# request can never exfiltrate arbitrary DAM objects — it packs renders, nothing else.
+# request can never exfiltrate arbitrary asset store objects — it packs renders, nothing else.
 _PACK_MEMBER_PREFIX = "brands/kodiak/renders/"
 _PACK_KEY_PREFIX = "brands/kodiak/packs/"
 _PACK_MAX_FILES = 8
@@ -423,11 +461,11 @@ def _pack_member_name(
 
 
 def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
-    """POST /assets/pack — zip already-rendered DAM PNGs into an ISO-named pack.
+    """POST /assets/pack — zip already-rendered asset store PNGs into an ISO-named pack.
 
     Body: {files: [{s3_uri, ratio?}...], extras?: [{name, text}...],
     product?, region?, locality?, channel?}.
-    Packs ONLY keys under brands/kodiak/renders/ in the DAM bucket (400 otherwise),
+    Packs ONLY keys under brands/kodiak/renders/ in the asset store bucket (400 otherwise),
     PUTs the zip to brands/kodiak/packs/<iso-name>.zip, and returns a presigned GET
     URL with Content-Disposition: attachment so the browser saves the ISO name.
     extras (#242: campaign copy sidecars) are small inline text members (.txt/.csv
@@ -451,13 +489,13 @@ def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
     locality = _iso_segment(data.get("locality"), "park-city-84098")
     channel = _iso_segment(data.get("channel"), "retailers")
     day = datetime.now(UTC).strftime("%Y%m%d")
-    prefix = f"s3://{DAM_S3_BUCKET}/"
+    prefix = f"s3://{ASSET_STORE_S3_BUCKET}/"
     members: list[tuple[str, str]] = []
     for i, entry in enumerate(files):
         uri = (entry.get("s3_uri") or "") if isinstance(entry, dict) else ""
         ratio = _iso_segment((entry.get("ratio") if isinstance(entry, dict) else ""), f"{i + 1}")
         if not uri.startswith(prefix):
-            return _response(400, {"ok": False, "error": f"files[{i}]: s3_uri must be in this DAM bucket"})
+            return _response(400, {"ok": False, "error": f"files[{i}]: s3_uri must be in this asset store bucket"})
         key = uri[len(prefix):]
         if not key.startswith(_PACK_MEMBER_PREFIX) or not key.endswith(".png"):
             return _response(400, {"ok": False, "error": f"files[{i}]: only PNG renders under {_PACK_MEMBER_PREFIX} can be packed"})
@@ -483,7 +521,7 @@ def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
         with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
             for key, name in members:
                 try:
-                    body = s3.get_object(Bucket=DAM_S3_BUCKET, Key=key)["Body"].read()
+                    body = s3.get_object(Bucket=ASSET_STORE_S3_BUCKET, Key=key)["Body"].read()
                 except Exception as e:  # noqa: BLE001 — name the missing key, pack nothing partial
                     return _response(400, {"ok": False, "error": f"member not found: {key} ({e})"})
                 zf.writestr(name, body)
@@ -495,14 +533,14 @@ def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
     zip_name = _pack_zip_name(product, region, locality, channel, day)
     zip_key = f"{_PACK_KEY_PREFIX}{zip_name}"
     try:
-        s3.put_object(Bucket=DAM_S3_BUCKET, Key=zip_key, Body=buf.getvalue(), ContentType="application/zip")
+        s3.put_object(Bucket=ASSET_STORE_S3_BUCKET, Key=zip_key, Body=buf.getvalue(), ContentType="application/zip")
     except Exception as e:  # noqa: BLE001 — persist fault surfaces, never a crash
         print(f"[generate_lambda] /assets/pack put failed: {e}", file=sys.stderr)
         return _response(500, {"ok": False, "error": "pack upload failed"})
     url = s3.generate_presigned_url(
         "get_object",
         Params={
-            "Bucket": DAM_S3_BUCKET,
+            "Bucket": ASSET_STORE_S3_BUCKET,
             "Key": zip_key,
             "ResponseContentDisposition": f'attachment; filename="{zip_name}"',
         },
@@ -514,7 +552,7 @@ def _handle_pack(event: dict[str, Any]) -> dict[str, Any]:
         "ok": True,
         "zip_url": url,
         "zip_name": zip_name,
-        "s3_uri": f"s3://{DAM_S3_BUCKET}/{zip_key}",
+        "s3_uri": f"s3://{ASSET_STORE_S3_BUCKET}/{zip_key}",
         "files": names,
         "count": len(names),
     })
@@ -530,7 +568,7 @@ def _handle_library_assets(event: dict[str, Any]) -> dict[str, Any]:
     Flow (store is the ONLY hard requirement; embedding is best-effort with an embed_pending
     fallback so a slow/failed Nova call or an unconfigured index never loses an upload):
       1. validate filename + non-empty body (400 on either miss)
-      2. AssetLibrary(bucket=DAM_S3_BUCKET); if not s3_enabled -> honest 200 s3-disabled
+      2. AssetLibrary(bucket=ASSET_STORE_S3_BUCKET); if not s3_enabled -> honest 200 s3-disabled
       3. add_asset — DEDUP-FIRST: an identical sha256 returns the EXISTING ref, no re-put
       4. dedup-cost-control: skip the Nova embed when a vector already exists for the
          asset_id (vector_exists GetVectors probe). A dedup hit reuses the original
@@ -575,7 +613,7 @@ def _handle_library_assets(event: dict[str, Any]) -> dict[str, Any]:
 
     from .asset_library import AssetKind, AssetLibrary, UnsupportedAssetKind
 
-    library = AssetLibrary(bucket=DAM_S3_BUCKET)
+    library = AssetLibrary(bucket=ASSET_STORE_S3_BUCKET)
     if not library.s3_enabled:
         return _response(
             200,
@@ -824,6 +862,22 @@ def _request_layers(data: dict[str, Any]) -> dict:
     return layers if layers is not None else {}
 
 
+def _reserve_cobadge(data: dict, theme: str | None, themes: object, layers: dict) -> dict:
+    """Keep It Wild renders reserve the Vital Ground co-badge slot.
+
+    The wild-grizzly-bears theme (single or inside a combo) auto-sets the
+    conservation_badge layer so the mark composites like a retailer badge —
+    or records unresolved and ships clean when the raster is absent. An
+    explicit client layers value is never unset, only defaulted in.
+    """
+    names = {str(theme or "").strip()}
+    if isinstance(themes, (list, tuple)):
+        names.update(str(t or "").strip() for t in themes)
+    if KEEP_IT_WILD_THEME in names and isinstance(layers, dict):
+        layers.setdefault(LAYER_COBADGE, True)
+    return layers
+
+
 def _response_sidecar(
     provenance: dict[str, Any] | None,
     prompt: str,
@@ -856,7 +910,7 @@ _THEME_RETAILER = {
     "publix": "Publix",
     "costco": "Costco",
     "target": "Target",
-    # overlay wiring: walmart composites the DAM mark; kroger/heb/whole-foods
+    # overlay wiring: walmart composites the asset store mark; kroger/heb/whole-foods
     # are copy-only (no mark) but still ship the explicit retailer proof row.
     "walmart": "Walmart",
     "kroger": "Kroger",
@@ -923,6 +977,41 @@ def _seasonal_recipe_default(season: object, product_name: str) -> dict | None:
         return _validate_recipe_fields(rec, product_name)
     except Exception:  # noqa: BLE001 — season never breaks the preview
         return None
+
+
+def _preview_dish_name(data: dict[str, Any], product_name: str) -> str | None:
+    """Campaign dish name for the image scene prompt (offline, never raises).
+
+    Names the SAME dish the campaign display shows: an explicit request recipe
+    first, then the season-table pairing name (prov["recipe"] — full catalog
+    records never fit the tease shape, so the tease title alone would point at
+    the static default while the display names the pairing), then the static
+    default. Resolved BEFORE the pixel ladder (pure local lookup, ~0s wall)
+    and threaded into generate_hero as dish=. None when nothing resolves; the
+    scene prompt then reads as before.
+    """
+    def _dish_title(fields: object) -> str:
+        # Validated tease fields carry "title"; raw catalog records carry "name".
+        if not isinstance(fields, dict):
+            return ""
+        return str(fields.get("title") or fields.get("name") or "").strip()
+
+    try:
+        raw = data.get("recipe_fields")
+        validated = _validate_recipe_fields(raw, product_name)
+        if validated is not None:
+            name = _dish_title(validated)
+            if name:
+                return name
+        rec, meta = _season_pairing(data.get("season"))
+        if rec is not None and isinstance(meta.get("name"), str) and meta["name"].strip():
+            return meta["name"].strip()
+        fallback = _recipe_card_defaults(product_name)
+        if isinstance(fallback, dict):
+            return _dish_title(fallback) or None
+    except Exception:  # noqa: BLE001 — dish never breaks the preview
+        return None
+    return None
 
 
 def _preview_campaign_data(
@@ -1076,7 +1165,7 @@ def _upload_render(
     """Upload one render's PNG bytes and return its {ratio, image_url, s3_uri, w, h} entry.
 
     platforms: optional per-platform slugs, written as x-amz-meta-platforms so the
-    DAM browser can filter renders by platform. The Metadata arg is omitted
+    asset store browser can filter renders by platform. The Metadata arg is omitted
     entirely when the tag list is empty, so untagged objects (and existing
     offline stubs) are byte-identical to before.
     """
@@ -1084,7 +1173,7 @@ def _upload_render(
     key = f"brands/kodiak/renders/{uuid4().hex}.png"
     tags = _normalize_platform_tags(platforms)
     put_kwargs: dict[str, Any] = {
-        "Bucket": DAM_S3_BUCKET,
+        "Bucket": ASSET_STORE_S3_BUCKET,
         "Key": key,
         "Body": r["path"].read_bytes(),
         "ContentType": "image/png",
@@ -1092,13 +1181,13 @@ def _upload_render(
     if tags:
         put_kwargs["Metadata"] = {"platforms": ",".join(tags)}
     s3.put_object(**put_kwargs)
-    s3_uri = f"s3://{DAM_S3_BUCKET}/{key}"
+    s3_uri = f"s3://{ASSET_STORE_S3_BUCKET}/{key}"
     # per-ratio download name so each saved file names its ratio.
     disposition_name = download_name.replace(".png", f"-{ratio.upper()}.png")
     url = s3.generate_presigned_url(
         "get_object",
         Params={
-            "Bucket": DAM_S3_BUCKET,
+            "Bucket": ASSET_STORE_S3_BUCKET,
             "Key": key,
             "ResponseContentDisposition": f'attachment; filename="{disposition_name}"',
         },
@@ -1126,9 +1215,9 @@ def _handle_extend(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     if ratio not in _EXTEND_RATIOS:
         return {"ok": False, "error": f"unknown extend ratio: {ratio!r} (want 9x16 or 16x9)"}
     hero_uri = str(data.get("hero_s3_uri") or "")
-    prefix = f"s3://{DAM_S3_BUCKET}/"
+    prefix = f"s3://{ASSET_STORE_S3_BUCKET}/"
     if not hero_uri.startswith(prefix):
-        return {"ok": False, "error": "hero_s3_uri must be a render from this DAM bucket"}
+        return {"ok": False, "error": "hero_s3_uri must be a render from this asset store bucket"}
     key = hero_uri[len(prefix):]
     if not key or ".." in key:
         return {"ok": False, "error": "unreadable hero_s3_uri"}
@@ -1136,7 +1225,7 @@ def _handle_extend(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     out_dir.mkdir(parents=True, exist_ok=True)
     hero_path = out_dir / "hero-1x1.png"
     try:
-        body = _s3_client().get_object(Bucket=DAM_S3_BUCKET, Key=key)["Body"].read()
+        body = _s3_client().get_object(Bucket=ASSET_STORE_S3_BUCKET, Key=key)["Body"].read()
     except Exception as e:  # noqa: BLE001 — missing key, creds, network
         return {"ok": False, "error": f"hero download failed: {type(e).__name__}"}
     try:
@@ -1210,14 +1299,14 @@ def _handle_recipe_art(data: dict[str, Any]) -> dict[str, Any]:
 
     Request fields: recipe_id (catalog id), zone (raw_ingredient | technique
     | finished_plate). Seeded path first: the first art_slug_candidates hit
-    in the DAM returns its permanent site URL with seeded True. Otherwise ONE
+    in the asset store returns its permanent site URL with seeded True. Otherwise ONE
     generate_recipe_art run (deterministic seed from recipe_id + zone) behind
-    a 25s wall, uploaded to the DAM recipe-art prefix — the next request for
+    a 25s wall, uploaded to the asset store recipe-art prefix — the next request for
     the same cell serves seeded. Any failure (unknown recipe/zone, wall
     timeout, gate reject, upload miss) returns ok False and the frontend
     keeps its placeholder: a missing drawing is never an error here.
     """
-    from . import dam as _dam
+    from . import asset_store as _asset_store
     from . import recipe_art as _ra
 
     zone = str(data.get("zone") or "").strip()
@@ -1227,10 +1316,10 @@ def _handle_recipe_art(data: dict[str, Any]) -> dict[str, Any]:
     if name is None:
         return {"ok": False, "error": "unknown recipe_id"}
     for slug in _ra.art_slug_candidates(name):
-        if _dam.recipe_art_exists(slug, zone):
+        if _asset_store.recipe_art_exists(slug, zone):
             return {
                 "ok": True,
-                "url": _dam.recipe_art_site_url(slug, zone),
+                "url": _asset_store.recipe_art_site_url(slug, zone),
                 "seeded": True,
                 "zone": zone,
             }
@@ -1252,7 +1341,7 @@ def _handle_recipe_art(data: dict[str, Any]) -> dict[str, Any]:
     if local is None:
         return {"ok": False, "error": "generation unavailable"}
     slug = _ra.art_slug_candidates(name)[0]
-    url = _dam.upload_recipe_art(Path(str(local)), slug, zone)
+    url = _asset_store.upload_recipe_art(Path(str(local)), slug, zone)
     if not url:
         return {"ok": False, "error": "publish failed"}
     return {"ok": True, "url": url, "seeded": False, "zone": zone}
@@ -1297,6 +1386,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # Render contract (#199/#200): default {} = clean standalone image, every layer
     # OFF. Only an explicit overlay_text layer re-enables the baked message bar.
     layers = _request_layers(data)
+    layers = _reserve_cobadge(data, theme, themes, layers)
     out_dir = Path(f"/tmp/{uuid4().hex}")
     hero_path = out_dir / "hero-1x1.png"
     hero_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1305,6 +1395,12 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # The 9x16/16x9 tiles below attempt ONE live outpaint extend each behind the
     # preview budget gate (item 11); pads stay the fallback, so preview mode keeps
     # its single-hero speed guarantee with or without a live extend.
+    # The campaign dish resolves BEFORE pixels (offline lookup, ~0s wall) so the
+    # scene prompt names the same dish the recipe tease names — no image/recipe
+    # disconnect.
+    dish = _preview_dish_name(data, product.replace("-", " ").title())
+    _preview_season = data.get("season")
+    _preview_season = str(_preview_season).strip() or None if isinstance(_preview_season, str) else None
     result_path, source, provenance = generate_hero(
         product_id=product,
         product_name=product.replace("-", " ").title(),
@@ -1312,6 +1408,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         region=data.get("region", "us"),
         audience=data.get("audience", "active families"),
         out_path=hero_path,
+        dish=dish,
         ratio="1x1",
         theme=theme,
         brand_overlay=bool(layers.get("overlay_text")),
@@ -1319,6 +1416,9 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         seed_key=seed_key,
         layers=layers,
         themes=themes,
+        art_director=_voice_requested(data),
+        market=(data.get("market") or data.get("region") or "us"),
+        season=_preview_season,
     )
 
     with Image.open(result_path) as im:
@@ -1455,8 +1555,12 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         provenance["mode"] = PREVIEW_MODE
         provenance.pop("deferred", None)
     # Collect the voice kicked at handler entry (overlapped pixels, ~0s wall);
-    # recorded as provenance + sidecar, never swaps the brief.
-    _apply_art_upgrade_future(voice_fut, data, prompt, provenance)
+    # recorded as provenance + sidecar, never swaps the brief. The wait is
+    # wall-aware: an opted-in headline may take its seconds while wall remains.
+    _apply_art_upgrade_future(
+        voice_fut, data, prompt, provenance,
+        timeout_s=_voice_collect_timeout_s(_preview_remaining_ms),
+    )
 
     # Campaign messaging IN the preview (Atlanta D/E/H): deterministic offline
     # chain — zero model calls, so it cannot blow the wall. Runs after the art
@@ -1518,12 +1622,16 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     seed_key = data.get("seed_key")
     # Render contract (#199/#200): default {} = clean standalone set, every layer OFF.
     layers = _request_layers(data)
+    layers = _reserve_cobadge(data, theme, themes, layers)
     out_dir = Path(f"/tmp/{uuid4().hex}")
     # "prompt" is the campaign brief/vibe now, not a generation seed. generate_hero_set
     # composes over a real product asset via Nova Pro vision / Stability, delivering all
     # three delivery ratios (1x1, 4x5, 2x3) from one call. When "theme" is present it
     # drives the IMAGE (theme wins over the product default); product is still passed
     # for iso-naming / fallback.
+    dish = _preview_dish_name(data, product.replace("-", " ").title())
+    _set_season = data.get("season")
+    _set_season = str(_set_season).strip() or None if isinstance(_set_season, str) else None
     renders, source, provenance = generate_hero_set(
         product_id=product,
         product_name=product.replace("-", " ").title(),
@@ -1536,6 +1644,10 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         seed_key=seed_key,
         layers=layers,
         themes=themes,
+        market=(data.get("market") or data.get("region") or "us"),
+        season=_set_season,
+        dish=dish,
+        art_director=_voice_requested(data),
     )
 
     s3 = _s3_client()
@@ -1543,7 +1655,7 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     download_name = _download_filename(product, data.get("region", "us"), eff_theme)
 
     # The requested platform set doubles as the publish tag: every render is
-    # stamped x-amz-meta-platforms at upload so the DAM browser can filter by
+    # stamped x-amz-meta-platforms at upload so the asset store browser can filter by
     # platform. Client may pass "platforms": [...] to scope the set; default is
     # all seven sanctioned platforms.
     req_platforms = data.get("platforms")
@@ -1622,10 +1734,10 @@ def _post_wall_brand_floor(data: dict[str, Any], prompt: str) -> dict[str, Any]:
       - the leaked path writes to its OWN per-invocation out_dir (uuid4), and this floor
         writes to a DIFFERENT per-invocation path (a fresh uuid4 out_dir), so there is NO
         shared mutable buffer or fixed /tmp filename the leaked thread could be mid-write on
-      - dam._s3_download now uses get_object+read (no Transfer-manager thread pool), so the
+      - asset_store._s3_download now uses get_object+read (no Transfer-manager thread pool), so the
         leak is a single bounded socket read, not a whole worker pool
     _brand_floor is genuinely zero-I/O: it composites the package-bundled Kodiak logo
-    (src/creative_automation/brand_assets/) in Pillow — no Bedrock, no DAM, no network — so
+    (src/creative_automation/brand_assets/) in Pillow — no Bedrock, no asset store, no network — so
     it is ALWAYS reachable after the wall and cannot fail. The only network op on this path
     is the bounded S3 put of the finished floor pixels (PART 3 timeout applies).
     """
@@ -1756,7 +1868,7 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
             # outpaint call fits the wall alone — no worker thread needed.
             return _response(200, _handle_extend(data, prompt))
         if mode == "recipe-art":
-            # One recipe-card sketch zone: seeded DAM url when published,
+            # One recipe-card sketch zone: seeded asset store url when published,
             # otherwise one walled generation that publishes itself.
             return _response(200, _handle_recipe_art(data))
 

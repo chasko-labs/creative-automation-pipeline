@@ -23,13 +23,13 @@ def _png(path: Path) -> Path:
 
 def _seed_offline(tmp_path, monkeypatch, captured: dict) -> None:
     seed = _png(tmp_path / "seed.png")
-    from creative_automation import dam
+    from creative_automation import asset_store
 
-    monkeypatch.setattr(generate, "_resolve_dam_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(dam, "fetch_dam_key", lambda key, dest: _png(dest))
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: _png(dest))
 
-    def _fake_control(seed_path, prompt, out):
+    def _fake_control(seed_path, prompt, out, **_k):
         captured["stability_prompt"] = prompt
         _png(out)
         return out
