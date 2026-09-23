@@ -8767,9 +8767,10 @@
   {
     "id": "gingerbread-cookie-bars",
     "name": "Gingerbread Cookie Bars",
+    "description": "Spice up the season with these Gingerbread Cookie Bars\u2014a decadent treat that's as bold and exciting as your holiday spirit. Each bar delivers the warm, festive taste of gingerbread, topped with a creamy swirl of smooth cream cheese frosting. And with a boost of 100% whole grains and protein (thanks to Kodiak Buttermilk Power Cakes), they're a treat you can feel good about when grabbing for seconds, and maybe even thirds \ud83d\ude09.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "Cookie Bar:; 1/2 cup butter, melted; 3/4 cup sugar; 1/4 cup brown sugar; 1/2 teaspoon vanilla; 1/3 cup molasses; 1 egg; 1 teaspoons baking soda; 2 cups Kodiak Buttermilk Power Cakes; 1 tablespoon cinnamon; 1/2 teaspoon ground ginger; 1/4 teaspoon ground cloves; 1/4 teaspoon nutmeg; 1/2 teaspoon salt; Cream Cheese Frosting:; 8 ounces cream cheese, softened; 1/4 cup butter, softened; 3 cups powdered sugar; 1 teaspoon vanilla",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/gingerbread-cookie-bars",
     "localize": {
       "peppers": "\u2014",
@@ -8783,7 +8784,47 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "desserts",
+    "ingredients": [
+      "Cookie Bar:",
+      "1/2 cup butter, melted",
+      "3/4 cup sugar",
+      "1/4 cup brown sugar",
+      "1/2 teaspoon vanilla",
+      "1/3 cup molasses",
+      "1 egg",
+      "1 teaspoons baking soda",
+      "2 cups Kodiak Buttermilk Power Cakes",
+      "1 tablespoon cinnamon",
+      "1/2 teaspoon ground ginger",
+      "1/4 teaspoon ground cloves",
+      "1/4 teaspoon nutmeg",
+      "1/2 teaspoon salt",
+      "Cream Cheese Frosting:",
+      "8 ounces cream cheese, softened",
+      "1/4 cup butter, softened",
+      "3 cups powdered sugar",
+      "1 teaspoon vanilla"
+    ],
+    "instructions": [
+      "Cookie Bar: Preheat oven to 350 degrees F.",
+      "Grease a 9x13 inch baking pan and set aside.",
+      "In a large bowl, cream together butter, sugar, brown sugar, vanilla, and molasses.",
+      "Add the egg and stir until combined.",
+      "Add baking soda, Kodiak mix, cinnamon, ginger, cloves, nutmeg, and salt. Mix until well combined.",
+      "Spread dough evenly into the greased pan, pressing all the way to the edges.",
+      "Bake at 350 degrees F for 15-20 minutes (careful not to overcook). Remove and let cool.",
+      "Cream Cheese Frosting: Mix butter and cream cheese together in a large mixing bowl attached to a stand mixer.",
+      "Add vanilla, and while mixing gradually add in powdered sugar.",
+      "Mix until creamy and well combined.",
+      "Once the bars have cooled, frost the tops and garnish with holiday sprinkles or a pinch of cinnamon.",
+      "Cut into squares and serve!"
+    ],
+    "prepTime": "20 mins",
+    "cookTime": "20 mins",
+    "yield": "24",
+    "dietary": []
   },
   {
     "id": "blood-orange-chocolate-tart",
@@ -8830,9 +8871,10 @@
   {
     "id": "egg-nog-cupcakes",
     "name": "Egg Nog Cupcakes",
+    "description": "For anyone who craves eggnog year 'round... this Eggnog Cupcakes recipe is for you. With help from Kodiak Buttermilk & Honey Power Cakes and everyone's favorite seasonal beverage, we've added this classic holiday flavor not only to the cake, but also to a creamy eggnog-infused frosting. Cinnamon, nutmeg, and a hint of vanilla make each bite feel like you're lounging by a warm fireplace kicking your feet up \u2013 does it get cozier than that? Perfect for sharing with friends, family, or anyone who could use a little extra holiday spirit, these cupcakes satisfy all the right seasonal cravings.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk & Honey Frontier Cakes",
+    "base": "Cupcakes:; 2-1/2 cups Kodiak Buttermilk & Honey Frontier Waffle Mix; 3/4 teaspoon baking powder; 1-1/2 teaspoons cinnamon; 1/4 teaspoon nutmeg; 6 ounces butter, softened; 1-1/3 cups sugar; 1 tablespoon vanilla; 3 eggs; 1 cup eggnog; Frosting:; 6 ounces butter, softened; 3 cups confectioners sugar; 1/4 cup eggnog; Ground cinnamon, to garnish; Star anise pods, to garnish",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/egg-nog-cupcakes",
     "localize": {
       "peppers": "\u2014",
@@ -8846,7 +8888,41 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "ingredients": [
+      "Cupcakes:",
+      "2-1/2 cups Kodiak Buttermilk & Honey Frontier Waffle Mix",
+      "3/4 teaspoon baking powder",
+      "1-1/2 teaspoons cinnamon",
+      "1/4 teaspoon nutmeg",
+      "6 ounces butter, softened",
+      "1-1/3 cups sugar",
+      "1 tablespoon vanilla",
+      "3 eggs",
+      "1 cup eggnog",
+      "Frosting:",
+      "6 ounces butter, softened",
+      "3 cups confectioners sugar",
+      "1/4 cup eggnog",
+      "Ground cinnamon, to garnish",
+      "Star anise pods, to garnish"
+    ],
+    "instructions": [
+      "Cupcakes: Preheat the oven to 375 degrees F. Line a tin with cupcake liners.",
+      "Place the Kodiak mix, baking powder, cinnamon, and nutmeg in a mixing bowl and whisk together. Set aside.",
+      "In another mixing bowl, beat together the softened butter and sugar for three minutes, until light and fluffy. Beat in the vanilla. Beat in the eggs one at a time.",
+      "Add half of the eggnog and half of the dry ingredients to the mixing bowl and mix until just combined. Add the remaining eggnog and dry ingredients and mix in, again, until just combined.",
+      "Let the cupcake batter rest for 10 minutes.",
+      "Fill cupcake liners 2/3 full with batter. Bake in the preheated oven for 12-14 minutes, or until just golden brown and cooked through. Remove and let cool completely on a wire rack.",
+      "Frosting: Place the softened butter and powdered sugar in a mixing bowl. Add half of the eggnog and beat with an electric mixer until light and fluffy.",
+      "Add the remaining eggnog and beat until smooth.",
+      "Pipe the frosting on top of the cupcakes. Dust each cupcake with cinnamon and top with a star anise pod.",
+      "Store in an airtight container."
+    ],
+    "prepTime": "20 mins",
+    "cookTime": "14 mins",
+    "yield": "16",
+    "dietary": []
   },
   {
     "id": "huevos-rancheros-waffles",
