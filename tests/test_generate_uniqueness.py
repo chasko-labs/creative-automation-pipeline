@@ -97,11 +97,14 @@ def test_nova_scene_postprocess_reattaches_locale(monkeypatch, tmp_path) -> None
     seed = tmp_path / "seed.png"
     Image.new("RGB", (256, 256), (180, 90, 30)).save(seed, "PNG")
 
-    class _FakeNova:
+    class _CannedConverseReply:
+        """Canned Converse response shape with locality compressed out, so
+        the post-process must re-attach market/season to the scene text."""
+
         def converse(self, **kwargs):
             return {"output": {"message": {"content": [{"text": "Cozy fall kitchen."}]}}}
 
-    monkeypatch.setattr(generate_mod, "_bedrock_failfast_client", lambda **kwargs: _FakeNova())
+    monkeypatch.setattr(generate_mod, "_bedrock_failfast_client", lambda **kwargs: _CannedConverseReply())
     prompt = generate_mod._nova_pro_scene_prompt(
         seed, "Power Cakes", "wild mornings", "us", "families", None, None, None,
         "US-OH-CINCINNATI", "october",
