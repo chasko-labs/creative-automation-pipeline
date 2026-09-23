@@ -1742,3 +1742,35 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 
 /* (frontier marquee sign styles live with the #frontierSign rules near the
    headline-plate block — single implementation via the vendored bundle.) */
+
+/* === no-scroll load frame (desktop, min-width:861px) ===
+   Goal: document.documentElement.scrollHeight <= window.innerHeight on load at
+   1440x900. Chrome budget: 60px header + slim timeline; .wrap becomes the only
+   scroll container. The badge keeps its overhang via an absolute tall frame
+   (existing oversize pattern retired here: explicit frame, no scale knob).
+   Mobile keeps normal page scroll — untouched below. */
+@media(min-width:861px){
+  /* 1. fixed 60px header; badge frame (96x112) overhangs below the bar */
+  header.kodiak-header{height:60px;flex-wrap:nowrap;padding:0}
+  .kodiak-header .header__inner{height:60px;padding:0 1.5rem 0 128px;gap:12px;flex-wrap:nowrap;align-items:center}
+  .kodiak-header__logos{position:absolute;top:0;left:1.5rem;width:96px;height:112px;z-index:60;aspect-ratio:auto;transition:height .25s ease,width .25s ease}
+  .kodiak-header__logos .kodiak-header__logo--primary{transform:none}
+  .kodiak-headline-plate{min-width:0;flex:1 1 auto}
+  .kodiak-headline-plate h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(15px,1.8vw,21px)}
+  /* scrolled: badge frame shrinks into the bar; the alt-logo crossfade (.is-sticky) is untouched */
+  .kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:52px}
+  /* 2. slim timeline: single row, tighter reset */
+  .ff-timeline{padding:6px 14px 4px;gap:6px 12px}
+  .ff-reset{padding:5px 12px 5px 8px}
+  .ff-reset-icon{width:18px;height:18px}
+  /* 3. viewport frame: the page never scrolls; the panel does */
+  body{height:100vh;overflow:hidden}
+  .wrap{height:calc(100vh - 60px);overflow-y:auto}
+  /* 4. setup steps: closed disclosures share a 3-column row; an opened step
+     (or any non-details child) spans full width below, preserving top-to-bottom order */
+  #brainstormAll .accordion-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  #brainstormAll .accordion-inner>details[open],#brainstormAll .accordion-inner>:not(details){grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){
+  .kodiak-header__logos{transition:none}
+}
