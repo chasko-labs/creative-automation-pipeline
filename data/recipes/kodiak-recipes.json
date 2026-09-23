@@ -8252,9 +8252,10 @@
   {
     "id": "lunch-wraps",
     "name": "Lunch Wrap",
+    "description": "Packing a protein-rich and better-for-you meal is simple with this lunch wrap recipe. We've rolled this one with chicken, pesto, and greens; but don't hesitate to make it your own with your everyday lunch essentials. Whether you take it sweet or savory, each wrap packs the protein and whole grains you need to tackle your afternoon meeting, gym sesh, or after-school carpool.",
     "category": "recipes",
     "product": "Kodiak Cakes",
-    "base": "recipes",
+    "base": "1 large crepe (made using Kodiak French Crepe recipe); 2 tablespoons pesto; 1/2 cup arugula; 4 slices chicken breast, cooked; 1/4 cup roasted red pepper",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/lunch-wraps",
     "localize": {
       "peppers": "\u2014",
@@ -8268,7 +8269,26 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1 large crepe (made using Kodiak French Crepe recipe)",
+      "2 tablespoons pesto",
+      "1/2 cup arugula",
+      "4 slices chicken breast, cooked",
+      "1/4 cup roasted red pepper"
+    ],
+    "instructions": [
+      "Spread pesto evenly over the crepe.",
+      "Place arugula, chicken, and roasted red pepper in lines over the pesto-coated crepe.",
+      "Roll up the crepe tightly, securing the toppings inside.",
+      "Slice the wrap on an angle down the center and serve.",
+      "Store in an airtight container in the refrigerator."
+    ],
+    "prepTime": "10 mins",
+    "cookTime": "3 mins",
+    "yield": "1",
+    "dietary": []
   },
   {
     "id": "fruit-pizza",
@@ -9587,9 +9607,10 @@
   {
     "id": "chicken-waffle-sliders",
     "name": "Chicken & Waffle Sliders",
+    "description": "The beloved Southern dish everyone wants on their brunch table: Chicken Waffle Sliders. We're putting Kodiak Buttermilk Power Cakes to work, adding a powerful punch of whole grains and protein to savory fried chicken that's sandwiched between two delicious buttermilk waffles. Serve your sliders with a side of maple syrup or honey for the ultimate dip-and-dig-in experience that will have your table guests begging for this recipe!",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "Fried Chicken:; 1/2 cup buttermilk; 1 egg; 2 tablespoons hot sauce; 2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1 teaspoon pepper; 3 boneless skinless chicken breasts, cut into 3 inch pieces; 2 tablespoons olive oil for pan frying; Waffles:; 2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 2 cups water; 2 tablespoons oil; Butter; Maple Syrup; Toothpicks",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/chicken-waffle-sliders",
     "localize": {
       "peppers": "\u2014",
@@ -9603,7 +9624,41 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "lunch & dinner",
+    "ingredients": [
+      "Fried Chicken:",
+      "1/2 cup buttermilk",
+      "1 egg",
+      "2 tablespoons hot sauce",
+      "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 teaspoon pepper",
+      "3 boneless skinless chicken breasts, cut into 3 inch pieces",
+      "2 tablespoons olive oil for pan frying",
+      "Waffles:",
+      "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "2 cups water",
+      "2 tablespoons oil",
+      "Butter",
+      "Maple Syrup",
+      "Toothpicks"
+    ],
+    "instructions": [
+      "Chicken: Heat the oil in a frying pan over medium-high heat.",
+      "In a medium bowl, combine the buttermilk, egg, and hot sauce.",
+      "Stir the Kodiak mix and pepper together in a separate bowl.",
+      "Dip the cut chicken into the egg mixture, and then into the dry mix to coat.",
+      "Set the breaded chicken in the pan and cook for 4-5 minutes on each side, or until golden brown on both sides with an internal temperature of 165 degrees F.",
+      "Waffles: Combine the Kodiak mix, water, and oil and whisk until smooth.",
+      "Cook in a preheated, greased waffle iron.",
+      "Cut the waffles into quarters and spread an even layer of butter and a drizzle of maple syrup on each quarter.",
+      "Sandwich the chicken between two waffles and secure with a toothpick.",
+      "For a healthier baked option, place breaded chicken on a sheet pan and bake at 400 degrees F for 10-15 minutes. Flip, and continue baking for an additional 10 minutes."
+    ],
+    "prepTime": "20 mins",
+    "cookTime": "15 mins",
+    "yield": "8",
+    "dietary": []
   },
   {
     "id": "heart-shaped-hand-pies",
