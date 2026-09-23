@@ -9705,8 +9705,9 @@
   {
     "id": "breakfast-nachos",
     "name": "Savory Breakfast Nachos",
+    "description": "This Savory Breakfast Nachos recipe brings the fiesta to your breakfast table. Replace your tortilla chips a hearty base of Kodiak Buttermilk & Vanilla Thick & Fluffy Power Waffles. Then, top them with the nacho toppings you crave most like bacon crumbles, cheddar cheese, jalape\u00f1os, scallions, cilantro, sour cream, and maple syrup. The best part? This dish comes together in a short 15 minutes!",
     "category": "recipes",
-    "product": "Kodiak Cakes",
+    "product": "KODIAK\u00ae Buttermilk & Vanilla Power Waffles",
     "base": "recipes",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/breakfast-nachos",
     "localize": {
@@ -9721,7 +9722,17 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "breakfast & brunch",
+    "instructions": [
+      "Toast the waffles according to package directions.",
+      "Cut each waffle into quarters and place on a large plate.",
+      "Top with bacon crumbles, cheddar cheese, jalape\u00f1os, scallions, cilantro, sour cream, and maple syrup."
+    ],
+    "prepTime": "10 mins",
+    "cookTime": "5 mins",
+    "yield": "9",
+    "dietary": []
   },
   {
     "id": "football-whoopie-pies",
@@ -10197,8 +10208,9 @@
   {
     "id": "hamburger-buns",
     "name": "Hamburger Buns",
+    "description": "Hamburger buns without all the additives? Yes, please. These whole grain buns are perfect for any burger or sandwich you plan to serve at your next BBQ or dinner party. Made using Kodiak Buttermilk Power Cakes and a few other household ingredients, these hamburger buns are hearty and satisfying, each boasting a whopping 18 grams of protein. You can count on the fuel you need for whatever after-dinner adventures await (aka super competitive yard games).",
     "category": "recipes",
-    "product": "Kodiak Cakes",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
     "base": "recipes",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/hamburger-buns",
     "localize": {
@@ -10213,7 +10225,21 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "course": "lunch & dinner",
+    "instructions": [
+      "In a large bowl, combine Kodiak mix, instant yeast, sugar, and salt.",
+      "Knead in the egg, butter, and water until smooth.",
+      "Let rest for 1-2 hours or until doubled in size.",
+      "Divide the dough into 8 even pieces. Shape each into smooth rounds and place on a sheet pan. Cover and let rest for an additional 45 minutes.",
+      "Preheat oven to 400 degrees F.",
+      "Brush the top of each bun with egg and sprinkle with sesame seeds.",
+      "Bake for 10-15 minutes or until golden."
+    ],
+    "prepTime": "60+ mins",
+    "cookTime": "15 mins",
+    "yield": "8",
+    "dietary": []
   },
   {
     "id": "grilled-peaches-and-granola",
