@@ -9196,9 +9196,10 @@
   {
     "id": "pumpkin-pie",
     "name": "Pumpkin Pie",
+    "description": "You're one simple ingredient away from crafting the perfectly delicious and wholesome pie crust \u2014 Kodiak Buttermilk Power Cakes. Surprise your guests with an irresistible dessert that combines our hearty mix with the subtle flavor of creamy pumpkin puree, warm spices, and a touch of sweet maple syrup. Serve with a dollop of whipped cream and a dash of cinnamon for a show-stopping finishing touch.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
+    "base": "Pie Crust:; 2 cups of Kodiak Buttermilk Power Cakes Flapjack and Waffle Mix; 1 cup cold, unsalted butter, organic and grass-fed; About 8 tablespoons of ice water; Pie Filling:; 2-3/4 cups pumpkin puree (1-1/2 15-ounce cans yields 2-3/4 cups); 1/4 cup maple syrup; 1/4 cup brown sugar; 1/3 cup unsweetened plain almond milk; 1 tablespoon melted coconut oil; 2-1/2 tablespoons cornstarch or arrowroot powder; 1-3/4 teaspoon pumpkin pie spice (or sub a mix of ginger, cinnamon, nutmeg & cloves); 1/4 teaspoon sea salt",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/pumpkin-pie",
     "localize": {
       "peppers": "\u2014",
@@ -9213,7 +9214,39 @@
       "q"
     ],
     "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
-    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/pumpkin-pie.jpg"
+    "image": "web/kodiak-posts-for-todays-frontier/assets/recipe-heroes/pumpkin-pie.jpg",
+    "ingredients": [
+      "Pie Crust:",
+      "2 cups of Kodiak Buttermilk Power Cakes Flapjack and Waffle Mix",
+      "1 cup cold, unsalted butter, organic and grass-fed",
+      "About 8 tablespoons of ice water",
+      "Pie Filling:",
+      "2-3/4 cups pumpkin puree (1-1/2 15-ounce cans yields 2-3/4 cups)",
+      "1/4 cup maple syrup",
+      "1/4 cup brown sugar",
+      "1/3 cup unsweetened plain almond milk",
+      "1 tablespoon melted coconut oil",
+      "2-1/2 tablespoons cornstarch or arrowroot powder",
+      "1-3/4 teaspoon pumpkin pie spice (or sub a mix of ginger, cinnamon, nutmeg & cloves)",
+      "1/4 teaspoon sea salt"
+    ],
+    "instructions": [
+      "To prepare crust, put Kodiak mix in a large bowl. Cut cold butter into small pieces and add to mix. Then, cut butter into mix using pastry cutter until butter is the size of peas.",
+      "Make a well in center of mix and add cold water by tablespoons. Combine just until the dough sticks together and forms a ball.",
+      "Divide the dough in half. (After this point you may wrap and chill the dough if you want) Or, on a floured surface, roll dough into a large circle. Place in the pie tin and crimp the edges with your fingers. (Roll dough out onto a floured piece of parchment to make it easier to transport into pie tin.)",
+      "For the second pie, repeat with other half of dough, or refrigerate or freeze for another use.",
+      "Preheat oven to 350 degrees F and prepare pie filling.",
+      "Add all pie ingredients to a blender and blend until smooth, scraping down sides as needed. Taste and adjust seasonings as needed. Set aside.",
+      "If you chose to chill the dough remove from fridge and roll out the crust, unwrap and place it between two sizable layers of wax paper or on a floured surface. Use a rolling pin to gently roll it into the shape of your pie pan.",
+      "To transfer the crust, remove the top layer of wax paper and gently lay the pie dish face down on top of the crust and use the support of the wax paper to quickly but carefully invert it.",
+      "Place in a pie tin and crimp edges.",
+      "Pour filling into pie crust and bake for 58-65 minutes. The crust should be light golden brown and the filling will still be just a bit jiggly and have some cracks on the top. Remove from oven and let cool completely before loosely covering and transferring to the refrigerator to fully set for 4-6 hours, preferably overnight. (If the pie crust begins to brown before filling is done lightly cover pie with tinfoil and continue to cook.)",
+      "Slice and serve with coconut whipped cream, whip cream and/or an additional sprinkle of cinnamon, nutmeg, and/or pumpkin pie spice (optional)."
+    ],
+    "prepTime": "40 mins",
+    "cookTime": "60 mins",
+    "yield": "8",
+    "dietary": []
   },
   {
     "id": "caramel-apple-pie",
@@ -13401,6 +13434,7 @@
   {
     "id": "christmas-tree-waffles",
     "name": "Christmas Tree Waffles",
+    "description": "Need a festive breakfast that will put a smile on your cub's face come Christmas morning \u2013 AND tame their wild stomach growls? Look no further, these Christmas Tree Waffles make a fun addition to your holiday menu and require just a few drops of food coloring to create. But why stop there? Let the kids decorate their delicious trees with sprinkles, fresh fruit, syrup, or icing. With help from Kodiak Buttermilk Power Cakes, not only do these Christmas Tree Waffles taste delicious, but they also pack in wholesome nutrition from whole grains and protein \u2013 but we won't tell them that. \ud83d\ude09",
     "category": "waffles",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
     "base": "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1 cup water; 1 tablespoon oil; 4-5 drops green food coloring; Assorted Christmas sprinkles",
