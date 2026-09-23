@@ -8516,9 +8516,10 @@
   {
     "id": "single-serve-lemon-poppyseed-blueberry-muffin",
     "name": "Single-Serve Lemon Poppy Seed Blueberry Muffin",
+    "description": "You know the saying: when life gives you lemons, make a Lemon Poppyseed Blueberry Muffin Cup. This tangy yet sweet breakfast (or treat) is ready in just over a minute, leaving you time to really dig in and enjoy it. And with the addition of an egg and whole milk, this recipe guarantees a punch of protein in every irresistible bite. Simply grab your Kodiak Blueberry Power Muffin and mix it up with just five other pantry staples for a single-serve masterpiece you won't have to feel guilty about not sharing.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "KODIAK\u00ae Blueberry Muffin Power Cup",
+    "base": "1 Kodiak Blueberry Muffin Power Cup; 1/2 teaspoon poppy seeds; 1/2 teaspoon lemon zest; 1 large egg; 2 tablespoons whole milk; 1 tablespoon blueberries",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/single-serve-lemon-poppyseed-blueberry-muffin",
     "localize": {
       "peppers": "\u2014",
@@ -8532,7 +8533,24 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "ingredients": [
+      "1 Kodiak Blueberry Muffin Power Cup",
+      "1/2 teaspoon poppy seeds",
+      "1/2 teaspoon lemon zest",
+      "1 large egg",
+      "2 tablespoons whole milk",
+      "1 tablespoon blueberries"
+    ],
+    "instructions": [
+      "Remove the lid from the muffin cup and add the poppyseeds, lemon zest, egg and milk. Stir with a fork until a smooth batter forms.",
+      "Fold in the blueberries.",
+      "Microwave for 70 to 75 seconds, or until fully puffed and cooked. Enjoy!"
+    ],
+    "prepTime": "1 min",
+    "cookTime": "2 mins",
+    "yield": "1",
+    "dietary": []
   },
   {
     "id": "protein-packed-maple-waffles",
@@ -10487,9 +10505,10 @@
   {
     "id": "kodiak-cakes-blueberry-yogurt-muffins",
     "name": "Blueberry Yogurt Muffins",
+    "description": "Blueberry Yogurt Muffins packed with protein and 100% whole grains and protein? Say no more. With help from Kodiak Blueberry Muffin Mix and the addition of Greek yogurt, you can count on a wholesome breakfast or snack that not only tastes divine, but also adds a boost of probiotics to the mix. And did we mention, the texture of these muffins can't be matched! Bake a batch ahead of time to have at the ready, they'll keep for five days in an airtight container or up to seven days in the refrigerator.",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "KODIAK\u00ae Blueberry Muffin Mix",
+    "base": "1 box Kodiak Blueberry Muffin Baking Mix; 2 eggs; 1 cup whole milk; 1/3 cup full fat Greek yogurt",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/kodiak-cakes-blueberry-yogurt-muffins",
     "localize": {
       "peppers": "\u2014",
@@ -10503,7 +10522,24 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "ingredients": [
+      "1 box Kodiak Blueberry Muffin Baking Mix",
+      "2 eggs",
+      "1 cup whole milk",
+      "1/3 cup full fat Greek yogurt"
+    ],
+    "instructions": [
+      "Preheat oven to 375 degrees F.",
+      "Combined ingredients in a mixing bowl and hand stir until blended.",
+      "Divide batter among 12 cups in a lined or greased muffin pan.",
+      "Bake for 15-18 minutes or until a toothpick comes out clean.",
+      "Cool for 5 minutes before removing from the pan."
+    ],
+    "prepTime": "10 mins",
+    "cookTime": "18 mins",
+    "yield": "12",
+    "dietary": []
   },
   {
     "id": "avocado-brownies",
