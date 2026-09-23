@@ -12367,9 +12367,10 @@
   {
     "id": "baked-pizza-muffins",
     "name": "Baked Pizza Muffins",
+    "description": "Why slice it when you can meal prep them into muffins? These Baked Pizza Muffins are not only great for on-the-go snacks or as lunch box staples, but they're totally customizable to your tastebuds. Prefer a supreme pizza over pepperoni? Or maybe ham and pineapple to mix things up (yes, we suggested pineapple on pizza)? Dig into sausage, anchovies, or whatever your usual order is you can easily turn it into a Baked Pizza Muffin that packs 100% whole grains and protein.",
     "category": "muffins",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 3/4 cup milk; 3/4 cup sour cream; 1/4 cup butter, melted; 1/4 cup marinara sauce; 1 egg; 1 cup shredded cheese (cheddar or mozzarella); 1 cup mini pepperoni; Extra marinara sauce for dipping (optional)",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/baked-pizza-muffins",
     "localize": {
       "peppers": "Hatch green chile",
@@ -12391,14 +12392,33 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "3/4 cup milk",
+      "3/4 cup sour cream",
+      "1/4 cup butter, melted",
+      "1/4 cup marinara sauce",
+      "1 egg",
+      "1 cup shredded cheese (cheddar or mozzarella)",
+      "1 cup mini pepperoni",
+      "Extra marinara sauce for dipping (optional)"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "instructions": [
+      "Preheat oven to 350 degrees F.",
+      "Combine Kodiak mix, egg, milk, sour cream, butter, and marinara sauce until combined.",
+      "Gently fold in cheese and mini pepperoni.",
+      "Fill greased or lined muffins cups 3/4 full and top with an additional sprinkle of cheese.",
+      "Bake at 350 degrees F for 16-18 minutes, or until a toothpick into the center comes out clean.",
+      "Serve warm with marinara sauce for dipping."
+    ],
+    "prepTime": "10 mins",
+    "cookTime": "18 mins",
+    "yield": "12"
   },
   {
     "id": "baked-vanilla-doughnuts",
@@ -12461,9 +12481,10 @@
   {
     "id": "banana-bread-1",
     "name": "Banana Bread 1",
+    "description": "Got overripe bananas? We've got a delicious solution \u2014 Banana Bread. By adding Kodiak Buttermilk Power Cakes to the mix, this recipe elevates your breakfast game with a powerful punch of 100% whole grains and protein. And the best part? You'll taste the comforting banana bread flavors like cinnamon spice, warm nutmeg, and vanilla in every hearty bite. Sure, the competition for best banana bread is fierce, but other loaves don't taste this good and offer those real good benefits, now do they?",
     "category": "general",
     "product": "Buttermilk Power Cakes Flapjack & Waffle Mix",
-    "base": "1 cup mix + 1 cup milk + 1 egg, griddle 3 min per side",
+    "base": "1 cup (2-3) ripe bananas, mashed; 2 eggs; 1/2 cup brown sugar; 1/2 cup milk of choice; 1/3 cup coconut or canola oil; 1 teaspoon vanilla extract; 1 teaspoon ground cinnamon; 2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix; 1 cup walnuts, chopped (optional)",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/banana-bread-1",
     "localize": {
       "peppers": "Hatch green chile",
@@ -12485,14 +12506,32 @@
     "course": "breakfast & brunch",
     "image": null,
     "ingredients": [
-      "1 cup mix + 1 cup milk + 1 egg"
+      "1 cup (2-3) ripe bananas, mashed",
+      "2 eggs",
+      "1/2 cup brown sugar",
+      "1/2 cup milk of choice",
+      "1/3 cup coconut or canola oil",
+      "1 teaspoon vanilla extract",
+      "1 teaspoon ground cinnamon",
+      "2 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 cup walnuts, chopped (optional)"
     ],
     "dietary": [],
     "tags": [
       "frontier",
       "sitemap_blogs_1",
       "pagination"
-    ]
+    ],
+    "instructions": [
+      "Preheat oven to 350 degrees F. Grease and line the bottom of a loaf pan with parchment paper.",
+      "In a large bowl, whisk the mashed bananas, eggs, brown sugar, milk, oil, vanilla, and cinnamon together until combined.",
+      "Fold Kodiak mix and 3/4 cup walnuts into the wet ingredients until no visible flour remains, being careful not to over-mix.",
+      "Transfer batter into the prepared loaf pan and top with remaining walnuts.",
+      "Bake for 40-45 minutes or until a toothpick into the center comes out clean."
+    ],
+    "prepTime": "15 mins",
+    "cookTime": "45 mins",
+    "yield": "12"
   },
   {
     "id": "banana-bread-protein-bites",
