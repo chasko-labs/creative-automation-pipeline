@@ -11766,7 +11766,29 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Chocolate Covered Waffle Pops",
+    "title": "Chocolate Covered Waffle Pops",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "3 Kodiak Power Waffles,",
+      "lollipop sticks",
+      "1/4 cup candy coating chocolate, melted",
+      "1/4 cup sprinkles or shredded coconut",
+      "Maple syrup, for dipping"
+    ],
+    "directions": "1. Toast waffles on the lowest setting.\n2. Cut the waffles into quarters and place a lollipop stick in the center of each.\n3. Dip the top of the waffle in melted chocolate and coat in sprinkles or shredded coconut.\n4. Allow 5 minutes for the chocolate to set.\n5. Serve with a side of maple syrup.",
+    "instructions": [
+      "Toast waffles on the lowest setting.",
+      "Cut the waffles into quarters and place a lollipop stick in the center of each.",
+      "Dip the top of the waffle in melted chocolate and coat in sprinkles or shredded coconut.",
+      "Allow 5 minutes for the chocolate to set.",
+      "Serve with a side of maple syrup."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 5,
+    "servings": "12",
+    "source": "brand_json_ld"
   },
   {
     "id": "ice-cream-sandwich",
@@ -11787,7 +11809,25 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Ice Cream Sandwich",
+    "title": "Ice Cream Sandwich",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "4 Kodiak Power Waffles, your choice of flavor",
+      "2-4 scoops ice-cream",
+      "1/2 cup mini chocolate chips, or topping of your choice!"
+    ],
+    "directions": "1. Toast waffles on the lowest setting.\n2. Place two scoops of ice-cream between two waffles. Gently press together and smooth out the sides.\n3. Coat the ice cream with mini chocolate chips.",
+    "instructions": [
+      "Toast waffles on the lowest setting.",
+      "Place two scoops of ice-cream between two waffles. Gently press together and smooth out the sides.",
+      "Coat the ice cream with mini chocolate chips."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": 5,
+    "servings": "2",
+    "source": "brand_json_ld"
   },
   {
     "id": "breakfast-sausage-dippers",
