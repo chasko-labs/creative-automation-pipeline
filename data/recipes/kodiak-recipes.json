@@ -8229,9 +8229,10 @@
   {
     "id": "pb-j-rollup",
     "name": "PB&J Rollup",
+    "description": "The kids have spoken: they want their PB&Js rolled up! We've put our own Kodiak spin on this lunchtime classic to make a delicious PB&J Roll-Up that features all the flavors you and your family crave, plus the nutritional value of Kodiak Flapjack & Waffle Mix. It's sweet, it's salty, and it's just what the classroom ordered!",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Buttermilk & Honey Frontier Cakes",
+    "base": "1/2 cup Kodiak Buttermilk & Honey Frontier Cakes Flapjack & Waffle Mix; 1 egg; 1/4 cup water; 2 tablespoons peanut butter; 2 tablespoons strawberry jam; 4 strawberries, stems removed, sliced",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/pb-j-rollup",
     "localize": {
       "peppers": "\u2014",
@@ -8245,14 +8246,35 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "ingredients": [
+      "1/2 cup Kodiak Buttermilk & Honey Frontier Cakes Flapjack & Waffle Mix",
+      "1 egg",
+      "1/4 cup water",
+      "2 tablespoons peanut butter",
+      "2 tablespoons strawberry jam",
+      "4 strawberries, stems removed, sliced"
+    ],
+    "instructions": [
+      "Place the waffle mix, egg, and water in a mixing bowl and whisk together until smooth. Let sit a few minutes for liquids to absorb.",
+      "Heat a skillet to medium-high and grease with butter. Pour the batter on the hot skillet and spread the batter out with the back of a spoon into a large circle, about 6 inches in diameter.",
+      "Cook until bubbles form on the top of the batter, 60 to 90 seconds. Flip the pancake and cook an additional 30 seconds.",
+      "Remove the pancake from the pan onto a plate and let cool.",
+      "Spread the peanut butter and jelly on the pancake and place the strawberries in a line down the center of the pancake.",
+      "Roll up the pancake, place on the plate, and top with additional peanut butter and strawberries, if desired."
+    ],
+    "prepTime": "5 mins",
+    "cookTime": "5 mins",
+    "yield": "1",
+    "dietary": []
   },
   {
     "id": "peanut-butter-chocolate-mug-cake",
     "name": "Chocolate Peanut Butter Mug Cake",
+    "description": "Chocolate Peanut Butter Mug Cake... we should just stop there because the name itself already has you reaching for a Kodiak Double Dark Chocolate Muffin Cup. And to be honest, this recipe really is just that good. Crafted with just a few staples in your pantry, this muffin cup is best served as an indulgent snack or late-night treat that you can feel good about. All you need is three minutes to make this single serve mug cake; and don't say we didn't warn you that it's gonna feel like the longest three minutes of your life while you anxiously wait to dig in!",
     "category": "recipes",
-    "product": "Kodiak Cakes",
-    "base": "recipes",
+    "product": "Double Dark Chocolate Minute Muffin",
+    "base": "1 Kodiak Double Dark Chocolate Minute Muffin; 1/4 cup whole milk; 1 tablespoon peanut butter; 1 tablespoon avocado oil; 1 tablespoon brown sugar; Chocolate chips and peanut butter, to top (optional)",
     "kodiak_page": "https://kodiakcakes.com/blogs/recipes/peanut-butter-chocolate-mug-cake",
     "localize": {
       "peppers": "\u2014",
@@ -8266,7 +8288,24 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "ingredients": [
+      "1 Kodiak Double Dark Chocolate Minute Muffin",
+      "1/4 cup whole milk",
+      "1 tablespoon peanut butter",
+      "1 tablespoon avocado oil",
+      "1 tablespoon brown sugar",
+      "Chocolate chips and peanut butter, to top (optional)"
+    ],
+    "instructions": [
+      "Remove the lid from the muffin cup and add the peanut butter, milk, oil, and brown sugar. Stir until well combined.",
+      "Microwave on high for 60 to 90 seconds, depending on your microwave. Cake is done when puffed and springs back on top when touched.",
+      "Drizzle peanut butter over the top of the cake and sprinkle with chocolate chips. Enjoy immediately! Alternate Option: Mix all ingredients together in the muffin container and spoon into a small mug."
+    ],
+    "prepTime": "2 mins",
+    "cookTime": "1 min",
+    "yield": "1",
+    "dietary": []
   },
   {
     "id": "protein-pizza-dough",
