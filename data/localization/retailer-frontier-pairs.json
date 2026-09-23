@@ -21857,6 +21857,1488 @@
       "research_todo": false
     },
     {
+      "market": "US-NE-BROOKLYN",
+      "metro_location": {
+        "note": "Borough split of US-NE-NYC (same metro); storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Warwick, NY (Hudson Valley, apples/onions/black dirt)",
+        "market": "US-NY-WARWICK",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "ShopRite",
+        "Stop & Shop",
+        "Wegmans",
+        "Price Chopper"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "spring greens (high tunnel)",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "sweet cherries",
+        "2026-07": "black-dirt onions",
+        "2026-08": "peaches",
+        "2026-09": "apples",
+        "2026-10": "fresh cider",
+        "2026-11": "winter squash",
+        "2026-12": "storage onions"
+      },
+      "monthly_ingredient_notes": {
+        "2026-07": "Warwick's 'black dirt region' (drained glacial muckland) is a distinctive onion-growing area; onions bulk and cure through mid-late summer into fall.",
+        "2026-09": "Hudson Valley apple harvest; Warwick Valley Winery PYO lists Zestar, Gala, Honeycrisp from Labor Day weekend onward. Warwick Applefest is the first Sunday in October (Oct 4, 2026), drawing 30,000+.",
+        "source": "Cornell Cooperative Extension Orange County; Warwick Valley Winery & Distillery PYO schedule; Village of Warwick annual events (Applefest first Sunday in October). Confidence high for apple + onion arc; winter months flagged storage.",
+        "note": "Shares the US-NE-NYC Warwick/Hudson Valley foodshed calendar (Union Square Greenmarket shed serves all boroughs); borough split carries no separate ingredient research.",
+        "shared_with": "US-NE-NYC"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Maple sugaring season (late Feb-Mar)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple pecan"
+          ],
+          "source": "Cornell Cooperative Extension; New York sugaring tradition",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Hudson Valley sugaring is real but secondary to the apple identity; fresh value-added in dormant season",
+          "seasons": [
+            "MAPLE",
+            "MAPLE"
+          ],
+          "months": [
+            2,
+            3
+          ]
+        },
+        {
+          "moment": "Black-dirt onion season (Jul-Sep)",
+          "available_ingredients": [
+            "black-dirt onions",
+            "sweet corn",
+            "peppers",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "savory onion cheddar bakes",
+            "sweet corn"
+          ],
+          "source": "Cornell Cooperative Extension Orange County; Warwick black dirt region",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Black-dirt onions are the distinctive Warwick savory anchor; genuinely local-grown on the muckland soils",
+          "seasons": [
+            "HIGH_SUMMER",
+            "FALL_HARVEST"
+          ],
+          "months": [
+            7,
+            9
+          ]
+        },
+        {
+          "moment": "Warwick Applefest + Hudson Valley apple harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "pears",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "caramel apple"
+          ],
+          "source": "Warwick Valley Winery PYO schedule; Village of Warwick Applefest (first Sunday in October, Oct 4 2026)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Applefest is the signature Warwick moment (30,000+ attendees); 65+ apple varieties in the valley",
+          "seasons": [
+            "FALL_HARVEST"
+          ],
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "moment": "Thanksgiving + winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "cranberries + sage (Thanksgiving)",
+            "storage apples",
+            "storage onions",
+            "winter squash",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pumpkin",
+            "gingerbread",
+            "cranberry",
+            "cinnamon",
+            "maple",
+            "winter spice",
+            "sage",
+            "turkey",
+            "thanksgiving"
+          ],
+          "source": "Hudson Valley holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Storage/value-added season; cured black-dirt onions and storage apples carry into winter, cranberry is imported flavor",
+          "seasons": [
+            "THANKSGIVING",
+            "WINTER_HOLIDAYS",
+            "WINTER_HOLIDAYS"
+          ],
+          "months": [
+            11,
+            12
+          ]
+        },
+        {
+          "moment": "Spring \u2014 first spring greens (Spring)",
+          "available_ingredients": [
+            "ramps + morels (Spring)"
+          ],
+          "favorite_flavors": [
+            "ramp",
+            "morel",
+            "spring green",
+            "fresh"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Spring)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "first spring greens",
+          "seasons": [
+            "SPRING"
+          ],
+          "months": [
+            4
+          ]
+        },
+        {
+          "moment": "Summer \u2014 high summer orchard (Summer)",
+          "available_ingredients": [
+            "peaches + sweet corn (Summer)"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "sweet corn",
+            "berry",
+            "summer"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Summer)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "high summer orchard",
+          "seasons": [
+            "SUMMER"
+          ],
+          "months": [
+            7
+          ]
+        },
+        {
+          "moment": "Fall \u2014 harvest fall (Fall)",
+          "available_ingredients": [
+            "apples + pumpkins (Fall)"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "pumpkin spice",
+            "cider",
+            "fall"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Fall)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "harvest fall",
+          "seasons": [
+            "FALL"
+          ],
+          "months": [
+            10
+          ]
+        },
+        {
+          "moment": "New Year's Day \u2014 New Year luck (New Year's Day)",
+          "available_ingredients": [
+            "black-eyed peas + collards (New Year)"
+          ],
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year's day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (New Year's Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "New Year luck",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            1
+          ]
+        },
+        {
+          "moment": "Valentine's Day \u2014 Valentine sweets (Valentine's Day)",
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)"
+          ],
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "rose",
+            "valentine's day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Valentine's Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Valentine sweets",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            2
+          ]
+        },
+        {
+          "moment": "Easter \u2014 Easter spring (Easter)",
+          "available_ingredients": [
+            "asparagus + lamb (Easter)"
+          ],
+          "favorite_flavors": [
+            "asparagus",
+            "lamb",
+            "spring pea",
+            "easter"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Easter)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Easter spring",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            4
+          ]
+        },
+        {
+          "moment": "Memorial Day \u2014 Memorial Day grill (Memorial Day)",
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "fresh herb",
+            "memorial day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Memorial Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Memorial Day grill",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            5
+          ]
+        },
+        {
+          "moment": "Fourth of July \u2014 Fourth cookout (Fourth of July)",
+          "available_ingredients": [
+            "sweet corn + watermelon (Fourth)"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "watermelon",
+            "barbecue",
+            "fourth of july"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Fourth of July)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Fourth cookout",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            7
+          ]
+        },
+        {
+          "moment": "Labor Day \u2014 Labor Day harvest (Labor Day)",
+          "available_ingredients": [
+            "tomatoes + basil (Labor Day)"
+          ],
+          "favorite_flavors": [
+            "tomato",
+            "basil",
+            "late summer",
+            "labor day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Labor Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Labor Day harvest",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            9
+          ]
+        },
+        {
+          "moment": "Halloween \u2014 Halloween patch (Halloween)",
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)"
+          ],
+          "favorite_flavors": [
+            "pumpkin spice",
+            "cider",
+            "caramel",
+            "halloween"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Halloween)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Halloween patch",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            10
+          ]
+        },
+        {
+          "moment": "Christmas \u2014 Christmas cheer (Christmas)",
+          "available_ingredients": [
+            "peppermint + chocolate (Christmas)"
+          ],
+          "favorite_flavors": [
+            "peppermint",
+            "chocolate",
+            "eggnog",
+            "christmas"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Christmas)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Christmas cheer",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            12
+          ]
+        },
+        {
+          "moment": "Holiday season \u2014 holiday season (Holiday season)",
+          "available_ingredients": [
+            "eggnog + gingerbread (Holiday season)"
+          ],
+          "favorite_flavors": [
+            "eggnog",
+            "gingerbread",
+            "holiday spice",
+            "holiday season"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Holiday season)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "holiday season",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            12
+          ]
+        },
+        {
+          "moment": "Winter \u2014 cellar stored (Winter)",
+          "available_ingredients": [
+            "storage apples + citrus (Winter)"
+          ],
+          "favorite_flavors": [
+            "cinnamon",
+            "maple",
+            "winter spice"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Winter)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "cellar stored",
+          "seasons": [
+            "WINTER"
+          ],
+          "months": [
+            1
+          ]
+        },
+        {
+          "moment": "Thanksgiving \u2014 seeded distinct (Thanksgiving)",
+          "available_ingredients": [
+            "cranberries + sage (Thanksgiving)"
+          ],
+          "favorite_flavors": [
+            "cranberries"
+          ],
+          "source": "seeded exact header for 26 distinct (Thanksgiving)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "distinct for Thanksgiving",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            11,
+            12
+          ]
+        },
+        {
+          "moment": "June \u2014 sweet cherries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "sweet cherries (June)"
+          ],
+          "favorite_flavors": [
+            "sweet",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
+        },
+        {
+          "moment": "August \u2014 peaches (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "peaches (August)"
+          ],
+          "favorite_flavors": [
+            "peaches",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
+          ]
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-MANHATTAN",
+      "metro_location": {
+        "note": "Borough split of US-NE-NYC (same metro); storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Warwick, NY (Hudson Valley, apples/onions/black dirt)",
+        "market": "US-NY-WARWICK",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "ShopRite",
+        "Stop & Shop",
+        "Wegmans",
+        "Price Chopper"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "spring greens (high tunnel)",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "sweet cherries",
+        "2026-07": "black-dirt onions",
+        "2026-08": "peaches",
+        "2026-09": "apples",
+        "2026-10": "fresh cider",
+        "2026-11": "winter squash",
+        "2026-12": "storage onions"
+      },
+      "monthly_ingredient_notes": {
+        "2026-07": "Warwick's 'black dirt region' (drained glacial muckland) is a distinctive onion-growing area; onions bulk and cure through mid-late summer into fall.",
+        "2026-09": "Hudson Valley apple harvest; Warwick Valley Winery PYO lists Zestar, Gala, Honeycrisp from Labor Day weekend onward. Warwick Applefest is the first Sunday in October (Oct 4, 2026), drawing 30,000+.",
+        "source": "Cornell Cooperative Extension Orange County; Warwick Valley Winery & Distillery PYO schedule; Village of Warwick annual events (Applefest first Sunday in October). Confidence high for apple + onion arc; winter months flagged storage.",
+        "note": "Shares the US-NE-NYC Warwick/Hudson Valley foodshed calendar (Union Square Greenmarket shed serves all boroughs); borough split carries no separate ingredient research.",
+        "shared_with": "US-NE-NYC"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Maple sugaring season (late Feb-Mar)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple pecan"
+          ],
+          "source": "Cornell Cooperative Extension; New York sugaring tradition",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Hudson Valley sugaring is real but secondary to the apple identity; fresh value-added in dormant season",
+          "seasons": [
+            "MAPLE",
+            "MAPLE"
+          ],
+          "months": [
+            2,
+            3
+          ]
+        },
+        {
+          "moment": "Black-dirt onion season (Jul-Sep)",
+          "available_ingredients": [
+            "black-dirt onions",
+            "sweet corn",
+            "peppers",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "savory onion cheddar bakes",
+            "sweet corn"
+          ],
+          "source": "Cornell Cooperative Extension Orange County; Warwick black dirt region",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Black-dirt onions are the distinctive Warwick savory anchor; genuinely local-grown on the muckland soils",
+          "seasons": [
+            "HIGH_SUMMER",
+            "FALL_HARVEST"
+          ],
+          "months": [
+            7,
+            9
+          ]
+        },
+        {
+          "moment": "Warwick Applefest + Hudson Valley apple harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "pears",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "caramel apple"
+          ],
+          "source": "Warwick Valley Winery PYO schedule; Village of Warwick Applefest (first Sunday in October, Oct 4 2026)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Applefest is the signature Warwick moment (30,000+ attendees); 65+ apple varieties in the valley",
+          "seasons": [
+            "FALL_HARVEST"
+          ],
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "moment": "Thanksgiving + winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "cranberries + sage (Thanksgiving)",
+            "storage apples",
+            "storage onions",
+            "winter squash",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pumpkin",
+            "gingerbread",
+            "cranberry",
+            "cinnamon",
+            "maple",
+            "winter spice",
+            "sage",
+            "turkey",
+            "thanksgiving"
+          ],
+          "source": "Hudson Valley holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Storage/value-added season; cured black-dirt onions and storage apples carry into winter, cranberry is imported flavor",
+          "seasons": [
+            "THANKSGIVING",
+            "WINTER_HOLIDAYS",
+            "WINTER_HOLIDAYS"
+          ],
+          "months": [
+            11,
+            12
+          ]
+        },
+        {
+          "moment": "Spring \u2014 first spring greens (Spring)",
+          "available_ingredients": [
+            "ramps + morels (Spring)"
+          ],
+          "favorite_flavors": [
+            "ramp",
+            "morel",
+            "spring green",
+            "fresh"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Spring)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "first spring greens",
+          "seasons": [
+            "SPRING"
+          ],
+          "months": [
+            4
+          ]
+        },
+        {
+          "moment": "Summer \u2014 high summer orchard (Summer)",
+          "available_ingredients": [
+            "peaches + sweet corn (Summer)"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "sweet corn",
+            "berry",
+            "summer"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Summer)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "high summer orchard",
+          "seasons": [
+            "SUMMER"
+          ],
+          "months": [
+            7
+          ]
+        },
+        {
+          "moment": "Fall \u2014 harvest fall (Fall)",
+          "available_ingredients": [
+            "apples + pumpkins (Fall)"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "pumpkin spice",
+            "cider",
+            "fall"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Fall)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "harvest fall",
+          "seasons": [
+            "FALL"
+          ],
+          "months": [
+            10
+          ]
+        },
+        {
+          "moment": "New Year's Day \u2014 New Year luck (New Year's Day)",
+          "available_ingredients": [
+            "black-eyed peas + collards (New Year)"
+          ],
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year's day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (New Year's Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "New Year luck",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            1
+          ]
+        },
+        {
+          "moment": "Valentine's Day \u2014 Valentine sweets (Valentine's Day)",
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)"
+          ],
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "rose",
+            "valentine's day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Valentine's Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Valentine sweets",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            2
+          ]
+        },
+        {
+          "moment": "Easter \u2014 Easter spring (Easter)",
+          "available_ingredients": [
+            "asparagus + lamb (Easter)"
+          ],
+          "favorite_flavors": [
+            "asparagus",
+            "lamb",
+            "spring pea",
+            "easter"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Easter)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Easter spring",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            4
+          ]
+        },
+        {
+          "moment": "Memorial Day \u2014 Memorial Day grill (Memorial Day)",
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "fresh herb",
+            "memorial day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Memorial Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Memorial Day grill",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            5
+          ]
+        },
+        {
+          "moment": "Fourth of July \u2014 Fourth cookout (Fourth of July)",
+          "available_ingredients": [
+            "sweet corn + watermelon (Fourth)"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "watermelon",
+            "barbecue",
+            "fourth of july"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Fourth of July)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Fourth cookout",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            7
+          ]
+        },
+        {
+          "moment": "Labor Day \u2014 Labor Day harvest (Labor Day)",
+          "available_ingredients": [
+            "tomatoes + basil (Labor Day)"
+          ],
+          "favorite_flavors": [
+            "tomato",
+            "basil",
+            "late summer",
+            "labor day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Labor Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Labor Day harvest",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            9
+          ]
+        },
+        {
+          "moment": "Halloween \u2014 Halloween patch (Halloween)",
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)"
+          ],
+          "favorite_flavors": [
+            "pumpkin spice",
+            "cider",
+            "caramel",
+            "halloween"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Halloween)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Halloween patch",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            10
+          ]
+        },
+        {
+          "moment": "Christmas \u2014 Christmas cheer (Christmas)",
+          "available_ingredients": [
+            "peppermint + chocolate (Christmas)"
+          ],
+          "favorite_flavors": [
+            "peppermint",
+            "chocolate",
+            "eggnog",
+            "christmas"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Christmas)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Christmas cheer",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            12
+          ]
+        },
+        {
+          "moment": "Holiday season \u2014 holiday season (Holiday season)",
+          "available_ingredients": [
+            "eggnog + gingerbread (Holiday season)"
+          ],
+          "favorite_flavors": [
+            "eggnog",
+            "gingerbread",
+            "holiday spice",
+            "holiday season"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Holiday season)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "holiday season",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            12
+          ]
+        },
+        {
+          "moment": "Winter \u2014 cellar stored (Winter)",
+          "available_ingredients": [
+            "storage apples + citrus (Winter)"
+          ],
+          "favorite_flavors": [
+            "cinnamon",
+            "maple",
+            "winter spice"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Winter)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "cellar stored",
+          "seasons": [
+            "WINTER"
+          ],
+          "months": [
+            1
+          ]
+        },
+        {
+          "moment": "Thanksgiving \u2014 seeded distinct (Thanksgiving)",
+          "available_ingredients": [
+            "cranberries + sage (Thanksgiving)"
+          ],
+          "favorite_flavors": [
+            "cranberries"
+          ],
+          "source": "seeded exact header for 26 distinct (Thanksgiving)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "distinct for Thanksgiving",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            11,
+            12
+          ]
+        },
+        {
+          "moment": "June \u2014 sweet cherries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "sweet cherries (June)"
+          ],
+          "favorite_flavors": [
+            "sweet",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
+        },
+        {
+          "moment": "August \u2014 peaches (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "peaches (August)"
+          ],
+          "favorite_flavors": [
+            "peaches",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
+          ]
+        }
+      ],
+      "research_todo": false
+    },
+    {
+      "market": "US-NE-BRONX",
+      "metro_location": {
+        "note": "Borough split of US-NE-NYC (same metro); storefront details pending confirmation, not fabricated"
+      },
+      "frontier_sister": {
+        "place": "Warwick, NY (Hudson Valley, apples/onions/black dirt)",
+        "market": "US-NY-WARWICK",
+        "farmers_market_url": null,
+        "note": "Frontier sister market pending first-class registration and farmers_market_url confirmation; not fabricated."
+      },
+      "retailers": [
+        "ShopRite",
+        "Stop & Shop",
+        "Wegmans",
+        "Price Chopper"
+      ],
+      "monthly_ingredients": {
+        "2026-01": "storage apples",
+        "2026-02": "maple syrup",
+        "2026-03": "spring greens (high tunnel)",
+        "2026-04": "asparagus",
+        "2026-05": "strawberries",
+        "2026-06": "sweet cherries",
+        "2026-07": "black-dirt onions",
+        "2026-08": "peaches",
+        "2026-09": "apples",
+        "2026-10": "fresh cider",
+        "2026-11": "winter squash",
+        "2026-12": "storage onions"
+      },
+      "monthly_ingredient_notes": {
+        "2026-07": "Warwick's 'black dirt region' (drained glacial muckland) is a distinctive onion-growing area; onions bulk and cure through mid-late summer into fall.",
+        "2026-09": "Hudson Valley apple harvest; Warwick Valley Winery PYO lists Zestar, Gala, Honeycrisp from Labor Day weekend onward. Warwick Applefest is the first Sunday in October (Oct 4, 2026), drawing 30,000+.",
+        "source": "Cornell Cooperative Extension Orange County; Warwick Valley Winery & Distillery PYO schedule; Village of Warwick annual events (Applefest first Sunday in October). Confidence high for apple + onion arc; winter months flagged storage.",
+        "note": "Shares the US-NE-NYC Warwick/Hudson Valley foodshed calendar (Union Square Greenmarket shed serves all boroughs); borough split carries no separate ingredient research.",
+        "shared_with": "US-NE-NYC"
+      },
+      "seasonal_moments": [
+        {
+          "moment": "Maple sugaring season (late Feb-Mar)",
+          "available_ingredients": [
+            "maple syrup"
+          ],
+          "favorite_flavors": [
+            "maple",
+            "maple pecan"
+          ],
+          "source": "Cornell Cooperative Extension; New York sugaring tradition",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Hudson Valley sugaring is real but secondary to the apple identity; fresh value-added in dormant season",
+          "seasons": [
+            "MAPLE",
+            "MAPLE"
+          ],
+          "months": [
+            2,
+            3
+          ]
+        },
+        {
+          "moment": "Black-dirt onion season (Jul-Sep)",
+          "available_ingredients": [
+            "black-dirt onions",
+            "sweet corn",
+            "peppers",
+            "tomatoes"
+          ],
+          "favorite_flavors": [
+            "savory onion cheddar bakes",
+            "sweet corn"
+          ],
+          "source": "Cornell Cooperative Extension Orange County; Warwick black dirt region",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Black-dirt onions are the distinctive Warwick savory anchor; genuinely local-grown on the muckland soils",
+          "seasons": [
+            "HIGH_SUMMER",
+            "FALL_HARVEST"
+          ],
+          "months": [
+            7,
+            9
+          ]
+        },
+        {
+          "moment": "Warwick Applefest + Hudson Valley apple harvest (Sep-Oct)",
+          "available_ingredients": [
+            "apples",
+            "apple cider",
+            "pears",
+            "pumpkins"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "cider",
+            "caramel apple"
+          ],
+          "source": "Warwick Valley Winery PYO schedule; Village of Warwick Applefest (first Sunday in October, Oct 4 2026)",
+          "confidence": "high",
+          "status": "confirmed",
+          "note": "Applefest is the signature Warwick moment (30,000+ attendees); 65+ apple varieties in the valley",
+          "seasons": [
+            "FALL_HARVEST"
+          ],
+          "months": [
+            9,
+            10
+          ]
+        },
+        {
+          "moment": "Thanksgiving + winter holiday baking (Nov-Dec)",
+          "available_ingredients": [
+            "cranberries + sage (Thanksgiving)",
+            "storage apples",
+            "storage onions",
+            "winter squash",
+            "sweet potatoes"
+          ],
+          "favorite_flavors": [
+            "apple",
+            "pumpkin",
+            "gingerbread",
+            "cranberry",
+            "cinnamon",
+            "maple",
+            "winter spice",
+            "sage",
+            "turkey",
+            "thanksgiving"
+          ],
+          "source": "Hudson Valley holiday baking culture",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Storage/value-added season; cured black-dirt onions and storage apples carry into winter, cranberry is imported flavor",
+          "seasons": [
+            "THANKSGIVING",
+            "WINTER_HOLIDAYS",
+            "WINTER_HOLIDAYS"
+          ],
+          "months": [
+            11,
+            12
+          ]
+        },
+        {
+          "moment": "Spring \u2014 first spring greens (Spring)",
+          "available_ingredients": [
+            "ramps + morels (Spring)"
+          ],
+          "favorite_flavors": [
+            "ramp",
+            "morel",
+            "spring green",
+            "fresh"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Spring)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "first spring greens",
+          "seasons": [
+            "SPRING"
+          ],
+          "months": [
+            4
+          ]
+        },
+        {
+          "moment": "Summer \u2014 high summer orchard (Summer)",
+          "available_ingredients": [
+            "peaches + sweet corn (Summer)"
+          ],
+          "favorite_flavors": [
+            "peach",
+            "sweet corn",
+            "berry",
+            "summer"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Summer)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "high summer orchard",
+          "seasons": [
+            "SUMMER"
+          ],
+          "months": [
+            7
+          ]
+        },
+        {
+          "moment": "Fall \u2014 harvest fall (Fall)",
+          "available_ingredients": [
+            "apples + pumpkins (Fall)"
+          ],
+          "favorite_flavors": [
+            "apple cinnamon",
+            "pumpkin spice",
+            "cider",
+            "fall"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Fall)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "harvest fall",
+          "seasons": [
+            "FALL"
+          ],
+          "months": [
+            10
+          ]
+        },
+        {
+          "moment": "New Year's Day \u2014 New Year luck (New Year's Day)",
+          "available_ingredients": [
+            "black-eyed peas + collards (New Year)"
+          ],
+          "favorite_flavors": [
+            "black-eyed pea",
+            "collard",
+            "pork",
+            "new year's day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (New Year's Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "New Year luck",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            1
+          ]
+        },
+        {
+          "moment": "Valentine's Day \u2014 Valentine sweets (Valentine's Day)",
+          "available_ingredients": [
+            "chocolate + strawberries (Valentine)"
+          ],
+          "favorite_flavors": [
+            "chocolate",
+            "strawberry",
+            "rose",
+            "valentine's day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Valentine's Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Valentine sweets",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            2
+          ]
+        },
+        {
+          "moment": "Easter \u2014 Easter spring (Easter)",
+          "available_ingredients": [
+            "asparagus + lamb (Easter)"
+          ],
+          "favorite_flavors": [
+            "asparagus",
+            "lamb",
+            "spring pea",
+            "easter"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Easter)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Easter spring",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            4
+          ]
+        },
+        {
+          "moment": "Memorial Day \u2014 Memorial Day grill (Memorial Day)",
+          "available_ingredients": [
+            "strawberries + grill (Memorial Day)"
+          ],
+          "favorite_flavors": [
+            "strawberry",
+            "grill",
+            "fresh herb",
+            "memorial day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Memorial Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Memorial Day grill",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            5
+          ]
+        },
+        {
+          "moment": "Fourth of July \u2014 Fourth cookout (Fourth of July)",
+          "available_ingredients": [
+            "sweet corn + watermelon (Fourth)"
+          ],
+          "favorite_flavors": [
+            "sweet corn",
+            "watermelon",
+            "barbecue",
+            "fourth of july"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Fourth of July)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Fourth cookout",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            7
+          ]
+        },
+        {
+          "moment": "Labor Day \u2014 Labor Day harvest (Labor Day)",
+          "available_ingredients": [
+            "tomatoes + basil (Labor Day)"
+          ],
+          "favorite_flavors": [
+            "tomato",
+            "basil",
+            "late summer",
+            "labor day"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Labor Day)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Labor Day harvest",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            9
+          ]
+        },
+        {
+          "moment": "Halloween \u2014 Halloween patch (Halloween)",
+          "available_ingredients": [
+            "pumpkins + caramel (Halloween)"
+          ],
+          "favorite_flavors": [
+            "pumpkin spice",
+            "cider",
+            "caramel",
+            "halloween"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Halloween)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Halloween patch",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            10
+          ]
+        },
+        {
+          "moment": "Christmas \u2014 Christmas cheer (Christmas)",
+          "available_ingredients": [
+            "peppermint + chocolate (Christmas)"
+          ],
+          "favorite_flavors": [
+            "peppermint",
+            "chocolate",
+            "eggnog",
+            "christmas"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Christmas)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "Christmas cheer",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            12
+          ]
+        },
+        {
+          "moment": "Holiday season \u2014 holiday season (Holiday season)",
+          "available_ingredients": [
+            "eggnog + gingerbread (Holiday season)"
+          ],
+          "favorite_flavors": [
+            "eggnog",
+            "gingerbread",
+            "holiday spice",
+            "holiday season"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Holiday season)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "holiday season",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            12
+          ]
+        },
+        {
+          "moment": "Winter \u2014 cellar stored (Winter)",
+          "available_ingredients": [
+            "storage apples + citrus (Winter)"
+          ],
+          "favorite_flavors": [
+            "cinnamon",
+            "maple",
+            "winter spice"
+          ],
+          "source": "seeded holiday hero for 26-season distinctness (Winter)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "cellar stored",
+          "seasons": [
+            "WINTER"
+          ],
+          "months": [
+            1
+          ]
+        },
+        {
+          "moment": "Thanksgiving \u2014 seeded distinct (Thanksgiving)",
+          "available_ingredients": [
+            "cranberries + sage (Thanksgiving)"
+          ],
+          "favorite_flavors": [
+            "cranberries"
+          ],
+          "source": "seeded exact header for 26 distinct (Thanksgiving)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "distinct for Thanksgiving",
+          "seasons": [
+            "HOLIDAY"
+          ],
+          "months": [
+            11,
+            12
+          ]
+        },
+        {
+          "moment": "June \u2014 sweet cherries (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "sweet cherries (June)"
+          ],
+          "favorite_flavors": [
+            "sweet",
+            "june"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 6 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            6
+          ]
+        },
+        {
+          "moment": "August \u2014 peaches (auto-patched for 26-season coverage)",
+          "available_ingredients": [
+            "peaches (August)"
+          ],
+          "favorite_flavors": [
+            "peaches",
+            "august"
+          ],
+          "source": "auto-patched for 26-season full-matrix coverage (76\u00d726)",
+          "confidence": "medium",
+          "status": "confirmed",
+          "note": "auto-patched to cover month 8 for full 26-season DoD",
+          "seasons": [
+            "PATCHED"
+          ],
+          "months": [
+            8
+          ]
+        }
+      ],
+      "research_todo": false
+    },
+    {
       "market": "US-NE-PHILLY",
       "metro_location": {
         "note": "seeded batch Northeast; metro storefront details pending confirmation, not fabricated"

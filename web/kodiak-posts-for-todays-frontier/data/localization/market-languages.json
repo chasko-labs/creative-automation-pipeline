@@ -2,9 +2,9 @@
   "metadata": {
     "generated": "2026-09-02T23:45:00Z",
     "source": "data/localization/store-finder-markets.json + US Census ACS 2021-2023 5yr Table S1601 'Language Spoken at Home' + 2020 Census PL94 + known community demographics (Nova nova_provenance (unlimited budget))",
-    "total_markets": 79,
+    "total_markets": 82,
     "total_variants_per_market": 3,
-    "total_localized_variants": 237,
+    "total_localized_variants": 246,
     "auto_produce": true,
     "nova_proven": true,
     "translation_providers": [
@@ -12,21 +12,21 @@
       "bedrock_nova_micro",
       "offline_dictionary"
     ],
-    "nova_provenance": "Nova-powered (amazon.nova-micro-v1:0 + Amazon Translate, unlimited budget) \u2014 go ham on amazon.nova-2-multimodal-embeddings-v1:0 1024",
+    "nova_provenance": "Nova-powered (amazon.nova-micro-v1:0 + Amazon Translate, unlimited budget) — go ham on amazon.nova-2-multimodal-embeddings-v1:0 1024",
     "acs_table": "ACS S1601 Language Spoken at Home 5yr 2021-2023",
     "note": "Top 2 non-English per market; pct = % pop 5+ speaking language at home. For Honolulu, Ilocano+Japanese are true top2 (Spanish only 1.8% - Hawaii exception). For Burlington VT, French is #1 (Acadian/Quebec adjacent 45mi). For South FL, Haitian Creole is true #2 (hr). For Seattle, Vietnamese is #2 (Seattle International District) per task cues. El Paso is max Spanish 68.5%."
   },
   "markets": [
     {
       "market": "US-CA-CASTROVILLE",
-      "place": "Castroville, California 95012 \u2014 Artichoke Capital",
+      "place": "Castroville, California 95012 — Artichoke Capital",
       "zip": "95012",
       "top_languages": [
         {
           "lang_code": "es",
           "lang_name": "Spanish",
           "pct": 20,
-          "reason": "Row-crop harvest community, Spanish-forward \u2014 ACS tract refresh pending (research dispatch)",
+          "reason": "Row-crop harvest community, Spanish-forward — ACS tract refresh pending (research dispatch)",
           "translate_code": "es",
           "pct_home": 20
         },
@@ -34,7 +34,7 @@
           "lang_code": "zh",
           "lang_name": "Chinese",
           "pct": 1,
-          "reason": "Minimal presence expected \u2014 ACS tract refresh pending (research dispatch)",
+          "reason": "Minimal presence expected — ACS tract refresh pending (research dispatch)",
           "translate_code": "zh",
           "pct_home": 1
         }
@@ -69,7 +69,7 @@
     },
     {
       "market": "US-CA-PESCADERO",
-      "place": "Pescadero, California 94060 \u2014 San Mateo Coast",
+      "place": "Pescadero, California 94060 — San Mateo Coast",
       "zip": "94060",
       "top_languages": [
         {
@@ -743,6 +743,65 @@
       "nova_proven": true
     },
     {
+      "market": "US-NE-BROOKLYN",
+      "place": "Brooklyn, New York",
+      "zip": "11201",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": 14.2,
+          "reason": "Shared Kings County ACS with US-NE-NYC (same county, same Greenmarket shed): ACS Kings County (Brooklyn) Hispanic 19%, Spanish 14.5%; Sunset Park Mexican + Williamsburg Puerto Rican",
+          "translate_code": "es",
+          "pct_home": 14.2
+        },
+        {
+          "lang_code": "zh",
+          "lang_name": "Chinese",
+          "pct": 4.1,
+          "reason": "Shared Kings County ACS with US-NE-NYC (same county, same Greenmarket shed): ACS Kings County Chinese 4.8% (Sunset Park/8th Ave + Manhattan Chinatown); Queens Chinese 5.2% metro driver",
+          "translate_code": "zh",
+          "pct_home": 4.1
+        }
+      ],
+      "auto_produce": true,
+      "nova_proven": true
+    },
+    {
+      "market": "US-NE-MANHATTAN",
+      "place": "Manhattan, New York",
+      "zip": "10001",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": null,
+          "reason": "Spanish is a top non-English language in New York County; county pct pending ACS confirmation, not fabricated",
+          "translate_code": "es",
+          "pct_home": null
+        }
+      ],
+      "auto_produce": false,
+      "nova_proven": false
+    },
+    {
+      "market": "US-NE-BRONX",
+      "place": "Bronx, New York",
+      "zip": "10451",
+      "top_languages": [
+        {
+          "lang_code": "es",
+          "lang_name": "Spanish",
+          "pct": null,
+          "reason": "Spanish is a top non-English language in Bronx County; county pct pending ACS confirmation, not fabricated",
+          "translate_code": "es",
+          "pct_home": null
+        }
+      ],
+      "auto_produce": false,
+      "nova_proven": false
+    },
+    {
       "market": "US-NE-PHILLY",
       "place": "Philadelphia, Pennsylvania",
       "zip": "19102",
@@ -1269,7 +1328,7 @@
     },
     {
       "market": "US-SE-SANDERSVILLE",
-      "place": "Sandersville, GA 31082 \u2014 Washington County, kaolin-belt farm country",
+      "place": "Sandersville, GA 31082 — Washington County, kaolin-belt farm country",
       "zip": "31082",
       "top_languages": [
         {
@@ -1284,7 +1343,7 @@
           "lang_code": "de",
           "lang_name": "German",
           "pct": 0.4,
-          "reason": "SEED ESTIMATE: Washington County residual German ancestry ~9%, German spoken ~0.4%; small-town Georgia legacy German farm families \u2014 Spanish dwarfs all non-English here",
+          "reason": "SEED ESTIMATE: Washington County residual German ancestry ~9%, German spoken ~0.4%; small-town Georgia legacy German farm families — Spanish dwarfs all non-English here",
           "translate_code": "de",
           "pct_home": 0.4
         }
@@ -1334,7 +1393,7 @@
           "lang_code": "nv",
           "lang_name": "Navajo",
           "pct": 1.1,
-          "reason": "ACS Bernalillo Navajo/Din\u00e9 speakers 1.1%; Albuquerque is urban hub for Navajo Nation (Window Rock feeder)",
+          "reason": "ACS Bernalillo Navajo/Diné speakers 1.1%; Albuquerque is urban hub for Navajo Nation (Window Rock feeder)",
           "translate_code": "nv",
           "pct_home": 1.1
         }
@@ -1401,7 +1460,7 @@
           "lang_code": "es",
           "lang_name": "Spanish",
           "pct": 27.5,
-          "reason": "ACS 2023 5yr Do\u00f1a Ana County: Hispanic 68%, Spanish at home 27.8%; border county",
+          "reason": "ACS 2023 5yr Doña Ana County: Hispanic 68%, Spanish at home 27.8%; border county",
           "translate_code": "es",
           "pct_home": 27.5
         },
@@ -1544,7 +1603,7 @@
     },
     {
       "market": "US-SW-TULAROSA",
-      "place": "Tularosa, NM 88352 \u2014 Tularosa Basin, provider edge",
+      "place": "Tularosa, NM 88352 — Tularosa Basin, provider edge",
       "zip": "88352",
       "top_languages": [
         {
@@ -1569,7 +1628,7 @@
     },
     {
       "market": "US-UT-KAMASVALLEY",
-      "place": "Kamas Valley, UT 84036 \u2014 Peoa, Oakley, Kamas, pure ranching country",
+      "place": "Kamas Valley, UT 84036 — Peoa, Oakley, Kamas, pure ranching country",
       "zip": "84036",
       "top_languages": [
         {
@@ -1591,7 +1650,7 @@
       ],
       "auto_produce": true,
       "nova_proven": true,
-      "september_note": "September voice \u2014 aspen gold, bugling elk, low clear Weber: ranch-country fall color for Oakley-area tiles and copy"
+      "september_note": "September voice — aspen gold, bugling elk, low clear Weber: ranch-country fall color for Oakley-area tiles and copy"
     },
     {
       "market": "US-W-ANCHORAGE",
@@ -1802,7 +1861,7 @@
           "lang_code": "es",
           "lang_name": "Spanish",
           "pct": 12,
-          "reason": "Bay Area metro profile, Spanish-forward like SF \u2014 ACS tract refresh pending (research dispatch)",
+          "reason": "Bay Area metro profile, Spanish-forward like SF — ACS tract refresh pending (research dispatch)",
           "translate_code": "es",
           "pct_home": 12
         },
@@ -1810,7 +1869,7 @@
           "lang_code": "zh",
           "lang_name": "Chinese",
           "pct": 6,
-          "reason": "Bay Area metro profile \u2014 ACS tract refresh pending (research dispatch)",
+          "reason": "Bay Area metro profile — ACS tract refresh pending (research dispatch)",
           "translate_code": "zh",
           "pct_home": 6
         }
@@ -1970,7 +2029,7 @@
     },
     {
       "market": "US-WA-NEAHBAY",
-      "place": "Neah Bay, WA 98357 \u2014 northwestern tip of Olympic Peninsula, Makah Tribe",
+      "place": "Neah Bay, WA 98357 — northwestern tip of Olympic Peninsula, Makah Tribe",
       "zip": "98357",
       "top_languages": [
         {

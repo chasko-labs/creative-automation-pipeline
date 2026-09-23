@@ -556,6 +556,8 @@
       window.KodiakEmber.mountPaperboardCards(
         'section.ff-output[aria-labelledby="outputHeading"],#generateCampaignSection,#aboutTool',
       );
+      // Timeline signage ONLY — scoped to #progressTimeline, never the cards.
+      window.KodiakEmber.mountTimelineSignage('#progressTimeline');
     };
     if (document.readyState === 'loading')
       document.addEventListener('DOMContentLoaded', boot);

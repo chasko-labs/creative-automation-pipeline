@@ -1,7 +1,7 @@
 {
   "region_id": "nyc",
   "market_code": "US-NE-NYC",
-  "aliases": ["US-NE-BROOKLYN", "US-NE-MANHATTAN"],
+  "aliases": ["US-NE-BROOKLYN", "US-NE-MANHATTAN", "US-NE-BRONX"],
   "place": "Brooklyn + Manhattan, New York",
   "zip": "11201",
   "county": "Kings County",

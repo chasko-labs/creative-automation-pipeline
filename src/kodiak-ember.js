@@ -20,6 +20,7 @@ import { Engine } from "@babylonjs/core/Engines/engine";
 import { DirectionalLight } from "@babylonjs/core/Lights/directionalLight";
 import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
 import { PointLight } from "@babylonjs/core/Lights/pointLight";
+import { RectAreaLight } from "@babylonjs/core/Lights/rectAreaLight";
 import { PBRMaterial } from "@babylonjs/core/Materials/PBR/pbrMaterial";
 import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
 import { DynamicTexture } from "@babylonjs/core/Materials/Textures/dynamicTexture";
@@ -1166,6 +1167,246 @@ function mountPaperboardCards(selector = ".card") {
 	return state;
 }
 
+// ── Wave 3 — Timeline signage: area-light strip behind #progressTimeline ──
+// A dark frontier-green signage plate lit by two warm RectAreaLight fixtures,
+// mounted BEHIND the timeline steps as a low-z backing layer. Follows the
+// mountSheenRim lazy/gated pattern: device gate (gateReason) + deferred build
+// via IntersectionObserver (~200px rootMargin) + reduced-motion still path (no
+// breathe animation, static fixture intensities). CAPPED at one live view —
+// the timeline appears once per page, so a second mount is refused and the CSS
+// signage plate (owned by the stylesheet) stands. The overlay canvas is purely
+// ambient: non-interactive (pointer-events none), aria-hidden, z-index 0
+// behind the steps the stylesheet raises to z-index 1.
+//
+// RectAreaLight is used only if reachable: both fixture constructions run
+// inside try/catch, and any failure drops to an emissive StandardMaterial
+// plane. Proven imports/constructors only — no invented engine APIs.
+const TIMELINE_SIGNAGE_MAX_VIEWS = 1; // hard cap: one timeline per page
+let _timelineSignageLive = 0;
+
+class TimelineSignage {
+	constructor(canvas, host) {
+		this.canvas = canvas;
+		this.host = host;
+		this.engine = ensureEngine();
+		this._reduceMotion = prefersReducedMotion();
+		this.scene = new Scene(this.engine);
+		this.scene.clearColor = new Color4(0, 0, 0, 0); // transparent — sit on the CSS plate
+		this.camera = new FreeCamera(
+			"tlSignCam",
+			new Vector3(0, 0, -3),
+			this.scene,
+		);
+		this.camera.setTarget(Vector3.Zero());
+		const hemi = new HemisphericLight(
+			"tlSignHemi",
+			new Vector3(0, 0, -1),
+			this.scene,
+		);
+		hemi.intensity = 0.5;
+		hemi.diffuse = PARCHMENT;
+		hemi.groundColor = hex("#1A3C34"); // frontier-green bounce off the plate
+		this.hemi = hemi;
+
+		// signage plate — dark frontier-green, matte, warm sheen at grazing angles.
+		const plate = MeshBuilder.CreatePlane(
+			"tlSignPlate",
+			{ width: 8, height: 2 },
+			this.scene,
+		);
+		const mat = new PBRMaterial("tlSignMat", this.scene);
+		mat.albedoColor = hex("#1A3C34"); // frontier-green signage plate token
+		mat.metallic = 0; // painted metal is never metal
+		mat.roughness = 0.85; // matte plate
+		mat.sheen.isEnabled = true;
+		mat.sheen.intensity = 0.3;
+		mat.sheen.color = AMBER.scale(0.5); // warm wash, derived from amber token
+		mat.sheen.roughness = 0.6; // soft, wide wash — not a hard glint
+		const nm = kraftNormalTexture(this.scene);
+		nm.uScale = 10;
+		nm.vScale = 3;
+		mat.bumpTexture = nm;
+		plate.material = mat;
+		this.plate = plate;
+		this._mat = mat;
+		this._fitPlate(); // cover-fit: no visible plane edges (no "box")
+		this._fallback = null;
+		this._areaLights = [];
+		// RectAreaLight fixtures — warm key + parchment fill washing the plate.
+		// Emission is -Z by engine contract, so the fixtures sit BEHIND the
+		// plate (z > 0) washing toward the viewer. Any construction failure
+		// drops to the emissive-plane fallback below.
+		try {
+			if (typeof RectAreaLight !== "function")
+				throw new Error("RectAreaLight unreachable");
+			const key = new RectAreaLight(
+				"tlSignKey",
+				new Vector3(-2.2, 0.8, 1.4),
+				3,
+				1.2,
+				this.scene,
+			);
+			key.diffuse = AMBER;
+			key.specular = PARCHMENT;
+			key.intensity = 2.2;
+			const fill = new RectAreaLight(
+				"tlSignFill",
+				new Vector3(2.2, -0.4, 1.4),
+				3,
+				1.2,
+				this.scene,
+			);
+			fill.diffuse = PARCHMENT;
+			fill.specular = PARCHMENT;
+			fill.intensity = 1.1;
+			this._areaLights = [key, fill];
+		} catch {
+			// emissive-plane fallback — a self-lit warm wash just in front of
+			// the plate, no area-light support needed. StandardMaterial only.
+			const glow = MeshBuilder.CreatePlane(
+				"tlSignGlow",
+				{ width: 8, height: 2 },
+				this.scene,
+			);
+			const glowMat = new StandardMaterial("tlSignGlowMat", this.scene);
+			glowMat.diffuseColor = hex("#1A3C34");
+			glowMat.specularColor = new Color3(0.02, 0.02, 0.02); // matte
+			glowMat.emissiveColor = AMBER.scale(0.35); // warm self-lit wash
+			glow.position.z = -0.02; // in front of the plate — no z-fighting
+			glow.material = glowMat;
+			this._fallback = glow;
+		}
+		this.attachGlow(); // very slow fixture breathe, sheen tempo
+		registerSceneView(canvas, this.camera, () => this.scene.render());
+	}
+
+	// _fitPlate — scale the 8x2 plate so it always COVERS the canvas. Without
+	// this, wide strips show the plate as a centered rectangle with hard edges.
+	_fitPlate() {
+		this.engine.resize();
+		const w = this.engine.getRenderWidth();
+		const h = this.engine.getRenderHeight();
+		if (!w || !h) return;
+		const dist = Math.abs(this.camera.position.z - this.plate.position.z);
+		const visH = 2 * dist * Math.tan(this.camera.fov / 2);
+		const visW = visH * (w / h);
+		this.plate.scaling.x = Math.max(visW / 8, 1e-3);
+		this.plate.scaling.y = Math.max(visH / 2, 1e-3);
+		if (this._fallback) {
+			this._fallback.scaling.x = this.plate.scaling.x;
+			this._fallback.scaling.y = this.plate.scaling.y;
+		}
+	}
+
+	attachGlow() {
+		// reduced-motion: leave the fixtures static at base intensity — no breathe.
+		if (this._reduceMotion) return;
+		// reuse the sheen 140-frame SineEase tempo on fixture intensity (~4.6s).
+		const fps = 30,
+			cycle = 140;
+		const ease = new SineEase();
+		ease.setEasingMode(EasingFunction.EASINGMODE_EASEINOUT);
+		const target = this._areaLights.length ? this._areaLights[0] : this.hemi;
+		const base = target.intensity;
+		const anim = new Animation(
+			"tlSignGlow",
+			"intensity",
+			fps,
+			Animation.ANIMATIONTYPE_FLOAT,
+			Animation.ANIMATIONLOOPMODE_CYCLE,
+		);
+		anim.setKeys([
+			{ frame: 0, value: base },
+			{ frame: Math.round(cycle * 0.5), value: base * 1.25 },
+			{ frame: cycle, value: base },
+		]);
+		anim.setEasingFunction(ease);
+		target.animations = [anim];
+		this.scene.beginAnimation(target, 0, cycle, true);
+	}
+
+	resize() {
+		this.engine.resize();
+		this._fitPlate();
+	}
+
+	dispose() {
+		this.scene.dispose();
+		unregisterSceneView(this.canvas);
+		if (_timelineSignageLive > 0) _timelineSignageLive--;
+	}
+}
+
+// mountTimelineSignage — lazy, gated, CAPPED mount of the area-light signage
+// layer behind the progress timeline. The CSS frontier-green signage plate
+// (owned by the stylesheet) is the DEFAULT visual and stands on its own; the
+// 3D wash only mounts after gateReason(host) passes, and only when the strip
+// approaches the viewport (IntersectionObserver, ~200px rootMargin). On
+// gate-fail, cap-hit, or any construction error we do nothing — the CSS plate
+// remains. Timeline scope only: default selector is #progressTimeline.
+function mountTimelineSignage(selector = "#progressTimeline") {
+	const host =
+		typeof selector === "string"
+			? document.querySelector(selector)
+			: selector;
+	if (!host) return null;
+	if (_timelineSignageLive >= TIMELINE_SIGNAGE_MAX_VIEWS) {
+		console.info("KodiakEmber timeline-signage: view cap reached — CSS plate stands.");
+		return null;
+	}
+
+	const state = { signage: null, mounted: false };
+
+	const tryMount = () => {
+		if (state.mounted) return; // never leak a second scene
+		if (_timelineSignageLive >= TIMELINE_SIGNAGE_MAX_VIEWS) return; // cap — CSS plate stands
+		const reason = gateReason(host);
+		if (reason) {
+			// gate fail -> CSS signage plate stands. Quiet developer diagnostic.
+			console.info("KodiakEmber timeline-signage:", reason.message);
+			return;
+		}
+		state.mounted = true;
+		const canvas = document.createElement("canvas");
+		canvas.className = "timeline-signage__canvas";
+		// ambient-only overlay: never interactive, always behind the steps.
+		canvas.style.cssText =
+			"position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:0";
+		canvas.setAttribute("aria-hidden", "true");
+		if (getComputedStyle(host).position === "static") {
+			host.style.position = "relative";
+		}
+		host.appendChild(canvas);
+		try {
+			state.signage = new TimelineSignage(canvas, host);
+			_timelineSignageLive++;
+		} catch {
+			// silent failure — remove the dead canvas, leave the CSS plate.
+			state.mounted = false;
+			canvas.remove();
+		}
+	};
+
+	if ("IntersectionObserver" in window) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) {
+					if (e.isIntersecting) {
+						io.disconnect();
+						tryMount();
+						break;
+					}
+				}
+			},
+			{ rootMargin: "200px 0px" }, // approach the viewport before mounting
+		);
+		io.observe(host);
+	} else {
+		tryMount();
+	}
+	return state;
+}
+
 // ── public API (WAVE 1 surface) ──
 // Later waves add mountEmberBar / mountKraftCards / finishLineBloom here. This
 // wave exposes the recipe-card board mount plus the device gate and version
@@ -1174,9 +1415,10 @@ const KodiakEmber = {
 	mountRecipeCardBoard,
 	mountSheenRim,
 	mountPaperboardCards,
+	mountTimelineSignage,
 	canMount3D,
 	gateReason,
-	_version: "0.5.0",
+	_version: "0.6.0",
 	// harness internals surfaced for later-wave scene modules + tests; not a
 	// stable public contract.
 	_harness: Object.freeze({

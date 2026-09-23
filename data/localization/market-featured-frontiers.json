@@ -1,11 +1,11 @@
 {
   "$schema": "https://kodiakcakes.com/schema/market-featured-frontiers-v1.json",
   "metadata": {
-    "generated": "2026-09-21T05:00:58Z",
+    "generated": "2026-09-23T00:21:08Z",
     "source": "generated from web/kodiak-posts-for-todays-frontier/js/data-core.js via scripts/build-frontier-mapping.py — do not hand-edit",
-    "markets": 80,
+    "markets": 83,
     "frontier_self_entries": 69,
-    "model": "each market resolves its nearby frontier; only the declared Cincinnati+Dayton share of Lebanon is shared"
+    "model": "each market resolves its nearby frontier; only the declared Cincinnati+Dayton share of Lebanon and the declared NYC-metro share of Warwick are shared"
   },
   "markets": {
     "US-CA-PESCADERO": {
@@ -1143,6 +1143,81 @@
       "farmers_market": "Warwick Valley Farmers Market https://www.hellowarwickvalley.com/events-one/wv-farmers-market-102625",
       "farmers_market_url": "https://www.sandersvillega.org/downtownfarmersmarket.cfm",
       "link_note": "Nearby rural counterpart to Brooklyn + Manhattan, New York; subscription-credible."
+    },
+    "US-NE-BROOKLYN": {
+      "market": "US-NE-BROOKLYN",
+      "frontier_market": "US-NY-WARWICK",
+      "place": "Warwick, New York 10990 — black-dirt farm town",
+      "ingredients": [
+        {
+          "name": "black-dirt onions",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Onion harvest Aug-Sep",
+      "farmers_market": "Warwick Valley Farmers Market https://www.hellowarwickvalley.com/events-one/wv-farmers-market-102625",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Brooklyn, New York; subscription-credible."
+    },
+    "US-NE-MANHATTAN": {
+      "market": "US-NE-MANHATTAN",
+      "frontier_market": "US-NY-WARWICK",
+      "place": "Warwick, New York 10990 — black-dirt farm town",
+      "ingredients": [
+        {
+          "name": "black-dirt onions",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Onion harvest Aug-Sep",
+      "farmers_market": "Warwick Valley Farmers Market https://www.hellowarwickvalley.com/events-one/wv-farmers-market-102625",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Manhattan, New York; subscription-credible."
+    },
+    "US-NE-BRONX": {
+      "market": "US-NE-BRONX",
+      "frontier_market": "US-NY-WARWICK",
+      "place": "Warwick, New York 10990 — black-dirt farm town",
+      "ingredients": [
+        {
+          "name": "black-dirt onions",
+          "months": [
+            8,
+            9
+          ]
+        },
+        {
+          "name": "sweet corn",
+          "months": [
+            8,
+            9
+          ]
+        }
+      ],
+      "seasons": "Onion harvest Aug-Sep",
+      "farmers_market": "Warwick Valley Farmers Market https://www.hellowarwickvalley.com/events-one/wv-farmers-market-102625",
+      "farmers_market_url": null,
+      "link_note": "Nearby rural counterpart to Bronx, New York; subscription-credible."
     },
     "US-NE-PHILLY": {
       "market": "US-NE-PHILLY",

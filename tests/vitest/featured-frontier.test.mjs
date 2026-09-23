@@ -37,7 +37,7 @@ describe('market-to-featured-frontier mapping (#257)', () => {
     expect(for_('US-XX-NOWHERE')).toBeNull();
   });
 
-  it('only the declared Cincinnati+Dayton share of Lebanon is shared', () => {
+  it('only the declared Lebanon and Warwick shares are shared', () => {
     const pairs = [...dataCore.matchAll(/"(US-[A-Z0-9\- ]+)": "(US-[A-Z0-9\-]+)"/g)]
       .map((m) => [m[1], m[2]]);
     expect(pairs.length).toBeGreaterThan(70);
@@ -46,9 +46,18 @@ describe('market-to-featured-frontier mapping (#257)', () => {
       if (k !== v) served[v] = (served[v] || []).concat(k);
     }
     const shared = Object.entries(served).filter(([, ks]) => ks.length > 1);
-    expect(shared.length).toBe(1);
+    // two declared shares: Cincinnati+Dayton on Lebanon, and the NYC metro
+    // (rollup + three boroughs) on Warwick — one Hudson Valley foodshed.
+    expect(shared.length).toBe(2);
     expect(shared[0][0]).toBe('US-OH-LEBANON');
     expect([...shared[0][1]].sort()).toEqual(['US-OH-CINCINNATI', 'US-OH-DAYTON']);
+    expect(shared[1][0]).toBe('US-NY-WARWICK');
+    expect([...shared[1][1]].sort()).toEqual([
+      'US-NE-BRONX',
+      'US-NE-BROOKLYN',
+      'US-NE-MANHATTAN',
+      'US-NE-NYC',
+    ]);
     for (const [k, v] of pairs) {
       expect(dataCore).toMatch(new RegExp('"' + v + '": \\{place:'));
     }

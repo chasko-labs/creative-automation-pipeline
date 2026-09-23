@@ -253,6 +253,8 @@
     'US-W-LA':{lat:34.0522,lon:-118.2437}, 'US-SE-NASH':{lat:36.1627,lon:-86.7816},
     'US-SE-LOU':{lat:38.2527,lon:-85.7585}, 'US-NE-BOS':{lat:42.3601,lon:-71.0589},
     'US-SW-PHX':{lat:33.4484,lon:-112.0740}, 'US-NE-NYC':{lat:40.6782,lon:-73.9442},
+    'US-NE-BROOKLYN':{lat:40.6782,lon:-73.9442}, 'US-NE-MANHATTAN':{lat:40.7831,lon:-73.9712},
+    'US-NE-BRONX':{lat:40.8448,lon:-73.8648},
     'US-SW-TIMBERON':{lat:32.6376,lon:-105.6947}, 'US-MW-WASATCH-SLC':{lat:40.7608,lon:-111.8910},
     'US-W-SF':{lat:37.7749,lon:-122.4194}, 'US-W-SD':{lat:32.7157,lon:-117.1611},
     'US-W-VEGAS':{lat:36.1699,lon:-115.1398}, 'US-MW-PHX2':{lat:32.2226,lon:-110.9747},
