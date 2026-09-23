@@ -256,12 +256,16 @@ export class GenerateStack extends cdk.Stack {
           // overridden here.
           KODIAK_VECTOR_BUCKET: KODIAK_VECTOR_BUCKET_NAME,
           KODIAK_VECTOR_INDEX: KODIAK_VECTOR_INDEX_NAME,
-          // Voice enablement (sprint-2 item 10): art-director voice ON behind
-          // its runtime flag, with the pre-warm schedule ENABLED below. The
-          // runtime stays flag-gated (generate_lambda.ART_DIRECTOR_ENABLED
-          // reads this env) so rollback is flag-off — pixels unaffected.
-          // No other defaults change here.
-          KODIAK_ARTDIRECTOR_ENABLED: "true",
+          // Voice enablement: OFF by default (cost incident 2026-09-23 — the
+          // imported voice model bills per copy-minute 24/7, ~$38/day, and a
+          // default-ON prewarm kept it loaded with zero traffic value).
+          // Opt in per deploy with `-c artDirectorVoice=on`. The runtime stays
+          // flag-gated (generate_lambda.ART_DIRECTOR_ENABLED reads this env)
+          // so rollback is flag-off — pixels unaffected. No other defaults
+          // change here.
+          KODIAK_ARTDIRECTOR_ENABLED: this.node.tryGetContext("artDirectorVoice") === "on"
+            ? "true"
+            : "false",
         },
       },
     });
@@ -304,15 +308,15 @@ export class GenerateStack extends cdk.Stack {
       description: "ARN of the Lambda execution role",
     });
 
-    // ---- art-director pre-warm (Unit 1, ON with voice enablement) -----------
-    // Imported voice models scale to zero and throw ModelNotReadyException on the
-    // first invoke after idle. This Scheduler rule pings the handler's warm path
-    // ({"warm": "art-director"}) every 4 minutes so the model stays warm. The rule
-    // is ENABLED alongside the voice flag above (sprint-2 item 10) — deploy with
-    // `-c artDirectorPrewarm=off` to silence it. Rollback is flag-off + off here.
-    const prewarmState = this.node.tryGetContext("artDirectorPrewarm") === "off"
-      ? "DISABLED"
-      : "ENABLED";
+    // ---- art-director pre-warm (DISABLED by default) ------------------------
+    // Imported voice models bill per copy-minute while loaded, so a 24/7
+    // 4-minute ping kept a ~$38/day charge alive with zero traffic value
+    // (cost incident 2026-09-23). The rule is DISABLED by default — opt in
+    // per deploy with `-c artDirectorPrewarm=on`, only for an active voice
+    // test window. Rollback is flag-off + off here.
+    const prewarmState = this.node.tryGetContext("artDirectorPrewarm") === "on"
+      ? "ENABLED"
+      : "DISABLED";
     const schedulerRole = new iam.CfnRole(this, "ArtDirectorPrewarmRole", {
       assumeRolePolicyDocument: {
         Version: "2012-10-17",

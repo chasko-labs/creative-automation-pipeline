@@ -16,6 +16,11 @@ ENABLED); the module default stays dark (false). A module-ON default would
 run mock-voice in every offline/CI context and widen the blast radius, while
 the CDK flip keeps rollback at flag-off with pixels unaffected. No other
 defaults change here.
+
+DECISION (cost incident 2026-09-23): the deploy-scoped default is now OFF
+for both (CDK env false + Scheduler DISABLED unless `-c artDirectorVoice=on`
+/ `-c artDirectorPrewarm=on`). The imported voice model bills per copy-minute
+24/7; default-ON kept a ~$38/day charge alive with zero traffic value.
 """
 import json
 import os
@@ -150,16 +155,20 @@ def test_fast_probe_shape():
 
 
 def test_cdk_voice_flip_and_prewarm_on():
-    # Deploy-scoped flip (carry-10): the CDK stack ships the voice flag ON and
-    # the 4-minute pre-warm Scheduler rule ENABLED by default (opt-out only
-    # via `-c artDirectorPrewarm=off`). If either is silenced in IaC, the
-    # deploy loses voice + warm model while the runtime tests stay green —
-    # so pin the IaC text here.
+    # Cost incident 2026-09-23 ($139 imported-model copy-minute burn): the
+    # CDK stack ships the voice flag OFF and the 4-minute pre-warm Scheduler
+    # rule DISABLED by default — both opt-IN per deploy (`-c
+    # artDirectorVoice=on`, `-c artDirectorPrewarm=on`) for an active voice
+    # test window only. If either default flips back to always-on in IaC,
+    # the deploy resumes a 24/7 copy-minute charge while the runtime tests
+    # stay green — so pin the safe IaC text here.
     root = Path(__file__).resolve().parent.parent
     stack = (root / "infra-cdk" / "lib" / "generate-stack.ts").read_text()
-    assert 'KODIAK_ARTDIRECTOR_ENABLED: "true"' in stack
+    assert 'artDirectorVoice") === "on"' in stack  # flag opt-in arm
+    assert ': "false"' in stack  # flag default arm
     assert "rate(4 minutes)" in stack
-    assert ': "ENABLED"' in stack  # prewarm default arm of the off-context ternary
+    assert 'artDirectorPrewarm") === "on"' in stack  # prewarm opt-in arm
+    assert ': "DISABLED"' in stack  # prewarm default arm
 
 
 def test_async_upgrade_records_live_line(monkeypatch):
