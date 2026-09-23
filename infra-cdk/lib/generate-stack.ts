@@ -97,13 +97,17 @@ export class GenerateStack extends cdk.Stack {
               {
                 Sid: "BedrockInvokeArtDirector",
                 Effect: "Allow",
-                // Art-director voice model -- custom imported model in us-west-2 (isolated
+                // Art-director voice model -- Nova Micro in us-west-2 (isolated
                 // from the us-east-1 pipeline on purpose; art_director.py carries
-                // KODIAK_ARTDIRECTOR_REGION and never falls back to AWS_REGION). Gated dark
-                // at runtime behind KODIAK_ARTDIRECTOR_ENABLED.
+                // KODIAK_ARTDIRECTOR_REGION and never falls back to AWS_REGION).
+                // Pay-per-token, $0 idle (the imported copy billed ~$38/day and
+                // was deleted 2026-09-23). Gated dark at runtime behind
+                // KODIAK_ARTDIRECTOR_ENABLED plus per-request opt-in.
                 Action: "bedrock:InvokeModel",
-                Resource:
-                  "arn:aws:bedrock:us-west-2:946179428633:imported-model/cx15b77k5nge",
+                Resource: [
+                  "arn:aws:bedrock:*::foundation-model/amazon.nova-micro-v1:0",
+                  "arn:aws:bedrock:us-west-2:946179428633:inference-profile/us.amazon.nova-micro-v1:0",
+                ],
               },
               {
                 Sid: "BedrockInvokeStabilityControlStructure",

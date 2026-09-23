@@ -50,10 +50,12 @@ try:
 except ImportError:  # boto3/botocore are hard deps; defensive for offline CI
     BotoCoreError = ClientError = Exception  # type: ignore
 
-# Voice model: Nova Micro, pay-per-token, $0 idle (cost incident 2026-09-23 —
-# the imported 1b copy billed ~$38/day in copy-minutes and was deleted).
-# Overridable by env for a rebuilt/re-imported custom model.
-DEFAULT_MODEL_ARN = "amazon.nova-micro-v1:0"
+# Voice model: Nova Micro via cross-region inference profile, pay-per-token,
+# $0 idle (cost incident 2026-09-23 — the imported 1b copy billed ~$38/day
+# in copy-minutes and was deleted). The bare model id rejects on-demand
+# Converse in us-west-2; the us.* profile is required. Overridable by env
+# for a rebuilt/re-imported custom model.
+DEFAULT_MODEL_ARN = "us.amazon.nova-micro-v1:0"
 KODIAK_ARTDIRECTOR_MODEL_ARN = os.getenv(
     "KODIAK_ARTDIRECTOR_MODEL_ARN", DEFAULT_MODEL_ARN
 )

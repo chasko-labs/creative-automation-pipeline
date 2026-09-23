@@ -150,10 +150,16 @@ _REFUSAL_PHRASES = (
 _PREAMBLE_PATTERNS = (
     "here are",
     "here is",
+    "here's a",
     "requested",
     "headline options",
     "options:",
     "explanation:",
+    # chatty-instruction-model openers/closers (Nova Micro narrates its work:
+    # "Sure, here's a rephrased version…" … "This version captures the essence…").
+    "sure,",
+    "rephrased version",
+    "captures the essence",
 )
 
 

@@ -202,6 +202,21 @@ def test_scrub_strips_markup_and_preamble():
     assert out == "Fuel Your Wilder Days"
 
 
+def test_scrub_drops_chatty_model_narration():
+    # Live Nova Micro output (cost-incident voice swap): conversational
+    # opener, bold headline, paragraph, closer. Only the headline survives.
+    text = (
+        "Sure, here's a rephrased version in the style of Kodiak's voice:\n\n---\n\n"
+        "**Kodiak - Fuel for Today's Frontier: Nourishment That Keeps It Wild**\n\n"
+        "Rise and shine, frontier folks! Honest morning fuel.\n\n---\n\n"
+        "This version captures the essence of the brand message."
+    )
+    out = generate_mod._scrub_director_line(
+        text, [{"id": "x", "caption": "Unrelated brand sentence here now"}]
+    )
+    assert out == "Kodiak - Fuel for Today's Frontier: Nourishment That Keeps It Wild"
+
+
 def test_scrub_rejects_example_echo():
     out = generate_mod._scrub_director_line(
         "**Bear Bites for Cubs, Cinnamon Honey**",
