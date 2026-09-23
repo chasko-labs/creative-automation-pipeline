@@ -9759,7 +9759,31 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Huevos Rancheros Waffles",
+    "title": "Huevos Rancheros Waffles",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "4 Kodiak Buttermilk & Vanilla Thick & Fluffy Power Waffles, thawed",
+      "1 cup black beans, cooked and warm",
+      "4 large eggs",
+      "1 avocado, sliced",
+      "1/2 cup salsa",
+      "1/4 cup Mexican crema",
+      "1 small jalapeño, sliced",
+      "1/4 cup cotija cheese, crumbled"
+    ],
+    "directions": "1. Toast the waffles until golden.\n2. Heat a frying pan to medium and grease. Cook the eggs in the frying pan on medium, not disturbing until the whites have cooked through. Season with salt and pepper.\n3. Top each waffle with 1/4 cup black beans and one sunny-side-up egg.\n4. Top each egg with 1/4 of the sliced avocado, 2 tablespoons salsa, 1 tablespoon Mexican crema, 1 tablespoon Cotija cheese, and a few slices of jalapeño, if desired. Enjoy!",
+    "instructions": [
+      "Toast the waffles until golden.",
+      "Heat a frying pan to medium and grease. Cook the eggs in the frying pan on medium, not disturbing until the whites have cooked through. Season with salt and pepper.",
+      "Top each waffle with 1/4 cup black beans and one sunny-side-up egg.",
+      "Top each egg with 1/4 of the sliced avocado, 2 tablespoons salsa, 1 tablespoon Mexican crema, 1 tablespoon Cotija cheese, and a few slices of jalapeño, if desired. Enjoy!"
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 5,
+    "servings": "4",
+    "source": "brand_json_ld"
   },
   {
     "id": "cinnamon-pancake-french-toast",
@@ -10002,7 +10026,31 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Waffle Breakfast Sandwich",
+    "title": "Waffle Breakfast Sandwich",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1 tablespoon unrefined oil",
+      "2 eggs",
+      "2 Kodiak Buttermilk & Vanilla Power Waffles",
+      "2 slices deli turkey or ham",
+      "2 slices tomato",
+      "1 slice cheddar cheese",
+      "1/4 avocado, sliced",
+      "1/4 cup spinach"
+    ],
+    "directions": "1. Heat oil in a pan over medium heat.\n2. Place cracked eggs into the heated pan. Reduce heat to low and cook slowly until the whites are set and yolks thicken.\n3. While the eggs are cooking, toast the waffles on the lowest settling until crispy and hot.\n4. Stack the cooked eggs, deli meat, tomato, cheese, avocado, and spinach between the two Kodiak Power Waffles.",
+    "instructions": [
+      "Heat oil in a pan over medium heat.",
+      "Place cracked eggs into the heated pan. Reduce heat to low and cook slowly until the whites are set and yolks thicken.",
+      "While the eggs are cooking, toast the waffles on the lowest settling until crispy and hot.",
+      "Stack the cooked eggs, deli meat, tomato, cheese, avocado, and spinach between the two Kodiak Power Waffles."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": 15,
+    "servings": "1",
+    "source": "brand_json_ld"
   },
   {
     "id": "brownie-milkshake",
