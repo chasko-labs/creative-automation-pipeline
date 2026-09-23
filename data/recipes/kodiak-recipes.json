@@ -12040,7 +12040,26 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Banana Cream Waffle Parfait",
+    "title": "Banana Cream Waffle Parfait",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1 Kodiak Buttermilk & Vanilla Power Waffles",
+      "1/2 cup vanilla yogurt",
+      "1/2 banana, sliced",
+      "Walnuts, to top"
+    ],
+    "directions": "1. Toast the waffle and cut into small cubes.\n2. Layer the cubed waffle in a glass with the yogurt and banana slices.\n3. Top with a crushed walnuts.",
+    "instructions": [
+      "Toast the waffle and cut into small cubes.",
+      "Layer the cubed waffle in a glass with the yogurt and banana slices.",
+      "Top with a crushed walnuts."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": null,
+    "servings": "1",
+    "source": "brand_json_ld"
   },
   {
     "id": "waffle-pb-j",
@@ -12061,7 +12080,25 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Waffle PB & J",
+    "title": "Waffle PB & J",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "2 Kodiak Chocolate Chip Power Waffles",
+      "2 tablespoon peanut butter",
+      "2 tablespoon jelly"
+    ],
+    "directions": "1. Toast waffles on the lowest setting until crispy and hot.\n2. Spread the peanut butter and jelly on the waffles.\n3. Sandwich the waffles together.",
+    "instructions": [
+      "Toast waffles on the lowest setting until crispy and hot.",
+      "Spread the peanut butter and jelly on the waffles.",
+      "Sandwich the waffles together."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": null,
+    "servings": "2",
+    "source": "brand_json_ld"
   },
   {
     "id": "hot-honey-chicken-and-waffle-casserole",
