@@ -8692,7 +8692,23 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Protein-Packed Blueberry Lemon Waffles",
+    "title": "Protein-Packed Blueberry Lemon Waffles",
+    "course": "Breakfast",
+    "ingredients": [
+      "8 Kodiak Blueberry Power Waffles",
+      "3/4 cup plain full-fat Greek yogurt",
+      "2 tablespoons maple syrup",
+      "Juice of 1 lemon",
+      "1/2 cup blueberries",
+      "Zest of 1 lemon"
+    ],
+    "directions": "1. Toast the waffles until lightly golden brown. Place on a platter.\n2. Add the yogurt, maple syrup, and lemon juice to a mixing bowl and whisk until smooth.\n3. Place dollops of the lemon protein whip on top of the toasted waffles.\n4. Top the waffles with the lemon zest and fresh blueberries.\n5. Drizzle maple syrup over waffles, if desired.",
+    "prep_minutes": 5,
+    "cook_minutes": 5,
+    "servings": "4",
+    "source": "brand_json_ld"
   },
   {
     "id": "single-serve-lemon-poppyseed-blueberry-muffin",
@@ -8752,7 +8768,21 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Protein-Packed Maple Waffles",
+    "title": "Protein-Packed Maple Waffles",
+    "course": "Breakfast",
+    "ingredients": [
+      "4 Kodiak Buttermilk & Vanilla Thick & Fluffy Power Waffles",
+      "1/2 cup chopped mixed nuts and seeds (pecans, walnuts, pumpkin seeds, chia seeds, etc.)",
+      "Butter",
+      "Maple syrup"
+    ],
+    "directions": "1. Toast the waffles until lightly golden brown.\n2. Top waffles with slices of butter and let melt.\n3. Drizzle waffles with maple syrup.\n4. Top each waffle with mixed chopped nuts and seeds. Enjoy!",
+    "prep_minutes": 2,
+    "cook_minutes": 5,
+    "servings": "4",
+    "source": "brand_json_ld"
   },
   {
     "id": "flag-muffins",
