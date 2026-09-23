@@ -225,9 +225,12 @@ def test_scrub_rejects_example_echo():
     assert out is None  # echo of the example, not a written line
 
 
-def test_director_headline_resamples_single_after_trio_refusal(monkeypatch):
-    # PROVEN IN PROD: a trio of fragment-grade captions declines while the
-    # top-1 alone complies — resample once with the single best example.
+def test_adversarial_junk_captions_decline_into_resample_fallback(monkeypatch):
+    # ADVERSARIAL BY DESIGN: the junk captions below are deliberate, not
+    # sloppy fixtures — they prove fragment-grade retrieved captions decline
+    # safely into the resample fallback instead of reaching a render. Do NOT
+    # "ground" these strings; grounded fixtures live in the attempt-counter
+    # test below. PROVEN IN PROD: trio declines, top-1 alone complies.
     _enable(monkeypatch)
     monkeypatch.setattr(
         director_memory,

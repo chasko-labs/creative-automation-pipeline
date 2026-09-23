@@ -104,8 +104,12 @@ export class GenerateStack extends cdk.Stack {
                 // was deleted 2026-09-23). Gated dark at runtime behind
                 // KODIAK_ARTDIRECTOR_ENABLED plus per-request opt-in.
                 Action: "bedrock:InvokeModel",
+                // Region narrowed to us-* (flag 2026-09-23): cross-region
+                // routing demonstrably lands outside us-west-2 (observed
+                // us-east-2), so a us-west-2-only scope breaks the proven
+                // path. us-* keeps every US route working, nothing abroad.
                 Resource: [
-                  "arn:aws:bedrock:*::foundation-model/amazon.nova-micro-v1:0",
+                  "arn:aws:bedrock:us-*::foundation-model/amazon.nova-micro-v1:0",
                   "arn:aws:bedrock:us-west-2:946179428633:inference-profile/us.amazon.nova-micro-v1:0",
                 ],
               },
