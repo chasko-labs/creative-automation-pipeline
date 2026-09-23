@@ -10263,7 +10263,27 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Summer Berry Pancake Muffins",
+    "title": "Summer Berry Pancake Muffins",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 egg",
+      "3/4 cup whole milk, more if needed",
+      "1/2 cup fresh berries"
+    ],
+    "directions": "1. Preheat oven to 350° F and grease a mini muffin pan.\n2. In a large bowl, combine Kodiak mix, egg, and water. Stir in berries.\n3. Pour the batter into muffins cups.\n4. Bake for 8-10 minutes. Serve with maple syrup.",
+    "instructions": [
+      "Preheat oven to 350° F and grease a mini muffin pan.",
+      "In a large bowl, combine Kodiak mix, egg, and water. Stir in berries.",
+      "Pour the batter into muffins cups.",
+      "Bake for 8-10 minutes. Serve with maple syrup."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": 10,
+    "servings": "12",
+    "source": "brand_json_ld"
   },
   {
     "id": "pumpkin-spice-donuts",
@@ -11168,7 +11188,40 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Blueberry Scones",
+    "title": "Blueberry Scones",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "Blueberry Scones:",
+      "1 package Kodiak Blueberry Power Cakes Flapjack & Waffle Mix",
+      "1/4 cup sugar",
+      "1 tablespoon baking powder",
+      "12 tablespoons butter, cold, cubed",
+      "2 large eggs",
+      "1 cup heavy cream + 2 tablespoons (for brushing tops of blueberry scones)",
+      "1/2 cup fresh or frozen blueberries",
+      "Icing:",
+      "1 cup powdered sugar",
+      "1-2 tablespoons milk"
+    ],
+    "directions": "1. Preheat the oven to 400°. Line a baking sheet with parchment paper.\n2. Place the blueberry power cakes mix in a large bowl and add the sugar and baking powder. Whisk together.\n3. Cut the butter into the dry ingredients until it is the size of small peas.\n4. Place the eggs and heavy cream and a small bowl and whisk together until combined. Pour into the bowl of dry ingredients and mix together until a sticky and crumbly dough forms.\n5. Add the blueberries to the dough mixture and mix in until distributed throughout and dough just comes together.\n6. Flour a work surface and pat the dough into a one-inch-thick round disc.\n7. Cut the disk into 8 to 12 wedges. Place the wedges 2 inches apart on the prepared baking sheet.\n8. Brush the tops of the wedges with the remaining heavy cream.\n9. Bake in the preheated oven for 12 to 15 minutes, or until golden brown on top. Remove and cool on a wire rack.\n10. Place the powdered sugar in a small mixing bowl and slowly whisk in milk until a smooth mixture forms. Add more or less milk to achieve desired consistency. Drizzle the icing over the cooled blueberry scones. *Store in an airtight container for up to five days.",
+    "instructions": [
+      "Preheat the oven to 400°. Line a baking sheet with parchment paper.",
+      "Place the blueberry power cakes mix in a large bowl and add the sugar and baking powder. Whisk together.",
+      "Cut the butter into the dry ingredients until it is the size of small peas.",
+      "Place the eggs and heavy cream and a small bowl and whisk together until combined. Pour into the bowl of dry ingredients and mix together until a sticky and crumbly dough forms.",
+      "Add the blueberries to the dough mixture and mix in until distributed throughout and dough just comes together.",
+      "Flour a work surface and pat the dough into a one-inch-thick round disc.",
+      "Cut the disk into 8 to 12 wedges. Place the wedges 2 inches apart on the prepared baking sheet.",
+      "Brush the tops of the wedges with the remaining heavy cream.",
+      "Bake in the preheated oven for 12 to 15 minutes, or until golden brown on top. Remove and cool on a wire rack.",
+      "Place the powdered sugar in a small mixing bowl and slowly whisk in milk until a smooth mixture forms. Add more or less milk to achieve desired consistency. Drizzle the icing over the cooled blueberry scones. *Store in an airtight container for up to five days."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 15,
+    "servings": "12",
+    "source": "brand_json_ld"
   },
   {
     "id": "dark-chocolate-banana-bread",
