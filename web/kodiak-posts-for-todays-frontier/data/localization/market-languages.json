@@ -775,10 +775,18 @@
         {
           "lang_code": "es",
           "lang_name": "Spanish",
-          "pct": null,
-          "reason": "Spanish is a top non-English language in New York County; county pct pending ACS confirmation, not fabricated",
+          "pct": 17.8,
+          "reason": "ACS 2024 1-year B16001 New York County: Spanish 17.8% of 5+ population",
           "translate_code": "es",
-          "pct_home": null
+          "pct_home": 17.8
+        },
+        {
+          "lang_code": "zh",
+          "lang_name": "Chinese",
+          "pct": 5.5,
+          "reason": "ACS 2024 1-year B16001 New York County: Chinese (incl. Mandarin, Cantonese) 5.5%",
+          "translate_code": "zh",
+          "pct_home": 5.5
         }
       ],
       "auto_produce": false,
@@ -792,10 +800,18 @@
         {
           "lang_code": "es",
           "lang_name": "Spanish",
-          "pct": null,
-          "reason": "Spanish is a top non-English language in Bronx County; county pct pending ACS confirmation, not fabricated",
+          "pct": 45.3,
+          "reason": "ACS 2024 1-year B16001 Bronx County: Spanish 45.3% of 5+ population",
           "translate_code": "es",
-          "pct_home": null
+          "pct_home": 45.3
+        },
+        {
+          "lang_code": "fr",
+          "lang_name": "French",
+          "pct": 1.7,
+          "reason": "ACS 2024 1-year B16001 Bronx County: French (incl. Cajun) 1.7% — largest chain-supported single language after Spanish (grouped Yoruba/Twi/Igbo/West-African 3.7% is not one localizable language; Bengali 2.2% has no MT chain coverage)",
+          "translate_code": "fr",
+          "pct_home": 1.7
         }
       ],
       "auto_produce": false,
