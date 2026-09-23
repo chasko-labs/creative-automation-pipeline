@@ -100,6 +100,16 @@ def test_featured_for_beats_overlap_lottery():
     assert _pick_recipe("muscadine grapes", None)["id"] == "roasted-grape-flapjack-topper-draft"
 
 
+def test_fresh_noise_never_outvotes_real_food_token():
+    # QA sweep (82 markets x 26 seasons): "fresh cider" tied apple-cider-donuts
+    # ("cider") with summer-vegetable-tostada (via "fresh microgreens") and the
+    # id tiebreak served the summer tostada in October. "fresh" is stopword
+    # noise, so the true food token must win outright.
+    from creative_automation.recipe_card import _pick_recipe
+
+    assert _pick_recipe("fresh cider", None)["id"] == "apple-cider-donuts"
+
+
 def test_curated_pairings_route_to_honest_recipes():
     from creative_automation.recipe_card import _pick_recipe
 

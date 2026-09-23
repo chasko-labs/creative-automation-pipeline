@@ -262,17 +262,41 @@ def test_serving_line_never_outvotes_ingredient():
 def test_product_only_overlap_falls_to_season_table():
     # Every catalog recipe carries the product token, so "buttermilk" alone
     # crowned an arbitrary winner (white-chocolate-raspberry-cake took 45
-    # such cells: passionfruit, oysters, lettuce). Only ingredient tokens
-    # count; otherwise the curated season table serves the pick.
+    # such cells: passionfruit, oysters). Only ingredient tokens count;
+    # otherwise the curated season table serves the pick.
     from creative_automation.recipe_card import pick_recipe_with_provenance
 
     recipe, pairing = pick_recipe_with_provenance(
-        "leaf lettuce", "Buttermilk Power Cakes",
+        "oysters", "Buttermilk Power Cakes",
         market="US-CA-CASTROVILLE", month="2026-06",
     )
     assert recipe is not None
     assert pairing["source"] == "season-table"
     assert recipe["id"] == pairing["recipe_id"]
+
+
+def test_real_food_token_beats_product_only_tie():
+    # QA sweep (82 markets x 26 seasons): October "fresh cider" tied
+    # apple-cider-donuts ("cider") with summer-vegetable-tostada (product
+    # "buttermilk") and the id tiebreak served the summer tostada. Real
+    # (non-product) overlap now decides ties, so the food token wins.
+    # Same class: "leaf lettuce" genuinely appears in smash-burger-tacos,
+    # which must beat the season table for Castroville's lettuce month.
+    from creative_automation.recipe_card import pick_recipe_with_provenance
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "fresh cider", "Buttermilk Power Cakes",
+        market="US-NE-NYC", month="2026-10",
+    )
+    assert recipe["id"] == "apple-cider-donuts"
+    assert pairing["source"] == "ingredient-overlap"
+
+    recipe, pairing = pick_recipe_with_provenance(
+        "leaf lettuce", "Buttermilk Power Cakes",
+        market="US-CA-CASTROVILLE", month="2026-06",
+    )
+    assert recipe["id"] == "smash-burger-tacos"
+    assert pairing["source"] == "ingredient-overlap"
 
 
 def test_draft_recipes_split_tropical_and_chile_blocks():

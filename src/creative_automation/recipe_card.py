@@ -100,7 +100,13 @@ HERO_H = 560  # top region is the text-free image layer
 
 _STOP = frozenset(
     {"the", "and", "for", "with", "your", "kodiak", "cakes", "mix", "a", "of", "to",
-     "in", "on", "power", "cup", "cups", "box", "pouch", "flapjack", "waffle"}
+     "in", "on", "power", "cup", "cups", "box", "pouch", "flapjack", "waffle",
+     # QA sweep (82x26): "fresh" is garnish noise, not a food token. It tied the
+     # true "cider" hit in "fresh cider" with summer-vegetable-tostada (via its
+     # "fresh microgreens") and the id tiebreak crowned the summer tostada for
+     # an October market. Dropping it from both sides lets the real food token
+     # decide (apple-cider-donuts wins outright).
+     "fresh"}
 )
 
 
@@ -680,7 +686,14 @@ def _pick_recipe_detail(
             "reason": "empty ingredient and product — no pairing attempted",
         }
 
-    scored: list[tuple[int, int, str, dict]] = []
+    # Food-token overlap decides ties before the id lottery: product tokens
+    # ("buttermilk") ride in the subject and tie true food hits ("cider") with
+    # unrelated recipes whose product line matches, and the old id tiebreak
+    # crowned summer-vegetable-tostada for October "fresh cider" (QA sweep).
+    # Ranking real (non-product) overlap second lets the food token win ties
+    # without changing any unique winner.
+    product_tokens = _tokens(product) if product else set()
+    scored: list[tuple[int, int, int, int, str, dict]] = []
     hays: dict[str, str] = {}
     for r in recipes:
         hay = " ".join(
@@ -693,19 +706,19 @@ def _pick_recipe_detail(
         # garnish suggestions never outvote the built-on ingredient.
         hay += " " + " ".join(_matchable_fields(r))
         hays[r.get("id", "")] = hay
-        overlap = len(subject & _tokens(hay))
+        hay_tokens = _tokens(hay)
+        overlap = len(subject & hay_tokens)
+        real_overlap = len((subject - product_tokens) & hay_tokens)
         has_image = 1 if r.get("image") else 0
-        scored.append((overlap, has_image, r.get("id", ""), r))
+        scored.append((overlap, real_overlap, has_image, r.get("id", ""), r))
 
-    scored.sort(key=lambda x: (x[0], x[1], x[2]), reverse=True)
-    best_overlap, _hi, _best_id, best = scored[0]
+    scored.sort(key=lambda x: (x[0], x[1], x[2], x[3]), reverse=True)
+    best_overlap, real_overlap, _hi, _best_id, best = scored[0]
     # Product-only overlap is no match: every catalog recipe carries the
     # product token, so "buttermilk" alone would crown an arbitrary winner
     # (white-chocolate-raspberry-cake won 45 such cells: passionfruit,
     # oysters, lettuce, and empty-ingredient months). Only ingredient tokens
     # count toward a real match; otherwise the season table serves the pick.
-    product_tokens = _tokens(product) if product else set()
-    real_overlap = len((subject - product_tokens) & _tokens(hays[_best_id]))
     if best_overlap == 0 or real_overlap == 0:
         # no token match — season-indexed pairing table first, static default as
         # last resort. Never fabricated: both point at real catalog records.
@@ -730,7 +743,7 @@ def _pick_recipe_detail(
         }
     if market or month:
         strong = sorted(
-            (r for (_ov, _hh, _ii, r) in scored if _ov > 0 and _names_ingredient(r, ingredient)),
+            (r for (_ov, _ro, _hh, _ii, r) in scored if _ov > 0 and _names_ingredient(r, ingredient)),
             key=lambda r: r.get("id", ""),
         )
         if len(strong) > 1:
