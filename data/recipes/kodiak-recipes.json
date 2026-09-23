@@ -11423,7 +11423,33 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Probiotic Pancakes",
+    "title": "Probiotic Pancakes",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "Pancake Ingredients:",
+      "1 cup Kodiak Buttermilk & Honey Frontier Cakes Flapjack & Waffle Mix",
+      "1/2 cup Greek yogurt",
+      "1/2 cup water",
+      "1 tablespoon chia seeds",
+      "1/2 teaspoon cinnamon",
+      "1/2 cup blueberries",
+      "Toppings:",
+      "Fresh berries",
+      "Maple syrup or honey"
+    ],
+    "directions": "1. Stir Kodiak mix, Greek yogurt, water, chia seeds, and cinnamon together until combined. Gently fold in blueberries.\n2. Pour 1/4 cup of batter onto a heated and greased pan or griddle. Cook on medium-high heat or 375 degrees F. until bubbles form on the top.\n3. Flip and continue to cook until golden.\n4. Top with fresh berries and maple syrup or honey.",
+    "instructions": [
+      "Stir Kodiak mix, Greek yogurt, water, chia seeds, and cinnamon together until combined. Gently fold in blueberries.",
+      "Pour 1/4 cup of batter onto a heated and greased pan or griddle. Cook on medium-high heat or 375 degrees F. until bubbles form on the top.",
+      "Flip and continue to cook until golden.",
+      "Top with fresh berries and maple syrup or honey."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": 5,
+    "servings": "2",
+    "source": "brand_json_ld"
   },
   {
     "id": "local-honey-pancakes",
@@ -11485,7 +11511,33 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Golden Milk Pancakes",
+    "title": "Golden Milk Pancakes",
+    "course": "breakfast & brunch",
+    "ingredients": [
+      "1 cup Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1/2 teaspoon turmeric powder",
+      "1/2 teaspoon ground cinnamon",
+      "1/4 teaspoon ground ginger",
+      "1/8 teaspoon black pepper",
+      "1 cup coconut milk",
+      "1/2 cup coconut cream, whipped",
+      "2 tablespoons raw honey",
+      "1 teaspoon bee pollen (optional)"
+    ],
+    "directions": "1. Place the Kodiak mix, turmeric, cinnamon, ginger, and black pepper in a mixing bowl and whisk together.\n2. Pour in the coconut milk and whisk to form a smooth batter. Let rest for 5 minutes.\n3. Head a skillet over medium heat. Grease.\n4. Spoon about 1/4 of batter into the pan in a circle. Cook until slightly bubbly on top, then flip. Cook until golden underneath then remove from pan. Repeat with remaining batter.\n5. Serve topped with coconut cream whip, a drizzle of raw honey, and a sprinkle of bee pollen.",
+    "instructions": [
+      "Place the Kodiak mix, turmeric, cinnamon, ginger, and black pepper in a mixing bowl and whisk together.",
+      "Pour in the coconut milk and whisk to form a smooth batter. Let rest for 5 minutes.",
+      "Head a skillet over medium heat. Grease.",
+      "Spoon about 1/4 of batter into the pan in a circle. Cook until slightly bubbly on top, then flip. Cook until golden underneath then remove from pan. Repeat with remaining batter.",
+      "Serve topped with coconut cream whip, a drizzle of raw honey, and a sprinkle of bee pollen."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": 10,
+    "servings": "2",
+    "source": "brand_json_ld"
   },
   {
     "id": "easter-egg-pancakes",
