@@ -8948,7 +8948,28 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Strawberry Shortcake Cookies",
+    "title": "Strawberry Shortcake Cookies",
+    "course": "desserts",
+    "ingredients": [
+      "2 sticks (1 cup) butter, room temperature",
+      "1/2 cup Brown Sugar",
+      "1/2 cup granulated sugar",
+      "1 teaspoon vanilla extract",
+      "2 large eggs",
+      "3 cups Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix",
+      "1 teaspoon cornstarch",
+      "1/2 teaspoon baking soda",
+      "1/2 cup white chocolate chips",
+      "1/2 cup graham crackers, lightly crushed",
+      "1 cup freeze-dried strawberries"
+    ],
+    "directions": "1. Preheat the oven to 375° F. Line a baking sheet with parchment paper.\n2. Place the butter in a large mixing bowl along with both types of sugar. Beat for 2-3 minutes, until light and fluffy.\n3. Beat in the vanilla extract.\n4. Beat in the eggs, one at a time, thoroughly mixing in after each addition.\n5. Add the Kodiak mix, cornstarch, and baking soda to a separate mixing bowl and whisk to combine.\n6. Add the dry ingredients to the bowl of wet ingredients and beat until just combined.\n7. Fold in the white chocolate chips, graham crackers, and freeze-dried strawberries to the cookie dough with a spoon until evenly distributed.\n8. Let the dough rest for about 15 minutes (giving the whole grains time to absorb more moisture before baking).\n9. Scoop 1/2 cup mounds of dough and roll into a ball. Place on the prepared baking sheet and press the dough ball down to about half its height. Repeat with the remaining dough.\n10. Bake cookies for 9-10 minutes, or until just golden brown on the bottoms. Do not overbake - they may be soft on top but will firm up after cooling.\n11. Store in an airtight container. *Baker’s Note: This recipe makes 8 rather large cookies. This achieves the best texture, but the cookies can be made smaller if desired.",
+    "prep_minutes": 10,
+    "cook_minutes": 10,
+    "servings": "8",
+    "source": "brand_json_ld"
   },
   {
     "id": "strawberry-shortcake-parfait",
@@ -8969,7 +8990,22 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Strawberry Shortcake Parfait",
+    "title": "Strawberry Shortcake Parfait",
+    "course": "desserts",
+    "ingredients": [
+      "1 package Kodiak Buttermilk & Vanilla Flapjack Puffs",
+      "2 cups heavy whipping cream",
+      "1 teaspoon vanilla extract",
+      "2 cups strawberries, stems, removed, sliced",
+      "1/2 cup sugar, divided"
+    ],
+    "directions": "1. Place the package of flapjack puffs in the fridge overnight to defrost.\n2. Place the heavy cream and vanilla extract in a mixing bowl along with 1/4 cup of the sugar. Beat with an electric mixer until stiff peaks form.\n3. Place the sliced strawberries in a bowl and sprinkle the remaining 1/4 cup of sugar over them. Toss to coat. Let the strawberry sit for 10 minutes while the sugar forms a Syrup.\n4. Evenly divide the flapjack puffs, whipped cream, and strawberries with syrup between eight small cups, layering the ingredients on top of each other in several layers.\n5. Chill until ready to serve!",
+    "prep_minutes": 20,
+    "cook_minutes": null,
+    "servings": "8",
+    "source": "brand_json_ld"
   },
   {
     "id": "strawberry-jelly-roll",
