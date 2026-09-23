@@ -1223,9 +1223,30 @@ def _default_scene_prompt(
         # The campaign recipe names the dish — without it the restyle keeps the
         # seed's generic composition and the image disconnects from the recipe.
         direction = f"{direction} Featuring a serving of {str(dish).strip()}."
+    direction = _with_locale_and_bear(
+        direction, theme, brief_msg, market, season,
+    )
+    base = (
+        f"{product_name} product photo restyled for "
+        f"{direction}, "
+        f"{region} {audience}, frontier morning light, natural grain texture, high detail, lifestyle and natural world visible"
+    ).strip()
+    if extra_themes:
+        combo = combine_themes([theme or "", *(extra_themes or [])])
+        base += _combo_scene_suffix(combo)
+    return base
+
+
+def _with_locale_and_bear(direction: str | None, theme: str | None,
+                          brief_msg: str | None, market: str | None,
+                          season: str | None) -> str:
+    """Append market/season locality + request-driven bear law to a scene
+    direction, each only when absent already (the frontier autocomplete
+    suffix often carries both — never duplicate). Shared by the deterministic
+    default AND the live-Nova post-process so Nova's 40-word compression can
+    never silently drop locality or the bear constraint."""
     # Locality the brief suffix may not carry: two markets ordering the same
-    # dish must not get the same scene prompt. Named only when absent already
-    # (the frontier autocomplete suffix often carries both — never duplicate).
+    # dish must not get the same scene prompt.
     locale_bits = []
     if market and str(market).strip() and str(market).strip().lower() not in str(direction or "").lower():
         locale_bits.append(f"the {str(market).strip()} market")
@@ -1238,15 +1259,7 @@ def _default_scene_prompt(
     bear_clause = _bear_law_clause(theme, brief_msg)
     if bear_clause and bear_clause.lower() not in str(direction or "").lower():
         direction = f"{direction} {bear_clause}"
-    base = (
-        f"{product_name} product photo restyled for "
-        f"{direction}, "
-        f"{region} {audience}, frontier morning light, natural grain texture, high detail, lifestyle and natural world visible"
-    ).strip()
-    if extra_themes:
-        combo = combine_themes([theme or "", *(extra_themes or [])])
-        base += _combo_scene_suffix(combo)
-    return base
+    return str(direction or "")
 
 
 def _nova_pro_scene_prompt(
@@ -1320,7 +1333,11 @@ def _nova_pro_scene_prompt(
             inferenceConfig={"maxTokens": 120},
         )
         text = resp["output"]["message"]["content"][0]["text"].strip().replace("\n", " ")
-        return text or default_prompt
+        if not text:
+            return default_prompt
+        # Nova's 40-word compression drops locality and constraints: re-attach
+        # market/season + bear law deterministically (absent-only, never dup).
+        return _with_locale_and_bear(text, theme, brief_msg, market, season)
     except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — deterministic fallback
         print(f"[generate] Nova Pro scene-prompt unavailable, using default: {e}", file=sys.stderr)
         return default_prompt

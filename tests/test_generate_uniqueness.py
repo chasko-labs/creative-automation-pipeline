@@ -89,6 +89,28 @@ def test_nova_scene_fallback_carries_locale(monkeypatch, tmp_path) -> None:
     assert "september" in prompt
 
 
+def test_nova_scene_postprocess_reattaches_locale(monkeypatch, tmp_path) -> None:
+    # Live Nova compresses locality out of its 40-word reply: the post-process
+    # re-attaches market/season deterministically, keeping Nova's scene text.
+    from PIL import Image
+
+    seed = tmp_path / "seed.png"
+    Image.new("RGB", (256, 256), (180, 90, 30)).save(seed, "PNG")
+
+    class _FakeNova:
+        def converse(self, **kwargs):
+            return {"output": {"message": {"content": [{"text": "Cozy fall kitchen."}]}}}
+
+    monkeypatch.setattr(generate_mod, "_bedrock_failfast_client", lambda **kwargs: _FakeNova())
+    prompt = generate_mod._nova_pro_scene_prompt(
+        seed, "Power Cakes", "wild mornings", "us", "families", None, None, None,
+        "US-OH-CINCINNATI", "october",
+    )
+    assert "Cozy fall kitchen." in prompt
+    assert "US-OH-CINCINNATI" in prompt
+    assert "october" in prompt
+
+
 # --- fix 3: memo salted by market + season -------------------------------
 
 def _voice_setup(monkeypatch, calls):
