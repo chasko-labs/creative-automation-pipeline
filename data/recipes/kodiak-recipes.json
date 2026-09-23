@@ -9922,7 +9922,30 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Churro Bites",
+    "title": "Churro Bites",
+    "course": "desserts",
+    "ingredients": [
+      "1/2 package Kodiak Buttermilk French Toast Sticks (8 individual sticks)",
+      "2 tablespoons butter, melted",
+      "1/2 cup sugar",
+      "2 teaspoons cinnamon",
+      "1 cup vanilla yogurt",
+      "2 tablespoons cocoa powder"
+    ],
+    "directions": "1. Heat the French Toast Sticks according to package instructions.\n2. Place the sugar and cinnamon in a large bowl and whisk together.\n3. Brush each French Toast Stick with melted butter on each side and toss in the cinnamon sugar until coated.\n4. Place the yogurt and cocoa powder in a bowl and whisk together until smooth.\n5. Serve warm with chocolate yogurt dipping sauce.",
+    "instructions": [
+      "Heat the French Toast Sticks according to package instructions.",
+      "Place the sugar and cinnamon in a large bowl and whisk together.",
+      "Brush each French Toast Stick with melted butter on each side and toss in the cinnamon sugar until coated.",
+      "Place the yogurt and cocoa powder in a bowl and whisk together until smooth.",
+      "Serve warm with chocolate yogurt dipping sauce."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 4,
+    "servings": "4",
+    "source": "brand_json_ld"
   },
   {
     "id": "brownie-trifle",
@@ -10242,7 +10265,27 @@
       "p",
       "q"
     ],
-    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q="
+    "example_localization": "https://kodiakcakes.com/pages/recipes#course=&product=&dietary-restrictions=&p=1&q=",
+    "dish": "Trail Mix",
+    "title": "Trail Mix",
+    "course": "sides & snacks",
+    "ingredients": [
+      "3 packages Kodiak Cookie Butter Crunchy Granola Bars",
+      "1 cup roasted & salted cashews",
+      "2 cups mini pretzels",
+      "3/4 cup dried apricots, cut into quarters",
+      "1/2 cup white chocolate chips"
+    ],
+    "directions": "1. Unwrap the granola bars and break into small pieces.\n2. Place all ingredients in a large bowl and toss together until combined.\n3. Store in an airtight container or divide between small ziplock bags.",
+    "instructions": [
+      "Unwrap the granola bars and break into small pieces.",
+      "Place all ingredients in a large bowl and toss together until combined.",
+      "Store in an airtight container or divide between small ziplock bags."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": 0,
+    "servings": "12",
+    "source": "brand_json_ld"
   },
   {
     "id": "summer-berry-pancake-muffins",
