@@ -102,6 +102,12 @@ BEDROCK_CONNECT_TIMEOUT_S = int(os.getenv("BEDROCK_CONNECT_TIMEOUT_S", "3"))
 # Config — one hung unbounded past the 30s gateway cap. Capped here, a slow Nova Pro
 # degrades gracefully (caption -> brief fallback, scene-prompt -> deterministic default).
 BEDROCK_NOVA_READ_TIMEOUT_S = int(os.getenv("BEDROCK_NOVA_READ_TIMEOUT_S", "6"))
+# Outpaint extend budget: the standalone mode:extend request bypasses the
+# 22s ladder wall (it does one outpaint + upload inside the 30s gateway
+# cap), so the 12s ladder read cap does NOT apply here. 20s lets a cold
+# outpaint model answer instead of degrading every tall/wide tile to a
+# Pillow pad, with ~10s headroom for S3 download/upload + response.
+BEDROCK_OUTPAINT_READ_TIMEOUT_S = int(os.getenv("BEDROCK_OUTPAINT_READ_TIMEOUT_S", "20"))
 # Per-subcall rung-B budget reservations (ms): each Bedrock sub-call is entered ONLY while
 # remaining_ms() still covers that call's worst-case cost PLUS the rung-C reservation, so
 # no single sub-call can consume the budget rung C needs to return real pixels by ~24s.
@@ -1237,6 +1243,62 @@ def _default_scene_prompt(
     return base
 
 
+_MONTH_NUM = {
+    "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
+    "july": 7, "august": 8, "september": 9, "october": 10, "november": 11,
+    "december": 12, "jan": 1, "feb": 2, "mar": 3, "apr": 4, "jun": 6,
+    "jul": 7, "aug": 8, "sep": 9, "sept": 9, "oct": 10, "nov": 11, "dec": 12,
+}
+
+
+def _season_month(season: str | None) -> int | None:
+    """Month number for a season string (month names only, never fabricated).
+
+    Returns None for anything that is not a plain month name — the caller
+    then emits the place without produce rather than guessing a month.
+    """
+    if not season:
+        return None
+    return _MONTH_NUM.get(str(season).strip().lower())
+
+
+def _market_scene_clause(market: str | None, season: str | None) -> str:
+    """Human market clause for scene prompts — never a raw market code.
+
+    Resolves the market code through local_flavor_for: human place + the
+    season month's in-season produce + sourcing. Unknown markets, missing
+    data, or unparseable seasons yield '' so the caller emits NO market
+    clause instead of a raw code (a raw code teaches the image model
+    nothing and reads as a zip-code bug in provenance).
+    """
+    code = str(market or "").strip()
+    if not code:
+        return ""
+    try:
+        from .local_flavor import local_flavor_for
+
+        info = local_flavor_for(code, _season_month(season))
+        if not info.get("matched"):
+            return ""
+        place = str(info.get("place") or "").strip()
+        if not place:
+            return ""
+        produce = [str(p).strip() for p in (info.get("produce") or []) if str(p).strip()][:2]
+        source = str(info.get("source") or "").strip()
+        month_name = str(season).strip() if _season_month(season) else ""
+        head = f"Setting: {place}" + (f" in {month_name}" if month_name else "")
+        tail_bits = []
+        if produce:
+            tail_bits.append(f"{' and '.join(produce)} in season")
+        if source:
+            tail_bits.append(f"at {source}")
+        if tail_bits:
+            return head + " — " + ", ".join(tail_bits) + "."
+        return head + "."
+    except Exception:  # noqa: BLE001 — market lore never breaks the preview
+        return ""
+
+
 def _with_locale_and_bear(direction: str | None, theme: str | None,
                           brief_msg: str | None, market: str | None,
                           season: str | None) -> str:
@@ -1246,14 +1308,13 @@ def _with_locale_and_bear(direction: str | None, theme: str | None,
     default AND the live-Nova post-process so Nova's 40-word compression can
     never silently drop locality or the bear constraint."""
     # Locality the brief suffix may not carry: two markets ordering the same
-    # dish must not get the same scene prompt.
-    locale_bits = []
-    if market and str(market).strip() and str(market).strip().lower() not in str(direction or "").lower():
-        locale_bits.append(f"the {str(market).strip()} market")
+    # dish must not get the same scene prompt. The market arrives as a raw
+    # code — resolve it to human place + produce, never emit the code.
+    clause = _market_scene_clause(market, season)
+    if clause and clause.lower() not in str(direction or "").lower():
+        direction = f"{direction} {clause}"
     if season and str(season).strip() and str(season).strip().lower() not in str(direction or "").lower():
-        locale_bits.append(str(season).strip())
-    if locale_bits:
-        direction = f"{direction} Set in {', '.join(locale_bits)}."
+        direction = f"{direction} {str(season).strip()}."
     # Request-driven bear law: the wild-grizzly-bears theme or a bear-naming
     # brief earns the constraint clause; everything else stays bear-free.
     bear_clause = _bear_law_clause(theme, brief_msg)
@@ -1302,9 +1363,11 @@ def _nova_pro_scene_prompt(
         if clean_dish:
             keep_clause += f" The image MUST show a serving of {clean_dish}."
         locale_ask = ""
-        if market and str(market).strip():
-            locale_ask += f" Market: {str(market).strip()}."
-        if season and str(season).strip():
+        market_clause = _market_scene_clause(market, season)
+        if market_clause:
+            locale_ask += f" {market_clause}"
+        elif season and str(season).strip():
+            # Unresolvable market: name the season, never the raw code.
             locale_ask += f" Season: {str(season).strip()}."
         bear_ask = _bear_law_clause(theme, brief_msg)
         if bear_ask:
@@ -1585,11 +1648,12 @@ def _stability_outpaint(
     _pillow_outpaint_fallback). Seed dims must stay in Stability's range (>=64/dim,
     4096..9437184 total px); the 1080x1080 hero and the modest deltas sit well inside.
 
-    Uses the shared fail-fast bedrock-runtime client (rung-B pattern: connect 3s,
-    read 12s, zero retries) so a hung extend can never stall the 22s wall — a
-    timeout is re-raised so the caller records a timeout degrade, matching
-    _stability_control_hero. The prompt goes through the frozen style sandwich so
-    the extend stays on-brand.
+    Uses the shared fail-fast bedrock-runtime client with the extend read
+    budget (BEDROCK_OUTPAINT_READ_TIMEOUT_S, 20s: the standalone extend
+    request bypasses the ladder wall, so the 12s ladder cap must not starve
+    a cold outpaint model into a pad). A timeout is re-raised so the caller
+    records a timeout degrade, matching _stability_control_hero. The prompt
+    goes through the frozen style sandwich so the extend stays on-brand.
     """
     if boto3 is None:
         print("[generate] outpaint skipped: boto3 unavailable", file=sys.stderr)
@@ -1612,7 +1676,7 @@ def _stability_outpaint(
         buf = BytesIO()
         base.save(buf, "PNG")
         image_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
-        client = _bedrock_failfast_client()
+        client = _bedrock_failfast_client(read_timeout=BEDROCK_OUTPAINT_READ_TIMEOUT_S)
         body = {
             "prompt": _style_sandwich(prompt),
             "image": image_b64,

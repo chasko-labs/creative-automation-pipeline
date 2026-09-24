@@ -306,6 +306,7 @@ def test_stability_outpaint_uses_failfast_client_and_style_sandwich(tmp_path: Pa
 
     def _fake_failfast(read_timeout=None):
         seen["failfast"] = True
+        seen["read_timeout"] = read_timeout
         return _FakeClient()
 
     def _no_bare(*a, **k):
@@ -317,6 +318,10 @@ def test_stability_outpaint_uses_failfast_client_and_style_sandwich(tmp_path: Pa
     result = generate._stability_outpaint(seed, 1920, 1080, "campfire morning", out)
     assert result is not None and result.exists()
     assert seen["failfast"] is True
+    # extends bypass the ladder wall: the outpaint read budget (20s) must ride
+    # along, never the 12s ladder cap that starved cold outpaints into pads.
+    assert seen["read_timeout"] == generate.BEDROCK_OUTPAINT_READ_TIMEOUT_S
+    assert seen["read_timeout"] > generate.BEDROCK_READ_TIMEOUT_S
     assert seen["modelId"] == generate.STABILITY_OUTPAINT_MODEL
     assert seen["prompt"].startswith(generate.STYLE_HEAD)
     with Image.open(out) as im:

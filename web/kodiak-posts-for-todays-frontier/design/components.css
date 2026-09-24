@@ -1971,11 +1971,13 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    scrollbar stays hidden; show/hide for the lightbox is the hidden attribute
    (JS toggles .is-open alongside it). prefers-reduced-motion guarded. */
 .ff-filmstrip{position:relative;isolation:isolate;--ff-thumb-h:clamp(96px,16vw,148px);
-  display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-sm,8px);margin-top:var(--spacing-sm,8px)}
-.ff-filmstrip__track{display:flex;gap:var(--spacing-sm);flex:1 1 auto;min-width:0;position:relative;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--spacing-sm,8px);margin-top:var(--spacing-sm,8px)}
+/* track owns row one full-bleed; prev/dots/next share a centered control row
+   below it (order pins the sequence regardless of DOM order) */
+.ff-filmstrip__track{display:flex;gap:var(--spacing-sm);flex:1 1 100%;min-width:0;position:relative;
   overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
   scrollbar-width:none;-ms-overflow-style:none;
-  padding:var(--spacing-xs) clamp(30px,6vw,44px);margin:0;border:1px solid var(--colors-border-default);
+  padding:var(--spacing-xs);margin:0;border:1px solid var(--colors-border-default);
   border-radius:var(--radii-md);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm)}
 .ff-filmstrip__track::-webkit-scrollbar{display:none}
 .ff-filmstrip__track:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
@@ -2012,7 +2014,9 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   box-shadow:var(--shadows-sm)}
 .ff-filmstrip__arrow:hover{filter:brightness(1.15)}
 .ff-filmstrip__arrow:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
-.ff-filmstrip__dots{flex:1 1 100%;display:flex;gap:var(--spacing-xs);justify-content:center;align-items:center;margin:var(--spacing-xs) 0 0;padding:0;list-style:none}
+.ff-filmstrip__dots{flex:0 0 auto;order:2;display:flex;gap:var(--spacing-xs);justify-content:center;align-items:center;margin:0;padding:0;list-style:none}
+.ff-filmstrip__arrow--prev{order:1}
+.ff-filmstrip__arrow--next{order:3}
 .ff-filmstrip__dot{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;
   background:none;border:none;padding:0;cursor:pointer;border-radius:var(--radii-pill)}
 .ff-filmstrip__dot::before{content:"";width:8px;height:8px;border-radius:var(--radii-pill);

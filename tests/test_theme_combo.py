@@ -119,6 +119,32 @@ def test_nova_scene_prompt_offline_fallback_folds_extras(monkeypatch) -> None:
     assert "warehouse-club" not in prompt
 
 
+# --------------------------------------- market lore in scene prompts (no raw codes)
+def test_market_scene_clause_names_produce_not_code() -> None:
+    clause = generate._market_scene_clause("US-MW-PARKCITY-84098", "September")
+    assert "US-MW-PARKCITY-84098" not in clause
+    assert "the US-MW" not in clause
+    assert "Park City" in clause
+    assert "Jensen Farms peaches" in clause
+    assert "Farmers Market" in clause
+
+
+def test_market_scene_clause_unknown_market_is_empty() -> None:
+    assert generate._market_scene_clause("US-XX-NOWHERE", "September") == ""
+    assert generate._market_scene_clause(None, "September") == ""
+    assert generate._market_scene_clause("", "September") == ""
+
+
+def test_default_scene_prompt_never_emits_raw_market_code() -> None:
+    prompt = generate._default_scene_prompt(
+        "Power Cakes", "wild mornings", "us", "families", None,
+        market="US-MW-PARKCITY-84098", season="September",
+    )
+    assert "US-MW-PARKCITY-84098" not in prompt
+    assert "the US-MW" not in prompt
+    assert "Park City" in prompt
+
+
 # ------------------------------------------------------- hero end to end
 def _mock_theme_seed(monkeypatch, tmp_path: Path):
     seed = _make_seed(tmp_path / "theme-seed.png")
