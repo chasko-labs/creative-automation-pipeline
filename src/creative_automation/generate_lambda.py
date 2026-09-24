@@ -1196,24 +1196,26 @@ def _upload_render(
     return {"ratio": ratio, "image_url": url, "s3_uri": s3_uri, "w": r["w"], "h": r["h"], "platforms": tags}
 
 
-# Ratios eligible for a standalone extend call. 4x5/blog stay server-side
-# pads (mirrors the preview gate); only tall/wide tiles extend.
-_EXTEND_RATIOS = ("9x16", "16x9")
+# Ratios eligible for a standalone extend call. Only blog stays a
+# server-side pad (OG crops are conventionally crops); 4x5 joins the
+# tall/wide tiles as a real outpaint — every portrait canvas earns its
+# own composition instead of a center crop.
+_EXTEND_RATIOS = ("4x5", "9x16", "16x9")
 
 
 def _handle_extend(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """Compose ONE tall/wide tile from an already-rendered 1x1 hero.
 
     Request fields: hero_s3_uri (the 1x1 entry from a preview response),
-    ratio ("9x16" or "16x9"), subject (extend prompt text, optional — falls
-    back to the request prompt). One Stability outpaint extend, well inside
-    the wall on its own. Any failure degrades to a Pillow pad of the same
-    hero — the response always carries a tile, never an error beyond a 400
-    for a malformed request (ratio unknown, hero unreadable).
+    ratio ("4x5", "9x16" or "16x9"), subject (extend prompt text, optional —
+    falls back to the request prompt). One Stability outpaint extend, well
+    inside the wall on its own. Any failure degrades to a Pillow pad of the
+    same hero — the response always carries a tile, never an error beyond
+    a 400 for a malformed request (ratio unknown, hero unreadable).
     """
     ratio = str(data.get("ratio") or "").strip()
     if ratio not in _EXTEND_RATIOS:
-        return {"ok": False, "error": f"unknown extend ratio: {ratio!r} (want 9x16 or 16x9)"}
+        return {"ok": False, "error": f"unknown extend ratio: {ratio!r} (want 4x5, 9x16 or 16x9)"}
     hero_uri = str(data.get("hero_s3_uri") or "")
     prefix = f"s3://{ASSET_STORE_S3_BUCKET}/"
     if not hero_uri.startswith(prefix):

@@ -412,7 +412,9 @@ let skuList = [
   // Pure: renders + fields in, no DOM. Tested in preview-extend.test.mjs.
   const extendTargets = (renders)=>{
     if(!Array.isArray(renders)) return [];
-    return renders.filter(r=>r && (r.ratio==='9x16' || r.ratio==='16x9') && r.s3_uri);
+    // blog stays a pad: the portrait + wide tiles with an asset-store uri
+    // earn a live outpaint.
+    return renders.filter(r=>r && (r.ratio==='4x5' || r.ratio==='9x16' || r.ratio==='16x9') && r.s3_uri);
   };
   const extendHero = (renders)=>{
     if(!Array.isArray(renders)) return null;

@@ -47,7 +47,7 @@ describe('preview extend helpers', () => {
 
   it('targets only 9x16/16x9 tiles that carry an s3 uri', () => {
     const t = window.KODIAK_extendTargets(renders);
-    expect(t.map(r => r.ratio).sort()).toEqual(['16x9', '9x16']);
+    expect(t.map(r => r.ratio).sort()).toEqual(['16x9', '4x5', '9x16']);
     expect(window.KODIAK_extendTargets(null)).toEqual([]);
   });
 

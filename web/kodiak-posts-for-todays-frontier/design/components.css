@@ -868,7 +868,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* topstrip is a retired, empty, aria-hidden node kept only so JS selectors never null — keep it out of flow */
 .kodiak-topstrip{display:none}
 /* header layout moved off the element's style attribute; base header{} already sets brown bg + kraft overlays */
-header.kodiak-header{border-bottom:none;display:flex;align-items:center;gap:var(--spacing-md);padding:10px var(--spacing-md);flex-wrap:wrap;margin:0}
+header.kodiak-header{border-bottom:none;display:flex;align-items:center;gap:var(--spacing-md);padding:10px 18px;flex-wrap:wrap;margin:0}
+/* the brown bar breathes inside the same footprint as the timeline below.
+   body is column-flex, so auto margins absorb the stretch and collapse the
+   bar — explicit width + align-self centers instead. Width math mirrors
+   .wrap minus its 18px gutters (1100-36=1064) so bar edges sit exactly on
+   the timeline edges at every breakpoint. */
+header.kodiak-header{max-width:none;width:min(1064px,calc(100% - 36px));align-self:center;margin-top:0}
+@media(min-width:1600px){header.kodiak-header{width:min(1404px,calc(100% - 36px))}}
+@media(min-width:2200px){header.kodiak-header{width:min(1644px,calc(100% - 36px))}}
 /* hero treatment (matrix item 7, CSS-only): full-bleed pine-to-timber gradient
    with a blaze rule under it; headline stays parchment. Sticky + logos untouched. */
 header.kodiak-header{background:linear-gradient(135deg,var(--colors-brand-frontier-green) 0%,var(--brown-kodiak) 72%,var(--chocolate) 100%);border-bottom:3px solid var(--colors-brand-blaze-orange)}
