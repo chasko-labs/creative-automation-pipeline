@@ -135,6 +135,28 @@ def test_market_scene_clause_unknown_market_is_empty() -> None:
     assert generate._market_scene_clause("", "September") == ""
 
 
+def test_market_scene_clause_survives_lambda_layout(monkeypatch, tmp_path) -> None:
+    # The Lambda image installs the package into site-packages, where
+    # local_flavor's parents[2]/data anchor does not exist. Simulate that by
+    # pointing the anchor at an empty dir and CAP_DATA_ROOT at real data: the
+    # clause must still resolve through _datapaths.
+    from creative_automation import local_flavor
+
+    empty = tmp_path / "site-packages"
+    empty.mkdir()
+    monkeypatch.setattr(local_flavor, "FLAVOR_PATH", empty / "missing.json")
+    shipped = tmp_path / "data" / "localization"
+    shipped.mkdir(parents=True)
+    # the image ships the real table at CAP_DATA_ROOT; mirror that layout
+    shipped.joinpath("local-flavor.json").write_bytes(
+        Path("data/localization/local-flavor.json").read_bytes()
+    )
+    monkeypatch.setenv("CAP_DATA_ROOT", str(tmp_path / "data"))
+    clause = generate._market_scene_clause("US-MW-PARKCITY-84098", "September")
+    assert "Park City" in clause
+    assert "US-MW-PARKCITY-84098" not in clause
+
+
 def test_default_scene_prompt_never_emits_raw_market_code() -> None:
     prompt = generate._default_scene_prompt(
         "Power Cakes", "wild mornings", "us", "families", None,
