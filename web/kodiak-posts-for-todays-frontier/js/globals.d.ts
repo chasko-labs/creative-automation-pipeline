@@ -296,6 +296,10 @@ interface Window {
    * keeps its fallback dims/copy.
    */
   KODIAK_showRenderSet?: (renders: RenderItem[], opts?: ShowOpts) => void;
+  /** Wires one ff-filmstrip (arrows, dots, track keys, thumb->lightbox). Idempotent. */
+  KODIAK_wireFilmstrip?: (strip: HTMLElement) => void;
+  /** Opens the dependency-free lightbox over a strip's items at an index. */
+  KODIAK_ffLightboxOpen?: (items: Array<{src: string, alt: string, cap: string}>, index: number, opener: HTMLElement | null) => void;
   /** Triggers the asset-pack download (zip of renders + copy + provenance). */
   downloadAssetPack?: (opts?: {pack?: boolean}) => void;
   /** Frontier logger (ffLog) — noisy in dev, gated in prod. */

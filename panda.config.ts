@@ -186,6 +186,9 @@ export default defineConfig({
           md: {
             value: "8px",
           },
+          inner: {
+            value: "6px",
+          },
           lg: {
             value: "16px",
           },

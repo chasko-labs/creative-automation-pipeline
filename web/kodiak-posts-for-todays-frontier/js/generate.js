@@ -512,6 +512,11 @@ let skuList = [
             console.log('[platform-matrix] loaded', Object.keys(d.ratios).length, 'ratios from', url);
             // if the matrix explainer is already on-screen, refresh it in place
             try{ renderPlatformMatrix(); }catch(e){}
+            // the live matrix is the single source of truth: re-glue the sizes
+            // line + true frame ratios to whatever it carries (drift-proofing
+            // the "5 sizes" copy against future matrix growth).
+            try{ syncOutputSizes(); }catch(e){}
+            try{ ffRefreshFrames(document); }catch(e){}
             break;
           }
         }
@@ -558,6 +563,235 @@ let skuList = [
   window.__renderPlatformMatrix = renderPlatformMatrix;
   // no matrix on load: the hero tile grid is the default preview content.
   try{ renderPlatformMatrix(); }catch(e){}
+
+  // === ff-filmstrip + #ffLightbox (top level so the resting strip and every
+  // generated set share them). The strip is one horizontal row of true-ratio
+  // thumbnails; the lightbox is dependency-free, buttons only.
+  /**
+   * @returns {boolean}
+   */
+  function ffReducedMotion(){
+    try{ return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); }catch(e){ return false; }
+  }
+  // Reconcile the "5 sizes" copy drift: the heading line is rendered from the
+  // live platformMatrix (single source of truth), not a hardcoded count, so a
+  // matrix change can never strand the copy. Static fallback in markup matches.
+  function syncOutputSizes(){
+    const el = document.getElementById('outputSizes');
+    if(!el) return;
+    try{
+      const keys = Object.keys(platformMatrix || {});
+      if(keys.length) el.textContent = keys.length + ' sizes \u2014 ' + keys.join(', ');
+    }catch(e){}
+  }
+  // True aspect ratios, matrix-driven: every slot frame takes its ratio's live
+  // w/h from platformMatrix (CSS per-ratio fallbacks cover no-JS paint).
+  /**
+   * @param {ParentNode} root
+   * @returns {void}
+   */
+  function ffRefreshFrames(root){
+    try{
+      Array.from((root || document).querySelectorAll('.ff-filmstrip__slot[data-ratio]')).forEach((slot)=>{
+        const ratio = slot.getAttribute('data-ratio');
+        const size = (typeof window.KODIAK_tileSizeFromString === 'function')
+          ? window.KODIAK_tileSizeFromString(ratio) : ratio;
+        const row = (size && platformMatrix[size]) || null;
+        const frame = /** @type {HTMLElement|null} */ (slot.querySelector('.ff-filmstrip__frame'));
+        if(row && frame){ try{ frame.style.aspectRatio = row.w + '/' + row.h; }catch(e){} }
+      });
+    }catch(e){}
+  }
+  /** @type {Array<{src: string, alt: string, cap: string}>} */
+  let ffLightboxItems = [];
+  let ffLightboxIndex = 0;
+  /** @type {HTMLElement|null} */
+  let ffLightboxOpener = null;
+  /**
+   * @param {number} delta
+   * @returns {void}
+   */
+  function ffLightboxStep(delta){
+    if(!ffLightboxItems.length) return;
+    ffLightboxIndex = (ffLightboxIndex + delta + ffLightboxItems.length) % ffLightboxItems.length;
+    ffLightboxShow();
+  }
+  function ffLightboxShow(){
+    const box = document.getElementById('ffLightbox');
+    if(!box) return;
+    const item = ffLightboxItems[ffLightboxIndex] || {src:'', alt:'', cap:''};
+    const img = box.querySelector('.ff-lightbox__img');
+    const cap = box.querySelector('.ff-lightbox__cap');
+    if(img){ img.setAttribute('src', item.src || ''); img.setAttribute('alt', item.alt || ''); }
+    if(cap){ cap.textContent = item.cap || ''; }
+    const multi = ffLightboxItems.length > 1;
+    const prev = /** @type {HTMLButtonElement|null} */ (box.querySelector('.ff-lightbox__prev'));
+    const next = /** @type {HTMLButtonElement|null} */ (box.querySelector('.ff-lightbox__next'));
+    if(prev) prev.disabled = !multi;
+    if(next) next.disabled = !multi;
+  }
+  /**
+   * @param {KeyboardEvent} e
+   * @returns {void}
+   */
+  function ffLightboxKeys(e){
+    const box = document.getElementById('ffLightbox');
+    if(!box || box.hidden) return;
+    if(e.key === 'Escape'){ e.preventDefault(); ffLightboxClose(); return; }
+    if(e.key === 'ArrowLeft'){ e.preventDefault(); ffLightboxStep(-1); return; }
+    if(e.key === 'ArrowRight'){ e.preventDefault(); ffLightboxStep(1); return; }
+    if(e.key === 'Tab'){
+      // focus trap across the buttons only — the image is never focusable.
+      const btns = Array.from(box.querySelectorAll('button')).filter((b)=>!b.disabled);
+      if(!btns.length) return;
+      const first = btns[0], last = btns[btns.length - 1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  }
+  /**
+   * @param {Array<{src: string, alt: string, cap: string}>} items
+   * @param {number} index
+   * @param {HTMLElement|null} opener
+   * @returns {void}
+   */
+  function ffLightboxOpen(items, index, opener){
+    if(!Array.isArray(items) || !items.length) return;
+    const box = document.getElementById('ffLightbox');
+    if(!box) return;
+    ffLightboxItems = items;
+    ffLightboxIndex = Math.min(Math.max(index || 0, 0), items.length - 1);
+    try{ ffLightboxOpener = opener || /** @type {HTMLElement|null} */ (document.activeElement); }catch(e){ ffLightboxOpener = null; }
+    box.hidden = false;
+    try{ box.classList.add('is-open'); }catch(e){}
+    ffLightboxShow();
+    try{ const c = /** @type {HTMLElement|null} */ (box.querySelector('.ff-lightbox__close')); if(c) c.focus(); }catch(e){}
+    document.addEventListener('keydown', ffLightboxKeys, true);
+  }
+  function ffLightboxClose(){
+    const box = document.getElementById('ffLightbox');
+    if(box){ box.hidden = true; try{ box.classList.remove('is-open'); }catch(e){} }
+    document.removeEventListener('keydown', ffLightboxKeys, true);
+    try{ if(ffLightboxOpener && ffLightboxOpener.focus) ffLightboxOpener.focus(); }catch(e){}
+    ffLightboxOpener = null;
+  }
+  /**
+   * Collect lightbox items from a strip in slot order (caption mirrors the cap).
+   * @param {HTMLElement} strip
+   * @returns {Array<{src: string, alt: string, cap: string}>}
+   */
+  function ffStripItems(strip){
+    return Array.from(strip.querySelectorAll('.ff-filmstrip__slot')).map((slot)=>{
+      const img = slot.querySelector('img');
+      const capBits = ['b', '.dims', '.rt-platforms'].map((sel)=>{
+        const n = slot.querySelector('.render-cap ' + sel);
+        return n ? (n.textContent || '').trim() : '';
+      }).filter(Boolean);
+      return {src: (img && img.getAttribute('src')) || '', alt: (img && img.getAttribute('alt')) || '', cap: capBits.join(' \u00B7 ')};
+    }).filter((it)=>!!it.src);
+  }
+  /**
+   * Wire arrows, dots, track keys, and thumb->lightbox for one strip. Idempotent.
+   * @param {HTMLElement} strip
+   * @returns {void}
+   */
+  function wireFilmstrip(strip){
+    if(!strip || strip.dataset.ffWired) return;
+    strip.dataset.ffWired = '1';
+    const track = /** @type {HTMLElement|null} */ (strip.querySelector('.ff-filmstrip__track'));
+    const prev = strip.querySelector('.ff-filmstrip__arrow--prev');
+    const next = strip.querySelector('.ff-filmstrip__arrow--next');
+    const slotsOf = ()=>Array.from(strip.querySelectorAll('.ff-filmstrip__slot'));
+    const dotsOf = ()=>Array.from(strip.querySelectorAll('.ff-filmstrip__dot'));
+    /**
+     * @param {number} i
+     * @returns {void}
+     */
+    const markDot = (i)=>{
+      dotsOf().forEach((d, j)=>{ d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+    };
+    /**
+     * @param {number} i
+     * @returns {void}
+     */
+    const scrollToSlot = (i)=>{
+      const s = /** @type {HTMLElement|null} */ (slotsOf()[i] || null);
+      if(!s || !track) return;
+      markDot(i);
+      try{
+        track.scrollTo({left: s.offsetLeft - track.offsetLeft - 8, behavior: ffReducedMotion() ? 'auto' : 'smooth'});
+      }catch(e){ try{ track.scrollLeft = s.offsetLeft - track.offsetLeft - 8; }catch(_){} }
+    };
+    /**
+     * @param {number} dir
+     * @returns {void}
+     */
+    const stepBy = (dir)=>{
+      const first = /** @type {HTMLElement|null} */ (slotsOf()[0] || null);
+      const w = first ? (first.offsetWidth + 10) : 200;
+      if(!track) return;
+      try{ track.scrollBy({left: dir * w, behavior: ffReducedMotion() ? 'auto' : 'smooth'}); }
+      catch(e){ try{ track.scrollLeft += dir * w; }catch(_){} }
+    };
+    if(prev) prev.addEventListener('click', ()=>stepBy(-1));
+    if(next) next.addEventListener('click', ()=>stepBy(1));
+    dotsOf().forEach((d, i)=>{ d.addEventListener('click', ()=>scrollToSlot(i)); });
+    if(track){
+      // keep overflow-x:auto keyboard operable: arrows move a slot, Home/End jump.
+      track.addEventListener('keydown', (/** @param {KeyboardEvent} e */ e)=>{
+        if(e.key === 'ArrowLeft'){ e.preventDefault(); stepBy(-1); }
+        else if(e.key === 'ArrowRight'){ e.preventDefault(); stepBy(1); }
+        else if(e.key === 'Home'){ e.preventDefault(); scrollToSlot(0); }
+        else if(e.key === 'End'){ e.preventDefault(); scrollToSlot(slotsOf().length - 1); }
+      });
+      // dots follow free scroll (nearest slot wins).
+      let ticking = false;
+      track.addEventListener('scroll', ()=>{
+        if(ticking) return;
+        ticking = true;
+        try{
+          requestAnimationFrame(()=>{
+            ticking = false;
+            try{
+              const x = track.scrollLeft + 8;
+              const sl = slotsOf();
+              let best = 0;
+              sl.forEach((s, i)=>{
+                const se = /** @type {HTMLElement} */ (s);
+                if(se.offsetLeft - track.offsetLeft <= x + se.offsetWidth / 2) best = i;
+              });
+              markDot(best);
+            }catch(e){}
+          });
+        }catch(e){ ticking = false; }
+      }, {passive: true});
+    }
+    Array.from(strip.querySelectorAll('.ff-filmstrip__thumb')).forEach((thumb)=>{
+      thumb.addEventListener('click', ()=>{
+        const slot = thumb.closest('.ff-filmstrip__slot');
+        const idx = slot ? slotsOf().indexOf(slot) : 0;
+        ffLightboxOpen(ffStripItems(strip), Math.max(idx, 0), /** @type {HTMLElement} */ (thumb));
+      });
+    });
+    ffRefreshFrames(strip);
+  }
+  try{ window.KODIAK_wireFilmstrip = wireFilmstrip; }catch(e){}
+  try{ window.KODIAK_ffLightboxOpen = ffLightboxOpen; }catch(e){}
+  // Static lightbox controls (the #ffLightbox node lives outside #preview so
+  // re-renders never remove it — wire once here).
+  try{
+    document.getElementById('ffLightboxPrev')?.addEventListener('click', ()=>ffLightboxStep(-1));
+    document.getElementById('ffLightboxNext')?.addEventListener('click', ()=>ffLightboxStep(1));
+    document.getElementById('ffLightboxClose')?.addEventListener('click', ffLightboxClose);
+    document.getElementById('ffLightbox')?.addEventListener('click', (e)=>{
+      const t = /** @type {HTMLElement|null} */ (e.target);
+      if(t && t.id === 'ffLightbox') ffLightboxClose();
+    });
+  }catch(e){}
+  // Resting strip + sizes line glue to the live matrix on first paint.
+  try{ syncOutputSizes(); }catch(e){}
+  try{ ffRefreshFrames(document); }catch(e){}
+  try{ Array.from(document.querySelectorAll('.ff-filmstrip')).forEach((s)=>wireFilmstrip(/** @type {HTMLElement} */ (s))); }catch(e){}
 
   // Compose layers — independently-selectable, ALL OFF by default. Reads the creative-direction
   // checkbox cards into the {product_image, retailer, partner_logo, conservation_badge} contract the /generate backend
@@ -1139,26 +1373,47 @@ let skuList = [
         preview.innerHTML = '';
         // keep the platform explainer at the top of the preview even after a generate
         try{ renderPlatformMatrix(); }catch(e){}
-        const set = document.createElement('div');
-        set.className = 'render-set';
+        // Live results ride the same ff-filmstrip pattern as the resting hero:
+        // one horizontal track of true-ratio thumbnails (click opens the full-size
+        // lightbox) instead of the old vertically-stacked grid. render-set /
+        // render-tile / render-frame / render-cap aliases are kept so the extend
+        // swap, parallax, and TILE_ORDER contracts keep working.
+        const strip = document.createElement('div');
+        strip.className = 'ff-filmstrip';
+        strip.dataset.ffLive = '1';
+        const track = document.createElement('div');
+        track.className = 'ff-filmstrip__track render-set';
+        track.id = 'ffLiveTrack';
+        track.tabIndex = 0;
+        track.setAttribute('role', 'region');
+        track.setAttribute('aria-label', 'Generated campaign — ' + renders.length + ' export sizes');
         const themeBit = opts.themeLabel ? (', ' + opts.themeLabel + ' theme') : '';
         renders.forEach((r, i)=>{
           // backend slug validated to TileSize; unknown slugs keep their name and a derived class.
           const size = (typeof window.KODIAK_tileSizeFromString==='function') ? window.KODIAK_tileSizeFromString(r.ratio) : null;
           const meta = (size && RATIO_LABELS[size]) || {name:r.ratio, cls:'r-'+String(r.ratio||'').replace(/[^0-9x]/g,'')};
+          const ratioColon = r.ratio.replace('x',':');
           const tile = document.createElement('div');
-          tile.className = 'render-tile ' + meta.cls;
-          const frame = document.createElement('div');
-          frame.className = 'render-frame';
+          tile.className = 'ff-filmstrip__slot render-tile ' + meta.cls;
+          tile.dataset.ratio = size || String(r.ratio || '');
+          const thumb = document.createElement('button');
+          thumb.type = 'button';
+          thumb.className = 'ff-filmstrip__thumb';
+          thumb.setAttribute('aria-label', 'Open ' + ratioColon + ' ' + meta.name + ' preview');
+          const frame = document.createElement('span');
+          frame.className = 'ff-filmstrip__frame render-frame';
+          // true frame ratio from the delivered pixels; CSS per-ratio + matrix
+          // refresh cover the cases where w/h are missing.
+          try{ if(r.w && r.h) frame.style.aspectRatio = r.w + '/' + r.h; }catch(e){}
           const img = document.createElement('img');
           img.src = r.image_url;
-          img.alt = 'Kodiak Cakes campaign hero, ' + r.ratio.replace('x',':') + ' ' + meta.name + themeBit;
+          img.alt = 'Kodiak Cakes campaign hero, ' + ratioColon + ' ' + meta.name + themeBit;
           img.loading = i === 0 ? 'eager' : 'lazy';
           frame.appendChild(img);
-          tile.appendChild(frame);
+          thumb.appendChild(frame);
+          tile.appendChild(thumb);
           const cap = document.createElement('div');
-          cap.className = 'render-cap';
-          const ratioColon = r.ratio.replace('x',':');
+          cap.className = 'render-cap ff-filmstrip__cap';
           // clean caption: "1:1 Feed · 1080×1080" + the platforms this ratio serves (no engineering noise)
           const plats = platformsForRatio(r.ratio);
           const platLine = plats.length ? '<span class="rt-platforms">' + escapeHtml(plats.join(' \u00B7 ')) + '</span>' : '';
@@ -1181,10 +1436,51 @@ let skuList = [
           }catch(e){}
           cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b>' +
             '<span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>' + platLine + locCap + engMark;
+          // per-ratio download survives the filmstrip move (same action as the resting strip)
+          const dl = document.createElement('a');
+          dl.className = 'ff-filmstrip__dl';
+          dl.href = r.image_url;
+          dl.textContent = 'Download';
+          try{ dl.download = 'Kodiak-Cakes-' + String(r.ratio || 'render').replace(/[^0-9a-z]/gi, '') + '-' + (r.w || '') + 'x' + (r.h || '') + '.png'; }catch(e){}
+          cap.appendChild(dl);
           tile.appendChild(cap);
-          set.appendChild(tile);
+          track.appendChild(tile);
         });
-        preview.appendChild(set);
+        /**
+         * @param {string} dir
+         * @returns {HTMLButtonElement}
+         */
+        const mkArrow = (dir)=>{
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'ff-filmstrip__arrow ff-filmstrip__arrow--' + dir;
+          b.setAttribute('aria-label', dir === 'prev' ? 'Scroll sizes backward' : 'Scroll sizes forward');
+          b.setAttribute('aria-controls', 'ffLiveTrack');
+          b.textContent = dir === 'prev' ? '\u2039' : '\u203A';
+          return b;
+        };
+        strip.appendChild(mkArrow('prev'));
+        strip.appendChild(track);
+        strip.appendChild(mkArrow('next'));
+        const dots = document.createElement('div');
+        dots.className = 'ff-filmstrip__dots';
+        dots.setAttribute('role', 'group');
+        dots.setAttribute('aria-label', 'Choose size');
+        renders.forEach((r, i)=>{
+          const size = (typeof window.KODIAK_tileSizeFromString==='function') ? window.KODIAK_tileSizeFromString(r.ratio) : null;
+          const meta = (size && RATIO_LABELS[size]) || {name:r.ratio};
+          const d = document.createElement('button');
+          d.type = 'button';
+          d.className = 'ff-filmstrip__dot';
+          d.setAttribute('aria-label', 'Show ' + r.ratio.replace('x',':') + ' ' + meta.name);
+          d.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+          dots.appendChild(d);
+        });
+        strip.appendChild(dots);
+        preview.appendChild(strip);
+        // true frame ratios + arrows/dots/lightbox wiring for the fresh strip
+        try{ if(typeof ffRefreshFrames === 'function') ffRefreshFrames(strip); }catch(e){}
+        try{ const w = (typeof wireFilmstrip === 'function') ? wireFilmstrip : window.KODIAK_wireFilmstrip; if(typeof w === 'function') w(strip); }catch(e){}
         openPreviewCard();
         // hero download targets the 1x1 (primary) render
         const primary = renders.find(r=>r.ratio==='1x1') || renders[0];

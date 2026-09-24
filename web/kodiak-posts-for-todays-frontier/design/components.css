@@ -762,15 +762,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-brainstorm>.ff-products{margin-top:var(--spacing-md);padding-top:var(--spacing-md);border-top:1px dashed var(--colors-border-default)}
 
 /* item 7 - product-picker field-as-shell: 3-slot horizontal image carousel below the search line.
-   reuses the .ff-products-search bordered look as the shell edge; horizontal scroll + scroll-snap,
-   content-visibility:auto for off-screen slot perf. Random 3 stays inline on the search row (item 7c). */
-.ff-product-carousel{display:flex;gap:var(--spacing-sm);overflow-x:auto;scroll-snap-type:x proximity;
+   Kraft board shell: flat top-light token wash + whisper grain (the --textures-kraft-grain
+   multiply-overlay precedent); 6px inner-control slots (--radii-inner); glyph empty-state;
+   parchment fill retired. horizontal scroll + scroll-snap, content-visibility:auto for
+   off-screen slot perf. Random 3 stays inline on the search row (item 7c). */
+.ff-product-carousel{position:relative;isolation:isolate;display:flex;gap:var(--spacing-sm);overflow-x:auto;scroll-snap-type:x proximity;
   padding:var(--spacing-xs);border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
-  background:var(--colors-brand-box-parchment,#F5EAD3);content-visibility:auto;contain-intrinsic-size:auto 96px;-webkit-overflow-scrolling:touch}
-.ff-carousel-slot{flex:0 0 33%;min-width:96px;aspect-ratio:1/1;scroll-snap-align:start;
-  border:1px dashed var(--colors-border-default);border-radius:var(--radii-sm);background:var(--colors-neutral-100);
+  background:var(--gradients-kraft\.surface);content-visibility:auto;contain-intrinsic-size:auto 96px;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;-ms-overflow-style:none}
+.ff-product-carousel::-webkit-scrollbar{display:none}
+.ff-product-carousel:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+.ff-product-carousel::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background-image:var(--textures-kraft-grain);mix-blend-mode:multiply;opacity:.5}
+.ff-carousel-slot{flex:0 0 33%;min-width:96px;aspect-ratio:1/1;scroll-snap-align:start;position:relative;
+  border:1px solid var(--colors-border-default);border-radius:var(--radii-inner,6px);background:var(--gradients-kraft\.surface-hover);
   display:flex;align-items:center;justify-content:center;overflow:hidden}
 .ff-carousel-slot>img{width:100%;height:100%;object-fit:cover;display:block}
+/* glyph empty-state — an unfilled slot reads as an intentional drop target, not a broken image */
+.ff-carousel-slot:empty::after{content:"+";font:700 20px/1 "museo-sans",sans-serif;color:var(--colors-neutral-400)}
 /* Campaign-asset carousel keeps its own horizontal scroll: slot minimums plus
    nowrap pushed pixels past the shell with overflow visible, so narrow
    viewports clipped images with no way to reach them. overflow-x auto restores
@@ -1939,3 +1948,105 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
       tracking so the title holds the row against the step pills. ellipsis and
       the 60px bar are untouched. */
 .kodiak-headline-plate h1{text-transform:uppercase;letter-spacing:.06em}
+
+/* === ff-filmstrip — the single shared horizontal pattern (do not rename) ===
+   Track: .ff-filmstrip > .ff-filmstrip__track > .ff-filmstrip__slot; arrows
+   .ff-filmstrip__arrow--prev/.ff-filmstrip__arrow--next; dots .ff-filmstrip__dots;
+   lightbox #ffLightbox with .ff-lightbox__img/.ff-lightbox__prev/.ff-lightbox__next/
+   .ff-lightbox__close/.ff-lightbox__cap. Tokens only (var(--...)); Kraft grain rides
+   the existing --textures-kraft-grain multiply-overlay precedent. The track keeps
+   overflow-x:auto (touch, wheel, keyboard work with zero JS) while the native
+   scrollbar stays hidden; show/hide for the lightbox is the hidden attribute
+   (JS toggles .is-open alongside it). prefers-reduced-motion guarded. */
+.ff-filmstrip{position:relative;isolation:isolate;--ff-thumb-h:clamp(96px,16vw,148px);
+  display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-sm,8px);margin-top:var(--spacing-sm,8px)}
+.ff-filmstrip__track{display:flex;gap:var(--spacing-sm);flex:1 1 auto;min-width:0;position:relative;
+  overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;-ms-overflow-style:none;
+  padding:var(--spacing-xs) clamp(30px,6vw,44px);margin:0;border:1px solid var(--colors-border-default);
+  border-radius:var(--radii-md);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm)}
+.ff-filmstrip__track::-webkit-scrollbar{display:none}
+.ff-filmstrip__track:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+.ff-filmstrip__slot{flex:0 0 auto;display:flex;flex-direction:column;scroll-snap-align:start;position:relative;
+  max-width:min(78vw,300px);min-width:0}
+/* glyph empty-state, same voice as the carousel slots */
+.ff-filmstrip__slot:empty::after{content:"+";font:700 20px/1 "museo-sans",sans-serif;color:var(--colors-neutral-400)}
+.ff-filmstrip__thumb{background:none;border:none;padding:0;cursor:pointer;border-radius:var(--radii-sm);align-self:center;max-width:100%}
+.ff-filmstrip__thumb:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+.ff-filmstrip__frame{position:relative;display:block;height:var(--ff-thumb-h);overflow:hidden;
+  background:var(--chocolate);border-radius:var(--radii-sm)}
+/* beat the legacy .render-tile .render-frame{width:100%} grid rule so the
+   aspect-ratio (not the slot width) drives the thumbnail frame */
+.ff-filmstrip__slot .ff-filmstrip__frame.render-frame{width:auto}
+.ff-filmstrip__slot[data-ratio="1x1"] .ff-filmstrip__frame{aspect-ratio:1/1}
+.ff-filmstrip__slot[data-ratio="4x5"] .ff-filmstrip__frame{aspect-ratio:4/5}
+.ff-filmstrip__slot[data-ratio="2x3"] .ff-filmstrip__frame{aspect-ratio:2/3}
+.ff-filmstrip__slot[data-ratio="9x16"] .ff-filmstrip__frame{aspect-ratio:9/16}
+.ff-filmstrip__slot[data-ratio="16x9"] .ff-filmstrip__frame{aspect-ratio:16/9}
+.ff-filmstrip__slot[data-ratio="blog"] .ff-filmstrip__frame{aspect-ratio:1200/630}
+.ff-filmstrip__frame img{width:100%;height:100%;object-fit:cover;display:block}
+.ff-filmstrip__frame::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  mix-blend-mode:multiply;background-image:var(--textures-kraft-grain)}
+.ff-filmstrip__cap{min-width:0}
+.ff-filmstrip__dl{display:inline-block;margin-top:var(--spacing-xs);color:var(--colors-brand-frontier-green);
+  font:700 11px/1.4 "museo-sans",system-ui,sans-serif;text-decoration:underline;text-underline-offset:2px}
+.ff-filmstrip__dl:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+/* 22px dark-pill chevron-badge arrows: bear-brown pill, parchment glyph, 22px hit target */
+.ff-filmstrip__arrow{position:absolute;top:calc(var(--ff-thumb-h)/2 + var(--spacing-xs));transform:translateY(-50%);
+  z-index:2;min-width:22px;min-height:22px;display:inline-flex;align-items:center;justify-content:center;
+  padding:var(--spacing-xs) var(--spacing-sm);border:1px solid var(--chocolate);border-radius:var(--radii-pill);
+  background:var(--chocolate);color:var(--parchment);font-size:22px;line-height:1;cursor:pointer;
+  box-shadow:var(--shadows-sm)}
+.ff-filmstrip__arrow:hover{filter:brightness(1.15)}
+.ff-filmstrip__arrow:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+.ff-filmstrip__arrow--prev{left:var(--spacing-xs)}
+.ff-filmstrip__arrow--next{right:var(--spacing-xs)}
+.ff-filmstrip__dots{flex:1 1 100%;display:flex;gap:var(--spacing-xs);justify-content:center;align-items:center;margin:var(--spacing-xs) 0 0;padding:0;list-style:none}
+.ff-filmstrip__dot{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;
+  background:none;border:none;padding:0;cursor:pointer;border-radius:var(--radii-pill)}
+.ff-filmstrip__dot::before{content:"";width:8px;height:8px;border-radius:var(--radii-pill);
+  border:1px solid var(--colors-neutral-500);background:transparent}
+.ff-filmstrip__dot[aria-current="true"]::before{background:var(--colors-brand-frontier-green);
+  border-color:var(--colors-brand-frontier-green)}
+.ff-filmstrip__dot:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+/* dependency-free lightbox — buttons only, Kraft grain over a bear-brown veil */
+#ffLightbox{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;
+  padding:var(--spacing-md);background-color:color-mix(in srgb,var(--colors-brand-bear-brown) 88%,transparent)}
+#ffLightbox[hidden]{display:none!important}
+#ffLightbox::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background-image:var(--textures-kraft-grain)}
+.ff-lightbox__frame{position:relative;max-width:min(92vw,1024px);max-height:92vh;overflow:auto;
+  background:var(--parchment);border:1px solid var(--stone);border-radius:var(--radii-md);
+  box-shadow:var(--shadows-bear);padding:var(--spacing-sm);text-align:center}
+.ff-lightbox__img{max-width:100%;max-height:68vh;width:auto;height:auto;display:block;margin:0 auto;
+  border-radius:var(--radii-sm);background:var(--chocolate)}
+.ff-lightbox__cap{margin:var(--spacing-xs) 0;color:var(--chocolate);
+  font:500 12px/1.5 "museo-sans",system-ui,sans-serif}
+.ff-lightbox__controls{display:flex;gap:var(--spacing-sm);justify-content:center;margin-top:var(--spacing-xs)}
+.ff-lightbox__prev,.ff-lightbox__next,.ff-lightbox__close{min-width:22px;min-height:22px;
+  display:inline-flex;align-items:center;justify-content:center;padding:var(--spacing-xs) var(--spacing-sm);
+  border:1px solid var(--chocolate);border-radius:var(--radii-pill);background:var(--chocolate);
+  color:var(--parchment);font-size:22px;line-height:1;cursor:pointer}
+.ff-lightbox__prev:hover,.ff-lightbox__next:hover,.ff-lightbox__close:hover{filter:brightness(1.15)}
+.ff-lightbox__prev:focus-visible,.ff-lightbox__next:focus-visible,.ff-lightbox__close:focus-visible{
+  outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+.ff-lightbox__prev:disabled,.ff-lightbox__next:disabled{opacity:.45;cursor:default}
+@media(prefers-reduced-motion:reduce){
+  .ff-filmstrip__track{scroll-behavior:auto;scroll-snap-type:none}
+  .ff-filmstrip__arrow,.ff-lightbox__prev,.ff-lightbox__next,.ff-lightbox__close{transition:none}}
+
+/* === cardboard logo layers — two procedural board sheets behind the badge ===
+   Procedural feTurbulence data-URI texture (no new assets), same page-CSS data-URI
+   precedent as --kraft/--wood. ::before offsets top -16px/left -4px (z-index -1);
+   ::after offsets left -8px + rotate(-3deg) (z-index -2). Parent isolation keeps the
+   negative layers above the header background but below the logo images in every
+   frame: absolute desktop (z-index:60 stacking context), sticky shrink (pseudos derive
+   from the parent border box, so they follow the height .25s transition automatically),
+   and in-flow mobile (base position:relative + isolation, no z-index needed). */
+.kodiak-header__logos{isolation:isolate}
+.kodiak-header__logos::before,.kodiak-header__logos::after{content:"";position:absolute;inset:0;pointer-events:none;
+  border:1px solid var(--colors-border-strong);border-radius:var(--radii-sm);
+  background-repeat:repeat;box-shadow:var(--shadows-sm);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E")}
+.kodiak-header__logos::before{top:-16px;left:-4px;background-color:var(--colors-brand-box-parchment);z-index:-1}
+.kodiak-header__logos::after{left:-8px;background-color:var(--colors-brand-badge-parchment);transform:rotate(-3deg);z-index:-2}

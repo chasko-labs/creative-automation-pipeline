@@ -495,6 +495,7 @@
     --radii-none: 0px;
     --radii-sm: 4px;
     --radii-md: 8px;
+    --radii-inner: 6px;
     --radii-lg: 16px;
     --radii-xl: 24px;
     --radii-2xl: 32px;
