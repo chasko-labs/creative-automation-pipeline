@@ -701,6 +701,11 @@
         "$value": "8px",
         "$description": "Card"
       },
+      "inner": {
+        "$type": "dimension",
+        "$value": "6px",
+        "$description": "Inner control — slots and wells nested inside an md card"
+      },
       "lg": {
         "$type": "dimension",
         "$value": "16px",
