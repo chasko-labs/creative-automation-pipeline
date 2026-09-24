@@ -1793,6 +1793,12 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   .kodiak-headline-plate h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(27px,3vw,36px)}
   /* scrolled: badge frame shrinks into the bar; the alt-logo crossfade (.is-sticky) is untouched */
   .kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:52px}
+  /* inset bar would drag the absolute badge over the timeline's first step:
+     hang it off the bar's left edge by the available inset (capped so the
+     badge clears step one), floored at the original 1.5rem. Sticky keeps
+     the original anchor — the shrunken badge belongs inside the bar. */
+  .kodiak-header__logos{left:calc(1.5rem - clamp(0px, (100vw - 1064px)/2 - 12px, 124px))}
+  .kodiak-header.is-sticky .kodiak-header__logos{left:1.5rem}
   /* 2. slim timeline: single row, tighter reset */
   .ff-timeline{padding:6px 14px 4px;gap:6px 12px}
   .ff-reset{padding:5px 12px 5px 8px}
