@@ -296,6 +296,8 @@ interface Window {
    * keeps its fallback dims/copy.
    */
   KODIAK_showRenderSet?: (renders: RenderItem[], opts?: ShowOpts) => void;
+  /** Upgrades tall/wide pad tiles to live outpaints as extends land; pads keep their honest mark on failure. */
+  KODIAK_extendTallTiles?: (renders: RenderItem[], fields: unknown) => Promise<void>;
   /** Wires one ff-filmstrip (arrows, dots, track keys, thumb->lightbox). Idempotent. */
   KODIAK_wireFilmstrip?: (strip: HTMLElement) => void;
   /** Opens the dependency-free lightbox over a strip's items at an index. */

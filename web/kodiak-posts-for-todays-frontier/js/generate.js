@@ -1320,7 +1320,7 @@ let skuList = [
         preview.appendChild(tile);
         // source badge above the preview — provenance-driven, fallbacks flagged (#173)
         let badge = document.getElementById('genSourceBadge');
-        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
+        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge gen-badge'; preview.parentNode?.insertBefore(badge, preview); }
         const rb = rungBadge(source, opts.provenance);
         paintRungBadge(badge, rb);
         if(opts.themeLabel || opts.theme) badge.textContent += ' · theme: ' + (opts.themeLabel || opts.theme);
@@ -1356,7 +1356,8 @@ let skuList = [
        */
       const paintRungBadge = (badge, rb)=>{
         badge.textContent = rb.text;
-        badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:' + (rb.fallback ? '#B51E14' : '#1A3C34');
+        badge.classList.remove('is-live', 'is-fallback');
+        badge.classList.add(rb.fallback ? 'is-fallback' : 'is-live');
       };
       /** @param {unknown} s @returns {string} */
       const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, (c)=>ESCAPES[c] || c);
@@ -1494,7 +1495,7 @@ let skuList = [
         }catch(e){ try{ window.__lastPack = null; }catch(_){} }
         // source badge above the preview — provenance-driven, fallbacks flagged (#173)
         let badge = document.getElementById('genSourceBadge');
-        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
+        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge gen-badge'; preview.parentNode?.insertBefore(badge, preview); }
         const rb2 = rungBadge(opts.source, opts.provenance);
         paintRungBadge(badge, rb2);
         if(opts.themeLabel) badge.textContent += ' · theme: ' + opts.themeLabel;
@@ -1515,6 +1516,11 @@ let skuList = [
           if(!hero) return;
           const targets = extendTargets(renders);
           if(!targets.length) return;
+          /**
+           * @param {string} ratio
+           * @param {boolean} on
+           * @returns {void}
+           */
           const markComposing = (ratio, on)=>{
             try{
               document.querySelectorAll('#preview .render-tile').forEach(t=>{
@@ -1531,6 +1537,12 @@ let skuList = [
           // server-side pad says cover-pad (distinct crop), and a failed extend
           // (the server-side pad stays in place) says cover-pad too — a pad is
           // never left bare. Supersedes the initial rt-eng mark, never dupes it.
+          /**
+           * @param {string} ratio
+           * @param {string} text
+           * @param {string} cls
+           * @returns {void}
+           */
           const setTileMark = (ratio, text, cls)=>{
             try{
               document.querySelectorAll('#preview .render-tile').forEach(t=>{
@@ -1550,6 +1562,12 @@ let skuList = [
               });
             }catch(e){}
           };
+          /**
+           * @param {string} ratio
+           * @param {string} url
+           * @param {unknown} engine
+           * @returns {void}
+           */
           const swapTile = (ratio, url, engine)=>{
             try{
               document.querySelectorAll('#preview .render-tile').forEach(t=>{
@@ -1727,7 +1745,9 @@ let skuList = [
       // leak-teardown: timer holders + controller are declared BEFORE the try so the finally can always
       // clear them; the request-shape helpers are defined before the try because the catch path calls
       // drawNetworkLossNotice (a const defined inside the try would not be visible to the catch).
-      let elapsed = 0, tick = null, stageT1 = null, stageT2 = null, timeoutId = null;
+      let elapsed = 0, tick = null, timeoutId = null;
+      /** @type {Array<ReturnType<typeof setTimeout>>} */
+      const stageTimers = [];
       const controller = new AbortController();
       // Multi-product (2+ selected, no theme) shows a skeleton tile per pending product; otherwise one hero skeleton.
       const willFanOut = !activeTheme && hadExplicitSelection && products.length > 1;
@@ -1841,19 +1861,33 @@ let skuList = [
       try{ if(typeof window.KODIAK_resetCampaign==='function') window.KODIAK_resetCampaign(); }catch(e){}
       // #281 — copy paints before the image request, from the real request inputs.
       try{ paintCopyPanel({phase:'driving', brief, theme:activeTheme||null, themeLabel:themeLabel||null, market:selectedLoc.market, place:selectedLoc.place||selectedLoc.market, products}); }catch(e){}
+      // stale fallback retry never survives into a fresh run (either path)
+      try{ document.getElementById('genRetry')?.remove(); }catch(e){}
       if(preview){
         if(willFanOut){
           preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div class="gen-pulse"><span class="gen-pulse-label">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — up to ~90s</div></div></div>`).join('');
         } else {
           preview.innerHTML = `<div class="tile" id="genSkeleton"><div class="gen-pulse"><span class="gen-pulse-label gen-pulse-label--lg">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — up to ~90s</div></div></div>`;
         }
-        if(!document.getElementById('genPulseKeyframes')){ const st=document.createElement('style'); st.id='genPulseKeyframes'; st.textContent='@keyframes genpulse{0%{background-position:200% 0}100%{background-position:-200% 0}}'; document.head.appendChild(st); }
         tick = setInterval(()=>{ elapsed++; document.querySelectorAll('[id^="genElapsed"]').forEach(e=>{ e.textContent = elapsed+'s elapsed — up to ~90s'; }); }, 1000);
       }
+      // Rolling behind-the-scenes statuses: each line names a REAL phase of the
+      // preview pipeline in typical order (brief in, Nova Micro copy review
+      // runs concurrently first, Nova Pro hero composition is the bulk of the
+      // wall, ratio fan-out + extends land last). Timed narration, not live
+      // mapping — the single POST exposes no per-stage callbacks.
+      const composeStages = [
+        {at: 0, text: 'Sending your brief + market to the campaign backend…'},
+        {at: 8000, text: 'Nova Micro reviewing campaign copy…'},
+        {at: 15000, text: 'Nova Pro composing the hero…'},
+        {at: 30000, text: 'Still composing — Nova Pro is rendering your hero…'},
+        {at: 60000, text: 'Almost there — finishing the composition…'}
+      ];
       if(status){
-        status.textContent = 'Composing your campaign with Nova Pro… (up to ~90s)';
-        stageT1 = setTimeout(()=>{ if(status) status.textContent = 'Still composing — Nova Pro is rendering your hero…'; }, 30000);
-        stageT2 = setTimeout(()=>{ if(status) status.textContent = 'Almost there — finishing the composition…'; }, 60000);
+        composeStages.forEach((s)=>{
+          if(s.at === 0){ status.textContent = s.text + ' (up to ~90s)'; return; }
+          stageTimers.push(setTimeout(()=>{ if(status) status.textContent = s.text; }, s.at));
+        });
       }
       timeoutId = setTimeout(()=>controller.abort(), 100000); // Nova Pro composition is slow (~90s); allow headroom
         try{ window.__lastSidecar = null; window.__lastPlatformCopy = {}; }catch(e){}
@@ -1895,6 +1929,24 @@ let skuList = [
           }catch(e){}
           // #281 — upgrade the driving panel to the copy actually used + divergence flags.
           try{ paintCopyPanel({phase:'used', json}); }catch(e){}
+          // Honest fallback gets a retry affordance: the wall fires on cold
+          // models, so a second Create often lands real pixels. Idempotent —
+          // a passing run removes any stale button.
+          try{
+            let retry = document.getElementById('genRetry');
+            if(retry) retry.remove();
+            if(/^brand-floor/i.test(String((json && json.source) || ''))){
+              if(status) status.textContent = 'Render miss (wall timeout) — fallback pixels shown, not the campaign.';
+              retry = document.createElement('button');
+              retry.type = 'button';
+              retry.id = 'genRetry';
+              retry.className = 'ff-retry';
+              retry.textContent = 'Try again — models are warm now';
+              retry.addEventListener('click', ()=>{ const g = document.getElementById('generateCampaign'); if(g) g.click(); });
+              const anchor = document.getElementById('previewDownloadRow') || document.getElementById('preview');
+              if(anchor && anchor.parentNode) anchor.parentNode.insertBefore(retry, anchor.nextSibling);
+            }
+          }catch(e){}
           // auto-open the collapsed Preview card so the user sees the freshly-composed output
           openPreviewCard();
         } else {
@@ -1947,8 +1999,7 @@ let skuList = [
           : 'Could not reach the server — offline preview shown; reconnect and try again';
       }finally{
         if(timeoutId) clearTimeout(timeoutId);
-        if(stageT1) clearTimeout(stageT1);
-        if(stageT2) clearTimeout(stageT2);
+        stageTimers.forEach((t)=>{ try{ clearTimeout(t); }catch(e){} });
         if(tick) clearInterval(tick);
         const sk=document.getElementById('genSkeleton'); if(sk) sk.remove();
         document.querySelectorAll('.genSkeletonTile').forEach(t=>t.remove());

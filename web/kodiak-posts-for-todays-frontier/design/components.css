@@ -610,14 +610,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* D. seasonal menu — token-styled native <select> shaped like the market button */
 .ff-season{flex:0 0 auto;display:inline-flex}
 .ff-season select{height:100%;min-height:40px;padding:0 12px;border:1px solid var(--colors-border-default);border-radius:var(--radii-lg);
-  background:var(--colors-neutral-50);color:var(--colors-foreground-default);
+  background:var(--colors-brand-badge-parchment);color:var(--colors-foreground-default);
   font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.04em;cursor:pointer;box-shadow:var(--shadows-sm)}
 .ff-season select:hover{background:var(--colors-neutral-100)}
 
 /* D2. "use my location" — discrete secondary control beside the market button (token-styled, not competing) */
 .ff-geo{flex:0 0 auto;display:inline-flex;align-items:center;gap:var(--spacing-xs);height:100%;min-height:40px;padding:0 12px;
   border:1px solid var(--colors-border-default);border-radius:var(--radii-lg);
-  background:var(--colors-neutral-50);color:var(--colors-foreground-default);
+  background:var(--colors-brand-badge-parchment);color:var(--colors-foreground-default);
   font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;box-shadow:var(--shadows-sm)}
 .ff-geo:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong)}
 .ff-geo .ff-geo-pin{width:14px;height:14px;display:inline-block;flex:0 0 auto;fill:var(--colors-brand-signal-red)}
@@ -658,7 +658,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* D4. add-your-own-asset affordance beside the product chooser — frontend staging only */
 .ff-addasset{margin-top:var(--spacing-sm);padding-top:var(--spacing-sm);border-top:1px dashed var(--colors-border-default)}
 .ff-addasset-label{display:inline-flex;align-items:center;gap:var(--spacing-xs);padding:8px 12px;border:1px solid var(--colors-border-default);border-radius:var(--radii-sm);
-  background:var(--colors-neutral-50);color:var(--colors-foreground-default);
+  background:var(--colors-brand-badge-parchment);color:var(--colors-foreground-default);
   font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
 .ff-addasset-label:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong)}
 /* visually-hidden file input — the styled label is the operable surface, input stays keyboard-focusable */
@@ -798,7 +798,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-publish-targets .ff-publish-label{flex:0 0 auto;font:700 clamp(8px,1.1vw,10px)/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-foreground-muted);white-space:nowrap}
 .ff-publish-targets .ff-publish-pill{flex:0 1 auto;display:inline-flex;align-items:center;justify-content:center;min-width:0;padding:var(--spacing-xs) clamp(5px,1vw,var(--spacing-sm));
   border:1px solid var(--colors-border-default);border-radius:var(--radii-pill);
-  background:var(--colors-neutral-50);color:var(--colors-foreground-default);
+  background:var(--colors-brand-box-parchment);color:var(--colors-foreground-default);
   font:700 clamp(9px,1.15vw,11px)/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
 .ff-publish-targets .ff-publish-pill:hover{background:var(--colors-neutral-100);border-color:var(--colors-border-strong);color:var(--colors-foreground-default)}
 .ff-publish-targets .ff-publish-pill:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
@@ -1548,7 +1548,19 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .flag-err{color:#B51E14}
 .flag-pine{color:#1A3C34}
 .gen-pulse{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;background:linear-gradient(90deg,var(--colors-neutral-200,#E8DDD3) 25%,var(--colors-neutral-100,#F4EDE6) 50%,var(--colors-neutral-200,#E8DDD3) 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite}
+@keyframes genpulse{0%{background-position:200% 0}100%{background-position:-200% 0}}
 @media(prefers-reduced-motion:reduce){.gen-pulse{animation:none}}
+/* generate source badge — token classes so paintRungBadge carries zero inline style */
+.gen-badge{display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:var(--radii-inner);font-size:11px}
+.gen-badge.is-live{background:var(--colors-brand-frontier-green);color:var(--parchment)}
+.gen-badge.is-fallback{background:var(--colors-brand-signal-red);color:var(--parchment)}
+/* fallback retry — secondary treatment beside the badge, same voice as counsel Apply */
+.ff-retry{display:inline-flex;align-items:center;gap:var(--spacing-xs);margin:var(--spacing-sm) 0 0;padding:8px 14px;
+  border:2px solid var(--colors-brand-frontier-green);border-radius:var(--radii-md);
+  background:var(--colors-brand-box-parchment);color:var(--colors-brand-frontier-green);
+  font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
+.ff-retry:hover{background:var(--colors-brand-frontier-green);color:var(--colors-neutral-50)}
+.ff-retry:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 .gen-pulse-label{font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70}
 .gen-pulse-label--lg{font-size:13px;letter-spacing:.08em}
 #genSkeleton{grid-column:1/-1;max-width:640px;margin:0 auto}
@@ -1959,11 +1971,13 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    scrollbar stays hidden; show/hide for the lightbox is the hidden attribute
    (JS toggles .is-open alongside it). prefers-reduced-motion guarded. */
 .ff-filmstrip{position:relative;isolation:isolate;--ff-thumb-h:clamp(96px,16vw,148px);
-  display:flex;flex-wrap:wrap;align-items:center;gap:var(--spacing-sm,8px);margin-top:var(--spacing-sm,8px)}
-.ff-filmstrip__track{display:flex;gap:var(--spacing-sm);flex:1 1 auto;min-width:0;position:relative;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--spacing-sm,8px);margin-top:var(--spacing-sm,8px)}
+/* track owns row one full-bleed; prev/dots/next share a centered control row
+   below it (order pins the sequence regardless of DOM order) */
+.ff-filmstrip__track{display:flex;gap:var(--spacing-sm);flex:1 1 100%;min-width:0;position:relative;
   overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
   scrollbar-width:none;-ms-overflow-style:none;
-  padding:var(--spacing-xs) clamp(30px,6vw,44px);margin:0;border:1px solid var(--colors-border-default);
+  padding:var(--spacing-xs);margin:0;border:1px solid var(--colors-border-default);
   border-radius:var(--radii-md);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm)}
 .ff-filmstrip__track::-webkit-scrollbar{display:none}
 .ff-filmstrip__track:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
@@ -1991,17 +2005,18 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-filmstrip__dl{display:inline-block;margin-top:var(--spacing-xs);color:var(--colors-brand-frontier-green);
   font:700 11px/1.4 "museo-sans",system-ui,sans-serif;text-decoration:underline;text-underline-offset:2px}
 .ff-filmstrip__dl:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
-/* 22px dark-pill chevron-badge arrows: bear-brown pill, parchment glyph, 22px hit target */
-.ff-filmstrip__arrow{position:absolute;top:calc(var(--ff-thumb-h)/2 + var(--spacing-xs));transform:translateY(-50%);
+/* 22px dark-pill chevron-badge arrows: bear-brown pill, parchment glyph, 22px hit
+   target. Static flex items flanking the track — never overlaid on thumbnails. */
+.ff-filmstrip__arrow{position:static;transform:none;flex:0 0 auto;align-self:center;
   z-index:2;min-width:22px;min-height:22px;display:inline-flex;align-items:center;justify-content:center;
   padding:var(--spacing-xs) var(--spacing-sm);border:1px solid var(--chocolate);border-radius:var(--radii-pill);
   background:var(--chocolate);color:var(--parchment);font-size:22px;line-height:1;cursor:pointer;
   box-shadow:var(--shadows-sm)}
 .ff-filmstrip__arrow:hover{filter:brightness(1.15)}
 .ff-filmstrip__arrow:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
-.ff-filmstrip__arrow--prev{left:var(--spacing-xs)}
-.ff-filmstrip__arrow--next{right:var(--spacing-xs)}
-.ff-filmstrip__dots{flex:1 1 100%;display:flex;gap:var(--spacing-xs);justify-content:center;align-items:center;margin:var(--spacing-xs) 0 0;padding:0;list-style:none}
+.ff-filmstrip__dots{flex:0 0 auto;order:2;display:flex;gap:var(--spacing-xs);justify-content:center;align-items:center;margin:0;padding:0;list-style:none}
+.ff-filmstrip__arrow--prev{order:1}
+.ff-filmstrip__arrow--next{order:3}
 .ff-filmstrip__dot{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;
   background:none;border:none;padding:0;cursor:pointer;border-radius:var(--radii-pill)}
 .ff-filmstrip__dot::before{content:"";width:8px;height:8px;border-radius:var(--radii-pill);
@@ -2045,8 +2060,14 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    and in-flow mobile (base position:relative + isolation, no z-index needed). */
 .kodiak-header__logos{isolation:isolate}
 .kodiak-header__logos::before,.kodiak-header__logos::after{content:"";position:absolute;inset:0;pointer-events:none;
-  border:1px solid var(--colors-border-strong);border-radius:var(--radii-sm);
+  border:none;border-radius:var(--radii-sm);
   background-repeat:repeat;box-shadow:var(--shadows-sm);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E")}
-.kodiak-header__logos::before{top:-16px;left:-4px;background-color:var(--colors-brand-box-parchment);z-index:-1}
-.kodiak-header__logos::after{left:-8px;background-color:var(--colors-brand-badge-parchment);transform:rotate(-3deg);z-index:-2}
+  mix-blend-mode:multiply;opacity:.85;transition:opacity .25s ease;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E"),linear-gradient(180deg,transparent 0%,var(--colors-brand-box-parchment) 100%)}
+.kodiak-header__logos::before{top:-16px;left:-4px;z-index:-1}
+.kodiak-header__logos::after{left:-8px;transform:rotate(-3deg);z-index:-2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E"),linear-gradient(180deg,transparent 0%,var(--colors-brand-badge-parchment) 100%)}
+/* no cardboard on scroll — the sticky bar keeps the flat gradient only; the
+   board sheets fade with the same .25s curve as the badge shrink */
+.kodiak-header.is-sticky .kodiak-header__logos::before,.kodiak-header.is-sticky .kodiak-header__logos::after{opacity:0}
+@media(prefers-reduced-motion:reduce){.kodiak-header__logos::before,.kodiak-header__logos::after{transition:none}}

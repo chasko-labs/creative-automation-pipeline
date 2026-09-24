@@ -10,6 +10,7 @@ const web = (...parts) =>
 const css = readFileSync(web('design/components.css'), 'utf8');
 const html = readFileSync(web('index.html'), 'utf8');
 const gen = readFileSync(web('js/generate.js'), 'utf8');
+const dts = readFileSync(web('js/globals.d.ts'), 'utf8');
 
 // One horizontal language: the product carousel and Output Preview share the
 // ff-filmstrip pattern — hidden native scrollbar, scroll-snap, keyboard focus,
@@ -92,5 +93,109 @@ describe('ff-filmstrip shared pattern', () => {
   it('no gesture or carousel library sneaks in', () => {
     expect(gen.toLowerCase()).not.toMatch(/hammer|swiper|flickity|glide/);
     expect(html.toLowerCase()).not.toMatch(/swiper|flickity/);
+  });
+});
+
+// Logo blend + composing/timeout tokens: the cardboard board sheets blend with
+// the header (no opaque fill, no edge) and vanish on scroll; the composing
+// pulse keyframes and rung-badge colors live in components.css, never in JS.
+describe('kodiak logo blend + composing tokens', () => {
+  it('logo board sheets blend — no border, no flat fill, multiply wash', () => {
+    const rule =
+      css.match(/\.kodiak-header__logos::before,\.kodiak-header__logos::after\{[^}]*\}/)?.[0] || '';
+    expect(rule).not.toMatch(/border:1px solid/);
+    expect(rule).toMatch(/mix-blend-mode:multiply/);
+    expect(rule).toMatch(/opacity:\.85/);
+    expect(rule).toMatch(/linear-gradient\(180deg,transparent/);
+    expect(rule).not.toMatch(/background-color:/);
+  });
+
+  it('no cardboard on scroll — sticky fades the sheets, header stays sticky', () => {
+    expect(css).toMatch(
+      /\.kodiak-header\.is-sticky \.kodiak-header__logos::before,\.kodiak-header\.is-sticky \.kodiak-header__logos::after\{opacity:0\}/,
+    );
+    expect(css).toMatch(/header\.kodiak-header\{[^}]*position:sticky[^}]*top:0/);
+  });
+
+  it('composing pulse keyframes live in CSS, not a JS-injected style tag', () => {
+    expect(css).toMatch(
+      /@keyframes genpulse\{0%\{background-position:200% 0\}100%\{background-position:-200% 0\}\}/,
+    );
+    expect(gen).not.toMatch(/genPulseKeyframes/);
+  });
+
+  it('rung badge resolves through token classes, never inline hex', () => {
+    expect(css).toMatch(
+      /\.gen-badge\.is-live\{[^}]*var\(--colors-brand-frontier-green\)/,
+    );
+    expect(css).toMatch(
+      /\.gen-badge\.is-fallback\{[^}]*var\(--colors-brand-signal-red\)/,
+    );
+    expect(gen).toMatch(/badge\.className='badge gen-badge'/);
+    expect(gen).toMatch(/classList\.add\(rb\.fallback \? 'is-fallback' : 'is-live'\)/);
+    const paint =
+      gen.match(/const paintRungBadge = \(badge, rb\)=>\{[^}]*\}/)?.[0] || '';
+    expect(paint).not.toMatch(/#/);
+  });
+
+  it('composing helpers carry JSDoc types and the extend entry is declared', () => {
+    const params = gen.match(/@param \{string\} ratio/g) || [];
+    expect(params.length).toBeGreaterThanOrEqual(3);
+    expect(gen).toMatch(/@param \{boolean\} on/);
+    expect(gen).toMatch(/@param \{unknown\} engine/);
+    expect(dts).toMatch(/KODIAK_extendTallTiles\?:/);
+  });
+
+  it('composing and honest fallback marks keep their copy', () => {
+    expect(gen).toMatch(/· composing/);
+    expect(gen).toMatch(/· cover-pad/);
+    expect(gen).toMatch(/· composed/);
+  });
+});
+
+// Second pass: behind-the-scenes composing statuses, fallback retry, chips on
+// brand, complementing captions, arrows off the thumbnails.
+describe('frontier polish pass', () => {
+  it('composing roller names real pipeline phases and cleans up', () => {
+    expect(gen).toMatch(/Nova Micro reviewing campaign copy/);
+    expect(gen).toMatch(/Nova Pro composing the hero/);
+    expect(gen).toMatch(/Sending your brief \+ market/);
+    expect(gen).toMatch(/stageTimers\.forEach\(\(t\)=>\{ try\{ clearTimeout\(t\); \}catch\(e\)\{\} \}\)/);
+    expect(gen).not.toMatch(/stageT1 = setTimeout/);
+  });
+
+  it('wall-timeout fallback in preview gets a retry affordance', () => {
+    expect(gen).toMatch(/id = 'genRetry'/);
+    expect(gen).toMatch(/Try again — models are warm now/);
+    expect(gen).toMatch(/Render miss \(wall timeout\)/);
+    expect(css).toMatch(/\.ff-retry\{[^}]*var\(--colors-brand-frontier-green\)/);
+  });
+
+  it('filmstrip arrows are static flex items, never overlaid', () => {
+    const rule =
+      css.match(/\.ff-filmstrip__arrow\{[^}]*\}/)?.[0] || '';
+    expect(rule).toMatch(/position:static/);
+    expect(rule).not.toMatch(/position:absolute/);
+    expect(css).not.toMatch(/\.ff-filmstrip__arrow--prev\{left:/);
+  });
+
+  it('pills and control chips ride parchment, not near-white', () => {
+    const pill =
+      css.match(/\.ff-publish-targets \.ff-publish-pill\{[^}]*\}/)?.[0] || '';
+    expect(pill).toMatch(/var\(--colors-brand-box-parchment\)/);
+    expect(pill).not.toMatch(/neutral-50/);
+    expect(css).toMatch(
+      /\.ff-season select\{[^}]*var\(--colors-brand-badge-parchment\)/,
+    );
+  });
+
+  it('resting caps complement instead of repeating (live captions untouched)', () => {
+    const strip = html.slice(
+      html.indexOf('id="ffRestTrack"'),
+      html.indexOf('id="ffLightbox"'),
+    );
+    expect(strip).not.toMatch(/loc-line/);
+    expect(strip).toMatch(/rt-platforms/);
+    expect(gen).toMatch(/KODIAK_locCaption/);
   });
 });

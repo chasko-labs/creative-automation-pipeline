@@ -52,11 +52,13 @@ def test_restyle_cache_key_sensitive_to_seed() -> None:
 # --- fix 2: market + season reach the prompts ---------------------------
 
 def test_default_scene_prompt_names_market_and_season() -> None:
+    # Market reaches the prompt as human place + produce, never the raw code.
     prompt = generate_mod._default_scene_prompt(
         "Power Cakes", "wild mornings", "us", "families", None, None, None,
         "US-OH-CINCINNATI", "september",
     )
-    assert "US-OH-CINCINNATI" in prompt
+    assert "US-OH-CINCINNATI" not in prompt
+    assert "Cincinnati" in prompt
     assert "september" in prompt
 
 
@@ -67,7 +69,8 @@ def test_default_scene_prompt_never_duplicates_brief_suffix() -> None:
         "US-OH-CINCINNATI", "september",
     )
     assert prompt.lower().count("us-oh-cincinnati") == brief.lower().count("us-oh-cincinnati")
-    assert prompt.lower().count("september") == brief.lower().count("september")
+    assert "Cincinnati, Ohio" in prompt
+    assert prompt.lower().count("september") >= brief.lower().count("september")
 
 
 def test_default_scene_prompt_unchanged_without_locale() -> None:
@@ -77,7 +80,8 @@ def test_default_scene_prompt_unchanged_without_locale() -> None:
 
 
 def test_nova_scene_fallback_carries_locale(monkeypatch, tmp_path) -> None:
-    # boto3 None -> deterministic default, which must still name market/season.
+    # boto3 None -> deterministic default, which must still name market/season
+    # as human place + produce, never the raw code.
     monkeypatch.setattr(generate_mod, "boto3", None)
     seed = tmp_path / "seed.png"
     seed.write_bytes(b"fakepng")
@@ -85,7 +89,8 @@ def test_nova_scene_fallback_carries_locale(monkeypatch, tmp_path) -> None:
         seed, "P", "wild mornings", "us", "f", None, None, None,
         "US-OH-CINCINNATI", "september",
     )
-    assert "US-OH-CINCINNATI" in prompt
+    assert "US-OH-CINCINNATI" not in prompt
+    assert "Cincinnati" in prompt
     assert "september" in prompt
 
 
@@ -110,7 +115,8 @@ def test_nova_scene_postprocess_reattaches_locale(monkeypatch, tmp_path) -> None
         "US-OH-CINCINNATI", "october",
     )
     assert "Cozy fall kitchen." in prompt
-    assert "US-OH-CINCINNATI" in prompt
+    assert "US-OH-CINCINNATI" not in prompt
+    assert "Cincinnati" in prompt
     assert "october" in prompt
 
 
