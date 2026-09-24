@@ -152,3 +152,50 @@ describe('kodiak logo blend + composing tokens', () => {
     expect(gen).toMatch(/· composed/);
   });
 });
+
+// Second pass: behind-the-scenes composing statuses, fallback retry, chips on
+// brand, complementing captions, arrows off the thumbnails.
+describe('frontier polish pass', () => {
+  it('composing roller names real pipeline phases and cleans up', () => {
+    expect(gen).toMatch(/Nova Micro reviewing campaign copy/);
+    expect(gen).toMatch(/Nova Pro composing the hero/);
+    expect(gen).toMatch(/Sending your brief \+ market/);
+    expect(gen).toMatch(/stageTimers\.forEach\(\(t\)=>\{ try\{ clearTimeout\(t\); \}catch\(e\)\{\} \}\)/);
+    expect(gen).not.toMatch(/stageT1 = setTimeout/);
+  });
+
+  it('wall-timeout fallback in preview gets a retry affordance', () => {
+    expect(gen).toMatch(/id = 'genRetry'/);
+    expect(gen).toMatch(/Try again — models are warm now/);
+    expect(gen).toMatch(/Render miss \(wall timeout\)/);
+    expect(css).toMatch(/\.ff-retry\{[^}]*var\(--colors-brand-frontier-green\)/);
+  });
+
+  it('filmstrip arrows are static flex items, never overlaid', () => {
+    const rule =
+      css.match(/\.ff-filmstrip__arrow\{[^}]*\}/)?.[0] || '';
+    expect(rule).toMatch(/position:static/);
+    expect(rule).not.toMatch(/position:absolute/);
+    expect(css).not.toMatch(/\.ff-filmstrip__arrow--prev\{left:/);
+  });
+
+  it('pills and control chips ride parchment, not near-white', () => {
+    const pill =
+      css.match(/\.ff-publish-targets \.ff-publish-pill\{[^}]*\}/)?.[0] || '';
+    expect(pill).toMatch(/var\(--colors-brand-box-parchment\)/);
+    expect(pill).not.toMatch(/neutral-50/);
+    expect(css).toMatch(
+      /\.ff-season select\{[^}]*var\(--colors-brand-badge-parchment\)/,
+    );
+  });
+
+  it('resting caps complement instead of repeating (live captions untouched)', () => {
+    const strip = html.slice(
+      html.indexOf('id="ffRestTrack"'),
+      html.indexOf('id="ffLightbox"'),
+    );
+    expect(strip).not.toMatch(/loc-line/);
+    expect(strip).toMatch(/rt-platforms/);
+    expect(gen).toMatch(/KODIAK_locCaption/);
+  });
+});
