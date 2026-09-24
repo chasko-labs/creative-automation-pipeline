@@ -1320,7 +1320,7 @@ let skuList = [
         preview.appendChild(tile);
         // source badge above the preview — provenance-driven, fallbacks flagged (#173)
         let badge = document.getElementById('genSourceBadge');
-        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
+        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge gen-badge'; preview.parentNode?.insertBefore(badge, preview); }
         const rb = rungBadge(source, opts.provenance);
         paintRungBadge(badge, rb);
         if(opts.themeLabel || opts.theme) badge.textContent += ' · theme: ' + (opts.themeLabel || opts.theme);
@@ -1356,7 +1356,8 @@ let skuList = [
        */
       const paintRungBadge = (badge, rb)=>{
         badge.textContent = rb.text;
-        badge.style.cssText = 'display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:6px;font-size:11px;color:#FFF8F0;background:' + (rb.fallback ? '#B51E14' : '#1A3C34');
+        badge.classList.remove('is-live', 'is-fallback');
+        badge.classList.add(rb.fallback ? 'is-fallback' : 'is-live');
       };
       /** @param {unknown} s @returns {string} */
       const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, (c)=>ESCAPES[c] || c);
@@ -1494,7 +1495,7 @@ let skuList = [
         }catch(e){ try{ window.__lastPack = null; }catch(_){} }
         // source badge above the preview — provenance-driven, fallbacks flagged (#173)
         let badge = document.getElementById('genSourceBadge');
-        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge'; preview.parentNode?.insertBefore(badge, preview); }
+        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge gen-badge'; preview.parentNode?.insertBefore(badge, preview); }
         const rb2 = rungBadge(opts.source, opts.provenance);
         paintRungBadge(badge, rb2);
         if(opts.themeLabel) badge.textContent += ' · theme: ' + opts.themeLabel;
@@ -1515,6 +1516,11 @@ let skuList = [
           if(!hero) return;
           const targets = extendTargets(renders);
           if(!targets.length) return;
+          /**
+           * @param {string} ratio
+           * @param {boolean} on
+           * @returns {void}
+           */
           const markComposing = (ratio, on)=>{
             try{
               document.querySelectorAll('#preview .render-tile').forEach(t=>{
@@ -1531,6 +1537,12 @@ let skuList = [
           // server-side pad says cover-pad (distinct crop), and a failed extend
           // (the server-side pad stays in place) says cover-pad too — a pad is
           // never left bare. Supersedes the initial rt-eng mark, never dupes it.
+          /**
+           * @param {string} ratio
+           * @param {string} text
+           * @param {string} cls
+           * @returns {void}
+           */
           const setTileMark = (ratio, text, cls)=>{
             try{
               document.querySelectorAll('#preview .render-tile').forEach(t=>{
@@ -1550,6 +1562,12 @@ let skuList = [
               });
             }catch(e){}
           };
+          /**
+           * @param {string} ratio
+           * @param {string} url
+           * @param {unknown} engine
+           * @returns {void}
+           */
           const swapTile = (ratio, url, engine)=>{
             try{
               document.querySelectorAll('#preview .render-tile').forEach(t=>{
@@ -1847,7 +1865,6 @@ let skuList = [
         } else {
           preview.innerHTML = `<div class="tile" id="genSkeleton"><div class="gen-pulse"><span class="gen-pulse-label gen-pulse-label--lg">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — up to ~90s</div></div></div>`;
         }
-        if(!document.getElementById('genPulseKeyframes')){ const st=document.createElement('style'); st.id='genPulseKeyframes'; st.textContent='@keyframes genpulse{0%{background-position:200% 0}100%{background-position:-200% 0}}'; document.head.appendChild(st); }
         tick = setInterval(()=>{ elapsed++; document.querySelectorAll('[id^="genElapsed"]').forEach(e=>{ e.textContent = elapsed+'s elapsed — up to ~90s'; }); }, 1000);
       }
       if(status){

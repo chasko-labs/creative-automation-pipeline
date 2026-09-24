@@ -1548,7 +1548,12 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .flag-err{color:#B51E14}
 .flag-pine{color:#1A3C34}
 .gen-pulse{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;background:linear-gradient(90deg,var(--colors-neutral-200,#E8DDD3) 25%,var(--colors-neutral-100,#F4EDE6) 50%,var(--colors-neutral-200,#E8DDD3) 75%);background-size:200% 100%;animation:genpulse 1.4s ease-in-out infinite}
+@keyframes genpulse{0%{background-position:200% 0}100%{background-position:-200% 0}}
 @media(prefers-reduced-motion:reduce){.gen-pulse{animation:none}}
+/* generate source badge — token classes so paintRungBadge carries zero inline style */
+.gen-badge{display:inline-block;margin:0 0 8px;padding:2px 8px;border-radius:var(--radii-inner);font-size:11px}
+.gen-badge.is-live{background:var(--colors-brand-frontier-green);color:var(--parchment)}
+.gen-badge.is-fallback{background:var(--colors-brand-signal-red);color:var(--parchment)}
 .gen-pulse-label{font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70}
 .gen-pulse-label--lg{font-size:13px;letter-spacing:.08em}
 #genSkeleton{grid-column:1/-1;max-width:640px;margin:0 auto}
@@ -2045,8 +2050,14 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    and in-flow mobile (base position:relative + isolation, no z-index needed). */
 .kodiak-header__logos{isolation:isolate}
 .kodiak-header__logos::before,.kodiak-header__logos::after{content:"";position:absolute;inset:0;pointer-events:none;
-  border:1px solid var(--colors-border-strong);border-radius:var(--radii-sm);
+  border:none;border-radius:var(--radii-sm);
   background-repeat:repeat;box-shadow:var(--shadows-sm);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E")}
-.kodiak-header__logos::before{top:-16px;left:-4px;background-color:var(--colors-brand-box-parchment);z-index:-1}
-.kodiak-header__logos::after{left:-8px;background-color:var(--colors-brand-badge-parchment);transform:rotate(-3deg);z-index:-2}
+  mix-blend-mode:multiply;opacity:.85;transition:opacity .25s ease;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E"),linear-gradient(180deg,transparent 0%,var(--colors-brand-box-parchment) 100%)}
+.kodiak-header__logos::before{top:-16px;left:-4px;z-index:-1}
+.kodiak-header__logos::after{left:-8px;transform:rotate(-3deg);z-index:-2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E"),linear-gradient(180deg,transparent 0%,var(--colors-brand-badge-parchment) 100%)}
+/* no cardboard on scroll — the sticky bar keeps the flat gradient only; the
+   board sheets fade with the same .25s curve as the badge shrink */
+.kodiak-header.is-sticky .kodiak-header__logos::before,.kodiak-header.is-sticky .kodiak-header__logos::after{opacity:0}
+@media(prefers-reduced-motion:reduce){.kodiak-header__logos::before,.kodiak-header__logos::after{transition:none}}
