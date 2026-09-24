@@ -104,10 +104,11 @@ BEDROCK_CONNECT_TIMEOUT_S = int(os.getenv("BEDROCK_CONNECT_TIMEOUT_S", "3"))
 BEDROCK_NOVA_READ_TIMEOUT_S = int(os.getenv("BEDROCK_NOVA_READ_TIMEOUT_S", "6"))
 # Outpaint extend budget: the standalone mode:extend request bypasses the
 # 22s ladder wall (it does one outpaint + upload inside the 30s gateway
-# cap), so the 12s ladder read cap does NOT apply here. 20s lets a cold
-# outpaint model answer instead of degrading every tall/wide tile to a
-# Pillow pad, with ~10s headroom for S3 download/upload + response.
-BEDROCK_OUTPAINT_READ_TIMEOUT_S = int(os.getenv("BEDROCK_OUTPAINT_READ_TIMEOUT_S", "20"))
+# cap), so the 12s ladder read cap does NOT apply here. Measured 24h
+# Bedrock p-average is 20.0s (max 20.5s) — 25s lets the model answer
+# instead of degrading every tall/wide tile to a Pillow pad, with ~5s
+# headroom for S3 download/upload + response under the gateway cap.
+BEDROCK_OUTPAINT_READ_TIMEOUT_S = int(os.getenv("BEDROCK_OUTPAINT_READ_TIMEOUT_S", "25"))
 # Per-subcall rung-B budget reservations (ms): each Bedrock sub-call is entered ONLY while
 # remaining_ms() still covers that call's worst-case cost PLUS the rung-C reservation, so
 # no single sub-call can consume the budget rung C needs to return real pixels by ~24s.
@@ -1277,7 +1278,18 @@ def _market_scene_clause(market: str | None, season: str | None) -> str:
     try:
         from .local_flavor import local_flavor_for
 
-        info = local_flavor_for(code, _season_month(season))
+        # Install-layout-proof data path: local_flavor anchors at
+        # parents[2]/data (repo checkout) which does NOT exist under the
+        # Lambda site-packages install — resolve via _datapaths (CAP_DATA_ROOT
+        # in the image) so the clause works in both layouts.
+        try:
+            from ._datapaths import data_path
+
+            candidate = data_path("localization", "local-flavor.json")
+            flavor_path = str(candidate) if candidate.exists() else None
+        except Exception:  # noqa: BLE001 — resolver failure degrades to default
+            flavor_path = None
+        info = local_flavor_for(code, _season_month(season), path=flavor_path)
         if not info.get("matched"):
             return ""
         place = str(info.get("place") or "").strip()
@@ -1649,9 +1661,10 @@ def _stability_outpaint(
     4096..9437184 total px); the 1080x1080 hero and the modest deltas sit well inside.
 
     Uses the shared fail-fast bedrock-runtime client with the extend read
-    budget (BEDROCK_OUTPAINT_READ_TIMEOUT_S, 20s: the standalone extend
-    request bypasses the ladder wall, so the 12s ladder cap must not starve
-    a cold outpaint model into a pad). A timeout is re-raised so the caller
+    budget (BEDROCK_OUTPAINT_READ_TIMEOUT_S, 25s against a measured 20s
+    model p-average: the standalone extend request bypasses the ladder
+    wall, so the 12s ladder cap must not starve outpaints into pads).
+    A timeout is re-raised so the caller
     records a timeout degrade, matching _stability_control_hero. The prompt
     goes through the frozen style sandwich so the extend stays on-brand.
     """
