@@ -453,10 +453,22 @@ def test_full_mode_still_produces_3size_set_localization_platform_copy(
 
 # --------------------------------------------------------------------------- #
 # OUTER-DEADLINE WALL (#118): a structural guarantee that no internal stall can
-# push the handler past the API Gateway 30s edge. When the generate ladder hangs
-# past GENERATE_WALL_TIMEOUT_S, the handler thread composites the zero-I/O rung-D
-# brand floor and returns 200 real pixels — never a 503, never an exception.
+# push the handler past the frontend's 100s fetch abort (Function URL, no API
+# Gateway 30s edge). When the generate ladder hangs past GENERATE_WALL_TIMEOUT_S,
+# the handler thread composites the zero-I/O rung-D brand floor and returns 200
+# real pixels — never a 503, never an exception.
 # --------------------------------------------------------------------------- #
+
+
+def test_wall_default_fits_inside_gateway_cap() -> None:
+    # the app calls through API Gateway (29s integration cap): the 26s wall
+    # leaves ~3s for the post-wall composite + put + return leg, and the 24s
+    # soft budget sits under the wall so gates stop work the wall can finish.
+    assert generate_lambda.GENERATE_WALL_TIMEOUT_S == 26
+    from creative_automation.generate import GENERATE_SOFT_BUDGET_MS
+
+    assert GENERATE_SOFT_BUDGET_MS == 24000
+    assert generate_lambda.GENERATE_WALL_TIMEOUT_S * 1000 > GENERATE_SOFT_BUDGET_MS
 
 
 def test_wall_fires_returns_200_rungD_wall_timeout_real_pixels(monkeypatch, tmp_path: Path) -> None:
@@ -465,7 +477,7 @@ def test_wall_fires_returns_200_rungD_wall_timeout_real_pixels(monkeypatch, tmp_
     # NOT 503 — it returns 200 with rung=D wall-timeout REAL pixels from _brand_floor.
     import time as _time
 
-    # shrink the wall so the test is fast; behavior is identical at the 22s default
+    # shrink the wall so the test is fast; behavior is identical at the 85s default
     monkeypatch.setattr(generate_lambda, "GENERATE_WALL_TIMEOUT_S", 0.3)
 
     def _hang(**kwargs):

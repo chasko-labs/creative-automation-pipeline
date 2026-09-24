@@ -61,19 +61,19 @@ except ImportError:
 # malformed request (validated in the handler, before the ladder) is a 4xx; 503 is
 # structurally unreachable from a well-formed POST.
 #
-# TIME BUDGET: the Lambda timeout is 300s but API Gateway caps the interactive call at
-# 30s, so the 24s internal soft budget (NOT context.get_remaining_time_in_millis) is the
-# real authority. Each rung checks remaining_ms() against its worst-case cost BEFORE
-# starting and skips a rung that will not fit, so the ladder always reserves time to
-# reach a real-pixel floor. time.monotonic (never time.time) so a wall-clock step never
+# TIME BUDGET: the Lambda timeout is 300s but the app calls through API Gateway
+# (29s integration cap), so the 24s internal soft budget
+# (NOT context.get_remaining_time_in_millis) is the real authority. Each rung
+# checks remaining_ms() against its worst-case cost BEFORE starting and skips a
+# rung that will not fit, so the ladder always reserves time to reach a
+# real-pixel floor. time.monotonic (never time.time) so a wall-clock step never
 # corrupts the deadline.
-GENERATE_SOFT_BUDGET_MS = int(os.getenv("GENERATE_SOFT_BUDGET_MS", "28000"))
-# Rung B (Bedrock stability-restyle) worst-case cost estimate: the read timeout (12s)
-# plus connect + decode + overlay headroom. B is attempted only if remaining_ms covers
-# this AND the C reservation, so a slow Bedrock call can never starve the C recovery.
-# 5 ratios × ~6s Bedrock each needs 30s, but API Gateway is 30s, so we budget 25s for B
-# and keep C reservation lean so all 5 can be Bedrock, not just 1:1 primary.
-_B_BUDGET_MS = int(os.getenv("GENERATE_B_BUDGET_MS", "25000"))
+GENERATE_SOFT_BUDGET_MS = int(os.getenv("GENERATE_SOFT_BUDGET_MS", "24000"))
+# Rung B (Bedrock stability-restyle) worst-case cost estimate: scene (7s) +
+# stability (13s) worst case = 20s. B is attempted only if remaining_ms covers
+# this AND the C reservation, so a slow Bedrock call can never starve the C
+# recovery. Fits the 24s soft budget with the 2s C reservation held back.
+_B_BUDGET_MS = int(os.getenv("GENERATE_B_BUDGET_MS", "20000"))
 # Held-back reservation so rung C (pillow-compose, ~1-2s) can ALWAYS run after B, even
 # when B burns its full budget. C is the guaranteed-real workhorse below B.
 _C_RESERVATION_MS = int(os.getenv("GENERATE_C_RESERVATION_MS", "2000"))
@@ -138,6 +138,13 @@ _DIRECTOR_LIVE_SOURCE = "bedrock:kodiak-artdirector"
 # contract as the other bounded executors: an abandoned voice worker writes
 # nothing shared. The per-container memo still makes repeat calls ~free.
 _DIRECTOR_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=2)
+# Caption overlap: rung B's Nova Pro caption needs only (seed + statics), the
+# same inputs as the scene-prompt — so it is submitted at rung-B entry and
+# collected after the restyle, overlapping scene + stability (~4-7s saved on a
+# warm pass: the difference between landing in-wall and a second fallthrough).
+# Leak-and-drain like the other pools: a thin-clock collect takes "" and the
+# worker drains on its own read timeout, writing nothing shared.
+_CAPTION_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=1)
 # Refusal guard: a live voice model can still decline (junk retrieved examples make
 # refusal likely — PROVEN IN PROD 2026-09-08: hash-laden asset titles as in-voice
 # examples produced "I Can't Fulfill This Request" as the campaign headline). A
@@ -2874,7 +2881,11 @@ def generate_hero(
     # fall straight to caption.
     _voice_state = {"dead": False}
 
-    def _headline(src: Path) -> str:
+    def _headline(src: Path, caption_future=None) -> str:
+        # caption_future: an overlapped _caption_with_budget already submitted
+        # at rung-B entry (caption needs only seed + statics, same as the
+        # scene-prompt). Collect with a budget-shaped wait instead of burning a
+        # second serial Nova call. None = call directly, as rung C does.
         # grounded trained director first (budget-gated collect, live-source
         # only, already house-styled); stock Nova caption second; raw brief
         # last and verbatim. provenance records which voice wrote the line.
@@ -2921,9 +2932,27 @@ def generate_hero(
                 f"{_DIRECTOR_BUDGET_MS + _C_RESERVATION_MS}ms",
                 file=sys.stderr,
             )
-        caption = _caption_with_budget(
-            src, product_name, brief_msg, region, audience, remaining_ms=remaining_ms
-        )
+        print(f"[generate] stage caption start (budget {remaining_ms():.0f}ms)", file=sys.stderr)
+        _caption_t0 = time.monotonic()
+        if caption_future is not None:
+            try:
+                _wait_s = max(
+                    0.0,
+                    min(
+                        5.0,
+                        (remaining_ms() - _C_RESERVATION_MS - 500.0) / 1000.0,
+                    ),
+                )
+                caption = caption_future.result(timeout=_wait_s) if _wait_s > 0 else ""
+            except Exception as e:  # noqa: BLE001 — thin clock: brief fallback, worker drains alone
+                print(f"[generate] overlapped caption collect skipped: {e}", file=sys.stderr)
+                caption = ""
+            print(f"[generate] stage caption (overlapped) collected: {'ok' if caption else 'empty'}", file=sys.stderr)
+        else:
+            caption = _caption_with_budget(
+                src, product_name, brief_msg, region, audience, remaining_ms=remaining_ms
+            )
+            print(f"[generate] stage caption done in {time.monotonic() - _caption_t0:.1f}s", file=sys.stderr)
         headline, _side = _parse_layout(caption)
         if headline:
             normed = _title_case_headline(headline)
@@ -3256,6 +3285,16 @@ def generate_hero(
         # and falls to rung C (Nova-Pro-art-directed Pillow compose) with a distinct reason.
         if _STABILITY_RUNG_ON and remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS:
             try:
+                # Caption overlap: fire the Nova caption NOW so it runs inside
+                # the scene + stability calls; _headline collects it after the
+                # restyle. Skipped on a thin clock (the direct path logs the
+                # skip exactly as before).
+                _caption_future = None
+                if remaining_ms() >= _CAPTION_BUDGET_MS + _C_RESERVATION_MS:
+                    _caption_future = _CAPTION_POOL.submit(
+                        _caption_with_budget, seed, product_name, brief_msg,
+                        region, audience,
+                    )
                 # Per-subcall budget gate 1 — the Nova Pro scene-prompt (fail-fast, capped
                 # at BEDROCK_NOVA_READ_TIMEOUT_S). Enter it ONLY while the clock still
                 # covers the scene call PLUS the downstream stability + C reservation, so a
@@ -3285,10 +3324,13 @@ def generate_hero(
                         )
                         provenance["fallthrough_reason"] = "budget-exhausted"
                         raise _RungBBudgetSkip
+                    print(f"[generate] stage scene-prompt start (budget {remaining_ms():.0f}ms)", file=sys.stderr)
+                    _scene_t0 = time.monotonic()
                     scene_prompt = _nova_pro_scene_prompt(
                         seed, product_name, brief_msg, region, audience, theme,
                         combo_extras or None, dish, market, season,
                     )
+                    print(f"[generate] stage scene-prompt done in {time.monotonic() - _scene_t0:.1f}s", file=sys.stderr)
                 provenance["scene_prompt"] = scene_prompt
                 provenance["scene_prompt_source"] = _scene_prompt_source(
                     scene_prompt, product_name, brief_msg, region, audience, theme, dish,
@@ -3309,11 +3351,14 @@ def generate_hero(
                 # Compute once: the recorded strength must equal the strength
                 # actually sent (dynamic mode jitters per call).
                 rung_b_strength = _control_for_brief(brief_msg)
+                print(f"[generate] stage restyle start (budget {remaining_ms():.0f}ms)", file=sys.stderr)
+                _restyle_t0 = time.monotonic()
                 try:
                     stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength, seed_value=request_seed)
                 except TypeError:
                     stylized = _stability_control_hero(seed, scene_prompt, out_path)
                     rung_b_strength = None  # unparametrized fallback: record no strength
+                print(f"[generate] stage restyle done in {time.monotonic() - _restyle_t0:.1f}s", file=sys.stderr)
                 if stylized is not None and stylized.exists():
                     # Similarity gate (B -> C): reject a drifted restyle BEFORE the
                     # overlay lands — the message bar alone shifts dHash by ~12, so
@@ -3393,7 +3438,7 @@ def generate_hero(
                     # the legacy ladder; clean contract (#199) keeps the hero clean and
                     # records the line for the copy sidecars instead.
                     try:
-                        b_headline = _headline(seed)
+                        b_headline = _headline(seed, _caption_future)
                         provenance["copy_headline"] = b_headline
                         if overlay_on:
                             _apply_brand_overlay(stylized, b_headline, ratio, stylized)

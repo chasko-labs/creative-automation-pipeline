@@ -1895,7 +1895,18 @@ let skuList = [
         try{ window.__lastSidecar = null; window.__lastPlatformCopy = {}; }catch(e){}
         if(doThemedOrSingle){
           // Single request (themed if a chip is active, else default product).
-          const json = await oneGenerate(primarySlug, activeTheme || undefined);
+          let json = await oneGenerate(primarySlug, activeTheme || undefined);
+          // AUTO-RETRY ONCE on a wall-timeout fallthrough: the first pass warms
+          // cold models, so an immediate second pass usually lands real pixels
+          // without the user hunting for the retry button. Bounded to exactly
+          // one retry; a second miss renders the honest error state below.
+          if(/^brand-floor/i.test(String((json && json.source) || ''))){
+            if(status) status.textContent = 'First pass missed on cold models — retrying now that models are warm…';
+            try{
+              const retryJson = await oneGenerate(primarySlug, activeTheme || undefined);
+              if(retryJson && retryJson.image_url) json = retryJson;
+            }catch(retryErr){ console.warn('generate: warm retry failed, keeping first response —', retryErr instanceof Error ? retryErr.message : retryErr); }
+          }
           rememberSidecar(json);
           const readyThemeLabel = json.theme ? (THEME_LABELS[json.theme] || themeLabel) : (activeTheme ? themeLabel : null);
           const readyTheme = (json.theme || activeTheme) ? (' · theme: ' + readyThemeLabel) : '';
@@ -1931,22 +1942,37 @@ let skuList = [
           }catch(e){}
           // #281 — upgrade the driving panel to the copy actually used + divergence flags.
           try{ paintCopyPanel({phase:'used', json}); }catch(e){}
-          // Honest fallback gets a retry affordance: the wall fires on cold
-          // models, so a second Create often lands real pixels. Idempotent —
-          // a passing run removes any stale button.
+          // Honest miss AFTER the automatic warm retry: do NOT present fallback
+          // pixels as the campaign. Swap the grid for an explicit error card
+          // with a PULSING retry button (unmissable). Idempotent — a passing
+          // run removes any stale button + restores the grid on next render.
           try{
             let retry = document.getElementById('genRetry');
             if(retry) retry.remove();
             if(/^brand-floor/i.test(String((json && json.source) || ''))){
-              if(status) status.textContent = 'Render miss (wall timeout) — fallback pixels shown, not the campaign.';
-              retry = document.createElement('button');
-              retry.type = 'button';
-              retry.id = 'genRetry';
-              retry.className = 'ff-retry';
-              retry.textContent = 'Try again — models are warm now';
-              retry.addEventListener('click', ()=>{ const g = document.getElementById('generateCampaign'); if(g) g.click(); });
-              const anchor = document.getElementById('previewDownloadRow') || document.getElementById('preview');
-              if(anchor && anchor.parentNode) anchor.parentNode.insertBefore(retry, anchor.nextSibling);
+              if(status) status.textContent = 'Render missed twice — no campaign pixels to show. The models are warm now, so retry usually lands it.';
+              const grid = document.getElementById('preview');
+              if(grid){
+                grid.innerHTML = '';
+                const miss = document.createElement('div');
+                miss.className = 'tile ff-render-miss';
+                miss.setAttribute('role', 'alert');
+                const headline = document.createElement('b');
+                headline.textContent = 'Render miss — nothing generated';
+                const sub = document.createElement('div');
+                sub.className = 'small';
+                sub.textContent = 'Two passes hit the render wall (cold models). No fallback pixels are shown as your campaign — hit retry.';
+                retry = document.createElement('button');
+                retry.type = 'button';
+                retry.id = 'genRetry';
+                retry.className = 'ff-retry ff-retry--pulse';
+                retry.textContent = 'Try again — models are warm now';
+                retry.addEventListener('click', ()=>{ const g = document.getElementById('generateCampaign'); if(g) g.click(); });
+                miss.appendChild(headline);
+                miss.appendChild(sub);
+                miss.appendChild(retry);
+                grid.appendChild(miss);
+              }
             }
           }catch(e){}
           // auto-open the collapsed Preview card so the user sees the freshly-composed output
@@ -1954,7 +1980,7 @@ let skuList = [
         } else {
           // Multi-product fan-out: one themed-less request per selected product, run
           // SERIALLY and render each tile as it returns. Parallel full preview
-          // ladders contend for shared model quota inside the backend 22s wall
+          // ladders contend for shared model quota inside the backend wall
           // and all fall through to rung D together; serial keeps each request
           // inside its own budget (first tile still paints fast).
           if(preview) preview.innerHTML = '';

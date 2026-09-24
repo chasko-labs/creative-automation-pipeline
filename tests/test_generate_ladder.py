@@ -283,6 +283,61 @@ def test_empty_prompt_is_still_200_not_4xx(tmp_path, monkeypatch):
 # exceed the budget. This is the 503 repair — a slow probe/Bedrock path can never push
 # the ladder past ~24s because the wall skips B and lands on the guaranteed-real C.
 # --------------------------------------------------------------------------- #
+def test_rung_b_overlaps_caption_with_scene(tmp_path, monkeypatch):
+    # caption needs only (seed + statics), same as the scene-prompt: rung B
+    # submits it at entry and collects after the restyle. Event handshake
+    # proves overlap — in serial order the caption could never observe a
+    # restyle still in progress.
+    import threading
+
+    seed = tmp_path / "seed.png"
+    Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: "seed-key")
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
+    monkeypatch.setattr(generate_mod, "_similarity_gate_enabled", lambda: False)
+
+    caption_started = threading.Event()
+    restyle_started = threading.Event()
+
+    def fake_caption(src, product_name, brief_msg, region, audience, remaining_ms=None):
+        caption_started.set()
+        assert restyle_started.wait(timeout=10), "caption never overlapped the restyle"
+        return "trail fuel caption"
+
+    def fake_scene(seed_p, product_name, brief_msg, region, audience, theme,
+                   combo_extras=None, dish=None, market=None, season=None):
+        return "wild frontier restyle"
+
+    def fake_restyle(seed_p, scene_prompt, out_path, **kwargs):
+        restyle_started.set()
+        assert caption_started.wait(timeout=10), "restyle ran with no overlapped caption"
+        Image.open(seed).save(out_path, "PNG")
+        return out_path
+
+    monkeypatch.setattr(generate_mod, "_caption_with_budget", fake_caption)
+    monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", fake_scene)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", fake_restyle)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="totally-made-up-sku-xyz",
+        product_name="Made Up",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+    )
+
+    assert prov["rung"] == "B"
+    assert source == generate_mod.STABILITY_SOURCE
+    # the overlapped caption wrote the headline, not the brief fallback.
+    assert prov["headline_source"] == "bedrock:nova-pro-caption"
+    assert "Trail" in (prov["copy_headline"] or "")
+
+
 def test_budget_wall_skips_rung_b_lands_rung_c(tmp_path, monkeypatch):
     # a real seed resolves via the (cheap, single-key) sku-mapped path so rung C has a
     # seed to compose; the seed path is NOT probe-gated, so a seed exists regardless.

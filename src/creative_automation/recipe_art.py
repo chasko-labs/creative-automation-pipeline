@@ -315,6 +315,11 @@ def generate_recipe_art(
     #   attempt 0: base negative, seed          + class hint
     #   attempt 1: stronger negative, seed+1     + class hint
     #   attempt 2+: stronger negative, seed+N    + class hint + minimal-strokes directive
+    # Best-of-N: a marginal gate miss on every attempt (e.g. 0.379 vs a 0.37
+    # ceiling) still returns the closest drawing — a real plate sketch beats the
+    # SVG placeholder. Only a failed invoke (no image at all) returns None.
+    best_img = None
+    best_cov = None
     for attempt in range(_MAX_ATTEMPTS):
         negative = _NEGATIVE_BASE if attempt == 0 else _NEGATIVE_STRONG
         extra_clause = class_clause
@@ -329,13 +334,16 @@ def generate_recipe_art(
             extra_clause=extra_clause,
         )
         if img is None:
-            # a failed invoke (block/error) is not retryable by escalation — stop.
+            # a failed invoke (block/error) is not retryable by escalation — stop
+            # and keep the best drawing so far (None only if nothing rendered).
             print(
                 f"[recipe-art] {zone} for {subject!r} produced no image "
-                f"(attempt {attempt + 1}/{_MAX_ATTEMPTS}) — None"
+                f"(attempt {attempt + 1}/{_MAX_ATTEMPTS}) — keeping best so far"
             )
-            return None
+            break
         cov = _dark_coverage(img)
+        if best_cov is None or cov < best_cov:
+            best_img, best_cov = img, cov
         if cov <= _COVERAGE_CEILING:
             out_path.parent.mkdir(parents=True, exist_ok=True)
             img.save(out_path, "PNG")
@@ -352,9 +360,16 @@ def generate_recipe_art(
             )
         else:
             print(
-                f"[recipe-art] {zone} for {subject!r} REJECTED — coverage={cov:.3f} still "
-                f"> {_COVERAGE_CEILING} after {_MAX_ATTEMPTS} attempts; returning None "
-                "(frontend falls back to SVG placeholder)"
+                f"[recipe-art] {zone} for {subject!r} over ceiling on every attempt — "
+                f"keeping best coverage={best_cov:.3f} instead of None"
             )
 
+    if best_img is not None:
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        best_img.save(out_path, "PNG")
+        print(
+            f"[recipe-art] {zone} for {subject!r} best-of-{_MAX_ATTEMPTS} "
+            f"coverage={best_cov:.3f} -> {out_path}"
+        )
+        return out_path
     return None

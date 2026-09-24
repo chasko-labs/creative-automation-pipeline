@@ -95,12 +95,12 @@ def test_preview_outpaint_success_marks_live_engines(monkeypatch) -> None:
 
 
 def test_preview_outpaint_budget_exhausted_falls_back_to_pads(monkeypatch) -> None:
-    # A slow hero (23s of wall spent) leaves ~1s: the gate fails, NO extend is
-    # attempted, both tiles ship pads with honest degrade reasons — still 200.
-    # Budget is GENERATE_SOFT_BUDGET_MS (28s) + reservation; remaining is soft
-    # budget minus elapsed, so we tick to 27s elapsed to leave ~1s.
+    # A slow hero (all but ~1s of the soft wall spent) leaves ~1s: the gate
+    # fails, NO extend is attempted, both tiles ship pads with honest degrade
+    # reasons — still 200. Remaining is the soft budget minus elapsed, so the
+    # ticks below leave ~1s regardless of the soft-budget default.
     soft = generate_lambda.GENERATE_SOFT_BUDGET_MS
-    # soft is 28000, so tick 1000 -> 27000 (1000 remaining) triggers budget-exhausted
+    # tick 1000 -> soft-1000 elapsed (1000 remaining) triggers budget-exhausted
     ticks = iter([1000.0, 1000.0 + soft - 1000.0, 1000.0 + soft - 1000.0, 1000.0 + soft - 1000.0])
     monkeypatch.setattr(generate_lambda, "_preview_now", lambda: next(ticks, 1000.0 + soft - 1000.0))
     calls: list = []

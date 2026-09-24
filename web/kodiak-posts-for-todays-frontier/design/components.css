@@ -1569,6 +1569,14 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
 .ff-retry:hover{background:var(--colors-brand-frontier-green);color:var(--colors-neutral-50)}
 .ff-retry:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+/* pulsing retry on a double render miss — unmissable, motion-safe */
+@keyframes ff-retry-pulse{0%,100%{box-shadow:0 0 0 0 rgba(181,30,20,0)}50%{box-shadow:0 0 0 6px rgba(181,30,20,.35)}}
+.ff-retry--pulse{animation:ff-retry-pulse 1.6s ease-in-out infinite;border-color:var(--colors-brand-signal-red);color:var(--colors-brand-signal-red)}
+.ff-retry--pulse:hover{background:var(--colors-brand-signal-red);color:var(--parchment)}
+@media(prefers-reduced-motion:reduce){.ff-retry--pulse{animation:none}}
+/* double-miss error card replaces the preview grid: honest, no fake pixels */
+.ff-render-miss{grid-column:1/-1;max-width:640px;margin:0 auto;text-align:center;border:2px dashed var(--colors-brand-signal-red)}
+.ff-render-miss .small{margin:6px 0 4px}
 .gen-pulse-label{font:700 12px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8C7A70}
 .gen-pulse-label--lg{font-size:13px;letter-spacing:.08em}
 #genSkeleton{grid-column:1/-1;max-width:640px;margin:0 auto}

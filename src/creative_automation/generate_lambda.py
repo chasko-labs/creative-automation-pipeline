@@ -100,9 +100,12 @@ def _preview_now() -> float:
 # D (_brand_floor, zero-I/O, bundled asset, cannot fail) IN THE HANDLER THREAD, does a
 # bounded S3 put, and returns 200 real pixels tagged rung=D fallthrough_reason=wall-timeout.
 # Wall = correctness (a floor is ALWAYS reachable); budget = quality (the common case still
-# abandons to rung C with generated pixels). 22s leaves ~8s headroom under the 30s API
-# Gateway edge for the post-wall composite + put + return leg.
-GENERATE_WALL_TIMEOUT_S = float(os.getenv("GENERATE_WALL_TIMEOUT_S", "22"))
+# abandons to rung C with generated pixels). The app reaches this handler through
+# API Gateway (29s integration cap), so 26s leaves ~3s for the post-wall
+# composite + put + return leg. A cold-model first pass still misses — that is
+# what the frontend's automatic warm retry is for — but a warm pass (caption
+# overlapped with scene, restyle-cache hot) lands in ~22s.
+GENERATE_WALL_TIMEOUT_S = float(os.getenv("GENERATE_WALL_TIMEOUT_S", "26"))
 
 # Inner bound for the cross-region us-west-2 art-director invoke. Sits well inside the ~22s
 # outer wall so a cold/scale-to-zero model (art_director's 4x28s cold-start retry) can never
@@ -1481,6 +1484,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
                     _pillow_outpaint_fallback(result_path, pad_w, pad_h, pad_path)
                 else:
                     _t0 = _preview_now()
+                    print(f"[generate] stage outpaint {pad_ratio} start (remaining {_remaining:.0f}ms)", file=sys.stderr)
                     try:
                         extended = _stability_outpaint(
                             result_path, pad_w, pad_h,
