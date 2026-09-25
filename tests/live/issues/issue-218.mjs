@@ -82,9 +82,22 @@ export async function run(page, { baseUrl } = {}) {
   assert(mode.mode === "nationwide" && mode.note && mode.scope === "nationwide",
     "nationwide dims market row + shows anchor note");
   assert(mode.summary === "Nationwide", "summary follows selection");
-  // the reach control rests in a closed disclosure — open it so keyboard focus can land
-  await page.evaluate(() => { document.getElementById("scopeWrap").open = true; });
+  // the reach control rests in nested closed disclosures — scopeWrap lives
+  // inside details#brainstormAll, and closed-details content is unfocusable
+  // BY DESIGN (not a product bug). open outer-first via synthetic summary
+  // clicks (Playwright actionability misfires on these summaries even at
+  // full size; evaluate clicks match how the rest of this scenario drives).
+  // note: getBoundingClientRect stays nonzero inside closed details (stale
+  // boxes), so the only trustworthy "laid out" signal is both disclosures
+  // open plus activeElement landing on the option.
+  await page.evaluate(() => document.querySelector("#brainstormAll > summary")?.click());
+  await page.evaluate(() => document.querySelector("#scopeWrap > summary")?.click());
+  await page.waitForFunction(() => {
+    const b = document.querySelector('[data-scope="nationwide"]');
+    return b && b.getBoundingClientRect().width > 0;
+  }, null, { timeout: 15000 });
   await page.evaluate(() => document.querySelector('[data-scope="nationwide"]').focus());
+  await page.waitForFunction(() => document.activeElement?.getAttribute("data-scope") === "nationwide", null, { timeout: 10000 });
   await page.keyboard.press("ArrowRight");
   await page.waitForTimeout(300);
   mode = await page.evaluate(() => window.__campaignScope);

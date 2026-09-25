@@ -34,9 +34,16 @@ export async function run(page, { baseUrl } = {}) {
   assert(badResponses.length === 0,
     `no preview/data 404s on clean load (${badResponses.join("; ") || "none"})`);
 
-  // Lazy tiles below the fold have not fetched at load time; bring them into
-  // view so decode can happen before the broken-image assert. A 404 or a
-  // corrupt file still fails (badResponses above; never decodes below).
+  // The preview lives inside details#previewCard (closed on load) and lazy
+  // tiles below the fold have not fetched at load time. Open the card first —
+  // scrollIntoView on content inside a closed details scrolls nothing and
+  // loading=lazy never fires, so without this the complete-wait below times
+  // out (scenario ordering, not a product bug). A 404 or a corrupt file
+  // still fails (badResponses above; never decodes below).
+  await page.evaluate(() => {
+    document.getElementById("previewCard").open = true;
+  });
+  await page.waitForTimeout(300);
   await page.evaluate(() => {
     document.querySelectorAll("#preview img").forEach((im) => im.scrollIntoView({ block: "nearest" }));
   });
@@ -62,7 +69,6 @@ export async function run(page, { baseUrl } = {}) {
     `zero console errors on clean load (${consoleErrors.join("; ") || "none"})`);
 
   await page.evaluate(() => {
-    document.getElementById("previewCard").open = true;
     document.querySelector("#preview img")?.scrollIntoView({ block: "center" });
   });
   await page.waitForTimeout(800);

@@ -10,7 +10,7 @@
 //      the scene-prompt fold offline).
 // Run with:
 //   npm run test:live -- --issue 245 --base-url https://kodiak.bryanchasko.com
-import { assert, gotoLive } from "../lib.mjs";
+import { assert, gotoLive, isLocalBase } from "../lib.mjs";
 
 export const issue = 245;
 export const title = "retailer direction reaches image brief and copy";
@@ -44,7 +44,11 @@ export async function run(page, { baseUrl } = {}) {
     try { genBody = route.request().postDataJSON(); } catch (_) { genBody = null; }
     await route.continue();
   });
-  await page.evaluate(() => document.getElementById("generateCampaign")?.click());
+  // The retailer assertions (request theme, sidecar framing, copy panel) all
+  // live on the FULL campaign path (mode=full paints the copy panel; preview
+  // never does) — drive it directly like #241 does. Local static has no
+  // backend: keep the preview click there so the driving panel still paints.
+  await page.evaluate((full) => document.getElementById(full ? "genFullCampaign" : "generateCampaign")?.click(), !isLocalBase(baseUrl));
 
   if (isLocal) {
     // Offline the main /generate request never fires by design (local canvas
