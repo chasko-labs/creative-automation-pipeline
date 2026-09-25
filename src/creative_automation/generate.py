@@ -1903,6 +1903,77 @@ def _stability_control_hero(
         return None
 
 
+# Native delivery frames for the per-ratio diffusion pass: each campaign ratio
+# gets its own control-structure restyle composed AT its frame (not derived from
+# the 1x1), so the five tiles are five distinct compositions. blog is the
+# 1200x630 Open Graph frame (756k px — inside Stability's 4096..9437184 range).
+_NATIVE_RATIO_DIMS = {
+    "4x5": (1080, 1350),
+    "9x16": (1080, 1920),
+    "16x9": (1920, 1080),
+    "blog": (1200, 630),
+}
+
+
+def _stability_native_ratio(
+    seed_local: Path | str,
+    scene_prompt: str,
+    ratio: str,
+    out_path: Path,
+    *,
+    seed_value: int | None = None,
+    control_strength: float | None = None,
+) -> Path | None:
+    """Restyle the resolved seed photo natively at one delivery ratio's frame.
+
+    Cover-fits the seed photo to _NATIVE_RATIO_DIMS[ratio], then runs the same
+    control-structure restyle rung B uses — the model composes inside the real
+    frame instead of a 1x1 that is later extended or cropped. Returns the path
+    on success, None on any failure (the caller falls back to the deterministic
+    Pillow cover-fit of the finished 1x1, honestly labelled). Never raises past
+    the caller: a bad ratio slug, missing seed, or failed invoke is a None.
+    """
+    try:
+        dims = _NATIVE_RATIO_DIMS[ratio]
+    except KeyError:
+        print(f"[generate] native ratio unknown: {ratio!r}", file=sys.stderr)
+        return None
+    try:
+        seed_img = Image.open(seed_local).convert("RGB")
+    except Exception as e:  # noqa: BLE001 — missing/unreadable seed degrades to pad
+        print(f"[generate] native ratio seed unreadable: {e}", file=sys.stderr)
+        return None
+    try:
+        target_w, target_h = dims
+        if target_w < 64 or target_h < 64 or target_w * target_h > 9437184:
+            print(
+                f"[generate] native ratio {ratio} outside Stability dims",
+                file=sys.stderr,
+            )
+            return None
+        framed = ImageOps.fit(seed_img, (target_w, target_h), method=Image.BICUBIC)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        seed_path = out_path.parent / f"{out_path.stem}-seed.png"
+        framed.save(seed_path, "PNG")
+        return _stability_control_hero(
+            seed_path,
+            scene_prompt,
+            out_path,
+            control_strength=control_strength,
+            seed_value=seed_value,
+        )
+    except TypeError:
+        # unparametrized _stability_control_hero (older test doubles): retry bare.
+        try:
+            return _stability_control_hero(seed_path, scene_prompt, out_path)
+        except Exception as e:  # noqa: BLE001 — degrade to pad, never raise
+            print(f"[generate] native ratio {ratio} failed: {e}", file=sys.stderr)
+            return None
+    except Exception as e:  # noqa: BLE001 — degrade to pad, never raise
+        print(f"[generate] native ratio {ratio} failed: {e}", file=sys.stderr)
+        return None
+
+
 def _stability_outpaint(
     base_png: Path, target_w: int, target_h: int, prompt: str, out_path: Path
 ) -> Path | None:
@@ -3751,6 +3822,7 @@ def generate_hero(
                         provenance["control_strength"] = rung_b_strength
                     provenance["seed"] = request_seed
                     provenance["style"] = "sandwich-locked"
+                    provenance["seed_local"] = str(seed)
                     provenance["model"] = STABILITY_CONTROL_MODEL
                     if _scenic_verbatim:
                         # No restyle ran: the Core-composed seed is the hero.
@@ -3824,6 +3896,7 @@ def generate_hero(
             if result.exists():
                 provenance["engine"] = "pillow-compose"
                 provenance["rung"] = "C"
+                provenance["seed_local"] = str(seed)
                 provenance["model"] = "pillow:compose-scene"
                 provenance["overlay_applied"] = bool(overlay_on)
                 provenance["headline"] = c_headline if overlay_on else None
