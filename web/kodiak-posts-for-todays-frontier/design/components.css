@@ -363,7 +363,11 @@ section.xl{padding:var(--section-space-xl) 0}
    line (ellipsis) / Download pinned to the shared baseline by margin-top:auto.
    every card carries the same three row heights, so image-to-title,
    title-to-meta, and Download baselines match card to card. */
-.render-tile .render-cap .dims{display:inline-block;margin:4px 0 0;white-space:nowrap;color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
+/* spec row wrapper: shape + dims share one unbreakable ellipsis line, so every
+   cap carries the same three row heights with or without a shape descriptor */
+.render-tile .render-cap .rt-spec{display:block;margin:4px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;
+  color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
+.render-tile .render-cap .dims{display:inline;margin:0;white-space:nowrap;color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
 .render-tile .render-cap .dims::before{content:"· ";color:var(--colors-neutral-500)}
 /* per-tile platform legend — retired from resting caps (platforms live once in
    the asset-pack exports matrix); the rule stays for generated tiles that keep it */
@@ -373,7 +377,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .render-tile .render-cap .loc-langtag{font-weight:700;margin-right:6px;text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:var(--chocolate)}
 /* shape descriptor on resting caps (Square, Vertical / Full-Screen) — rides the
    spec line ahead of .dims, so "Square · 1080×1080" reads as one unit */
-.render-tile .render-cap .rt-shape{display:inline-block;margin:4px 6px 0 0;white-space:nowrap;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif}
+.render-tile .render-cap .rt-shape{display:inline;margin:0 6px 0 0;white-space:nowrap;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif}
 .render-tile .render-cap .rt-shape::before{content:none}
 /* per-tile engine mark: placeholder pads read quiet italic, composed tiles read
    forest — a pad never renders identically to a live outpaint */
@@ -573,7 +577,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    These carry ONLY framing context; the localized headlines live once in #locPreview below.
    Spans flow inline with small separators so the readout reads as one context line. */
 .ff-output-readout.ff-detail{display:flex;flex-wrap:wrap;flex-direction:column;gap:2px;min-width:0;
-  padding:var(--spacing-sm);margin-bottom:var(--spacing-md);
+  padding:var(--spacing-sm);margin-bottom:var(--spacing-lg);
   background:var(--colors-brand-box-parchment,#F5EAD3);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
 .ff-output-readout .ff-featured{font:500 12px/1.35 "museo-sans",sans-serif;color:var(--colors-neutral-700);white-space:normal}
 .ff-output-readout .ff-langs{font:500 11px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-muted)}
@@ -877,7 +881,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 header.kodiak-header{border-bottom:none;display:block;width:100%;padding:0;margin:0}
 /* full-bleed brown bar with a blaze rule under it; headline stays parchment.
    brand standard is brown — no pine-green cast on the bar. */
-header.kodiak-header{background:linear-gradient(180deg,var(--brown-kodiak) 0%,var(--chocolate) 100%);border-bottom:3px solid var(--colors-brand-blaze-orange)}
+header.kodiak-header{background-color:var(--chocolate);background-image:linear-gradient(180deg,var(--brown-kodiak) 0%,var(--chocolate) 100%);border-bottom:3px solid var(--colors-brand-blaze-orange)}
 /* the badge overhangs below the bar by spec, so the bar never clips. */
 header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 /* 60px bar row; the badge floats absolute over the left margin (never in flow,
