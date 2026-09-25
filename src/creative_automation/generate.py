@@ -1635,6 +1635,15 @@ def _nova_pro_scene_prompt(
         text = resp["output"]["message"]["content"][0]["text"].strip().replace("\n", " ")
         if not text:
             return default_prompt
+        # Nova's 40-word compression drops the idea even when instructed (seen
+        # live: "christmas cats" in the prompt, no cats in the scene), so
+        # re-attach the subject deterministically (absent-only, never dup) —
+        # same pattern as the locale/bear re-attach below.
+        _idea_text = _brief_idea(brief_msg)
+        if _idea_text:
+            _safe_idea = _safe_prompt_text(_idea_text)
+            if _safe_idea and _safe_idea.lower() not in text.lower():
+                text = f"{text} Featuring {_safe_idea}."
         # Nova's 40-word compression drops locality and constraints: re-attach
         # market/season + bear law deterministically (absent-only, never dup).
         return _with_locale_and_bear(text, theme, brief_msg, market, season)
