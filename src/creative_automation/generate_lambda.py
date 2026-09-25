@@ -1942,6 +1942,139 @@ def _post_wall_brand_floor(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     }
 
 
+# ---- async render jobs (POST /jobs start, GET /jobs status) --------------------
+# The HTTP API caps every response at 30s while the image model needs 20s+
+# per restyle, so the interactive ladder cannot wait out a slow composition.
+# Jobs split the wait: start validates + self-invokes async (202 in <2s),
+# the worker runs the SAME _handle_preview/_handle_full with relaxed walls
+# (up to KODIAK_JOB_WALL_S), and the frontend polls status. The done result
+# embeds the exact handler response dict, so the frontend reuses its sync
+# render path untouched. Same never-fail floor on error paths.
+_JOB_S3_PREFIX = "brands/kodiak/jobs"
+_JOB_WALL_S = float(os.getenv("KODIAK_JOB_WALL_S", "280"))
+_JOB_SOFT_BUDGET_MS = int(os.getenv("KODIAK_JOB_SOFT_BUDGET_MS", "240000"))
+_JOB_NATIVE_TIMEOUT_S = int(os.getenv("KODIAK_JOB_NATIVE_TIMEOUT_S", "90"))
+_JOB_OUTPAINT_BUDGET_MS = int(os.getenv("KODIAK_JOB_OUTPAINT_BUDGET_MS", "60000"))
+
+
+def _job_key(job_id: str) -> str:
+    return f"{_JOB_S3_PREFIX}/{job_id}.json"
+
+
+def _job_put(job_id: str, doc: dict[str, Any]) -> bool:
+    """Write a job status doc; False when S3 is unreachable (caller degrades)."""
+    try:
+        boto3.client("s3").put_object(
+            Bucket=ASSET_STORE_S3_BUCKET,
+            Key=_job_key(job_id),
+            Body=json.dumps(doc).encode("utf-8"),
+            ContentType="application/json",
+        )
+        return True
+    except Exception as e:  # noqa: BLE001 — status write is best-effort
+        print(f"[generate_lambda] job {job_id} status put failed: {e}", file=sys.stderr)
+        return False
+
+
+def _job_get(job_id: str) -> dict[str, Any] | None:
+    """Read a job status doc; None when unknown or unreachable."""
+    try:
+        resp = boto3.client("s3").get_object(Bucket=ASSET_STORE_S3_BUCKET, Key=_job_key(job_id))
+        doc = json.loads(resp["Body"].read())
+        return doc if isinstance(doc, dict) else None
+    except Exception:  # noqa: BLE001 — unknown job and S3 faults both read as None
+        return None
+
+
+def _handle_jobs_start(event: dict[str, Any]) -> dict[str, Any]:
+    """POST /jobs — validate, self-invoke async, 202 with the job id in <2s."""
+    try:
+        data = _parse_body(event)
+    except (json.JSONDecodeError, ValueError, TypeError) as e:
+        return _response(400, {"ok": False, "error": f"malformed request body: {e}"})
+    if not isinstance(data, dict):
+        return _response(400, {"ok": False, "error": "malformed request body: expected a JSON object"})
+    fn_name = (os.environ.get("AWS_LAMBDA_FUNCTION_NAME") or "").strip()
+    if not fn_name:
+        return _response(500, {"ok": False, "error": "async jobs unsupported here (no function name)"})
+    job_id = uuid4().hex[:12]
+    if not _job_put(job_id, {"job_id": job_id, "state": "queued", "created": time.time()}):
+        return _response(500, {"ok": False, "error": "job store unreachable"})
+    try:
+        boto3.client("lambda").invoke(
+            FunctionName=fn_name,
+            InvocationType="Event",
+            Payload=json.dumps({**data, "_job": {"id": job_id}}).encode("utf-8"),
+        )
+    except Exception as e:  # noqa: BLE001 — self-invoke fault: job stays queued, caller falls back
+        print(f"[generate_lambda] job {job_id} self-invoke failed: {e}", file=sys.stderr)
+        return _response(500, {"ok": False, "error": "could not start worker"})
+    return {"statusCode": 202, "headers": CORS_HEADERS, "body": json.dumps({"ok": True, "job_id": job_id})}
+
+
+def _handle_jobs_status(event: dict[str, Any]) -> dict[str, Any]:
+    """GET /jobs?id= — instant read of the job status doc."""
+    params = event.get("queryStringParameters") or {}
+    job_id = str(params.get("id") or "").strip()
+    if not re.fullmatch(r"[0-9a-f]{12}", job_id):
+        return _response(400, {"ok": False, "error": "unknown job"})
+    doc = _job_get(job_id)
+    if doc is None:
+        return _response(404, {"ok": False, "error": "unknown job"})
+    return _response(200, doc)
+
+
+def _handle_job_worker(payload: dict[str, Any]) -> dict[str, Any]:
+    """Async worker branch (Event invoke, no requestContext): the long ladder run.
+
+    Relaxes the sync walls for the full Lambda timeout, runs the same preview
+    (or full) handler, and stores the exact response dict as the job result.
+    Module-global budgets are read at call time, so they are widened here and
+    RESTORED in finally — a reused container must keep sync walls intact.
+    """
+    from . import generate as _generate_mod
+
+    job = payload.get("_job") or {}
+    job_id = str(job.get("id") or uuid4().hex[:12])
+    data = {k: v for k, v in payload.items() if k != "_job"}
+    prompt = str(data.get("prompt") or "").strip() or "KODIAK - Nourishment for Today's Frontier. Keep It Wild."
+    prompt = _safe_prompt_text(prompt)
+    _job_put(job_id, {"job_id": job_id, "state": "working", "phase": "composing hero", "started": time.time()})
+    saved = (
+        _generate_mod.GENERATE_SOFT_BUDGET_MS,
+        _generate_mod._NATIVE_READ_TIMEOUT_S,
+        _generate_mod._OUTPAINT_BUDGET_MS,
+    )
+    try:
+        _generate_mod.GENERATE_SOFT_BUDGET_MS = _JOB_SOFT_BUDGET_MS
+        _generate_mod._NATIVE_READ_TIMEOUT_S = _JOB_NATIVE_TIMEOUT_S
+        _generate_mod._OUTPAINT_BUDGET_MS = _JOB_OUTPAINT_BUDGET_MS
+        mode = str(data.get("mode") or PREVIEW_MODE).strip().lower()
+        work = _handle_full if mode == FULL_MODE else _handle_preview
+        executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        future = executor.submit(work, data, prompt)
+        try:
+            result = future.result(timeout=_JOB_WALL_S)
+        except concurrent.futures.TimeoutError:
+            print(f"[generate_lambda] job {job_id} hit job wall at {_JOB_WALL_S}s", file=sys.stderr)
+            result = None
+        finally:
+            executor.shutdown(wait=False)
+        if isinstance(result, dict) and result.get("ok"):
+            _job_put(job_id, {"job_id": job_id, "state": "done", "result": result})
+        else:
+            _job_put(
+                job_id,
+                {"job_id": job_id, "state": "error", "error": "render wall exceeded — try again"},
+            )
+    except Exception as e:  # noqa: BLE001 — worker faults land in the job doc, never raised
+        print(f"[generate_lambda] job {job_id} worker failed: {e}", file=sys.stderr)
+        _job_put(job_id, {"job_id": job_id, "state": "error", "error": "worker fault — try again"})
+    finally:
+        _generate_mod.GENERATE_SOFT_BUDGET_MS, _generate_mod._NATIVE_READ_TIMEOUT_S, _generate_mod._OUTPAINT_BUDGET_MS = saved
+    return {"ok": True, "job_id": job_id}
+
+
 def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
     """Compose a hero from real source assets driven by a brief, upload it, return a presigned URL.
 
@@ -1954,6 +2087,10 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
     """
     if _is_options(event):
         return {"statusCode": 200, "headers": CORS_HEADERS, "body": ""}
+    # Async worker branch (Event invoke from POST /jobs): no requestContext,
+    # carries the _job envelope. Runs the long ladder outside any HTTP wall.
+    if isinstance(event, dict) and "_job" in event and "requestContext" not in event:
+        return _handle_job_worker(event)
     # PATH DISPATCH (#$default catch-all): the deployed HTTP API v2 routes EVERY path to
     # this one Lambda, so specific paths must be branched here or they fall into the
     # generate ladder and get a hero image back instead of their real response. OPTIONS is
@@ -1971,6 +2108,11 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         return _handle_library_assets(event)  # T2 asset ingest — store + best-effort embed
     if _p == "/assets/pack":
         return _handle_pack(event)  # #204 ISO asset-pack zip — S3-only, no wall needed
+    if _p == "/jobs":
+        _method = ((event.get("requestContext") or {}).get("http") or {}).get("method") or event.get("httpMethod") or "POST"
+        if str(_method).upper() == "GET":
+            return _handle_jobs_status(event)
+        return _handle_jobs_start(event)
     # TOP-LEVEL VALIDATION (before the ladder): a genuinely malformed request — an
     # unparseable JSON body — is the ONLY non-200 (a 400). A well-formed POST always
     # reaches the never-fail ladder in generate_hero, which returns 200 real pixels

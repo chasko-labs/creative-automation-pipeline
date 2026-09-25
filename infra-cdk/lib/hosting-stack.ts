@@ -34,6 +34,7 @@ const API_BEHAVIOR_PATHS = [
   "/library/assets*",
   "/localize*",
   "/generate*",
+  "/jobs*",
   "/assets/pack*",
   "/campaigns/platform-copy*",
 ];

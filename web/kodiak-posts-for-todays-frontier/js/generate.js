@@ -1858,12 +1858,14 @@ let skuList = [
        * @param {unknown} wantTheme
        * @returns {Promise<void>}
        */
+      // Shared request body for the sync AND jobs paths — one builder so the
+      // async start sends exactly what oneGenerate would have sent.
       /**
        * @param {string} productSlug
        * @param {unknown} wantTheme
-       * @returns {Promise<BackendResponse>}
+       * @returns {Record<string, unknown>}
        */
-      const oneGenerate = async (productSlug, wantTheme)=>{
+      const buildGenerateBody = (productSlug, wantTheme)=>{
         // scope-first: Create reads the segmented control's selection (window.__campaignScope, default local)
         const scope = window.__campaignScope || 'local';
         // staged staged asset pick (Browse past assets) rides as the seed — the backend prefers
@@ -1883,7 +1885,15 @@ let skuList = [
         try{ themeList = orderThemes(wantTheme || null, (typeof window.__activeThemes==='function') ? window.__activeThemes() : []); }catch(e){}
         let scenicKey = null;
         try{ scenicKey = window.__scenicSeedKey || null; }catch(e){}
-        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, layers: reqLayers, ...(wantTheme ? {theme: wantTheme} : {}), ...(themeList.length ? {themes: themeList} : {}), ...(activeSeason ? {season: activeSeason} : {}), ...(scenicKey && !stagedKey ? {seed_key: scenicKey} : {}), ...(stagedKey ? {seed_key: stagedKey} : {})};
+        return {prompt: brief, market: selectedLoc.market, product: productSlug, scope, layers: reqLayers, ...(wantTheme ? {theme: wantTheme} : {}), ...(themeList.length ? {themes: themeList} : {}), ...(activeSeason ? {season: activeSeason} : {}), ...(scenicKey && !stagedKey ? {seed_key: scenicKey} : {}), ...(stagedKey ? {seed_key: stagedKey} : {})};
+      };
+      /**
+       * @param {string} productSlug
+       * @param {unknown} wantTheme
+       * @returns {Promise<BackendResponse>}
+       */
+      const oneGenerate = async (productSlug, wantTheme)=>{
+        const body = buildGenerateBody(productSlug, wantTheme);
         const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
         if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
         // isolate the parse so a malformed 200 body surfaces as a clear error (outer catch -> visible status)
@@ -1891,6 +1901,80 @@ let skuList = [
         try{ json = await resp.json(); }catch(pe){ throw new Error('malformed response from backend'); }
         if(!json || !json.image_url) throw new Error('response missing image_url');
         return json;
+      };
+      // Async render jobs: POST /jobs starts backend work past the 30s
+      // gateway ceiling (202 + job id), GET /jobs?id= polls the S3 status
+      // doc. The done result embeds the exact sync response shape, so the
+      // shared downstream renders untouched.
+      /**
+       * @param {Record<string, unknown>} body
+       * @returns {Promise<string>}
+       */
+      const startJob = async (body)=>{
+        const resp = await fetch('/jobs', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
+        if(!resp.ok) throw new Error('jobs unavailable (HTTP ' + resp.status + ')');
+        let started;
+        try{ started = await resp.json(); }catch(pe){ throw new Error('malformed jobs response'); }
+        if(!started || !started.job_id) throw new Error('jobs unavailable (no job id)');
+        return started.job_id;
+      };
+      const POLL_INTERVAL_MS = 5000, POLL_DEADLINE_MS = 420000;
+      /**
+       * @param {string} jobId
+       * @param {number} runToken
+       * @returns {Promise<BackendResponse>}
+       */
+      const pollJob = async (jobId, runToken)=>{
+        const t0 = Date.now();
+        for(;;){
+          if(typeof window.__ffRunSeq !== 'undefined' && window.__ffRunSeq !== runToken) throw new Error('superseded');
+          const resp = await fetch('/jobs?id=' + encodeURIComponent(jobId), {signal: controller.signal});
+          if(!resp.ok) throw new Error('job status HTTP ' + resp.status);
+          let doc;
+          try{ doc = await resp.json(); }catch(pe){ throw new Error('malformed job status'); }
+          if(doc && doc.state === 'done' && doc.result) return doc.result;
+          if(doc && doc.state === 'error') throw new Error(String((doc && doc.error) || 'render job failed'));
+          const elapsed = Math.round((Date.now() - t0) / 1000);
+          if(Date.now() - t0 > POLL_DEADLINE_MS) throw new Error('job timed out after ' + elapsed + 's without finishing');
+          if(status) status.textContent = 'Composing on the backend — ' + elapsed + 's elapsed, no 30s limit…';
+          await new Promise(res=>setTimeout(res, POLL_INTERVAL_MS));
+        }
+      };
+      // Honest miss card, shared by the sync and jobs paths: explicit error
+      // state with a pulsing retry (which starts a fresh run), never fallback
+      // pixels presented as the campaign.
+      /**
+       * @param {string} subText
+       * @param {string} statusText
+       * @returns {void}
+       */
+      const showMissCard = (subText, statusText)=>{
+        try{
+          const stale = document.getElementById('genRetry');
+          if(stale) stale.remove();
+          if(status) status.textContent = statusText;
+          const grid = document.getElementById('preview');
+          if(!grid) return;
+          grid.innerHTML = '';
+          const miss = document.createElement('div');
+          miss.className = 'tile ff-render-miss';
+          miss.setAttribute('role', 'alert');
+          const headline = document.createElement('b');
+          headline.textContent = 'Render miss — nothing generated';
+          const sub = document.createElement('div');
+          sub.className = 'small';
+          sub.textContent = subText;
+          const retryBtn = document.createElement('button');
+          retryBtn.type = 'button';
+          retryBtn.id = 'genRetry';
+          retryBtn.className = 'ff-retry ff-retry--pulse';
+          retryBtn.textContent = 'Try again';
+          retryBtn.addEventListener('click', ()=>{ const g = document.getElementById('generateCampaign'); if(g) g.click(); });
+          miss.appendChild(headline);
+          miss.appendChild(sub);
+          miss.appendChild(retryBtn);
+          grid.appendChild(miss);
+        }catch(e){}
       };
       // Total-network-loss defense-in-depth ONLY (no response at all). Composites the REAL
       // requested SKU on a plain canvas and labels it explicitly as an offline stand-in. This
@@ -1988,15 +2072,40 @@ let skuList = [
           stageTimers.push(setTimeout(()=>{ if(status) status.textContent = s.text; }, s.at));
         });
       }
-      timeoutId = setTimeout(()=>controller.abort(), 100000); // Nova Pro composition is slow (~90s); allow headroom
+      timeoutId = setTimeout(()=>controller.abort(), 450000); // async jobs poll past the 30s ceiling (420s deadline + margin); sync attempts answer by ~30s either way
         try{ window.__lastSidecar = null; window.__lastPlatformCopy = {}; }catch(e){}
         if(doThemedOrSingle){
-          // Single request (themed if a chip is active, else default product).
+          // Async jobs first: the backend composes past the 30s gateway
+          // ceiling while the page polls with honest elapsed time. A fast
+          // start failure (no routes, 500) falls back to the sync attempt
+          // below unchanged; poll timeouts/errors render the miss card.
+          const runToken = (window.__ffRunSeq = (window.__ffRunSeq || 0) + 1);
+          /** @type {any} */
+          let json = null;
+          let jobsDone = false;
+          try{
+            if(status) status.textContent = 'Starting backend render job — composing past the 30s limit…';
+            const jobId = await startJob(buildGenerateBody(primarySlug, activeTheme || undefined));
+            json = await pollJob(jobId, runToken);
+            jobsDone = true;
+          }catch(jobErr){
+            if(jobErr instanceof Error && jobErr.message === 'superseded') return;
+            const jobMsg = jobErr instanceof Error ? jobErr.message : String(jobErr);
+            if(/^job (timed out|status HTTP|malformed)|render job failed|worker fault/i.test(jobMsg)){
+              showMissCard(
+                'The backend render job did not finish (' + jobMsg + '). No fallback pixels are shown as your campaign — try again and it will start a fresh job.',
+                'Render job did not finish — no campaign pixels to show.');
+              return;
+            }
+            console.warn('generate: jobs path failed, sync fallback —', jobMsg);
+          }
+          if(!jobsDone){
+          // Single-request sync fallback (themed if a chip is active, else default product).
           // Pass 1 of 2 warms the image model AND attempts the hero — stated
           // up front so a cold miss reads as a warming pass, never a failure.
           if(status) status.textContent = 'Pass 1 of 2 — warming the image model and composing your hero…';
           const pass1At = Date.now();
-          let json = await oneGenerate(primarySlug, activeTheme || undefined);
+          json = await oneGenerate(primarySlug, activeTheme || undefined);
           // AUTO-RETRY ONCE on a wall-timeout fallthrough — but only when pass 1
           // was a REAL attempt (>=5s). An instant fallthrough (<5s) means the
           // backend declined without trying (not cold models): a blind retry
@@ -2014,6 +2123,7 @@ let skuList = [
               }catch(retryErr){ console.warn('generate: warm retry failed, keeping first response —', retryErr instanceof Error ? retryErr.message : retryErr); }
             }
           }
+          } // end sync fallback — the jobs path joins the shared downstream here
           rememberSidecar(json);
           const readyThemeLabel = json.theme ? (THEME_LABELS[json.theme] || themeLabel) : (activeTheme ? themeLabel : null);
           const readyTheme = (json.theme || activeTheme) ? (' · theme: ' + readyThemeLabel) : '';
@@ -2062,33 +2172,11 @@ let skuList = [
           // with a PULSING retry button (unmissable). Idempotent — a passing
           // run removes any stale button + restores the grid on next render.
           try{
-            let retry = document.getElementById('genRetry');
-            if(retry) retry.remove();
+            document.getElementById('genRetry')?.remove();
             if(/^brand-floor/i.test(String((json && json.source) || ''))){
-              if(status) status.textContent = 'Render missed twice — no campaign pixels to show. The image model is slower than the render window allows right now.';
-              const grid = document.getElementById('preview');
-              if(grid){
-                grid.innerHTML = '';
-                const miss = document.createElement('div');
-                miss.className = 'tile ff-render-miss';
-                miss.setAttribute('role', 'alert');
-                const headline = document.createElement('b');
-                headline.textContent = 'Render miss — nothing generated';
-                const sub = document.createElement('div');
-                sub.className = 'small';
-                sub.textContent = 'Two full passes hit the render wall — the image model is slower than the render window allows right now. No fallback pixels are shown as your campaign — you can try again when the window clears.';
-                const retryBtn = document.createElement('button');
-                retryBtn.type = 'button';
-                retryBtn.id = 'genRetry';
-                retry = retryBtn;
-                retryBtn.className = 'ff-retry ff-retry--pulse';
-                retryBtn.textContent = 'Try again';
-                retryBtn.addEventListener('click', ()=>{ const g = document.getElementById('generateCampaign'); if(g) g.click(); });
-                miss.appendChild(headline);
-                miss.appendChild(sub);
-                miss.appendChild(retryBtn);
-                grid.appendChild(miss);
-              }
+              showMissCard(
+                'Two full passes hit the render wall — the image model is slower than the render window allows right now. No fallback pixels are shown as your campaign — you can try again when the window clears.',
+                'Render missed twice — no campaign pixels to show. The image model is slower than the render window allows right now.');
             }
           }catch(e){}
           // auto-open the collapsed Preview card so the user sees the freshly-composed output

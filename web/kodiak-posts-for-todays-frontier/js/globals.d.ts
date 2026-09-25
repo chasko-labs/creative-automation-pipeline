@@ -312,6 +312,8 @@ interface Window {
   ffLog?: (...args: unknown[]) => void;
   /** Campaign scope tag (e.g. frontier code) for analytics; free-form. */
   __campaignScope?: string;
+  /** Monotonic Create-click sequence; a poll loop exits when it goes stale. */
+  __ffRunSeq?: number;
   /**
    * Resting-showcase copy for a non-Park-City market (generate.js).
    * Null for Park City markets (the shipped example stays untouched).
