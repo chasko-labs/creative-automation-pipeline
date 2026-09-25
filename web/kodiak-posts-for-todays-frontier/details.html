@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/>
 <link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
-<link rel="stylesheet" href="design/styles.css?v=0.2.011-9a0b828-20260925">
+<link rel="stylesheet" href="design/styles.css?v=0.2.012-22cea08-20260925">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>KODIAK® Posts for Today's Frontier — Design System Inventory</title>
 <meta name="robots" content="noindex, nofollow, noarchive">
@@ -238,7 +238,7 @@ header h1,header h2,header h3{color:var(--parchment)}
 <!-- Design system inventory — a human-readable companion to the live scorecards.
      The inventory appears before the scorecards so the page reads from design guidance
      into the live quality summary. -->
-<div class="card wide-track inv-section" id="inventory"><div class="hd"><h2>Design system — living inventory <span class="badge">reference</span></h2><p>This page explains the visible building blocks of the campaign tool: color, type, spacing, controls, cards, previews, localization, accessibility, and the reasoning behind the visual system. The live scorecards below provide an additional quality check. Reference files remain available through <a href="../../design/tokens/kodiak.json" target="_blank">the design tokens</a>, <a href="design/styles.css?v=0.2.011-9a0b828-20260925" target="_blank">the shared styles</a>, and the <a href="../../docs/kodiak-style-guide.md" target="_blank">brand style guide</a>.</p></div><div class="body">
+<div class="card wide-track inv-section" id="inventory"><div class="hd"><h2>Design system — living inventory <span class="badge">reference</span></h2><p>This page explains the visible building blocks of the campaign tool: color, type, spacing, controls, cards, previews, localization, accessibility, and the reasoning behind the visual system. The live scorecards below provide an additional quality check. Reference files remain available through <a href="../../design/tokens/kodiak.json" target="_blank">the design tokens</a>, <a href="design/styles.css?v=0.2.012-22cea08-20260925" target="_blank">the shared styles</a>, and the <a href="../../docs/kodiak-style-guide.md" target="_blank">brand style guide</a>.</p></div><div class="body">
 <p class="inv-lead">Use this page as a shared vocabulary for client conversations. It describes what people see and why the interface uses each pattern, without requiring knowledge of the services that deliver the page.</p>
 </div></div>
 
@@ -728,7 +728,7 @@ graph TD
 <p class="inv-lead">The visual system keeps color, type, spacing, shape, and depth in one shared vocabulary. When a new interface component is introduced, it receives those same brand values so the campaign experience remains recognizable and consistent.</p>
 
 <h3>Shared brand values</h3>
-<p><a href="design/styles.css?v=0.2.011-9a0b828-20260925" target="_blank">The shared styles</a> provide one set of brand values for color, spacing, shape, depth, and type. New interface elements use the same values so the campaign experience remains recognizable from page to page.</p>
+<p><a href="design/styles.css?v=0.2.012-22cea08-20260925" target="_blank">The shared styles</a> provide one set of brand values for color, spacing, shape, depth, and type. New interface elements use the same values so the campaign experience remains recognizable from page to page.</p>
 
 <h3>Consistent component styling</h3>
 <p>When a shared control pattern is introduced, its colors, spacing, focus treatment, and shape follow the same kodiak values. This keeps buttons, pickers, disclosures, and search fields familiar while preserving their keyboard and screen-reader behavior.</p>
@@ -875,7 +875,7 @@ graph TD
 
   <!-- BABYLON BOARD PREVIEW PLACEHOLDER — the board agent owns the script + fill -->
   <div class="recipe-card-board" id="recipe-card-board" data-substrate="kraft" aria-label="physical board preview of the recipe card">
-    <img class="recipe-card-board__fallback" src="assets/recipe-card-board-fallback.svg?v=0.2.011-9a0b828-20260925" alt="recipe card shown as a 20 point brown kraft board, 8.5 by 11 inches" />
+    <img class="recipe-card-board__fallback" src="assets/recipe-card-board-fallback.svg?v=0.2.012-22cea08-20260925" alt="recipe card shown as a 20 point brown kraft board, 8.5 by 11 inches" />
     <p class="recipe-card-board__status" role="status"></p>
   </div>
 
@@ -1255,7 +1255,7 @@ graph TD
      origin (the deployed site) to fetch its chunks; it does not run the
      three-dimensional path from a file:// Uniform Resource Locator. The static
      fallback still works from file:// and on any chunk-fetch failure. -->
-<script type="module" src="vendor/kodiak-ember.esm.js?v=0.2.011-9a0b828-20260925"></script>
+<script type="module" src="vendor/kodiak-ember.esm.js?v=0.2.012-22cea08-20260925"></script>
 <!-- Boot as a SECOND module script. ECMAScript-module scripts are deferred and
      execute in document order, so this runs AFTER the entry module above has
      evaluated and assigned window.KodiakEmber. The guard still returns early if
