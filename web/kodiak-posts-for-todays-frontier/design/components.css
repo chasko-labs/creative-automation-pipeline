@@ -215,20 +215,20 @@ section.xl{padding:var(--section-space-xl) 0}
 .wide-track + .wide-track{margin-top:10px}
 /* dual logo header — the Kodiak bear-seal sits on a rectangular kraft badge (~4:3, wider than tall).
    present it at natural aspect within the navbar height, no circular clip. primary visible, secondary sticky crossfade. */
-/* === contained badge logo — the grizzly sits INSIDE the bar on a kraft badge
-   (fixed 72px height, equal padding, overflow clipped). No scaling, no spill,
-   no overhang: badge, plate, and timeline share one vertical centerline and
-   one width wrapper. retired the oversize-hero spill pattern 2026-09-25. */
-.kodiak-header__logos{position:relative;flex:0 0 auto;height:72px;width:auto;aspect-ratio:auto;display:flex;align-items:center;justify-content:center;overflow:visible;background:transparent;border:none;padding:8px 10px;transition:height .25s ease,padding .25s ease}
-.kodiak-header__logo--primary{height:100%;width:auto;max-width:100%;object-fit:contain;opacity:1;transition:opacity .2s;transform:none}
-.kodiak-header__logo--secondary{position:absolute;inset:8px 10px;width:auto;height:auto;max-width:calc(100% - 20px);max-height:calc(100% - 16px);object-fit:contain;opacity:0;pointer-events:none;transition:opacity .2s}
+/* === overhang badge logo (brand standard) — the grizzly rides a 96x112 frame
+   hung from the bar's top-left, overhanging below the 60px bar onto the sheet
+   layers. absolute: never in flow, never moves siblings. sticky shrinks the
+   frame and crossfades to the bare Park City wordmark. restored 2026-09-25;
+   the contained-badge experiment is retired. */
+.kodiak-header__logos{position:absolute;top:0;left:1.5rem;width:96px;height:112px;z-index:60;display:flex;align-items:center;justify-content:center;overflow:visible;background:transparent;border:none;padding:0;transition:height .25s ease,width .25s ease}
+.kodiak-header__logo--primary{width:100%;height:100%;object-fit:contain;opacity:1;transition:opacity .2s;transform:none}
+.kodiak-header__logo--secondary{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;pointer-events:none;transition:opacity .2s}
 .kodiak-header.is-sticky .kodiak-header__logo--primary{opacity:0}
 .kodiak-header.is-sticky .kodiak-header__logo--secondary{opacity:1}
 /* sticky shrink — the bare Park City wordmark rides a shorter frame, no
    cardboard (the ::before/::after sheets fade per the layers block below). */
-.kodiak-header.is-sticky .kodiak-header__logos{height:56px;padding:4px 6px}
-.kodiak-header.is-sticky .kodiak-header__logo--secondary{inset:4px 6px;max-width:calc(100% - 12px);max-height:calc(100% - 8px)}
-@media(max-width:860px){.kodiak-header__logos{height:56px;padding:6px 8px}.kodiak-header__logo--secondary{inset:6px 8px;max-width:calc(100% - 16px);max-height:calc(100% - 12px)}}
+.kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:104px}
+@media(max-width:1279px){.kodiak-header__logos{position:static;width:72px;height:84px;flex:0 0 auto}.kodiak-header.is-sticky .kodiak-header__logos{height:56px;width:76px}}
 @media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
 /* === Firefly-inspired prompt bar — "Create a Kodiak campaign" === */
@@ -239,11 +239,11 @@ section.xl{padding:var(--section-space-xl) 0}
 /* setup wrappers flattened: .card > .body > .ff-prompt exist only for legacy
    hooks, so they carry no chrome — the .ff-setup board is the single card and
    its edges sit exactly on the lower panels' edges (shared 1064 wrapper). */
-.wrap>.card[data-mcp="campaign-brief"]{background:transparent;border:none;border-radius:0;box-shadow:none;margin:10px 0}
-.wrap>.card[data-mcp="campaign-brief"]:hover{background:transparent;transform:none;box-shadow:none}
-.wrap>.card[data-mcp="campaign-brief"]::before,.wrap>.card[data-mcp="campaign-brief"]::after{content:none}
+.wrap>.card[data-mcp="campaign-brief"]{margin:10px 0}
 .wrap>.card[data-mcp="campaign-brief"]>.body{padding:0}
 .wrap>.card[data-mcp="campaign-brief"] .ff-prompt{background:transparent;border:none;border-radius:0;padding:0;box-shadow:none}
+.wrap>.card[data-mcp="campaign-brief"] .ff-setup{background:transparent;border:none;border-radius:0;box-shadow:none;padding:var(--spacing-md)}
+.wrap>.card[data-mcp="campaign-brief"] .ff-setup::after{content:none}
 /* lit kraft — the hero prompt surface is the flat top-light token wash; no stripes. */
 .ff-prompt h2{margin:0 0 4px;font:800 20px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.03em;text-transform:none;color:var(--chocolate)}
 .ff-prompt .ff-sub{margin:0 0 14px;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
@@ -869,18 +869,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .kodiak-topstrip{display:none}
 /* header layout moved off the element's style attribute; base header{} already sets brown bg + kraft overlays */
 header.kodiak-header{border-bottom:none;display:block;width:100%;padding:0;margin:0}
-/* full-bleed pine-to-timber bar with a blaze rule under it; headline stays parchment. */
-header.kodiak-header{background:linear-gradient(135deg,var(--colors-brand-frontier-green) 0%,var(--brown-kodiak) 72%,var(--chocolate) 100%);border-bottom:3px solid var(--colors-brand-blaze-orange)}
-/* the badge is contained (fixed height, clipped box) so the bar clips safely. */
-header.kodiak-header,.kodiak-header .header__inner{overflow:hidden}
-/* one shared width wrapper: header content, timeline, setup board, and lower
-   panels all sit on width min(1064px,100%-36px) centered, so left/right margins
-   match down the page. mirrors .wrap (1100) minus its 18px gutters. */
-.kodiak-header .header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;width:min(1064px,calc(100% - 36px));margin:0 auto;padding:12px 0;background:transparent}
-/* logo | plate share one row and one vertical centerline; plate wraps below
-   only on narrow screens. */
-.kodiak-header .kodiak-headline-plate{flex:1 1 auto;min-width:0;margin-top:0;padding:14px 20px}
-@media(max-width:860px){.kodiak-header .kodiak-headline-plate{flex:1 1 100%}}
+/* full-bleed brown bar with a blaze rule under it; headline stays parchment.
+   brand standard is brown — no pine-green cast on the bar. */
+header.kodiak-header{background:linear-gradient(180deg,var(--brown-kodiak) 0%,var(--chocolate) 100%);border-bottom:3px solid var(--colors-brand-blaze-orange)}
+/* the badge overhangs below the bar by spec, so the bar never clips. */
+header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
+/* 60px bar row; the badge floats absolute over the left margin (never in flow,
+   never moving siblings). content column matches the timeline/panels wrapper
+   below: min(1064px,100%-36px) centered. */
+.kodiak-header .header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;box-sizing:border-box;width:min(1064px,calc(100% - 36px));height:60px;margin:0 auto;padding:0;background:transparent}
+/* plate rides the bar row beside the badge with air above the blaze rule. */
+.kodiak-header .kodiak-headline-plate{flex:1 1 auto;min-width:0;margin-top:0;padding:10px 20px}
+@media(max-width:1279px){.kodiak-header .header__inner{height:auto;min-height:60px;flex-wrap:wrap;padding:8px 0 8px 16px}.kodiak-header .kodiak-headline-plate{flex:1 1 100%}}
 /* timeline under the header on the same shared wrapper, never inside the header. */
 .ff-timeline.ff-timeline--under-header{width:min(1064px,calc(100% - 36px));margin:10px auto var(--spacing-sm)}
 /* No headline or timeline motion: the header is back to its static weeks-old
@@ -2093,7 +2093,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 
 /* === cardboard logo layers — two procedural board sheets behind the badge ===
    Procedural feTurbulence data-URI texture (no new assets), same page-CSS data-URI
-   precedent as --kraft/--wood. ::before offsets top -8px/left -4px (z-index -1);
+   precedent as --kraft/--wood. ::before offsets top -16px/left -4px (z-index -1);
    ::after offsets left -8px + rotate(-3deg) (z-index -2). Parent isolation keeps the
    negative layers above the header background but below the logo images in every
    frame: absolute desktop (z-index:60 stacking context), sticky shrink (pseudos derive
@@ -2103,9 +2103,9 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .kodiak-header__logos::before,.kodiak-header__logos::after{content:"";position:absolute;inset:0;pointer-events:none;
   border:none;border-radius:var(--radii-sm);
   background-repeat:repeat;box-shadow:var(--shadows-sm);
-  mix-blend-mode:multiply;opacity:.85;transition:opacity .25s ease;
+  opacity:.95;transition:opacity .25s ease;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E"),linear-gradient(180deg,transparent 0%,var(--colors-brand-box-parchment) 100%)}
-.kodiak-header__logos::before{top:-8px;left:-4px;z-index:-1}
+.kodiak-header__logos::before{top:-16px;left:-4px;z-index:-1}
 .kodiak-header__logos::after{left:-8px;transform:rotate(-3deg);z-index:-2;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E"),linear-gradient(180deg,transparent 0%,var(--colors-brand-badge-parchment) 100%)}
 /* no cardboard on scroll — the sticky bar keeps the flat gradient only; the
