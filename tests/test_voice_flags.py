@@ -80,7 +80,7 @@ def test_stability_rung_on_by_default_in_prod(monkeypatch):
 def test_wall_budget_composition():
     # inner voice bound < outer wall: a hung voice can never eat the hero budget.
     assert generate_lambda.ART_DIRECTOR_TIMEOUT_S < generate_lambda.GENERATE_WALL_TIMEOUT_S
-    assert generate_lambda.GENERATE_WALL_TIMEOUT_S == 22
+    assert generate_lambda.GENERATE_WALL_TIMEOUT_S == 26
     assert generate_lambda.ART_DIRECTOR_TIMEOUT_S == 6
     # worst-case added sleep of the cold-start probe <= inner bound.
     worst_sleep = (art_director.RETRY_ATTEMPTS - 1) * art_director.RETRY_SLEEP_SECONDS
