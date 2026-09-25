@@ -162,6 +162,15 @@ export class GenerateStack extends cdk.Stack {
                 Action: ["s3:PutObject", "s3:GetObject"],
                 Resource: `arn:aws:s3:::${damBucketName}/brands/kodiak/recipe-art/*`,
               },
+              // Scenic-background prefix. asset_store.scenic_exists HEADs and
+              // upload_scenic PUTs brands/kodiak/scenic-bg/* — scoped grant
+              // of its own, not a widening of the renders statement.
+              {
+                Sid: "DamScenicBgReadWrite",
+                Effect: "Allow",
+                Action: ["s3:PutObject", "s3:GetObject"],
+                Resource: `arn:aws:s3:::${damBucketName}/brands/kodiak/scenic-bg/*`,
+              },
               // User-upload library prefix. asset_library.py writes uploads to
               // brands/kodiak/library/* -- the DamRendersReadWrite statement
               // above only covers renders/*, so the library prefix needs its
