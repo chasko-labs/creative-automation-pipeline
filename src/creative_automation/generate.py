@@ -3912,6 +3912,31 @@ def generate_hero(
                     else:
                         provenance["similarity_gate"] = "disabled"
                 if stylized is not None and stylized.exists():
+                    # Frame truth: the restyle returns the SEED's dims, not the
+                    # ratio frame — cover-fit to _CANVAS[ratio] AFTER the
+                    # similarity gate judged (gate needs same-dims pixels) so
+                    # the shipped file matches the ratio the response claims.
+                    try:
+                        _cw, _ch = _CANVAS.get(ratio, _CANVAS["1x1"])
+                        _styl = Path(stylized)
+                        try:
+                            _same = _styl.resolve() == Path(seed).resolve()
+                        except (OSError, ValueError):
+                            _same = False
+                        if _same:
+                            # scenic-verbatim: the seed IS the pixels — copy to
+                            # out_path before framing so the cached seed photo
+                            # is never mutated by the cover-fit.
+                            Image.open(_styl).convert("RGB").save(out_path, "PNG")
+                            _styl = Path(out_path)
+                            stylized = _styl
+                        _fit_src = Image.open(_styl).convert("RGB")
+                        if _fit_src.size != (_cw, _ch):
+                            ImageOps.fit(
+                                _fit_src, (_cw, _ch), method=Image.BICUBIC
+                            ).save(_styl, "PNG")
+                    except Exception as e:  # noqa: BLE001 — a fit failure keeps pixels over dims
+                        print(f"[generate] rung B canvas fit skipped: {e}", file=sys.stderr)
                     provenance["engine"] = "stability-restyle"
                     provenance["rung"] = "B"
                     if rung_b_strength is not None:

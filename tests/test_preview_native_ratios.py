@@ -163,10 +163,26 @@ def test_fanout_dead_sibling_keeps_the_1x1(tmp_path: Path, monkeypatch) -> None:
 
 
 # --------------------------------------------- seed_local stash
+def test_cover_fit_tile_matches_claimed_ratio(tmp_path: Path) -> None:
+    from creative_automation.generate_lambda import _cover_fit_tile
+
+    odd = tmp_path / "odd.png"
+    odd.write_bytes(_png_bytes((1200, 1000)))
+    _cover_fit_tile(odd, "1x1")
+    assert Image.open(odd).size == (1080, 1080)
+    exact = tmp_path / "exact.png"
+    exact.write_bytes(_png_bytes((1200, 630)))
+    _cover_fit_tile(exact, "blog")
+    assert Image.open(exact).size == (1200, 630)
+    _cover_fit_tile(exact, "nope")  # unknown ratio: no-op, never raises
+    assert Image.open(exact).size == (1200, 630)
+
+
 def test_generate_hero_stashes_seed_local(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setenv("KODIAK_DETERMINISTIC", "1")
     seed = _make_seed(tmp_path / "seed.png")
-    canned = base64.b64encode(_png_bytes(color=(10, 200, 120))).decode("ascii")
+    # canned restyle arrives off-frame (1200x1000): rung B must ship 1080x1080.
+    canned = base64.b64encode(_png_bytes((1200, 1000), color=(10, 200, 120))).decode("ascii")
 
     class _Fake:
         def invoke_model(self, **kwargs):
@@ -194,3 +210,6 @@ def test_generate_hero_stashes_seed_local(tmp_path: Path, monkeypatch) -> None:
         season="October",
     )
     assert prov.get("seed_local") == str(seed)
+    # the SHIPPED path is the ladder's return (a diverge retry lands in a
+    # sibling file; the first restyle at out_path is orphaned, never uploaded).
+    assert Image.open(_result).size == (1080, 1080)

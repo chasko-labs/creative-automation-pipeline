@@ -17,7 +17,7 @@ from uuid import uuid4
 import boto3
 from botocore.config import Config
 from botocore.exceptions import ConnectTimeoutError, ReadTimeoutError
-from PIL import Image
+from PIL import Image, ImageOps
 
 from . import asset_browser, text_rewriter
 from .generate import (
@@ -1430,6 +1430,27 @@ def _handle_scenic_bg(data: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _cover_fit_tile(path: Path, ratio: str) -> None:
+    """Cover-fit a finished tile to its RATIO_DIMS frame, in place.
+
+    Diffusion returns vary (Stability may hand back a capped resolution, the
+    1x1 restyle keeps the seed's dims) — the shipped file must match the ratio
+    the response claims. A fit failure keeps the pixels (dims over nothing).
+    """
+    try:
+        dims = RATIO_DIMS[ratio]
+    except KeyError:
+        return
+    try:
+        with Image.open(path) as im:
+            src = im.convert("RGB")
+            if src.size == (dims[0], dims[1]):
+                return
+            ImageOps.fit(src, (dims[0], dims[1]), method=Image.BICUBIC).save(path, "PNG")
+    except Exception as e:  # noqa: BLE001 — pixels beat dims
+        print(f"[generate] tile {ratio} canvas fit skipped: {e}", file=sys.stderr)
+
+
 def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """Fast interactive path (default): ONE 1x1 control-structure hero, under 30s.
 
@@ -1629,6 +1650,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
                     print(f"[generate] preview brand overlay on {pad_ratio} failed: {e}",
                           file=sys.stderr)
             _finalize_render(pad_path, False, provenance if isinstance(provenance, dict) else {}, layers)
+            _cover_fit_tile(pad_path, pad_ratio)
             with Image.open(pad_path) as im:
                 pw, ph = im.size
             pad_renders.append({"ratio": pad_ratio, "path": pad_path, "w": pw, "h": ph})
