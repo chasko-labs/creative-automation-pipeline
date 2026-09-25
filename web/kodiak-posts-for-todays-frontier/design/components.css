@@ -434,7 +434,7 @@ section.xl{padding:var(--section-space-xl) 0}
    keep the --rc-scale:1 fallback line above it. scoped to #previewRecipe
    (index only) so the details.html specimen and the gallery shells keep
    their own scales. */
-#previewRecipe{display:block;margin-top:16px;container-type:inline-size}
+#previewRecipe{display:block;margin-top:8px;container-type:inline-size}
 #previewRecipe .rc-card-shell{--rc-scale:1;--rc-scale:calc(100cqw / 816px)}
 #previewRecipe .rc-card{margin-block:0 10px}
 
@@ -730,7 +730,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* static labels whisper in lowercase at one scale — displayed values (markets,
    seasons, picks) keep their own case. display headings + CTA stay brand caps. */
 .ff-setup .ff-scope-summary>span[aria-hidden="true"],.ff-setup .ff-location-kicker,.ff-season-details .ff-location-kicker,.ff-brainstorm .ff-products>summary,.ff-optiongroup>.ff-optiongroup-label,.ff-chipcluster-label,.ff-flavor-kicker,.ff-addloc-label{text-transform:lowercase}
-.ff-brief-label{font:600 14px/1.4 "museo-sans",sans-serif;letter-spacing:0;color:var(--colors-brand-frontier-green)}
 .ff-brief-label{display:flex;align-items:center;gap:8px}
 /* step 3 is a disclosure exactly like steps 1/2: closed row shows the pick,
    open reveals the control. same box, same voice. */
@@ -799,7 +798,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* FIX 3: all 8 targets stay on ONE line at every viewport — no wrap. Responsive clamp() font +
    fluid gap/padding shrink the pills to fit rather than wrapping; min-width:0 lets flex compress them. */
 .ff-publish-targets{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(3px,0.8vw,var(--spacing-sm));margin-top:var(--spacing-md);min-width:0}
-.ff-publish-targets .ff-publish-label{flex:0 0 auto;font:700 clamp(8px,1.1vw,10px)/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-foreground-muted);white-space:nowrap}
+.ff-publish-targets .ff-publish-label{flex:0 0 auto;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-foreground-muted);white-space:nowrap}
 .ff-publish-targets .ff-publish-pill{flex:0 1 auto;display:inline-flex;align-items:center;justify-content:center;min-width:0;padding:var(--spacing-xs) clamp(5px,1vw,var(--spacing-sm));
   border:1px solid var(--colors-border-default);border-radius:var(--radii-pill);
   background:var(--colors-brand-box-parchment);color:var(--colors-foreground-default);
@@ -883,7 +882,7 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
    below: min(1064px,100%-36px) centered. */
 .kodiak-header .header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;box-sizing:border-box;width:min(1064px,calc(100% - 36px));height:60px;margin:0 auto;padding:0;background:transparent}
 /* plate rides the bar row beside the badge with air above the blaze rule. */
-.kodiak-header .kodiak-headline-plate{flex:1 1 auto;min-width:0;margin-top:0;padding:10px 20px}
+.kodiak-header .kodiak-headline-plate{flex:1 1 auto;min-width:0;margin-top:0;padding:6px 20px}
 @media(max-width:1279px){.kodiak-header .header__inner{height:auto;min-height:60px;flex-wrap:wrap;padding:8px 0 8px 16px}.kodiak-header .kodiak-headline-plate{flex:1 1 100%}}
 /* timeline under the header on the same shared wrapper, never inside the header. */
 .ff-timeline.ff-timeline--under-header{width:min(1064px,calc(100% - 36px));margin:10px auto var(--spacing-sm)}
@@ -1512,10 +1511,10 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-figcap-context{border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
   background:var(--colors-brand-box-parchment);padding:8px 12px;box-shadow:var(--shadows-sm)}
 .ff-figcap-context>summary{cursor:pointer;font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-brand-frontier-green)}
-.ff-figcap-lede{margin:8px 0 2px;max-width:none;font-size:14px;font-weight:400}
+.ff-figcap-lede{margin:8px 0 2px;max-width:none;font-size:14px;font-weight:400;line-height:1.6}
 /* gradient bridge from the preview carousel into the recipe card — one
    continuous canvas instead of a hard stacked-box cut */
-.ff-recipe-bridge{height:26px;margin:14px 0 2px;border-radius:var(--radii-pill);
+.ff-recipe-bridge{height:14px;margin:8px 0 2px;border-radius:var(--radii-pill);
   background:linear-gradient(180deg,rgba(0,0,0,0) 0%,var(--colors-brand-box-parchment) 78%,var(--colors-brand-box-parchment) 100%)}
 .ff-figcap .ff-figcap-cta:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
 /* below 400px the identical 52px bar can't fit its label — tighten tracking and
@@ -1618,7 +1617,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    with #previewHero, so no generated-state styling needed. */
 .ff-resting-copy{margin:0 0 10px;padding:10px 12px 10px 14px;border-left:3px solid var(--colors-brand-frontier-green);background:var(--colors-brand-box-parchment);border-radius:0 var(--radii-md) var(--radii-md) 0}
 .ff-resting-copy .loc-line{display:block;margin:.2rem 0;font-size:13px;font-weight:400;color:var(--chocolate)}
-.ff-resting-copy .loc-line[lang="en"]{font-size:14px;font-weight:400}
+.ff-resting-copy .loc-line[lang="en"]{font-size:14px;font-weight:600}
 /* high-contrast + forced-colors: decorative wood fiber stays subordinate —
    real copy keeps maximum contrast; texture is decorative and never essential. */
 @media (forced-colors:active),(prefers-contrast:more){

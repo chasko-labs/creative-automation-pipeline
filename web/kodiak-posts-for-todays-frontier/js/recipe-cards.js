@@ -704,9 +704,15 @@
       line.className = 'ff-output-langline';
       var label = document.createElement('span');
       label.className = 'ff-output-langline__label';
-      label.textContent = 'Localization';
+      label.textContent = 'Language';
       line.appendChild(label);
       pub.appendChild(line);
+    }
+    // one toggle ever: each re-render builds fresh, so drop the previous
+    // before docking or the pills stack up six-deep.
+    var stale = line.querySelectorAll('.rc-lang-toggle');
+    for (var s = 0; s < stale.length; s++) {
+      if (stale[s].parentNode === line) line.removeChild(stale[s]);
     }
     var toggle = scope ? scope.querySelector('.rc-lang-toggle') : null;
     if (toggle) {
