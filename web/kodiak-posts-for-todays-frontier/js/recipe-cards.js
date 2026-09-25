@@ -587,19 +587,32 @@
    * @param {string[]} codes
    * @param {string} active
    * @param {(code: string) => void} onPick
+   * @param {string[]|undefined} available
    * @returns {HTMLElement}
    */
-  function buildLangToggle(codes, active, onPick) {
+  // codes: market language codes to show (without 'en' — English leads always).
+  // available: codes with a baked card translation; the rest render disabled
+  // with the reason in title, so the select stays visible for markets/months
+  // the translation book does not cover yet.
+  function buildLangToggle(codes, active, onPick, available) {
     var row = el('div', 'rc-lang-toggle');
     row.setAttribute('role', 'group');
     row.setAttribute('aria-label', 'Preview language');
     ['en'].concat(codes).forEach(function (code) {
+      var usable = code === 'en' || !available || available.indexOf(code) !== -1;
       var b = el('button', 'rc-lang-toggle__btn' + (code === active ? ' is-active' : ''),
         code === 'en' ? 'English' : langName(code));
       b.setAttribute('type', 'button');
       b.setAttribute('aria-pressed', code === active ? 'true' : 'false');
       b.setAttribute('data-lang', code);
-      b.addEventListener('click', function () { onPick(code); });
+      if (usable) {
+        b.addEventListener('click', function () { onPick(code); });
+      } else {
+        var bb = /** @type {HTMLButtonElement} */ (b);
+        bb.disabled = true;
+        b.setAttribute('aria-disabled', 'true');
+        b.title = 'No ' + langName(code) + ' card translation yet — recipe stays in English';
+      }
       row.appendChild(b);
     });
     return row;
@@ -669,14 +682,32 @@
       shell.appendChild(buildEmptyStateCard(card));
     } else {
       var monthLangs = previewLangsFor(market, monthKey);
-      var codes = Object.keys(monthLangs);
+      var bakedCodes = Object.keys(monthLangs);
+      // dock codes: English + the market's top two languages, always shown so
+      // the select never vanishes where the translation book has no entry.
+      // baked extras ride along too (capped) so a translated month keeps them.
+      /** @type {string[]} */
+      var dockCodes = [];
+      try {
+        var _locEl = /** @type {HTMLInputElement|null} */ (document.getElementById('locality'));
+        var _mkt = (_locEl && _locEl.value) || market;
+        if (typeof window.marketLangsFor === 'function') {
+          (window.marketLangsFor(_mkt) || []).forEach(function (t) {
+            var c = t && (t.translate_code || t.lang_code);
+            if (c && c !== 'en' && dockCodes.indexOf(c) === -1 && dockCodes.length < 2) dockCodes.push(c);
+          });
+        }
+      } catch (e) {}
+      bakedCodes.forEach(function (c) {
+        if (c !== 'en' && dockCodes.indexOf(c) === -1 && dockCodes.length < 4) dockCodes.push(c);
+      });
       if (previewLang !== 'en' && !monthLangs[previewLang]) previewLang = 'en';
       var applied = withPreviewLang(card, previewLang, monthLangs[previewLang]);
-      if (codes.length) {
-        wrap.appendChild(buildLangToggle(codes, previewLang, function (code) {
+      if (dockCodes.length) {
+        wrap.appendChild(buildLangToggle(dockCodes, previewLang, function (code) {
           previewLang = code;
           renderPreviewCard();
-        }));
+        }, bakedCodes));
         if (applied.translated) wrap.appendChild(buildTranslationBadge(applied.translated));
       }
       shell.appendChild(buildRecipeCard(applied.card));

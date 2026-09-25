@@ -1405,7 +1405,9 @@ let skuList = [
         paintRungBadge(badge, rb);
         if(opts.themeLabel || opts.theme) badge.textContent += ' · theme: ' + (opts.themeLabel || opts.theme);
         revealDownloadActions();
-        try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){}
+        // reveal the full-campaign section only on REAL pixels — a brand-floor
+        // miss must never ungate "Your preview is ready".
+        if(!rb.fallback){ try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){} }
       };
       // Human labels for the render ratios and the engine.
       // teaching note (frontier totality: keyed by the whole TileSize union — add a
@@ -1590,7 +1592,8 @@ let skuList = [
         paintRungBadge(badge, rb2);
         if(opts.themeLabel) badge.textContent += ' · theme: ' + opts.themeLabel;
         revealDownloadActions();
-        try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){}
+        // same gate as the single-hero path: misses never read "ready".
+        if(!rb2.fallback){ try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){} }
       };
       // expose the hosted multi-ratio renderer so the Generate Campaign section can reuse it for full-campaign results
       try{ window.KODIAK_showRenderSet = showRenderSet; }catch(e){}
@@ -1989,17 +1992,27 @@ let skuList = [
         try{ window.__lastSidecar = null; window.__lastPlatformCopy = {}; }catch(e){}
         if(doThemedOrSingle){
           // Single request (themed if a chip is active, else default product).
+          // Pass 1 of 2 warms the image model AND attempts the hero — stated
+          // up front so a cold miss reads as a warming pass, never a failure.
+          if(status) status.textContent = 'Pass 1 of 2 — warming the image model and composing your hero…';
+          const pass1At = Date.now();
           let json = await oneGenerate(primarySlug, activeTheme || undefined);
-          // AUTO-RETRY ONCE on a wall-timeout fallthrough: the first pass warms
-          // cold models, so an immediate second pass usually lands real pixels
-          // without the user hunting for the retry button. Bounded to exactly
-          // one retry; a second miss renders the honest error state below.
+          // AUTO-RETRY ONCE on a wall-timeout fallthrough — but only when pass 1
+          // was a REAL attempt (>=5s). An instant fallthrough (<5s) means the
+          // backend declined without trying (not cold models): a blind retry
+          // would slam the same wall, so it goes straight to the honest miss.
+          // Bounded to exactly one retry; a second miss renders it below.
           if(/^brand-floor/i.test(String((json && json.source) || ''))){
-            if(status) status.textContent = 'First pass missed on cold models — retrying now that models are warm…';
-            try{
-              const retryJson = await oneGenerate(primarySlug, activeTheme || undefined);
-              if(retryJson && retryJson.image_url) json = retryJson;
-            }catch(retryErr){ console.warn('generate: warm retry failed, keeping first response —', retryErr instanceof Error ? retryErr.message : retryErr); }
+            const pass1Ms = Date.now() - pass1At;
+            if(pass1Ms < 5000){
+              if(status) status.textContent = 'The backend declined the render in ' + Math.max(1, Math.round(pass1Ms / 1000)) + 's — retrying now would hit the same wall.';
+            } else {
+              if(status) status.textContent = 'Pass 1 warmed the model — composing again (pass 2 of 2)…';
+              try{
+                const retryJson = await oneGenerate(primarySlug, activeTheme || undefined);
+                if(retryJson && retryJson.image_url) json = retryJson;
+              }catch(retryErr){ console.warn('generate: warm retry failed, keeping first response —', retryErr instanceof Error ? retryErr.message : retryErr); }
+            }
           }
           rememberSidecar(json);
           const readyThemeLabel = json.theme ? (THEME_LABELS[json.theme] || themeLabel) : (activeTheme ? themeLabel : null);
@@ -2052,7 +2065,7 @@ let skuList = [
             let retry = document.getElementById('genRetry');
             if(retry) retry.remove();
             if(/^brand-floor/i.test(String((json && json.source) || ''))){
-              if(status) status.textContent = 'Render missed twice — no campaign pixels to show. The models are warm now, so retry usually lands it.';
+              if(status) status.textContent = 'Render missed twice — no campaign pixels to show. The image model is slower than the render window allows right now.';
               const grid = document.getElementById('preview');
               if(grid){
                 grid.innerHTML = '';
@@ -2063,13 +2076,13 @@ let skuList = [
                 headline.textContent = 'Render miss — nothing generated';
                 const sub = document.createElement('div');
                 sub.className = 'small';
-                sub.textContent = 'Two passes hit the render wall (cold models). No fallback pixels are shown as your campaign — hit retry.';
+                sub.textContent = 'Two full passes hit the render wall — the image model is slower than the render window allows right now. No fallback pixels are shown as your campaign — you can try again when the window clears.';
                 const retryBtn = document.createElement('button');
                 retryBtn.type = 'button';
                 retryBtn.id = 'genRetry';
                 retry = retryBtn;
                 retryBtn.className = 'ff-retry ff-retry--pulse';
-                retryBtn.textContent = 'Try again — models are warm now';
+                retryBtn.textContent = 'Try again';
                 retryBtn.addEventListener('click', ()=>{ const g = document.getElementById('generateCampaign'); if(g) g.click(); });
                 miss.appendChild(headline);
                 miss.appendChild(sub);

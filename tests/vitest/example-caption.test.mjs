@@ -15,11 +15,19 @@ function ruleFor(selector) {
 }
 
 describe('example tile captions', () => {
-  it('headline and dims share one line', () => {
-    expect(ruleFor('.render-tile .render-cap b')).toMatch(/display\s*:\s*inline/);
-    expect(ruleFor('.render-tile .render-cap .dims')).toMatch(
-      /display\s*:\s*inline/,
+  it('caption rows are fixed: title ellipsis line plus one unbreakable spec line', () => {
+    // title owns its own ellipsis line so ragged wraps cannot stagger cards
+    expect(ruleFor('.render-tile .render-cap b')).toMatch(/display\s*:\s*block/);
+    expect(ruleFor('.render-tile .render-cap b')).toMatch(/text-overflow\s*:\s*ellipsis/);
+    // shape + dims ride one shared nowrap ellipsis row in CSS and in markup
+    expect(ruleFor('.render-tile .render-cap .rt-spec')).toMatch(
+      /white-space\s*:\s*nowrap/,
     );
+    expect(ruleFor('.render-tile .render-cap .rt-spec')).toMatch(
+      /text-overflow\s*:\s*ellipsis/,
+    );
+    expect(html).toMatch(/rt-spec"><span class="dims">/);
+    expect(html).toMatch(/rt-spec"><span class="rt-shape">/);
   });
 
   it('shape descriptor folds into the same line, not a duplicate', () => {

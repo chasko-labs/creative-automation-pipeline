@@ -1683,6 +1683,9 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   border:1px solid var(--stone);border-radius:var(--radii-md);padding:8px 12px;cursor:pointer}
 .rc-lang-toggle__btn.is-active{color:var(--colors-brand-badge-parchment);
   background:linear-gradient(180deg,var(--colors-brand-bear-brown),var(--chocolate));border-color:var(--chocolate)}
+/* market language without a baked card translation: visible but inert, so the
+   select never vanishes — the title names the reason, no dead-looking pill */
+.rc-lang-toggle__btn:disabled{opacity:.55;cursor:default}
 .rc-lang-badge{margin:0 0 8px;color:var(--colors-neutral-600);font:500 11px/1.5 "museo-sans",sans-serif}
 
 /* honest empty-state card — reuses the .rc-card shell + substrate, no fabricated recipe content */
