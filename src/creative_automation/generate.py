@@ -1817,6 +1817,7 @@ def _stability_control_hero(
     *,
     control_strength: float | None = None,
     seed_value: int | None = None,
+    retry_once: bool = True,
 ) -> Path | None:
     """Restyle the seed photo to the theme via Bedrock Stability control-structure.
 
@@ -1870,7 +1871,11 @@ def _stability_control_hero(
         # Retry once on timeout with a slightly lower control (less seed preservation) —
         # transient Bedrock stalls often succeed on second try; if it still times out,
         # re-raise so the ladder records bedrock-timeout → Rung C. This keeps Rung B
-        # reachable without swallowing the reason.
+        # reachable without swallowing the reason. Fan-out siblings pass
+        # retry_once=False: a cold sibling degrades to the pad honestly instead of
+        # doubling a doomed call inside the shared wall.
+        if not retry_once:
+            raise
         print(f"[generate] stability timeout {e}, retrying once", file=sys.stderr)
         try:
             body["control_strength"] = max(0.2, body["control_strength"] - 0.05)
@@ -1923,6 +1928,7 @@ def _stability_native_ratio(
     *,
     seed_value: int | None = None,
     control_strength: float | None = None,
+    retry_once: bool = True,
 ) -> Path | None:
     """Restyle the resolved seed photo natively at one delivery ratio's frame.
 
@@ -1961,6 +1967,7 @@ def _stability_native_ratio(
             out_path,
             control_strength=control_strength,
             seed_value=seed_value,
+            retry_once=retry_once,
         )
     except TypeError:
         # unparametrized _stability_control_hero (older test doubles): retry bare.
@@ -3781,6 +3788,7 @@ def generate_hero(
                                         seed, scene_prompt, _ratio, _dest,
                                         control_strength=rung_b_strength,
                                         seed_value=None if request_seed is None else request_seed + _idx,
+                                        retry_once=False,
                                     )
 
                                 _pending = {
