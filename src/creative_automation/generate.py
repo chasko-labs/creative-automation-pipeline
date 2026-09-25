@@ -1277,6 +1277,18 @@ def _blend_idea_base(base: str, brief_msg: str | None) -> str:
     return base
 
 
+def _staged_dest(seed_key: str) -> Path:
+    """Unique /tmp dest for a staged seed key.
+
+    Key-hashed, never bare-basename: see the collision note at the staged
+    fetch call site.
+    """
+    import hashlib as _hashlib
+
+    tag = _hashlib.sha1(str(seed_key).encode()).hexdigest()[:12]
+    return Path("/tmp/kodiak-assets/staged") / f"{tag}-{Path(seed_key).name}"
+
+
 def _brief_subject_clause(brief_msg: str | None) -> str:
     """MUST-keep clause for the campaign subject (the idea, not the setting).
 
@@ -3278,7 +3290,12 @@ def generate_hero(
         try:
             from .asset_store import fetch_asset_key
 
-            dest = Path("/tmp/kodiak-assets/staged") / Path(seed_key).name
+            # Key-unique dest (never bare basename): Lambda /tmp persists per
+            # execution environment and fetch_asset_key trusts a nonzero
+            # dest, so two keys sharing a basename (every scenic
+            # hero-1x1.png) would restyle yesterday's file. Seen live: a
+            # christmas-cats preview restyled a stale bear frame.
+            dest = _staged_dest(seed_key)
             photo = fetch_asset_key(seed_key, dest)
             if photo is not None and photo.exists():
                 seed = photo

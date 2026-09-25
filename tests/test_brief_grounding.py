@@ -84,6 +84,16 @@ def test_blend_idea_base_skips_when_present() -> None:
     assert base == "sea otters at dawn"
 
 
+def test_staged_dest_unique_per_key() -> None:
+    # Regression: every scenic hero-1x1.png shared one /tmp dest, so a second
+    # idea restyled the first idea's file (bears for christmas cats).
+    a = generate._staged_dest("brands/kodiak/scenic-bg/sea-otters/hero-1x1.png")
+    b = generate._staged_dest("brands/kodiak/scenic-bg/christmas-cats/hero-1x1.png")
+    assert a != b
+    assert a.name.endswith("hero-1x1.png")
+    assert generate._staged_dest("k") == generate._staged_dest("k")
+
+
 def test_nova_output_reattaches_dropped_idea(monkeypatch, tmp_path: Path) -> None:
     # Nova returns a scene without the idea -> deterministic re-attach.
     class _FakeNova:
