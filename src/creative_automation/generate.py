@@ -1818,6 +1818,7 @@ def _stability_control_hero(
     control_strength: float | None = None,
     seed_value: int | None = None,
     retry_once: bool = True,
+    read_timeout: int | None = None,
 ) -> Path | None:
     """Restyle the seed photo to the theme via Bedrock Stability control-structure.
 
@@ -1839,7 +1840,11 @@ def _stability_control_hero(
         print("[generate] stability skipped: boto3 unavailable", file=sys.stderr)
         return None
     try:
-        client = _bedrock_failfast_client()
+        client = (
+            _bedrock_failfast_client(read_timeout=read_timeout)
+            if read_timeout is not None
+            else _bedrock_failfast_client()
+        )
         body = {
             "prompt": _style_sandwich(prompt),
             "image": _seed_b64_for_stability(seed),
@@ -1912,6 +1917,10 @@ def _stability_control_hero(
 # gets its own control-structure restyle composed AT its frame (not derived from
 # the 1x1), so the five tiles are five distinct compositions. blog is the
 # 1200x630 Open Graph frame (756k px — inside Stability's 4096..9437184 range).
+# Sibling invokes get a roomier single-attempt read timeout than the 12s
+# fail-fast serial cap: the batch costs one invoke of wall, and a cold model
+# needs ~15-20s — 12s would systematically execute every cold sibling.
+_NATIVE_READ_TIMEOUT_S = int(os.getenv("GENERATE_NATIVE_READ_TIMEOUT_S", "20"))
 _NATIVE_RATIO_DIMS = {
     "4x5": (1080, 1350),
     "9x16": (1080, 1920),
@@ -1929,6 +1938,7 @@ def _stability_native_ratio(
     seed_value: int | None = None,
     control_strength: float | None = None,
     retry_once: bool = True,
+    read_timeout: int | None = None,
 ) -> Path | None:
     """Restyle the resolved seed photo natively at one delivery ratio's frame.
 
@@ -1968,6 +1978,7 @@ def _stability_native_ratio(
             control_strength=control_strength,
             seed_value=seed_value,
             retry_once=retry_once,
+            read_timeout=read_timeout,
         )
     except TypeError:
         # unparametrized _stability_control_hero (older test doubles): retry bare.
@@ -3776,11 +3787,19 @@ def generate_hero(
                             with _futures.ThreadPoolExecutor(max_workers=len(_jobs)) as _pool:
                                 def _fire(_ratio: str, _dest: Path, _idx: int):
                                     if _ratio == "1x1":
+                                        # Fan-out mode shares one wall across five
+                                        # invokes: the 1x1 also skips its legacy
+                                        # retry (a 12s second attempt is what
+                                        # breaches the shared wall) and takes the
+                                        # roomier single attempt instead. A cold
+                                        # miss falls to rung C, never the wall.
                                         try:
                                             return _stability_control_hero(
                                                 seed, scene_prompt, _dest,
                                                 control_strength=rung_b_strength,
                                                 seed_value=request_seed,
+                                                retry_once=False,
+                                                read_timeout=_NATIVE_READ_TIMEOUT_S,
                                             )
                                         except TypeError:
                                             return _stability_control_hero(seed, scene_prompt, _dest)
@@ -3789,6 +3808,7 @@ def generate_hero(
                                         control_strength=rung_b_strength,
                                         seed_value=None if request_seed is None else request_seed + _idx,
                                         retry_once=False,
+                                        read_timeout=_NATIVE_READ_TIMEOUT_S,
                                     )
 
                                 _pending = {
