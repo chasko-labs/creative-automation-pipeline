@@ -869,14 +869,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .kodiak-topstrip{display:none}
 /* header layout moved off the element's style attribute; base header{} already sets brown bg + kraft overlays */
 header.kodiak-header{border-bottom:none;display:flex;align-items:center;gap:var(--spacing-md);padding:10px 18px;flex-wrap:wrap;margin:0}
-/* the brown bar breathes inside the same footprint as the timeline below.
-   body is column-flex, so auto margins absorb the stretch and collapse the
-   bar — explicit width + align-self centers instead. Width math mirrors
-   .wrap minus its 18px gutters (1100-36=1064) so bar edges sit exactly on
-   the timeline edges at every breakpoint. */
-header.kodiak-header{max-width:none;width:min(1064px,calc(100% - 36px));align-self:center;margin-top:0}
-@media(min-width:1600px){header.kodiak-header{width:min(1404px,calc(100% - 36px))}}
-@media(min-width:2200px){header.kodiak-header{width:min(1644px,calc(100% - 36px))}}
+/* the brown bar runs full-bleed, left edge to right edge; the inner content
+   keeps the centered column. Symmetric gutters: logo-to-left-edge equals
+   plate-to-right-edge via equal inner side padding. */
+header.kodiak-header{max-width:none;width:100%;align-self:stretch;margin-top:0}
+.header__inner{max-width:1064px;margin-left:auto;margin-right:auto}
+@media(min-width:1600px){.header__inner{max-width:1404px}}
+@media(min-width:2200px){.header__inner{max-width:1644px}
+/* wide breakpoints widen the inner column; the timeline tracks the plate. */}
+@media(min-width:1600px){.ff-timeline.ff-timeline--under-header{width:min(1356px,calc(100% - 84px))}}
+@media(min-width:2200px){.ff-timeline.ff-timeline--under-header{width:min(1596px,calc(100% - 84px))}}
 /* hero treatment (matrix item 7, CSS-only): full-bleed pine-to-timber gradient
    with a blaze rule under it; headline stays parchment. Sticky + logos untouched. */
 header.kodiak-header{background:linear-gradient(135deg,var(--colors-brand-frontier-green) 0%,var(--brown-kodiak) 72%,var(--chocolate) 100%);border-bottom:3px solid var(--colors-brand-blaze-orange)}
@@ -899,21 +901,14 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
    (header box minus its side padding), never inside the header. Header is
    min(1064px,100%-36px) with 18px inner padding mobile / 1.5rem desktop. */
 .ff-timeline.ff-timeline--under-header{width:calc(100% - 72px);margin:10px auto var(--spacing-sm)}
-/* gentle 3D shimmer: headline outer-shadow breathing, slow sheen across the
-   timeline plate. motion-gated — the whole block only exists under
-   no-preference, so reduced-motion users get the static look with zero
-   overrides needed. amplitudes stay tiny. */
+/* headline outer-shadow breathing only. The timeline deliberately carries NO
+   motion: a sheen there reads as "needs your attention" when nothing is
+   happening. Motion-gated under no-preference; reduced-motion gets static. */
 @media(prefers-reduced-motion:no-preference){
 .kodiak-headline-plate h1{animation:ff-title-shadow 8s ease-in-out infinite}
-.ff-timeline::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:linear-gradient(105deg,transparent 42%,rgba(255,244,220,.10) 50%,transparent 58%);
-  background-size:250% 100%;animation:ff-timeline-sheen 11s ease-in-out infinite}
 @keyframes ff-title-shadow{
   0%,100%{text-shadow:0 1px 0 rgba(0,0,0,.28),0 0 14px rgba(255,214,150,0);transform:perspective(700px) rotateX(0deg)}
   50%{text-shadow:0 1px 0 rgba(0,0,0,.28),0 0 22px rgba(255,214,150,.30);transform:perspective(700px) rotateX(.6deg)}}
-@keyframes ff-timeline-sheen{
-  0%,100%{background-position:120% 0}
-  50%{background-position:-20% 0}}
 }
 /* partner mark — hidden until the US Ski & Snowboard card is checked (JS toggles .is-on); tokenized spacing */
 .ff-partner-mark{margin-top:var(--spacing-sm);display:none;align-items:center;gap:var(--spacing-sm)}
