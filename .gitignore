@@ -73,3 +73,6 @@ tests/live/videos/
 # deploy-time mirror of DAM recipe-art (scripts/deploy-frontier.sh syncs it
 # into the site tree; objects are content, not source)
 web/kodiak-posts-for-todays-frontier/recipe-art/
+# deploy-time mirror of DAM scenic-bg (same contract: generated scenes are
+# content, not source)
+web/kodiak-posts-for-todays-frontier/scenic-bg/
