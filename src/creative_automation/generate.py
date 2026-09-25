@@ -1289,6 +1289,19 @@ def _staged_dest(seed_key: str) -> Path:
     return Path("/tmp/kodiak-assets/staged") / f"{tag}-{Path(seed_key).name}"
 
 
+# Marker for idea-composed photo seeds (Stable Image Core text-to-image).
+# A seed carrying this marker already IS the campaign idea in pixels — the
+# control-structure restyle must not touch it (seen live: a christmas-cats
+# scenic restyled into a bear, then into a bare food table). It rides
+# verbatim straight to compose; bg_source records the truth.
+_SCENIC_SEED_MARKER = "/scenic-bg/"
+
+
+def _is_scenic_seed(seed_key: str | None) -> bool:
+    """True when the staged key names an idea-composed scenic background."""
+    return bool(seed_key) and _SCENIC_SEED_MARKER in str(seed_key)
+
+
 def _brief_subject_clause(brief_msg: str | None) -> str:
     """MUST-keep clause for the campaign subject (the idea, not the setting).
 
@@ -3301,6 +3314,7 @@ def generate_hero(
                 seed = photo
                 provenance["seed_selection"] = "staged-asset"
                 provenance["seed_source"] = Path(seed_key).stem
+                provenance["seed_key"] = seed_key
                 _idea_hit = True
                 if theme == "riff-on-past-content":
                     provenance["riff_on"] = seed_key
@@ -3618,11 +3632,27 @@ def generate_hero(
                     scene_prompt, product_name, brief_msg, region, audience, theme, dish,
                     market, season,
                 )
+                # Scenic-verbatim bypass: an idea-composed seed already IS the
+                # campaign in pixels — no Bedrock call is needed, so neither
+                # the budget gate below nor the restyle may touch it. The
+                # restyle re-invents subjects (seen live: christmas-cats seed
+                # restyled into a bear, then into a bare table); the seed
+                # rides verbatim straight to compose. Engine stays
+                # stability-restyle (closed set, backend GenAI rung B);
+                # bg_source + model tell the truth.
+                _scenic_verbatim = _is_scenic_seed(provenance.get("seed_key"))
+                if _scenic_verbatim:
+                    print(
+                        f"[generate] rung B scenic-verbatim {Path(seed_key or '').name} "
+                        f"-> compose, no restyle",
+                        file=sys.stderr,
+                    )
                 # Per-subcall budget gate 2 — the Stability invoke (fail-fast, capped at
                 # BEDROCK_READ_TIMEOUT_S). Re-check AFTER the scene call actually spent its
                 # time; if the remaining clock can no longer cover stability + the C
                 # reservation, abandon B and fall to C rather than risk the gateway cap.
-                if remaining_ms() < _B_STABILITY_MS + _C_RESERVATION_MS:
+                # Scenic-verbatim spends no Bedrock, so the gate does not apply.
+                if remaining_ms() < _B_STABILITY_MS + _C_RESERVATION_MS and not _scenic_verbatim:
                     print(
                         f"[generate] rung B stability skipped (budget {remaining_ms():.0f}ms < "
                         f"{_B_STABILITY_MS + _C_RESERVATION_MS}ms) -> rung C",
@@ -3631,23 +3661,30 @@ def generate_hero(
                     provenance["fallthrough_reason"] = "budget-exhausted"
                     raise _RungBBudgetSkip
                 # Compute once: the recorded strength must equal the strength
-                # actually sent (dynamic mode jitters per call).
+                # actually sent (dynamic mode jitters per call). Scenic-verbatim
+                # skips the invoke entirely: the seed IS the finished pixels.
                 rung_b_strength = _control_for_brief(brief_msg)
-                print(f"[generate] stage restyle start (budget {remaining_ms():.0f}ms)", file=sys.stderr)
-                _restyle_t0 = time.monotonic()
-                try:
-                    stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength, seed_value=request_seed)
-                except TypeError:
-                    stylized = _stability_control_hero(seed, scene_prompt, out_path)
-                    rung_b_strength = None  # unparametrized fallback: record no strength
-                print(f"[generate] stage restyle done in {time.monotonic() - _restyle_t0:.1f}s", file=sys.stderr)
+                if _scenic_verbatim:
+                    stylized = seed
+                    rung_b_strength = None
+                    print("[generate] stage restyle skipped (scenic-verbatim)", file=sys.stderr)
+                else:
+                    print(f"[generate] stage restyle start (budget {remaining_ms():.0f}ms)", file=sys.stderr)
+                    _restyle_t0 = time.monotonic()
+                    try:
+                        stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength, seed_value=request_seed)
+                    except TypeError:
+                        stylized = _stability_control_hero(seed, scene_prompt, out_path)
+                        rung_b_strength = None  # unparametrized fallback: record no strength
+                    print(f"[generate] stage restyle done in {time.monotonic() - _restyle_t0:.1f}s", file=sys.stderr)
                 if stylized is not None and stylized.exists():
                     # Similarity gate (B -> C): reject a drifted restyle BEFORE the
                     # overlay lands — the message bar alone shifts dHash by ~12, so
                     # this MUST read the pre-overlay pixels. A reject falls to rung
                     # C with fallthrough_reason="similarity-gate"; an unreadable
                     # image fails OPEN (never lose a GenAI hero over a hash read).
-                    if _similarity_gate_enabled():
+                    # Scenic-verbatim has no restyle to judge — skip the gate.
+                    if _similarity_gate_enabled() and not _scenic_verbatim:
                         _sim_dist = _similarity_distance(seed, stylized)
                         provenance["similarity_threshold"] = SIMILARITY_GATE_THRESHOLD
                         _diverge = _diverge_requested(theme, season)
@@ -3715,6 +3752,10 @@ def generate_hero(
                     provenance["seed"] = request_seed
                     provenance["style"] = "sandwich-locked"
                     provenance["model"] = STABILITY_CONTROL_MODEL
+                    if _scenic_verbatim:
+                        # No restyle ran: the Core-composed seed is the hero.
+                        provenance["bg_source"] = "scenic-verbatim"
+                        provenance["model"] = _SCENIC_MODEL_ID
                     # PART C — deterministic on-brand headline + accent bar ON TOP of the
                     # GenAI hero (Nova Pro still supplies the headline). Default-on for
                     # the legacy ladder; clean contract (#199) keeps the hero clean and

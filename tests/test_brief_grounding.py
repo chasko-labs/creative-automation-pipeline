@@ -84,6 +84,13 @@ def test_blend_idea_base_skips_when_present() -> None:
     assert base == "sea otters at dawn"
 
 
+def test_is_scenic_seed() -> None:
+    assert generate._is_scenic_seed("brands/kodiak/scenic-bg/sea-otters/hero-1x1.png") is True
+    assert generate._is_scenic_seed("brands/kodiak/raw-ingest/kodiakcakes/images/kitchen.jpg") is False
+    assert generate._is_scenic_seed(None) is False
+    assert generate._is_scenic_seed("") is False
+
+
 def test_staged_dest_unique_per_key() -> None:
     # Regression: every scenic hero-1x1.png shared one /tmp dest, so a second
     # idea restyled the first idea's file (bears for christmas cats).
