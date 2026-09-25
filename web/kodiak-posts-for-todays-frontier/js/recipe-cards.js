@@ -638,6 +638,7 @@
     var data = window.KODIAK_RECIPE_CARDS;
     if (!data || typeof data !== 'object' || !Object.keys(data).length) {
       slot.appendChild(el('p', 'rc-gallery-empty', 'Recipe card will appear here once generated.'));
+      dockPreviewLangToggle(null);
       return;
     }
 
@@ -645,6 +646,7 @@
     if (!market) {
       slot.appendChild(el('p', 'rc-gallery-empty',
         'No recipe card for the selected market yet.'));
+      dockPreviewLangToggle(null);
       return;
     }
     /** @type {Object<string, MonthCard>} */
@@ -655,6 +657,7 @@
     if (!card) {
       slot.appendChild(el('p', 'rc-gallery-empty',
         'No card for this market and month yet.'));
+      dockPreviewLangToggle(null);
       return;
     }
     // column wrap: #previewRecipe is a full-width block, so the toggle,
@@ -680,6 +683,38 @@
     }
     wrap.appendChild(shell);
     slot.appendChild(wrap);
+    dockPreviewLangToggle(wrap);
+  }
+
+  // Output-header language dock: the recipe toggle lives beside the publish
+  // targets (with its own label) instead of floating between copy and card.
+  // The node is MOVED, not cloned, so its listeners survive; a render with no
+  // languages hides the dock instead of leaving a stale toggle behind.
+  /**
+   * @param {HTMLElement|null} scope
+   * @returns {void}
+   */
+  function dockPreviewLangToggle(scope) {
+    var line = document.getElementById('outputLangLine');
+    if (!line) {
+      var pub = document.getElementById('publishTargets');
+      if (!pub || !pub.parentNode) return;
+      line = document.createElement('div');
+      line.id = 'outputLangLine';
+      line.className = 'ff-output-langline';
+      var label = document.createElement('span');
+      label.className = 'ff-output-langline__label';
+      label.textContent = 'Recipe language';
+      line.appendChild(label);
+      pub.parentNode.insertBefore(line, pub.nextSibling);
+    }
+    var toggle = scope ? scope.querySelector('.rc-lang-toggle') : null;
+    if (toggle) {
+      line.appendChild(toggle);
+      line.hidden = false;
+    } else {
+      line.hidden = true;
+    }
   }
 
   function bindPreviewRefresh() {

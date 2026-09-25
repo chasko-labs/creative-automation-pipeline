@@ -356,7 +356,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .render-tile .render-frame img{width:100%;height:100%;object-fit:cover;display:block}
 /* lit caption surface — kraft sheen (top-light) composited OVER the kraft fiber, plus an inner shadow so text sits on a lit, shaded surface.
    sheen white highlight rolls off the top; caption text lives in the lower warm-tan band, so bearBrown / neutral-600 hold WCAG AA. */
-.render-tile .render-cap{padding:9px 11px;position:relative;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);box-shadow:var(--shadows-inset-sm)}
+.render-tile .render-cap{padding:9px 11px;position:relative;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);box-shadow:var(--shadows-inset-sm);flex:1 1 auto;display:flex;flex-direction:column}
 .render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:inline;position:relative}
 /* #3B2316 chocolate on the lit kraft-tan lower band = >=7:1 (AA/AAA) */
 /* headline reads one line — "9:16 Vertical · 1080×1920" — and wraps as a unit
@@ -547,7 +547,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .kodiak-headline-plate h1{margin:0;width:100%;color:var(--colors-foreground-inverse);font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;line-height:1.05;letter-spacing:.02em;text-transform:none;
   /* never wrap: single line, fluid size scales against the plate (cqi) so it fills near-full plate width on desktop and shrinks on narrow screens instead of wrapping. 4.4cqi is the driver (41 chars * ~0.55em gin cap-width => <=4.44cqi keeps the ~41-char title inside 100cqi at one line, no clip); floor 12px holds one line at 375px mobile; ceiling raised to 72px so the title can grow to fill wide desktop plates instead of capping at 30px and leaving dead space on the right. */
   white-space:nowrap;overflow:hidden;text-overflow:clip;
-  font-size:clamp(12px, 4.4cqi, 30px)}
+  font-size:clamp(18px, 4.6cqi, 40px);
+  /* extrusion: parchment face, letterpress top light, stepped deep-brown
+     sides, one soft ambient drop. reads carved, never glowy. */
+  color:#FFF8F0;
+  text-shadow:0 -1px 0 rgba(255,248,240,.28),0 1px 0 #2A1A10,0 2px 0 #241610,0 3px 0 #1D110B,0 4px 0 #160C07,0 7px 14px rgba(0,0,0,.5)}
 /* Status console rizz (frontier art deco) lives here when it earns its place;
    the strip itself stays calm: no band, no extra air, layout untouched. */
 
@@ -1504,14 +1508,11 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    hint drops smaller and quieter, and the CTA is the identical star button
    (same .ff-go, same hand) stretched full-bleed so it reads as the section's
    front door, not an afterthought. */
-.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:12px;
-  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--spacing-md);align-items:start}
-.ff-figcap-lede{margin:0;max-width:68ch}
-.ff-figcap-side{margin:0;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-default);
-  border-radius:var(--radii-md);padding:var(--spacing-sm) var(--spacing-md);box-shadow:var(--shadows-sm)}
-.ff-figcap-hint{margin:0 0 12px;font-size:12.5px;font-weight:500;color:var(--colors-foreground-muted)}
-.ff-figcap .ff-figcap-cta{width:100%}
-@media(max-width:640px){.ff-figcap{grid-template-columns:minmax(0,1fr)}}
+.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:12px}
+.ff-figcap-context{border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
+  background:var(--colors-brand-box-parchment);padding:8px 12px;box-shadow:var(--shadows-sm)}
+.ff-figcap-context>summary{cursor:pointer;font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-brand-frontier-green)}
+.ff-figcap-lede{margin:8px 0 2px;max-width:68ch;font-size:14px;font-weight:400}
 /* gradient bridge from the preview carousel into the recipe card — one
    continuous canvas instead of a hard stacked-box cut */
 .ff-recipe-bridge{height:26px;margin:14px 0 2px;border-radius:var(--radii-pill);
@@ -1616,8 +1617,8 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    lines; the EN source reads as the headline. Token var() only. Wiped on Create
    with #previewHero, so no generated-state styling needed. */
 .ff-resting-copy{margin:0 0 10px;padding:10px 12px 10px 14px;border-left:3px solid var(--colors-brand-frontier-green);background:var(--colors-brand-box-parchment);border-radius:0 var(--radii-md) var(--radii-md) 0}
-.ff-resting-copy .loc-line{display:block;margin:.2rem 0;font-size:13px;color:var(--chocolate)}
-.ff-resting-copy .loc-line[lang="en"]{font-size:15px}
+.ff-resting-copy .loc-line{display:block;margin:.2rem 0;font-size:13px;font-weight:400;color:var(--chocolate)}
+.ff-resting-copy .loc-line[lang="en"]{font-size:14px;font-weight:400}
 /* high-contrast + forced-colors: decorative wood fiber stays subordinate —
    real copy keeps maximum contrast; texture is decorative and never essential. */
 @media (forced-colors:active),(prefers-contrast:more){
@@ -1734,7 +1735,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-setup-heading{font-size:15px}
 .body{padding:12px 16px}
 .ff-inputwrap{padding:12px;gap:var(--spacing-xs,4px)}
-.ff-inputwrap textarea{min-height:56px}
+.ff-inputwrap textarea{min-height:112px}
 .ff-inputwrap .ff-inputfoot{padding-top:var(--spacing-xs,4px)}
 .ff-go{height:48px;min-height:48px}
 @media(prefers-reduced-motion:reduce){.ff-brainstorm-all__summary::before{transition:none}}
@@ -1982,7 +1983,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 /* 4. header title authority: display face stays gin 800; uppercase + wider
       tracking so the title holds the row against the step pills. ellipsis and
       the 60px bar are untouched. */
-.kodiak-headline-plate h1{text-transform:uppercase;letter-spacing:.06em}
+.kodiak-headline-plate h1{text-transform:uppercase;letter-spacing:.02em}
 
 /* === ff-filmstrip — the single shared horizontal pattern (do not rename) ===
    Track: .ff-filmstrip > .ff-filmstrip__track > .ff-filmstrip__slot; arrows
@@ -2010,6 +2011,10 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   border-radius:var(--radii-md);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm)}
 .ff-filmstrip__track::-webkit-scrollbar{display:none}
 .ff-filmstrip__track:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+/* beat the .render-set grid alias (same node carries both classes):
+   align-items:start defeats the cross-axis stretch the shared Download
+   baseline needs — slots must fill the row height. */
+.ff-filmstrip__track{align-items:stretch}
 .ff-filmstrip__slot{flex:0 0 auto;display:flex;flex-direction:column;scroll-snap-align:start;position:relative;
   max-width:min(78vw,300px);min-width:0}
 /* glyph empty-state, same voice as the carousel slots */
@@ -2031,7 +2036,10 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-filmstrip__frame::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
   mix-blend-mode:multiply;background-image:var(--textures-kraft-grain)}
 .ff-filmstrip__cap{min-width:0}
-.ff-filmstrip__dl{display:inline-block;margin-top:var(--spacing-xs);color:var(--colors-brand-frontier-green);
+.ff-filmstrip__slot .render-cap.ff-filmstrip__cap{flex:1 1 auto}
+.ff-output-langline{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px}
+.ff-output-langline__label{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-600)}
+.ff-filmstrip__dl{display:inline-block;margin-top:auto;padding-top:var(--spacing-xs);color:var(--colors-brand-frontier-green);
   font:700 11px/1.4 "museo-sans",system-ui,sans-serif;text-decoration:underline;text-underline-offset:2px}
 .ff-filmstrip__dl:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 /* arcade-gutter arrows: 64px senior-friendly hit targets in dedicated flanking
