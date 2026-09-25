@@ -1930,8 +1930,10 @@ let skuList = [
           if(typeof window.__ffRunSeq !== 'undefined' && window.__ffRunSeq !== runToken) throw new Error('superseded');
           const resp = await fetch('/jobs?id=' + encodeURIComponent(jobId), {signal: controller.signal});
           if(!resp.ok) throw new Error('job status HTTP ' + resp.status);
-          let doc;
-          try{ doc = await resp.json(); }catch(pe){ throw new Error('malformed job status'); }
+          // A torn read (worker mid-put) parses as garbage — poll again rather
+          // than failing the job; only the deadline ends the wait.
+          let doc = null;
+          try{ doc = await resp.json(); }catch(pe){ doc = null; }
           if(doc && doc.state === 'done' && doc.result) return doc.result;
           if(doc && doc.state === 'error') throw new Error(String((doc && doc.error) || 'render job failed'));
           const elapsed = Math.round((Date.now() - t0) / 1000);
