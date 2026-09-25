@@ -32,7 +32,6 @@ from .generate import (
     _blend_idea_base,
     _pillow_outpaint_fallback,
     _STABILITY_RUNG_ON,
-    _stability_native_ratio,
     _stability_outpaint,
     _recipe_card_defaults,
     _safe_prompt_text,

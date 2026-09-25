@@ -7,6 +7,8 @@ and the cider record could never pair. All offline, no network.
 """
 from __future__ import annotations
 
+from pathlib import Path
+
 from creative_automation import generate
 from creative_automation.recipe_card import _pick_recipe_detail
 
