@@ -228,7 +228,7 @@ section.xl{padding:var(--section-space-xl) 0}
 /* sticky shrink — the bare Park City wordmark rides a shorter frame, no
    cardboard (the ::before/::after sheets fade per the layers block below). */
 .kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:104px}
-@media(max-width:1279px){.kodiak-header__logos{position:static;width:72px;height:84px;flex:0 0 auto}.kodiak-header.is-sticky .kodiak-header__logos{height:56px;width:76px}}
+@media(max-width:1279px){.kodiak-header__logos{position:relative;width:72px;height:84px;flex:0 0 auto}.kodiak-header.is-sticky .kodiak-header__logos{height:56px;width:76px}}
 @media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
 /* === Firefly-inspired prompt bar — "Create a Kodiak campaign" === */
