@@ -695,18 +695,18 @@
    * @returns {void}
    */
   function dockPreviewLangToggle(scope) {
+    var pub = document.getElementById('publishTargets');
+    if (!pub) return;
     var line = document.getElementById('outputLangLine');
     if (!line) {
-      var pub = document.getElementById('publishTargets');
-      if (!pub || !pub.parentNode) return;
-      line = document.createElement('div');
+      line = document.createElement('span');
       line.id = 'outputLangLine';
       line.className = 'ff-output-langline';
       var label = document.createElement('span');
       label.className = 'ff-output-langline__label';
-      label.textContent = 'Recipe language';
+      label.textContent = 'Localization';
       line.appendChild(label);
-      pub.parentNode.insertBefore(line, pub.nextSibling);
+      pub.appendChild(line);
     }
     var toggle = scope ? scope.querySelector('.rc-lang-toggle') : null;
     if (toggle) {

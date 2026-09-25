@@ -571,8 +571,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    Spans flow inline with small separators so the readout reads as one context line. */
 .ff-output-readout.ff-detail{display:flex;flex-wrap:wrap;flex-direction:column;gap:2px;min-width:0;
   padding:var(--spacing-sm);margin-bottom:var(--spacing-md);
-  background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
-.ff-output-readout .ff-featured{font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-default);white-space:normal}
+  background:var(--colors-brand-box-parchment,#F5EAD3);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
+.ff-output-readout .ff-featured{font:500 12px/1.35 "museo-sans",sans-serif;color:var(--colors-neutral-700);white-space:normal}
 .ff-output-readout .ff-langs{font:500 11px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-muted)}
 .ff-output-readout .ff-langs b{color:var(--colors-foreground-default);font-weight:700}
 .ff-featured .ff-context-lead{color:var(--colors-foreground-muted)}
@@ -1512,7 +1512,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-figcap-context{border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
   background:var(--colors-brand-box-parchment);padding:8px 12px;box-shadow:var(--shadows-sm)}
 .ff-figcap-context>summary{cursor:pointer;font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-brand-frontier-green)}
-.ff-figcap-lede{margin:8px 0 2px;max-width:68ch;font-size:14px;font-weight:400}
+.ff-figcap-lede{margin:8px 0 2px;max-width:none;font-size:14px;font-weight:400}
 /* gradient bridge from the preview carousel into the recipe card — one
    continuous canvas instead of a hard stacked-box cut */
 .ff-recipe-bridge{height:26px;margin:14px 0 2px;border-radius:var(--radii-pill);
@@ -2037,7 +2037,8 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   mix-blend-mode:multiply;background-image:var(--textures-kraft-grain)}
 .ff-filmstrip__cap{min-width:0}
 .ff-filmstrip__slot .render-cap.ff-filmstrip__cap{flex:1 1 auto}
-.ff-output-langline{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px}
+.ff-output-langline{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:16px;padding-left:16px;border-left:1px solid var(--colors-border-default)}
+.ff-output-langline[hidden]{display:none}
 .ff-output-langline__label{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-600)}
 .ff-filmstrip__dl{display:inline-block;margin-top:auto;padding-top:var(--spacing-xs);color:var(--colors-brand-frontier-green);
   font:700 11px/1.4 "museo-sans",system-ui,sans-serif;text-decoration:underline;text-underline-offset:2px}
