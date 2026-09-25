@@ -191,6 +191,22 @@ export class GenerateStack extends cdk.Stack {
                 Action: ["s3:PutObject", "s3:GetObject"],
                 Resource: `arn:aws:s3:::${damBucketName}/brands/kodiak/packs/*`,
               },
+              // Async render jobs (POST /jobs start, GET /jobs status): the
+              // worker branch self-invokes with InvocationType Event and the
+              // status docs live under brands/kodiak/jobs/*. The function-name
+              // wildcard is scoped to this stack's function family.
+              {
+                Sid: "JobsSelfInvoke",
+                Effect: "Allow",
+                Action: "lambda:InvokeFunction",
+                Resource: `arn:${this.partition}:lambda:${this.region}:${this.account}:function:kodiak-creatives-generate-*`,
+              },
+              {
+                Sid: "DamJobsReadWrite",
+                Effect: "Allow",
+                Action: ["s3:PutObject", "s3:GetObject"],
+                Resource: `arn:aws:s3:::${damBucketName}/brands/kodiak/jobs/*`,
+              },
               // S3 Vectors read/write on the Kodiak vector bucket + index only.
               // Scoped to the specific bucket ARN and its index sub-resource --
               // no wildcards. The bucket-level ARN covers ListVectors; the
