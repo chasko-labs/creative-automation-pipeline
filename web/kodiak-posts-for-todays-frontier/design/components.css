@@ -219,11 +219,15 @@ section.xl{padding:var(--section-space-xl) 0}
    (fixed 72px height, equal padding, overflow clipped). No scaling, no spill,
    no overhang: badge, plate, and timeline share one vertical centerline and
    one width wrapper. retired the oversize-hero spill pattern 2026-09-25. */
-.kodiak-header__logos{position:relative;flex:0 0 auto;height:72px;width:auto;aspect-ratio:auto;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(180deg,var(--colors-brand-kraft-hi),var(--colors-brand-kraft-lo));border:1px solid var(--colors-border-strong);border-radius:8px;padding:8px 10px}
+.kodiak-header__logos{position:relative;flex:0 0 auto;height:72px;width:auto;aspect-ratio:auto;display:flex;align-items:center;justify-content:center;overflow:visible;background:transparent;border:none;padding:8px 10px;transition:height .25s ease,padding .25s ease}
 .kodiak-header__logo--primary{height:100%;width:auto;max-width:100%;object-fit:contain;opacity:1;transition:opacity .2s;transform:none}
 .kodiak-header__logo--secondary{position:absolute;inset:8px 10px;width:auto;height:auto;max-width:calc(100% - 20px);max-height:calc(100% - 16px);object-fit:contain;opacity:0;pointer-events:none;transition:opacity .2s}
 .kodiak-header.is-sticky .kodiak-header__logo--primary{opacity:0}
 .kodiak-header.is-sticky .kodiak-header__logo--secondary{opacity:1}
+/* sticky shrink — the bare Park City wordmark rides a shorter frame, no
+   cardboard (the ::before/::after sheets fade per the layers block below). */
+.kodiak-header.is-sticky .kodiak-header__logos{height:56px;padding:4px 6px}
+.kodiak-header.is-sticky .kodiak-header__logo--secondary{inset:4px 6px;max-width:calc(100% - 12px);max-height:calc(100% - 8px)}
 @media(max-width:860px){.kodiak-header__logos{height:56px;padding:6px 8px}.kodiak-header__logo--secondary{inset:6px 8px;max-width:calc(100% - 16px);max-height:calc(100% - 12px)}}
 @media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
@@ -2089,7 +2093,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 
 /* === cardboard logo layers — two procedural board sheets behind the badge ===
    Procedural feTurbulence data-URI texture (no new assets), same page-CSS data-URI
-   precedent as --kraft/--wood. ::before offsets top -16px/left -4px (z-index -1);
+   precedent as --kraft/--wood. ::before offsets top -8px/left -4px (z-index -1);
    ::after offsets left -8px + rotate(-3deg) (z-index -2). Parent isolation keeps the
    negative layers above the header background but below the logo images in every
    frame: absolute desktop (z-index:60 stacking context), sticky shrink (pseudos derive
@@ -2101,7 +2105,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   background-repeat:repeat;box-shadow:var(--shadows-sm);
   mix-blend-mode:multiply;opacity:.85;transition:opacity .25s ease;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E"),linear-gradient(180deg,transparent 0%,var(--colors-brand-box-parchment) 100%)}
-.kodiak-header__logos::before{top:-16px;left:-4px;z-index:-1}
+.kodiak-header__logos::before{top:-8px;left:-4px;z-index:-1}
 .kodiak-header__logos::after{left:-8px;transform:rotate(-3deg);z-index:-2;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E"),linear-gradient(180deg,transparent 0%,var(--colors-brand-badge-parchment) 100%)}
 /* no cardboard on scroll — the sticky bar keeps the flat gradient only; the
