@@ -357,24 +357,27 @@ section.xl{padding:var(--section-space-xl) 0}
 /* lit caption surface — kraft sheen (top-light) composited OVER the kraft fiber, plus an inner shadow so text sits on a lit, shaded surface.
    sheen white highlight rolls off the top; caption text lives in the lower warm-tan band, so bearBrown / neutral-600 hold WCAG AA. */
 .render-tile .render-cap{padding:9px 11px;position:relative;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);box-shadow:var(--shadows-inset-sm);flex:1 1 auto;display:flex;flex-direction:column}
-.render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:inline;position:relative}
+.render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:block;position:relative;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 /* #3B2316 chocolate on the lit kraft-tan lower band = >=7:1 (AA/AAA) */
-/* headline reads one line — "9:16 Vertical · 1080×1920" — and wraps as a unit
-   on narrow tiles instead of stacking four short lines down the card */
-.render-tile .render-cap .dims{display:inline;margin:0 0 0 6px;color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
+/* cap rows are fixed: title line (ellipsis) / spec line (ellipsis) / platforms
+   line (ellipsis) / Download pinned to the shared baseline by margin-top:auto.
+   every card carries the same three row heights, so image-to-title,
+   title-to-meta, and Download baselines match card to card. */
+.render-tile .render-cap .dims{display:inline-block;margin:4px 0 0;white-space:nowrap;color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
 .render-tile .render-cap .dims::before{content:"· ";color:var(--colors-neutral-500)}
 /* per-tile platform legend — retired from resting caps (platforms live once in
    the asset-pack exports matrix); the rule stays for generated tiles that keep it */
-.render-tile .render-cap .rt-platforms{display:block;margin-top:4px;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif;letter-spacing:.02em;position:relative}
+.render-tile .render-cap .rt-platforms{display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif;letter-spacing:.02em;position:relative}
 /* market-language line woven under its tile — small, quiet, same tokens */
 .render-tile .render-cap .loc-line{display:block;margin-top:6px;font-size:11px;line-height:1.45;color:var(--colors-neutral-700)}
 .render-tile .render-cap .loc-langtag{font-weight:700;margin-right:6px;text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:var(--chocolate)}
-/* shape descriptor on resting caps (Square, Vertical / Full-Screen) */
-.render-tile .render-cap .rt-shape{display:inline;margin:0 0 0 6px;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif}
-.render-tile .render-cap .rt-shape::before{content:"· ";color:var(--colors-neutral-500)}
+/* shape descriptor on resting caps (Square, Vertical / Full-Screen) — rides the
+   spec line ahead of .dims, so "Square · 1080×1080" reads as one unit */
+.render-tile .render-cap .rt-shape{display:inline-block;margin:4px 6px 0 0;white-space:nowrap;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif}
+.render-tile .render-cap .rt-shape::before{content:none}
 /* per-tile engine mark: placeholder pads read quiet italic, composed tiles read
    forest — a pad never renders identically to a live outpaint */
-.render-tile .render-cap .rt-eng,.render-tile .render-cap .rt-extend{display:inline;margin:0 0 0 6px;font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
+.render-tile .render-cap .rt-eng,.render-tile .render-cap .rt-extend{display:inline-block;margin:4px 0 0 6px;white-space:nowrap;font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
 .render-tile .render-cap .rt-eng.rt-pad,.render-tile .render-cap .rt-extend.rt-pad{color:var(--colors-neutral-600);font-style:italic}
 .render-tile .render-cap .rt-eng.rt-live,.render-tile .render-cap .rt-extend.rt-live{color:#1A3C34}
 /* hero grid takes the full preview width now that the side matrix is retired;
@@ -808,7 +811,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* FIX 1: header-line variant — publish targets read as preview HEADER context, sitting directly under
    the summary. Hairline top rule + tighter spacing groups it visually with the "Output Preview / 4 sizes"
    summary above rather than floating in the body; overrides the default top margin. */
-.ff-publish-targets.ff-output-header-line{margin-top:0;margin-bottom:var(--spacing-md);padding-bottom:var(--spacing-sm);border-bottom:1px solid var(--colors-neutral-200)}
+.ff-publish-targets.ff-output-header-line{margin-top:0;margin-bottom:var(--spacing-lg);padding-bottom:var(--spacing-sm);border-bottom:1px solid var(--colors-neutral-200)}
 
 /* B. subtitle promoted to the prominent guiding line, full-width responsive */
 .ff-prompt h2.ff-sublead{margin:0 0 var(--spacing-md);width:100%;color:var(--colors-foreground-default);
@@ -1183,7 +1186,7 @@ section.ff-output[aria-labelledby="outputHeading"],#generateCampaignSection,#abo
 /* wide screens are governed by the >=1150px grid block (1560px cap, two columns);
    the old 1280px clamp here fought it and shadowed the 1600/2200 caps — removed. */
 /* readout of what the current selections resolved to — sits at the top of the output surface */
-.ff-output-readout{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 12px;position:relative}
+.ff-output-readout{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 var(--spacing-lg);position:relative}
 .ff-output-readout .ff-featured{flex:0 1 auto;font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-700)}
 .ff-output-readout .ff-langs{flex:0 1 auto;font:500 12px/1.4 "museo-sans",sans-serif;color:var(--colors-neutral-600)}
 
@@ -1507,7 +1510,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    hint drops smaller and quieter, and the CTA is the identical star button
    (same .ff-go, same hand) stretched full-bleed so it reads as the section's
    front door, not an afterthought. */
-.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:12px}
+.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:0}
 .ff-figcap-context{border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
   background:var(--colors-brand-box-parchment);padding:8px 12px;box-shadow:var(--shadows-sm)}
 .ff-figcap-context>summary{cursor:pointer;font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-brand-frontier-green)}
@@ -1615,7 +1618,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    resting size tiles. Pine rule for the frontier voice, kraft wash behind the
    lines; the EN source reads as the headline. Token var() only. Wiped on Create
    with #previewHero, so no generated-state styling needed. */
-.ff-resting-copy{margin:0 0 10px;padding:10px 12px 10px 14px;border-left:3px solid var(--colors-brand-frontier-green);background:var(--colors-brand-box-parchment);border-radius:0 var(--radii-md) var(--radii-md) 0}
+.ff-resting-copy{margin:0 0 var(--spacing-lg);padding:10px 12px 10px 14px;border-left:3px solid var(--colors-brand-frontier-green);background:var(--colors-brand-box-parchment);border-radius:0 var(--radii-md) var(--radii-md) 0}
 .ff-resting-copy .loc-line{display:block;margin:.2rem 0;font-size:13px;font-weight:400;color:var(--chocolate)}
 .ff-resting-copy .loc-line[lang="en"]{font-size:14px;font-weight:600}
 /* high-contrast + forced-colors: decorative wood fiber stays subordinate —
@@ -1995,7 +1998,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    (JS toggles .is-open alongside it). prefers-reduced-motion guarded. */
 .ff-filmstrip{position:relative;isolation:isolate;--ff-thumb-h:clamp(96px,16vw,148px);
   display:grid;grid-template-columns:88px minmax(0,1fr) 88px;grid-template-areas:"prev track next" "dots dots dots";
-  gap:var(--spacing-sm,8px);align-items:center;margin-top:var(--spacing-sm,8px)}
+  gap:var(--spacing-sm,8px);align-items:center;margin-top:var(--spacing-md,16px)}
 /* the live strip mounts into #preview.preview (an auto-fill tile grid): it
    must span every column, otherwise it squeezes into one 240px tile track
    and the tiles render as slivers. */
@@ -2036,7 +2039,10 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   mix-blend-mode:multiply;background-image:var(--textures-kraft-grain)}
 .ff-filmstrip__cap{min-width:0}
 .ff-filmstrip__slot .render-cap.ff-filmstrip__cap{flex:1 1 auto}
-.ff-output-langline{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:16px;padding-left:16px;border-left:1px solid var(--colors-border-default)}
+/* language dock owns its own row under the publish pills — never a wrapped
+   straggler with a dangling divider. full-row flex takes a fixed token gap
+   above, so the two control rows read as separate lines at every width. */
+.ff-output-langline{display:flex;flex:1 1 100%;flex-wrap:wrap;align-items:center;gap:8px;margin:var(--spacing-sm) 0 0;padding:0;border-left:none}
 .ff-output-langline[hidden]{display:none}
 .ff-output-langline__label{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-600)}
 .ff-filmstrip__dl{display:inline-block;margin-top:auto;padding-top:var(--spacing-xs);color:var(--colors-brand-frontier-green);
