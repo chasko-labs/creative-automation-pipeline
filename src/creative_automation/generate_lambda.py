@@ -1430,113 +1430,20 @@ def _handle_scenic_bg(data: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-# Native-ratio diffusion pass: worst-case cost of ONE control-structure restyle
-# (the four run in parallel, so the batch costs ~one) plus headroom. Attempted
-# ONLY while the request-epoch clock still covers this PLUS the reserve for the
-# pads/overlays/uploads that follow — a thin clock skips natives outright and
-# the preview ships the old derive-from-1x1 tiles, never blows the wall.
-_NATIVE_BUDGET_MS = int(os.getenv("GENERATE_NATIVE_BUDGET_MS", "20000"))
-_NATIVE_RESERVE_MS = int(os.getenv("GENERATE_NATIVE_RESERVE_MS", "8000"))
-
-
-def _preview_native_tiles(
-    seed_local: str,
-    scene_prompt: str,
-    out_dir: Path,
-    *,
-    seed_base: int | None,
-    control_strength: float | None,
-    remaining_ms_fn,
-    provenance: dict,
-) -> dict[str, Path]:
-    """Compose one control-structure restyle per delivery ratio, in parallel.
-
-    Each of 4x5/9x16/16x9/blog gets its own diffusion composition AT its frame
-    via _stability_native_ratio (seed photo cover-fit to the frame, then the
-    rung-B restyle) — distinct compositions per tile, never derives of the 1x1.
-    Per-ratio seeds step from seed_base so sibling tiles never echo each other.
-    Returns {ratio: tmp native path} for the ratios that landed; a missing,
-    failed, or timed-out ratio is simply absent (the caller falls back to the
-    extend/pad path and records why in provenance native_degraded). Scenic-
-    verbatim seeds are refused by the caller (restyle re-invents subjects).
-    Never raises: every worker is guarded, and the pool wait is bounded.
-    """
-    landed: dict[str, Path] = {}
-    native_latency: dict[str, float] = {}
-    native_degraded: dict[str, str] = {}
-    ratios = list(_PREVIEW_PAD_RATIOS)
-    if not _STABILITY_RUNG_ON:
-        for _r in ratios:
-            native_degraded[_r] = "stability-rung-disabled"
-    elif remaining_ms_fn() < _NATIVE_BUDGET_MS + _NATIVE_RESERVE_MS:
-        for _r in ratios:
-            native_degraded[_r] = "budget-exhausted"
-    else:
-        def _one(ratio: str, index: int) -> Path | None:
-            _t0 = _preview_now()
-            try:
-                _seed = None if seed_base is None else seed_base + index
-                _dest = out_dir / f"native-{ratio}.png"
-                _got = _stability_native_ratio(
-                    seed_local,
-                    scene_prompt,
-                    ratio,
-                    _dest,
-                    seed_value=_seed,
-                    control_strength=control_strength,
-                )
-                native_latency[ratio] = round((_preview_now() - _t0) * 1000.0, 1)
-                if _got is not None and _dest.exists():
-                    return _dest
-                native_degraded[ratio] = "native-unavailable"
-                return None
-            except Exception as e:  # noqa: BLE001 — one dead ratio never kills the set
-                native_latency[ratio] = round((_preview_now() - _t0) * 1000.0, 1)
-                native_degraded[ratio] = f"native-error: {type(e).__name__}"
-                return None
-
-        print(
-            f"[generate] stage native ratios start ({len(ratios)} parallel, "
-            f"remaining {remaining_ms_fn():.0f}ms)",
-            file=sys.stderr,
-        )
-        try:
-            with concurrent.futures.ThreadPoolExecutor(max_workers=len(ratios)) as pool:
-                _futs = {
-                    pool.submit(_one, _ratio, _i): _ratio
-                    for _i, _ratio in enumerate(ratios)
-                }
-                for _fut in concurrent.futures.as_completed(_futs):
-                    _ratio = _futs[_fut]
-                    try:
-                        _got = _fut.result(timeout=max(1.0, remaining_ms_fn() / 1000.0))
-                    except Exception as e:  # noqa: BLE001 — timeout included
-                        native_degraded.setdefault(_ratio, f"native-error: {type(e).__name__}")
-                        continue
-                    if _got is not None:
-                        landed[_ratio] = _got
-        except Exception as e:  # noqa: BLE001 — pool failure keeps the old tile path
-            print(f"[generate] native ratios pool failed: {e}", file=sys.stderr)
-    provenance["native_latency_ms"] = native_latency
-    provenance["native_degraded"] = native_degraded
-    return landed
-
-
 def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """Fast interactive path (default): ONE 1x1 control-structure hero, under 30s.
 
     Runs the single-ratio generate_hero (ratio=1x1, clean by default per the render
     contract — copy ships as sidecars, kraft texture still baked) then derives the
     other tiles server-side from their OWN diffusion composition at their own
-    frame (one control-structure restyle per ratio, run in parallel): the five
-    tiles are five distinct compositions, never one 1x1 derived four ways. A
-    ratio whose native restyle is skipped (scenic-verbatim seed, thin clock) or
-    fails keeps the old path — 9x16/16x9 attempt ONE Stability outpaint extend
-    each behind the preview budget gate (sprint-2 item 11), everything else the
-    Pillow cover-fit — so the preview keeps its wall guarantee while taking
-    live compositions whenever they provably fit alongside finalize/uploads.
-    FULL mode remains the complete multi-ratio image path
-    (generate_hero_set: 1x1 + 4x5 + 9x16 + 16x9).
+    frame: rung B restyles the 1x1 AND every sibling ratio CONCURRENTLY (one
+    batch ≈ one restyle of wall, via generate_hero native_siblings), so the
+    five tiles are five discrete compositions, never one image derived four
+    ways. A ratio the fan-out skipped (scenic-verbatim seed) or lost keeps the
+    old path — 9x16/16x9 attempt ONE Stability outpaint extend each behind the
+    preview budget gate (sprint-2 item 11), everything else the Pillow
+    cover-fit — so the preview keeps its wall guarantee. FULL mode remains the
+    complete multi-ratio image path (generate_hero_set: 1x1 + 4x5 + 9x16 + 16x9).
     Returns the SAME response shape the frontend expects (renders[] with the 1x1 entry,
     top-level image_url = the 1x1, source + provenance), so showRenderSet keeps working
     with a single-entry renders[].
@@ -1580,6 +1487,13 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     dish = _preview_dish_name(data, product.replace("-", " ").title())
     _preview_season = data.get("season")
     _preview_season = str(_preview_season).strip() or None if isinstance(_preview_season, str) else None
+    # Native fan-out destinations: rung B restyles the 1x1 AND every sibling
+    # ratio CONCURRENTLY (one batch ≈ one restyle of wall), so the five tiles
+    # are five discrete compositions. A missing sibling file below falls back
+    # to the derive-from-1x1 path per ratio, honestly labelled.
+    _sibling_paths = {
+        _r: out_dir / f"sibling-{_r}.png" for _r in _PREVIEW_PAD_RATIOS
+    }
     result_path, source, provenance = generate_hero(
         product_id=product,
         product_name=product.replace("-", " ").title(),
@@ -1598,6 +1512,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         art_director=_voice_requested(data),
         market=(data.get("market") or data.get("region") or "us"),
         season=_preview_season,
+        native_siblings={_r: str(_p) for _r, _p in _sibling_paths.items()},
     )
 
     with Image.open(result_path) as im:
@@ -1639,32 +1554,12 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         provenance.setdefault("outpaint_remaining_ms", {})
     pad_renders: list[dict[str, Any]] = []
     pad_engines: dict[str, str] = {}
-    # Native-ratio diffusion pass FIRST: each tile gets its own composition at
-    # its own frame. Scenic-verbatim seeds refuse (a restyle re-invents the
-    # subject the seed already is); without a resolved seed photo or scene the
-    # pass is skipped and every tile keeps the old derive-from-1x1 path.
-    _native_seed = provenance.get("seed_local") if isinstance(provenance, dict) else None
-    _native_scene = provenance.get("scene_prompt") if isinstance(provenance, dict) else ""
-    _native_bg = provenance.get("bg_source") if isinstance(provenance, dict) else ""
-    _native_paths: dict[str, Path] = {}
-    if (
-        isinstance(_native_seed, str)
-        and _native_seed
-        and isinstance(_native_scene, str)
-        and _native_scene.strip()
-        and _native_bg != "scenic-verbatim"
-    ):
-        _native_strength = provenance.get("control_strength") if isinstance(provenance, dict) else None
-        _native_base = provenance.get("seed") if isinstance(provenance, dict) else None
-        _native_paths = _preview_native_tiles(
-            _native_seed,
-            _native_scene,
-            out_dir,
-            seed_base=_native_base if isinstance(_native_base, int) else None,
-            control_strength=_native_strength if isinstance(_native_strength, (int, float)) else None,
-            remaining_ms_fn=_preview_remaining_ms,
-            provenance=provenance if isinstance(provenance, dict) else {},
-        )
+    # Native fan-out outcomes landed inside rung B (concurrent with the 1x1
+    # restyle): a sibling file present on disk is that tile's own composition.
+    # Anything missing falls through to the derive-from-1x1 path below.
+    _native_claims = provenance.get("native_ratios") if isinstance(provenance, dict) else {}
+    if not isinstance(_native_claims, dict):
+        _native_claims = {}
     for pad_ratio in _PREVIEW_PAD_RATIOS:
         try:
             # DECISION: RATIO_DIMS lookup stays INSIDE the per-pad guard so an
@@ -1673,8 +1568,12 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
             pad_w, pad_h = RATIO_DIMS[pad_ratio]
             pad_path = out_dir / f"hero-{pad_ratio}.png"
             pad_engine = "pillow-outpaint-fallback"
-            _native_hit = _native_paths.get(pad_ratio)
-            if _native_hit is not None and _native_hit.exists():
+            _native_hit = _sibling_paths.get(pad_ratio)
+            if (
+                _native_claims.get(pad_ratio) == "stability-restyle-native"
+                and _native_hit is not None
+                and _native_hit.exists()
+            ):
                 # own diffusion composition at this frame — no extend, no pad.
                 _native_hit.replace(pad_path)
                 pad_engine = "stability-restyle-native"

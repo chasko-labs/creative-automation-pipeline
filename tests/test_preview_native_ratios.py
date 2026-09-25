@@ -2,9 +2,10 @@
 
 Covers _stability_native_ratio (frames the resolved seed photo to the ratio's
 own dims, then runs the rung-B restyle; unknown ratio / unreadable seed / failed
-invoke degrade to None, never raise), _preview_native_tiles (four parallel
-compositions land; thin clock and rung-off skip with honest books; a dead worker
-never kills the set), and the generate_hero seed_local stash the pass reads.
+invoke degrade to None, never raise), the rung-B native fan-out (1x1 plus one
+restyle per sibling ratio fire concurrently; a dead sibling never kills the
+1x1; outcomes land honestly in provenance native_ratios), and the generate_hero
+seed_local stash.
 All Bedrock calls are monkeypatched — nothing hits AWS.
 """
 from __future__ import annotations
@@ -17,7 +18,6 @@ from pathlib import Path
 from PIL import Image
 
 from creative_automation import generate
-from creative_automation import generate_lambda
 
 
 def _png_bytes(size: tuple[int, int] = (1080, 1080), color=(180, 90, 30)) -> bytes:
@@ -76,12 +76,30 @@ def test_native_ratio_failed_invoke_is_none(tmp_path: Path, monkeypatch) -> None
     assert generate._stability_native_ratio(seed, "x", "4x5", tmp_path / "o.png") is None
 
 
-# --------------------------------------------- _preview_native_tiles
-def _prov() -> dict:
-    return {}
+# --------------------------------------------- rung-B native fan-out
+def _ladder_harness(monkeypatch, tmp_path: Path, seed: Path):
+    monkeypatch.setenv("KODIAK_DETERMINISTIC", "1")
+    canned = base64.b64encode(_png_bytes(color=(10, 200, 120))).decode("ascii")
+
+    class _Fake:
+        def invoke_model(self, **kwargs):
+            payload = json.dumps({"images": [canned]}).encode("utf-8")
+            return {"body": io.BytesIO(payload)}
+
+        def converse(self, **kwargs):
+            return {"output": {"message": {"content": [{"text": "Keep It Wild"}]}}}
+
+    monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
+    monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
+    monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: _Fake())
 
 
-def test_native_tiles_land_all_four_in_parallel(tmp_path: Path, monkeypatch) -> None:
+def test_fanout_composes_all_five_frames_concurrently(
+    tmp_path: Path, monkeypatch
+) -> None:
+    seed = _make_seed(tmp_path / "seed.png")
+    _ladder_harness(monkeypatch, tmp_path, seed)
     calls: list = []
 
     def _fake_native(seed_local, scene, ratio, dest, **kwargs):
@@ -89,70 +107,59 @@ def test_native_tiles_land_all_four_in_parallel(tmp_path: Path, monkeypatch) -> 
         Path(dest).write_bytes(_png_bytes(generate._NATIVE_RATIO_DIMS[ratio]))
         return Path(dest)
 
-    monkeypatch.setattr(generate_lambda, "_stability_native_ratio", _fake_native)
-    monkeypatch.setattr(generate_lambda, "_STABILITY_RUNG_ON", True)
-    prov = _prov()
-    landed = generate_lambda._preview_native_tiles(
-        "/tmp/seed.png",
-        "spooky cats",
-        tmp_path,
-        seed_base=100,
-        control_strength=0.4,
-        remaining_ms_fn=lambda: 60000.0,
-        provenance=prov,
+    monkeypatch.setattr(generate, "_stability_native_ratio", _fake_native)
+    siblings = {r: tmp_path / f"sib-{r}.png" for r in ("4x5", "9x16", "16x9", "blog")}
+    out = tmp_path / "hero.png"
+    _result, _source, prov = generate.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild mornings on the frontier",
+        region="us",
+        audience="active families",
+        out_path=out,
+        ratio="1x1",
+        layers={},
+        market="us",
+        season="October",
+        native_siblings={r: str(p) for r, p in siblings.items()},
     )
-    assert set(landed) == {"4x5", "9x16", "16x9", "blog"}
-    for ratio, path in landed.items():
+    assert out.exists()
+    for ratio, path in siblings.items():
+        assert path.exists(), ratio
         assert Image.open(path).size == generate._NATIVE_RATIO_DIMS[ratio]
-    assert [c[0] for c in calls].__class__ is list and len(calls) == 4
+    assert prov["native_ratios"] == {r: "stability-restyle-native" for r in siblings}
     assert len({c[1] for c in calls}) == 4  # stepped per-ratio seeds
-    assert prov["native_degraded"] == {}
 
 
-def test_native_tiles_skip_on_thin_clock_and_rung_off(tmp_path: Path, monkeypatch) -> None:
-    def _boom(*a, **k):
-        raise AssertionError("must not invoke")
+def test_fanout_dead_sibling_keeps_the_1x1(tmp_path: Path, monkeypatch) -> None:
+    seed = _make_seed(tmp_path / "seed.png")
+    _ladder_harness(monkeypatch, tmp_path, seed)
 
-    monkeypatch.setattr(generate_lambda, "_stability_native_ratio", _boom)
-    monkeypatch.setattr(generate_lambda, "_STABILITY_RUNG_ON", True)
-    prov = _prov()
-    assert (
-        generate_lambda._preview_native_tiles(
-            "/tmp/seed.png", "s", tmp_path, seed_base=None,
-            control_strength=None, remaining_ms_fn=lambda: 100.0, provenance=prov,
-        )
-        == {}
-    )
-    assert set(prov["native_degraded"]) == {"4x5", "9x16", "16x9", "blog"}
-
-    monkeypatch.setattr(generate_lambda, "_STABILITY_RUNG_ON", False)
-    prov2 = _prov()
-    assert (
-        generate_lambda._preview_native_tiles(
-            "/tmp/seed.png", "s", tmp_path, seed_base=None,
-            control_strength=None, remaining_ms_fn=lambda: 60000.0, provenance=prov2,
-        )
-        == {}
-    )
-    assert set(prov2["native_degraded"]) == {"4x5", "9x16", "16x9", "blog"}
-
-
-def test_native_tiles_dead_worker_lands_the_rest(tmp_path: Path, monkeypatch) -> None:
     def _flake(seed_local, scene, ratio, dest, **kwargs):
         if ratio == "16x9":
             raise RuntimeError("bedrock hiccup")
         Path(dest).write_bytes(_png_bytes(generate._NATIVE_RATIO_DIMS[ratio]))
         return Path(dest)
 
-    monkeypatch.setattr(generate_lambda, "_stability_native_ratio", _flake)
-    monkeypatch.setattr(generate_lambda, "_STABILITY_RUNG_ON", True)
-    prov = _prov()
-    landed = generate_lambda._preview_native_tiles(
-        "/tmp/seed.png", "s", tmp_path, seed_base=None,
-        control_strength=None, remaining_ms_fn=lambda: 60000.0, provenance=prov,
+    monkeypatch.setattr(generate, "_stability_native_ratio", _flake)
+    siblings = {r: tmp_path / f"sib-{r}.png" for r in ("4x5", "9x16", "16x9", "blog")}
+    out = tmp_path / "hero.png"
+    _result, _source, prov = generate.generate_hero(
+        product_id="power-cakes",
+        product_name="Power Cakes",
+        brief_msg="wild mornings on the frontier",
+        region="us",
+        audience="active families",
+        out_path=out,
+        ratio="1x1",
+        layers={},
+        market="us",
+        season="October",
+        native_siblings={r: str(p) for r, p in siblings.items()},
     )
-    assert set(landed) == {"4x5", "9x16", "blog"}
-    assert prov["native_degraded"]["16x9"].startswith("native-error")
+    assert out.exists()  # the 1x1 never dies with a sibling
+    assert prov["native_ratios"]["16x9"] == "native-error: RuntimeError"
+    assert prov["native_ratios"]["4x5"] == "stability-restyle-native"
 
 
 # --------------------------------------------- seed_local stash

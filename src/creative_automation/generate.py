@@ -3116,8 +3116,18 @@ def generate_hero(
     art_director: bool = False,
     market: str | None = None,
     season: str | None = None,
+    native_siblings: dict | None = None,
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
+
+    native_siblings: optional {ratio: out_path} for the delivery ratios. When set
+    and rung B runs a live restyle, the 1x1 restyle AND one restyle per sibling
+    ratio fire CONCURRENTLY (one ThreadPoolExecutor batch ≈ one restyle of wall),
+    each composed at its own frame via _stability_native_ratio — five discrete
+    diffusion compositions, never one image derived four ways. Sibling outcomes
+    land in provenance["native_ratios"] ({ratio: engine-or-reason}); a missing
+    or failed sibling is the caller's cue to derive that tile the old way.
+    Scenic-verbatim seeds never fan out (a restyle re-invents the subject).
 
     layers selects the render contract (#199/#200): None (default) preserves the
     legacy behavior — packshot-first composite + baked overlay text. ANY dict (even
@@ -3742,11 +3752,69 @@ def generate_hero(
                 else:
                     print(f"[generate] stage restyle start (budget {remaining_ms():.0f}ms)", file=sys.stderr)
                     _restyle_t0 = time.monotonic()
-                    try:
-                        stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength, seed_value=request_seed)
-                    except TypeError:
-                        stylized = _stability_control_hero(seed, scene_prompt, out_path)
-                        rung_b_strength = None  # unparametrized fallback: record no strength
+                    _siblings = dict(native_siblings) if isinstance(native_siblings, dict) else {}
+                    if _siblings:
+                        # Native fan-out: the 1x1 AND every sibling ratio restyle
+                        # CONCURRENTLY (one batch ≈ one restyle of wall), each at
+                        # its own frame. Per-ratio seeds step so sibling tiles
+                        # never echo each other. A lost sibling is recorded, never
+                        # raised — the caller derives that tile the old way.
+                        _native_outcomes: dict[str, str] = {}
+                        try:
+                            import concurrent.futures as _futures
+
+                            _jobs = [("1x1", out_path)] + [
+                                (str(_r), Path(_p)) for _r, _p in _siblings.items()
+                            ]
+                            with _futures.ThreadPoolExecutor(max_workers=len(_jobs)) as _pool:
+                                def _fire(_ratio: str, _dest: Path, _idx: int):
+                                    if _ratio == "1x1":
+                                        try:
+                                            return _stability_control_hero(
+                                                seed, scene_prompt, _dest,
+                                                control_strength=rung_b_strength,
+                                                seed_value=request_seed,
+                                            )
+                                        except TypeError:
+                                            return _stability_control_hero(seed, scene_prompt, _dest)
+                                    return _stability_native_ratio(
+                                        seed, scene_prompt, _ratio, _dest,
+                                        control_strength=rung_b_strength,
+                                        seed_value=None if request_seed is None else request_seed + _idx,
+                                    )
+
+                                _pending = {
+                                    _pool.submit(_fire, _ratio, _dest, _i): (_ratio, _dest)
+                                    for _i, (_ratio, _dest) in enumerate(_jobs)
+                                }
+                                _stylized_1x1 = None
+                                for _fut in _futures.as_completed(_pending):
+                                    _ratio, _dest = _pending[_fut]
+                                    try:
+                                        _each = _fut.result(
+                                            timeout=max(1.0, remaining_ms() / 1000.0)
+                                        )
+                                    except Exception as _e:  # noqa: BLE001 — timeout included
+                                        _each = None
+                                        _native_outcomes[_ratio] = f"native-error: {type(_e).__name__}"
+                                    if _ratio == "1x1":
+                                        _stylized_1x1 = _each
+                                    elif _each is not None and Path(_dest).exists():
+                                        _native_outcomes[_ratio] = "stability-restyle-native"
+                                    else:
+                                        _native_outcomes.setdefault(_ratio, "native-unavailable")
+                            stylized = _stylized_1x1
+                        except Exception as _e:  # noqa: BLE001 — pool failure keeps the serial path below
+                            print(f"[generate] native fan-out failed: {_e}", file=sys.stderr)
+                            _native_outcomes = {}
+                            stylized = None
+                        provenance["native_ratios"] = _native_outcomes
+                    if not _siblings or stylized is None and not provenance.get("native_ratios"):
+                        try:
+                            stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength, seed_value=request_seed)
+                        except TypeError:
+                            stylized = _stability_control_hero(seed, scene_prompt, out_path)
+                            rung_b_strength = None  # unparametrized fallback: record no strength
                     print(f"[generate] stage restyle done in {time.monotonic() - _restyle_t0:.1f}s", file=sys.stderr)
                 if stylized is not None and stylized.exists():
                     # Similarity gate (B -> C): reject a drifted restyle BEFORE the
