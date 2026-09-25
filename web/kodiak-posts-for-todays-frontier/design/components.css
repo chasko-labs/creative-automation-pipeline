@@ -885,6 +885,36 @@ header.kodiak-header{background:linear-gradient(135deg,var(--colors-brand-fronti
    overflow:visible does NOT create a containing block/stacking context the way a filter does, so this
    is safe for the sticky header (unlike the filter-on-sticky trap guarded on .wrap). */
 header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
+/* header row order: logo | timeline | plate. the timeline rides the header row
+   to the right of the logo (never pushed down), and the green headline plate
+   keeps its own row below with ample air above it. */
+.kodiak-header .header__inner{flex-wrap:wrap;column-gap:clamp(24px,4vw,64px);row-gap:10px}
+.kodiak-header .header__inner .ff-timeline{flex:1 1 300px;min-width:min(300px,100%);margin:0}
+.kodiak-header .kodiak-headline-plate{flex:1 1 100%;margin-top:var(--spacing-md)}
+/* oversize hero logo spills downward — keep it painting above the plate row */
+.kodiak-header__logos{z-index:2}
+/* gentle 3D shimmer: headline outer-shadow breathing, warm glow behind the
+   logo cardboard, slow sheen across the timeline plate. motion-gated — the
+   whole block only exists under no-preference, so reduced-motion users get
+   the static look with zero overrides needed. amplitudes stay tiny. */
+@media(prefers-reduced-motion:no-preference){
+.kodiak-headline-plate h1{animation:ff-title-shadow 8s ease-in-out infinite}
+.kodiak-header__logos::before{content:"";position:absolute;inset:-14px;z-index:-1;border-radius:24px;
+  background:radial-gradient(closest-side,rgba(255,196,120,.34),rgba(255,196,120,0) 70%);
+  opacity:.45;animation:ff-logo-glow 9s ease-in-out infinite}
+.header__inner .ff-timeline::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(105deg,transparent 42%,rgba(255,244,220,.10) 50%,transparent 58%);
+  background-size:250% 100%;animation:ff-timeline-sheen 11s ease-in-out infinite}
+@keyframes ff-title-shadow{
+  0%,100%{text-shadow:0 1px 0 rgba(0,0,0,.28),0 0 14px rgba(255,214,150,0);transform:perspective(700px) rotateX(0deg)}
+  50%{text-shadow:0 1px 0 rgba(0,0,0,.28),0 0 22px rgba(255,214,150,.30);transform:perspective(700px) rotateX(.6deg)}}
+@keyframes ff-logo-glow{
+  0%,100%{opacity:.40;transform:scale(1)}
+  50%{opacity:.65;transform:scale(1.05)}}
+@keyframes ff-timeline-sheen{
+  0%,100%{background-position:120% 0}
+  50%{background-position:-20% 0}}
+}
 /* partner mark — hidden until the US Ski & Snowboard card is checked (JS toggles .is-on); tokenized spacing */
 .ff-partner-mark{margin-top:var(--spacing-sm);display:none;align-items:center;gap:var(--spacing-sm)}
 .ff-partner-mark.is-on{display:flex}
@@ -1795,43 +1825,37 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 /* (frontier marquee sign styles live with the #frontierSign rules near the
    headline-plate block — single implementation via the vendored bundle.) */
 
-/* === no-scroll load frame (desktop, min-width:861px) ===
-   Goal: document.documentElement.scrollHeight <= window.innerHeight on load at
-   1440x900. Chrome budget: 60px header + slim timeline; .wrap becomes the only
-   scroll container. The badge keeps its overhang via an absolute tall frame
-   (existing oversize pattern retired here: explicit frame, no scale knob).
+/* === header row frame (desktop, min-width:861px) ===
+   Row 1: logo | timeline (timeline rides right of the logo, never pushed
+   down). Row 2: green headline plate full-width with ample air above it.
+   The logo is static in-flow (no absolute overhang, no hero spill), so it
+   cannot push or overlap anything. Tradeoff vs the old 60px no-scroll frame:
+   the header is taller, so load no longer fits 100vh — the window scrolls.
    Mobile keeps normal page scroll — untouched below. */
 @media(min-width:861px){
-  /* 1. fixed 60px header; badge frame (96x112) overhangs below the bar */
-  header.kodiak-header{height:60px;flex-wrap:nowrap;padding:0}
-  .kodiak-header .header__inner{height:60px;padding:0 1.5rem 0 0;gap:12px;flex-wrap:nowrap;align-items:center}
-  .kodiak-header__logos{position:absolute;top:0;left:1.5rem;width:96px;height:112px;z-index:60;aspect-ratio:auto;transition:height .25s ease,width .25s ease}
+  /* 1. header rows: logo + timeline share row 1, plate takes row 2 */
+  header.kodiak-header{flex-wrap:wrap;padding:10px 0}
+  .kodiak-header .header__inner{padding:0 1.5rem;column-gap:clamp(24px,4vw,64px);row-gap:10px;flex-wrap:wrap;align-items:center}
+  .kodiak-header__logos{position:relative;top:auto;left:auto;flex:0 0 auto;width:clamp(96px,9vw,128px);aspect-ratio:4/3;z-index:2;transition:width .25s ease}
   .kodiak-header__logos .kodiak-header__logo--primary{transform:none}
-  .kodiak-headline-plate{min-width:0;flex:1 1 auto}
+  .kodiak-header .header__inner .ff-timeline{flex:1 1 320px}
+  .kodiak-headline-plate{min-width:0;flex:1 1 100%;margin-top:var(--spacing-md)}
   .kodiak-headline-plate h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(27px,3vw,36px)}
-  /* scrolled: badge frame shrinks into the bar but stays prominent — the Park
-     City alt mark renders at full bar height (taller than the headline) with
-     its aspect preserved (contain, never stretched); inner clears it so the
-     plate never slides under the mark. The alt-logo crossfade (.is-sticky) is
-     otherwise untouched. */
-  .kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:104px}
+  /* scrolled: badge shrinks but stays in-flow and prominent — the Park City
+     alt mark keeps its aspect (contain, never stretched). The alt-logo
+     crossfade (.is-sticky) is otherwise untouched. */
+  .kodiak-header.is-sticky .kodiak-header__logos{width:104px}
   .kodiak-header.is-sticky .kodiak-header__logo--secondary{object-fit:contain}
-  .kodiak-header.is-sticky .header__inner{padding-left:132px}
-  /* inset bar would drag the absolute badge over the timeline's first step:
-     hang it off the bar's left edge by the available inset (capped so the
-     badge clears step one), floored at the original 1.5rem. Sticky keeps
-     the original anchor — the shrunken badge belongs inside the bar. */
-  .kodiak-header__logos{left:calc(1.5rem - clamp(0px, (100vw - 1064px)/2 - 12px, 124px))}
-  .kodiak-header.is-sticky .kodiak-header__logos{left:1.5rem}
   /* 2. slim timeline: single row, tighter reset */
   .ff-timeline{padding:6px 14px 4px;gap:6px 12px}
   .ff-reset{padding:5px 12px 5px 8px}
   .ff-reset-icon{width:18px;height:18px}
   /* 3. scroll architecture (State 0 / State 1): NO viewport locks, NO panel
      traps — the window scrollbar is the only scrollbar in every state.
-     State 0 (load, all collapsed) fits 100vh through chrome compression
-     above; State 1 (user expands) grows the document naturally and the
-     window scrolls. Never re-add body overflow locks or .wrap height locks. */
+     State 0 (load, all collapsed) no longer targets 100vh — the header
+     carries logo + timeline + plate rows, so the window scrolls from load.
+     State 1 (user expands) grows the document naturally. Never re-add body
+     overflow locks or .wrap height locks. */
   /* 4. setup steps: closed disclosures share a 3-column row; an opened step
      (or any non-details child) spans full width below, preserving top-to-bottom order */
   #brainstormAll .accordion-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
