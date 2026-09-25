@@ -308,6 +308,43 @@ interface Window {
   ffLog?: (...args: unknown[]) => void;
   /** Campaign scope tag (e.g. frontier code) for analytics; free-form. */
   __campaignScope?: string;
+  /**
+   * Resting-showcase copy for a non-Park-City market (generate.js).
+   * Null for Park City markets (the shipped example stays untouched).
+   */
+  KODIAK_restingCopyFor?: (marketId: string) => {place: string, title: string, lede: string, enLine: string} | null;
+  /** Repaints resting showcase words for the selected market (generate.js); missing -> no-op. */
+  KODIAK_repaintRestingShowcase?: () => void;
+  /** Repaints resting showcase images for the selected market (generate.js); missing -> no-op. */
+  KODIAK_repaintRestingImages?: () => void;
+  /** Market x month -> size -> image URL picks from the campaign-art index (generate.js). */
+  KODIAK_marketHeroPicks?: (marketId: string, month: number) => Record<string, string>;
+  /** Page build stamp (?v= cache-bust); set inline, read by withVersion. */
+  KODIAK_VERSION?: string;
+  /**
+   * Generated campaign-art index (campaign-art-index.js, GENERATED — do not
+   * hand-edit the source). Kept loose: the emitted JSON shape varies by
+   * season; callers narrow what they read.
+   */
+  KODIAK_CAMPAIGN_ART?: {markets?: Record<string, any>, season_months?: Record<string, number[]>} | null;
+  /** Which tall/wide tiles earn a live outpaint (generate.js top level). */
+  KODIAK_extendTargets?: (renders: unknown) => unknown[];
+  /** The 1x1 hero a mode=extend derives from (generate.js top level). */
+  KODIAK_extendHero?: (renders: unknown) => unknown;
+  /** Builds a mode=extend request body (generate.js top level). */
+  KODIAK_extendBody?: (ratio: unknown, hero: unknown, fields: unknown) => {mode: string, ratio: unknown, hero_s3_uri: unknown, subject: unknown, product: unknown, region: unknown, theme: unknown};
+  /** Primary theme first, then checked cards in DOM order, deduped (generate.js top level). */
+  KODIAK_orderThemes?: (primary: unknown, list: unknown) => unknown[];
+  /** Per-tile engine mark {text, cls} (generate.js top level). */
+  KODIAK_tileEngineMark?: (engine: unknown) => {text: string, cls: string};
+  /** Rung badge {text, fallback} shared by click badge, render set, tests (generate.js top level). */
+  KODIAK_rungBadge?: (source: unknown, prov: unknown) => {text: string, fallback: boolean};
+  /** Checked theme slugs from the prompt chips (prompt-chips.js); missing -> []. */
+  __activeThemes?: () => unknown;
+  /** Month key/Season name -> 1-12 month number (data-core.js local signature, exact). */
+  KODIAK_frontierMonthNum?: (monthKey: string) => number | null;
+  /** Request body for one lazy art-zone generation (recipe-cards.js local signature, exact). */
+  KODIAK_recipeArtBody?: (recipeId: string | null, artKey: string) => {mode: string, recipe_id: string, zone: string} | null;
 }
 
 /**

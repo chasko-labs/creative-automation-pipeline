@@ -164,19 +164,30 @@ describe('frontier polish pass', () => {
     expect(gen).not.toMatch(/stageT1 = setTimeout/);
   });
 
-  it('wall-timeout fallback in preview gets a retry affordance', () => {
+  it('wall-timeout fallthrough auto-retries, double miss is honest', () => {
     expect(gen).toMatch(/id = 'genRetry'/);
     expect(gen).toMatch(/Try again — models are warm now/);
-    expect(gen).toMatch(/Render miss \(wall timeout\)/);
+    expect(gen).toMatch(/AUTO-RETRY ONCE/);
+    // fallback pixels are never presented as the campaign on a double miss.
+    expect(gen).toMatch(/Render miss — nothing generated/);
+    expect(gen).not.toMatch(/fallback pixels shown, not the campaign/);
     expect(css).toMatch(/\.ff-retry\{[^}]*var\(--colors-brand-frontier-green\)/);
   });
 
-  it('filmstrip arrows are static flex items, never overlaid', () => {
+  it('filmstrip arrows live in flanking grid gutters, never overlaid', () => {
     const rule =
       css.match(/\.ff-filmstrip__arrow\{[^}]*\}/)?.[0] || '';
-    expect(rule).toMatch(/position:static/);
     expect(rule).not.toMatch(/position:absolute/);
     expect(css).not.toMatch(/\.ff-filmstrip__arrow--prev\{left:/);
+    expect(css).toMatch(/\.ff-filmstrip__arrow--prev\{grid-area:prev\}/);
+    expect(css).toMatch(/\.ff-filmstrip__arrow--next\{grid-area:next\}/);
+    // 64px senior-friendly targets with explicit verbal labels.
+    expect(rule).toMatch(/min-width:64px/);
+    expect(rule).toMatch(/min-height:64px/);
+    expect(css).toMatch(/\.ff-filmstrip__arrow \.ff-tlabel/);
+    expect(html).toMatch(/Prev assets/);
+    expect(html).toMatch(/Next assets/);
+    expect(gen).toMatch(/Prev assets/);
   });
 
   it('pills and control chips ride parchment, not near-white', () => {

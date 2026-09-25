@@ -132,19 +132,28 @@ let skuList = [
   // keep the shipped example untouched. Pure data half tested in
   // preview-extend.test.mjs via KODIAK_restingCopyFor.
   const RESTING_HOME = ['US-MW-PARKCITY-84098', 'US-MW-WASATCH'];
+  /**
+   * @param {string} marketId
+   */
   const restingRow = (marketId)=>{
     try{
       const rows = (typeof places !== 'undefined' && Array.isArray(places)) ? places : [];
       return rows.find(r=>r && r.market === marketId) || null;
     }catch(e){ return null; }
   };
+  /**
+   * @param {string} marketId
+   */
   const restingCopyFor = (marketId)=>{
     if(!marketId || RESTING_HOME.indexOf(marketId) >= 0) return null;
     const row = restingRow(marketId);
     if(!row || (!row.message && !row.cue)) return null;
     let frontier = '';
     try{ const f = (typeof featuredFrontierFor === 'function') ? featuredFrontierFor(marketId) : null;
-      frontier = (f && (f.place || f.frontier_market)) ? String(f.place || f.frontier_market) : '';
+      // featuredFrontierFor's return carries place (never frontier_market —
+      // that key lives on recipe-card rows, not the frontier detail), so read
+      // place directly; behavior identical, no dead access.
+      frontier = (f && f.place) ? String(f.place) : '';
     }catch(e){}
     const place = String(row.place || marketId);
     const lede = place + ' — ' + String(row.message || '') +
@@ -155,7 +164,7 @@ let skuList = [
   try{ window.KODIAK_restingCopyFor = restingCopyFor; }catch(e){}
   function repaintRestingShowcase(){
     try{
-      const sel = document.getElementById('locality');
+      const sel = /** @type {HTMLSelectElement|null} */ (document.getElementById('locality'));
       const hero = document.getElementById('previewHero');
       if(!sel || !hero) return;
       const copy = restingCopyFor(sel.value);
@@ -184,6 +193,10 @@ let skuList = [
   // window.KODIAK_TILE_ORDER per the frontier-contracts tile contract.
   const HERO_DISHES = ['waffle', 'muffin', 'oatmeal-cup', 'bars', 'brownie'];
   const SEASON_PRIORITY = ['christmas', 'easter', 'fourth-of-july', 'fall', 'halloween', 'thanksgiving'];
+  /**
+   * @param {{season_months?: Record<string, number[]>}|null} idx
+   * @param {number} month
+   */
   const seasonKeyForMonth = (idx, month)=>{
     try{
       const months = (idx && idx.season_months) || {};
@@ -194,6 +207,9 @@ let skuList = [
   // Same-origin runtime art gets the page build stamp (?v=) so regenerated
   // campaign-web derivatives do not serve stale from cache. Absolute and
   // already-versioned URLs pass through untouched.
+  /**
+   * @param {string} url
+   */
   const withVersion = (url)=>{
     try{
       if(!url || /^(https?:|data:|blob:)/i.test(url) || /(^|[?&])v=/.test(url)) return url;
@@ -202,8 +218,13 @@ let skuList = [
       return url + (url.indexOf('?') >= 0 ? '&v=' : '?v=') + encodeURIComponent(v);
     }catch(e){ return url; }
   };
+  /**
+   * @param {string} marketId
+   * @param {number} month
+   * @returns {Record<string, string>}
+   */
   const marketHeroPicks = (marketId, month)=>{
-    const out = {};
+    const out = /** @type {Record<string, string>} */ ({});
     try{
       const idx = (typeof window !== 'undefined' && window.KODIAK_CAMPAIGN_ART) || null;
       const entry = (idx && idx.markets && idx.markets[marketId]) || null;
@@ -229,7 +250,7 @@ let skuList = [
   const currentMonth = ()=>{ try{ return new Date().getMonth() + 1; }catch(e){ return 0; } };
   function repaintRestingImages(){
     try{
-      const sel = document.getElementById('locality');
+      const sel = /** @type {HTMLSelectElement|null} */ (document.getElementById('locality'));
       const hero = document.getElementById('previewHero');
       if(!sel || !hero) return;
       const picks = marketHeroPicks(sel.value, currentMonth());
@@ -243,7 +264,7 @@ let skuList = [
           const alt = img.getAttribute('alt') || '';
           const base = alt.replace(/ — .*?(example|preview)$/, '');
           img.setAttribute('alt', (base || 'Market preview') + ' — ' + place + ' preview');
-          img.style.display = '';
+          if(img instanceof HTMLElement) img.style.display = '';
         });
       });
     }catch(e){}
@@ -410,19 +431,35 @@ let skuList = [
   // Preview extend polling (top level so tests share it): which tall/wide
   // tiles upgrade, which render is the 1x1 hero, and the mode=extend body.
   // Pure: renders + fields in, no DOM. Tested in preview-extend.test.mjs.
+  /**
+   * @param {unknown} renders
+   * @returns {RenderItem[]}
+   */
   const extendTargets = (renders)=>{
     if(!Array.isArray(renders)) return [];
     // blog stays a pad: the portrait + wide tiles with an asset-store uri
     // earn a live outpaint.
     return renders.filter(r=>r && (r.ratio==='4x5' || r.ratio==='9x16' || r.ratio==='16x9') && r.s3_uri);
   };
+  /**
+   * @param {unknown} renders
+   * @returns {unknown}
+   */
   const extendHero = (renders)=>{
     if(!Array.isArray(renders)) return null;
     return renders.find(r=>r && r.ratio==='1x1' && r.s3_uri) || null;
   };
+  /**
+   * @param {unknown} ratio
+   * @param {unknown} hero
+   * @param {unknown} fields
+   */
   const extendBody = (ratio, hero, fields)=>{
-    const f = fields || {};
-    return {mode:'extend', ratio, hero_s3_uri: hero.s3_uri,
+    // narrow the unknown params without changing runtime shape: non-object
+    // fields behave exactly like the old `fields || {}` fallback.
+    const h = (hero && typeof hero === 'object') ? /** @type {{s3_uri?: unknown}} */ (hero) : {};
+    const f = (fields && typeof fields === 'object') ? /** @type {{subject?: unknown, product?: unknown, region?: unknown, theme?: unknown}} */ (fields) : {};
+    return {mode:'extend', ratio, hero_s3_uri: h.s3_uri,
       subject: f.subject || '', product: f.product || 'power-cakes',
       region: f.region || 'us', theme: f.theme || null};
   };
@@ -432,8 +469,13 @@ let skuList = [
   // card in DOM order, deduped. Extras ride as data.themes instead of
   // collapsing silently. Pure: primary + list in, ordered list out.
   // Tested in preview-extend.test.mjs.
+  /**
+   * @param {unknown} primary
+   * @param {unknown} list
+   * @returns {unknown[]}
+   */
   const orderThemes = (primary, list)=>{
-    const out = [];
+    const out = /** @type {unknown[]} */ ([]);
     if(primary) out.push(primary);
     (Array.isArray(list) ? list : []).forEach(t=>{ if(t && t !== primary && out.indexOf(t) < 0) out.push(t); });
     return out;
@@ -1432,8 +1474,8 @@ let skuList = [
           // primary carries no mark — it is the real hero, not a derived tile.
           let engMark = '';
           try{
-            const _penv = (opts.provenance && typeof opts.provenance==='object') ? opts.provenance : {};
-            const _engines = (_penv.ratios && typeof _penv.ratios==='object') ? _penv.ratios : {};
+            const _penv = /** @type {{ratios?: unknown}} */ ((opts.provenance && typeof opts.provenance==='object') ? opts.provenance : {});
+            const _engines = /** @type {Record<string, unknown>} */ ((_penv.ratios && typeof _penv.ratios==='object') ? _penv.ratios : {});
             const _mark = tileEngineMark(_engines[r.ratio]);
             if(_mark.text) engMark = '<span class="rt-eng ' + _mark.cls + '">' + escapeHtml(_mark.text) + '</span>';
           }catch(e){}
@@ -1459,7 +1501,17 @@ let skuList = [
           b.className = 'ff-filmstrip__arrow ff-filmstrip__arrow--' + dir;
           b.setAttribute('aria-label', dir === 'prev' ? 'Scroll sizes backward' : 'Scroll sizes forward');
           b.setAttribute('aria-controls', 'ffLiveTrack');
-          b.textContent = dir === 'prev' ? '\u2039' : '\u203A';
+          // explicit verbal label over a cryptic solo chevron (senior-friendly):
+          // glyph line + PREV/NEXT ASSETS line, styled by .ff-glyph/.ff-tlabel.
+          const glyph = document.createElement('span');
+          glyph.className = 'ff-glyph';
+          glyph.setAttribute('aria-hidden', 'true');
+          glyph.textContent = dir === 'prev' ? '\u2039' : '\u203A';
+          const label = document.createElement('span');
+          label.className = 'ff-tlabel';
+          label.textContent = dir === 'prev' ? 'Prev assets' : 'Next assets';
+          b.appendChild(glyph);
+          b.appendChild(label);
           return b;
         };
         strip.appendChild(mkArrow('prev'));
@@ -1512,6 +1564,10 @@ let skuList = [
       // state while an extend is still possible.
       // extendTargets/extendHero/extendBody live at IIFE top level (shared
       // with tests); used directly here.
+      /**
+       * @param {unknown} renders
+       * @param {unknown} fields
+       */
       const extendTallTiles = async (renders, fields)=>{
         try{
           const hero = extendHero(renders);
@@ -1784,7 +1840,7 @@ let skuList = [
         // drives seed/scene from the first known slug and folds extras into
         // overlay/copy lines. Season rides as its own field so the preview
         // recipe pairing reads it structurally, not from brief-text parsing.
-        let themeList = wantTheme ? [wantTheme] : [];
+        let themeList = /** @type {unknown[]} */ (wantTheme ? [wantTheme] : []);
         try{ themeList = orderThemes(wantTheme || null, (typeof window.__activeThemes==='function') ? window.__activeThemes() : []); }catch(e){}
         const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, layers: reqLayers, ...(wantTheme ? {theme: wantTheme} : {}), ...(themeList.length ? {themes: themeList} : {}), ...(activeSeason ? {season: activeSeason} : {}), ...(stagedKey ? {seed_key: stagedKey} : {})};
         const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
@@ -1962,15 +2018,16 @@ let skuList = [
                 const sub = document.createElement('div');
                 sub.className = 'small';
                 sub.textContent = 'Two passes hit the render wall (cold models). No fallback pixels are shown as your campaign — hit retry.';
-                retry = document.createElement('button');
-                retry.type = 'button';
-                retry.id = 'genRetry';
-                retry.className = 'ff-retry ff-retry--pulse';
-                retry.textContent = 'Try again — models are warm now';
-                retry.addEventListener('click', ()=>{ const g = document.getElementById('generateCampaign'); if(g) g.click(); });
+                const retryBtn = document.createElement('button');
+                retryBtn.type = 'button';
+                retryBtn.id = 'genRetry';
+                retry = retryBtn;
+                retryBtn.className = 'ff-retry ff-retry--pulse';
+                retryBtn.textContent = 'Try again — models are warm now';
+                retryBtn.addEventListener('click', ()=>{ const g = document.getElementById('generateCampaign'); if(g) g.click(); });
                 miss.appendChild(headline);
                 miss.appendChild(sub);
-                miss.appendChild(retry);
+                miss.appendChild(retryBtn);
                 grid.appendChild(miss);
               }
             }

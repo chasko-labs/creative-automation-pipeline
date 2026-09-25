@@ -436,7 +436,7 @@ section.xl{padding:var(--section-space-xl) 0}
    their own scales. */
 #previewRecipe{display:block;margin-top:16px;container-type:inline-size}
 #previewRecipe .rc-card-shell{--rc-scale:1;--rc-scale:calc(100cqw / 816px)}
-#previewRecipe .rc-card{margin-block:10px}
+#previewRecipe .rc-card{margin-block:0 10px}
 
 /* === Per-platform messaging copy — accordion of native <details>, one per platform === */
 .platform-copy{margin-top:14px;border:1px solid var(--colors-border-default);border-radius:var(--radii-md);overflow:hidden;background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm)}
@@ -1504,10 +1504,18 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    hint drops smaller and quieter, and the CTA is the identical star button
    (same .ff-go, same hand) stretched full-bleed so it reads as the section's
    front door, not an afterthought. */
-.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:12px}
-.ff-figcap-lede{margin:0 0 8px;max-width:68ch}
-.ff-figcap-hint{margin:0 0 12px;max-width:68ch;font-size:12.5px;font-weight:500;color:var(--colors-foreground-muted)}
+.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:12px;
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--spacing-md);align-items:start}
+.ff-figcap-lede{margin:0;max-width:68ch}
+.ff-figcap-side{margin:0;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-default);
+  border-radius:var(--radii-md);padding:var(--spacing-sm) var(--spacing-md);box-shadow:var(--shadows-sm)}
+.ff-figcap-hint{margin:0 0 12px;font-size:12.5px;font-weight:500;color:var(--colors-foreground-muted)}
 .ff-figcap .ff-figcap-cta{width:100%}
+@media(max-width:640px){.ff-figcap{grid-template-columns:minmax(0,1fr)}}
+/* gradient bridge from the preview carousel into the recipe card — one
+   continuous canvas instead of a hard stacked-box cut */
+.ff-recipe-bridge{height:26px;margin:14px 0 2px;border-radius:var(--radii-pill);
+  background:linear-gradient(180deg,rgba(0,0,0,0) 0%,var(--colors-brand-box-parchment) 78%,var(--colors-brand-box-parchment) 100%)}
 .ff-figcap .ff-figcap-cta:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
 /* below 400px the identical 52px bar can't fit its label — tighten tracking and
    padding instead of wrapping, so it stays one bar, not two */
@@ -1658,9 +1666,11 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .rc-gallery-month{align-self:flex-start;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;
   letter-spacing:.08em;text-transform:uppercase;color:var(--colors-neutral-600)}
 .rc-gallery-empty{color:var(--colors-neutral-600);font:500 13px/1.5 "museo-sans",sans-serif;margin:0;padding:8px 0}
-/* preview language toggle — plain segmented buttons in existing tokens, no new palette */
-.rc-preview-wrap{display:flex;flex-direction:column;align-items:center}
-.rc-lang-toggle{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 8px}
+/* preview language toggle — plain segmented buttons in existing tokens, no new palette.
+   docked to the card (no floating gap): the toggle reads as the card's header. */
+.rc-preview-wrap{display:flex;flex-direction:column;align-items:center;gap:0}
+.rc-lang-toggle{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0}
+.rc-lang-toggle + .rc-lang-badge{margin:6px 0 0}
 .rc-lang-toggle__btn{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;
   text-transform:uppercase;color:var(--chocolate);background:transparent;
   border:1px solid var(--stone);border-radius:var(--radii-md);padding:8px 12px;cursor:pointer}
@@ -1794,13 +1804,19 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 @media(min-width:861px){
   /* 1. fixed 60px header; badge frame (96x112) overhangs below the bar */
   header.kodiak-header{height:60px;flex-wrap:nowrap;padding:0}
-  .kodiak-header .header__inner{height:60px;padding:0 1.5rem 0 128px;gap:12px;flex-wrap:nowrap;align-items:center}
+  .kodiak-header .header__inner{height:60px;padding:0 1.5rem 0 0;gap:12px;flex-wrap:nowrap;align-items:center}
   .kodiak-header__logos{position:absolute;top:0;left:1.5rem;width:96px;height:112px;z-index:60;aspect-ratio:auto;transition:height .25s ease,width .25s ease}
   .kodiak-header__logos .kodiak-header__logo--primary{transform:none}
   .kodiak-headline-plate{min-width:0;flex:1 1 auto}
   .kodiak-headline-plate h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(27px,3vw,36px)}
-  /* scrolled: badge frame shrinks into the bar; the alt-logo crossfade (.is-sticky) is untouched */
-  .kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:52px}
+  /* scrolled: badge frame shrinks into the bar but stays prominent — the Park
+     City alt mark renders at full bar height (taller than the headline) with
+     its aspect preserved (contain, never stretched); inner clears it so the
+     plate never slides under the mark. The alt-logo crossfade (.is-sticky) is
+     otherwise untouched. */
+  .kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:104px}
+  .kodiak-header.is-sticky .kodiak-header__logo--secondary{object-fit:contain}
+  .kodiak-header.is-sticky .header__inner{padding-left:132px}
   /* inset bar would drag the absolute badge over the timeline's first step:
      hang it off the bar's left edge by the available inset (capped so the
      badge clears step one), floored at the original 1.5rem. Sticky keeps
@@ -1993,10 +2009,12 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    scrollbar stays hidden; show/hide for the lightbox is the hidden attribute
    (JS toggles .is-open alongside it). prefers-reduced-motion guarded. */
 .ff-filmstrip{position:relative;isolation:isolate;--ff-thumb-h:clamp(96px,16vw,148px);
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--spacing-sm,8px);margin-top:var(--spacing-sm,8px)}
-/* track owns row one full-bleed; prev/dots/next share a centered control row
-   below it (order pins the sequence regardless of DOM order) */
-.ff-filmstrip__track{display:flex;gap:var(--spacing-sm);flex:1 1 100%;min-width:0;position:relative;
+  display:grid;grid-template-columns:88px minmax(0,1fr) 88px;grid-template-areas:"prev track next" "dots dots dots";
+  gap:var(--spacing-sm,8px);align-items:center;margin-top:var(--spacing-sm,8px)}
+/* track owns the center column; chunky labeled arrows live in dedicated
+   flanking gutters (never overlaid on thumbnails, never orphaned below);
+   dots stay centered underneath as pure position indicators */
+.ff-filmstrip__track{grid-area:track;display:flex;gap:var(--spacing-sm);min-width:0;position:relative;
   overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
   scrollbar-width:none;-ms-overflow-style:none;
   padding:var(--spacing-xs);margin:0;border:1px solid var(--colors-border-default);
@@ -2027,18 +2045,29 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-filmstrip__dl{display:inline-block;margin-top:var(--spacing-xs);color:var(--colors-brand-frontier-green);
   font:700 11px/1.4 "museo-sans",system-ui,sans-serif;text-decoration:underline;text-underline-offset:2px}
 .ff-filmstrip__dl:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
-/* 22px dark-pill chevron-badge arrows: bear-brown pill, parchment glyph, 22px hit
-   target. Static flex items flanking the track — never overlaid on thumbnails. */
-.ff-filmstrip__arrow{position:static;transform:none;flex:0 0 auto;align-self:center;
-  z-index:2;min-width:22px;min-height:22px;display:inline-flex;align-items:center;justify-content:center;
-  padding:var(--spacing-xs) var(--spacing-sm);border:1px solid var(--chocolate);border-radius:var(--radii-pill);
-  background:var(--chocolate);color:var(--parchment);font-size:22px;line-height:1;cursor:pointer;
-  box-shadow:var(--shadows-sm)}
+/* arcade-gutter arrows: 64px senior-friendly hit targets in dedicated flanking
+   gutters with explicit PREV/NEXT ASSETS labels (no cryptic solo chevrons).
+   chunky flat bevel (thick bottom edge, no gradient); press = 3px inset. */
+.ff-filmstrip__arrow{grid-row:1;z-index:2;min-width:64px;min-height:64px;justify-self:center;align-self:center;
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  padding:8px 4px;border:2px solid var(--chocolate);border-bottom-width:6px;border-radius:var(--radii-md);
+  background:var(--chocolate);color:var(--parchment);cursor:pointer;
+  box-shadow:var(--shadows-sm);transition:transform .08s ease,border-bottom-width .08s ease}
+.ff-filmstrip__arrow .ff-glyph{font-size:26px;line-height:1}
+.ff-filmstrip__arrow .ff-tlabel{font:700 10px/1.2 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.05em;text-transform:uppercase}
 .ff-filmstrip__arrow:hover{filter:brightness(1.15)}
+.ff-filmstrip__arrow:active{transform:translateY(3px);border-bottom-width:2px}
 .ff-filmstrip__arrow:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
-.ff-filmstrip__dots{flex:0 0 auto;order:2;display:flex;gap:var(--spacing-xs);justify-content:center;align-items:center;margin:0;padding:0;list-style:none}
-.ff-filmstrip__arrow--prev{order:1}
-.ff-filmstrip__arrow--next{order:3}
+.ff-filmstrip__dots{grid-area:dots;display:flex;gap:var(--spacing-xs);justify-content:center;align-items:center;margin:0;padding:0;list-style:none}
+.ff-filmstrip__arrow--prev{grid-area:prev}
+.ff-filmstrip__arrow--next{grid-area:next}
+/* narrow screens have no room for 88px gutters: labeled arrows share a compact
+   row under the track (still labeled, still 48px+ targets). */
+@media(max-width:640px){
+  .ff-filmstrip{grid-template-columns:1fr 1fr;grid-template-areas:"track track" "prev next" "dots dots"}
+  .ff-filmstrip__arrow{min-height:52px;flex-direction:row;gap:6px}
+  .ff-filmstrip__arrow .ff-glyph{font-size:22px}
+}
 .ff-filmstrip__dot{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;
   background:none;border:none;padding:0;cursor:pointer;border-radius:var(--radii-pill)}
 .ff-filmstrip__dot::before{content:"";width:8px;height:8px;border-radius:var(--radii-pill);
@@ -2070,7 +2099,8 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-lightbox__prev:disabled,.ff-lightbox__next:disabled{opacity:.45;cursor:default}
 @media(prefers-reduced-motion:reduce){
   .ff-filmstrip__track{scroll-behavior:auto;scroll-snap-type:none}
-  .ff-filmstrip__arrow,.ff-lightbox__prev,.ff-lightbox__next,.ff-lightbox__close{transition:none}}
+  .ff-filmstrip__arrow,.ff-lightbox__prev,.ff-lightbox__next,.ff-lightbox__close{transition:none}
+  .ff-filmstrip__arrow:active{transform:none}}
 
 /* === cardboard logo layers — two procedural board sheets behind the badge ===
    Procedural feTurbulence data-URI texture (no new assets), same page-CSS data-URI

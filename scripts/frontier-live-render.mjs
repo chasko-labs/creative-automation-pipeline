@@ -18,7 +18,9 @@ for (let i = 0; i < raw.length; i++) {
 }
 const url =
   args.url ||
-  "https://ipswy2mfu25qebueq24346rm2u0mypjs.lambda-url.us-east-1.on.aws/";
+  // the app calls through CloudFront /generate (API Gateway, 29s cap) — never
+  // the Function URL directly (it 403s outside the gateway path).
+  "https://kodiak-dev.bryanchasko.com/generate";
 const body = {
   prompt:
     args.prompt ||

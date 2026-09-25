@@ -272,19 +272,19 @@
  * `FrontierCalendarEntry`).
  *
  * @typedef {object} MonthCard
- * @property {string} [ingredient] — in-season local ingredient; absent/null triggers empty state.
- * @property {string} [title] — card title (catalog recipe name); missing -> recipe.name -> "recipe".
- * @property {string[]} [steps] — cleaned instruction lines; missing -> [].
- * @property {Object<string,string>} [meta] — {prep,cook,serves,est_cost} each string|null; missing -> em dash.
- * @property {RecipeIngredient[]} [ingredients] — verbatim catalog lines; missing -> [].
- * @property {RecipeArt} [art] — per-zone S3 URLs or null; missing -> {} -> placeholder/skeleton.
- * @property {string} [substrate] — paper hint, e.g. "kraft"; missing -> "kraft".
- * @property {string} [market] — registry key, e.g. "US-CA-CASTROVILLE".
- * @property {string} [month] — ISO month "YYYY-MM", e.g. "2026-01".
- * @property {string} [reason] — empty-state reason when ingredient==null; rendered as rc-empty-reason.
- * @property {Object<string,string>} [metaLabels] — per-language meta cell labels; missing -> META_CELLS defaults.
- * @property {Object<string,string>} [colLabels] — per-language column headings; missing -> "ingredients"/"steps".
- * @property {{name: string}} [recipe] — catalog pointer {name} (and often {id}); missing -> title falls to literal.
+ * @property {string} [ingredient] - in-season local ingredient; absent/null triggers empty state.
+ * @property {string} [title] - card title (catalog recipe name); missing -> recipe.name -> "recipe".
+ * @property {string[]} [steps] - cleaned instruction lines; missing -> [].
+ * @property {Object<string,string>} [meta] - {prep,cook,serves,est_cost} each string|null; missing -> em dash.
+ * @property {RecipeIngredient[]} [ingredients] - verbatim catalog lines; missing -> [].
+ * @property {RecipeArt} [art] - per-zone S3 URLs or null; missing -> {} -> placeholder/skeleton.
+ * @property {string} [substrate] - paper hint, e.g. "kraft"; missing -> "kraft".
+ * @property {string} [market] - registry key, e.g. "US-CA-CASTROVILLE".
+ * @property {string} [month] - ISO month "YYYY-MM", e.g. "2026-01".
+ * @property {string} [reason] - empty-state reason when ingredient==null; rendered as rc-empty-reason.
+ * @property {Object<string,string>} [metaLabels] - per-language meta cell labels; missing -> META_CELLS defaults.
+ * @property {Object<string,string>} [colLabels] - per-language column headings; missing -> "ingredients"/"steps".
+ * @property {{name: string, id?: string}} [recipe] - catalog pointer {name} (and often {id}); missing -> title falls to literal.
  */
 
 /**
@@ -384,12 +384,12 @@
  *  - `frontier.url == null` -> link omitted (URL pending, not fabricated — see Senoia note).
  *
  * @typedef {object} FrontierPair
- * @property {string} [market] — registry key, e.g. "US-SE-ATL".
- * @property {{market?: string, retailer?: string, address?: string}} [metro] — retail metro location.
- * @property {{market?: string, place?: string, url?: string}} [frontier] — frontier sister place + optional market code + optional URL.
- * @property {string[]} [retailers] — retailer names for the logo lockup.
- * @property {Object<string,string>} [monthly] — ISO month "YYYY-MM" -> in-season ingredient for the frontier sister's farmers market.
- * @property {MomentEntry[]} [moments] — curated local moments; missing -> hidden.
+ * @property {string} [market] - registry key, e.g. "US-SE-ATL".
+ * @property {{market?: string, retailer?: string, address?: string}} [metro] - retail metro location.
+ * @property {{market?: string, place?: string, url?: string}} [frontier] - frontier sister place + optional market code + optional URL.
+ * @property {string[]} [retailers] - retailer names for the logo lockup.
+ * @property {Object<string,string>} [monthly] - ISO month "YYYY-MM" -> in-season ingredient for the frontier sister's farmers market.
+ * @property {MomentEntry[]} [moments] - curated local moments; missing -> hidden.
  */
 
   /**
@@ -414,9 +414,10 @@
    * as `"proposed"` (no badge). Never invents months.
    *
    * @typedef {object} MomentEntry
-   * @property {string} moment — display name of the local moment.
-   * @property {string} [status] — "confirmed" | "proposed"; missing -> proposed.
-   * @property {number[]} [months] — 0-based month indices for column highlights.
+   * @property {string} moment - display name of the local moment.
+   * @property {string} [status] - "confirmed" | "proposed"; missing -> proposed.
+   * @property {number[]} [months] - 0-based month indices for column highlights.
+   * @property {string[]} [favorite_flavors] - standout flavor notes for the brief.
    */
 
 /**
@@ -563,9 +564,9 @@
  * @property {string} lang_name
  * @property {string} translate_code
  * @property {number} pct_home
- * @property {boolean} [machine_translate] — false -> human-only, never machine.
- * @property {string} [review] — "community" when community review required.
- * @property {string} [review_note] — sovereignty note shown as provenance badge.
+ * @property {boolean} [machine_translate] - false -> human-only, never machine.
+ * @property {string} [review] - "community" when community review required.
+ * @property {string} [review_note] - sovereignty note shown as provenance badge.
  */
 
 /**
@@ -664,6 +665,7 @@
  * @property {unknown} [overlay_applied]
  * @property {unknown} [paper_overlay]
  * @property {unknown} [ratios]
+ * @property {unknown} [recipe_pairing] - season-pairing record the request season resolved to.
  */
 
 /**
@@ -683,9 +685,9 @@
  * @typedef {object} RenderItem
  * @property {string} ratio — ratio slug, validated as TileSize before use.
  * @property {string} image_url — required presigned URL; empty -> row skipped.
- * @property {unknown} [w] — width hint; non-number -> fallback dims.
- * @property {unknown} [h] — height hint; non-number -> fallback dims.
- * @property {string} [s3_uri] — canonical S3 URI for the pack manifest.
+ * @property {unknown} [w] - width hint; non-number -> fallback dims.
+ * @property {unknown} [h] - height hint; non-number -> fallback dims.
+ * @property {string} [s3_uri] - canonical S3 URI for the pack manifest.
  */
 
 /**

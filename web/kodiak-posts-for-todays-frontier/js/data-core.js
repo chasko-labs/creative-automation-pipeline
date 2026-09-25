@@ -365,7 +365,7 @@ try{ window.KODIAK_frontierMonthNum = frontierMonthNum; }catch(e){}
 /**
  * @param {string} market
  * @param {string} monthKey
- * @returns {{place: string, ingredient: (string|null), moment: (string|null), momentStatus: (string|null), text: string}|null}
+ * @returns {{place: string, ingredient: (string|null), moment: (string|null), momentStatus: (string|null), favorite_flavors: (string[]|null), text: string}|null}
  */
 function frontierSeasonLine(market, monthKey){
   try{

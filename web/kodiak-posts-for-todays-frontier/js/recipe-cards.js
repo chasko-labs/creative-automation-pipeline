@@ -153,6 +153,10 @@
   /** @type {string} */
   var ART_GEN_STATUS = 'generating image using SDXL on Amazon Bedrock';
   // one in-flight generation per zone node — a re-observed node never double-fires.
+  /**
+   * @param {unknown} recipeId
+   * @param {unknown} artKey
+   */
   function artGenKey(recipeId, artKey) { return String(recipeId) + '|' + String(artKey); }
   /** @type {Object<string, boolean>} */
   var artGenFired = {};
@@ -187,12 +191,12 @@
       var skel = wrap.querySelector('.rc-artzone__skeleton');
       if (skel) { wrap.replaceChild(img, skel); }
       var st = wrap.querySelector('.rc-art-status');
-      if (st) { st.parentNode.removeChild(st); }
+      if (st && st.parentNode) { st.parentNode.removeChild(st); }
     }).catch(function () {
       var skel = wrap.querySelector('.rc-artzone__skeleton');
       if (skel) { wrap.replaceChild(makePlaceholderArt(), skel); }
       var st = wrap.querySelector('.rc-art-status');
-      if (st) { st.parentNode.removeChild(st); }
+      if (st && st.parentNode) { st.parentNode.removeChild(st); }
     });
   }
   // observe one skeleton zone: generation fires only when it scrolls into

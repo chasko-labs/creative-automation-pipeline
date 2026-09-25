@@ -35,7 +35,10 @@ describe('example tile captions', () => {
     expect(cap[1]).toMatch(/<button class="ff-go ff-figcap-cta"[^>]*>/);
     expect(cap[1]).toMatch(/>Create Campaign Preview</);
     expect(cap[1]).toMatch(/getElementById\('generateCampaign'\)\.click\(\)/);
-    expect(cap[1]).toMatch(/Click the button below to generate these five sizes/);
+    expect(cap[1]).toMatch(/Click the button to generate these five sizes/);
+    // caption + CTA share a 2-column figcaption: lede left, control cell right.
+    expect(css).toMatch(/\.ff-figcap\{[^}]*grid-template-columns:minmax\(0,1fr\) 300px/);
+    expect(cap[1]).toMatch(/<div class="ff-figcap-side">/);
     expect(html).toMatch(/id="generateCampaign"/);
   });
 });
