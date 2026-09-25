@@ -1516,7 +1516,7 @@ let skuList = [
             if(_mark.text) engMark = '<span class="rt-eng ' + _mark.cls + '">' + escapeHtml(_mark.text) + '</span>';
           }catch(e){}
           cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b>' +
-            '<span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span>' + platLine + locCap + engMark;
+            '<span class="rt-spec"><span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span></span>' + platLine + locCap + engMark;
           // per-ratio download survives the filmstrip move (same action as the resting strip)
           const dl = document.createElement('a');
           dl.className = 'ff-filmstrip__dl';
