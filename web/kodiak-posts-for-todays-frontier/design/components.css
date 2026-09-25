@@ -869,16 +869,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .kodiak-topstrip{display:none}
 /* header layout moved off the element's style attribute; base header{} already sets brown bg + kraft overlays */
 header.kodiak-header{border-bottom:none;display:flex;align-items:center;gap:var(--spacing-md);padding:10px 18px;flex-wrap:wrap;margin:0}
-/* the brown bar runs full-bleed, left edge to right edge; the inner content
-   keeps the centered column. Symmetric gutters: logo-to-left-edge equals
-   plate-to-right-edge via equal inner side padding. */
-header.kodiak-header{max-width:none;width:100%;align-self:stretch;margin-top:0}
-.header__inner{max-width:1064px;margin-left:auto;margin-right:auto}
-@media(min-width:1600px){.header__inner{max-width:1404px}}
-@media(min-width:2200px){.header__inner{max-width:1644px}
-/* wide breakpoints widen the inner column; the timeline tracks the plate. */}
-@media(min-width:1600px){.ff-timeline.ff-timeline--under-header{width:min(1356px,calc(100% - 84px))}}
-@media(min-width:2200px){.ff-timeline.ff-timeline--under-header{width:min(1596px,calc(100% - 84px))}}
+/* the brown bar breathes inside the same footprint as the timeline below.
+   body is column-flex, so auto margins absorb the stretch and collapse the
+   bar — explicit width + align-self centers instead. Width math mirrors
+   .wrap minus its 18px gutters (1100-36=1064) so bar edges sit exactly on
+   the timeline edges at every breakpoint. */
+header.kodiak-header{max-width:none;width:min(1064px,calc(100% - 36px));align-self:center;margin-top:0}
+@media(min-width:1600px){header.kodiak-header{width:min(1404px,calc(100% - 36px))}}
+@media(min-width:2200px){header.kodiak-header{width:min(1644px,calc(100% - 36px))}}
+/* wide breakpoints widen the bar; the timeline tracks the plate. */
+@media(min-width:1600px){.ff-timeline.ff-timeline--under-header{width:min(1332px,calc(100% - 108px))}}
+@media(min-width:2200px){.ff-timeline.ff-timeline--under-header{width:min(1572px,calc(100% - 108px))}}
 /* hero treatment (matrix item 7, CSS-only): full-bleed pine-to-timber gradient
    with a blaze rule under it; headline stays parchment. Sticky + logos untouched. */
 header.kodiak-header{background:linear-gradient(135deg,var(--colors-brand-frontier-green) 0%,var(--brown-kodiak) 72%,var(--chocolate) 100%);border-bottom:3px solid var(--colors-brand-blaze-orange)}
@@ -901,15 +902,8 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
    (header box minus its side padding), never inside the header. Header is
    min(1064px,100%-36px) with 18px inner padding mobile / 1.5rem desktop. */
 .ff-timeline.ff-timeline--under-header{width:calc(100% - 72px);margin:10px auto var(--spacing-sm)}
-/* headline outer-shadow breathing only. The timeline deliberately carries NO
-   motion: a sheen there reads as "needs your attention" when nothing is
-   happening. Motion-gated under no-preference; reduced-motion gets static. */
-@media(prefers-reduced-motion:no-preference){
-.kodiak-headline-plate h1{animation:ff-title-shadow 8s ease-in-out infinite}
-@keyframes ff-title-shadow{
-  0%,100%{text-shadow:0 1px 0 rgba(0,0,0,.28),0 0 14px rgba(255,214,150,0);transform:perspective(700px) rotateX(0deg)}
-  50%{text-shadow:0 1px 0 rgba(0,0,0,.28),0 0 22px rgba(255,214,150,.30);transform:perspective(700px) rotateX(.6deg)}}
-}
+/* No headline or timeline motion: the header is back to its static weeks-old
+   standard. The reduce block elsewhere already kills all animation. */
 /* partner mark — hidden until the US Ski & Snowboard card is checked (JS toggles .is-on); tokenized spacing */
 .ff-partner-mark{margin-top:var(--spacing-sm);display:none;align-items:center;gap:var(--spacing-sm)}
 .ff-partner-mark.is-on{display:flex}
@@ -1828,28 +1822,19 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    the old 60px no-scroll frame: the header is taller, so load no longer
    fits 100vh — the window scrolls. Mobile keeps normal page scroll. */
 @media(min-width:861px){
-  /* 1. header rows: logo row 1, plate row 2 with air above it */
-  header.kodiak-header{flex-wrap:wrap;padding:10px 0}
-  .kodiak-header .header__inner{padding:0 1.5rem;column-gap:clamp(24px,4vw,64px);row-gap:10px;flex-wrap:wrap;align-items:center}
-  .kodiak-header__logos{position:relative;top:auto;left:auto;flex:0 0 auto;width:clamp(96px,9vw,128px);aspect-ratio:4/3;z-index:2;background:none;transition:width .25s ease}
-  .kodiak-header__logos .kodiak-header__logo--primary{transform:none}
-  .ff-timeline.ff-timeline--under-header{width:min(1016px,calc(100% - 84px))}
-  .kodiak-headline-plate{min-width:0;flex:1 1 100%;margin-top:var(--spacing-md)}
-  .kodiak-headline-plate h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(27px,3vw,36px)}
-  /* scrolled: badge shrinks but stays in-flow and prominent — the Park City
-     alt mark keeps its aspect (contain, never stretched). The alt-logo
-     crossfade (.is-sticky) is otherwise untouched. */
-  .kodiak-header.is-sticky .kodiak-header__logos{width:104px}
-  .kodiak-header.is-sticky .kodiak-header__logo--secondary{object-fit:contain}
+  /* 1. header: weeks-old base rules govern (flex row, plate wraps below the
+     badge with room). No desktop overrides — the badge spill, plate, and
+     wordmark crossfade are untouched. The timeline width tracks the plate. */
+  .ff-timeline.ff-timeline--under-header{width:min(992px,calc(100% - 108px))}
   /* 2. slim timeline: single row, tighter reset */
   .ff-timeline{padding:6px 14px 4px;gap:6px 12px}
   .ff-reset{padding:5px 12px 5px 8px}
   .ff-reset-icon{width:18px;height:18px}
   /* 3. scroll architecture (State 0 / State 1): NO viewport locks, NO panel
      traps — the window scrollbar is the only scrollbar in every state.
-     State 0 (load, all collapsed) no longer targets 100vh — the header
-     carries logo + timeline + plate rows, so the window scrolls from load.
-     State 1 (user expands) grows the document naturally. Never re-add body
+     State 0 (load, all collapsed): classic header (badge + plate) with the
+     timeline directly below at plate width; the window scrolls. State 1
+     (user expands) grows the document naturally. Never re-add body
      overflow locks or .wrap height locks. */
   /* 4. setup steps: closed disclosures share a 3-column row; an opened step
      (or any non-details child) spans full width below, preserving top-to-bottom order */
