@@ -1923,11 +1923,11 @@ let skuList = [
       try{ document.getElementById('genRetry')?.remove(); }catch(e){}
       if(preview){
         if(willFanOut){
-          preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div class="gen-pulse"><span class="gen-pulse-label">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — up to ~90s</div></div></div>`).join('');
+          preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div class="gen-pulse"><span class="gen-pulse-label">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — warming the Bedrock models (up to ~90s first render)</div></div></div>`).join('');
         } else {
-          preview.innerHTML = `<div class="tile" id="genSkeleton"><div class="gen-pulse"><span class="gen-pulse-label gen-pulse-label--lg">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — up to ~90s</div></div></div>`;
+          preview.innerHTML = `<div class="tile" id="genSkeleton"><div class="gen-pulse"><span class="gen-pulse-label gen-pulse-label--lg">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — warming the Bedrock models (up to ~90s first render)</div></div></div>`;
         }
-        tick = setInterval(()=>{ elapsed++; document.querySelectorAll('[id^="genElapsed"]').forEach(e=>{ e.textContent = elapsed+'s elapsed — up to ~90s'; }); }, 1000);
+        tick = setInterval(()=>{ elapsed++; document.querySelectorAll('[id^="genElapsed"]').forEach(e=>{ e.textContent = elapsed+'s elapsed — warming the Bedrock models (up to ~90s first render)'; }); }, 1000);
       }
       // Rolling behind-the-scenes statuses: each line names a REAL phase of the
       // preview pipeline in typical order (brief in, Nova Micro copy review
@@ -1935,7 +1935,7 @@ let skuList = [
       // wall, ratio fan-out + extends land last). Timed narration, not live
       // mapping — the single POST exposes no per-stage callbacks.
       const composeStages = [
-        {at: 0, text: 'Sending your brief + market to the campaign backend…'},
+        {at: 0, text: 'Sending your brief + market to the campaign backend — warming up the Bedrock models (first render takes longest)…'},
         {at: 8000, text: 'Nova Micro reviewing campaign copy…'},
         {at: 15000, text: 'Nova Pro composing the hero…'},
         {at: 30000, text: 'Still composing — Nova Pro is rendering your hero…'},

@@ -1,0 +1,19 @@
+{
+ "stamp": "2026-09-25T00:37:25.291Z",
+ "url": "https://kodiak.bryanchasko.com/generate",
+ "http": 200,
+ "elapsed_s": 16.3,
+ "source": "bedrock:stability-control-structure",
+ "rung": "B",
+ "engine": "stability-restyle",
+ "fallthrough_reason": null,
+ "ratios": {
+  "1x1": "primary",
+  "4x5": "pillow-outpaint-fallback",
+  "9x16": "pillow-outpaint-fallback",
+  "16x9": "pillow-outpaint-fallback",
+  "blog": "pillow-outpaint-fallback"
+ },
+ "renders": 5,
+ "prompt_kept": true
+}

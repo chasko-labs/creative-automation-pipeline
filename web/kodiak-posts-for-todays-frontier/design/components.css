@@ -2011,6 +2011,10 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-filmstrip{position:relative;isolation:isolate;--ff-thumb-h:clamp(96px,16vw,148px);
   display:grid;grid-template-columns:88px minmax(0,1fr) 88px;grid-template-areas:"prev track next" "dots dots dots";
   gap:var(--spacing-sm,8px);align-items:center;margin-top:var(--spacing-sm,8px)}
+/* the live strip mounts into #preview.preview (an auto-fill tile grid): it
+   must span every column, otherwise it squeezes into one 240px tile track
+   and the tiles render as slivers. */
+#preview > .ff-filmstrip{grid-column:1/-1}
 /* track owns the center column; chunky labeled arrows live in dedicated
    flanking gutters (never overlaid on thumbnails, never orphaned below);
    dots stay centered underneath as pure position indicators */

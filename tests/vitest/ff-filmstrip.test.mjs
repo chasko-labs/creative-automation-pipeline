@@ -174,6 +174,12 @@ describe('frontier polish pass', () => {
     expect(css).toMatch(/\.ff-retry\{[^}]*var\(--colors-brand-frontier-green\)/);
   });
 
+  it('live strip spans the preview tile grid full width', () => {
+    // #preview.preview is an auto-fill tile grid: without 1/-1 the live
+    // strip squeezes into one 240px column and tiles render as slivers.
+    expect(css).toMatch(/#preview > \.ff-filmstrip\{grid-column:1\/-1\}/);
+  });
+
   it('filmstrip arrows live in flanking grid gutters, never overlaid', () => {
     const rule =
       css.match(/\.ff-filmstrip__arrow\{[^}]*\}/)?.[0] || '';

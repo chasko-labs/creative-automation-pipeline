@@ -43,6 +43,14 @@ if (args.expand) {
   });
   await pg.waitForTimeout(800);
 }
+if (args.livetrack) {
+  // simulate the live strip: the live track carries BOTH classes
+  // (ff-filmstrip__track + render-set) exactly as showRenderSet builds it.
+  await pg.evaluate(() => {
+    document.getElementById("ffRestTrack")?.classList.add("render-set");
+  });
+  await pg.waitForTimeout(600);
+}
 await pg.evaluate(() => window.scrollTo(0, 1200));
 await pg.waitForTimeout(800);
 
@@ -67,6 +75,17 @@ const out = await pg.evaluate(() => {
     logos: rect(q(".kodiak-header__logos")),
     stickyAlt: rect(q(".kodiak-header__logo--secondary")),
     timeline: rect(document.getElementById("progressTimeline")),
+    strip: rect(q("#preview .ff-filmstrip")),
+    trackDisplay: (() => {
+      const t = document.getElementById("ffRestTrack");
+      return t ? getComputedStyle(t).display : null;
+    })(),
+    restTrack: rect(q("#ffRestTrack")),
+    restSlot0: rect(q("#ffRestTrack .ff-filmstrip__slot")),
+    restFrame0: rect(q("#ffRestTrack .ff-filmstrip__frame")),
+    liveTrack: rect(q("#ffLiveTrack")),
+    liveSlot0: rect(q("#ffLiveTrack .ff-filmstrip__slot")),
+    liveFrame0: rect(q("#ffLiveTrack .ff-filmstrip__frame")),
     scrolled: window.scrollY,
   };
 });
