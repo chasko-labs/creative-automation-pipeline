@@ -17,7 +17,7 @@ from uuid import uuid4
 import boto3
 from botocore.config import Config
 from botocore.exceptions import ConnectTimeoutError, ReadTimeoutError
-from PIL import Image
+from PIL import Image, ImageOps
 
 from . import asset_browser, text_rewriter
 from .generate import (
@@ -32,6 +32,7 @@ from .generate import (
     _blend_idea_base,
     _pillow_outpaint_fallback,
     _STABILITY_RUNG_ON,
+    _stability_native_ratio,
     _stability_outpaint,
     _recipe_card_defaults,
     _safe_prompt_text,
@@ -1429,17 +1430,41 @@ def _handle_scenic_bg(data: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _cover_fit_tile(path: Path, ratio: str) -> None:
+    """Cover-fit a finished tile to its RATIO_DIMS frame, in place.
+
+    Diffusion returns vary (Stability may hand back a capped resolution, the
+    1x1 restyle keeps the seed's dims) — the shipped file must match the ratio
+    the response claims. A fit failure keeps the pixels (dims over nothing).
+    """
+    try:
+        dims = RATIO_DIMS[ratio]
+    except KeyError:
+        return
+    try:
+        with Image.open(path) as im:
+            src = im.convert("RGB")
+            if src.size == (dims[0], dims[1]):
+                return
+            ImageOps.fit(src, (dims[0], dims[1]), method=Image.BICUBIC).save(path, "PNG")
+    except Exception as e:  # noqa: BLE001 — pixels beat dims
+        print(f"[generate] tile {ratio} canvas fit skipped: {e}", file=sys.stderr)
+
+
 def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     """Fast interactive path (default): ONE 1x1 control-structure hero, under 30s.
 
     Runs the single-ratio generate_hero (ratio=1x1, clean by default per the render
     contract — copy ships as sidecars, kraft texture still baked) then derives the
-    other tiles server-side: 9x16/16x9 attempt ONE Stability outpaint extend each
-    behind the preview budget gate (sprint-2 item 11), 4x5/blog stay Pillow pads,
-    and every gated-out ratio falls back to its pad — pads stay the fallback, so
-    the preview keeps its wall guarantee while taking a live extend whenever one
-    provably fits alongside finalize/uploads. FULL mode remains the complete
-    multi-ratio image path (generate_hero_set: 1x1 + 4x5 + 9x16 + 16x9).
+    other tiles server-side from their OWN diffusion composition at their own
+    frame: rung B restyles the 1x1 AND every sibling ratio CONCURRENTLY (one
+    batch ≈ one restyle of wall, via generate_hero native_siblings), so the
+    five tiles are five discrete compositions, never one image derived four
+    ways. A ratio the fan-out skipped (scenic-verbatim seed) or lost keeps the
+    old path — 9x16/16x9 attempt ONE Stability outpaint extend each behind the
+    preview budget gate (sprint-2 item 11), everything else the Pillow
+    cover-fit — so the preview keeps its wall guarantee. FULL mode remains the
+    complete multi-ratio image path (generate_hero_set: 1x1 + 4x5 + 9x16 + 16x9).
     Returns the SAME response shape the frontend expects (renders[] with the 1x1 entry,
     top-level image_url = the 1x1, source + provenance), so showRenderSet keeps working
     with a single-entry renders[].
@@ -1483,6 +1508,13 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     dish = _preview_dish_name(data, product.replace("-", " ").title())
     _preview_season = data.get("season")
     _preview_season = str(_preview_season).strip() or None if isinstance(_preview_season, str) else None
+    # Native fan-out destinations: rung B restyles the 1x1 AND every sibling
+    # ratio CONCURRENTLY (one batch ≈ one restyle of wall), so the five tiles
+    # are five discrete compositions. A missing sibling file below falls back
+    # to the derive-from-1x1 path per ratio, honestly labelled.
+    _sibling_paths = {
+        _r: out_dir / f"sibling-{_r}.png" for _r in _PREVIEW_PAD_RATIOS
+    }
     result_path, source, provenance = generate_hero(
         product_id=product,
         product_name=product.replace("-", " ").title(),
@@ -1501,19 +1533,23 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         art_director=_voice_requested(data),
         market=(data.get("market") or data.get("region") or "us"),
         season=_preview_season,
+        native_siblings={_r: str(_p) for _r, _p in _sibling_paths.items()},
     )
 
     with Image.open(result_path) as im:
         w, h = im.size
     render = {"ratio": "1x1", "path": result_path, "w": w, "h": h}
 
-    # Five-tile parity: derive every other size server-side from the finished 1x1.
+    # Five-tile parity: every other size gets its OWN diffusion composition at
+    # its own frame via the native-ratio pass above. A ratio the native pass
+    # skipped or lost falls back to deriving from the finished 1x1 —
     # 9x16/16x9 attempt a live Stability outpaint extend when the preview budget
     # gate passes (sprint-2 item 11); every other outcome — gate fail, rung off,
-    # timeout, error, empty response — falls back to the Pillow cover-pad, same
-    # as 4x5/blog always do. Pads derive from the FINALIZED 1x1; per-ratio marks
-    # re-seat via _finalize_render with paper_overlay=False. A tile never fails
-    # the preview: any per-ratio error keeps the 1x1 and is recorded, never raised.
+    # timeout, error, empty response — falls back to the Pillow cover-fit, same
+    # as ratios the native pass never covers. Fallback tiles derive from the
+    # FINALIZED 1x1; per-ratio marks re-seat via _finalize_render with
+    # paper_overlay=False. A tile never fails the preview: any per-ratio error
+    # keeps the 1x1 and is recorded, never raised.
     # The per-ratio gates below reuse the request-epoch _preview_start taken at
     # preview entry, so remaining covers one outpaint PLUS the reserve for
     # pads/overlays against the TRUE wall-clock remainder.
@@ -1539,6 +1575,12 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         provenance.setdefault("outpaint_remaining_ms", {})
     pad_renders: list[dict[str, Any]] = []
     pad_engines: dict[str, str] = {}
+    # Native fan-out outcomes landed inside rung B (concurrent with the 1x1
+    # restyle): a sibling file present on disk is that tile's own composition.
+    # Anything missing falls through to the derive-from-1x1 path below.
+    _native_claims = provenance.get("native_ratios") if isinstance(provenance, dict) else {}
+    if not isinstance(_native_claims, dict):
+        _native_claims = {}
     for pad_ratio in _PREVIEW_PAD_RATIOS:
         try:
             # DECISION: RATIO_DIMS lookup stays INSIDE the per-pad guard so an
@@ -1547,7 +1589,16 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
             pad_w, pad_h = RATIO_DIMS[pad_ratio]
             pad_path = out_dir / f"hero-{pad_ratio}.png"
             pad_engine = "pillow-outpaint-fallback"
-            if pad_ratio in _PREVIEW_OUTPAINT_RATIOS:
+            _native_hit = _sibling_paths.get(pad_ratio)
+            if (
+                _native_claims.get(pad_ratio) == "stability-restyle-native"
+                and _native_hit is not None
+                and _native_hit.exists()
+            ):
+                # own diffusion composition at this frame — no extend, no pad.
+                _native_hit.replace(pad_path)
+                pad_engine = "stability-restyle-native"
+            elif pad_ratio in _PREVIEW_OUTPAINT_RATIOS:
                 _remaining = _preview_remaining_ms()
                 if isinstance(provenance, dict):
                     provenance["outpaint_remaining_ms"][pad_ratio] = round(_remaining, 1)
@@ -1599,6 +1650,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
                     print(f"[generate] preview brand overlay on {pad_ratio} failed: {e}",
                           file=sys.stderr)
             _finalize_render(pad_path, False, provenance if isinstance(provenance, dict) else {}, layers)
+            _cover_fit_tile(pad_path, pad_ratio)
             with Image.open(pad_path) as im:
                 pw, ph = im.size
             pad_renders.append({"ratio": pad_ratio, "path": pad_path, "w": pw, "h": ph})
@@ -1632,8 +1684,8 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
 
     if isinstance(provenance, dict):
         # the preview ships all five tiles; per-ratio engines say which tiles are
-        # live outpaints vs pillow pads (pads stay the fallback for every gated-out
-        # ratio). FULL mode remains the complete composed-set path for the pack.
+        # own native compositions vs live outpaints vs pillow pads. FULL mode
+        # remains the complete composed-set path for the pack.
         provenance["ratios"] = {"1x1": "primary", **pad_engines}
         provenance["mode"] = PREVIEW_MODE
         provenance.pop("deferred", None)

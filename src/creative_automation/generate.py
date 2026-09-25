@@ -1277,6 +1277,31 @@ def _blend_idea_base(base: str, brief_msg: str | None) -> str:
     return base
 
 
+def _staged_dest(seed_key: str) -> Path:
+    """Unique /tmp dest for a staged seed key.
+
+    Key-hashed, never bare-basename: see the collision note at the staged
+    fetch call site.
+    """
+    import hashlib as _hashlib
+
+    tag = _hashlib.sha1(str(seed_key).encode()).hexdigest()[:12]
+    return Path("/tmp/kodiak-assets/staged") / f"{tag}-{Path(seed_key).name}"
+
+
+# Marker for idea-composed photo seeds (Stable Image Core text-to-image).
+# A seed carrying this marker already IS the campaign idea in pixels — the
+# control-structure restyle must not touch it (seen live: a christmas-cats
+# scenic restyled into a bear, then into a bare food table). It rides
+# verbatim straight to compose; bg_source records the truth.
+_SCENIC_SEED_MARKER = "/scenic-bg/"
+
+
+def _is_scenic_seed(seed_key: str | None) -> bool:
+    """True when the staged key names an idea-composed scenic background."""
+    return bool(seed_key) and _SCENIC_SEED_MARKER in str(seed_key)
+
+
 def _brief_subject_clause(brief_msg: str | None) -> str:
     """MUST-keep clause for the campaign subject (the idea, not the setting).
 
@@ -1635,6 +1660,15 @@ def _nova_pro_scene_prompt(
         text = resp["output"]["message"]["content"][0]["text"].strip().replace("\n", " ")
         if not text:
             return default_prompt
+        # Nova's 40-word compression drops the idea even when instructed (seen
+        # live: "christmas cats" in the prompt, no cats in the scene), so
+        # re-attach the subject deterministically (absent-only, never dup) —
+        # same pattern as the locale/bear re-attach below.
+        _idea_text = _brief_idea(brief_msg)
+        if _idea_text:
+            _safe_idea = _safe_prompt_text(_idea_text)
+            if _safe_idea and _safe_idea.lower() not in text.lower():
+                text = f"{text} Featuring {_safe_idea}."
         # Nova's 40-word compression drops locality and constraints: re-attach
         # market/season + bear law deterministically (absent-only, never dup).
         return _with_locale_and_bear(text, theme, brief_msg, market, season)
@@ -1783,6 +1817,8 @@ def _stability_control_hero(
     *,
     control_strength: float | None = None,
     seed_value: int | None = None,
+    retry_once: bool = True,
+    read_timeout: int | None = None,
 ) -> Path | None:
     """Restyle the seed photo to the theme via Bedrock Stability control-structure.
 
@@ -1804,7 +1840,11 @@ def _stability_control_hero(
         print("[generate] stability skipped: boto3 unavailable", file=sys.stderr)
         return None
     try:
-        client = _bedrock_failfast_client()
+        client = (
+            _bedrock_failfast_client(read_timeout=read_timeout)
+            if read_timeout is not None
+            else _bedrock_failfast_client()
+        )
         body = {
             "prompt": _style_sandwich(prompt),
             "image": _seed_b64_for_stability(seed),
@@ -1836,7 +1876,11 @@ def _stability_control_hero(
         # Retry once on timeout with a slightly lower control (less seed preservation) —
         # transient Bedrock stalls often succeed on second try; if it still times out,
         # re-raise so the ladder records bedrock-timeout → Rung C. This keeps Rung B
-        # reachable without swallowing the reason.
+        # reachable without swallowing the reason. Fan-out siblings pass
+        # retry_once=False: a cold sibling degrades to the pad honestly instead of
+        # doubling a doomed call inside the shared wall.
+        if not retry_once:
+            raise
         print(f"[generate] stability timeout {e}, retrying once", file=sys.stderr)
         try:
             body["control_strength"] = max(0.2, body["control_strength"] - 0.05)
@@ -1866,6 +1910,85 @@ def _stability_control_hero(
         return None
     except (BotoCoreError, Exception) as e:  # noqa: BLE001 — non-AWS failures fall through
         print(f"[generate] stability control-structure failed: {e}", file=sys.stderr)
+        return None
+
+
+# Native delivery frames for the per-ratio diffusion pass: each campaign ratio
+# gets its own control-structure restyle composed AT its frame (not derived from
+# the 1x1), so the five tiles are five distinct compositions. blog is the
+# 1200x630 Open Graph frame (756k px — inside Stability's 4096..9437184 range).
+# Sibling invokes get a roomier single-attempt read timeout than the 12s
+# fail-fast serial cap: the batch costs one invoke of wall, and a cold model
+# needs ~15-20s — 12s would systematically execute every cold sibling.
+_NATIVE_READ_TIMEOUT_S = int(os.getenv("GENERATE_NATIVE_READ_TIMEOUT_S", "20"))
+_NATIVE_RATIO_DIMS = {
+    "4x5": (1080, 1350),
+    "9x16": (1080, 1920),
+    "16x9": (1920, 1080),
+    "blog": (1200, 630),
+}
+
+
+def _stability_native_ratio(
+    seed_local: Path | str,
+    scene_prompt: str,
+    ratio: str,
+    out_path: Path,
+    *,
+    seed_value: int | None = None,
+    control_strength: float | None = None,
+    retry_once: bool = True,
+    read_timeout: int | None = None,
+) -> Path | None:
+    """Restyle the resolved seed photo natively at one delivery ratio's frame.
+
+    Cover-fits the seed photo to _NATIVE_RATIO_DIMS[ratio], then runs the same
+    control-structure restyle rung B uses — the model composes inside the real
+    frame instead of a 1x1 that is later extended or cropped. Returns the path
+    on success, None on any failure (the caller falls back to the deterministic
+    Pillow cover-fit of the finished 1x1, honestly labelled). Never raises past
+    the caller: a bad ratio slug, missing seed, or failed invoke is a None.
+    """
+    try:
+        dims = _NATIVE_RATIO_DIMS[ratio]
+    except KeyError:
+        print(f"[generate] native ratio unknown: {ratio!r}", file=sys.stderr)
+        return None
+    try:
+        seed_img = Image.open(seed_local).convert("RGB")
+    except Exception as e:  # noqa: BLE001 — missing/unreadable seed degrades to pad
+        print(f"[generate] native ratio seed unreadable: {e}", file=sys.stderr)
+        return None
+    try:
+        target_w, target_h = dims
+        if target_w < 64 or target_h < 64 or target_w * target_h > 9437184:
+            print(
+                f"[generate] native ratio {ratio} outside Stability dims",
+                file=sys.stderr,
+            )
+            return None
+        framed = ImageOps.fit(seed_img, (target_w, target_h), method=Image.BICUBIC)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        seed_path = out_path.parent / f"{out_path.stem}-seed.png"
+        framed.save(seed_path, "PNG")
+        return _stability_control_hero(
+            seed_path,
+            scene_prompt,
+            out_path,
+            control_strength=control_strength,
+            seed_value=seed_value,
+            retry_once=retry_once,
+            read_timeout=read_timeout,
+        )
+    except TypeError:
+        # unparametrized _stability_control_hero (older test doubles): retry bare.
+        try:
+            return _stability_control_hero(seed_path, scene_prompt, out_path)
+        except Exception as e:  # noqa: BLE001 — degrade to pad, never raise
+            print(f"[generate] native ratio {ratio} failed: {e}", file=sys.stderr)
+            return None
+    except Exception as e:  # noqa: BLE001 — degrade to pad, never raise
+        print(f"[generate] native ratio {ratio} failed: {e}", file=sys.stderr)
         return None
 
 
@@ -3011,8 +3134,18 @@ def generate_hero(
     art_director: bool = False,
     market: str | None = None,
     season: str | None = None,
+    native_siblings: dict | None = None,
 ) -> tuple[Path, str, dict]:
     """Generate a real Kodiak-social-style hero. Returns (path, source, provenance).
+
+    native_siblings: optional {ratio: out_path} for the delivery ratios. When set
+    and rung B runs a live restyle, the 1x1 restyle AND one restyle per sibling
+    ratio fire CONCURRENTLY (one ThreadPoolExecutor batch ≈ one restyle of wall),
+    each composed at its own frame via _stability_native_ratio — five discrete
+    diffusion compositions, never one image derived four ways. Sibling outcomes
+    land in provenance["native_ratios"] ({ratio: engine-or-reason}); a missing
+    or failed sibling is the caller's cue to derive that tile the old way.
+    Scenic-verbatim seeds never fan out (a restyle re-invents the subject).
 
     layers selects the render contract (#199/#200): None (default) preserves the
     legacy behavior — packshot-first composite + baked overlay text. ANY dict (even
@@ -3269,12 +3402,18 @@ def generate_hero(
         try:
             from .asset_store import fetch_asset_key
 
-            dest = Path("/tmp/kodiak-assets/staged") / Path(seed_key).name
+            # Key-unique dest (never bare basename): Lambda /tmp persists per
+            # execution environment and fetch_asset_key trusts a nonzero
+            # dest, so two keys sharing a basename (every scenic
+            # hero-1x1.png) would restyle yesterday's file. Seen live: a
+            # christmas-cats preview restyled a stale bear frame.
+            dest = _staged_dest(seed_key)
             photo = fetch_asset_key(seed_key, dest)
             if photo is not None and photo.exists():
                 seed = photo
                 provenance["seed_selection"] = "staged-asset"
                 provenance["seed_source"] = Path(seed_key).stem
+                provenance["seed_key"] = seed_key
                 _idea_hit = True
                 if theme == "riff-on-past-content":
                     provenance["riff_on"] = seed_key
@@ -3592,11 +3731,27 @@ def generate_hero(
                     scene_prompt, product_name, brief_msg, region, audience, theme, dish,
                     market, season,
                 )
+                # Scenic-verbatim bypass: an idea-composed seed already IS the
+                # campaign in pixels — no Bedrock call is needed, so neither
+                # the budget gate below nor the restyle may touch it. The
+                # restyle re-invents subjects (seen live: christmas-cats seed
+                # restyled into a bear, then into a bare table); the seed
+                # rides verbatim straight to compose. Engine stays
+                # stability-restyle (closed set, backend GenAI rung B);
+                # bg_source + model tell the truth.
+                _scenic_verbatim = _is_scenic_seed(provenance.get("seed_key"))
+                if _scenic_verbatim:
+                    print(
+                        f"[generate] rung B scenic-verbatim {Path(seed_key or '').name} "
+                        f"-> compose, no restyle",
+                        file=sys.stderr,
+                    )
                 # Per-subcall budget gate 2 — the Stability invoke (fail-fast, capped at
                 # BEDROCK_READ_TIMEOUT_S). Re-check AFTER the scene call actually spent its
                 # time; if the remaining clock can no longer cover stability + the C
                 # reservation, abandon B and fall to C rather than risk the gateway cap.
-                if remaining_ms() < _B_STABILITY_MS + _C_RESERVATION_MS:
+                # Scenic-verbatim spends no Bedrock, so the gate does not apply.
+                if remaining_ms() < _B_STABILITY_MS + _C_RESERVATION_MS and not _scenic_verbatim:
                     print(
                         f"[generate] rung B stability skipped (budget {remaining_ms():.0f}ms < "
                         f"{_B_STABILITY_MS + _C_RESERVATION_MS}ms) -> rung C",
@@ -3605,23 +3760,98 @@ def generate_hero(
                     provenance["fallthrough_reason"] = "budget-exhausted"
                     raise _RungBBudgetSkip
                 # Compute once: the recorded strength must equal the strength
-                # actually sent (dynamic mode jitters per call).
+                # actually sent (dynamic mode jitters per call). Scenic-verbatim
+                # skips the invoke entirely: the seed IS the finished pixels.
                 rung_b_strength = _control_for_brief(brief_msg)
-                print(f"[generate] stage restyle start (budget {remaining_ms():.0f}ms)", file=sys.stderr)
-                _restyle_t0 = time.monotonic()
-                try:
-                    stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength, seed_value=request_seed)
-                except TypeError:
-                    stylized = _stability_control_hero(seed, scene_prompt, out_path)
-                    rung_b_strength = None  # unparametrized fallback: record no strength
-                print(f"[generate] stage restyle done in {time.monotonic() - _restyle_t0:.1f}s", file=sys.stderr)
+                if _scenic_verbatim:
+                    stylized = seed
+                    rung_b_strength = None
+                    print("[generate] stage restyle skipped (scenic-verbatim)", file=sys.stderr)
+                else:
+                    print(f"[generate] stage restyle start (budget {remaining_ms():.0f}ms)", file=sys.stderr)
+                    _restyle_t0 = time.monotonic()
+                    _siblings = dict(native_siblings) if isinstance(native_siblings, dict) else {}
+                    if _siblings:
+                        # Native fan-out: the 1x1 AND every sibling ratio restyle
+                        # CONCURRENTLY (one batch ≈ one restyle of wall), each at
+                        # its own frame. Per-ratio seeds step so sibling tiles
+                        # never echo each other. A lost sibling is recorded, never
+                        # raised — the caller derives that tile the old way.
+                        _native_outcomes: dict[str, str] = {}
+                        try:
+                            import concurrent.futures as _futures
+
+                            _jobs = [("1x1", out_path)] + [
+                                (str(_r), Path(_p)) for _r, _p in _siblings.items()
+                            ]
+                            with _futures.ThreadPoolExecutor(max_workers=len(_jobs)) as _pool:
+                                def _fire(_ratio: str, _dest: Path, _idx: int):
+                                    if _ratio == "1x1":
+                                        # Fan-out mode shares one wall across five
+                                        # invokes: the 1x1 also skips its legacy
+                                        # retry (a 12s second attempt is what
+                                        # breaches the shared wall) and takes the
+                                        # roomier single attempt instead. A cold
+                                        # miss falls to rung C, never the wall.
+                                        try:
+                                            return _stability_control_hero(
+                                                seed, scene_prompt, _dest,
+                                                control_strength=rung_b_strength,
+                                                seed_value=request_seed,
+                                                retry_once=False,
+                                                read_timeout=_NATIVE_READ_TIMEOUT_S,
+                                            )
+                                        except TypeError:
+                                            return _stability_control_hero(seed, scene_prompt, _dest)
+                                    return _stability_native_ratio(
+                                        seed, scene_prompt, _ratio, _dest,
+                                        control_strength=rung_b_strength,
+                                        seed_value=None if request_seed is None else request_seed + _idx,
+                                        retry_once=False,
+                                        read_timeout=_NATIVE_READ_TIMEOUT_S,
+                                    )
+
+                                _pending = {
+                                    _pool.submit(_fire, _ratio, _dest, _i): (_ratio, _dest)
+                                    for _i, (_ratio, _dest) in enumerate(_jobs)
+                                }
+                                _stylized_1x1 = None
+                                for _fut in _futures.as_completed(_pending):
+                                    _ratio, _dest = _pending[_fut]
+                                    try:
+                                        _each = _fut.result(
+                                            timeout=max(1.0, remaining_ms() / 1000.0)
+                                        )
+                                    except Exception as _e:  # noqa: BLE001 — timeout included
+                                        _each = None
+                                        _native_outcomes[_ratio] = f"native-error: {type(_e).__name__}"
+                                    if _ratio == "1x1":
+                                        _stylized_1x1 = _each
+                                    elif _each is not None and Path(_dest).exists():
+                                        _native_outcomes[_ratio] = "stability-restyle-native"
+                                    else:
+                                        _native_outcomes.setdefault(_ratio, "native-unavailable")
+                            stylized = _stylized_1x1
+                        except Exception as _e:  # noqa: BLE001 — pool failure keeps the serial path below
+                            print(f"[generate] native fan-out failed: {_e}", file=sys.stderr)
+                            _native_outcomes = {}
+                            stylized = None
+                        provenance["native_ratios"] = _native_outcomes
+                    if not _siblings or stylized is None and not provenance.get("native_ratios"):
+                        try:
+                            stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength, seed_value=request_seed)
+                        except TypeError:
+                            stylized = _stability_control_hero(seed, scene_prompt, out_path)
+                            rung_b_strength = None  # unparametrized fallback: record no strength
+                    print(f"[generate] stage restyle done in {time.monotonic() - _restyle_t0:.1f}s", file=sys.stderr)
                 if stylized is not None and stylized.exists():
                     # Similarity gate (B -> C): reject a drifted restyle BEFORE the
                     # overlay lands — the message bar alone shifts dHash by ~12, so
                     # this MUST read the pre-overlay pixels. A reject falls to rung
                     # C with fallthrough_reason="similarity-gate"; an unreadable
                     # image fails OPEN (never lose a GenAI hero over a hash read).
-                    if _similarity_gate_enabled():
+                    # Scenic-verbatim has no restyle to judge — skip the gate.
+                    if _similarity_gate_enabled() and not _scenic_verbatim:
                         _sim_dist = _similarity_distance(seed, stylized)
                         provenance["similarity_threshold"] = SIMILARITY_GATE_THRESHOLD
                         _diverge = _diverge_requested(theme, season)
@@ -3682,13 +3912,43 @@ def generate_hero(
                     else:
                         provenance["similarity_gate"] = "disabled"
                 if stylized is not None and stylized.exists():
+                    # Frame truth: the restyle returns the SEED's dims, not the
+                    # ratio frame — cover-fit to _CANVAS[ratio] AFTER the
+                    # similarity gate judged (gate needs same-dims pixels) so
+                    # the shipped file matches the ratio the response claims.
+                    try:
+                        _cw, _ch = _CANVAS.get(ratio, _CANVAS["1x1"])
+                        _styl = Path(stylized)
+                        try:
+                            _same = _styl.resolve() == Path(seed).resolve()
+                        except (OSError, ValueError):
+                            _same = False
+                        if _same:
+                            # scenic-verbatim: the seed IS the pixels — copy to
+                            # out_path before framing so the cached seed photo
+                            # is never mutated by the cover-fit.
+                            Image.open(_styl).convert("RGB").save(out_path, "PNG")
+                            _styl = Path(out_path)
+                            stylized = _styl
+                        _fit_src = Image.open(_styl).convert("RGB")
+                        if _fit_src.size != (_cw, _ch):
+                            ImageOps.fit(
+                                _fit_src, (_cw, _ch), method=Image.BICUBIC
+                            ).save(_styl, "PNG")
+                    except Exception as e:  # noqa: BLE001 — a fit failure keeps pixels over dims
+                        print(f"[generate] rung B canvas fit skipped: {e}", file=sys.stderr)
                     provenance["engine"] = "stability-restyle"
                     provenance["rung"] = "B"
                     if rung_b_strength is not None:
                         provenance["control_strength"] = rung_b_strength
                     provenance["seed"] = request_seed
                     provenance["style"] = "sandwich-locked"
+                    provenance["seed_local"] = str(seed)
                     provenance["model"] = STABILITY_CONTROL_MODEL
+                    if _scenic_verbatim:
+                        # No restyle ran: the Core-composed seed is the hero.
+                        provenance["bg_source"] = "scenic-verbatim"
+                        provenance["model"] = _SCENIC_MODEL_ID
                     # PART C — deterministic on-brand headline + accent bar ON TOP of the
                     # GenAI hero (Nova Pro still supplies the headline). Default-on for
                     # the legacy ladder; clean contract (#199) keeps the hero clean and
@@ -3757,6 +4017,7 @@ def generate_hero(
             if result.exists():
                 provenance["engine"] = "pillow-compose"
                 provenance["rung"] = "C"
+                provenance["seed_local"] = str(seed)
                 provenance["model"] = "pillow:compose-scene"
                 provenance["overlay_applied"] = bool(overlay_on)
                 provenance["headline"] = c_headline if overlay_on else None

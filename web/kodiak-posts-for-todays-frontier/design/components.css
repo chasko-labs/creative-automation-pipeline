@@ -47,8 +47,7 @@
   --adobe-10:#A779571A;
   --section-space-lg:1.25rem;
   --section-space-xl:1.75rem;
-  /* oversize-hero-logo knob — see the .kodiak-header__logo--primary pattern block below */
-  --logo-hero-scale:1.0;
+  /* retired 2026-09-25: badge logo is contained, no scale knob */
   /* ui-polish batch: 6px inner-control radius (no 6px step exists in the
      Panda --radii-* scale: sm=4, md=8) + one primary border token alias.
      page-level tokens — styles.css stays Panda-owned. */
@@ -216,27 +215,20 @@ section.xl{padding:var(--section-space-xl) 0}
 .wide-track + .wide-track{margin-top:10px}
 /* dual logo header — the Kodiak bear-seal sits on a rectangular kraft badge (~4:3, wider than tall).
    present it at natural aspect within the navbar height, no circular clip. primary visible, secondary sticky crossfade. */
-/* === oversize-hero-logo pattern (--logo-hero-scale) ===
-   The pre-scroll PRIMARY grizzly reads HUGE without changing navbar height. Mechanism:
-   - the layout box (.kodiak-header__logos) keeps its ORIGINAL width + aspect-ratio, so the
-     flex row height and every sibling's alignment are frozen — the navbar geometry never moves.
-   - the primary IMAGE is scaled with transform:scale(var(--logo-hero-scale)) and
-     transform-origin:top center, so growth is TOP-ANCHORED: the top edge stays put and the
-     extra size spills DOWNWARD ONLY, visibly overflowing below the navbar into the next section.
-   - overflow:visible on the header + the logos container lets that downward spill paint (clip
-     would cut the grizzly off). transform does not affect layout, so no reflow/height change.
-   - the knob is --logo-hero-scale in :root. this is a design-system pattern now.
-   - scoped to the pre-sticky primary only; the sticky secondary wordmark crossfade is untouched
-     and the transform is reset under .is-sticky so no scaled overflow leaks/paints as it fades. */
-.kodiak-header__logos{position:relative;flex:0 0 auto;width:clamp(72px,9vw,116px);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:visible}
-.kodiak-header__logo--primary{width:100%;height:100%;object-fit:contain;opacity:1;transition:opacity .2s;transform:scale(var(--logo-hero-scale));transform-origin:top center}
+/* === overhang badge logo (brand standard) — the grizzly rides a 96x112 frame
+   hung from the bar's top-left, overhanging below the 60px bar onto the sheet
+   layers. absolute: never in flow, never moves siblings. sticky shrinks the
+   frame and crossfades to the bare Park City wordmark. restored 2026-09-25;
+   the contained-badge experiment is retired. */
+.kodiak-header__logos{position:absolute;top:0;left:1.5rem;width:96px;height:112px;z-index:60;display:flex;align-items:center;justify-content:center;overflow:visible;background:transparent;border:none;padding:0;transition:height .25s ease,width .25s ease}
+.kodiak-header__logo--primary{width:100%;height:100%;object-fit:contain;opacity:1;transition:opacity .2s;transform:none}
 .kodiak-header__logo--secondary{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;pointer-events:none;transition:opacity .2s}
 .kodiak-header.is-sticky .kodiak-header__logo--primary{opacity:0}
 .kodiak-header.is-sticky .kodiak-header__logo--secondary{opacity:1}
-/* reset the hero scale once sticky — the primary is opacity:0 anyway, but clearing the transform
-   guarantees the scaled overflow never paints or triggers a scroll/paint artifact as it fades out. */
-.kodiak-header.is-sticky .kodiak-header__logo--primary{transform:none}
-@media(max-width:860px){.kodiak-header__logos{width:clamp(64px,16vw,88px)}}
+/* sticky shrink — the bare Park City wordmark rides a shorter frame, no
+   cardboard (the ::before/::after sheets fade per the layers block below). */
+.kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:104px}
+@media(max-width:1279px){.kodiak-header__logos{position:static;width:72px;height:84px;flex:0 0 auto}.kodiak-header.is-sticky .kodiak-header__logos{height:56px;width:76px}}
 @media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
 /* === Firefly-inspired prompt bar — "Create a Kodiak campaign" === */
@@ -244,6 +236,14 @@ section.xl{padding:var(--section-space-xl) 0}
    card's --shadows-md: 0 12px 32px vs 0 8px 24px), so it reads elevated ABOVE the card.
    only on-token hygiene here: raw 16px radius -> --radii-lg (same value, no visual change). */
 .ff-prompt{background:var(--gradients-kraft\.surface);border:1px solid var(--stone);border-radius:var(--radii-lg);padding:18px;box-shadow:var(--shadows-bear)}
+/* setup wrappers flattened: .card > .body > .ff-prompt exist only for legacy
+   hooks, so they carry no chrome — the .ff-setup board is the single card and
+   its edges sit exactly on the lower panels' edges (shared 1064 wrapper). */
+.wrap>.card[data-mcp="campaign-brief"]{margin:10px 0}
+.wrap>.card[data-mcp="campaign-brief"]>.body{padding:0}
+.wrap>.card[data-mcp="campaign-brief"] .ff-prompt{background:transparent;border:none;border-radius:0;padding:0;box-shadow:none}
+.wrap>.card[data-mcp="campaign-brief"] .ff-setup{background:transparent;border:none;border-radius:0;box-shadow:none;padding:var(--spacing-md)}
+.wrap>.card[data-mcp="campaign-brief"] .ff-setup::after{content:none}
 /* lit kraft — the hero prompt surface is the flat top-light token wash; no stripes. */
 .ff-prompt h2{margin:0 0 4px;font:800 20px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.03em;text-transform:none;color:var(--chocolate)}
 .ff-prompt .ff-sub{margin:0 0 14px;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
@@ -264,8 +264,8 @@ section.xl{padding:var(--section-space-xl) 0}
 /* Row 1 canvas — the kicker label above the textarea (matches .ff-optiongroup-label) */
 .ff-brief-label{display:block;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-foreground-muted,#6B5A53)}
 /* textarea — body-copy weight, 16px prevents iOS zoom-on-focus; ~3 lines at rest */
-.ff-inputwrap textarea{width:100%;min-height:88px;max-height:220px;border:none;outline:none;resize:none;
-  background:transparent;font:500 16px/1.6 "museo-sans",sans-serif;color:var(--chocolate);padding:0}
+.ff-inputwrap textarea{width:100%;min-height:104px;max-height:220px;border:none;outline:none;resize:none;overflow-y:auto;
+  background:transparent;font:500 16px/1.6 "museo-sans",sans-serif;color:var(--chocolate);padding:4px 12px 4px 0;box-sizing:border-box}
 .ff-inputwrap textarea::placeholder{color:var(--colors-neutral-500,#8C7A70)}
 /* Row 2 action bar — hairline top rule, secondary pills left, Create isolated right */
 .ff-inputfoot{display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-sm,8px);
@@ -356,7 +356,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .render-tile .render-frame img{width:100%;height:100%;object-fit:cover;display:block}
 /* lit caption surface — kraft sheen (top-light) composited OVER the kraft fiber, plus an inner shadow so text sits on a lit, shaded surface.
    sheen white highlight rolls off the top; caption text lives in the lower warm-tan band, so bearBrown / neutral-600 hold WCAG AA. */
-.render-tile .render-cap{padding:9px 11px;position:relative;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);box-shadow:var(--shadows-inset-sm)}
+.render-tile .render-cap{padding:9px 11px;position:relative;background-image:var(--gradients-kraft\.sheen),var(--gradients-kraft\.surface);box-shadow:var(--shadows-inset-sm);flex:1 1 auto;display:flex;flex-direction:column}
 .render-tile .render-cap b{font:700 12px/1.2 "museo-sans",sans-serif;color:var(--chocolate);display:inline;position:relative}
 /* #3B2316 chocolate on the lit kraft-tan lower band = >=7:1 (AA/AAA) */
 /* headline reads one line — "9:16 Vertical · 1080×1920" — and wraps as a unit
@@ -434,7 +434,7 @@ section.xl{padding:var(--section-space-xl) 0}
    keep the --rc-scale:1 fallback line above it. scoped to #previewRecipe
    (index only) so the details.html specimen and the gallery shells keep
    their own scales. */
-#previewRecipe{display:block;margin-top:16px;container-type:inline-size}
+#previewRecipe{display:block;margin-top:8px;container-type:inline-size}
 #previewRecipe .rc-card-shell{--rc-scale:1;--rc-scale:calc(100cqw / 816px)}
 #previewRecipe .rc-card{margin-block:0 10px}
 
@@ -547,7 +547,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .kodiak-headline-plate h1{margin:0;width:100%;color:var(--colors-foreground-inverse);font-family:"gin",Rockwell,Clarendon,Georgia,serif;font-weight:800;line-height:1.05;letter-spacing:.02em;text-transform:none;
   /* never wrap: single line, fluid size scales against the plate (cqi) so it fills near-full plate width on desktop and shrinks on narrow screens instead of wrapping. 4.4cqi is the driver (41 chars * ~0.55em gin cap-width => <=4.44cqi keeps the ~41-char title inside 100cqi at one line, no clip); floor 12px holds one line at 375px mobile; ceiling raised to 72px so the title can grow to fill wide desktop plates instead of capping at 30px and leaving dead space on the right. */
   white-space:nowrap;overflow:hidden;text-overflow:clip;
-  font-size:clamp(12px, 4.4cqi, 34px)}
+  font-size:clamp(18px, 4.6cqi, 40px);
+  /* extrusion: parchment face, letterpress top light, stepped deep-brown
+     sides, one soft ambient drop. reads carved, never glowy. */
+  color:#FFF8F0;
+  text-shadow:0 -1px 0 rgba(255,248,240,.28),0 1px 0 #2A1A10,0 2px 0 #241610,0 3px 0 #1D110B,0 4px 0 #160C07,0 7px 14px rgba(0,0,0,.5)}
 /* Status console rizz (frontier art deco) lives here when it earns its place;
    the strip itself stays calm: no band, no extra air, layout untouched. */
 
@@ -567,8 +571,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    Spans flow inline with small separators so the readout reads as one context line. */
 .ff-output-readout.ff-detail{display:flex;flex-wrap:wrap;flex-direction:column;gap:2px;min-width:0;
   padding:var(--spacing-sm);margin-bottom:var(--spacing-md);
-  background:var(--colors-neutral-100);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
-.ff-output-readout .ff-featured{font:600 12px/1.4 "museo-sans",sans-serif;color:var(--colors-foreground-default);white-space:normal}
+  background:var(--colors-brand-box-parchment,#F5EAD3);border:1px solid var(--colors-border-default);border-radius:var(--radii-lg)}
+.ff-output-readout .ff-featured{font:500 12px/1.35 "museo-sans",sans-serif;color:var(--colors-neutral-700);white-space:normal}
 .ff-output-readout .ff-langs{font:500 11px/1.35 "museo-sans",sans-serif;color:var(--colors-foreground-muted)}
 .ff-output-readout .ff-langs b{color:var(--colors-foreground-default);font-weight:700}
 .ff-featured .ff-context-lead{color:var(--colors-foreground-muted)}
@@ -726,7 +730,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* static labels whisper in lowercase at one scale — displayed values (markets,
    seasons, picks) keep their own case. display headings + CTA stay brand caps. */
 .ff-setup .ff-scope-summary>span[aria-hidden="true"],.ff-setup .ff-location-kicker,.ff-season-details .ff-location-kicker,.ff-brainstorm .ff-products>summary,.ff-optiongroup>.ff-optiongroup-label,.ff-chipcluster-label,.ff-flavor-kicker,.ff-addloc-label{text-transform:lowercase}
-.ff-brief-label{font:600 14px/1.4 "museo-sans",sans-serif;letter-spacing:0;color:var(--colors-brand-frontier-green)}
 .ff-brief-label{display:flex;align-items:center;gap:8px}
 /* step 3 is a disclosure exactly like steps 1/2: closed row shows the pick,
    open reveals the control. same box, same voice. */
@@ -795,7 +798,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* FIX 3: all 8 targets stay on ONE line at every viewport — no wrap. Responsive clamp() font +
    fluid gap/padding shrink the pills to fit rather than wrapping; min-width:0 lets flex compress them. */
 .ff-publish-targets{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(3px,0.8vw,var(--spacing-sm));margin-top:var(--spacing-md);min-width:0}
-.ff-publish-targets .ff-publish-label{flex:0 0 auto;font:700 clamp(8px,1.1vw,10px)/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-foreground-muted);white-space:nowrap}
+.ff-publish-targets .ff-publish-label{flex:0 0 auto;font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-foreground-muted);white-space:nowrap}
 .ff-publish-targets .ff-publish-pill{flex:0 1 auto;display:inline-flex;align-items:center;justify-content:center;min-width:0;padding:var(--spacing-xs) clamp(5px,1vw,var(--spacing-sm));
   border:1px solid var(--colors-border-default);border-radius:var(--radii-pill);
   background:var(--colors-brand-box-parchment);color:var(--colors-foreground-default);
@@ -868,53 +871,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* topstrip is a retired, empty, aria-hidden node kept only so JS selectors never null — keep it out of flow */
 .kodiak-topstrip{display:none}
 /* header layout moved off the element's style attribute; base header{} already sets brown bg + kraft overlays */
-header.kodiak-header{border-bottom:none;display:flex;align-items:center;gap:var(--spacing-md);padding:10px 18px;flex-wrap:wrap;margin:0}
-/* the brown bar breathes inside the same footprint as the timeline below.
-   body is column-flex, so auto margins absorb the stretch and collapse the
-   bar — explicit width + align-self centers instead. Width math mirrors
-   .wrap minus its 18px gutters (1100-36=1064) so bar edges sit exactly on
-   the timeline edges at every breakpoint. */
-header.kodiak-header{max-width:none;width:min(1064px,calc(100% - 36px));align-self:center;margin-top:0}
-@media(min-width:1600px){header.kodiak-header{width:min(1404px,calc(100% - 36px))}}
-@media(min-width:2200px){header.kodiak-header{width:min(1644px,calc(100% - 36px))}}
-/* hero treatment (matrix item 7, CSS-only): full-bleed pine-to-timber gradient
-   with a blaze rule under it; headline stays parchment. Sticky + logos untouched. */
-header.kodiak-header{background:linear-gradient(135deg,var(--colors-brand-frontier-green) 0%,var(--brown-kodiak) 72%,var(--chocolate) 100%);border-bottom:3px solid var(--colors-brand-blaze-orange)}
-/* oversize-hero-logo (see --logo-hero-scale block): base header{} sets overflow:hidden, which would
-   clip the top-anchored scaled primary logo. allow the downward spill to paint below the navbar.
-   overflow:visible does NOT create a containing block/stacking context the way a filter does, so this
-   is safe for the sticky header (unlike the filter-on-sticky trap guarded on .wrap). */
+header.kodiak-header{border-bottom:none;display:block;width:100%;padding:0;margin:0}
+/* full-bleed brown bar with a blaze rule under it; headline stays parchment.
+   brand standard is brown — no pine-green cast on the bar. */
+header.kodiak-header{background:linear-gradient(180deg,var(--brown-kodiak) 0%,var(--chocolate) 100%);border-bottom:3px solid var(--colors-brand-blaze-orange)}
+/* the badge overhangs below the bar by spec, so the bar never clips. */
 header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
-/* header row order: logo | timeline | plate. the timeline rides the header row
-   to the right of the logo (never pushed down), and the green headline plate
-   keeps its own row below with ample air above it. */
-.kodiak-header .header__inner{flex-wrap:wrap;column-gap:clamp(24px,4vw,64px);row-gap:10px}
-.kodiak-header .header__inner .ff-timeline{flex:1 1 300px;min-width:min(300px,100%);margin:0}
-.kodiak-header .kodiak-headline-plate{flex:1 1 100%;margin-top:var(--spacing-md)}
-/* oversize hero logo spills downward — keep it painting above the plate row */
-.kodiak-header__logos{z-index:2}
-/* gentle 3D shimmer: headline outer-shadow breathing, warm glow behind the
-   logo cardboard, slow sheen across the timeline plate. motion-gated — the
-   whole block only exists under no-preference, so reduced-motion users get
-   the static look with zero overrides needed. amplitudes stay tiny. */
-@media(prefers-reduced-motion:no-preference){
-.kodiak-headline-plate h1{animation:ff-title-shadow 8s ease-in-out infinite}
-.kodiak-header__logos::before{content:"";position:absolute;inset:-14px;z-index:-1;border-radius:24px;
-  background:radial-gradient(closest-side,rgba(255,196,120,.34),rgba(255,196,120,0) 70%);
-  opacity:.45;animation:ff-logo-glow 9s ease-in-out infinite}
-.header__inner .ff-timeline::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:linear-gradient(105deg,transparent 42%,rgba(255,244,220,.10) 50%,transparent 58%);
-  background-size:250% 100%;animation:ff-timeline-sheen 11s ease-in-out infinite}
-@keyframes ff-title-shadow{
-  0%,100%{text-shadow:0 1px 0 rgba(0,0,0,.28),0 0 14px rgba(255,214,150,0);transform:perspective(700px) rotateX(0deg)}
-  50%{text-shadow:0 1px 0 rgba(0,0,0,.28),0 0 22px rgba(255,214,150,.30);transform:perspective(700px) rotateX(.6deg)}}
-@keyframes ff-logo-glow{
-  0%,100%{opacity:.40;transform:scale(1)}
-  50%{opacity:.65;transform:scale(1.05)}}
-@keyframes ff-timeline-sheen{
-  0%,100%{background-position:120% 0}
-  50%{background-position:-20% 0}}
-}
+/* 60px bar row; the badge floats absolute over the left margin (never in flow,
+   never moving siblings). content column matches the timeline/panels wrapper
+   below: min(1064px,100%-36px) centered. */
+.kodiak-header .header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;box-sizing:border-box;width:min(1064px,calc(100% - 36px));height:60px;margin:0 auto;padding:0;background:transparent}
+/* plate rides the bar row beside the badge with air above the blaze rule. */
+.kodiak-header .kodiak-headline-plate{flex:1 1 auto;min-width:0;margin-top:0;padding:6px 20px}
+@media(max-width:1279px){.kodiak-header .header__inner{height:auto;min-height:60px;flex-wrap:wrap;padding:8px 0 8px 16px}.kodiak-header .kodiak-headline-plate{flex:1 1 100%}}
+/* timeline under the header on the same shared wrapper, never inside the header. */
+.ff-timeline.ff-timeline--under-header{width:min(1064px,calc(100% - 36px));margin:10px auto var(--spacing-sm)}
+/* No headline or timeline motion: the header is back to its static weeks-old
+   standard. The reduce block elsewhere already kills all animation. */
 /* partner mark — hidden until the US Ski & Snowboard card is checked (JS toggles .is-on); tokenized spacing */
 .ff-partner-mark{margin-top:var(--spacing-sm);display:none;align-items:center;gap:var(--spacing-sm)}
 .ff-partner-mark.is-on{display:flex}
@@ -1534,17 +1507,14 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    hint drops smaller and quieter, and the CTA is the identical star button
    (same .ff-go, same hand) stretched full-bleed so it reads as the section's
    front door, not an afterthought. */
-.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:12px;
-  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--spacing-md);align-items:start}
-.ff-figcap-lede{margin:0;max-width:68ch}
-.ff-figcap-side{margin:0;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-default);
-  border-radius:var(--radii-md);padding:var(--spacing-sm) var(--spacing-md);box-shadow:var(--shadows-sm)}
-.ff-figcap-hint{margin:0 0 12px;font-size:12.5px;font-weight:500;color:var(--colors-foreground-muted)}
-.ff-figcap .ff-figcap-cta{width:100%}
-@media(max-width:640px){.ff-figcap{grid-template-columns:minmax(0,1fr)}}
+.ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:12px}
+.ff-figcap-context{border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
+  background:var(--colors-brand-box-parchment);padding:8px 12px;box-shadow:var(--shadows-sm)}
+.ff-figcap-context>summary{cursor:pointer;font:700 12px/1.4 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-brand-frontier-green)}
+.ff-figcap-lede{margin:8px 0 2px;max-width:none;font-size:14px;font-weight:400;line-height:1.6}
 /* gradient bridge from the preview carousel into the recipe card — one
    continuous canvas instead of a hard stacked-box cut */
-.ff-recipe-bridge{height:26px;margin:14px 0 2px;border-radius:var(--radii-pill);
+.ff-recipe-bridge{height:14px;margin:8px 0 2px;border-radius:var(--radii-pill);
   background:linear-gradient(180deg,rgba(0,0,0,0) 0%,var(--colors-brand-box-parchment) 78%,var(--colors-brand-box-parchment) 100%)}
 .ff-figcap .ff-figcap-cta:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
 /* below 400px the identical 52px bar can't fit its label — tighten tracking and
@@ -1646,8 +1616,8 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    lines; the EN source reads as the headline. Token var() only. Wiped on Create
    with #previewHero, so no generated-state styling needed. */
 .ff-resting-copy{margin:0 0 10px;padding:10px 12px 10px 14px;border-left:3px solid var(--colors-brand-frontier-green);background:var(--colors-brand-box-parchment);border-radius:0 var(--radii-md) var(--radii-md) 0}
-.ff-resting-copy .loc-line{display:block;margin:.2rem 0;font-size:13px;color:var(--chocolate)}
-.ff-resting-copy .loc-line[lang="en"]{font-size:15px}
+.ff-resting-copy .loc-line{display:block;margin:.2rem 0;font-size:13px;font-weight:400;color:var(--chocolate)}
+.ff-resting-copy .loc-line[lang="en"]{font-size:14px;font-weight:600}
 /* high-contrast + forced-colors: decorative wood fiber stays subordinate —
    real copy keeps maximum contrast; texture is decorative and never essential. */
 @media (forced-colors:active),(prefers-contrast:more){
@@ -1764,7 +1734,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-setup-heading{font-size:15px}
 .body{padding:12px 16px}
 .ff-inputwrap{padding:12px;gap:var(--spacing-xs,4px)}
-.ff-inputwrap textarea{min-height:56px}
+.ff-inputwrap textarea{min-height:112px}
 .ff-inputwrap .ff-inputfoot{padding-top:var(--spacing-xs,4px)}
 .ff-go{height:48px;min-height:48px}
 @media(prefers-reduced-motion:reduce){.ff-brainstorm-all__summary::before{transition:none}}
@@ -1825,36 +1795,27 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 /* (frontier marquee sign styles live with the #frontierSign rules near the
    headline-plate block — single implementation via the vendored bundle.) */
 
-/* === header row frame (desktop, min-width:861px) ===
-   Row 1: logo | timeline (timeline rides right of the logo, never pushed
-   down). Row 2: green headline plate full-width with ample air above it.
-   The logo is static in-flow (no absolute overhang, no hero spill), so it
-   cannot push or overlap anything. Tradeoff vs the old 60px no-scroll frame:
-   the header is taller, so load no longer fits 100vh — the window scrolls.
-   Mobile keeps normal page scroll — untouched below. */
+/* === header frame (desktop, min-width:861px) ===
+   Header holds logo + green headline plate only. The timeline lives just
+   below the header at plate width (see .ff-timeline--under-header) — never
+   embedded. The logo is static in-flow (no absolute overhang, no hero
+   spill, no backdrop), so it cannot push or overlap anything. Tradeoff vs
+   the old 60px no-scroll frame: the header is taller, so load no longer
+   fits 100vh — the window scrolls. Mobile keeps normal page scroll. */
 @media(min-width:861px){
-  /* 1. header rows: logo + timeline share row 1, plate takes row 2 */
-  header.kodiak-header{flex-wrap:wrap;padding:10px 0}
-  .kodiak-header .header__inner{padding:0 1.5rem;column-gap:clamp(24px,4vw,64px);row-gap:10px;flex-wrap:wrap;align-items:center}
-  .kodiak-header__logos{position:relative;top:auto;left:auto;flex:0 0 auto;width:clamp(96px,9vw,128px);aspect-ratio:4/3;z-index:2;transition:width .25s ease}
-  .kodiak-header__logos .kodiak-header__logo--primary{transform:none}
-  .kodiak-header .header__inner .ff-timeline{flex:1 1 320px}
-  .kodiak-headline-plate{min-width:0;flex:1 1 100%;margin-top:var(--spacing-md)}
-  .kodiak-headline-plate h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(27px,3vw,36px)}
-  /* scrolled: badge shrinks but stays in-flow and prominent — the Park City
-     alt mark keeps its aspect (contain, never stretched). The alt-logo
-     crossfade (.is-sticky) is otherwise untouched. */
-  .kodiak-header.is-sticky .kodiak-header__logos{width:104px}
-  .kodiak-header.is-sticky .kodiak-header__logo--secondary{object-fit:contain}
+  /* 1. header: weeks-old base rules govern (flex row, plate wraps below the
+     badge with room). No desktop overrides — the badge spill, plate, and
+     wordmark crossfade are untouched. The timeline width tracks the plate. */
+  .ff-timeline.ff-timeline--under-header{width:min(1064px,calc(100% - 36px))}
   /* 2. slim timeline: single row, tighter reset */
   .ff-timeline{padding:6px 14px 4px;gap:6px 12px}
   .ff-reset{padding:5px 12px 5px 8px}
   .ff-reset-icon{width:18px;height:18px}
   /* 3. scroll architecture (State 0 / State 1): NO viewport locks, NO panel
      traps — the window scrollbar is the only scrollbar in every state.
-     State 0 (load, all collapsed) no longer targets 100vh — the header
-     carries logo + timeline + plate rows, so the window scrolls from load.
-     State 1 (user expands) grows the document naturally. Never re-add body
+     State 0 (load, all collapsed): classic header (badge + plate) with the
+     timeline directly below at plate width; the window scrolls. State 1
+     (user expands) grows the document naturally. Never re-add body
      overflow locks or .wrap height locks. */
   /* 4. setup steps: closed disclosures share a 3-column row; an opened step
      (or any non-details child) spans full width below, preserving top-to-bottom order */
@@ -2021,7 +1982,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 /* 4. header title authority: display face stays gin 800; uppercase + wider
       tracking so the title holds the row against the step pills. ellipsis and
       the 60px bar are untouched. */
-.kodiak-headline-plate h1{text-transform:uppercase;letter-spacing:.06em}
+.kodiak-headline-plate h1{text-transform:uppercase;letter-spacing:.02em}
 
 /* === ff-filmstrip — the single shared horizontal pattern (do not rename) ===
    Track: .ff-filmstrip > .ff-filmstrip__track > .ff-filmstrip__slot; arrows
@@ -2049,6 +2010,10 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   border-radius:var(--radii-md);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-sm)}
 .ff-filmstrip__track::-webkit-scrollbar{display:none}
 .ff-filmstrip__track:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
+/* beat the .render-set grid alias (same node carries both classes):
+   align-items:start defeats the cross-axis stretch the shared Download
+   baseline needs — slots must fill the row height. */
+.ff-filmstrip__track{align-items:stretch}
 .ff-filmstrip__slot{flex:0 0 auto;display:flex;flex-direction:column;scroll-snap-align:start;position:relative;
   max-width:min(78vw,300px);min-width:0}
 /* glyph empty-state, same voice as the carousel slots */
@@ -2070,7 +2035,11 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-filmstrip__frame::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
   mix-blend-mode:multiply;background-image:var(--textures-kraft-grain)}
 .ff-filmstrip__cap{min-width:0}
-.ff-filmstrip__dl{display:inline-block;margin-top:var(--spacing-xs);color:var(--colors-brand-frontier-green);
+.ff-filmstrip__slot .render-cap.ff-filmstrip__cap{flex:1 1 auto}
+.ff-output-langline{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px;margin-left:16px;padding-left:16px;border-left:1px solid var(--colors-border-default)}
+.ff-output-langline[hidden]{display:none}
+.ff-output-langline__label{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-600)}
+.ff-filmstrip__dl{display:inline-block;margin-top:auto;padding-top:var(--spacing-xs);color:var(--colors-brand-frontier-green);
   font:700 11px/1.4 "museo-sans",system-ui,sans-serif;text-decoration:underline;text-underline-offset:2px}
 .ff-filmstrip__dl:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 /* arcade-gutter arrows: 64px senior-friendly hit targets in dedicated flanking
@@ -2142,7 +2111,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .kodiak-header__logos::before,.kodiak-header__logos::after{content:"";position:absolute;inset:0;pointer-events:none;
   border:none;border-radius:var(--radii-sm);
   background-repeat:repeat;box-shadow:var(--shadows-sm);
-  mix-blend-mode:multiply;opacity:.85;transition:opacity .25s ease;
+  opacity:.95;transition:opacity .25s ease;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.23 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 .4 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23c)'/%3E%3C/svg%3E"),linear-gradient(180deg,transparent 0%,var(--colors-brand-box-parchment) 100%)}
 .kodiak-header__logos::before{top:-16px;left:-4px;z-index:-1}
 .kodiak-header__logos::after{left:-8px;transform:rotate(-3deg);z-index:-2;

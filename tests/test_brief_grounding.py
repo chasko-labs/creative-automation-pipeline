@@ -84,6 +84,60 @@ def test_blend_idea_base_skips_when_present() -> None:
     assert base == "sea otters at dawn"
 
 
+def test_is_scenic_seed() -> None:
+    assert generate._is_scenic_seed("brands/kodiak/scenic-bg/sea-otters/hero-1x1.png") is True
+    assert generate._is_scenic_seed("brands/kodiak/raw-ingest/kodiakcakes/images/kitchen.jpg") is False
+    assert generate._is_scenic_seed(None) is False
+    assert generate._is_scenic_seed("") is False
+
+
+def test_staged_dest_unique_per_key() -> None:
+    # Regression: every scenic hero-1x1.png shared one /tmp dest, so a second
+    # idea restyled the first idea's file (bears for christmas cats).
+    a = generate._staged_dest("brands/kodiak/scenic-bg/sea-otters/hero-1x1.png")
+    b = generate._staged_dest("brands/kodiak/scenic-bg/christmas-cats/hero-1x1.png")
+    assert a != b
+    assert a.name.endswith("hero-1x1.png")
+    assert generate._staged_dest("k") == generate._staged_dest("k")
+
+
+def test_nova_output_reattaches_dropped_idea(monkeypatch, tmp_path: Path) -> None:
+    # Nova returns a scene without the idea -> deterministic re-attach.
+    class _FakeNova:
+        def converse(self, **kwargs):
+            return {"output": {"message": {"content": [{"text": "Rustic wood table, warm glow"}]}}}
+
+    monkeypatch.setattr(
+        generate, "_bedrock_failfast_client", lambda **kwargs: _FakeNova()
+    )
+    seed = tmp_path / "seed.png"
+    seed.write_bytes(b"fakepng")
+    monkeypatch.setattr(generate, "_seed_small_for_nova", lambda src: (b"x", "png"))
+    scene = generate._nova_pro_scene_prompt(
+        seed, "Power Cakes", "christmas cats — season: Christmas", "us",
+        "families", None, None, None, "US-MW-PARKCITY-84098", "Christmas",
+    )
+    assert "christmas cats" in scene.lower()
+
+
+def test_nova_output_keeps_idea_without_dup(monkeypatch, tmp_path: Path) -> None:
+    class _FakeNova:
+        def converse(self, **kwargs):
+            return {"output": {"message": {"content": [{"text": "Christmas cats in snow"}]}}}
+
+    monkeypatch.setattr(
+        generate, "_bedrock_failfast_client", lambda **kwargs: _FakeNova()
+    )
+    seed = tmp_path / "seed.png"
+    seed.write_bytes(b"fakepng")
+    monkeypatch.setattr(generate, "_seed_small_for_nova", lambda src: (b"x", "png"))
+    scene = generate._nova_pro_scene_prompt(
+        seed, "Power Cakes", "christmas cats", "us", "families",
+        None, None, None, None, None,
+    )
+    assert scene.lower().count("christmas cats") == 1
+
+
 def test_cider_ingredient_pairs_cider_donuts() -> None:
     recipe, pairing = _pick_recipe_detail(
         "apple cider", None, market="US-W-SD", month="2026-12"

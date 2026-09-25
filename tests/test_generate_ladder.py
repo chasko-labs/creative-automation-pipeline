@@ -235,7 +235,7 @@ def _install_handler_stubs(monkeypatch, tmp_path):
     def _stub_hero(*, product_id, product_name, brief_msg, region, audience, out_path,
                    idx=0, ratio="1x1", theme=None, brand_overlay=True, paper_overlay=True,
                    seed_key=None, layers=None, themes=None, dish=None,
-                   art_director=False, market=None, season=None):
+                   art_director=False, market=None, season=None, native_siblings=None):
         p = Path(out_path)
         generate_mod._brand_floor(product_name, ratio, p)
         return p, generate_mod.BRAND_FLOOR_SOURCE, {"rung": "D", "engine": "brand-floor"}
