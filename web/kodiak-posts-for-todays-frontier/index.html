@@ -118,9 +118,13 @@
 <div class="kodiak-topstrip" aria-hidden="true"></div>
 <header class="kodiak-header"><div class="header__inner">
 <div class="kodiak-header__logos"><img class="kodiak-header__logo--primary" src="assets/kodiak-primary-logo_optimized.png?v=0.2.011-9a0b828-20260925" alt="KODIAK — 100% WHOLE GRAINS" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"><img class="kodiak-header__logo--secondary" src="assets/kodiak-parkcity-alt-logo.svg?v=0.2.011-9a0b828-20260925" alt="Kodiak Cakes — Park City" onerror="this.onerror=null;this.src='assets/kodiak-primary-logo.png'"></div>
-<!-- Progress timeline — rides the header row to the right of the logo so the
-     logo never pushes it down; the headline plate below keeps ample air. -->
-<div class="ff-timeline" id="progressTimeline">
+<div class="kodiak-headline-plate"><h1>Kodiak Cakes Creative Automation Pipeline</h1></div>
+</div>
+</header>
+
+<!-- Progress timeline — sits just below the header, same width as the
+     headline plate card above it. Never inside the header. -->
+<div class="ff-timeline ff-timeline--under-header" id="progressTimeline">
   <ol class="ff-timeline-steps" aria-label="Campaign progress">
     <li data-node="setup" data-state="active"><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">1–5</span> Setup</span></li>
     <li data-node="preview" data-state="todo"><span class="ff-timeline-label"><span class="ff-stepnum" aria-hidden="true">6</span> Preview</span></li>
@@ -136,9 +140,6 @@
   </button>
   <div class="ff-timeline-note" id="timelineNote" role="status" aria-live="polite"></div>
 </div>
-<div class="kodiak-headline-plate"><h1>Kodiak Cakes Creative Automation Pipeline</h1></div>
-</div>
-</header>
 
 <div class="wrap">
 <!-- location-aware island + design-system scorecards moved to details.html (Design system + details link below) -->

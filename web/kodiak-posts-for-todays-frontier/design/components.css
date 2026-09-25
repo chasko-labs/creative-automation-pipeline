@@ -889,28 +889,28 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
    to the right of the logo (never pushed down), and the green headline plate
    keeps its own row below with ample air above it. */
 .kodiak-header .header__inner{flex-wrap:wrap;column-gap:clamp(24px,4vw,64px);row-gap:10px}
-.kodiak-header .header__inner .ff-timeline{flex:1 1 300px;min-width:min(300px,100%);margin:0}
 .kodiak-header .kodiak-headline-plate{flex:1 1 100%;margin-top:var(--spacing-md)}
-/* oversize hero logo spills downward — keep it painting above the plate row */
-.kodiak-header__logos{z-index:2}
-/* gentle 3D shimmer: headline outer-shadow breathing, warm glow behind the
-   logo cardboard, slow sheen across the timeline plate. motion-gated — the
-   whole block only exists under no-preference, so reduced-motion users get
-   the static look with zero overrides needed. amplitudes stay tiny. */
+/* oversize hero logo spills downward — keep it painting above the plate row.
+   No backdrop of any kind on the logo box: the image logo carries its own
+   pixels and the wordmark crossfade stays bare. */
+.kodiak-header__logos{z-index:2;background:none}
+.kodiak-header__logos::before{content:none}
+/* timeline under the header: same width as the headline plate element
+   (header box minus its side padding), never inside the header. Header is
+   min(1064px,100%-36px) with 18px inner padding mobile / 1.5rem desktop. */
+.ff-timeline.ff-timeline--under-header{width:calc(100% - 72px);margin:10px auto var(--spacing-sm)}
+/* gentle 3D shimmer: headline outer-shadow breathing, slow sheen across the
+   timeline plate. motion-gated — the whole block only exists under
+   no-preference, so reduced-motion users get the static look with zero
+   overrides needed. amplitudes stay tiny. */
 @media(prefers-reduced-motion:no-preference){
 .kodiak-headline-plate h1{animation:ff-title-shadow 8s ease-in-out infinite}
-.kodiak-header__logos::before{content:"";position:absolute;inset:-14px;z-index:-1;border-radius:24px;
-  background:radial-gradient(closest-side,rgba(255,196,120,.34),rgba(255,196,120,0) 70%);
-  opacity:.45;animation:ff-logo-glow 9s ease-in-out infinite}
-.header__inner .ff-timeline::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+.ff-timeline::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
   background:linear-gradient(105deg,transparent 42%,rgba(255,244,220,.10) 50%,transparent 58%);
   background-size:250% 100%;animation:ff-timeline-sheen 11s ease-in-out infinite}
 @keyframes ff-title-shadow{
   0%,100%{text-shadow:0 1px 0 rgba(0,0,0,.28),0 0 14px rgba(255,214,150,0);transform:perspective(700px) rotateX(0deg)}
   50%{text-shadow:0 1px 0 rgba(0,0,0,.28),0 0 22px rgba(255,214,150,.30);transform:perspective(700px) rotateX(.6deg)}}
-@keyframes ff-logo-glow{
-  0%,100%{opacity:.40;transform:scale(1)}
-  50%{opacity:.65;transform:scale(1.05)}}
 @keyframes ff-timeline-sheen{
   0%,100%{background-position:120% 0}
   50%{background-position:-20% 0}}
@@ -1825,20 +1825,20 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 /* (frontier marquee sign styles live with the #frontierSign rules near the
    headline-plate block — single implementation via the vendored bundle.) */
 
-/* === header row frame (desktop, min-width:861px) ===
-   Row 1: logo | timeline (timeline rides right of the logo, never pushed
-   down). Row 2: green headline plate full-width with ample air above it.
-   The logo is static in-flow (no absolute overhang, no hero spill), so it
-   cannot push or overlap anything. Tradeoff vs the old 60px no-scroll frame:
-   the header is taller, so load no longer fits 100vh — the window scrolls.
-   Mobile keeps normal page scroll — untouched below. */
+/* === header frame (desktop, min-width:861px) ===
+   Header holds logo + green headline plate only. The timeline lives just
+   below the header at plate width (see .ff-timeline--under-header) — never
+   embedded. The logo is static in-flow (no absolute overhang, no hero
+   spill, no backdrop), so it cannot push or overlap anything. Tradeoff vs
+   the old 60px no-scroll frame: the header is taller, so load no longer
+   fits 100vh — the window scrolls. Mobile keeps normal page scroll. */
 @media(min-width:861px){
-  /* 1. header rows: logo + timeline share row 1, plate takes row 2 */
+  /* 1. header rows: logo row 1, plate row 2 with air above it */
   header.kodiak-header{flex-wrap:wrap;padding:10px 0}
   .kodiak-header .header__inner{padding:0 1.5rem;column-gap:clamp(24px,4vw,64px);row-gap:10px;flex-wrap:wrap;align-items:center}
-  .kodiak-header__logos{position:relative;top:auto;left:auto;flex:0 0 auto;width:clamp(96px,9vw,128px);aspect-ratio:4/3;z-index:2;transition:width .25s ease}
+  .kodiak-header__logos{position:relative;top:auto;left:auto;flex:0 0 auto;width:clamp(96px,9vw,128px);aspect-ratio:4/3;z-index:2;background:none;transition:width .25s ease}
   .kodiak-header__logos .kodiak-header__logo--primary{transform:none}
-  .kodiak-header .header__inner .ff-timeline{flex:1 1 320px}
+  .ff-timeline.ff-timeline--under-header{width:min(1016px,calc(100% - 84px))}
   .kodiak-headline-plate{min-width:0;flex:1 1 100%;margin-top:var(--spacing-md)}
   .kodiak-headline-plate h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:clamp(27px,3vw,36px)}
   /* scrolled: badge shrinks but stays in-flow and prominent — the Park City
