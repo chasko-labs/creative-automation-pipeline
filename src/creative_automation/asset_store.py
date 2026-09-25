@@ -866,6 +866,83 @@ def upload_recipe_art(local_png: Path, subject_slug: str, zone: str) -> str | No
     return recipe_art_site_url(subject_slug, zone)
 
 
+# ---- scenic backgrounds (text-to-image hero seeds).
+# Same pattern as recipe-art: content-addressed by idea slug so a second
+# campaign with the same idea reuses the published scene instead of
+# re-billing. Prefix overridable via ASSET_STORE_SCENIC_PREFIX.
+def _scenic_prefix() -> str:
+    prefix = _env_compat("ASSET_STORE_SCENIC_PREFIX", "DAM_SCENIC_PREFIX", "brands/kodiak/scenic-bg/")
+    if prefix and not prefix.endswith("/"):
+        prefix += "/"
+    return prefix
+
+
+def scenic_slug(idea: str) -> str:
+    """Idea -> filesystem+S3-safe slug (lowercase, hyphenated)."""
+    import re as _re
+
+    s = _re.sub(r"[^a-z0-9]+", "-", str(idea or "").strip().lower())
+    return s.strip("-") or "scene"
+
+
+def scenic_key(idea_slug: str) -> str:
+    """Full asset key for a scenic background: <prefix><slug>/hero-1x1.png."""
+    return f"{_scenic_prefix()}{idea_slug}/hero-1x1.png"
+
+
+def scenic_exists(idea_slug: str) -> bool:
+    """HEAD the scenic key — True when the scene is already published."""
+    key = scenic_key(idea_slug)
+    if not _s3_enabled():
+        return False
+    bucket, _ = _s3_bucket_and_prefix()
+    client = _s3_client()
+    if not bucket or client is None:
+        return False
+    try:
+        client.head_object(Bucket=bucket, Key=key)
+        return True
+    except (ClientError, BotoCoreError, Exception):  # noqa: BLE001 — miss => False
+        return False
+
+
+def scenic_site_url(idea_slug: str) -> str:
+    """Permanent site URL for a scenic background: /scenic-bg/<slug>/hero-1x1.png.
+
+    The deploy script mirrors the asset store scenic-bg prefix into the
+    site's scenic-bg/ dir (same treatment as recipe-art/), so this url never
+    expires — unlike presigned urls, which die with the signing session.
+    """
+    return f"/scenic-bg/{idea_slug}/hero-1x1.png"
+
+
+def upload_scenic(local_png: Path, idea_slug: str) -> str | None:
+    """Upload a scenic PNG to brands/kodiak/scenic-bg/<slug>/hero-1x1.png.
+
+    Returns the PERMANENT site url on success, else None so callers degrade
+    to the existing no-seed path. Never throws.
+    """
+    from botocore.exceptions import BotoCoreError, ClientError
+
+    local_png = Path(local_png)
+    if not local_png.exists():
+        return None
+    if not _s3_enabled():
+        return None
+    bucket, _ = _s3_bucket_and_prefix()
+    client = _s3_client()
+    if not bucket or client is None:
+        return None
+    full = scenic_key(idea_slug)
+    try:
+        client.upload_file(str(local_png), bucket, full)
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001
+        print(f"[asset-store] scenic upload failed s3://{bucket}/{full}: {e}")
+        return None
+    print(f"[asset-store] scenic uploaded s3://{bucket}/{full}")
+    return scenic_site_url(idea_slug)
+
+
 def sync_assets_from_s3(asset_root: Path, delete: bool = False) -> bool:
     """Optional helper: bulk sync S3 prefix -> local asset_root via boto3.
 

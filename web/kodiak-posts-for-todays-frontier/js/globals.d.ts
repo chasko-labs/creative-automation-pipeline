@@ -266,6 +266,10 @@ interface Window {
   GlimmerProxy?: {isLocal?: boolean, pickSkus?: (brief: string, skus: string[], n: number) => Promise<unknown>};
   /** User-uploaded assets for compositing; each entry needs at least `name`. */
   __userAssets?: {name: string, source?: string, key?: string}[];
+  /** Scenic-bg asset key for the current brief (text-to-image scene); rides as seed_key. */
+  __scenicSeedKey?: string | null;
+  /** Briefs already scenic-upgraded this session (no repeat SDXL billing). */
+  __scenicDoneFor?: Record<string, boolean>;
   /**
    * Inlined market places table (offline-safe). Canonical:
    * `data/localization/store-finder-markets.json` -> `js/data-core.js`

@@ -29,6 +29,7 @@ from .generate import (
     _finalize_render,
     _OUTPAINT_BUDGET_MS,
     _OUTPAINT_RESERVE_MS,
+    _blend_idea_base,
     _pillow_outpaint_fallback,
     _STABILITY_RUNG_ON,
     _stability_outpaint,
@@ -1043,6 +1044,11 @@ def _preview_campaign_data(
     base = clean_brand_copy(
         str(prov.get("copy_headline") or prov.get("headline") or prompt or "")[:80]
     ) or clean_brand_copy(str(prompt or ""))
+    # Brief grounding: the image caption knows the seed, not the idea — lead
+    # the base with the user's free-text subject so platform posts and
+    # localizations carry what was asked for ("sea otters"), not just the
+    # market template.
+    base = clean_brand_copy(_blend_idea_base(base, prompt))
 
     platform_copy = fallback_platform_copy(base, product_name, market)
 
@@ -1272,6 +1278,10 @@ def _handle_extend(data: dict[str, Any], prompt: str) -> dict[str, Any]:
 
 _RECIPE_ART_ZONES = ("raw_ingredient", "technique", "finished_plate")
 _RECIPE_ART_WALL_S = 25.0
+# Scenic text-to-image needs longer than a sketch zone: Core photographic
+# renders typically land in 20-60s. 150s stays well inside the 300s Lambda
+# timeout with room for upload; the frontend shows progress meanwhile.
+_SCENIC_WALL_S = 150.0
 
 
 def _recipe_catalog_name(recipe_id: str) -> str | None:
@@ -1350,6 +1360,73 @@ def _handle_recipe_art(data: dict[str, Any]) -> dict[str, Any]:
     if not url:
         return {"ok": False, "error": "publish failed"}
     return {"ok": True, "url": url, "seeded": False, "zone": zone}
+
+
+def _handle_scenic_bg(data: dict[str, Any]) -> dict[str, Any]:
+    """Serve or generate ONE photographic scenic background for a brief idea.
+
+    Request fields: prompt (the brief — idea distilled server-side), market,
+    season. Seeded path first: the idea slug already published in the asset
+    store returns its permanent site URL + asset key with seeded True.
+    Otherwise ONE Stable Image Core text-to-image run behind _SCENIC_WALL_S,
+    uploaded to the scenic-bg prefix — the next request for the same idea
+    serves seeded. The frontend feeds the returned KEY back into /generate
+    as seed_key, so the scene rides the existing staged-seed path: no
+    composite machinery changes. Any failure returns ok False and the
+    frontend keeps its fast preview: a missing scene is never an error here.
+    """
+    from . import asset_store as _asset_store
+    from .generate import _brief_idea, _scenic_background, _scenic_scene_text
+
+    prompt = str(data.get("prompt") or "")
+    idea = _brief_idea(_safe_prompt_text(prompt) if prompt else "")
+    if not idea:
+        return {"ok": False, "error": "no idea in brief"}
+    slug = _asset_store.scenic_slug(idea)
+    if _asset_store.scenic_exists(slug):
+        return {
+            "ok": True,
+            "url": _asset_store.scenic_site_url(slug),
+            "key": _asset_store.scenic_key(slug),
+            "seeded": True,
+            "idea": idea,
+        }
+    scene = _scenic_scene_text(
+        prompt,
+        data.get("market"),
+        data.get("season"),
+        (data.get("dish") if isinstance(data.get("dish"), str) else None),
+    )
+    if not scene:
+        return {"ok": False, "error": "no scene in brief"}
+    import zlib
+
+    seed = zlib.crc32(f"scenic|{slug}".encode()) % (2**31)
+    out = Path(f"/tmp/scenic-bg-{uuid4().hex}") / "hero-1x1.png"
+    pool = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+    fut = pool.submit(_scenic_background, scene, out, seed)
+    try:
+        try:
+            local = fut.result(timeout=_SCENIC_WALL_S)
+        except Exception as e:  # noqa: BLE001 — timeout or worker fault
+            print(f"[generate] scenic-bg walled: {type(e).__name__}", file=sys.stderr)
+            local = None
+    finally:
+        # Never block on a leaked worker — same rule as the outer wall.
+        pool.shutdown(wait=False)
+    if local is None:
+        return {"ok": False, "error": "generation unavailable"}
+    url = _asset_store.upload_scenic(Path(str(local)), slug)
+    if not url:
+        return {"ok": False, "error": "publish failed"}
+    return {
+        "ok": True,
+        "url": url,
+        "key": _asset_store.scenic_key(slug),
+        "seeded": False,
+        "idea": idea,
+        "scene": scene,
+    }
 
 
 def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
@@ -1877,6 +1954,12 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
             # One recipe-card sketch zone: seeded asset store url when published,
             # otherwise one walled generation that publishes itself.
             return _response(200, _handle_recipe_art(data))
+        if mode == "scenic-bg":
+            # One photographic scenic background for the brief's idea: seeded
+            # asset store url + key when published, otherwise one walled
+            # text-to-image generation that publishes itself. The frontend
+            # feeds key back as seed_key so the scene rides staged-seed.
+            return _response(200, _handle_scenic_bg(data))
 
         # OUTER WALL: run the entire generate ladder in a worker thread and WAIT only
         # GENERATE_WALL_TIMEOUT_S. The per-rung budget gates inside generate_hero handle

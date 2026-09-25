@@ -1189,6 +1189,110 @@ def _brief_setting_clause(brief_msg: str | None) -> str:
     return " ".join(bits)
 
 
+#: Brief segments that are pipeline metadata, never the user's idea.
+_IDEA_MARKERS = (
+    "market:", "season:", "month:", "ecology:", "frontier:", "in-season:",
+    "products:", "product:", "directions:", "direction:", "audience:",
+    "region:", "retailer:", "recipe:",
+)
+
+
+def _brief_idea(brief_msg: str | None) -> str:
+    """Distill the user's free-text campaign idea from the brief.
+
+    The frontend brief is idea-first plus a curated suffix (market:/season:/
+    ecology:/frontier:/in-season:/products: ...). Only the free text is the
+    idea — "sea otters" must survive as a subject even though no photo pool
+    tag will ever match it. Returns '' when the brief carries no free text.
+    """
+    if not brief_msg:
+        return ""
+    text = str(brief_msg).replace("◇", "·").replace("—", "·").replace("–", "·")
+    # Parenthetical marker payloads ("wild mornings (frontier: Lebanon, OH -
+    # US-OH-CINCINNATI market, september picks)") are metadata, not idea —
+    # strip paren groups carrying a colon; plain parens ("pancakes (fluffy)")
+    # stay part of the idea.
+    text = re.sub(r"\([^()]*:[^()]*\)", "", text)
+    bits = []
+    for seg in text.split("·"):
+        s = seg.strip().strip(",;").strip()
+        if not s:
+            continue
+        if s.lower().split(":", 1)[0].strip() + ":" in _IDEA_MARKERS and ":" in s:
+            continue
+        bits.append(s)
+    idea = " ".join(bits).strip()
+    return idea[:80]
+
+
+#: Idea tokens too generic to steer a seed pick.
+_IDEA_STOPWORDS = frozenset({
+    "a", "an", "the", "and", "or", "of", "for", "with", "on", "in", "to",
+    "my", "our", "your", "its", "this", "that", "with", "from", "with",
+    "morning", "mornings", "day", "campaign", "idea", "photo", "image",
+    "please", "make", "show", "with",
+})
+
+
+def _idea_tokens(idea: str) -> set[str]:
+    """Content words of the idea for pool matching."""
+    return {
+        w for w in re.findall(r"[a-z0-9]+", (idea or "").lower())
+        if w not in _IDEA_STOPWORDS and len(w) > 2
+    }
+
+
+def _brief_seed_pick(idea: str, candidates: list[tuple[str, str]]) -> str | None:
+    """Pick the pool key whose caption/keystem best matches the idea.
+
+    candidates are (key, caption-text) pairs. Score is shared content-word
+    overlap; winner needs at least one shared word, ties break to first
+    listed (pool order stays the authority). Returns None on no overlap so
+    the caller keeps its existing pick — never worse than before.
+    """
+    toks = _idea_tokens(idea)
+    if not toks or not candidates:
+        return None
+    best: str | None = None
+    best_score = 0
+    for key, caption in candidates:
+        words = set(re.findall(r"[a-z0-9]+", f"{key} {caption or ''}".lower()))
+        score = len(toks & words)
+        if score > best_score:
+            best, best_score = key, score
+    return best
+
+
+def _blend_idea_base(base: str, brief_msg: str | None) -> str:
+    """Lead a copy base with the brief's free-text idea.
+
+    The image caption knows the seed, not the idea — without the lead,
+    platform posts and localizations carry only the market template.
+    Skipped when the base already names the idea; capped at 80 chars like
+    every other base.
+    """
+    idea = _brief_idea(brief_msg)
+    if idea and idea.lower() not in (base or "").lower():
+        return f"{idea} — {base or ''}"[:80]
+    return base
+
+
+def _brief_subject_clause(brief_msg: str | None) -> str:
+    """MUST-keep clause for the campaign subject (the idea, not the setting).
+
+    The setting clause keeps place/season; this keeps the WHAT — without it
+    Nova compresses "sea otters" out of the 40-word scene and the restyle
+    just repaints the seed. Sanitized so adversary tokens never reach pixels.
+    """
+    idea = _brief_idea(brief_msg)
+    if not idea:
+        return ""
+    safe = _safe_prompt_text(idea) if idea else ""
+    if not safe:
+        return ""
+    return f" You MUST feature the campaign subject: {safe}."
+
+
 def _default_scene_prompt(
     product_name: str, brief_msg: str, region: str, audience: str, theme: str | None,
     extra_themes: list[str] | None = None, dish: str | None = None,
@@ -1233,6 +1337,11 @@ def _default_scene_prompt(
         setting = _brief_setting_clause(brief_msg)
         if setting and setting.lower() not in str(direction or "").lower():
             direction = f"{direction} {setting}"
+        # Subject survives too: the free-text idea is the WHAT the user asked
+        # for — without the MUST clause the restyle just repaints the seed.
+        subject = _brief_subject_clause(brief_msg)
+        if subject and subject.lower() not in str(direction or "").lower():
+            direction = f"{direction} {subject}"
     if dish and str(dish).strip() and str(dish).strip().lower() not in str(direction or "").lower():
         # The campaign recipe names the dish — without it the restyle keeps the
         # seed's generic composition and the image disconnects from the recipe.
@@ -1342,6 +1451,114 @@ def _with_locale_and_bear(direction: str | None, theme: str | None,
     return str(direction or "")
 
 
+# ---- scenic background (text-to-image hero path).
+# Control-structure restyle preserves its seed's composition, so an idea with
+# no matching pool photo ("sea otters") can never reach pixels through it.
+# Stable Image Core (text-to-image, same grant recipe art already uses)
+# composes the scene from words instead. The scenic image becomes a photo
+# seed like any other: uploaded to the asset store, then re-requested through
+# the staged-seed path, so no composite machinery changes. Product identity
+# stays safe — the box is still pasted verbatim by compose_creative.
+_SCENIC_MODEL_ID = os.getenv(
+    "KODIAK_SCENIC_MODEL", "stability.stable-image-core-v1:1"
+)
+_SCENIC_REGION = os.getenv("KODIAK_SCENIC_REGION", "us-west-2")
+_SCENIC_READ_TIMEOUT_S = int(os.getenv("KODIAK_SCENIC_READ_TIMEOUT_S", "120"))
+_SCENIC_NEGATIVE = (
+    "text, letters, numbers, signage, labels, watermark, logo, "
+    "blurry, deformed, cartoon"
+)
+
+
+def _scenic_scene_text(
+    brief_msg: str | None, market: str | None = None,
+    season: str | None = None, dish: str | None = None,
+) -> str:
+    """Photographic text-to-image prompt for the idea.
+
+    Idea first (the WHAT), then the setting clause (the WHERE/when), then a
+    photographic tail — Core renders photos, not ink sketches, so no line-art
+    directive. Sanitized: adversary tokens never reach the model.
+    """
+    idea = _brief_idea(brief_msg)
+    setting = _brief_setting_clause(brief_msg)
+    market_clause = _market_scene_clause(market, season)
+    bits = []
+    if idea:
+        bits.append(_safe_prompt_text(idea) or idea)
+    if setting and setting.lower() not in " ".join(bits).lower():
+        bits.append(setting)
+    if market_clause and market_clause.lower() not in " ".join(bits).lower():
+        bits.append(market_clause)
+    if dish and str(dish).strip():
+        bits.append(f"a serving of {str(dish).strip()} nearby")
+    scene = " ".join(bits).strip()
+    if not scene:
+        return ""
+    return (
+        f"Photorealistic advertising photograph: {scene}. "
+        "golden natural light, rich color, sharp focus, high detail"
+    )
+
+
+def _scenic_background(
+    scene: str, out_path: Path, request_seed: int = 0,
+) -> Path | None:
+    """Render one photographic scenic background via Stable Image Core.
+
+    Returns the saved PNG path, or None when there are no creds, the model
+    errors, the content filter blocks, or the read times out. Never raises —
+    every failure degrades to the caller's existing no-seed path.
+    """
+    if not scene or not str(scene).strip():
+        return None
+    try:
+        from .spin import _bedrock_client
+    except ImportError:
+        return None
+    try:
+        client = _bedrock_client(
+            "bedrock-runtime",
+            read_timeout=_SCENIC_READ_TIMEOUT_S,
+            region=_SCENIC_REGION,
+        )
+    except Exception:
+        return None
+    if client is None:
+        return None
+    import base64 as _b64
+    import io as _io
+    import json as _json
+
+    body = {
+        "prompt": str(scene)[:1200],
+        "negative_prompt": _SCENIC_NEGATIVE,
+        "aspect_ratio": "1:1",
+        "output_format": "png",
+        "seed": int(request_seed or 0),
+    }
+    try:
+        resp = client.invoke_model(modelId=_SCENIC_MODEL_ID, body=_json.dumps(body))
+        payload = _json.loads(resp["body"].read())
+        finish = payload.get("finish_reasons") or [None]
+        if finish[0] is not None:
+            print(
+                f"[generate] scenic-bg blocked: finish_reason={finish[0]!r}",
+                file=sys.stderr,
+            )
+            return None
+        img = Image.open(_io.BytesIO(_b64.b64decode(payload["images"][0]))).convert("RGB")
+    except Exception as e:  # noqa: BLE001 — degrade to no-seed path
+        print(f"[generate] scenic-bg invoke failed: {e}", file=sys.stderr)
+        return None
+    try:
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        img.save(out_path, "PNG")
+        return out_path
+    except (OSError, ValueError):
+        return None
+
+
 def _nova_pro_scene_prompt(
     src: Path, product_name: str, brief_msg: str, region: str, audience: str, theme: str | None,
     extra_themes: list[str] | None = None, dish: str | None = None,
@@ -1378,6 +1595,7 @@ def _nova_pro_scene_prompt(
         setting = _brief_setting_clause(brief_msg)
         if setting:
             keep_clause += f" You MUST keep this setting: {setting}"
+        keep_clause += _brief_subject_clause(brief_msg)
         clean_dish = str(dish or "").strip()
         if clean_dish:
             keep_clause += f" The image MUST show a serving of {clean_dish}."
@@ -3023,7 +3241,12 @@ def generate_hero(
             provenance["fallthrough_reason"] = reason
 
     # ---- seed resolution: theme photo, else sku-mapped asset photo, else disk asset.
+    # _idea_hit tracks whether the seed honors the brief's free-text idea: an
+    # explicit theme/staged pick is the user's own visual vote, and a
+    # brief-matched pool pick carries an idea word. Auto sku/disk rotation
+    # does not count — it can serve a kitchen frame for "sea otters".
     seed: Path | None = None
+    _idea_hit = False
     if theme:
         theme_key = _resolve_theme_photo(theme)
         if theme_key:
@@ -3036,6 +3259,7 @@ def generate_hero(
                     seed = photo
                     provenance["seed_selection"] = "theme-photo"
                     provenance["seed_source"] = Path(theme_key).stem
+                    _idea_hit = True
             except Exception as e:  # noqa: BLE001 — falls through to product precedence
                 print(f"[generate] theme seed fetch failed: {e}", file=sys.stderr)
     if seed is None and seed_key:
@@ -3051,6 +3275,7 @@ def generate_hero(
                 seed = photo
                 provenance["seed_selection"] = "staged-asset"
                 provenance["seed_source"] = Path(seed_key).stem
+                _idea_hit = True
                 if theme == "riff-on-past-content":
                     provenance["riff_on"] = seed_key
         except Exception as e:  # noqa: BLE001 — falls through to sku-mapped lookup
@@ -3061,27 +3286,42 @@ def generate_hero(
         # the same deterministic Community Kitchen frame — we rotate through the fallbacks.
         candidates: list[str] = []
         primary = _resolve_asset_photo(product_id)
+        captions: dict[str, str] = {}
         if primary:
             candidates.append(primary)
             # Pull fallbacks from sku-photo-map for this SKU so the same product can
             # still look different when the brief changes (peaches → tacos → kitchen).
             try:
-                import json as _json
-
-                _map = _json.load(open("data/products/sku-photo-map.json"))
-                _entry = _map.get("map", {}).get(product_id, {})
-                for _fb in _entry.get("fallbacks", []) or []:
-                    if _fb not in candidates:
-                        candidates.append(_fb)
+                _entry = _load_sku_photo_map().get(product_id, {})
+                if isinstance(_entry, dict):
+                    _cap = _entry.get("caption")
+                    if isinstance(_cap, str) and _cap.strip():
+                        captions[primary] = _cap
+                    for _fb in _entry.get("fallbacks", []) or []:
+                        if _fb not in candidates:
+                            candidates.append(_fb)
             except Exception:
                 pass
+        # Brief-aware pick first: when the idea names something the pool can
+        # actually show (a caption/keystem word match), that seed wins over
+        # random rotation — "peaches" should not serve the taco frame. No
+        # overlap falls through to the existing pick, never worse than before.
+        photo_key = None
+        if candidates:
+            _idea = _brief_idea(brief_msg)
+            _match = _brief_seed_pick(
+                _idea, [(c, captions.get(c, "")) for c in candidates]
+            )
+            if _match is not None:
+                photo_key = _match
+                _idea_hit = True
+                print(f"[generate] brief-matched seed pick {photo_key} for idea {(_idea or '')[:40]!r}", file=sys.stderr)
         # Dynamic per-campaign: every invocation picks a fresh seed among the SKU's pool
         # so the same brief does not lock to one Community Kitchen frame — campaign images
         # are meant to be varied. Recipe stays deterministic via market|month|ingredient
         # rotation (recipe_card.py), so ingredients remain stable while campaigns vary.
         # Deterministic mode (KODIAK_DETERMINISTIC=1) keeps hash-based pick for tests.
-        photo_key = None
-        if candidates:
+        if photo_key is None and candidates:
             if os.getenv("KODIAK_DETERMINISTIC") == "1":
                 h = _stable_hash_int((brief_msg or "") + product_id)
                 photo_key = candidates[h % len(candidates)]
@@ -3125,6 +3365,22 @@ def generate_hero(
             )
             provenance["fallthrough_reason"] = "budget-exhausted"
 
+    # ---- idea honesty: record the free-text subject, and say so when no photo
+    # in any pool can show it. A restyle preserves its seed's composition, so
+    # "sea otters" over a kitchen frame is structurally impossible — the
+    # response must admit that instead of serving the frame silently. Only
+    # fills an empty fallthrough_reason; budget/similarity causes keep priority.
+    provenance["idea_subject"] = _brief_idea(brief_msg)
+    if (
+        provenance["idea_subject"]
+        and not _idea_hit
+        and provenance.get("fallthrough_reason") is None
+    ):
+        provenance["fallthrough_reason"] = (
+            f"idea-beyond-photo-pool ({provenance['idea_subject'][:60]}): "
+            "no pool photo matches the idea — served closest packshot/scene, "
+            "subject kept in scene direction"
+        )
     # ---- PACKSHOT-FIRST (compose-fix root-cause repair): if a real product BOX resolves
     # for this SKU, paste it VERBATIM over a background scene — NO generative step touches
     # those product pixels, so it structurally cannot render as bread or candy. This

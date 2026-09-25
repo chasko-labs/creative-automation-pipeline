@@ -12839,7 +12839,10 @@
     ],
     "yield": "12",
     "prepTime": "10 mins",
-    "cookTime": "12 mins"
+    "cookTime": "12 mins",
+    "featured_for": [
+      "apple cider"
+    ]
   },
   {
     "id": "apple-cinnamon-compote-pancakes",

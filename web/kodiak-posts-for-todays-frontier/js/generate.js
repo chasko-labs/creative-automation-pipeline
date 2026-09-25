@@ -428,6 +428,42 @@ let skuList = [
     return lines;
   };
   try{ window.KODIAK_provenanceHeuristics = provenanceHeuristics; }catch(e){}
+  // Scenic upgrade: when the preview lands with an idea no pool photo can
+  // show (idea_subject set, auto seed), paint the scene with SDXL Core and
+  // re-run the preview on it. Fire-and-forget — the fast preview stays
+  // visible meanwhile. One SDXL billing per brief per session; a second run
+  // for the same idea serves the published scene (backend seeded path).
+  // Skips: explicit visual picks (theme/staged seed), scenic already riding
+  // (seed_source names scenic), local/offline (no /generate to call).
+  /**
+   * @param {{idea?: unknown, seedSelection?: unknown, seedSource?: unknown}} prov
+   * @param {{brief: string, market: string, season?: string|null, status?: HTMLElement|null, rerun: ()=>void}} ctx
+   * @returns {void}
+   */
+  const maybeScenicUpgrade = (prov, ctx)=>{
+    try{
+      const idea = String(prov.idea || '');
+      if(!idea) return;
+      const sel = String(prov.seedSelection || '');
+      if(sel === 'theme-photo' || sel === 'staged-asset') return;
+      if(String(prov.seedSource || '').indexOf('scenic') !== -1) return;
+      const doneFor = window.__scenicDoneFor || {};
+      if(doneFor[ctx.brief]) return;
+      if(typeof window.fetch !== 'function') return;
+      if(ctx.status) ctx.status.textContent = 'Painting \u201c' + idea + '\u201d with SDXL — scenic background (up to ~3 min), preview stays put…';
+      const controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+      const timer = setTimeout(()=>{ try{ controller && controller.abort(); }catch(e){} }, 175000);
+      window.__scenicDoneFor = Object.assign({}, doneFor, {[ctx.brief]: true});
+      fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({mode:'scenic-bg', prompt: ctx.brief, market: ctx.market, ...(ctx.season ? {season: ctx.season} : {})}),
+        ...(controller ? {signal: controller.signal} : {})}).then(function(r){ clearTimeout(timer); return r.ok ? r.json() : null; }).then(function(sj){
+        if(!sj || !sj.ok || !sj.key) { if(ctx.status) ctx.status.textContent = 'Scenic background unavailable — keeping the fast preview.'; return; }
+        try{ window.__scenicSeedKey = String(sj.key); }catch(e){}
+        if(ctx.status) ctx.status.textContent = (sj.seeded ? 'Scene found — ' : 'Scene painted — ') + 'recomposing your preview on it…';
+        try{ ctx.rerun(); }catch(e){}
+      }).catch(function(){ clearTimeout(timer); if(ctx.status) ctx.status.textContent = 'Scenic background unavailable — keeping the fast preview.'; });
+    }catch(e){}
+  };
   // Preview extend polling (top level so tests share it): which tall/wide
   // tiles upgrade, which render is the 1x1 hero, and the mode=extend body.
   // Pure: renders + fields in, no DOM. Tested in preview-extend.test.mjs.
@@ -1842,7 +1878,9 @@ let skuList = [
         // recipe pairing reads it structurally, not from brief-text parsing.
         let themeList = /** @type {unknown[]} */ (wantTheme ? [wantTheme] : []);
         try{ themeList = orderThemes(wantTheme || null, (typeof window.__activeThemes==='function') ? window.__activeThemes() : []); }catch(e){}
-        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, layers: reqLayers, ...(wantTheme ? {theme: wantTheme} : {}), ...(themeList.length ? {themes: themeList} : {}), ...(activeSeason ? {season: activeSeason} : {}), ...(stagedKey ? {seed_key: stagedKey} : {})};
+        let scenicKey = null;
+        try{ scenicKey = window.__scenicSeedKey || null; }catch(e){}
+        const body = {prompt: brief, market: selectedLoc.market, product: productSlug, scope, layers: reqLayers, ...(wantTheme ? {theme: wantTheme} : {}), ...(themeList.length ? {themes: themeList} : {}), ...(activeSeason ? {season: activeSeason} : {}), ...(scenicKey && !stagedKey ? {seed_key: scenicKey} : {}), ...(stagedKey ? {seed_key: stagedKey} : {})};
         const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
         if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
         // isolate the parse so a malformed 200 body surfaces as a clear error (outer catch -> visible status)
@@ -1983,6 +2021,14 @@ let skuList = [
           // Passing platform_copy lets the build narrative say whether the copy
           // came from a live model or the on-brand template.
           renderProvenancePanel(json.provenance || {}, {brief, theme: json.theme || activeTheme, themeLabel: readyThemeLabel, market: selectedLoc.market, product: primarySlug, platformCopy: json.platform_copy || {}});
+          // Scenic upgrade: idea no pool photo can show -> paint it with SDXL
+          // and re-run on the scene. Fire-and-forget; backend field names are
+          // snake_case, the helper takes mapped shorts.
+          try{
+            const sprov = /** @type {{idea_subject?: unknown, seed_selection?: unknown, seed_source?: unknown}} */ ((json.provenance && typeof json.provenance === 'object') ? json.provenance : {});
+            maybeScenicUpgrade({idea: sprov.idea_subject, seedSelection: sprov.seed_selection, seedSource: sprov.seed_source},
+              {brief, market: selectedLoc.market, season: activeSeason || null, status, rerun: ()=>{ try{ btn.click(); }catch(e){} }});
+          }catch(e){}
           // per-platform messaging copy paints the deterministic fallback first, then
           // sharpens it through the separate bounded endpoint without hiding it.
           renderPlatformCopy(json.platform_copy);

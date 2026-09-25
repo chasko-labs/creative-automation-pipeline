@@ -152,6 +152,16 @@ run aws s3 sync "$ASSET_STORE_RECIPE_ART_S3_URI" "$WEB_SRC/recipe-art/" \
 	"${AWS_ARGS[@]}" --only-show-errors
 DIRS+=("recipe-art")
 
+# mirror asset store scenic-bg the same way. Scenic urls are permanent site
+# paths (/scenic-bg/<slug>/hero-1x1.png), never presigns. Fresh scenes land
+# on the next deploy with no script change. Honors DRY_RUN.
+ASSET_STORE_SCENIC_S3_URI="${ASSET_STORE_SCENIC_S3_URI:-s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/scenic-bg/}"
+mkdir -p "$WEB_SRC/scenic-bg"
+echo "[deploy-frontier] mirror scenic-bg: $ASSET_STORE_SCENIC_S3_URI -> $WEB_SRC/scenic-bg/"
+run aws s3 sync "$ASSET_STORE_SCENIC_S3_URI" "$WEB_SRC/scenic-bg/" \
+	"${AWS_ARGS[@]}" --only-show-errors
+DIRS+=("scenic-bg")
+
 # preflight: every asset directory must exist too, or the dir syncs below are
 # silent no-ops that leave the page 404ing on assets. Fail fast instead.
 for dir in "${DIRS[@]}"; do
