@@ -65,7 +65,7 @@ RETAILER_LOGO_CACHE_DIR = Path("/tmp/kodiak-assets/retailer-logos")
 OVERLAY_RETAILERS: tuple[str, ...] = ("costco", "publix", "target", "walmart")
 
 # Retailers with NO composable mark: direction ships as the copy-sidecar
-# retailer-framing line only (generate._THEME_COPY_HINT), never as pixels.
+# retailer-framing line only (scene_prompts._THEME_COPY_HINT), never as pixels.
 COPY_ONLY_RETAILERS: tuple[str, ...] = ("kroger", "heb", "whole-foods")
 
 # Overlay-path aliases. Deliberately SEPARATE from _RETAILER_ALIASES: the

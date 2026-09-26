@@ -13,7 +13,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from creative_automation import generate, text_rewriter
+from creative_automation import generate, stability_rungs, text_rewriter
 from creative_automation.context_pack import build_context_pack
 
 
@@ -33,7 +33,7 @@ def test_scene_prompt_contains_local_ingredient_not_camo_palette(tmp_path: Path)
     """Cincinnati September must surface pawpaws in the stability prompt, not generic camo."""
     brief = "— market: Cincinnati, Ohio 45202 · season: September · frontier: Lebanon, OH — Pawpaw season (Sep) · in-season: pawpaws"
     subject = generate._default_scene_prompt("Power Cakes", brief, "US-OH-CINCINNATI", "active families", None)
-    wrapped = generate._style_sandwich(subject)
+    wrapped = stability_rungs._style_sandwich(subject)
     # Must contain the local ingredient flavor, not collapse to generic
     assert "pawpaw" in wrapped.lower(), f"scene prompt must carry local ingredient pawpaws: {wrapped}"
     # Palette must not be camo-dominated green/brown blocks (guard lives in STYLE sandwich)

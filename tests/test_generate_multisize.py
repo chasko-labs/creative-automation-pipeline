@@ -17,6 +17,7 @@ from PIL import Image
 
 from creative_automation import bedrock_client
 from creative_automation import generate
+from creative_automation import stability_rungs
 
 
 def _png_bytes(size: tuple[int, int] = (1080, 1080), color=(180, 90, 30)) -> bytes:
@@ -161,7 +162,7 @@ def test_generate_hero_set_three_ratios_via_outpaint(tmp_path: Path, monkeypatch
     # one control-structure call + two composed outpaint extends (9x16, 16x9);
     # 4x5 is always the deterministic pad.
     assert generate.STABILITY_CONTROL_MODEL in invoked
-    assert invoked.count(generate.STABILITY_OUTPAINT_MODEL) == 2
+    assert invoked.count(stability_rungs.STABILITY_OUTPAINT_MODEL) == 2
     assert prov["ratios"]["4x5"] == "pillow-outpaint-fallback"
     assert prov["ratios"]["9x16"] == "stability-outpaint"
     assert prov["ratios"]["16x9"] == "stability-outpaint"
@@ -322,10 +323,10 @@ def test_stability_outpaint_uses_failfast_client_and_style_sandwich(tmp_path: Pa
     # extends bypass the ladder wall: the outpaint read budget (25s vs the
     # measured 20s model average) must ride along, never the 12s ladder cap
     # that starved outpaints into pads.
-    assert seen["read_timeout"] == generate.BEDROCK_OUTPAINT_READ_TIMEOUT_S == 25
-    assert seen["read_timeout"] > generate.BEDROCK_READ_TIMEOUT_S
-    assert seen["modelId"] == generate.STABILITY_OUTPAINT_MODEL
-    assert seen["prompt"].startswith(generate.STYLE_HEAD)
+    assert seen["read_timeout"] == stability_rungs.BEDROCK_OUTPAINT_READ_TIMEOUT_S == 25
+    assert seen["read_timeout"] > bedrock_client.BEDROCK_READ_TIMEOUT_S
+    assert seen["modelId"] == stability_rungs.STABILITY_OUTPAINT_MODEL
+    assert seen["prompt"].startswith(stability_rungs.STYLE_HEAD)
     with Image.open(out) as im:
         assert im.size == (1920, 1080)
 

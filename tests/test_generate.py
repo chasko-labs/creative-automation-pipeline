@@ -19,6 +19,7 @@ from PIL import ImageOps as _ImageOps
 
 from creative_automation import bedrock_client
 from creative_automation import generate
+from creative_automation import scene_prompts, stability_rungs
 
 _FIXTURE = Path(__file__).parent / "fixtures" / "asset_store-real-keys.txt"
 
@@ -85,7 +86,7 @@ def test_stability_control_hero_request_shape_and_write(tmp_path: Path, monkeypa
     assert set(body) == {"prompt", "image", "control_strength", "seed", "output_format"}
     assert "taskType" not in body
     assert "textToImageParams" not in body
-    assert body["prompt"] == generate._style_sandwich("restyle to wild frontier")
+    assert body["prompt"] == stability_rungs._style_sandwich("restyle to wild frontier")
     assert body["output_format"] == "png"
     assert body["control_strength"] == generate.STABILITY_CONTROL_STRENGTH
     # seed carried as base64 that decodes back to a PNG
@@ -95,9 +96,9 @@ def test_stability_control_hero_request_shape_and_write(tmp_path: Path, monkeypa
 def test_stability_upscales_below_floor_seed(tmp_path: Path, monkeypatch) -> None:
     # a seed below the 64px floor must be upscaled before encode (else ValidationException)
     tiny = _make_seed(tmp_path / "tiny.png", size=(32, 32))
-    b64 = generate._seed_b64_for_stability(tiny)
+    b64 = stability_rungs._seed_b64_for_stability(tiny)
     with Image.open(io.BytesIO(base64.b64decode(b64))) as img:
-        assert min(img.size) >= generate._STABILITY_MIN_DIM
+        assert min(img.size) >= stability_rungs._STABILITY_MIN_DIM
 
 
 def test_stability_returns_none_on_client_error(tmp_path: Path, monkeypatch) -> None:
@@ -120,19 +121,19 @@ def test_stability_returns_none_on_client_error(tmp_path: Path, monkeypatch) -> 
 # to the plain slug-to-words form. The mechanism is pinned with a synthetic entry
 # so a future partner theme cannot regress into a filter trip.
 def test_safe_theme_text_falls_through_with_empty_persona_map() -> None:
-    assert generate._THEME_PERSONA_MAP == {}
-    assert generate._safe_theme_text("wild-grizzly-bears") == "wild grizzly bears"
-    assert generate._safe_theme_text("wild-frontier") == "wild frontier"
+    assert scene_prompts._THEME_PERSONA_MAP == {}
+    assert scene_prompts._safe_theme_text("wild-grizzly-bears") == "wild grizzly bears"
+    assert scene_prompts._safe_theme_text("wild-frontier") == "wild frontier"
 
 
 def test_persona_mechanism_still_sanitizes_when_populated(monkeypatch) -> None:
     # synthetic entry only — proves the filter-safe indirection works if a
     # named-person theme ever returns; no real person ships in the map.
     monkeypatch.setitem(
-        generate._THEME_PERSONA_MAP, "example-person", "filter-safe persona text"
+        scene_prompts._THEME_PERSONA_MAP, "example-person", "filter-safe persona text"
     )
-    assert generate._safe_theme_text("example-person") == "filter-safe persona text"
-    out = generate._safe_prompt_text("Example Person morning energy. Keep It Wild.")
+    assert scene_prompts._safe_theme_text("example-person") == "filter-safe persona text"
+    out = scene_prompts._safe_prompt_text("Example Person morning energy. Keep It Wild.")
     assert "example person" not in out.lower()
     assert "filter-safe persona text" in out
     assert "Keep It Wild." in out
@@ -158,7 +159,7 @@ def test_default_scene_prompt_carries_wild_dispatch(monkeypatch) -> None:
 def test_safe_prompt_text_passes_through_when_no_celebrity() -> None:
     # a prompt with no named person is returned unchanged.
     brief = "wild mornings on the frontier — high-protein fuel. Keep It Wild."
-    assert generate._safe_prompt_text(brief) == brief
+    assert scene_prompts._safe_prompt_text(brief) == brief
 
 
 # --------------------------------------------------------------- generate_hero seam
@@ -400,8 +401,8 @@ def test_style_sandwich_default_has_no_mascot_block(monkeypatch) -> None:
     # and the module carries no mascot descriptor at all.
     monkeypatch.setenv("KODIAK_MASCOT_LOCK", "1")
     monkeypatch.setenv("KODIAK_MASCOT_DESCRIPTOR", "friendly bear mascot")
-    out = generate._style_sandwich("wild frontier restyle")
-    assert out == f"{generate.STYLE_HEAD}wild frontier restyle{generate.STYLE_TAIL}"
+    out = stability_rungs._style_sandwich("wild frontier restyle")
+    assert out == f"{stability_rungs.STYLE_HEAD}wild frontier restyle{stability_rungs.STYLE_TAIL}"
     assert not hasattr(generate, "MASCOT_DESCRIPTOR_BLOCK")
     assert not hasattr(generate, "_mascot_lock_on")
     assert not hasattr(generate, "_mascot_block")
@@ -411,15 +412,15 @@ def test_style_sandwich_default_has_no_mascot_block(monkeypatch) -> None:
 def test_bear_law_clause_request_driven() -> None:
     # Bear-free by default; the wild-grizzly-bears theme or a bear-naming
     # brief earns the constraint clause — never a mascot.
-    assert generate._bear_law_clause(None, "wild mornings") == ""
-    assert generate._bear_law_clause("us-ski-snowboard", "wild mornings") == ""
-    themed = generate._bear_law_clause("wild-grizzly-bears", "wild mornings")
+    assert scene_prompts._bear_law_clause(None, "wild mornings") == ""
+    assert scene_prompts._bear_law_clause("us-ski-snowboard", "wild mornings") == ""
+    themed = scene_prompts._bear_law_clause("wild-grizzly-bears", "wild mornings")
     assert themed and "no mascot" in themed and "human-free" in themed
     assert "friendly" not in themed and "amber" not in themed
-    briefed = generate._bear_law_clause(None, "grizzly country at dawn")
-    assert briefed == generate._BEAR_LAW_CLAUSE
+    briefed = scene_prompts._bear_law_clause(None, "grizzly country at dawn")
+    assert briefed == scene_prompts._BEAR_LAW_CLAUSE
     # "bear-brown timber" is palette language, not a bear request.
-    assert generate._bear_law_clause(None, "bear-brown timber and kraft tones") == ""
+    assert scene_prompts._bear_law_clause(None, "bear-brown timber and kraft tones") == ""
 
 
 def test_default_scene_prompt_bear_law_only_when_requested() -> None:
@@ -479,7 +480,7 @@ def test_style_sandwich_scrubs_brand_token() -> None:
     # proven 2026-09-10: any brand word in the stability prompt renders as
     # hallucinated pack copy ("KODA CAKTS"). the scrub removes the token and
     # its "on-brand" prefix; brand identity ships via composited asset store art.
-    p = generate._style_sandwich(
+    p = stability_rungs._style_sandwich(
         "Buttermilk Power Cakes family breakfast, Kodiak Cakes subscription, "
         "on-brand Kodiak"
     )

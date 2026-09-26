@@ -17,7 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from creative_automation.generate import _brief_setting_clause
+from creative_automation.scene_prompts import _brief_setting_clause
 
 REPO = Path(__file__).resolve().parents[1]
 MONTHS = [f"2026-{m:02d}" for m in range(1, 13)]

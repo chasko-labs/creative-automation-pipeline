@@ -34,13 +34,13 @@ from .generate import (
     _STABILITY_RUNG_ON,
     _stability_outpaint,
     _recipe_card_defaults,
-    _safe_prompt_text,
     _validate_recipe_fields,
     build_copy_sidecar,
     generate_hero,
     generate_hero_set,
     normalize_layers,
 )
+from .scene_prompts import _safe_prompt_text, _scenic_scene_text
 from .locales import resolve_target_languages
 from .platform_copy import (
     PlatformCopyValidationError,
@@ -1376,7 +1376,7 @@ def _handle_scenic_bg(data: dict[str, Any]) -> dict[str, Any]:
     frontend keeps its fast preview: a missing scene is never an error here.
     """
     from . import asset_store as _asset_store
-    from .generate import _brief_idea, _scenic_background, _scenic_scene_text
+    from .generate import _brief_idea, _scenic_background
 
     prompt = str(data.get("prompt") or "")
     idea = _brief_idea(_safe_prompt_text(prompt) if prompt else "")

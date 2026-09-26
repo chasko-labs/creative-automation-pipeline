@@ -14,6 +14,7 @@ from PIL import Image
 
 from creative_automation import bedrock_client
 from creative_automation import generate
+from creative_automation import scene_prompts
 
 PRIMARY = "wild-grizzly-bears"
 EXTRA = "localized-costco"
@@ -57,7 +58,7 @@ def test_combine_themes_unknown_raises_panel_flag_not_exception() -> None:
     assert combo["extras"] == []
     assert combo["unknown"] == ["nope-not-a-theme"]
     assert combo["panel_flag"] is not None
-    assert combo["panel_flag"].startswith(generate.PANEL_FLAG_THEME_MISMATCH)
+    assert combo["panel_flag"].startswith(scene_prompts.PANEL_FLAG_THEME_MISMATCH)
     assert "nope-not-a-theme" in combo["panel_flag"]
 
 
@@ -122,7 +123,7 @@ def test_nova_scene_prompt_offline_fallback_folds_extras(monkeypatch) -> None:
 
 # --------------------------------------- market lore in scene prompts (no raw codes)
 def test_market_scene_clause_names_produce_not_code() -> None:
-    clause = generate._market_scene_clause("US-MW-PARKCITY-84098", "September")
+    clause = scene_prompts._market_scene_clause("US-MW-PARKCITY-84098", "September")
     assert "US-MW-PARKCITY-84098" not in clause
     assert "the US-MW" not in clause
     assert "Park City" in clause
@@ -131,9 +132,9 @@ def test_market_scene_clause_names_produce_not_code() -> None:
 
 
 def test_market_scene_clause_unknown_market_is_empty() -> None:
-    assert generate._market_scene_clause("US-XX-NOWHERE", "September") == ""
-    assert generate._market_scene_clause(None, "September") == ""
-    assert generate._market_scene_clause("", "September") == ""
+    assert scene_prompts._market_scene_clause("US-XX-NOWHERE", "September") == ""
+    assert scene_prompts._market_scene_clause(None, "September") == ""
+    assert scene_prompts._market_scene_clause("", "September") == ""
 
 
 def test_market_scene_clause_survives_lambda_layout(monkeypatch, tmp_path) -> None:
@@ -153,7 +154,7 @@ def test_market_scene_clause_survives_lambda_layout(monkeypatch, tmp_path) -> No
         Path("data/localization/local-flavor.json").read_bytes()
     )
     monkeypatch.setenv("CAP_DATA_ROOT", str(tmp_path / "data"))
-    clause = generate._market_scene_clause("US-MW-PARKCITY-84098", "September")
+    clause = scene_prompts._market_scene_clause("US-MW-PARKCITY-84098", "September")
     assert "Park City" in clause
     assert "US-MW-PARKCITY-84098" not in clause
 
@@ -243,7 +244,7 @@ def test_generate_hero_combo_unknown_flags_panel_never_raises(
     )
     assert result.exists()
     assert prov["panel_flag"] is not None
-    assert prov["panel_flag"].startswith(generate.PANEL_FLAG_THEME_MISMATCH)
+    assert prov["panel_flag"].startswith(scene_prompts.PANEL_FLAG_THEME_MISMATCH)
     assert "bogus-theme-xyz" in prov["panel_flag"]
     assert prov["theme"] is None  # no known primary -> no theme driver
 

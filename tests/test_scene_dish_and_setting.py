@@ -13,10 +13,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from creative_automation.generate import (
-    _brief_setting_clause,
     _default_scene_prompt,
     _scene_prompt_source,
 )
+from creative_automation.scene_prompts import _brief_setting_clause
 from creative_automation.generate_lambda import _preview_dish_name
 
 MANHATTAN_BRIEF = (

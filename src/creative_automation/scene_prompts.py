@@ -2,7 +2,7 @@
 
 Brief clause builders, theme maps, scene prompts (Nova + deterministic),
 Nova Pro caption with budget gate. Transport via bedrock_client; generate.py
-re-exports every name here.
+imports only what it calls — outside code imports this module directly.
 """
 from __future__ import annotations
 

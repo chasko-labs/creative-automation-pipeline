@@ -27,7 +27,7 @@ import os
 import threading
 from pathlib import Path
 
-from creative_automation import art_director, generate, generate_lambda
+from creative_automation import art_director, director_voice, generate, generate_lambda
 
 
 def test_voice_flag_dark_by_default():
@@ -41,9 +41,9 @@ def test_grounded_director_requires_primary_voice_flag(monkeypatch):
     # the voice must still stay off unless the primary flag opts in.
     monkeypatch.delenv("KODIAK_DIRECTOR_GROUNDED", raising=False)
     monkeypatch.delenv("KODIAK_ARTDIRECTOR_ENABLED", raising=False)
-    assert generate._director_enabled() is False
+    assert director_voice._director_enabled() is False
     monkeypatch.setenv("KODIAK_ARTDIRECTOR_ENABLED", "true")
-    assert generate._director_enabled() is True
+    assert director_voice._director_enabled() is True
 
 
 def test_primary_flag_off_blocks_grounded_path_with_zero_transport(monkeypatch):

@@ -16,6 +16,7 @@ from PIL import Image
 from creative_automation import asset_store
 from creative_automation import generate
 from creative_automation import generate_lambda
+from creative_automation import scene_prompts
 
 
 def _tiny_png_b64() -> str:
@@ -43,7 +44,7 @@ class _FakeClient:
 
 
 def test_scenic_scene_text_leads_with_idea() -> None:
-    scene = generate._scenic_scene_text(
+    scene = scene_prompts._scenic_scene_text(
         "sea otters — season: September", "US-MW-PARKCITY-84098", "September"
     )
     assert scene.startswith("Photorealistic advertising photograph: sea otters")
@@ -51,12 +52,12 @@ def test_scenic_scene_text_leads_with_idea() -> None:
 
 
 def test_scenic_scene_text_empty_without_idea() -> None:
-    assert generate._scenic_scene_text("season: September") == ""
-    assert generate._scenic_scene_text(None) == ""
+    assert scene_prompts._scenic_scene_text("season: September") == ""
+    assert scene_prompts._scenic_scene_text(None) == ""
 
 
 def test_scenic_scene_text_scrubs_adversary() -> None:
-    scene = generate._scenic_scene_text("Zac Efron eating pancakes")
+    scene = scene_prompts._scenic_scene_text("Zac Efron eating pancakes")
     assert "Zac Efron" not in scene
 
 

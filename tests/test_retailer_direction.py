@@ -16,16 +16,17 @@ import pytest
 
 from creative_automation import bedrock_client
 from creative_automation import generate
+from creative_automation import scene_prompts
 
-_RETAILER_THEMES = sorted(generate._THEME_COPY_HINT)
+_RETAILER_THEMES = sorted(scene_prompts._THEME_COPY_HINT)
 
 
 def test_no_retailer_scene_hints():
     # defect 1: retailer direction must not steer the generated pixels.
     for slug in _RETAILER_THEMES:
-        assert slug not in generate._THEME_SCENE_HINT, slug
+        assert slug not in scene_prompts._THEME_SCENE_HINT, slug
     # only non-retailer scene dispatches remain.
-    assert set(generate._THEME_SCENE_HINT) == {"wild-grizzly-bears", "us-ski-snowboard"}
+    assert set(scene_prompts._THEME_SCENE_HINT) == {"wild-grizzly-bears", "us-ski-snowboard"}
 
 
 def test_copy_hints_cover_all_retailers_including_copy_only():
@@ -41,7 +42,7 @@ def test_copy_hints_cover_all_retailers_including_copy_only():
         "kroger",
         "heb",
     ):
-        framing = generate._THEME_COPY_HINT.get(slug)
+        framing = scene_prompts._THEME_COPY_HINT.get(slug)
         assert framing and len(framing) > 10, slug
 
 

@@ -2,7 +2,8 @@
 
 Control-structure restyle hero, outpaint extend, native-ratio routing, Pillow
 outpaint fallback, plus the seed/style/brief helpers they use. Bedrock
-transport comes from bedrock_client; generate.py re-exports every name here.
+transport comes from bedrock_client; generate.py imports only what it calls —
+outside code imports this module directly.
 """
 from __future__ import annotations
 

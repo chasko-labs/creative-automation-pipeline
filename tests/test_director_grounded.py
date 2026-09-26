@@ -198,7 +198,7 @@ def test_director_headline_refusal_falls_back(monkeypatch):
 
 def test_scrub_strips_markup_and_preamble():
     text = 'Here are the requested responses:\n- **"Fuel Your Wilder Days"**\n### Explanation:\nshort'
-    out = generate_mod._scrub_director_line(
+    out = director_voice._scrub_director_line(
         text, [{"id": "x", "caption": "Unrelated brand sentence here now"}]
     )
     assert out == "Fuel Your Wilder Days"
@@ -213,14 +213,14 @@ def test_scrub_drops_chatty_model_narration():
         "Rise and shine, frontier folks! Honest morning fuel.\n\n---\n\n"
         "This version captures the essence of the brand message."
     )
-    out = generate_mod._scrub_director_line(
+    out = director_voice._scrub_director_line(
         text, [{"id": "x", "caption": "Unrelated brand sentence here now"}]
     )
     assert out == "Kodiak - Fuel for Today's Frontier: Nourishment That Keeps It Wild"
 
 
 def test_scrub_rejects_example_echo():
-    out = generate_mod._scrub_director_line(
+    out = director_voice._scrub_director_line(
         "**Bear Bites for Cubs, Cinnamon Honey**",
         [{"id": "x", "caption": "Bear Bites for Cubs, cinnamon honey graham bears"}],
     )

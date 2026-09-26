@@ -3,7 +3,7 @@
 Grounded-director headline path: kill-switch, layout parse, house style,
 military quarantine, offline scrub, per-request opt-in, and the bounded
 _director_headline_text call (memo + leak-and-drain executor). generate.py
-re-exports every name here so existing importers and tests keep working;
+imports only what it calls — outside code imports this module directly;
 this module owns the code.
 """
 from __future__ import annotations

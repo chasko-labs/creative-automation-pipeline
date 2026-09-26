@@ -1,7 +1,7 @@
 """Recipe-card compose cluster — extracted from generate.py.
 
 Pillow card assembly: canvas table, kraft base, headline slab, zone drawing.
-generate.py re-exports every name here; this module owns the code.
+generate.py imports only what it calls; this module owns the code.
 """
 from __future__ import annotations
 

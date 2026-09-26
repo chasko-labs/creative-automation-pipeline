@@ -107,7 +107,7 @@ def test_fanout_composes_all_five_frames_concurrently(
 
     def _fake_native(seed_local, scene, ratio, dest, **kwargs):
         calls.append((ratio, kwargs.get("seed_value")))
-        Path(dest).write_bytes(_png_bytes(generate._NATIVE_RATIO_DIMS[ratio]))
+        Path(dest).write_bytes(_png_bytes(stability_rungs._NATIVE_RATIO_DIMS[ratio]))
         return Path(dest)
 
     monkeypatch.setattr(generate, "_stability_native_ratio", _fake_native)
@@ -129,7 +129,7 @@ def test_fanout_composes_all_five_frames_concurrently(
     assert out.exists()
     for ratio, path in siblings.items():
         assert path.exists(), ratio
-        assert Image.open(path).size == generate._NATIVE_RATIO_DIMS[ratio]
+        assert Image.open(path).size == stability_rungs._NATIVE_RATIO_DIMS[ratio]
     assert prov["native_ratios"] == {r: "stability-restyle-native" for r in siblings}
     assert len({c[1] for c in calls}) == 4  # stepped per-ratio seeds
 
@@ -141,7 +141,7 @@ def test_fanout_dead_sibling_keeps_the_1x1(tmp_path: Path, monkeypatch) -> None:
     def _flake(seed_local, scene, ratio, dest, **kwargs):
         if ratio == "16x9":
             raise RuntimeError("bedrock hiccup")
-        Path(dest).write_bytes(_png_bytes(generate._NATIVE_RATIO_DIMS[ratio]))
+        Path(dest).write_bytes(_png_bytes(stability_rungs._NATIVE_RATIO_DIMS[ratio]))
         return Path(dest)
 
     monkeypatch.setattr(generate, "_stability_native_ratio", _flake)

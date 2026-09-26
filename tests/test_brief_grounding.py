@@ -37,18 +37,18 @@ def test_brief_idea_strips_parenthetical_markers() -> None:
 
 
 def test_subject_clause_names_idea() -> None:
-    clause = generate._brief_subject_clause("sea otters — season: September")
+    clause = scene_prompts._brief_subject_clause("sea otters — season: September")
     assert "sea otters" in clause
     assert "MUST feature" in clause
 
 
 def test_subject_clause_empty_without_idea() -> None:
-    assert generate._brief_subject_clause("season: September") == ""
-    assert generate._brief_subject_clause(None) == ""
+    assert scene_prompts._brief_subject_clause("season: September") == ""
+    assert scene_prompts._brief_subject_clause(None) == ""
 
 
 def test_subject_clause_scrubs_adversary() -> None:
-    clause = generate._brief_subject_clause("Zac Efron eating pancakes — season: September")
+    clause = scene_prompts._brief_subject_clause("Zac Efron eating pancakes — season: September")
     assert "Zac Efron" not in clause
 
 
@@ -115,7 +115,7 @@ def test_nova_output_reattaches_dropped_idea(monkeypatch, tmp_path: Path) -> Non
     )
     seed = tmp_path / "seed.png"
     seed.write_bytes(b"fakepng")
-    # _seed_small_for_nova lives on scene_prompts (owner); generate re-exports it.
+    # _seed_small_for_nova lives on scene_prompts (owner).
     monkeypatch.setattr(scene_prompts, "_seed_small_for_nova", lambda src: (b"x", "png"))
     scene = generate._nova_pro_scene_prompt(
         seed, "Power Cakes", "christmas cats — season: Christmas", "us",
@@ -133,7 +133,7 @@ def test_nova_output_keeps_idea_without_dup(monkeypatch, tmp_path: Path) -> None
     )
     seed = tmp_path / "seed.png"
     seed.write_bytes(b"fakepng")
-    # _seed_small_for_nova lives on scene_prompts (owner); generate re-exports it.
+    # _seed_small_for_nova lives on scene_prompts (owner).
     monkeypatch.setattr(scene_prompts, "_seed_small_for_nova", lambda src: (b"x", "png"))
     scene = generate._nova_pro_scene_prompt(
         seed, "Power Cakes", "christmas cats", "us", "families",

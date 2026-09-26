@@ -2,8 +2,7 @@
 
 Fail-fast Converse client plus its timeout/region settings. bedrock_client
 owns the guarded boto import (with offline shims); stability_rungs and
-generate.py import from here. generate.py re-exports _bedrock_failfast_client
-so existing importers and tests keep working.
+generate.py import from here. Outside code imports bedrock_client directly.
 """
 from __future__ import annotations
 

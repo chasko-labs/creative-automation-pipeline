@@ -23,21 +23,15 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 from .platform_copy import clean_brand_copy
-# Director-voice headline cluster (extracted: owns the code; re-exported here
-# so existing importers, tests, and monkeypatch targets keep working).
+# Director-voice headline cluster (extracted: owns the code; imported here
+# only for use below — outside code imports director_voice directly).
 from .director_voice import (
     _DIRECTOR_LIVE_SOURCE,
     _DIRECTOR_TIMEOUT_S,
-    _LAYOUT_INLINE_RE,
-    _PREAMBLE_PATTERNS,
-    _REFUSAL_PHRASES,
-    _director_enabled,
     _director_headline_text,
     _parse_layout,
     _sanitize_military_headline,
-    _scrub_director_line,
     _title_case_headline,
-    _voice_requested,
 )
 # Card-compose cluster (extracted: owns the code; re-exported here so
 # existing importers and tests keep working).
@@ -52,78 +46,34 @@ from .card_compose import (
     _wrap_headline,
 )
 # Scene-prompt + Nova caption cluster (extracted: owns the code, except
-# _caption_with_budget which stays here on the ladder constants).
+# _caption_with_budget which stays here on the ladder constants). Imported
+# here only for use below — outside code imports scene_prompts directly.
 from .scene_prompts import (
     BEDROCK_NOVA_READ_TIMEOUT_S,
     NOVA_TEXT_MODEL,
-    PANEL_FLAG_THEME_MISMATCH,
-    _BEAR_LAW_CLAUSE,
-    _BEAR_PALETTE_RE,
-    _BEAR_TRIGGER_THEMES,
-    _BEAR_WORD_RE,
-    _IDEA_MARKERS,
-    _MONTH_NUM,
-    _NOVA_SEED_MAX_SIDE,
-    _OVERLAY_MARK_THEMES,
-    _RETIRED_PERSONA_MAP,
-    _THEME_ASSET_MAP_CACHE,
-    _THEME_ASSET_MAP_PATH,
     _THEME_COPY_HINT,
-    _THEME_PERSONA_MAP,
-    _THEME_SCENE_HINT,
-    _bear_law_clause,
     _brief_idea,
-    _brief_setting_clause,
-    _brief_subject_clause,
-    _combo_scene_suffix,
     _default_scene_prompt,
     _load_theme_asset_map,
-    _market_scene_clause,
-    _normalize_theme_slugs,
     _nova_pro_caption,
     _nova_pro_scene_prompt,
-    _resolve_theme_map_path,
-    _safe_prompt_text,
-    _safe_theme_text,
-    _scenic_scene_text,
-    _season_month,
-    _seed_small_for_nova,
-    _with_locale_and_bear,
     combine_themes,
 )
 # Shared Bedrock data-plane client (extracted: owns the code, including the
-# fail-fast constructor — patch bedrock_client, never this re-export).
+# fail-fast constructor — patch bedrock_client, never this module).
 from . import bedrock_client
-from .bedrock_client import (
-    BEDROCK_CONNECT_TIMEOUT_S,
-    BEDROCK_READ_TIMEOUT_S,
-    BEDROCK_REGION,
-    _bedrock_failfast_client,
-)
-# Stability + outpaint rungs (extracted: own the code; re-exported here so
-# existing importers and tests keep working).
+# Stability + outpaint rungs (extracted: own the code; imported here only
+# for use below — outside code imports stability_rungs directly).
 from .stability_rungs import (
-    BEDROCK_OUTPAINT_READ_TIMEOUT_S,
-    KODIAK_PALETTE,
     STABILITY_CONTROL_MODEL,
     STABILITY_CONTROL_STRENGTH,
-    STABILITY_OUTPAINT_MODEL,
     STABILITY_SEED,
-    STYLE_HEAD,
-    STYLE_TAIL,
-    _BRAND_SCRUB_RE,
-    _NATIVE_RATIO_DIMS,
-    _STABILITY_MAX_DIM,
-    _STABILITY_MIN_DIM,
-    _STABILITY_UPSCALE_TO,
     _control_for_brief,
     _pillow_outpaint_fallback,
-    _seed_b64_for_stability,
     _stability_control_hero,
     _stability_native_ratio,
     _stability_outpaint,
     _stable_hash_int,
-    _style_sandwich,
 )
 
 # boto3 lives in bedrock_client (single home): the client binding is read off
@@ -134,100 +84,7 @@ from .bedrock_client import (
     ClientError,
     ConnectTimeoutError,
     ReadTimeoutError,
-    _BotoConfig,
 )
-
-# Re-export surface for the extracted clusters above: external importers,
-# tests, and monkeypatch targets keep addressing these via generate.
-# (Ruff F401 treats __all__ members as re-exports.)
-__all__ = [
-    "BEDROCK_CONNECT_TIMEOUT_S",
-    "BEDROCK_NOVA_READ_TIMEOUT_S",
-    "BEDROCK_OUTPAINT_READ_TIMEOUT_S",
-    "BEDROCK_READ_TIMEOUT_S",
-    "BEDROCK_REGION",
-    "BotoCoreError",
-    "ClientError",
-    "ConnectTimeoutError",
-    "KODIAK_PALETTE",
-    "NOVA_TEXT_MODEL",
-    "PANEL_FLAG_THEME_MISMATCH",
-    "ReadTimeoutError",
-    "STABILITY_CONTROL_MODEL",
-    "STABILITY_CONTROL_STRENGTH",
-    "STABILITY_OUTPAINT_MODEL",
-    "STABILITY_SEED",
-    "STYLE_HEAD",
-    "STYLE_TAIL",
-    "_BRAND_SCRUB_RE",
-    "_BEAR_LAW_CLAUSE",
-    "_BEAR_PALETTE_RE",
-    "_BEAR_TRIGGER_THEMES",
-    "_BEAR_WORD_RE",
-    "_BotoConfig",
-    "_CANVAS",
-    "_DIRECTOR_LIVE_SOURCE",
-    "_DIRECTOR_TIMEOUT_S",
-    "_HEADLINE_PX",
-    "_IDEA_MARKERS",
-    "_KRAFT_BASE",
-    "_LAYOUT_INLINE_RE",
-    "_MONTH_NUM",
-    "_NATIVE_RATIO_DIMS",
-    "_NOVA_SEED_MAX_SIDE",
-    "_OVERLAY_MARK_THEMES",
-    "_PREAMBLE_PATTERNS",
-    "_REFUSAL_PHRASES",
-    "_RETIRED_PERSONA_MAP",
-    "_STABILITY_MAX_DIM",
-    "_STABILITY_MIN_DIM",
-    "_STABILITY_UPSCALE_TO",
-    "_THEME_ASSET_MAP_CACHE",
-    "_THEME_ASSET_MAP_PATH",
-    "_THEME_COPY_HINT",
-    "_THEME_PERSONA_MAP",
-    "_THEME_SCENE_HINT",
-    "_accent_hex",
-    "_bear_law_clause",
-    "_bedrock_failfast_client",
-    "_brief_idea",
-    "_brief_setting_clause",
-    "_brief_subject_clause",
-    "_combo_scene_suffix",
-    "_compose_recipe_card",
-    "_control_for_brief",
-    "_default_scene_prompt",
-    "_director_enabled",
-    "_director_headline_text",
-    "_hex_to_rgb",
-    "_load_theme_asset_map",
-    "_market_scene_clause",
-    "_normalize_theme_slugs",
-    "_nova_pro_caption",
-    "_nova_pro_scene_prompt",
-    "_parse_layout",
-    "_pillow_outpaint_fallback",
-    "_resolve_theme_map_path",
-    "_safe_prompt_text",
-    "_safe_theme_text",
-    "_sanitize_military_headline",
-    "_scenic_scene_text",
-    "_scrim_hex",
-    "_season_month",
-    "_seed_b64_for_stability",
-    "_seed_small_for_nova",
-    "_scrub_director_line",
-    "_stability_control_hero",
-    "_stability_native_ratio",
-    "_stability_outpaint",
-    "_stable_hash_int",
-    "_style_sandwich",
-    "_title_case_headline",
-    "_voice_requested",
-    "_with_locale_and_bear",
-    "_wrap_headline",
-    "combine_themes",
-]
 
 
 # ---------------------------------------------------------------- never-fail ladder
