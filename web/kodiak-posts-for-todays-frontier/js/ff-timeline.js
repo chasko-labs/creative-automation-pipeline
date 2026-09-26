@@ -43,7 +43,7 @@
       previewDone = true;
       set('preview','done');
       // what just finished (measured) + what is next (the reveal ungates Generate Campaign)
-      say('Preview ready' + (s===null?'':' in '+s+'s') + ' — Generate Campaign unlocked, full campaign is next.');
+      say('Preview ready' + (s===null?'':' in '+s+'s') + ' — recipe, languages, and preview images below. Full campaign is disabled for demo.');
       return;
     }
     say(t);

@@ -14,7 +14,7 @@ describe('timeline live stages (#283)', () => {
   it('preview open/close lines drive the clock, ready reports measured seconds', () => {
     expect(timeline).toMatch(/function onSampleText/);
     expect(timeline).toMatch(/tPreviewStart = Date\.now\(\)/);
-    expect(timeline).toMatch(/Preview ready.*in.*s.*Generate Campaign unlocked, full campaign is next/);
+    expect(timeline).toMatch(/Preview ready.*in.*s.*Full campaign is disabled for demo/);
   });
 
   it('full-campaign start/finish lines drive the generate node with measured seconds', () => {

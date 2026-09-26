@@ -42,6 +42,20 @@ describe('numbered collapse flow 6/7/8', () => {
     expect(sections).toMatch(/btn\.hidden = false/);
   });
 
+  it('demo guard: full-campaign button ships disabled and stays disabled', () => {
+    // both render paths (static index.html, JS fallback template) carry it.
+    expect(index).toMatch(/id="genFullCampaign" hidden disabled/);
+    expect(sections).toMatch(/id="genFullCampaign" hidden disabled/);
+    // reveal unhides but never enables; the finally cannot re-enable either.
+    expect(sections).toMatch(/btn\.disabled = true/);
+    expect(sections).toMatch(/DEMO_DISABLE_FULL_CAMPAIGN \? true : d/);
+    // the backend call refuses with the demo message before any fetch.
+    expect(sections).toMatch(/if\(DEMO_DISABLE_FULL_CAMPAIGN\)\{ if\(status0\)/);
+    // the reason is stated everywhere the button appears.
+    expect(sections).toMatch(/disabled for demo/);
+    expect(index).toMatch(/disabled for demo/);
+  });
+
   it('numbers live only in the status timeline (preview, generate, assets unnumbered)', () => {
     const timeline = index.slice(index.indexOf('id="progressTimeline"'), index.indexOf('id="resetDefaults"'));
     expect(timeline).toMatch(/<span class="ff-stepnum" aria-hidden="true">6<\/span>/);

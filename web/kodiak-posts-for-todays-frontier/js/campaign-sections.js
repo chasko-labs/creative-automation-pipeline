@@ -23,6 +23,11 @@
   // the action button stays hidden until a preview exists to approve. A gated
   // toggle is refused with the message instead of failing silently.
   var GATED_MSG = 'generate campaign to preview and approve, then try again';
+  // Demo guard: the full-campaign button is spend nobody asked for. It stays
+  // greyed out and the backend call refuses below; the preview (recipe +
+  // languages + preview images) is the deliverable.
+  var DEMO_DISABLE_FULL_CAMPAIGN = true;
+  var DEMO_MSG = 'Generate campaign preview gives you the recipe, languages, and uniquely generated preview images \u2014 full campaign is disabled for demo.';
   function mountSections(){
     // static-first: index.html now ships this markup collapsed, so first layout
     // already includes it. keep the injected template below as the fallback and
@@ -36,9 +41,9 @@
         '<summary aria-labelledby="generateCampaignHeading">'+
         '<span id="generateCampaignHeading" class="ff-output-heading">Generate Campaign</span>'+
         ' <span class="badge" id="generateCampaignLock">locked until preview</span></summary>'+
-        '<p class="hint" id="generateCampaignHint">The full campaign unlocks after your first preview — every ratio, every platform, localized to your chosen scope.</p>'+
+        '<p class="hint" id="generateCampaignHint">' + DEMO_MSG + '</p>'+
         '<div class="row" id="generateCampaignBtns">'+
-          '<button type="button" class="btn orange ff-campaign-primary" id="genFullCampaign" hidden>Generate full campaign</button>'+
+          '<button type="button" class="btn orange ff-campaign-primary" id="genFullCampaign" hidden disabled title="Disabled for demo">Generate full campaign</button>'+
         '</div>'+
         '<div class="hint" id="generateCampaignStatus" role="status" aria-live="polite"></div>'+
       '</details>'+
@@ -93,9 +98,9 @@
       var lock = document.getElementById('generateCampaignLock');
       if(lock) lock.hidden = true;
       var btn = document.getElementById('genFullCampaign');
-      if(btn) btn.hidden = false;
+      if(btn){ btn.hidden = false; if(DEMO_DISABLE_FULL_CAMPAIGN) btn.disabled = true; }
       var hint = document.getElementById('generateCampaignHint');
-      if(hint) hint.textContent = 'Your preview is ready. Generate the full campaign — every ratio, every platform, localized to your chosen scope.';
+      if(hint) hint.textContent = DEMO_MSG;
       ensurePulseStyle();
       // scroll into center so the user never has to hunt; pulse for attention (reduced-motion => no anim)
       try{ sec.scrollIntoView({behavior:'smooth', block:'center'}); }catch(e){ try{ sec.scrollIntoView(); }catch(e2){} }
@@ -267,10 +272,13 @@
 
   function setCampaignBtnsDisabled(d){
     var b = document.getElementById('genFullCampaign');
-    if(b) b.disabled = d;
+    // demo guard: never re-enable — the finally below must not ungrey the button.
+    if(b) b.disabled = DEMO_DISABLE_FULL_CAMPAIGN ? true : d;
   }
 
   async function runCampaign(){
+    var status0 = document.getElementById('generateCampaignStatus');
+    if(DEMO_DISABLE_FULL_CAMPAIGN){ if(status0) status0.textContent = DEMO_MSG; return; }
     // scope is chosen up-front in the scope-first segmented control (window.__campaignScope);
     // default to 'local' if the control has not initialized for any reason.
     var scope = window.__campaignScope || 'local';
