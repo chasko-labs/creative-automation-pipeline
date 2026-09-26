@@ -41,10 +41,12 @@
   function renderLocalizedCopy(market){
     if(!langLine) return;
     var langs = (typeof marketLangsFor==='function') ? marketLangsFor(market) : [];
-    var names = ['English'];
+    // English is inferred (source language) — list only the generated others,
+    // same rule as data-core's renderMarketLangs; empty means English only.
+    var names = [];
     (langs||[]).forEach(function(l){ if(l && l.lang_name && names.indexOf(l.lang_name)===-1) names.push(l.lang_name); });
     function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-    langLine.innerHTML = 'localized in languages: <b>' + esc(names.join(', ')) + '</b>';
+    langLine.innerHTML = 'localized in languages: <b>' + esc(names.length ? names.join(', ') : 'English') + '</b>';
     return;
   }
 

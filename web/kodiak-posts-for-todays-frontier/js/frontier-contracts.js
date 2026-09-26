@@ -709,6 +709,7 @@
  * @property {unknown} [productName]
  * @property {unknown} [provenance]
  * @property {unknown} [source]
+ * @property {boolean} [extendsPending] - pads read composing until extends settle
  */
 
 /**

@@ -64,6 +64,15 @@ describe('preview extend helpers', () => {
     expect(window.KODIAK_tileEngineMark(null)).toEqual({ text: '', cls: '' });
   });
 
+  it('no fallback wording while extends are pending: pads read composing, then settle', () => {
+    const gen = readFileSync(resolve(APP, 'js/generate.js'), 'utf8');
+    // initial paint marks pads composing only when the extend run follows.
+    expect(gen).toMatch(/extendsPending && _engines\[r\.ratio\]===.pillow-outpaint-fallback/);
+    expect(gen).toMatch(/extendsPending: true/);
+    // end sweep settles anything still composing to cover-pad — no stuck promises.
+    expect(gen).toMatch(/textContent === ' · composing'/);
+  });
+
   it('orders request themes primary-first, extras never dropped silently', () => {
     expect(window.KODIAK_orderThemes('b', ['a', 'b', 'c'])).toEqual(['b', 'a', 'c']);
     expect(window.KODIAK_orderThemes(null, ['a', 'b'])).toEqual(['a', 'b']);

@@ -314,6 +314,8 @@ interface Window {
   __campaignScope?: string;
   /** Monotonic Create-click sequence; a poll loop exits when it goes stale. */
   __ffRunSeq?: number;
+  /** True while a campaign preview run is in flight; recipe art waits on it. */
+  __ffPreviewBusy?: boolean;
   /**
    * Resting-showcase copy for a non-Park-City market (generate.js).
    * Null for Park City markets (the shipped example stays untouched).

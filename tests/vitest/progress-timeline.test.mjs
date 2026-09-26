@@ -38,6 +38,16 @@ describe('progress timeline', () => {
     expect(timeline).not.toMatch(/connecting to dynamodb|stable diffusion|dampack/i);
   });
 
+  it('header and timeline share the content width baseline, ultrawide tiers included', () => {
+    // .wrap baseline is 1100px (1440/1680 ultrawide): header and timeline
+    // ride the same caps so neither reads skinnier than the cards.
+    expect(css).toMatch(/\.kodiak-header \.header__inner\{[^}]*width:min\(1100px/);
+    expect(css).toMatch(/\.ff-timeline\.ff-timeline--under-header\{width:min\(1100px/);
+    expect(css).toMatch(/\.kodiak-header \.header__inner\{width:min\(1440px/);
+    expect(css).toMatch(/\.ff-timeline\.ff-timeline--under-header\{width:min\(1440px/);
+    expect(css).not.toMatch(/min\(1064px/);
+  });
+
   it('tracker styling reuses brand tokens', () => {
     expect(css).toMatch(/\.ff-timeline-steps li\[data-state="active"\][^}]*color:var\(--chocolate\)/);
     expect(css).toMatch(/\.ff-timeline-note:empty::before/);

@@ -42,4 +42,15 @@ describe('recipe art lazy-generate', () => {
     expect(window.KODIAK_recipeArtBody(null, 'technique')).toBe(null);
     expect(window.KODIAK_recipeArtBody('  ', 'finished_plate')).toBe(null);
   });
+
+  it('never fires mid-preview: waits on the busy flag, yields detached nodes, speaks human', () => {
+    const cards = readFileSync(resolve(APP, 'js/recipe-cards.js'), 'utf8');
+    // status text names the work, not the model or provider.
+    expect(cards).toMatch(/Painting recipe art/);
+    expect(cards).not.toMatch(/generating image using SDXL/);
+    // busy gate with a bound, and detached nodes yield to the live one.
+    expect(cards).toMatch(/window\.__ffPreviewBusy/);
+    expect(cards).toMatch(/waited > 240000/);
+    expect(cards).toMatch(/isConnected === false/);
+  });
 });

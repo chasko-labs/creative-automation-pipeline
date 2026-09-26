@@ -151,7 +151,7 @@
   }
   try { window.KODIAK_recipeArtBody = recipeArtBody; } catch (e) {}
   /** @type {string} */
-  var ART_GEN_STATUS = 'generating image using SDXL on Amazon Bedrock';
+  var ART_GEN_STATUS = 'Painting recipe art…';
   // one in-flight generation per zone node — a re-observed node never double-fires.
   /**
    * @param {unknown} recipeId
@@ -160,14 +160,28 @@
   function artGenKey(recipeId, artKey) { return String(recipeId) + '|' + String(artKey); }
   /** @type {Object<string, boolean>} */
   var artGenFired = {};
+  // true while a campaign preview run is in flight (generate.js sets it).
+  function previewBusy() { try { return !!window.__ffPreviewBusy; } catch (e) { return false; } }
   // swap a skeleton+status pair for the generated image. failure keeps the
   // placeholder: a missing drawing is never an error on the card face.
+  // never fires mid-preview: a generating campaign re-renders the card, which
+  // would flash status text and spend model calls under it. while busy the
+  // call waits (bounded); a node that left the document yields to the live
+  // one, which observes and fires for itself.
   /**
    * @param {HTMLElement} wrap
    * @param {string} recipeId
    * @param {string} artKey
+   * @param {number} [waitMs]
    */
-  function fireArtGen(wrap, recipeId, artKey) {
+  function fireArtGen(wrap, recipeId, artKey, waitMs) {
+    try { if (wrap && wrap.isConnected === false) return; } catch (e) {}
+    if (previewBusy()) {
+      var waited = (typeof waitMs === 'number') ? waitMs : 0;
+      if (waited > 240000) return;
+      setTimeout(function () { try { fireArtGen(wrap, recipeId, artKey, waited + 2000); } catch (e) {} }, 2000);
+      return;
+    }
     var key = artGenKey(recipeId, artKey);
     if (artGenFired[key]) return;
     artGenFired[key] = true;
@@ -178,6 +192,7 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     }).then(function (resp) { return resp.json(); }).then(function (json) {
+      try { if (wrap && wrap.isConnected === false) { delete artGenFired[key]; return; } } catch (e) {}
       if (!json || json.ok !== true || !json.url) throw new Error('no-url');
       var img = document.createElement('img');
       img.setAttribute('class', 'rc-artzone__art');
@@ -193,6 +208,7 @@
       var st = wrap.querySelector('.rc-art-status');
       if (st && st.parentNode) { st.parentNode.removeChild(st); }
     }).catch(function () {
+      try { if (wrap && wrap.isConnected === false) { delete artGenFired[artGenKey(recipeId, artKey)]; return; } } catch (e) {}
       var skel = wrap.querySelector('.rc-artzone__skeleton');
       if (skel) { wrap.replaceChild(makePlaceholderArt(), skel); }
       var st = wrap.querySelector('.rc-art-status');

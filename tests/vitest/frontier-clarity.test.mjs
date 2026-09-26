@@ -29,6 +29,11 @@ describe('frontier clarity', () => {
   it('never prepends inferred English to the generated languages', () => {
     expect(core).not.toMatch(/\['English'\]\.concat\(names\)/);
     expect(core).toMatch(/names\.length \? names\.join\(', '\) : 'English'/);
+    // the second writer (market-disclosure reflect path) follows the same rule.
+    // (topThreeLangsFor legitimately lists English — it is a picker, not the readout.)
+    const reflectFn = disclosure.slice(disclosure.indexOf('function renderLocalizedCopy'));
+    expect(reflectFn).not.toMatch(/var names = \['English'\]/);
+    expect(reflectFn).toMatch(/names\.length \? names\.join\(', '\) : 'English'/);
     expect(index).toMatch(/localized in languages: <b>Spanish, Portuguese<\/b>/);
   });
 });

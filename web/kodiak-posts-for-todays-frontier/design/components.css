@@ -886,13 +886,18 @@ header.kodiak-header{background-color:var(--chocolate);background-image:linear-g
 header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 /* 60px bar row; the badge floats absolute over the left margin (never in flow,
    never moving siblings). content column matches the timeline/panels wrapper
-   below: min(1064px,100%-36px) centered. */
-.kodiak-header .header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;box-sizing:border-box;width:min(1064px,calc(100% - 36px));height:60px;margin:0 auto;padding:0;background:transparent}
+   below and the .wrap content baseline: min(1100px,100%-36px) centered, with
+   the same ultrawide tiers as .wrap so the bar never reads skinnier. */
+.kodiak-header .header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;box-sizing:border-box;width:min(1100px,calc(100% - 36px));height:60px;margin:0 auto;padding:0;background:transparent}
+@media(min-width:1600px){.kodiak-header .header__inner{width:min(1440px,calc(100% - 36px))}}
+@media(min-width:2200px){.kodiak-header .header__inner{width:min(1680px,calc(100% - 36px))}}
 /* plate rides the bar row beside the badge with air above the blaze rule. */
 .kodiak-header .kodiak-headline-plate{flex:1 1 auto;min-width:0;margin-top:0;padding:6px 20px}
 @media(max-width:1279px){.kodiak-header .header__inner{height:auto;min-height:60px;flex-wrap:wrap;padding:8px 0 8px 16px}.kodiak-header .kodiak-headline-plate{flex:1 1 100%}}
 /* timeline under the header on the same shared wrapper, never inside the header. */
-.ff-timeline.ff-timeline--under-header{width:min(1064px,calc(100% - 36px));margin:10px auto var(--spacing-sm)}
+.ff-timeline.ff-timeline--under-header{width:min(1100px,calc(100% - 36px));margin:10px auto var(--spacing-sm)}
+@media(min-width:1600px){.ff-timeline.ff-timeline--under-header{width:min(1440px,calc(100% - 36px))}}
+@media(min-width:2200px){.ff-timeline.ff-timeline--under-header{width:min(1680px,calc(100% - 36px))}}
 /* No headline or timeline motion: the header is back to its static weeks-old
    standard. The reduce block elsewhere already kills all animation. */
 /* partner mark — hidden until the US Ski & Snowboard card is checked (JS toggles .is-on); tokenized spacing */
@@ -1816,7 +1821,7 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
   /* 1. header: weeks-old base rules govern (flex row, plate wraps below the
      badge with room). No desktop overrides — the badge spill, plate, and
      wordmark crossfade are untouched. The timeline width tracks the plate. */
-  .ff-timeline.ff-timeline--under-header{width:min(1064px,calc(100% - 36px))}
+  .ff-timeline.ff-timeline--under-header{width:min(1100px,calc(100% - 36px))}
   /* 2. slim timeline: single row, tighter reset */
   .ff-timeline{padding:6px 14px 4px;gap:6px 12px}
   .ff-reset{padding:5px 12px 5px 8px}

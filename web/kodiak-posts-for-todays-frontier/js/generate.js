@@ -1510,11 +1510,16 @@ let skuList = [
           // Per-tile engine mark: provenance.ratios names each tile's engine, so a
           // pillow pad never renders identically to a live outpaint. The 1x1
           // primary carries no mark — it is the real hero, not a derived tile.
+          // While extends are pending (extendsPending), pads read composing —
+          // never fallback: fallback wording appears only after every extend
+          // settles (see extendTallTiles' end sweep below).
           let engMark = '';
           try{
             const _penv = /** @type {{ratios?: unknown}} */ ((opts.provenance && typeof opts.provenance==='object') ? opts.provenance : {});
             const _engines = /** @type {Record<string, unknown>} */ ((_penv.ratios && typeof _penv.ratios==='object') ? _penv.ratios : {});
-            const _mark = tileEngineMark(_engines[r.ratio]);
+            const _mark = (opts.extendsPending && _engines[r.ratio]==='pillow-outpaint-fallback')
+              ? {text:' · composing', cls:'rt-extend'}
+              : tileEngineMark(_engines[r.ratio]);
             if(_mark.text) engMark = '<span class="rt-eng ' + _mark.cls + '">' + escapeHtml(_mark.text) + '</span>';
           }catch(e){}
           cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b>' +
@@ -1712,6 +1717,18 @@ let skuList = [
             // on "composing".
             setTileMark(ratio, ' · cover-pad', 'rt-pad');
           }));
+          // End sweep: anything still reading composing (extend never ran for
+          // it, or the run bailed early) settles to cover-pad — no tile may
+          // promise generation that already ended.
+          try{
+            document.querySelectorAll('#preview .render-tile .rt-extend').forEach(function(s){
+              if(s && s.textContent === ' · composing'){
+                s.textContent = ' · cover-pad';
+                s.classList.remove('rt-live');
+                s.classList.add('rt-pad');
+              }
+            });
+          }catch(e){}
         }catch(e){}
       };
       try{ window.KODIAK_extendTallTiles = extendTallTiles; }catch(e){}
@@ -2099,6 +2116,8 @@ let skuList = [
           // start failure (no routes, 500) falls back to the sync attempt
           // below unchanged; poll timeouts/errors render the miss card.
           const runToken = (window.__ffRunSeq = (window.__ffRunSeq || 0) + 1);
+          // recipe art waits on this: zones must not flash generate status mid-run.
+          try{ window.__ffPreviewBusy = true; }catch(e){}
           /** @type {any} */
           let json = null;
           let jobsDone = false;
@@ -2148,7 +2167,7 @@ let skuList = [
           const readyTheme = (json.theme || activeTheme) ? (' · theme: ' + readyThemeLabel) : '';
           if(Array.isArray(json.renders) && json.renders.length){
             // backend renders[] carries all five sizes (1x1 + pillow pads) — render every labeled tile.
-            showRenderSet(json.renders, {source: json.source, themeLabel: readyThemeLabel, provenance: json.provenance});
+            showRenderSet(json.renders, {source: json.source, themeLabel: readyThemeLabel, provenance: json.provenance, extendsPending: true});
             // tall/wide tiles upgrade from pads to composed pixels as extends land.
             try{ (window.KODIAK_extendTallTiles || extendTallTiles)(json.renders, {subject: brief, product: primarySlug, region: selectedLoc.market, theme: json.theme || activeTheme || null}); }catch(e){}
             const n = json.renders.length;
@@ -2252,6 +2271,7 @@ let skuList = [
         if(timeoutId) clearTimeout(timeoutId);
         stageTimers.forEach((t)=>{ try{ clearTimeout(t); }catch(e){} });
         if(tick) clearInterval(tick);
+        try{ window.__ffPreviewBusy = false; }catch(e){}
         const sk=document.getElementById('genSkeleton'); if(sk) sk.remove();
         document.querySelectorAll('.genSkeletonTile').forEach(t=>t.remove());
         lockControls(false);
