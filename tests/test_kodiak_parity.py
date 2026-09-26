@@ -38,7 +38,8 @@ EXPECTED_COPIES = {
     "src/creative_automation/scorecards.py": {"#3b2316", "#e8530e", "#1a3c34"},
     "src/creative_automation/enhance.py": {"#3b2316", "#e8530e"},
     "src/creative_automation/lockup.py": {"#3b2316", "#e8530e"},
-    "src/creative_automation/generate.py": {"#3b2316", "#e8530e", "#1a3c34", "#1a1110cc"},
+    "src/creative_automation/generate.py": {"#3b2316", "#e8530e", "#1a3c34"},
+    "src/creative_automation/card_compose.py": {"#1a1110cc", "#e8530e"},
     "src/creative_automation/api.py": {"#3b2316", "#e8530e", "#1a3c34"},
 }
 

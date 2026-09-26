@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import pytest
 
+from creative_automation import bedrock_client
 from creative_automation import generate
 
 _RETAILER_THEMES = sorted(generate._THEME_COPY_HINT)
@@ -48,7 +49,7 @@ def test_copy_hints_cover_all_retailers_including_copy_only():
 def test_scene_prompt_is_generic_for_retailer_themes_offline(slug, tmp_path, monkeypatch):
     # boto3 absent -> deterministic default_prompt, which must NOT carry any
     # retailer aisle/pack dispatch — the mark + sidecar carry the direction.
-    monkeypatch.setattr(generate, "boto3", None)
+    monkeypatch.setattr(bedrock_client, "boto3", None)
     src = tmp_path / "seed.png"
     src.write_bytes(b"\x89PNG\r\n\x1a\n" + b"\x00" * 64)
     prompt = generate._nova_pro_scene_prompt(

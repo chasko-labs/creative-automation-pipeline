@@ -48,7 +48,10 @@ _HAS_AWS_CREDS = bool(os.getenv("AWS_ACCESS_KEY_ID") or os.getenv("AWS_PROFILE")
 AWS_TRANSLATE_SUPPORTED = {
     "es","fr","zh","vi","ko","ar","pt","de","pl","so","tl","ht","ja","ru","am","hmn","bs","ilo","ne","my","nv"
 }
-# AWS Translate uses 'zh' for Chinese (simplified), 'tl' not supported? actually Translate supports tl -> no, Tagalog is 'tl' in some but Translate uses 'tl' for Tagalog? Check: Translate supports tl? We'll try, fallback anyway.
+# Language codes AWS Translate cannot serve (attempts would just burn a
+# network round-trip before falling back). Unknown codes are attempted —
+# the exception path below is the fallback.
+_AWS_TRANSLATE_UNSUPPORTED = frozenset({"ilo", "hmn", "nv"})
 
 DEFAULT_MARKET_LANGUAGES_PATH = Path("data/localization/market-languages.json")
 # also try absolute relative to repo
@@ -61,22 +64,12 @@ def _try_aws_translate(text: str, target_lang: str) -> str | None:
         return None
     if not _HAS_AWS_CREDS and not _ENABLE_CLOUD:
         return None
-    # Ilocano, Navajo, Somali, Hmong, Bosnian etc not supported by AWS Translate -> fallback to Nova directly
-    # We'll attempt anyway but if error codes unsupported language, fallback
-    # AWS Translate codes: zh for Chinese, we map.
+    # Languages AWS Translate cannot serve go straight to the Nova fallback.
+    # Every supported code maps 1:1 today (zh, bs, my included) — if a code
+    # ever diverges, replace the identity with a dict here, not a branch.
+    if target_lang in _AWS_TRANSLATE_UNSUPPORTED:
+        return None
     aws_code = target_lang
-    if target_lang == "zh":
-        aws_code = "zh"
-    elif target_lang == "ilo":
-        return None  # not supported, go to Nova
-    elif target_lang == "hmn":
-        return None
-    elif target_lang == "bs":
-        aws_code = "bs"
-    elif target_lang == "my":
-        aws_code = "my"
-    elif target_lang == "nv":
-        return None
     try:
         client = boto3.client("translate", region_name=TRANSLATE_REGION)
         resp = client.translate_text(Text=text, SourceLanguageCode="en", TargetLanguageCode=aws_code)

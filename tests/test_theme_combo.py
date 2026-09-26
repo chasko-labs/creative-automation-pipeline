@@ -12,6 +12,7 @@ from pathlib import Path
 
 from PIL import Image
 
+from creative_automation import bedrock_client
 from creative_automation import generate
 
 PRIMARY = "wild-grizzly-bears"
@@ -110,7 +111,7 @@ def test_default_scene_prompt_without_extras_unchanged() -> None:
 
 def test_nova_scene_prompt_offline_fallback_folds_extras(monkeypatch) -> None:
     # boto3 absent -> deterministic default path, extras still folded
-    monkeypatch.setattr(generate, "boto3", None)
+    monkeypatch.setattr(bedrock_client, "boto3", None)
     prompt = generate._nova_pro_scene_prompt(
         Path("seed.png"), "Power Cakes", "wild mornings", "us", "families",
         PRIMARY, [EXTRA],

@@ -9,7 +9,9 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from creative_automation import bedrock_client
 from creative_automation import generate
+from creative_automation import scene_prompts
 from creative_automation.recipe_card import _pick_recipe_detail
 
 
@@ -109,12 +111,12 @@ def test_nova_output_reattaches_dropped_idea(monkeypatch, tmp_path: Path) -> Non
         def converse(self, **kwargs):
             return {"output": {"message": {"content": [{"text": "Rustic wood table, warm glow"}]}}}
 
-    monkeypatch.setattr(
-        generate, "_bedrock_failfast_client", lambda **kwargs: _FakeNova()
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **kwargs: _FakeNova()
     )
     seed = tmp_path / "seed.png"
     seed.write_bytes(b"fakepng")
-    monkeypatch.setattr(generate, "_seed_small_for_nova", lambda src: (b"x", "png"))
+    # _seed_small_for_nova lives on scene_prompts (owner); generate re-exports it.
+    monkeypatch.setattr(scene_prompts, "_seed_small_for_nova", lambda src: (b"x", "png"))
     scene = generate._nova_pro_scene_prompt(
         seed, "Power Cakes", "christmas cats — season: Christmas", "us",
         "families", None, None, None, "US-MW-PARKCITY-84098", "Christmas",
@@ -127,12 +129,12 @@ def test_nova_output_keeps_idea_without_dup(monkeypatch, tmp_path: Path) -> None
         def converse(self, **kwargs):
             return {"output": {"message": {"content": [{"text": "Christmas cats in snow"}]}}}
 
-    monkeypatch.setattr(
-        generate, "_bedrock_failfast_client", lambda **kwargs: _FakeNova()
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **kwargs: _FakeNova()
     )
     seed = tmp_path / "seed.png"
     seed.write_bytes(b"fakepng")
-    monkeypatch.setattr(generate, "_seed_small_for_nova", lambda src: (b"x", "png"))
+    # _seed_small_for_nova lives on scene_prompts (owner); generate re-exports it.
+    monkeypatch.setattr(scene_prompts, "_seed_small_for_nova", lambda src: (b"x", "png"))
     scene = generate._nova_pro_scene_prompt(
         seed, "Power Cakes", "christmas cats", "us", "families",
         None, None, None, None, None,

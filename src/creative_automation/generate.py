@@ -9,7 +9,6 @@ mock/preview never reaches the UI. Nova Canvas is retired (Legacy) and is not a 
 """
 from __future__ import annotations
 
-import base64
 import concurrent.futures
 import csv
 import hashlib
@@ -24,34 +23,211 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 from .platform_copy import clean_brand_copy
+# Director-voice headline cluster (extracted: owns the code; re-exported here
+# so existing importers, tests, and monkeypatch targets keep working).
+from .director_voice import (
+    _DIRECTOR_LIVE_SOURCE,
+    _DIRECTOR_TIMEOUT_S,
+    _LAYOUT_INLINE_RE,
+    _PREAMBLE_PATTERNS,
+    _REFUSAL_PHRASES,
+    _director_enabled,
+    _director_headline_text,
+    _parse_layout,
+    _sanitize_military_headline,
+    _scrub_director_line,
+    _title_case_headline,
+    _voice_requested,
+)
+# Card-compose cluster (extracted: owns the code; re-exported here so
+# existing importers and tests keep working).
+from .card_compose import (
+    _CANVAS,
+    _HEADLINE_PX,
+    _KRAFT_BASE,
+    _accent_hex,
+    _compose_recipe_card,
+    _hex_to_rgb,
+    _scrim_hex,
+    _wrap_headline,
+)
+# Scene-prompt + Nova caption cluster (extracted: owns the code, except
+# _caption_with_budget which stays here on the ladder constants).
+from .scene_prompts import (
+    BEDROCK_NOVA_READ_TIMEOUT_S,
+    NOVA_TEXT_MODEL,
+    PANEL_FLAG_THEME_MISMATCH,
+    _BEAR_LAW_CLAUSE,
+    _BEAR_PALETTE_RE,
+    _BEAR_TRIGGER_THEMES,
+    _BEAR_WORD_RE,
+    _IDEA_MARKERS,
+    _MONTH_NUM,
+    _NOVA_SEED_MAX_SIDE,
+    _OVERLAY_MARK_THEMES,
+    _RETIRED_PERSONA_MAP,
+    _THEME_ASSET_MAP_CACHE,
+    _THEME_ASSET_MAP_PATH,
+    _THEME_COPY_HINT,
+    _THEME_PERSONA_MAP,
+    _THEME_SCENE_HINT,
+    _bear_law_clause,
+    _brief_idea,
+    _brief_setting_clause,
+    _brief_subject_clause,
+    _combo_scene_suffix,
+    _default_scene_prompt,
+    _load_theme_asset_map,
+    _market_scene_clause,
+    _normalize_theme_slugs,
+    _nova_pro_caption,
+    _nova_pro_scene_prompt,
+    _resolve_theme_map_path,
+    _safe_prompt_text,
+    _safe_theme_text,
+    _scenic_scene_text,
+    _season_month,
+    _seed_small_for_nova,
+    _with_locale_and_bear,
+    combine_themes,
+)
+# Shared Bedrock data-plane client (extracted: owns the code, including the
+# fail-fast constructor — patch bedrock_client, never this re-export).
+from . import bedrock_client
+from .bedrock_client import (
+    BEDROCK_CONNECT_TIMEOUT_S,
+    BEDROCK_READ_TIMEOUT_S,
+    BEDROCK_REGION,
+    _bedrock_failfast_client,
+)
+# Stability + outpaint rungs (extracted: own the code; re-exported here so
+# existing importers and tests keep working).
+from .stability_rungs import (
+    BEDROCK_OUTPAINT_READ_TIMEOUT_S,
+    KODIAK_PALETTE,
+    STABILITY_CONTROL_MODEL,
+    STABILITY_CONTROL_STRENGTH,
+    STABILITY_OUTPAINT_MODEL,
+    STABILITY_SEED,
+    STYLE_HEAD,
+    STYLE_TAIL,
+    _BRAND_SCRUB_RE,
+    _NATIVE_RATIO_DIMS,
+    _STABILITY_MAX_DIM,
+    _STABILITY_MIN_DIM,
+    _STABILITY_UPSCALE_TO,
+    _control_for_brief,
+    _pillow_outpaint_fallback,
+    _seed_b64_for_stability,
+    _stability_control_hero,
+    _stability_native_ratio,
+    _stability_outpaint,
+    _stable_hash_int,
+    _style_sandwich,
+)
 
-# Attempt boto3 import lazily — local-only mode still works without it
-try:
-    import boto3
-    from botocore.config import Config as _BotoConfig
-    from botocore.exceptions import (
-        BotoCoreError,
-        ClientError,
-        ConnectTimeoutError,
-        ReadTimeoutError,
-    )
-except ImportError:
-    boto3 = None  # type: ignore
-    _BotoConfig = None  # type: ignore
+# boto3 lives in bedrock_client (single home): the client binding is read off
+# that module at call time so tests patch ONE namespace. Exception classes are
+# stable identities — safe to bind here.
+from .bedrock_client import (
+    BotoCoreError,
+    ClientError,
+    ConnectTimeoutError,
+    ReadTimeoutError,
+    _BotoConfig,
+)
 
-    # Offline/no-boto shims so the never-503 ladder's except-tuple is always a valid
-    # exception set (catching these names must never itself raise a NameError).
-    class BotoCoreError(Exception):  # type: ignore[no-redef]
-        pass
-
-    class ClientError(Exception):  # type: ignore[no-redef]
-        pass
-
-    class ReadTimeoutError(Exception):  # type: ignore[no-redef]
-        pass
-
-    class ConnectTimeoutError(Exception):  # type: ignore[no-redef]
-        pass
+# Re-export surface for the extracted clusters above: external importers,
+# tests, and monkeypatch targets keep addressing these via generate.
+# (Ruff F401 treats __all__ members as re-exports.)
+__all__ = [
+    "BEDROCK_CONNECT_TIMEOUT_S",
+    "BEDROCK_NOVA_READ_TIMEOUT_S",
+    "BEDROCK_OUTPAINT_READ_TIMEOUT_S",
+    "BEDROCK_READ_TIMEOUT_S",
+    "BEDROCK_REGION",
+    "BotoCoreError",
+    "ClientError",
+    "ConnectTimeoutError",
+    "KODIAK_PALETTE",
+    "NOVA_TEXT_MODEL",
+    "PANEL_FLAG_THEME_MISMATCH",
+    "ReadTimeoutError",
+    "STABILITY_CONTROL_MODEL",
+    "STABILITY_CONTROL_STRENGTH",
+    "STABILITY_OUTPAINT_MODEL",
+    "STABILITY_SEED",
+    "STYLE_HEAD",
+    "STYLE_TAIL",
+    "_BRAND_SCRUB_RE",
+    "_BEAR_LAW_CLAUSE",
+    "_BEAR_PALETTE_RE",
+    "_BEAR_TRIGGER_THEMES",
+    "_BEAR_WORD_RE",
+    "_BotoConfig",
+    "_CANVAS",
+    "_DIRECTOR_LIVE_SOURCE",
+    "_DIRECTOR_TIMEOUT_S",
+    "_HEADLINE_PX",
+    "_IDEA_MARKERS",
+    "_KRAFT_BASE",
+    "_LAYOUT_INLINE_RE",
+    "_MONTH_NUM",
+    "_NATIVE_RATIO_DIMS",
+    "_NOVA_SEED_MAX_SIDE",
+    "_OVERLAY_MARK_THEMES",
+    "_PREAMBLE_PATTERNS",
+    "_REFUSAL_PHRASES",
+    "_RETIRED_PERSONA_MAP",
+    "_STABILITY_MAX_DIM",
+    "_STABILITY_MIN_DIM",
+    "_STABILITY_UPSCALE_TO",
+    "_THEME_ASSET_MAP_CACHE",
+    "_THEME_ASSET_MAP_PATH",
+    "_THEME_COPY_HINT",
+    "_THEME_PERSONA_MAP",
+    "_THEME_SCENE_HINT",
+    "_accent_hex",
+    "_bear_law_clause",
+    "_bedrock_failfast_client",
+    "_brief_idea",
+    "_brief_setting_clause",
+    "_brief_subject_clause",
+    "_combo_scene_suffix",
+    "_compose_recipe_card",
+    "_control_for_brief",
+    "_default_scene_prompt",
+    "_director_enabled",
+    "_director_headline_text",
+    "_hex_to_rgb",
+    "_load_theme_asset_map",
+    "_market_scene_clause",
+    "_normalize_theme_slugs",
+    "_nova_pro_caption",
+    "_nova_pro_scene_prompt",
+    "_parse_layout",
+    "_pillow_outpaint_fallback",
+    "_resolve_theme_map_path",
+    "_safe_prompt_text",
+    "_safe_theme_text",
+    "_sanitize_military_headline",
+    "_scenic_scene_text",
+    "_scrim_hex",
+    "_season_month",
+    "_seed_b64_for_stability",
+    "_seed_small_for_nova",
+    "_scrub_director_line",
+    "_stability_control_hero",
+    "_stability_native_ratio",
+    "_stability_outpaint",
+    "_stable_hash_int",
+    "_style_sandwich",
+    "_title_case_headline",
+    "_voice_requested",
+    "_with_locale_and_bear",
+    "_wrap_headline",
+    "combine_themes",
+]
 
 
 # ---------------------------------------------------------------- never-fail ladder
@@ -90,25 +266,6 @@ _STABILITY_RUNG_ON = os.getenv("KODIAK_ENABLE_STABILITY_RUNG", "1").strip().lowe
 # worst-case cost PLUS the C reservation; once the wall is crossed the probe is abandoned
 # (treated as no-seed / no-packshot) so the ladder still reaches rung C or D by ~24s.
 _PROBE_BUDGET_MS = int(os.getenv("GENERATE_PROBE_BUDGET_MS", "5000"))
-# Bedrock fail-fast: a dedicated bedrock-runtime client for the rung-B invoke_model only,
-# built with an explicit botocore Config so the old "38s then 503" becomes "12s then fall
-# to C". NO retries — a retry inside a 30s gateway cap is a budget killer.
-BEDROCK_READ_TIMEOUT_S = int(os.getenv("BEDROCK_READ_TIMEOUT_S", "12"))
-BEDROCK_CONNECT_TIMEOUT_S = int(os.getenv("BEDROCK_CONNECT_TIMEOUT_S", "3"))
-# Nova Pro fail-fast: the two rung-B vision calls (caption + scene-prompt) build the SAME
-# fail-fast bedrock-runtime client as the Stability invoke, but with a TIGHTER read
-# timeout so caption + scene-prompt + stability all fit under the ~24s soft budget. The
-# root-cause of the 33s silent gap was these two Converse calls on a bare client with NO
-# Config — one hung unbounded past the 30s gateway cap. Capped here, a slow Nova Pro
-# degrades gracefully (caption -> brief fallback, scene-prompt -> deterministic default).
-BEDROCK_NOVA_READ_TIMEOUT_S = int(os.getenv("BEDROCK_NOVA_READ_TIMEOUT_S", "6"))
-# Outpaint extend budget: the standalone mode:extend request bypasses the
-# 22s ladder wall (it does one outpaint + upload inside the 30s gateway
-# cap), so the 12s ladder read cap does NOT apply here. Measured 24h
-# Bedrock p-average is 20.0s (max 20.5s) — 25s lets the model answer
-# instead of degrading every tall/wide tile to a Pillow pad, with ~5s
-# headroom for S3 download/upload + response under the gateway cap.
-BEDROCK_OUTPAINT_READ_TIMEOUT_S = int(os.getenv("BEDROCK_OUTPAINT_READ_TIMEOUT_S", "25"))
 # Per-subcall rung-B budget reservations (ms): each Bedrock sub-call is entered ONLY while
 # remaining_ms() still covers that call's worst-case cost PLUS the rung-C reservation, so
 # no single sub-call can consume the budget rung C needs to return real pixels by ~24s.
@@ -120,7 +277,6 @@ _B_STABILITY_MS = int(os.getenv("GENERATE_B_STABILITY_MS", "13000"))
 # a floor rung. Kill-switch env read per call (default ON — every failure degrades
 # to stock Nova), so ops can flip it without a redeploy.
 _DIRECTOR_BUDGET_MS = int(os.getenv("GENERATE_DIRECTOR_BUDGET_MS", "10000"))
-_DIRECTOR_TIMEOUT_S = float(os.getenv("GENERATE_DIRECTOR_TIMEOUT_S", "8"))
 # Stock-caption reservation (ms): the Nova Pro caption fallback is entered ONLY while
 # remaining_ms() still covers its worst-case cost (the fail-fast read timeout) PLUS
 # the rung-C reservation. PROVEN IN PROD 2026-09-08: an un-gated caption after a
@@ -128,7 +284,6 @@ _DIRECTOR_TIMEOUT_S = float(os.getenv("GENERATE_DIRECTOR_TIMEOUT_S", "8"))
 # during finalize. On skip the headline falls to the raw brief (the documented
 # third fallback) with a skip log, same as a caption that returns empty.
 _CAPTION_BUDGET_MS = int(os.getenv("GENERATE_CAPTION_BUDGET_MS", "7000"))
-_DIRECTOR_LIVE_SOURCE = "bedrock:kodiak-artdirector"
 # Grounded-director concurrency (wall repair): the director voice (embed +
 # up to two invokes, ~8s worst case) used to run SERIALLY inside _headline —
 # after seed resolution, before rung B — so director + restyle alone exceeded
@@ -145,54 +300,8 @@ _DIRECTOR_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=2)
 # Leak-and-drain like the other pools: a thin-clock collect takes "" and the
 # worker drains on its own read timeout, writing nothing shared.
 _CAPTION_POOL = concurrent.futures.ThreadPoolExecutor(max_workers=1)
-# Refusal guard: a live voice model can still decline (junk retrieved examples make
-# refusal likely — PROVEN IN PROD 2026-09-08: hash-laden asset titles as in-voice
-# examples produced "I Can't Fulfill This Request" as the campaign headline). A
-# refusal is a failed attempt, not a headline — fall back to stock Nova.
-_REFUSAL_PHRASES = (
-    "i can't",
-    "i cannot",
-    "i'm sorry",
-    "i am sorry",
-    "as an ai",
-    "unable to",
-    "can't fulfill",
-    "can't help",
-    "won't be able",
-)
-# Lines containing these never reach the render — model meta-preambles, not copy.
-_PREAMBLE_PATTERNS = (
-    "here are",
-    "here is",
-    "here's a",
-    "requested",
-    "headline options",
-    "options:",
-    "explanation:",
-    # chatty-instruction-model openers/closers (Nova Micro narrates its work:
-    # "Sure, here's a rephrased version…" … "This version captures the essence…").
-    "sure,",
-    "rephrased version",
-    "captures the essence",
-)
 
 
-def _director_enabled() -> bool:
-    """Kill-switch for the grounded-director headline path. OFF unless opted in.
-
-    Requires BOTH flags: KODIAK_DIRECTOR_GROUNDED (legacy per-path switch,
-    default true) AND KODIAK_ARTDIRECTOR_ENABLED (primary voice switch,
-    default false). Cost incident 2026-09-23: flipping only the primary flag
-    left this path live because it keyed off the legacy flag alone — every
-    voice path must short-circuit on the one primary boolean.
-    """
-    grounded = os.getenv("KODIAK_DIRECTOR_GROUNDED", "true").strip().lower() in (
-        "1", "true", "yes", "on",
-    )
-    primary = os.getenv("KODIAK_ARTDIRECTOR_ENABLED", "false").strip().lower() in (
-        "1", "true", "yes", "on",
-    )
-    return grounded and primary
 # Restyled-background cache (asset prefix): the rung-A bg restyle costs ~10s of Bedrock,
 # which fits a preview but never a full set (base + pads + uploads must clear the same
 # 22s wall). The cache is content-addressed on (seed bytes + prompt inputs): a preview
@@ -225,9 +334,9 @@ def _restyle_cache_key(seed_bytes: bytes, product_name: str, brief_msg: str,
 def _restyle_cache_get(key: str, dest: Path) -> bool:
     """Fetch a cached restyle to dest. False on ANY failure (miss, creds, network)."""
     try:
-        if boto3 is None:
+        if bedrock_client.boto3 is None:
             return False
-        s3 = boto3.client("s3")
+        s3 = bedrock_client.boto3.client("s3")
         dest.parent.mkdir(parents=True, exist_ok=True)
         s3.download_file(_RESTYLE_CACHE_BUCKET, key, str(dest))
         return dest.exists() and dest.stat().st_size > 0
@@ -238,9 +347,9 @@ def _restyle_cache_get(key: str, dest: Path) -> bool:
 def _restyle_cache_put(key: str, src: Path) -> None:
     """Store a fresh restyle. Never raises — cache misses just cost a future restyle."""
     try:
-        if boto3 is None:
+        if bedrock_client.boto3 is None:
             return
-        s3 = boto3.client("s3")
+        s3 = bedrock_client.boto3.client("s3")
         s3.put_object(Bucket=_RESTYLE_CACHE_BUCKET, Key=key,
                       Body=src.read_bytes(), ContentType="image/png")
     except Exception as e:  # noqa: BLE001 — cache write never breaks the render
@@ -256,140 +365,6 @@ class _RungBBudgetSkip(Exception):
     """
 
 
-# Image engine: Bedrock Stability control-structure
-# (us.stability.stable-image-control-structure-v1:0) — seed a real asset photo and the
-# theme lands in the pixels (composition preserved, style restyled). Nova Pro
-# (amazon.nova-pro-v1:0, Converse) is the art-director: it writes the localized
-# headline AND the control-structure prompt that drives the restyle. Amazon Nova
-# Canvas is LEGACY/un-invokable — do not use. The Stability text-to-image generators
-# (stable-image-core, sd3-5-large, stable-image-ultra) are NOT granted yet — only the
-# seed-driven control-structure edit model is a path, and mode-3 always has a seed.
-NOVA_TEXT_MODEL = os.getenv("BEDROCK_NOVA_MODEL", "amazon.nova-pro-v1:0")
-# Stability control-structure is invoked via its INFERENCE-PROFILE id. The bare
-# stability.* id raises ValidationException — always use the us.stability.* profile.
-STABILITY_CONTROL_MODEL = os.getenv(
-    "BEDROCK_STABILITY_MODEL", "us.stability.stable-image-control-structure-v1:0"
-)
-# How strongly the seed composition constrains the restyle (0..1). 0.6 lets the
-# painterly style head dominate the seed photo's texture (0.7 kept too much
-# photographic gloss). Product identity is safe: the packshot composites via
-# Pillow from the real asset, never from restyled pixels.
-STABILITY_CONTROL_STRENGTH = float(os.getenv("BEDROCK_CONTROL_STRENGTH", "0.35"))
-# Brief-aware jitter so the same market/product/brief doesn't produce pixel-identical
-# oranges every time — small ±0.06 range on top of the 0.35 base, keyed by brief hash.
-def _stable_hash_int(text: str, nbytes: int = 4) -> int:
-    """Stable integer digest for deterministic mode. Builtin hash() is salted per
-    process (PYTHONHASHSEED), so it must never back KODIAK_DETERMINISTIC."""
-    return int.from_bytes(hashlib.sha256(text.encode("utf-8")).digest()[:nbytes], "big")
-
-
-def _control_for_brief(brief_msg: str | None) -> float:
-    base = STABILITY_CONTROL_STRENGTH
-    if os.getenv("KODIAK_DETERMINISTIC") == "1":
-        h = _stable_hash_int(brief_msg or "", 1)
-        jitter = (h / 255.0 - 0.5) * 0.12  # -0.06 .. +0.06 deterministic for tests
-        return max(0.2, min(0.6, base + jitter))
-    import random
-
-    # Dynamic per-campaign: base jitter + small per-invocation random so same brief varies
-    h = hash(brief_msg or "") & 0xFF
-    base_jitter = (h / 255.0 - 0.5) * 0.12
-    dyn_jitter = random.uniform(-0.03, 0.03)
-    return max(0.2, min(0.6, base + base_jitter + dyn_jitter))
-# Style sandwich (character-consistency pattern): frozen style head + varying subject
-# + frozen detail tail. Nova (or the brief fallback) supplies ONLY the subject; the
-# frozen ends keep every restyle/outpaint on-brand no matter what the subject says.
-# Brand palette rendered as COLOR LANGUAGE, not hex — diffusion models read
-# color words, not "#3B2316". Values traced to design/tokens/kodiak.json (single
-# source, drift-guarded by tests/test_kodiak_parity.py) and the contrast direction
-# in references/keep-it-wild/photography-direction.json ("cool rock + warm sunrise
-# vs #3B2316/#E8530E/#1A3C34 accent"). "on-brand earthy palette" alone was inert —
-# the model had no way to know what on-brand meant. Env-overridable like the other
-# style knobs.
-#   bear brown  #3B2316  deep roasted brown (warm base / shadow)
-#   blaze orange #E8530E high-contrast accent (single hero accent, sparingly)
-#   frontier green #1A3C34 evergreen / forest (cool balance)
-#   box parchment #F5EAD3 warm cream (highlight / negative space)
-# Wording note (2026-09-10, after a live render): describe the palette as a COLOR
-# GRADE, not as scene objects. "forest-green" rendered a literal pine forest and
-# "alpenglow / dawn light" rendered a large orange sunset sky — the model paints the
-# noun. So: brown/cream is the DOMINANT grade, green is a muted UNDERTONE (not a
-# forest), orange is a small ACCENT DETAIL (explicitly not the sky), light is warm
-# neutral daylight (not a sunset).
-KODIAK_PALETTE = os.getenv(
-    "KODIAK_PALETTE",
-    "warm natural daylight with soft cream and parchment highlights, gentle bear-brown "
-    "shadows, and a single small warm amber highlight detail; muted, photographic and "
-    "understated, no oversaturated color, no large green or brown flat color blocks, "
-    "no camouflage pattern",
-)
-STYLE_HEAD = os.getenv(
-    "KODIAK_STYLE_HEAD",
-    # no brand token in the image prompt: the model renders any brand word it
-    # sees as packaging glyphs and garbles it ("KODA CAKTS"). brand identity
-    # ships via the composited real asset store packshot/logo (Pillow), never pixels.
-    # Photographic editorial is the default: real light, real food, no painterly
-    # flat color blocks or camo-like patches. Palette is light-biased.
-    "Soft natural-light photographic editorial, documentary food photography, "
-    "shallow depth of field, real kitchen and market setting, photographic detail, "
-    f"{KODIAK_PALETTE}. Subject: ",
-)
-STYLE_TAIL = os.getenv(
-    "KODIAK_STYLE_TAIL",
-    # explicit anti-gibberish: control-structure preserves seed structure, so
-    # text-shaped regions in the seed photo restyle into fake lettering unless
-    # told otherwise. every surface blank and unmarked, no exceptions.
-    ". Absolutely no text of any kind — no words, no letters, no numbers, no "
-    "logos, no labels, no signage, no packaging copy, no readable or garbled "
-    "lettering. All packaging, paper, tags, and surfaces blank and unmarked.",
-)
-# Brand tokens scrubbed out of every stability-bound prompt (proven 2026-09-10:
-# the word in the prompt renders as hallucinated pack copy). Applied to the
-# whole assembled prompt so subject, scene hints, and bear-law clause are covered.
-_BRAND_SCRUB_RE = re.compile(r"(?i)(?:on-brand\s+)?\bkodiak(?:\s+cakes)?\b[\s-]*")
-# Bear law (brand standard): bears are NEVER a frozen mascot — no friendly
-# identical-every-render character, no cartoon/hand-drawn bears, no bear
-# touching product/packaging/logo, no people with bears in a tame frame, no
-# named bear. Three lawful treatments only: (1) logo/line-art raster pasted
-# post-render, never model-drawn; (2) wildlife photoreal — distant unposed
-# grizzly in wild Northern-Rockies-style habitat, human-free; (3) sign, not
-# animal — tracks, trail, scratched bark, no bear in frame. The clause below
-# is REQUEST-DRIVEN (wild-grizzly-bears theme or a bear-naming brief), never
-# injected by default — everyday packs stay bear-free.
-_BEAR_TRIGGER_THEMES = frozenset({"wild-grizzly-bears"})
-_BEAR_WORD_RE = re.compile(r"\b(bears?|grizzl(y|ies)|cubs?|bruins?)\b", re.IGNORECASE)
-# Palette language, not a bear request: "bear-brown timber/shadows" names the
-# brand color, never the animal. Stripped before the bear-word check so style
-# copy cannot summon a bear.
-_BEAR_PALETTE_RE = re.compile(r"bear[-\s]brown", re.IGNORECASE)
-_BEAR_LAW_CLAUSE = (
-    "Bear direction (brand law): no mascot, no cartoon or hand-drawn bear, no "
-    "bear touching product, packaging, or logo, no people with bears, no named "
-    "bear character. Bear presence only as a distant unposed photoreal grizzly "
-    "in wild Northern-Rockies-style habitat, human-free — otherwise bear sign "
-    "only: tracks, trail, scratched bark, no bear animal in frame."
-)
-
-
-def _bear_law_clause(theme: str | None, brief_msg: str | None) -> str:
-    """Brand-law bear direction, or "" when the request asks for no bear.
-
-    Request-driven: the wild-grizzly-bears theme, or a brief naming bears,
-    earns the constraint clause. Anything else renders bear-free — the model
-    is never handed bear identity by default.
-    """
-    if (theme or "").strip() in _BEAR_TRIGGER_THEMES:
-        return _BEAR_LAW_CLAUSE
-    if brief_msg and _BEAR_WORD_RE.search(_BEAR_PALETTE_RE.sub("", brief_msg)):
-        return _BEAR_LAW_CLAUSE
-    return ""
-
-
-# Seed discipline: derived seed = uniqueness (same brief re-renders vary by
-# market + season + day); pinned seed = reproducibility (ops sets
-# BEDROCK_STABILITY_SEED explicitly, or KODIAK_DETERMINISTIC=1 for tests).
-# The variations button still passes seed per call via seed_value.
-STABILITY_SEED = int(os.getenv("BEDROCK_STABILITY_SEED", "42"))
 _STABILITY_SEED_PINNED = "BEDROCK_STABILITY_SEED" in os.environ
 
 
@@ -411,39 +386,6 @@ def _request_seed(brief_msg: str | None, market: str | None = None,
     parts = [brief_msg or "", market or "", season or "", date_str]
     return _stable_hash_int("\x00".join(parts), 4)
 
-
-def _style_sandwich(subject: str) -> str:
-    """Wrap a varying subject in the frozen style ends. Idempotent.
-
-    Bear identity is NEVER injected here — the model draws no mascot, no
-    character, no logo. Request-driven bear direction (brand law) arrives
-    inside the subject itself via _bear_law_clause, upstream of this wrap.
-    """
-    subject = (subject or "").strip()
-    if subject.startswith(STYLE_HEAD):
-        assembled = subject
-    else:
-        assembled = f"{STYLE_HEAD}{subject}{STYLE_TAIL}"
-    # brand scrub last: no brand word ever reaches the image model.
-    scrubbed = _BRAND_SCRUB_RE.sub("", assembled)
-    return re.sub(r"\s{2,}", " ", scrubbed).strip()
-# Stability outpaint is invoked via its INFERENCE-PROFILE id (bare stability.* raises
-# ValidationException). Confirmed ACTIVE + AUTHORIZED + AVAILABLE in us-east-1. Only the
-# 9x16 and 16x9 ratios are DERIVED from the 1x1 control-structure hero via outpaint (two
-# extend calls); 4x5 is a deterministic Pillow cover-pad, never an outpaint. Schema mirrors
-# control-structure (Stability's
-# {prompt, image, left/right/up/down, output_format} — NOT Nova's taskType).
-STABILITY_OUTPAINT_MODEL = os.getenv(
-    "BEDROCK_STABILITY_OUTPAINT_MODEL", "us.stability.stable-outpaint-v1:0"
-)
-# Stability seed constraint: total pixels 4096..9437184, each dim >= 64. A real
-# 1024x1024 asset photo sits well inside the range; a seed below the floor in either
-# dim is upscaled to 1024x1024 before invoke to avoid a ValidationException.
-_STABILITY_MIN_DIM = 64
-_STABILITY_UPSCALE_TO = 1024
-_STABILITY_MAX_DIM = int(os.getenv("BEDROCK_STABILITY_SEED_MAX_SIDE", "1280"))
-# us-west-2 needs an inference profile for Nova Pro; us-east-1 invokes directly.
-BEDROCK_REGION = os.getenv("BEDROCK_REGION", "us-east-1")
 
 # Default brand hero: when a requested SKU has no asset of its own, we still owe the
 # campaign a real, on-brand Kodiak composite — so we compose on the flagship product
@@ -480,16 +422,6 @@ BRAND_FLOOR_SOURCE = "brand-floor"
 # rung D is unconditionally real Kodiak pixels with zero network.
 _BRAND_FLOOR_ASSET = Path(__file__).parent / "brand_assets" / "kodiak-primary-logo.png"
 
-# Canvas sizes per ISO ratio (social-3ratio.json). The real lifestyle photo fills
-# each frame as the cover background — no ellipse, no solid-color-only path.
-_CANVAS = {
-    "1x1": (1080, 1080),
-    "9x16": (1080, 1920),
-    "16x9": (1920, 1080),
-    # Delivery ratios (pinned v2 DoD): 4x5 portrait feed, 9x16 vertical, 16x9
-    # landscape, all cover-fit from the photographic base in full mode.
-    "4x5": (1080, 1350),
-}
 # The four delivery ratios returned by generate_hero_set, in response order (pinned
 # v2 DoD: 1:1 1080x1080, 4:5 1080x1350, 9:16 1080x1920, 16:9 1920x1080). 9x16 and
 # 16x9 are composed Stability outpaint extends of the 1x1 hero when the 22s wall
@@ -517,8 +449,6 @@ _OUTPAINT_BUDGET_MS = int(os.getenv("GENERATE_OUTPAINT_BUDGET_MS", "13000"))
 # extend plus all uploads provably fit; otherwise the request ships the pillow pad
 # and the extend story stays async (receipts under artifacts.async_extend).
 _OUTPAINT_RESERVE_MS = int(os.getenv("GENERATE_OUTPAINT_RESERVE_MS", "6000"))
-# Per-ratio headline slab size (C06: 56/64/72).
-_HEADLINE_PX = {"1x1": 56, "9x16": 64, "16x9": 72, "4x5": 60}
 
 # sku-photo-map: catalog handle -> best real lifestyle asset key (full key, NOT under
 # the asset-library/ prefix). Loaded once; the file ships in the deployment (Lambda-safe).
@@ -530,127 +460,13 @@ _SKU_PHOTO_MAP_PATH = Path(__file__).parents[2] / "data" / "products" / "sku-pho
 # theme-asset-map: theme-slug -> best real thematic asset key. Sibling of sku-photo-map,
 # same 3-candidate resolve pattern. A chip theme drives the IMAGE (theme wins over the
 # product default) — see generate_hero precedence.
-_THEME_ASSET_MAP_PATH = Path(__file__).parents[2] / "data" / "products" / "theme-asset-map.json"
-_scrim_hex = "#1A1110CC"  # tokens kodiak.color.semantic.overlay.scrim (warm ink)
-_accent_hex = "#E8530E"  # tokens kodiak.color.brand.blazeOrange
-
-# Persona sanitization: a theme slug naming a real person is REJECTED by Stability's
-# content filter (finish_reasons:["Filter reason: prompt"]) and by extension poisons
-# any Nova Pro scene prompt that echoes it. Map named-person slugs to a filter-safe
-# descriptive persona so the raw name NEVER reaches a prompt. Ordinary theme slugs
-# fall through to the plain slug-to-words form. Add entries as new named-person themes
-# appear — each is a one-line slug -> persona mapping. This map is PROMPT-ONLY; the
-# theme-asset-map seed-photo selection stays keyed on the raw slug (unchanged).
-# Currently empty (no named-person themes ship); the infrastructure stays so a
-# future partner theme cannot regress into a filter trip.
-_THEME_PERSONA_MAP: dict[str, str] = {
-}
-
-# Per-theme scene guidance for the Nova Pro control-structure restyle prompt. When a
-# theme has an entry here, its vivid scene description is folded into the art-director
-# prompt AND the deterministic fallback prompt so the restyle lands on-theme even with
-# no live Nova Pro. Entries stay GENERIC — no real person's name or likeness. For the
-# US Ski & Snowboard partner campaign this honors the real partnership (Milano Cortina
-# 2026, Park City, Kodiak Kitchen at the USANA Center of Excellence) without naming or
-# implying endorsement by any individual athlete.
-# Shared frontier palette, spelled out anywhere a hint names it: bear-brown timber
-# (#3B2316), frontier-green pine (#1A2F29), warm kraft paper (#C8A97E), cream
-# whole-grain tones, low golden morning sun. Every hint below is a complete
-# artist dispatch — setting, light, palette, material, composition — because a
-# bare noun ("on-brand Kodiak") means nothing to the model. No text, letters,
-# signage, or logos anywhere in frame: the model renders glyphs as gibberish.
-_THEME_SCENE_HINT: dict[str, str] = {
-    # unified wild angle: the KODIAK Bear + Keep It Wild conservation program are
-    # one story — grizzly habitat, Vital Ground corridor, frontier morning.
-    "wild-grizzly-bears": (
-        "grizzly-country meadow at first light, pine ridgeline in frontier-green "
-        "behind, low golden sun from frame left, bear-brown timber and kraft tones "
-        "in the foreground, wildflower meadow leading to distant peaks, visible "
-        "grain texture, Keep It Wild conservation mood, no bears in close-up, no text"
-    ),
-    "us-ski-snowboard": (
-        "Wasatch alpine dawn above Park City, fresh-snow ridgeline and pine in "
-        "frontier-green and white, cast-iron skillet with a protein stack steaming "
-        "in the lower third, cold blue-shadow light warming to gold at the ridge, "
-        "generic active winter athletes only with no faces and no real person, no text"
-    ),
-    # NOTE (retailer overlay wiring): retailer scene-hint entries were REMOVED
-    # here on purpose. Retailer direction no longer steers the generated pixels
-    # (aisle/pack cues risk baked pseudo-text and off-brand scenes); it ships as
-    # the composited logo mark (costco/publix/target/walmart via the retailer
-    # layer, asset store brands/retailers/logos/) + the copy-sidecar retailer-framing
-    # line (_THEME_COPY_HINT, which keeps every retailer incl. copy-only
-    # kroger/heb/whole-foods). Retailer themes fall through to the generic
-    # persona/brief prompt below.
-}
-
-# Per-retailer copy framing (#245): appended to the copy sidecar (txt + csv) when
-# the request theme names a retailer. The brand headline is never rewritten — the
-# retailer direction ships as its own sidecar line, visible in the downloadable
-# copy and echoed in the campaign panel via the brief's directions clause.
-_THEME_COPY_HINT: dict[str, str] = {
-    "localized-costco": "bulk Family Size value — warehouse-club aisle, stock-up trip",
-    "localized-publix": "neighborhood warmth — southern family table",
-    "localized-target": "everyday-family aisle — one-trip basket, modern everyday value",
-    "kodiak-subscription": "subscription cadence — front-door delivery, pantry always stocked",
-    "target": "everyday-family aisle — one-trip basket, modern everyday value",
-    "walmart": "everyday low price pantry stock-up — family value",
-    "whole-foods": "whole-ingredient shelf — ingredient-aware premium pantry",
-    "publix": "neighborhood warmth — southern family table",
-    "kroger": "family grocery run — fresh everyday value",
-    "heb": "texas family table — bold local flavor value",
-}
-
-
-def _safe_theme_text(theme_slug: str) -> str:
-    """Return prompt-safe descriptive text for a theme slug.
-
-    A named-person slug maps to its filter-safe persona (no real name); any other slug
-    falls back to the plain slug-to-words form. Only text destined for a PROMPT passes
-    through here — seed-photo selection remains keyed on the raw slug.
-    """
-    persona = _THEME_PERSONA_MAP.get(theme_slug)
-    if persona is not None:
-        return persona
-    return theme_slug.replace("-", " ")
 
 
 # Retired named-person slugs: no chip ships them, but a user can still TYPE the
 # name into the brief — and that raw token trips the Stability filter the same
 # way. Scrubbed to the same filter-safe persona so free text can never regress
 # into a filter trip.
-_RETIRED_PERSONA_MAP: dict[str, str] = {
-    "zac-efron": "energetic athletic young man, morning-fitness lifestyle vibe",
-}
 
-
-def _safe_prompt_text(prompt: str) -> str:
-    """Strip real celebrity names out of a free-text incoming prompt.
-
-    The frontend builds the prompt client-side and a user can type a real
-    person's display name (e.g. "Zac Efron") verbatim. That name reaches
-    Stability via brief_msg and trips the content filter
-    (finish_reasons:["Filter reason: prompt"]). For every named-person slug in
-    _THEME_PERSONA_MAP plus _RETIRED_PERSONA_MAP, replace the display name
-    ("Zac Efron") and the spaced-slug form ("zac efron") with the filter-safe
-    persona text, matching case-insensitively. Ordinary prompts with no named
-    person pass through unchanged.
-    """
-    out = prompt
-    for slug, persona in {**_THEME_PERSONA_MAP, **_RETIRED_PERSONA_MAP}.items():
-        words = slug.split("-")
-        display_name = " ".join(words).title()  # "zac-efron" -> "Zac Efron"
-        spaced_slug = " ".join(words)  # "zac efron"
-        for needle in (display_name, spaced_slug):
-            # case-insensitive replace without regex: scan lowercased copy for the span
-            lowered = out.lower()
-            target = needle.lower()
-            start = lowered.find(target)
-            while start != -1:
-                out = out[:start] + persona + out[start + len(needle):]
-                lowered = out.lower()
-                start = lowered.find(target)
-    return out
 
 # Where real source assets live on disk.
 _ASSET_ROOTS = (Path("input_assets"), Path("data/raw-ingest"))
@@ -684,11 +500,6 @@ except Exception:  # noqa: BLE001 — import-time palette fallback; module must 
         ("#3B2316", "#1A3C34"),
         ("#E8530E", "#3B2316"),
     ]
-
-
-def _hex_to_rgb(h: str) -> tuple[int, int, int]:
-    h = h.lstrip("#")
-    return tuple(int(h[i : i + 2], 16) for i in (0, 2, 4))  # type: ignore[return-value]
 
 
 # --------------------------------------------------------------- SKU -> photo resolver
@@ -755,47 +566,6 @@ def _resolve_asset_photo(product_id: str) -> str | None:
 
 
 # ------------------------------------------------------------- theme -> photo resolver
-_THEME_ASSET_MAP_CACHE: dict | None = None
-
-
-def _resolve_theme_map_path() -> Path:
-    """Pick the theme-asset-map path that exists under the current install layout.
-
-    Candidate order (first existing wins), mirroring _resolve_map_path:
-      a. $THEME_ASSET_MAP_PATH (Lambda points this at the shipped copy in /var/task)
-      b. Path(__file__).parents[2]/data/products/theme-asset-map.json (repo checkout)
-      c. Path(__file__).parent/data/theme-asset-map.json (map packaged with the module)
-    Falls back to the parents[2] default even if absent, so a load failure names a
-    sensible path in its error message.
-    """
-    candidates: list[Path] = []
-    env = os.getenv("THEME_ASSET_MAP_PATH")
-    if env:
-        candidates.append(Path(env))
-    candidates.append(_THEME_ASSET_MAP_PATH)
-    candidates.append(Path(__file__).parent / "data" / "theme-asset-map.json")
-    for c in candidates:
-        if c.exists():
-            return c
-    return _THEME_ASSET_MAP_PATH
-
-
-def _load_theme_asset_map() -> dict:
-    """Load the theme-asset-map once. Returns the {theme-slug: entry} map.
-
-    Module-level cache. Returns an empty dict on any read/parse failure so the
-    caller falls through to the existing product precedence.
-    """
-    global _THEME_ASSET_MAP_CACHE
-    if _THEME_ASSET_MAP_CACHE is not None:
-        return _THEME_ASSET_MAP_CACHE
-    try:
-        data = json.loads(_resolve_theme_map_path().read_text(encoding="utf-8"))
-        _THEME_ASSET_MAP_CACHE = data.get("map", {}) if isinstance(data, dict) else {}
-    except Exception as e:  # noqa: BLE001 — missing/unreadable map -> product fallback
-        print(f"[generate] theme-asset-map load skipped: {e}", file=sys.stderr)
-        _THEME_ASSET_MAP_CACHE = {}
-    return _THEME_ASSET_MAP_CACHE
 
 
 def _resolve_theme_photo(theme_slug: str) -> str | None:
@@ -816,101 +586,8 @@ def _resolve_theme_photo(theme_slug: str) -> str | None:
     return None
 
 
-# Panel flag raised when a request names a theme the map cannot honor.
-PANEL_FLAG_THEME_MISMATCH = "theme-mismatch"
-
-
-def _normalize_theme_slugs(themes) -> list[str]:
-    """Normalize a themes input (list/tuple or comma-separated string) to slugs."""
-    if themes is None:
-        return []
-    if isinstance(themes, str):
-        raw = themes.split(",")
-    else:
-        try:
-            raw = list(themes)
-        except TypeError:
-            return []
-    out: list[str] = []
-    for item in raw:
-        slug = str(item or "").strip().lower()
-        if slug and slug not in out:
-            out.append(slug)
-    return out
-
-
 # Theme slugs whose direction ships as a logo-mark overlay + copy line, never as
 # pixel-prompt scene text (retailer-aisle decision 2026-09-20).
-_OVERLAY_MARK_THEMES: frozenset[str] = frozenset({
-    "localized-costco", "localized-publix", "localized-target",
-    "target", "walmart", "whole-foods", "publix", "kroger", "heb",
-    "kodiak-subscription",
-})
-
-
-def combine_themes(themes) -> dict:
-    """Multi-theme combination rule (deterministic, offline).
-
-    One primary theme drives seed + scene: the FIRST requested slug that
-    resolves in the theme-asset-map. Every other KNOWN slug maps to an
-    overlay layer (its scene hint folded into the scene prompt) plus a copy
-    line (its copy framing folded into the copy sidecar). UNKNOWN slugs map
-    to nothing renderable — they raise a panel flag on the mismatch path
-    (provenance["panel_flag"]) instead of raising or silently dropping.
-
-    Returns {"themes", "primary", "extras", "overlay_layers", "copy_lines",
-    "unknown", "panel_flag"} — panel_flag is None when every slug resolved.
-    """
-    slugs = _normalize_theme_slugs(themes)
-    known = [s for s in slugs if _load_theme_asset_map().get(s) is not None]
-    unknown = [s for s in slugs if s not in known]
-    primary = known[0] if known else None
-    extras = known[1:]
-    overlay_layers = []
-    for slug in extras:
-        # Retailer/mark themes never steer pixels — their direction ships as a
-        # logo-mark overlay layer + copy-sidecar framing line, never scene text.
-        if slug in _OVERLAY_MARK_THEMES:
-            overlay_layers.append({"theme": slug, "scene": "", "mark": True})
-            continue
-        hint = _THEME_SCENE_HINT.get(slug, "")
-        overlay_layers.append(
-            {"theme": slug, "scene": hint or _safe_theme_text(slug)}
-        )
-    copy_lines = []
-    for slug in extras:
-        framing = _THEME_COPY_HINT.get(slug)
-        copy_lines.append(
-            {"theme": slug, "framing": framing or f"theme direction: {_safe_theme_text(slug)}"}
-        )
-    panel_flag = (
-        f"{PANEL_FLAG_THEME_MISMATCH}: unknown theme(s): {', '.join(unknown)}"
-        if unknown
-        else None
-    )
-    return {
-        "themes": slugs,
-        "primary": primary,
-        "extras": extras,
-        "overlay_layers": overlay_layers,
-        "copy_lines": copy_lines,
-        "unknown": unknown,
-        "panel_flag": panel_flag,
-    }
-
-
-def _combo_scene_suffix(combo: dict | None) -> str:
-    """Scene-prompt suffix layering the combo extras over the primary scene."""
-    if not combo:
-        return ""
-    parts = []
-    for layer in combo.get("overlay_layers", []) or []:
-        # mark-only layers carry no scene text — their direction ships via the
-        # logo overlay + copy sidecar, never the pixel prompt.
-        if not (layer.get("scene") or "").strip():
-            continue
-        parts.append(f"Also layering {layer['theme']}: {layer['scene']}.")
-    return (" " + " ".join(parts)) if parts else ""
 
 
 def _mock_hero(product_name: str, brief_msg: str, region: str, out_path: Path, idx: int = 0) -> Path:
@@ -1069,162 +746,6 @@ def _find_source_asset(product_id: str, product_name: str, deadline_ms=None) -> 
     return None
 
 
-_NOVA_SEED_MAX_SIDE = int(os.getenv("BEDROCK_NOVA_SEED_MAX_SIDE", "1024"))
-
-
-def _seed_small_for_nova(src: Path) -> tuple[bytes, str]:
-    """Downscaled RGB JPEG of the seed for Nova Converse vision calls.
-
-    Root-cause repair: hero-real seeds are 2400px/15MB+ PNGs and Converse drops
-    image payloads over ~3.75MB (connection closed locally, hang-to-timeout in
-    Lambda) — which starved rung B of its scene-prompt and rung C of its caption.
-    1024px JPEG is ~100-200KB: same art-direction signal, fits every timeout.
-    """
-    img = Image.open(src).convert("RGB")
-    if max(img.size) > _NOVA_SEED_MAX_SIDE:
-        img.thumbnail((_NOVA_SEED_MAX_SIDE, _NOVA_SEED_MAX_SIDE), Image.LANCZOS)
-    from io import BytesIO
-
-    buf = BytesIO()
-    img.save(buf, "JPEG", quality=82)
-    return buf.getvalue(), "jpeg"
-
-
-def _nova_pro_caption(
-    src: Path, product_name: str, brief_msg: str, region: str, audience: str
-) -> str | None:
-    """Ask Nova Pro (Converse) for a short on-brand caption + layout hint. None on failure."""
-    if boto3 is None:
-        return None
-    try:
-        img_bytes, fmt = _seed_small_for_nova(src)
-    except (OSError, ValueError):
-        return None
-    try:
-        client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
-        prompt = (
-            f"You are an ad art director. Product: '{product_name}'. Region: {region}. "
-            f"Audience: {audience}. Campaign vibe: {brief_msg}. "
-            "Look at the product image and reply with ONE short on-brand headline "
-            "(max 6 words) on the first line, then one line 'LAYOUT: <left|right|center>' "
-            "naming which side to leave as negative space for the product. No other text. "
-            "Brand law: never write the bare words KODIAK or Kodiak — the only allowed "
-            "brand namings are 'Kodiak Cakes' and 'Kodiak Park City'. Never use military, "
-            "recruitment, or 'LISTEN UP' language — warm agricultural frontier marketplace "
-            "vibe only. Headline must be warm and inviting, not commanding."
-        )
-        resp = client.converse(
-            modelId=NOVA_TEXT_MODEL,
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {"image": {"format": fmt, "source": {"bytes": img_bytes}}},
-                        {"text": prompt},
-                    ],
-                }
-            ],
-            inferenceConfig={"maxTokens": 120},
-        )
-        return resp["output"]["message"]["content"][0]["text"].strip()
-    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — silent fallback
-        print(f"[generate] Nova Pro unavailable, falling back: {e}", file=sys.stderr)
-        return None
-
-
-def _caption_with_budget(src, product_name, brief_msg, region, audience, remaining_ms=None) -> str:
-    """Stock Nova caption behind the wall clock, with start/done latency logs.
-
-    Entered ONLY while remaining_ms() still covers the caption's worst-case cost
-    (_CAPTION_BUDGET_MS) PLUS the rung-C reservation, so a slow caption can never
-    starve rung C. remaining_ms None = no clock (tests/offline) -> always attempt.
-    Returns "" on skip or failure so callers fall through to the raw brief.
-    """
-    if remaining_ms is not None and remaining_ms() < _CAPTION_BUDGET_MS + _C_RESERVATION_MS:
-        print(
-            f"[generate] nova caption skipped (budget {remaining_ms():.0f}ms < "
-            f"{_CAPTION_BUDGET_MS + _C_RESERVATION_MS}ms) -> brief fallback",
-            file=sys.stderr,
-        )
-        return ""
-    _t0 = time.monotonic()
-    caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
-    _dt = (time.monotonic() - _t0) * 1000.0
-    print(
-        f"[generate] nova caption {'ok' if caption else 'empty'} latency={_dt:.0f}ms",
-        file=sys.stderr,
-    )
-    return caption
-
-
-def _brief_setting_clause(brief_msg: str | None) -> str:
-    """Compact setting directive parsed from the brief's curated markers.
-
-    The frontend brief carries ecology:/frontier:/in-season: segments from the
-    pair data (never fabricated). The full brief is too noisy to survive Nova's
-    40-word compression, so this distills the place + seasonal feature into one
-    clause any market can use — Manhattan/October resolves exactly like the
-    original Cincinnati/September case did, instead of needing a per-market
-    special case. Returns '' when the brief carries no markers.
-    """
-    if not brief_msg:
-        return ""
-    ecology = frontier = seasonal = ""
-    for seg in str(brief_msg).replace("◇", "·").split("·"):
-        low = seg.strip().lower()
-        if low.startswith("ecology:") and not ecology:
-            ecology = seg.strip()[len("ecology:"):].strip()
-        elif low.startswith("frontier:") and not frontier:
-            frontier = seg.strip()[len("frontier:"):].strip()
-        elif low.startswith("in-season:") and not seasonal:
-            seasonal = seg.strip()[len("in-season:"):].strip().rstrip(".")
-    bits = []
-    place = frontier or ecology
-    if place:
-        bits.append(f"Setting: {place}.")
-    if seasonal:
-        bits.append(f"Seasonal feature: {seasonal}.")
-    elif ecology and frontier:
-        bits.append(f"Local touch: {ecology}.")
-    return " ".join(bits)
-
-
-#: Brief segments that are pipeline metadata, never the user's idea.
-_IDEA_MARKERS = (
-    "market:", "season:", "month:", "ecology:", "frontier:", "in-season:",
-    "products:", "product:", "directions:", "direction:", "audience:",
-    "region:", "retailer:", "recipe:",
-)
-
-
-def _brief_idea(brief_msg: str | None) -> str:
-    """Distill the user's free-text campaign idea from the brief.
-
-    The frontend brief is idea-first plus a curated suffix (market:/season:/
-    ecology:/frontier:/in-season:/products: ...). Only the free text is the
-    idea — "sea otters" must survive as a subject even though no photo pool
-    tag will ever match it. Returns '' when the brief carries no free text.
-    """
-    if not brief_msg:
-        return ""
-    text = str(brief_msg).replace("◇", "·").replace("—", "·").replace("–", "·")
-    # Parenthetical marker payloads ("wild mornings (frontier: Lebanon, OH -
-    # US-OH-CINCINNATI market, september picks)") are metadata, not idea —
-    # strip paren groups carrying a colon; plain parens ("pancakes (fluffy)")
-    # stay part of the idea.
-    text = re.sub(r"\([^()]*:[^()]*\)", "", text)
-    bits = []
-    for seg in text.split("·"):
-        s = seg.strip().strip(",;").strip()
-        if not s:
-            continue
-        if s.lower().split(":", 1)[0].strip() + ":" in _IDEA_MARKERS and ":" in s:
-            continue
-        bits.append(s)
-    idea = " ".join(bits).strip()
-    return idea[:80]
-
-
 #: Idea tokens too generic to steer a seed pick.
 _IDEA_STOPWORDS = frozenset({
     "a", "an", "the", "and", "or", "of", "for", "with", "on", "in", "to",
@@ -1302,180 +823,6 @@ def _is_scenic_seed(seed_key: str | None) -> bool:
     return bool(seed_key) and _SCENIC_SEED_MARKER in str(seed_key)
 
 
-def _brief_subject_clause(brief_msg: str | None) -> str:
-    """MUST-keep clause for the campaign subject (the idea, not the setting).
-
-    The setting clause keeps place/season; this keeps the WHAT — without it
-    Nova compresses "sea otters" out of the 40-word scene and the restyle
-    just repaints the seed. Sanitized so adversary tokens never reach pixels.
-    """
-    idea = _brief_idea(brief_msg)
-    if not idea:
-        return ""
-    safe = _safe_prompt_text(idea) if idea else ""
-    if not safe:
-        return ""
-    return f" You MUST feature the campaign subject: {safe}."
-
-
-def _default_scene_prompt(
-    product_name: str, brief_msg: str, region: str, audience: str, theme: str | None,
-    extra_themes: list[str] | None = None, dish: str | None = None,
-    market: str | None = None, season: str | None = None,
-) -> str:
-    """Deterministic restyle direction for a photo seed — no network.
-
-    Used as the Nova scene-prompt fallback AND as the whole scene-prompt step
-    for theme-photo seeds (the photo already carries the theme, so a second
-    vision call buys nothing and burns rung C's budget). Combo extras
-    (extra_themes) fold in as overlay layers behind the primary theme scene.
-
-    Frontier-aware: brief_msg now carries the rich autocomplete suffix
-    (frontier: Lebanon, OH — Pawpaw season (Sep) · in-season: pawpaws
-    (pawpaw, tropical custard) · market: Cincinnati...). That suffix is the
-    in-season ingredient + favorite_flavors + frontier place that makes
-    Cincinnati September look nothing like Halloween apples/cider — without
-    it every preview collapses to the same generic pumpkin-patch background
-    and [Image #1][2][3] repeat. We keep brief_msg verbatim so the frontier
-    context threads to Stability even when Nova is down.
-    """
-    scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
-    # Who + where: the filter-safe persona names the person (never the raw
-    # celebrity token), the hint dispatches the scene. Theme without a hint
-    # falls back to the persona alone; no theme falls back to the brief.
-    # Frontier/ingredient note: brief_msg is already frontier-aware (see
-    # autocomplete.js buildSuffix), so direction preserves it.
-    if theme:
-        who = _safe_theme_text(theme)
-        hint = f"{scene_hint} Featuring {who}." if scene_hint else who
-        # Keep frontier ecology + ingredient even when themed — themed previews
-        # otherwise lose the locality that makes September pawpaws ≠ Halloween.
-        # Scrub free-text celebrity names so a typed "Zac Efron" never reaches
-        # Stability (test_path_adversary).
-        safe_brief = _safe_prompt_text(brief_msg) if brief_msg else ""
-        direction = f"{hint} Campaign vibe: {safe_brief}." if safe_brief else hint
-    else:
-        direction = brief_msg
-        # Locality survives Nova truncation: distill the brief's curated
-        # ecology/frontier/in-season markers into a compact setting clause for
-        # ANY market (Manhattan/October included), not just Cincinnati.
-        setting = _brief_setting_clause(brief_msg)
-        if setting and setting.lower() not in str(direction or "").lower():
-            direction = f"{direction} {setting}"
-        # Subject survives too: the free-text idea is the WHAT the user asked
-        # for — without the MUST clause the restyle just repaints the seed.
-        subject = _brief_subject_clause(brief_msg)
-        if subject and subject.lower() not in str(direction or "").lower():
-            direction = f"{direction} {subject}"
-    if dish and str(dish).strip() and str(dish).strip().lower() not in str(direction or "").lower():
-        # The campaign recipe names the dish — without it the restyle keeps the
-        # seed's generic composition and the image disconnects from the recipe.
-        direction = f"{direction} Featuring a serving of {str(dish).strip()}."
-    direction = _with_locale_and_bear(
-        direction, theme, brief_msg, market, season,
-    )
-    base = (
-        f"{product_name} product photo restyled for "
-        f"{direction}, "
-        f"{region} {audience}, frontier morning light, natural grain texture, high detail, lifestyle and natural world visible"
-    ).strip()
-    if extra_themes:
-        combo = combine_themes([theme or "", *(extra_themes or [])])
-        base += _combo_scene_suffix(combo)
-    return base
-
-
-_MONTH_NUM = {
-    "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
-    "july": 7, "august": 8, "september": 9, "october": 10, "november": 11,
-    "december": 12, "jan": 1, "feb": 2, "mar": 3, "apr": 4, "jun": 6,
-    "jul": 7, "aug": 8, "sep": 9, "sept": 9, "oct": 10, "nov": 11, "dec": 12,
-}
-
-
-def _season_month(season: str | None) -> int | None:
-    """Month number for a season string (month names only, never fabricated).
-
-    Returns None for anything that is not a plain month name — the caller
-    then emits the place without produce rather than guessing a month.
-    """
-    if not season:
-        return None
-    return _MONTH_NUM.get(str(season).strip().lower())
-
-
-def _market_scene_clause(market: str | None, season: str | None) -> str:
-    """Human market clause for scene prompts — never a raw market code.
-
-    Resolves the market code through local_flavor_for: human place + the
-    season month's in-season produce + sourcing. Unknown markets, missing
-    data, or unparseable seasons yield '' so the caller emits NO market
-    clause instead of a raw code (a raw code teaches the image model
-    nothing and reads as a zip-code bug in provenance).
-    """
-    code = str(market or "").strip()
-    if not code:
-        return ""
-    try:
-        from .local_flavor import local_flavor_for
-
-        # Install-layout-proof data path: local_flavor anchors at
-        # parents[2]/data (repo checkout) which does NOT exist under the
-        # Lambda site-packages install — resolve via _datapaths (CAP_DATA_ROOT
-        # in the image) so the clause works in both layouts.
-        try:
-            from ._datapaths import data_path
-
-            candidate = data_path("localization", "local-flavor.json")
-            flavor_path = str(candidate) if candidate.exists() else None
-        except Exception:  # noqa: BLE001 — resolver failure degrades to default
-            flavor_path = None
-        info = local_flavor_for(code, _season_month(season), path=flavor_path)
-        if not info.get("matched"):
-            return ""
-        place = str(info.get("place") or "").strip()
-        if not place:
-            return ""
-        produce = [str(p).strip() for p in (info.get("produce") or []) if str(p).strip()][:2]
-        source = str(info.get("source") or "").strip()
-        month_name = str(season).strip() if _season_month(season) else ""
-        head = f"Setting: {place}" + (f" in {month_name}" if month_name else "")
-        tail_bits = []
-        if produce:
-            tail_bits.append(f"{' and '.join(produce)} in season")
-        if source:
-            tail_bits.append(f"at {source}")
-        if tail_bits:
-            return head + " — " + ", ".join(tail_bits) + "."
-        return head + "."
-    except Exception:  # noqa: BLE001 — market lore never breaks the preview
-        return ""
-
-
-def _with_locale_and_bear(direction: str | None, theme: str | None,
-                          brief_msg: str | None, market: str | None,
-                          season: str | None) -> str:
-    """Append market/season locality + request-driven bear law to a scene
-    direction, each only when absent already (the frontier autocomplete
-    suffix often carries both — never duplicate). Shared by the deterministic
-    default AND the live-Nova post-process so Nova's 40-word compression can
-    never silently drop locality or the bear constraint."""
-    # Locality the brief suffix may not carry: two markets ordering the same
-    # dish must not get the same scene prompt. The market arrives as a raw
-    # code — resolve it to human place + produce, never emit the code.
-    clause = _market_scene_clause(market, season)
-    if clause and clause.lower() not in str(direction or "").lower():
-        direction = f"{direction} {clause}"
-    if season and str(season).strip() and str(season).strip().lower() not in str(direction or "").lower():
-        direction = f"{direction} {str(season).strip()}."
-    # Request-driven bear law: the wild-grizzly-bears theme or a bear-naming
-    # brief earns the constraint clause; everything else stays bear-free.
-    bear_clause = _bear_law_clause(theme, brief_msg)
-    if bear_clause and bear_clause.lower() not in str(direction or "").lower():
-        direction = f"{direction} {bear_clause}"
-    return str(direction or "")
-
-
 # ---- scenic background (text-to-image hero path).
 # Control-structure restyle preserves its seed's composition, so an idea with
 # no matching pool photo ("sea otters") can never reach pixels through it.
@@ -1493,37 +840,6 @@ _SCENIC_NEGATIVE = (
     "text, letters, numbers, signage, labels, watermark, logo, "
     "blurry, deformed, cartoon"
 )
-
-
-def _scenic_scene_text(
-    brief_msg: str | None, market: str | None = None,
-    season: str | None = None, dish: str | None = None,
-) -> str:
-    """Photographic text-to-image prompt for the idea.
-
-    Idea first (the WHAT), then the setting clause (the WHERE/when), then a
-    photographic tail — Core renders photos, not ink sketches, so no line-art
-    directive. Sanitized: adversary tokens never reach the model.
-    """
-    idea = _brief_idea(brief_msg)
-    setting = _brief_setting_clause(brief_msg)
-    market_clause = _market_scene_clause(market, season)
-    bits = []
-    if idea:
-        bits.append(_safe_prompt_text(idea) or idea)
-    if setting and setting.lower() not in " ".join(bits).lower():
-        bits.append(setting)
-    if market_clause and market_clause.lower() not in " ".join(bits).lower():
-        bits.append(market_clause)
-    if dish and str(dish).strip():
-        bits.append(f"a serving of {str(dish).strip()} nearby")
-    scene = " ".join(bits).strip()
-    if not scene:
-        return ""
-    return (
-        f"Photorealistic advertising photograph: {scene}. "
-        "golden natural light, rich color, sharp focus, high detail"
-    )
 
 
 def _scenic_background(
@@ -1582,123 +898,6 @@ def _scenic_background(
         return out_path
     except (OSError, ValueError):
         return None
-
-
-def _nova_pro_scene_prompt(
-    src: Path, product_name: str, brief_msg: str, region: str, audience: str, theme: str | None,
-    extra_themes: list[str] | None = None, dish: str | None = None,
-    market: str | None = None, season: str | None = None,
-) -> str:
-    """Ask Nova Pro (Converse) for the control-structure restyle prompt.
-
-    This is the art-director directing the IMAGE restyle (distinct from the headline
-    caption). Returns a scene/theme description string that drives Stability's
-    control-structure conditioning. Falls back to a deterministic brief/theme-derived
-    prompt on any Nova Pro failure so the Stability call always has a usable prompt.
-    Combo extras fold in as overlay layers behind the primary theme scene.
-    """
-    theme_hint = f" Theme: {_safe_theme_text(theme)}." if theme else ""
-    scene_hint = _THEME_SCENE_HINT.get(theme or "", "")
-    if scene_hint:
-        theme_hint += f" Scene direction: {scene_hint}."
-    if extra_themes:
-        combo = combine_themes([theme or "", *(extra_themes or [])])
-        theme_hint += _combo_scene_suffix(combo)
-    default_prompt = _default_scene_prompt(product_name, brief_msg, region, audience, theme, extra_themes, dish, market, season)
-    if boto3 is None:
-        return default_prompt
-    try:
-        img_bytes, fmt = _seed_small_for_nova(src)
-    except (OSError, ValueError):
-        return default_prompt
-    try:
-        client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
-        # Locality + dish survive the 40-word compression: the brief's curated
-        # place/season markers are restated as hard requirements, and the
-        # campaign dish is named so the pixels match the paired recipe.
-        keep_clause = ""
-        setting = _brief_setting_clause(brief_msg)
-        if setting:
-            keep_clause += f" You MUST keep this setting: {setting}"
-        keep_clause += _brief_subject_clause(brief_msg)
-        clean_dish = str(dish or "").strip()
-        if clean_dish:
-            keep_clause += f" The image MUST show a serving of {clean_dish}."
-        locale_ask = ""
-        market_clause = _market_scene_clause(market, season)
-        if market_clause:
-            locale_ask += f" {market_clause}"
-        elif season and str(season).strip():
-            # Unresolvable market: name the season, never the raw code.
-            locale_ask += f" Season: {str(season).strip()}."
-        bear_ask = _bear_law_clause(theme, brief_msg)
-        if bear_ask:
-            locale_ask += f" {bear_ask}"
-        prompt = (
-            f"You are an ad art director directing an image restyle. Product: "
-            f"'{product_name}'. Region: {region}. Audience: {audience}.{locale_ask} Campaign vibe: "
-            f"{brief_msg}.{theme_hint}{keep_clause} Look at the product image, which must keep its "
-            "composition. Reply with ONE vivid scene/style description (max 40 words, no "
-            "line breaks, no quotes) that restyles this photo to the theme — lighting, "
-            "setting, mood, palette. Keep the product recognizable. No headline text. "
-            "The scene must contain NO text, letters, numbers, signage, or labels "
-            "anywhere — blank surfaces only, since the model renders glyphs as gibberish."
-        )
-        resp = client.converse(
-            modelId=NOVA_TEXT_MODEL,
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {"image": {"format": fmt, "source": {"bytes": img_bytes}}},
-                        {"text": prompt},
-                    ],
-                }
-            ],
-            inferenceConfig={"maxTokens": 120},
-        )
-        text = resp["output"]["message"]["content"][0]["text"].strip().replace("\n", " ")
-        if not text:
-            return default_prompt
-        # Nova's 40-word compression drops the idea even when instructed (seen
-        # live: "christmas cats" in the prompt, no cats in the scene), so
-        # re-attach the subject deterministically (absent-only, never dup) —
-        # same pattern as the locale/bear re-attach below.
-        _idea_text = _brief_idea(brief_msg)
-        if _idea_text:
-            _safe_idea = _safe_prompt_text(_idea_text)
-            if _safe_idea and _safe_idea.lower() not in text.lower():
-                text = f"{text} Featuring {_safe_idea}."
-        # Nova's 40-word compression drops locality and constraints: re-attach
-        # market/season + bear law deterministically (absent-only, never dup).
-        return _with_locale_and_bear(text, theme, brief_msg, market, season)
-    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — deterministic fallback
-        print(f"[generate] Nova Pro scene-prompt unavailable, using default: {e}", file=sys.stderr)
-        return default_prompt
-
-
-def _seed_b64_for_stability(src: Path) -> str:
-    """Return a base64 PNG of the seed, upscaled to meet Stability's size floor.
-
-    Stability control-structure requires each dim >= 64 (total pixels 4096..9437184).
-    A seed below the floor in either dim is upscaled to a safe square before encode;
-    an in-range seed is re-encoded as PNG verbatim (RGB) so the payload is well-formed.
-    """
-    img = Image.open(src).convert("RGB")
-    w, h = img.size
-    if w < _STABILITY_MIN_DIM or h < _STABILITY_MIN_DIM:
-        img = img.resize((_STABILITY_UPSCALE_TO, _STABILITY_UPSCALE_TO), Image.LANCZOS)
-    elif max(w, h) > _STABILITY_MAX_DIM:
-        # Ceiling: a 2400px seed base64-encodes to ~20MB and burns the whole 13s
-        # Stability reservation on upload alone. 1280px still resolves past the
-        # 1080px campaign target and restyles in ~11s measured.
-        scale = _STABILITY_MAX_DIM / max(w, h)
-        img = img.resize((int(w * scale), int(h * scale)), Image.LANCZOS)
-    from io import BytesIO
-
-    buf = BytesIO()
-    img.save(buf, "PNG")
-    return base64.b64encode(buf.getvalue()).decode("ascii")
 
 
 # ------------------------------------------------------- similarity gate (B -> C)
@@ -1791,127 +990,6 @@ def _scene_prompt_source(scene_prompt: str, product_name: str, brief_msg: str,
     default = _default_scene_prompt(product_name, brief_msg, region, audience, theme, None, dish, market, season)
     return "default" if (scene_prompt or "") == default else "nova"
 
-def _bedrock_failfast_client(read_timeout: int | None = None):
-    """Fail-fast bedrock-runtime client for EVERY Bedrock invoke in the request path.
-
-    Explicit botocore Config: connect_timeout=3s, retries max_attempts=0, and a read
-    timeout that defaults to the Stability cap (BEDROCK_READ_TIMEOUT_S=12s) but can be
-    overridden — the two Nova Pro Converse calls pass BEDROCK_NOVA_READ_TIMEOUT_S (6s) so
-    caption + scene-prompt + stability all fit under the ~24s soft budget. NO retries,
-    because a retry inside the 30s gateway cap is a budget killer. This is the ONLY way a
-    bedrock-runtime client is built in rung B — no bare boto3.client anywhere in the path,
-    which is the fix for the 33s silent gap (an uncapped Nova Pro Converse call).
-    """
-    cfg = _BotoConfig(
-        read_timeout=read_timeout if read_timeout is not None else BEDROCK_READ_TIMEOUT_S,
-        connect_timeout=BEDROCK_CONNECT_TIMEOUT_S,
-        retries={"max_attempts": 0, "mode": "standard"},
-    )
-    return boto3.client("bedrock-runtime", region_name=BEDROCK_REGION, config=cfg)
-
-
-def _stability_control_hero(
-    seed: Path,
-    prompt: str,
-    out_path: Path,
-    *,
-    control_strength: float | None = None,
-    seed_value: int | None = None,
-    retry_once: bool = True,
-    read_timeout: int | None = None,
-) -> Path | None:
-    """Restyle the seed photo to the theme via Bedrock Stability control-structure.
-
-    Invokes the us.stability.stable-image-control-structure-v1:0 inference profile with
-    Stability's schema ({prompt, image, control_strength, output_format}) — NOT Nova's
-    taskType schema. Decodes images[0] (base64 PNG) and writes it to out_path. Returns
-    the path on success, None on any failure.
-
-    control_strength and seed_value are optional overrides for parameter sweeps (see
-    param_sweep.py). When None they fall back to the module defaults
-    STABILITY_CONTROL_STRENGTH / STABILITY_SEED — so every existing caller is unchanged.
-    The sweep harness MUST drive this production function, never re-implement the invoke.
-
-    AccessDenied is surfaced with its exact error code (a Bryan SSO refresh issue) — it
-    is NOT swallowed silently into a mock. The caller downgrades to the Pillow compose
-    only after this returns None, and the exact error is always logged to stderr.
-    """
-    if boto3 is None:
-        print("[generate] stability skipped: boto3 unavailable", file=sys.stderr)
-        return None
-    try:
-        client = (
-            _bedrock_failfast_client(read_timeout=read_timeout)
-            if read_timeout is not None
-            else _bedrock_failfast_client()
-        )
-        body = {
-            "prompt": _style_sandwich(prompt),
-            "image": _seed_b64_for_stability(seed),
-            "control_strength": (
-                control_strength if control_strength is not None else STABILITY_CONTROL_STRENGTH
-            ),
-            "seed": seed_value if seed_value is not None else STABILITY_SEED,
-            "output_format": "png",
-        }
-        resp = client.invoke_model(
-            modelId=STABILITY_CONTROL_MODEL,
-            body=json.dumps(body),
-            contentType="application/json",
-            accept="application/json",
-        )
-        payload = json.loads(resp["body"].read())
-        images = payload.get("images") or []
-        if not images:
-            print(
-                f"[generate] stability returned no images: "
-                f"finish_reasons={payload.get('finish_reasons')} keys={list(payload)}",
-                file=sys.stderr,
-            )
-            return None
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        out_path.write_bytes(base64.b64decode(images[0]))
-        return out_path if out_path.exists() else None
-    except (ReadTimeoutError, ConnectTimeoutError) as e:
-        # Retry once on timeout with a slightly lower control (less seed preservation) —
-        # transient Bedrock stalls often succeed on second try; if it still times out,
-        # re-raise so the ladder records bedrock-timeout → Rung C. This keeps Rung B
-        # reachable without swallowing the reason. Fan-out siblings pass
-        # retry_once=False: a cold sibling degrades to the pad honestly instead of
-        # doubling a doomed call inside the shared wall.
-        if not retry_once:
-            raise
-        print(f"[generate] stability timeout {e}, retrying once", file=sys.stderr)
-        try:
-            body["control_strength"] = max(0.2, body["control_strength"] - 0.05)
-            resp = client.invoke_model(
-                modelId=STABILITY_CONTROL_MODEL,
-                body=json.dumps(body),
-                contentType="application/json",
-                accept="application/json",
-            )
-            payload = json.loads(resp["body"].read())
-            images = payload.get("images") or []
-            if images:
-                out_path.parent.mkdir(parents=True, exist_ok=True)
-                out_path.write_bytes(base64.b64decode(images[0]))
-                return out_path if out_path.exists() else None
-        except Exception as e2:
-            print(f"[generate] stability retry failed: {e2}", file=sys.stderr)
-        raise
-    except ClientError as e:  # surface the exact error code — never swallow AccessDenied
-        code = e.response.get("Error", {}).get("Code", "Unknown")
-        print(f"[generate] stability control-structure ClientError [{code}]: {e}", file=sys.stderr)
-        # A throttle is a distinct, retryable-elsewhere condition — re-raise so the ladder
-        # records fallthrough_reason=throttle. Other client errors (AccessDenied, validation)
-        # stay swallowed to None (the documented downgrade-to-Pillow path, code already logged).
-        if "Throttl" in str(code):
-            raise
-        return None
-    except (BotoCoreError, Exception) as e:  # noqa: BLE001 — non-AWS failures fall through
-        print(f"[generate] stability control-structure failed: {e}", file=sys.stderr)
-        return None
-
 
 # Native delivery frames for the per-ratio diffusion pass: each campaign ratio
 # gets its own control-structure restyle composed AT its frame (not derived from
@@ -1921,214 +999,8 @@ def _stability_control_hero(
 # fail-fast serial cap: the batch costs one invoke of wall, and a cold model
 # needs ~15-20s — 12s would systematically execute every cold sibling.
 _NATIVE_READ_TIMEOUT_S = int(os.getenv("GENERATE_NATIVE_READ_TIMEOUT_S", "20"))
-_NATIVE_RATIO_DIMS = {
-    "4x5": (1080, 1350),
-    "9x16": (1080, 1920),
-    "16x9": (1920, 1080),
-    "blog": (1200, 630),
-}
 
 
-def _stability_native_ratio(
-    seed_local: Path | str,
-    scene_prompt: str,
-    ratio: str,
-    out_path: Path,
-    *,
-    seed_value: int | None = None,
-    control_strength: float | None = None,
-    retry_once: bool = True,
-    read_timeout: int | None = None,
-) -> Path | None:
-    """Restyle the resolved seed photo natively at one delivery ratio's frame.
-
-    Cover-fits the seed photo to _NATIVE_RATIO_DIMS[ratio], then runs the same
-    control-structure restyle rung B uses — the model composes inside the real
-    frame instead of a 1x1 that is later extended or cropped. Returns the path
-    on success, None on any failure (the caller falls back to the deterministic
-    Pillow cover-fit of the finished 1x1, honestly labelled). Never raises past
-    the caller: a bad ratio slug, missing seed, or failed invoke is a None.
-    """
-    try:
-        dims = _NATIVE_RATIO_DIMS[ratio]
-    except KeyError:
-        print(f"[generate] native ratio unknown: {ratio!r}", file=sys.stderr)
-        return None
-    try:
-        seed_img = Image.open(seed_local).convert("RGB")
-    except Exception as e:  # noqa: BLE001 — missing/unreadable seed degrades to pad
-        print(f"[generate] native ratio seed unreadable: {e}", file=sys.stderr)
-        return None
-    try:
-        target_w, target_h = dims
-        if target_w < 64 or target_h < 64 or target_w * target_h > 9437184:
-            print(
-                f"[generate] native ratio {ratio} outside Stability dims",
-                file=sys.stderr,
-            )
-            return None
-        framed = ImageOps.fit(seed_img, (target_w, target_h), method=Image.BICUBIC)
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        seed_path = out_path.parent / f"{out_path.stem}-seed.png"
-        framed.save(seed_path, "PNG")
-        return _stability_control_hero(
-            seed_path,
-            scene_prompt,
-            out_path,
-            control_strength=control_strength,
-            seed_value=seed_value,
-            retry_once=retry_once,
-            read_timeout=read_timeout,
-        )
-    except TypeError:
-        # unparametrized _stability_control_hero (older test doubles): retry bare.
-        try:
-            return _stability_control_hero(seed_path, scene_prompt, out_path)
-        except Exception as e:  # noqa: BLE001 — degrade to pad, never raise
-            print(f"[generate] native ratio {ratio} failed: {e}", file=sys.stderr)
-            return None
-    except Exception as e:  # noqa: BLE001 — degrade to pad, never raise
-        print(f"[generate] native ratio {ratio} failed: {e}", file=sys.stderr)
-        return None
-
-
-def _stability_outpaint(
-    base_png: Path, target_w: int, target_h: int, prompt: str, out_path: Path
-) -> Path | None:
-    """Extend base_png to (target_w, target_h) via Bedrock Stability outpaint.
-
-    PART B — derive the 9x16 / 16x9 delivery ratios from the 1x1 control-structure
-    hero so the subject stays consistent and only one restyle call is spent. Invokes the
-    us.stability.stable-outpaint-v1:0 inference profile with Stability's edit schema
-    ({prompt, image, left/right/up/down, output_format}) — NOT Nova's taskType. The
-    left/right/up/down are pixel deltas added to each edge; here the base is centered so
-    horizontal/vertical growth splits evenly across the two opposing edges. Decodes
-    images[0] (base64 PNG) to out_path. Returns the path on success, None on any failure
-    (the caller then falls back to a Pillow cover-pad of the same base — see
-    _pillow_outpaint_fallback). Seed dims must stay in Stability's range (>=64/dim,
-    4096..9437184 total px); the 1080x1080 hero and the modest deltas sit well inside.
-
-    Uses the shared fail-fast bedrock-runtime client with the extend read
-    budget (BEDROCK_OUTPAINT_READ_TIMEOUT_S, 25s against a measured 20s
-    model p-average: the standalone extend request bypasses the ladder
-    wall, so the 12s ladder cap must not starve outpaints into pads).
-    A timeout is re-raised so the caller
-    records a timeout degrade, matching _stability_control_hero. The prompt
-    goes through the frozen style sandwich so the extend stays on-brand.
-    """
-    if boto3 is None:
-        print("[generate] outpaint skipped: boto3 unavailable", file=sys.stderr)
-        return None
-    try:
-        base = Image.open(base_png).convert("RGB")
-        bw, bh = base.size
-        # Only ever GROW: negative deltas are clamped to 0 (outpaint extends, never crops).
-        dw = max(target_w - bw, 0)
-        dh = max(target_h - bh, 0)
-        left = dw // 2
-        right = dw - left
-        up = dh // 2
-        down = dh - up
-        if left == right == up == down == 0:
-            # already at/over target in both dims — nothing to extend.
-            return None
-        from io import BytesIO
-
-        buf = BytesIO()
-        base.save(buf, "PNG")
-        image_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
-        client = _bedrock_failfast_client(read_timeout=BEDROCK_OUTPAINT_READ_TIMEOUT_S)
-        body = {
-            "prompt": _style_sandwich(prompt),
-            "image": image_b64,
-            "left": left,
-            "right": right,
-            "up": up,
-            "down": down,
-            "output_format": "png",
-        }
-        resp = client.invoke_model(
-            modelId=STABILITY_OUTPAINT_MODEL,
-            body=json.dumps(body),
-            contentType="application/json",
-            accept="application/json",
-        )
-        payload = json.loads(resp["body"].read())
-        images = payload.get("images") or []
-        if not images:
-            print(
-                f"[generate] outpaint returned no images: "
-                f"finish_reasons={payload.get('finish_reasons')} keys={list(payload)}",
-                file=sys.stderr,
-            )
-            return None
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        out_path.write_bytes(base64.b64decode(images[0]))
-        # Stability may return exact target or its own rounded dims; normalize to target.
-        if out_path.exists():
-            fitted = ImageOps.fit(
-                Image.open(out_path).convert("RGB"),
-                (target_w, target_h),
-                method=Image.BICUBIC,
-                centering=(0.5, 0.5),
-            )
-            fitted.save(out_path, "PNG")
-            return out_path
-        return None
-    except (ReadTimeoutError, ConnectTimeoutError):
-        # Budget guard (mirrors _stability_control_hero): re-raise so the
-        # generate_hero_set per-ratio gate records a timeout degrade to the pad
-        # instead of mislabeling it as a plain unavailable outpaint.
-        raise
-    except ClientError as e:  # surface the exact error code — never swallow AccessDenied
-        code = e.response.get("Error", {}).get("Code", "Unknown")
-        print(f"[generate] outpaint ClientError [{code}]: {e}", file=sys.stderr)
-        if "Throttl" in str(code):
-            raise
-        return None
-    except (BotoCoreError, Exception) as e:  # noqa: BLE001 — non-AWS failures fall through
-        print(f"[generate] outpaint failed: {e}", file=sys.stderr)
-        return None
-
-
-def _pillow_outpaint_fallback(base_png: Path, target_w: int, target_h: int, out_path: Path) -> Path:
-    """Cover-fit with ratio-aware focal offset so fallback tiles are visually distinct.
-
-    PART B fallback — cover-fit fills the frame without letterbox bars. Centering
-    shifts per ratio so four pillow tiles are not four identical center crops
-    (distinct focal regions = distinct local flavor). The caller still marks
-    provenance engine "pillow-outpaint-fallback" so the response never claims a
-    GenAI extend happened when it did not.
-    """
-    # Per-ratio focal centering: 4x5 favors lower food, 9x16 center, 16x9 upper scene
-    centering = (0.5, 0.5)
-    if target_w == 1080 and target_h == 1350:  # 4x5 portrait
-        centering = (0.5, 0.62)
-    elif target_w == 1080 and target_h == 1920:  # 9x16 vertical
-        centering = (0.5, 0.45)
-    elif target_w == 1920 and target_h == 1080:  # 16x9 landscape
-        centering = (0.5, 0.38)
-    elif target_w == 1200 and target_h == 630:  # blog
-        centering = (0.5, 0.40)
-    fitted = ImageOps.fit(
-        Image.open(base_png).convert("RGB"),
-        (target_w, target_h),
-        method=Image.BICUBIC,
-        centering=centering,
-    )
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    fitted.save(out_path, "PNG")
-    return out_path
-
-
-# --------------------------------------------------------------- kraft-paper texture
-# PART D — a deterministic brown-paper-bag grain baked into every final render at ~2%.
-# Pillow-only (numpy is not a core dependency), fixed-seed so output is byte-reproducible
-# and testable. Warm kraft base ~#C8A97E + low-amplitude per-pixel noise + sparse fibrous
-# specks. To dump a reusable 512x512 tile for the web side to load, run:
-#     python -c "from creative_automation.generate import _kraft_texture; \
-#                _kraft_texture(512, 512).save('kraft-512.png')"
-_KRAFT_BASE = (200, 169, 126)  # ~#C8A97E warm kraft
 _KRAFT_SEED = 20260101  # fixed so _kraft_texture(w,h) is deterministic across runs
 
 
@@ -2200,299 +1072,6 @@ def _apply_paper_overlay(img: Image.Image, opacity: float = 0.02) -> Image.Image
 # Nova Pro usually puts LAYOUT: on its own line, but sometimes appends it inline
 # ("Power up mornings! LAYOUT: right") — an inline suffix must never reach the
 # rendered headline. Matches a trailing LAYOUT directive anywhere in the line.
-_LAYOUT_INLINE_RE = re.compile(r"\s*LAYOUT\s*:\s*(left|right|center)\s*$", re.IGNORECASE)
-
-
-def _parse_layout(caption: str) -> tuple[str, str]:
-    """Split Nova Pro text into (headline, side) where side in {left,right,center}."""
-    headline, side = "", "center"
-    for line in caption.splitlines():
-        s = line.strip()
-        if not s:
-            continue
-        m = _LAYOUT_INLINE_RE.search(s)
-        if m:
-            side = m.group(1).lower()
-            s = _LAYOUT_INLINE_RE.sub("", s).strip().strip('"')
-            if s and not headline:
-                headline = s
-            continue
-        if s.upper().startswith("LAYOUT:"):
-            val = s.split(":", 1)[1].strip().lower()
-            if val in ("left", "right", "center"):
-                side = val
-        elif not headline:
-            headline = s.strip('"')
-    return headline[:48], side
-
-
-def _title_case_headline(text: str) -> str:
-    """House-style headline: Title Case, no trailing period.
-
-    str.title() mangles apostrophes ("Today's" -> "Today'S"), so capitalize per
-    word-match instead. Model-written headlines only — the raw user-brief
-    fallback stays byte-for-byte the user's words.
-    """
-    s = (text or "").strip().rstrip(".").strip()
-    return re.sub(
-        r"[A-Za-z]+(?:'[A-Za-z]+)?",
-        lambda m: m.group(0)[0].upper() + m.group(0)[1:].lower(),
-        s,
-    )
-
-
-def _sanitize_military_headline(text: str) -> str | None:
-    """Strip military/recruitment language; return None if unrecoverable.
-
-    The grounded director and stock Nova both occasionally emit 'LISTEN UP'
-    style commanding language despite prompt bans. Quarantine here so no
-    military headline reaches provenance or pixels. Warm agricultural frontier
-    only.
-    """
-    if not text:
-        return None
-    low = text.lower()
-    # Any military/recruitment trigger quarantines the line for resample/fallback
-    banned = ("listen up", "recruit", "attention ", "muster", "enlist")
-    if any(b in low for b in banned):
-        # Try to salvage by stripping the banned prefix phrase and leading interjections
-        # e.g. "Alright, Listen Up, Kid. Summer In San Diego..." -> "Summer In San Diego..."
-        stripped = re.sub(r"(?i)\b(listen up|recruit|attention|muster|enlist)\b[,\s]*", "", text)
-        stripped = re.sub(r"(?i)^\s*(alright|okay|hey|listen)[,\s]+", "", stripped)
-        stripped = re.sub(r"(?i)\b(kid|partner|recruit)\b[,\.\s!]*", "", stripped) if "listen up" in low else stripped
-        stripped = stripped.strip(" ,.-!\t\n\"'")
-        # Collapse double spaces and strip leading punctuation left from the cut
-        stripped = re.sub(r"\s{2,}", " ", stripped)
-        stripped = stripped.lstrip(" !,.-\"'")
-        if stripped and len(stripped.split()) >= 2 and not any(b in stripped.lower() for b in banned):
-            # If the salvage starts with punctuation or is still a sentence fragment
-            # starting with "You're" from a conversational ramble, quarantine it
-            # and let the caller fall back to the warm frontier brief headline
-            if stripped[:1] in "!?,." or stripped.lower().startswith("you're"):
-                return None
-            return _title_case_headline(stripped)
-        return None
-    return text
-
-
-def _scrub_director_line(text: str, examples: list[dict]) -> str | None:
-    """Extract one render-safe line from raw voice-model output.
-
-    The fine-tuned model wraps lines in markdown (**bold**, "quotes"), prepends
-    meta-preambles ("Here are the requested responses:"), and sometimes echoes
-    an in-ask example back instead of writing. Any of those reaching the render
-    is a defect, so: strip markup, drop preamble/bullet lines, take the first
-    substantial line, and reject example-echoes (>=70% word overlap with any
-    example). Returns None when nothing render-safe remains (caller resamples
-    or falls back to stock Nova).
-    """
-    t = text.replace("**", "").replace("*", "").replace('"', "").replace("#", "")
-    lines = [ln.strip(" -\u2022\t") for ln in t.strip().splitlines()]
-    lines = [ln for ln in lines if len(ln.split()) >= 2]
-    lines = [
-        ln
-        for ln in lines
-        if not any(p in ln.lower() for p in _PREAMBLE_PATTERNS)
-    ]
-    if not lines:
-        return None
-    line = lines[0].strip()
-    words = {w.strip(",.!?;:").lower() for w in line.split()} - {""}
-    for example in examples:
-        example_words = {
-            w.strip(",.!?;:").lower()
-            for w in str(example.get("caption", "")).split()
-        } - {""}
-        if example_words and words and len(words & example_words) / len(words) >= 0.7:
-            return None
-    return line or None
-
-
-def _voice_requested(value: object) -> bool:
-    """Per-request voice opt-in (cost incident 2026-09-23).
-
-    Default requests never touch a voice model, whatever the env flags say —
-    the caller must opt in explicitly per request. Env flags remain as the
-    kill-switch (both must allow AND the request must ask).
-    """
-    return str(value or "").strip().lower() in ("1", "true", "yes", "on")
-
-
-def _director_headline_text(
-    product_name: str, brief_msg: str, region: str, audience: str,
-    art_director: bool = False, report: dict | None = None,
-    market: str | None = None, season: str | None = None,
-) -> str | None:
-    """Grounded-director headline: retrieve brand voice, direct, normalize.
-
-    The concept loop in one bounded call: embed the request -> top-k corpus
-    captions -> trained voice model directs with those examples in-ask ->
-    scrub + layout-parse + house-style normalize. Returns None on ANY failure
-    (no examples, offline mock source, refusal, unscrubbable output, timeout,
-    exception) so the caller falls back to the stock Nova caption. The mock
-    source is refused explicitly — a mock transport must never write a
-    production headline. A refused/scrubbed trio resamples ONCE with the single
-    best example (PROVEN IN PROD 2026-09-08: trios of fragment-grade captions
-    decline while the top-1 alone complies); a dead transport does not
-    resample — it falls straight through to Nova.
-    """
-    import sys as _sys
-
-    def _dnote(msg: str) -> None:
-        print(f"[director] {msg}", file=_sys.stderr)
-
-    if not _director_enabled():
-        _dnote("skip: kill-switch off")
-        return None
-    if not art_director:
-        _dnote("skip: no per-request opt-in")
-        return None
-    # Memo (PROVEN IN PROD 2026-09-08): generate_hero_set runs the headline
-    # pipeline TWICE per pack (base hero + set headline) with the same brief —
-    # the second run re-pays embed + up to two voice invokes (~14s) and burns
-    # the 22s wall to rung D. Same inputs deterministically yield the same
-    # voice line, so memoize per warm container (capped FIFO). A memo hit costs
-    # ~0 and bypasses the budget gate + executor below. The kill-switch stays
-    # above the memo so an ops flip takes effect immediately.
-    global _DIRECTOR_MEMO
-    try:
-        _ = _DIRECTOR_MEMO
-    except NameError:
-        _DIRECTOR_MEMO = {}
-    # Uniqueness fix 3: the memo key salts market + season, so the same
-    # brief in June and October (or Cincinnati and Seattle) re-derives
-    # instead of replaying one memoized line. Identical full requests
-    # (the twice-per-pack double call) still hit.
-    memo_key = (product_name, brief_msg, region, audience, market or "", season or "")
-    # Paid-voice attempt counter for the UI ("refining…" while attempts > 1).
-    # Memo hits cost zero new calls. Reported out via `report` when provided.
-    attempts = {"n": 0}
-    if memo_key in _DIRECTOR_MEMO:
-        _dnote("memo hit")
-        if report is not None:
-            report["voice_attempts"] = 0
-            report["voice_source"] = "memo"
-        cached = _DIRECTOR_MEMO[memo_key]
-        # Sanitize even memo hits — a warm container may hold a pre-fix military line
-        sanitized = _sanitize_military_headline(cached)
-        if sanitized is None:
-            _dnote(f"memo military filtered ({cached[:60]!r}) — miss")
-            # bust the poisoned memo entry so the next call re-derives a clean line
-            try:
-                del _DIRECTOR_MEMO[memo_key]
-            except KeyError:
-                pass
-            return None
-        if sanitized != cached:
-            _dnote(f"memo military stripped: {cached[:60]!r} -> {sanitized[:60]!r}")
-            _DIRECTOR_MEMO[memo_key] = sanitized
-            return sanitized
-        return cached
-    try:
-        from . import art_director, director_memory
-    except ImportError as e:
-        _dnote(f"skip: import failed ({e})")
-        return None
-
-    def _attempt() -> str | None:
-        query = f"{product_name} {brief_msg} {region} {audience} {market or ''} {season or ''}".strip()
-        examples, model_used = director_memory.retrieve(query, k=3)
-        if not examples:
-            _dnote(f"no examples (embed={model_used})")
-            return None
-        _dnote(f"retrieved {len(examples)} examples via {model_used}")
-        locale_ask = ""
-        if market and str(market).strip():
-            locale_ask += f" Market {str(market).strip()}."
-        if season and str(season).strip():
-            locale_ask += f" Season {str(season).strip()}."
-        ask = (
-            f"Write one short on-brand headline (max 6 words) for {product_name}: "
-            f"{brief_msg}. Region {region}, audience {audience}.{locale_ask}"
-        )
-        samples = [examples[:3]]
-        if len(examples[:1]) < len(examples[:3]):
-            samples.append(examples[:1])
-        for sample in samples:
-            if not sample:
-                break
-            attempts["n"] += 1
-            result = art_director.art_direct_grounded(
-                ask, "adventurous", examples=sample
-            )
-            if not isinstance(result, dict) or result.get("source") != _DIRECTOR_LIVE_SOURCE:
-                _dnote(f"voice not live (source={(result or {}).get('source')})")
-                return None
-            text = str(result.get("text", "")).strip()
-            if not text:
-                continue
-            if any(phrase in text.lower() for phrase in _REFUSAL_PHRASES):
-                _dnote(f"voice refused ({text[:60]!r}) — resampling")
-                continue
-            line = _scrub_director_line(text, sample)
-            if line is None:
-                _dnote(f"voice output unusable ({text[:60]!r}) — resampling")
-                continue
-            headline, _side = _parse_layout(line)
-            normed = _title_case_headline(headline)
-            sanitized = _sanitize_military_headline(normed)
-            if sanitized is None:
-                _dnote(f"voice military filtered ({normed[:60]!r}) — resampling")
-                continue
-            if sanitized:
-                return sanitized
-        return None
-
-    # Leak-and-drain on timeout (same contract generate_lambda documents for its own
-    # inner director timeout): exiting a `with` executor would shutdown(wait=True) and
-    # block until the abandoned worker finishes its retries — the timeout would be a
-    # lie and the wall would burn. shutdown(wait=False) abandons the worker; it writes
-    # nothing shared, retries out, and drains harmlessly.
-    try:
-        executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
-    except Exception:  # noqa: BLE001 — tribunal alloc must never break the voice
-        return None
-    try:
-        fut = executor.submit(_attempt)
-        try:
-            outcome = fut.result(timeout=_DIRECTOR_TIMEOUT_S)
-        except Exception:  # noqa: BLE001 — worker outcome None on any failure
-            outcome = None
-    finally:
-        executor.shutdown(wait=False)
-    # Memoize only live successes: a cold-model timeout (outcome None) must not poison
-    # later warm invocations in the same container — they retry the voice fresh and
-    # degrade to the Nova caption only if the voice fails again.
-    if report is not None:
-        report["voice_attempts"] = attempts["n"]
-        report["voice_source"] = _DIRECTOR_LIVE_SOURCE if outcome is not None else None
-    if outcome is not None:
-        _DIRECTOR_MEMO[memo_key] = outcome
-    while len(_DIRECTOR_MEMO) > 64:
-        _DIRECTOR_MEMO.pop(next(iter(_DIRECTOR_MEMO)))
-    return outcome
-
-
-def _wrap_headline(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list[str]:
-    """Word-wrap headline to fit max_w, capped at 3 lines (C04)."""
-    if not text:
-        return []
-    words = text.split()
-    lines: list[str] = []
-    cur = ""
-    for w in words:
-        trial = f"{cur} {w}".strip()
-        bbox = draw.textbbox((0, 0), trial, font=font)
-        if bbox[2] - bbox[0] <= max_w or not cur:
-            cur = trial
-        else:
-            lines.append(cur)
-            cur = w
-        if len(lines) == 3:
-            break
-    if cur and len(lines) < 3:
-        lines.append(cur)
-    return lines[:3]
 
 
 def _apply_brand_overlay(
@@ -2612,10 +1191,10 @@ def _author_recipe_fields(
     validated fields, or None on any failure — the caller falls back to
     _recipe_card_defaults. Text-only keeps this cheap next to the vision calls.
     """
-    if boto3 is None:
+    if bedrock_client.boto3 is None:
         return None
     try:
-        client = _bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
+        client = bedrock_client._bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
         prompt = (
             "You write recipe-card copy for Kodiak Cakes packaging. "
             "Brand law: never write the bare words KODIAK or Kodiak — the only allowed "
@@ -2640,115 +1219,6 @@ def _author_recipe_fields(
     except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — default fallback
         print(f"[generate] recipe author unavailable, using default: {e}", file=sys.stderr)
         return None
-
-
-def _compose_recipe_card(
-    hero_img_path: Path,
-    title: str,
-    ratio: str,
-    out_path: Path,
-    recipe_fields: dict | None = None,
-) -> Path:
-    """Deterministic Pillow recipe-card: GenAI hero in a fixed image slot + brand card.
-
-    The whole point: the card STRUCTURE is composed deterministically in Pillow
-    (typography, title bar, ingredient/step zones, accent bar, safe-area), and the
-    generative hero image is PLACED into a defined image slot rather than the model
-    inventing the layout. Layout:
-
-      - top ~55% : the GenAI hero, cover-fit into the image slot (ImageOps.fit BICUBIC)
-      - title bar: a scrim-ink band straddling the hero/card seam, title in headline font
-      - lower ~45%: token-brand card on a warm kraft base — an ingredients column and a
-        steps column drawn in the body font, inside a safe-area pad
-      - C03 8px Blaze Orange accent bar pinned to the very bottom
-
-    Deterministic: same inputs -> same bytes (fonts + palette are fixed; the only
-    randomness in the pipeline is the already-seeded kraft texture applied later by
-    _finalize_render). Reuses generate.py palette constants (_scrim_hex, _accent_hex),
-    _CANVAS dims, _HEADLINE_PX, and _wrap_headline — no new hardcoded hex.
-    """
-    W, H = _CANVAS.get(ratio, _CANVAS["1x1"])
-    fields = recipe_fields or {}
-    ingredients = [str(x) for x in fields.get("ingredients", []) if str(x).strip()]
-    steps = [str(x) for x in fields.get("steps", []) if str(x).strip()]
-
-    # image slot = top 55% of the canvas; the GenAI hero cover-fits it (stays the hero).
-    slot_h = int(H * 0.55)
-    hero = Image.open(hero_img_path).convert("RGB")
-    hero_fit = ImageOps.fit(hero, (W, slot_h), method=Image.BICUBIC, centering=(0.5, 0.4))
-
-    # card base: warm kraft ink for the lower region so it reads as a paper card.
-    card = Image.new("RGB", (W, H), _KRAFT_BASE)
-    card.paste(hero_fit, (0, 0))
-    canvas = card.convert("RGBA")
-    draw = ImageDraw.Draw(canvas)
-
-    pad = 48  # C03 safe-area pad, shared with _apply_brand_overlay
-
-    # title bar: a scrim-ink band across the hero/card seam, title centered in it.
-    title_h = int(H * 0.14)
-    title_top = slot_h - title_h // 2
-    bar = Image.new("RGBA", (W, title_h), (*_hex_to_rgb(_scrim_hex), 220))
-    canvas.alpha_composite(bar, (0, title_top))
-    if title:
-        px = _HEADLINE_PX.get(ratio, 56)
-        try:
-            tfont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", px)
-        except OSError:
-            tfont = ImageFont.load_default()
-        lines = _wrap_headline(draw, title, tfont, W - 2 * pad)
-        line_h = int(px * 1.15)
-        block_h = line_h * len(lines)
-        ty = title_top + (title_h - block_h) // 2
-        for line in lines:
-            bbox = draw.textbbox((0, 0), line, font=tfont)
-            tw = bbox[2] - bbox[0]
-            draw.text(
-                ((W - tw) / 2, ty), line, fill="white", font=tfont,
-                stroke_width=2, stroke_fill=(0, 0, 0, 180),
-            )
-            ty += line_h
-
-    # body zones: ingredients (left) + steps (right) in the kraft card region.
-    body_px = max(20, int(_HEADLINE_PX.get(ratio, 56) * 0.42))
-    try:
-        hfont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", body_px)
-        bfont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", body_px)
-    except OSError:
-        hfont = ImageFont.load_default()
-        bfont = hfont
-    ink = _hex_to_rgb(_scrim_hex)
-    body_top = title_top + title_h + pad // 2
-    line_gap = int(body_px * 1.4)
-    col_x = {"left": pad, "right": W // 2 + pad // 2}
-
-    # Legibility floor: body text must end above the accent bar. Each column
-    # fits what fits — items that would cross the floor are dropped, so a
-    # long LLM-authored list can never bleed off the card or under the bar.
-    floor_y = H - 8 - line_gap
-    capacity = max(0, (floor_y - body_top - line_gap) // line_gap)
-
-    def _draw_zone(x: int, heading: str, items: list[str]) -> int:
-        y = body_top
-        draw.text((x, y), heading, fill=(*ink, 255), font=hfont)
-        y += line_gap
-        drawn = 0
-        for item in items[:capacity]:
-            draw.text((x, y), f"- {item}", fill=(*ink, 255), font=bfont)
-            y += line_gap
-            drawn += 1
-        return drawn
-
-    _draw_zone(col_x["left"], "Ingredients", ingredients)
-    _draw_zone(col_x["right"], "Steps", steps)
-
-    # C03 — 8px Blaze Orange accent bar at the very bottom.
-    accent = _hex_to_rgb(_accent_hex)
-    draw.rectangle([0, H - 8, W, H], fill=(*accent, 255))
-
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    canvas.convert("RGB").save(out_path, "PNG")
-    return out_path
 
 
 def _compose_scene(
@@ -3114,6 +1584,31 @@ def build_copy_sidecar(
     return {"txt": "\n".join(txt_lines) + "\n", "csv": buf.getvalue()}
 
 
+def _caption_with_budget(src, product_name, brief_msg, region, audience, remaining_ms=None) -> str:
+    """Stock Nova caption behind the wall clock, with start/done latency logs.
+
+    Entered ONLY while remaining_ms() still covers the caption's worst-case cost
+    (_CAPTION_BUDGET_MS) PLUS the rung-C reservation, so a slow caption can never
+    starve rung C. remaining_ms None = no clock (tests/offline) -> always attempt.
+    Returns "" on skip or failure so callers fall through to the raw brief.
+    """
+    if remaining_ms is not None and remaining_ms() < _CAPTION_BUDGET_MS + _C_RESERVATION_MS:
+        print(
+            f"[generate] nova caption skipped (budget {remaining_ms():.0f}ms < "
+            f"{_CAPTION_BUDGET_MS + _C_RESERVATION_MS}ms) -> brief fallback",
+            file=sys.stderr,
+        )
+        return ""
+    _t0 = time.monotonic()
+    caption = _nova_pro_caption(src, product_name, brief_msg, region, audience) or ""
+    _dt = (time.monotonic() - _t0) * 1000.0
+    print(
+        f"[generate] nova caption {'ok' if caption else 'empty'} latency={_dt:.0f}ms",
+        file=sys.stderr,
+    )
+    return caption
+
+
 def generate_hero(
     product_id: str,
     product_name: str,
@@ -3361,6 +1856,12 @@ def generate_hero(
         "layers": layers,
         "clean": layers is not None,
         "copy_headline": None,
+        # Issue 308 spend-per-repeat counter: hits = restyles served from the
+        # content-addressed cache (free), misses = paid fresh Stability invokes
+        # (gate-rejected ones included — the money spent either way). Summed
+        # over a session's responses this is the cache hit rate, which decides
+        # whether repeat renders are free or full price.
+        "restyle_cache": {"hits": 0, "misses": 0},
     }
     # Unwritable out_dir degrades to a recorded tmp fallback HERE so every rung
     # below (A bg composite, B restyle, C compose, D floor) writes the usable
@@ -3586,6 +2087,7 @@ def generate_hero(
                         seed = cached
                         bg_restyle = True
                         provenance["bg_restyle_source"] = "cache"
+                        provenance["restyle_cache"]["hits"] += 1
                 except (OSError, ValueError, TypeError):
                     cache_key = None
             if (seed is not None and not bg_restyle and not bare_base
@@ -3608,6 +2110,7 @@ def generate_hero(
                             seed = restyled
                             bg_restyle = True
                             provenance["bg_restyle_source"] = "fresh"
+                            provenance["restyle_cache"]["misses"] += 1
                             provenance["seed"] = request_seed
                             if cache_key is not None:
                                 _restyle_cache_put(cache_key, restyled)
@@ -3832,6 +2335,14 @@ def generate_hero(
                                     else:
                                         _native_outcomes.setdefault(_ratio, "native-unavailable")
                             stylized = _stylized_1x1
+                            # Issue 308: the fan-out path never consults the
+                            # restyle cache, so every landed tile is full price.
+                            if _stylized_1x1 is not None and _stylized_1x1.exists():
+                                provenance["restyle_cache"]["misses"] += 1
+                            provenance["restyle_cache"]["misses"] += sum(
+                                1 for _o in _native_outcomes.values()
+                                if _o == "stability-restyle-native"
+                            )
                         except Exception as _e:  # noqa: BLE001 — pool failure keeps the serial path below
                             print(f"[generate] native fan-out failed: {_e}", file=sys.stderr)
                             _native_outcomes = {}
@@ -3843,6 +2354,8 @@ def generate_hero(
                         except TypeError:
                             stylized = _stability_control_hero(seed, scene_prompt, out_path)
                             rung_b_strength = None  # unparametrized fallback: record no strength
+                        if stylized is not None and stylized.exists():
+                            provenance["restyle_cache"]["misses"] += 1
                     print(f"[generate] stage restyle done in {time.monotonic() - _restyle_t0:.1f}s", file=sys.stderr)
                 if stylized is not None and stylized.exists():
                     # Similarity gate (B -> C): reject a drifted restyle BEFORE the
@@ -3897,6 +2410,10 @@ def generate_hero(
                                         print(f"[generate] diverge retry failed: {retry_error}", file=sys.stderr)
                                         _retried = None
                                     if _retried is not None and _retried.exists():
+                                        # The diverge retry is a second paid
+                                        # invoke (the too-close first attempt
+                                        # was already counted at its site).
+                                        provenance["restyle_cache"]["misses"] += 1
                                         _retry_dist = _similarity_distance(seed, _retried)
                                         provenance["similarity_retry_distance"] = _retry_dist
                                         provenance["similarity_retry_seed"] = _retry_seed

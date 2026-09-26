@@ -24,6 +24,7 @@ from botocore.exceptions import ReadTimeoutError
 from PIL import Image
 
 from creative_automation import asset_store
+from creative_automation import bedrock_client
 from creative_automation import generate as generate_mod
 
 
@@ -143,7 +144,7 @@ def test_bedrock_read_timeout_falls_through_to_rung_c(tmp_path, monkeypatch):
         def invoke_model(self, **kwargs):
             raise ReadTimeoutError(endpoint_url="https://bedrock-runtime.us-east-1.amazonaws.com")
 
-    monkeypatch.setattr(generate_mod.boto3, "client", lambda *a, **k: _TimeoutClient())
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _TimeoutClient())
 
     out = tmp_path / "hero.png"
     # must NOT raise
@@ -416,7 +417,7 @@ def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypa
         factory_timeouts.append(read_timeout)
         raise AssertionError("no network in test — factory client must not be invoked")
 
-    monkeypatch.setattr(generate_mod, "_bedrock_failfast_client", _spy_factory)
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", _spy_factory)
 
     # a scene-prompt that is SLOW: it advances the fake clock past the stability sub-call
     # gate, then returns the deterministic default (mirrors the real graceful degrade).
@@ -425,7 +426,7 @@ def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypa
 
     def _slow_scene(*_a, **_k):
         try:
-            generate_mod._bedrock_failfast_client(read_timeout=NOVA_T)
+            bedrock_client._bedrock_failfast_client(read_timeout=NOVA_T)
         except AssertionError:
             pass  # spy raises after recording — degrade to default like a real timeout
         clock["t"] += 9.0  # burn 9s of wall-clock — pushes remaining under the B stability gate

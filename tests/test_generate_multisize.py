@@ -15,6 +15,7 @@ from pathlib import Path
 
 from PIL import Image
 
+from creative_automation import bedrock_client
 from creative_automation import generate
 
 
@@ -51,7 +52,7 @@ def test_provenance_shape_and_json_serializable(tmp_path: Path, monkeypatch) -> 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: _Fake())
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Fake())
 
     out = tmp_path / "hero.png"
     _result, source, prov = generate.generate_hero(
@@ -139,7 +140,7 @@ def test_generate_hero_set_three_ratios_via_outpaint(tmp_path: Path, monkeypatch
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: _Fake())
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Fake())
 
     renders, source, prov = generate.generate_hero_set(
         product_id="power-cakes",
@@ -312,8 +313,8 @@ def test_stability_outpaint_uses_failfast_client_and_style_sandwich(tmp_path: Pa
     def _no_bare(*a, **k):
         raise AssertionError("bare boto3.client must not be used by outpaint")
 
-    monkeypatch.setattr(generate, "_bedrock_failfast_client", _fake_failfast)
-    monkeypatch.setattr(generate.boto3, "client", _no_bare)
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", _fake_failfast)
+    monkeypatch.setattr(bedrock_client.boto3, "client", _no_bare)
     out = tmp_path / "wide.png"
     result = generate._stability_outpaint(seed, 1920, 1080, "campfire morning", out)
     assert result is not None and result.exists()

@@ -157,16 +157,18 @@ describe('kodiak logo blend + composing tokens', () => {
 // brand, complementing captions, arrows off the thumbnails.
 describe('frontier polish pass', () => {
   it('composing roller names real pipeline phases and cleans up', () => {
-    expect(gen).toMatch(/Nova Micro reviewing campaign copy/);
-    expect(gen).toMatch(/Nova Pro composing the hero/);
-    expect(gen).toMatch(/Sending your brief \+ market/);
+    // plain words, never model names or "backend" — execuspeak stays out.
+    expect(gen).toMatch(/Reviewing your campaign words/);
+    expect(gen).toMatch(/Painting the hero/);
+    expect(gen).toMatch(/Sending your brief and market/);
+    expect(gen).not.toMatch(/Nova Micro reviewing|Nova Pro composing|to the campaign backend/);
     expect(gen).toMatch(/stageTimers\.forEach\(\(t\)=>\{ try\{ clearTimeout\(t\); \}catch\(e\)\{\} \}\)/);
     expect(gen).not.toMatch(/stageT1 = setTimeout/);
   });
 
   it('wall-timeout fallthrough auto-retries, double miss is honest', () => {
     expect(gen).toMatch(/id = 'genRetry'/);
-    expect(gen).toMatch(/Try again — models are warm now/);
+    expect(gen).toMatch(/retryBtn\.textContent = 'Try again'/);
     expect(gen).toMatch(/AUTO-RETRY ONCE/);
     // fallback pixels are never presented as the campaign on a double miss.
     expect(gen).toMatch(/Render miss — nothing generated/);

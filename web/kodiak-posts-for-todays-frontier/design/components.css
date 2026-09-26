@@ -2049,9 +2049,8 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 /* language dock owns its own row under the publish pills — never a wrapped
    straggler with a dangling divider. full-row flex takes a fixed token gap
    above, so the two control rows read as separate lines at every width. */
-.ff-output-langline{display:flex;flex:1 1 100%;flex-wrap:wrap;align-items:center;gap:8px;margin:var(--spacing-sm) 0 0;padding:0;border-left:none}
-.ff-output-langline[hidden]{display:none}
-.ff-output-langline__label{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-600)}
+.rc-lang-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 var(--spacing-xs)}
+.rc-lang-row__label{font:700 11px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--colors-neutral-600)}
 .ff-filmstrip__dl{display:inline-block;margin-top:auto;padding-top:var(--spacing-xs);color:var(--colors-brand-frontier-green);
   font:700 11px/1.4 "museo-sans",system-ui,sans-serif;text-decoration:underline;text-underline-offset:2px}
 .ff-filmstrip__dl:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}

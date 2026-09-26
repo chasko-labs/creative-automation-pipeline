@@ -651,7 +651,6 @@
     var data = window.KODIAK_RECIPE_CARDS;
     if (!data || typeof data !== 'object' || !Object.keys(data).length) {
       slot.appendChild(el('p', 'rc-gallery-empty', 'Recipe card will appear here once generated.'));
-      dockPreviewLangToggle(null);
       return;
     }
 
@@ -659,7 +658,6 @@
     if (!market) {
       slot.appendChild(el('p', 'rc-gallery-empty',
         'No recipe card for the selected market yet.'));
-      dockPreviewLangToggle(null);
       return;
     }
     /** @type {Object<string, MonthCard>} */
@@ -670,7 +668,6 @@
     if (!card) {
       slot.appendChild(el('p', 'rc-gallery-empty',
         'No card for this market and month yet.'));
-      dockPreviewLangToggle(null);
       return;
     }
     // column wrap: #previewRecipe is a full-width block, so the toggle,
@@ -704,54 +701,22 @@
       if (previewLang !== 'en' && !monthLangs[previewLang]) previewLang = 'en';
       var applied = withPreviewLang(card, previewLang, monthLangs[previewLang]);
       if (dockCodes.length) {
-        wrap.appendChild(buildLangToggle(dockCodes, previewLang, function (code) {
+        // Recipe-language toggle lives WITH the recipe card (labeled), never
+        // docked beside the publish targets — the old dock flickered with
+        // every campaign poll because its visibility tracked render state.
+        var langRow = el('div', 'rc-lang-row');
+        langRow.appendChild(el('span', 'rc-lang-row__label', 'RECIPE LANGUAGE'));
+        langRow.appendChild(buildLangToggle(dockCodes, previewLang, function (code) {
           previewLang = code;
           renderPreviewCard();
         }, bakedCodes));
+        wrap.appendChild(langRow);
         if (applied.translated) wrap.appendChild(buildTranslationBadge(applied.translated));
       }
       shell.appendChild(buildRecipeCard(applied.card));
     }
     wrap.appendChild(shell);
     slot.appendChild(wrap);
-    dockPreviewLangToggle(wrap);
-  }
-
-  // Output-header language dock: the recipe toggle lives beside the publish
-  // targets (with its own label) instead of floating between copy and card.
-  // The node is MOVED, not cloned, so its listeners survive; a render with no
-  // languages hides the dock instead of leaving a stale toggle behind.
-  /**
-   * @param {HTMLElement|null} scope
-   * @returns {void}
-   */
-  function dockPreviewLangToggle(scope) {
-    var pub = document.getElementById('publishTargets');
-    if (!pub) return;
-    var line = document.getElementById('outputLangLine');
-    if (!line) {
-      line = document.createElement('span');
-      line.id = 'outputLangLine';
-      line.className = 'ff-output-langline';
-      var label = document.createElement('span');
-      label.className = 'ff-output-langline__label';
-      label.textContent = 'Language';
-      line.appendChild(label);
-      pub.appendChild(line);
-    }
-    // one toggle ever: each re-render builds fresh, so drop the previous
-    // before docking or the pills stack up six-deep.
-    var stale = line.querySelectorAll('.rc-lang-toggle');
-    for (var s = 0; s < stale.length; s++) {
-      if (stale[s].parentNode === line) line.removeChild(stale[s]);
-    }
-    var toggle = scope ? scope.querySelector('.rc-lang-toggle') : null;
-    if (toggle) {
-      line.appendChild(toggle);
-      line.hidden = false;
-    } else {
-      line.hidden = true;
-    }
   }
 
   function bindPreviewRefresh() {

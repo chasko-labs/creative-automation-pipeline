@@ -15,7 +15,9 @@ import json
 from pathlib import Path
 
 from PIL import Image
+from PIL import ImageOps as _ImageOps
 
+from creative_automation import bedrock_client
 from creative_automation import generate
 
 _FIXTURE = Path(__file__).parent / "fixtures" / "asset_store-real-keys.txt"
@@ -64,7 +66,7 @@ def test_stability_control_hero_request_shape_and_write(tmp_path: Path, monkeypa
     seed = _make_seed(tmp_path / "seed.png")
     canned = base64.b64encode(_png_bytes(color=(10, 200, 120))).decode("ascii")
     fake = _FakeBedrockClient(canned)
-    monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: fake)
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: fake)
 
     out = tmp_path / "styled.png"
     result = generate._stability_control_hero(seed, "restyle to wild frontier", out)
@@ -109,7 +111,7 @@ def test_stability_returns_none_on_client_error(tmp_path: Path, monkeypatch) -> 
         def invoke_model(self, **kwargs):
             raise ClientError({"Error": {"Code": "AccessDeniedException", "Message": "no"}}, "InvokeModel")
 
-    monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: _DenyClient())
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _DenyClient())
     assert generate._stability_control_hero(seed, "p", tmp_path / "o.png") is None
 
 
@@ -139,7 +141,7 @@ def test_persona_mechanism_still_sanitizes_when_populated(monkeypatch) -> None:
 def test_default_scene_prompt_carries_wild_dispatch(monkeypatch) -> None:
     # with boto3 unavailable the deterministic default prompt is built directly —
     # the unified wild dispatch must be present, palette spelled out.
-    monkeypatch.setattr(generate, "boto3", None)
+    monkeypatch.setattr(bedrock_client, "boto3", None)
     prompt = generate._nova_pro_scene_prompt(
         Path("seed.png"),
         "Power Cakes",
@@ -170,10 +172,11 @@ def test_generate_hero_stability_primary_on_disk_seed(tmp_path: Path, monkeypatc
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: fake)
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: fake)
 
     out = tmp_path / "hero.png"
-    # overlays OFF here so the written hero is the verbatim decoded Stability image —
+    # overlays OFF here so the written hero is the decoded Stability image framed
+    # to the ratio canvas (frame truth: 1024px payload cover-fit to 1080x1080) —
     # PART C/D (brand + kraft) are covered separately in test_generate_multisize.py.
     result, source, _prov = generate.generate_hero(
         product_id="power-cakes",
@@ -189,7 +192,13 @@ def test_generate_hero_stability_primary_on_disk_seed(tmp_path: Path, monkeypatc
     assert result.exists()
     assert source == generate.STABILITY_SOURCE
     assert source == "bedrock:stability-control-structure"
-    assert out.read_bytes() == base64.b64decode(canned)
+    _framed = io.BytesIO()
+    _ImageOps.fit(
+        Image.open(io.BytesIO(base64.b64decode(canned))).convert("RGB"),
+        generate._CANVAS["1x1"],
+        method=Image.BICUBIC,
+    ).save(_framed, "PNG")
+    assert out.read_bytes() == _framed.getvalue()
     # seed carried into the invoke body
     body = json.loads(fake.last_invoke["body"])
     assert set(body) == {"prompt", "image", "control_strength", "seed", "output_format"}
@@ -315,7 +324,7 @@ def test_generate_hero_theme_seed_wins_and_conditions(tmp_path: Path, monkeypatc
 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: "brands/kodiak/raw-ingest/theme.jpg")
     monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
-    monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: fake)
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: fake)
 
     out = tmp_path / "hero.png"
     result, source, _prov = generate.generate_hero(

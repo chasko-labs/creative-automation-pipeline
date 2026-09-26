@@ -1665,18 +1665,35 @@ let skuList = [
            * @param {unknown} engine
            * @returns {void}
            */
+          // Preload off-DOM, then swap: tiles never flash empty while the
+          // new pixels load, and a failed load keeps the old pixels with
+          // the honest mark instead of a broken image.
           const swapTile = (ratio, url, engine)=>{
-            try{
-              document.querySelectorAll('#preview .render-tile').forEach(t=>{
-                const b = t.querySelector('b');
-                if(b && b.textContent.indexOf(ratio.replace('x',':'))===0){
-                  const img = t.querySelector('img');
-                  if(img && url) img.src = url;
+            /**
+             * @param {boolean} swap
+             * @returns {void}
+             */
+            const apply = (swap)=>{
+              try{
+                if(swap){
+                  document.querySelectorAll('#preview .render-tile').forEach(t=>{
+                    const b = t.querySelector('b');
+                    if(b && b.textContent.indexOf(ratio.replace('x',':'))===0){
+                      const img = t.querySelector('img');
+                      if(img && url) img.src = url;
+                    }
+                  });
                 }
-              });
-            }catch(e){}
-            const mark = tileEngineMark(engine);
-            setTileMark(ratio, mark.text || ' · cover-pad', mark.cls || 'rt-pad');
+              }catch(e){}
+              const mark = tileEngineMark(engine);
+              setTileMark(ratio, mark.text || ' · cover-pad', mark.cls || 'rt-pad');
+            };
+            try{
+              const pre = new Image();
+              pre.onload = function(){ apply(true); };
+              pre.onerror = function(){ apply(false); };
+              pre.src = url;
+            }catch(e){ apply(true); }
           };
           await Promise.all(targets.map(async (r)=>{
             const ratio = r.ratio;
@@ -1938,7 +1955,7 @@ let skuList = [
           if(doc && doc.state === 'error') throw new Error(String((doc && doc.error) || 'render job failed'));
           const elapsed = Math.round((Date.now() - t0) / 1000);
           if(Date.now() - t0 > POLL_DEADLINE_MS) throw new Error('job timed out after ' + elapsed + 's without finishing');
-          if(status) status.textContent = 'Composing on the backend — ' + elapsed + 's elapsed, no 30s limit…';
+          if(status) status.textContent = 'Still composing — ' + elapsed + 's so far. Big renders take a minute or two; nothing is stuck…';
           await new Promise(res=>setTimeout(res, POLL_INTERVAL_MS));
         }
       };
@@ -2062,11 +2079,11 @@ let skuList = [
       // wall, ratio fan-out + extends land last). Timed narration, not live
       // mapping — the single POST exposes no per-stage callbacks.
       const composeStages = [
-        {at: 0, text: 'Sending your brief + market to the campaign backend — warming up the Bedrock models (first render takes longest)…'},
-        {at: 8000, text: 'Nova Micro reviewing campaign copy…'},
-        {at: 15000, text: 'Nova Pro composing the hero…'},
-        {at: 30000, text: 'Still composing — Nova Pro is rendering your hero…'},
-        {at: 60000, text: 'Almost there — finishing the composition…'}
+        {at: 0, text: 'Sending your brief and market — waking things up (first render takes longest)…'},
+        {at: 8000, text: 'Reviewing your campaign words…'},
+        {at: 15000, text: 'Painting the hero…'},
+        {at: 30000, text: 'Still painting — the hero is coming together…'},
+        {at: 60000, text: 'Almost there — finishing touches…'}
       ];
       if(status){
         composeStages.forEach((s)=>{
@@ -2086,7 +2103,7 @@ let skuList = [
           let json = null;
           let jobsDone = false;
           try{
-            if(status) status.textContent = 'Starting backend render job — composing past the 30s limit…';
+            if(status) status.textContent = 'Render started — painting your campaign (takes a minute or two)…';
             const jobId = await startJob(buildGenerateBody(primarySlug, activeTheme || undefined));
             json = await pollJob(jobId, runToken);
             jobsDone = true;
@@ -2105,7 +2122,7 @@ let skuList = [
           // Single-request sync fallback (themed if a chip is active, else default product).
           // Pass 1 of 2 warms the image model AND attempts the hero — stated
           // up front so a cold miss reads as a warming pass, never a failure.
-          if(status) status.textContent = 'Pass 1 of 2 — warming the image model and composing your hero…';
+          if(status) status.textContent = 'First pass — waking the image model and painting your hero…';
           const pass1At = Date.now();
           json = await oneGenerate(primarySlug, activeTheme || undefined);
           // AUTO-RETRY ONCE on a wall-timeout fallthrough — but only when pass 1
@@ -2116,9 +2133,9 @@ let skuList = [
           if(/^brand-floor/i.test(String((json && json.source) || ''))){
             const pass1Ms = Date.now() - pass1At;
             if(pass1Ms < 5000){
-              if(status) status.textContent = 'The backend declined the render in ' + Math.max(1, Math.round(pass1Ms / 1000)) + 's — retrying now would hit the same wall.';
+              if(status) status.textContent = 'The render came back in ' + Math.max(1, Math.round(pass1Ms / 1000)) + 's without starting — retrying now would hit the same wall.';
             } else {
-              if(status) status.textContent = 'Pass 1 warmed the model — composing again (pass 2 of 2)…';
+              if(status) status.textContent = 'The model is awake now — painting again…';
               try{
                 const retryJson = await oneGenerate(primarySlug, activeTheme || undefined);
                 if(retryJson && retryJson.image_url) json = retryJson;

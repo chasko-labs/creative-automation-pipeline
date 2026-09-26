@@ -6,6 +6,7 @@ from pathlib import Path
 
 from PIL import Image
 
+from creative_automation import bedrock_client
 from creative_automation import asset_store, generate
 
 
@@ -58,7 +59,7 @@ def test_cache_hit_skips_bedrock(tmp_path: Path, monkeypatch) -> None:
             assert name == "s3"
             return _S3()
 
-    monkeypatch.setattr(generate, "boto3", _Boto())
+    monkeypatch.setattr(bedrock_client, "boto3", _Boto())
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
@@ -84,6 +85,7 @@ def test_cache_hit_skips_bedrock(tmp_path: Path, monkeypatch) -> None:
     )
     assert prov["bg_restyle"] is True
     assert prov["bg_restyle_source"] == "cache"
+    assert prov["restyle_cache"] == {"hits": 1, "misses": 0}
     assert out.exists()
 
 
@@ -103,7 +105,7 @@ def test_set_base_miss_uses_raw_seed(tmp_path: Path, monkeypatch) -> None:
         def client(self, name):
             return _S3()
 
-    monkeypatch.setattr(generate, "boto3", _Boto())
+    monkeypatch.setattr(bedrock_client, "boto3", _Boto())
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
@@ -128,4 +130,53 @@ def test_set_base_miss_uses_raw_seed(tmp_path: Path, monkeypatch) -> None:
         bare_base=True,
     )
     assert prov["bg_restyle"] is False
+    assert prov["restyle_cache"] == {"hits": 0, "misses": 0}
+    assert out.exists()
+
+
+def test_preview_fresh_restyle_counts_miss_and_writes_through(tmp_path: Path, monkeypatch) -> None:
+    # cache miss on a preview (not a set base) -> one paid fresh restyle,
+    # counter records the miss, and the pixels are cached for the repeat.
+    seed = tmp_path / "seed.png"
+    seed.write_bytes(_png_bytes())
+    puts: list[str] = []
+
+    class _S3:
+        def download_file(self, bucket, key, dest):
+            raise _StubS3Error("NoSuchKey")
+
+        def put_object(self, **kwargs):
+            puts.append(kwargs.get("Key", ""))
+
+    class _Boto:
+        def client(self, name):
+            return _S3()
+
+    def _fake_stability(seed_path, scene, dest, **kwargs):
+        Path(dest).write_bytes(_png_bytes(color=(1, 2, 3)))
+        return Path(dest)
+
+    monkeypatch.setattr(bedrock_client, "boto3", _Boto())
+    monkeypatch.setattr(generate, "_STABILITY_RUNG_ON", True)
+    monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
+    monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid: _local_box(tmp_path))
+    monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "wild scene")
+    monkeypatch.setattr(generate, "_stability_control_hero", _fake_stability)
+
+    out = tmp_path / "hero.png"
+    _result, _source, prov = generate.generate_hero(
+        product_id="banana-muffin-quick-bread-mix",
+        product_name="Banana Muffin Mix",
+        brief_msg="wild mornings",
+        region="us",
+        audience="active families",
+        out_path=out,
+    )
+    assert prov["bg_restyle"] is True
+    assert prov["bg_restyle_source"] == "fresh"
+    assert prov["restyle_cache"] == {"hits": 0, "misses": 1}
+    assert len(puts) == 1
+    assert puts[0].startswith(generate._RESTYLE_CACHE_PREFIX)
     assert out.exists()

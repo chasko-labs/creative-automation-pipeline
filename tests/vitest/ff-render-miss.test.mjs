@@ -16,7 +16,7 @@ const gen = readFileSync(web('js/generate.js'), 'utf8');
 describe('render-miss auto-retry and honest error', () => {
   it('auto-retries exactly once on a brand-floor fallthrough', () => {
     expect(gen).toMatch(/AUTO-RETRY ONCE/);
-    expect(gen).toMatch(/bounded to exactly\s*\n?\s*\/\/ one retry/i);
+    expect(gen).toMatch(/Bounded to exactly one retry/i);
     // the retry re-issues oneGenerate; the old passive status copy is gone.
     expect(gen).not.toMatch(
       /fallback pixels shown, not the campaign/,

@@ -269,43 +269,64 @@ def pairing_season_label(value: object) -> str | None:
         return None
 
 
+# Meteorological season by month number (index month - 1). A lookup, not a
+# branch: adding a hemisphere or a new calendar never touches this function —
+# it ships a different table.
+_SEASON_BY_MONTH = (
+    "winter",  # 01
+    "winter",  # 02
+    "spring",  # 03
+    "spring",  # 04
+    "spring",  # 05
+    "summer",  # 06
+    "summer",  # 07
+    "summer",  # 08
+    "fall",    # 09
+    "fall",    # 10
+    "fall",    # 11
+    "winter",  # 12
+)
+
+
+def _parse_ym_month(parts: list[str]) -> int | None:
+    """Month number from split YYYY-MM[-DD] parts, or None when unparseable.
+
+    Contract: bare "MM" is a month; "YYYY-MM" needs a numeric year; full
+    dates additionally need day 1-31 (calendar-validity beyond that is the
+    caller's business). Never raises.
+    """
+    if len(parts) == 1:
+        fields = (parts[0],)
+    elif len(parts) in (2, 3):
+        try:
+            int(parts[0])  # year must be numeric — same int() semantics as before
+        except ValueError:
+            return None
+        fields = parts[1:]
+    else:
+        return None
+    try:
+        nums = [int(f) for f in fields]
+    except ValueError:
+        return None
+    if len(nums) == 2 and not 1 <= nums[1] <= 31:
+        return None
+    return nums[0]
+
+
 def season_for_month(ym: str | None) -> str | None:
     """Meteorological season for an ISO 'YYYY-MM' month or full 'YYYY-MM-DD'
     date, or None when unparseable.
 
-    12/01/02 winter, 03-05 spring, 06-08 summer, 09-11 fall. Never raises: a bad
-    month string yields None (caller falls back to the static default). A day
-    part, when present, must be 1-31 (calendar-validity beyond that is the
-    caller's business); anything else yields None.
+    Never raises: a bad month string yields None (caller falls back to the
+    static default).
     """
     if not ym or not isinstance(ym, str):
         return None
-    parts = ym.strip().split("-")
-    try:
-        if len(parts) == 1:
-            month = int(parts[0])
-        elif len(parts) == 2:
-            int(parts[0])  # year must be numeric, like the YYYY-MM contract
-            month = int(parts[1])
-        elif len(parts) == 3:
-            int(parts[0])  # year must be numeric, like the YYYY-MM-DD contract
-            month = int(parts[1])
-            day = int(parts[2])
-            if not 1 <= day <= 31:
-                return None
-        else:
-            return None
-    except (ValueError, IndexError):
+    month = _parse_ym_month(ym.strip().split("-"))
+    if month is None or not 1 <= month <= 12:
         return None
-    if month in (12, 1, 2):
-        return "winter"
-    if month in (3, 4, 5):
-        return "spring"
-    if month in (6, 7, 8):
-        return "summer"
-    if month in (9, 10, 11):
-        return "fall"
-    return None
+    return _SEASON_BY_MONTH[month - 1]
 
 
 def resolve_season(structured: object = None, month: str | None = None) -> dict:

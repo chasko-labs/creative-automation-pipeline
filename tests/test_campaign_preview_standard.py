@@ -79,7 +79,8 @@ def test_generation_not_stuck_on_single_packshot():
     frontier place, so Cincinnati September (pawpaws, tropical custard, Lebanon/Findlay)
     looks nothing like Halloween (apples, cider, pumpkin patch).
     """
-    gen_text = pathlib.Path("src/creative_automation/generate.py").read_text(encoding="utf-8")
+    # _default_scene_prompt lives on scene_prompts (owner); generate re-exports it.
+    gen_text = pathlib.Path("src/creative_automation/scene_prompts.py").read_text(encoding="utf-8")
     # Slice the _default_scene_prompt function body (until next def) so global mentions of
     # ingredient elsewhere don't give a false pass. It must itself thread frontier context.
     start = gen_text.find("def _default_scene_prompt")

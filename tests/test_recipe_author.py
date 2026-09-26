@@ -11,6 +11,7 @@ from pathlib import Path
 
 from PIL import Image
 
+from creative_automation import bedrock_client
 from creative_automation import generate
 
 
@@ -42,7 +43,7 @@ def test_validate_rejects_garbage() -> None:
 
 
 def test_author_returns_none_offline(monkeypatch) -> None:
-    monkeypatch.setattr(generate, "boto3", None)
+    monkeypatch.setattr(bedrock_client, "boto3", None)
     assert generate._author_recipe_fields("Power Cakes", "wild", "us") is None
 
 
@@ -58,7 +59,7 @@ class _FakeConverse:
 
 
 def test_author_parses_valid_json(monkeypatch) -> None:
-    monkeypatch.setattr(generate, "_bedrock_failfast_client", lambda **k: _FakeConverse(
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _FakeConverse(
         '{"title": "Wild Stack", "ingredients": ["2 cups mix", "1 cup milk"], '
         '"steps": ["whisk well", "cook golden"]}'
     ))
@@ -67,11 +68,11 @@ def test_author_parses_valid_json(monkeypatch) -> None:
 
 
 def test_author_returns_none_on_garbage(monkeypatch) -> None:
-    monkeypatch.setattr(generate, "_bedrock_failfast_client", lambda **k: _FakeConverse(
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _FakeConverse(
         "just some prose, no json at all"
     ))
     assert generate._author_recipe_fields("Power Cakes", "wild", "us") is None
-    monkeypatch.setattr(generate, "_bedrock_failfast_client", lambda **k: _FakeConverse(
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _FakeConverse(
         '{"title": "", "ingredients": [], "steps": []}'
     ))
     assert generate._author_recipe_fields("Power Cakes", "wild", "us") is None
@@ -82,7 +83,7 @@ def test_author_returns_none_on_client_error(monkeypatch) -> None:
         def converse(self, **kwargs):
             raise RuntimeError("throttled")
 
-    monkeypatch.setattr(generate, "_bedrock_failfast_client", lambda **k: _Boom())
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _Boom())
     assert generate._author_recipe_fields("Power Cakes", "wild", "us") is None
 
 

@@ -51,7 +51,7 @@ except ImportError:  # boto3/botocore are hard deps; defensive for offline CI
     BotoCoreError = ClientError = Exception  # type: ignore
 
 # Voice model: Nova Micro via cross-region inference profile, pay-per-token,
-# $0 idle (cost incident 2026-09-23 — the imported 1b copy billed ~$38/day
+# $0 idle (cost incident 2026-09-23 — the imported 1b copy billed $82.34/day
 # in copy-minutes and was deleted). The bare model id rejects on-demand
 # Converse in us-west-2; the us.* profile is required. Overridable by env
 # for a rebuilt/re-imported custom model.
@@ -74,7 +74,7 @@ KNOWN_VOICES = ("adventurous", "nourishing")
 # ModelNotReadyException on the first invoke after idle. Bounded HARD: 2 attempts x
 # 1x2s sleep (worst case ~2s of sleep + inference) — one fast warming probe, then
 # out. (The old pre-warm Scheduler ping was deleted 2026-09-23: it kept a
-# ~$38/day copy charge alive.) PROVEN IN PROD
+# $82.34/day copy charge alive.) PROVEN IN PROD
 # (2026-09-08): longer loops blew the wall to rung-D brand-floor on every request
 # while the model warmed — a retry must never outlive its caller.
 # CI never reaches this path (it has no creds); `sleep` stays injectable for tests.

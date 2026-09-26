@@ -14,6 +14,7 @@ from pathlib import Path
 from PIL import Image
 
 from creative_automation import art_director, director_memory
+from creative_automation import director_voice
 from creative_automation import generate as generate_mod
 
 
@@ -21,7 +22,8 @@ def _enable(monkeypatch):
     monkeypatch.setenv("KODIAK_DIRECTOR_GROUNDED", "true")
     monkeypatch.setenv("KODIAK_ARTDIRECTOR_ENABLED", "true")
     # isolate the per-container director memo: each test starts unmemoized.
-    monkeypatch.setattr(generate_mod, "_DIRECTOR_MEMO", {}, raising=False)
+    # The memo lives on director_voice (owner); generate re-exports the code.
+    monkeypatch.setattr(director_voice, "_DIRECTOR_MEMO", {}, raising=False)
 
 
 def _lib_entry(id_, vec, caption):
@@ -362,7 +364,7 @@ def test_director_headline_timeout_falls_back(monkeypatch):
         return _live_result("too late")
 
     monkeypatch.setattr(art_director, "art_direct_grounded", _slow)
-    monkeypatch.setattr(generate_mod, "_DIRECTOR_TIMEOUT_S", 0.1)
+    monkeypatch.setattr(director_voice, "_DIRECTOR_TIMEOUT_S", 0.1)
     assert generate_mod._director_headline_text("P", "b", "us", "f", True) is None
 
 

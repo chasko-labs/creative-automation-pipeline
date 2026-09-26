@@ -2,13 +2,16 @@
 from __future__ import annotations
 
 from creative_automation import art_director, director_memory
+from creative_automation import bedrock_client
+from creative_automation import director_voice
 from creative_automation import generate as generate_mod
 
 
 def _enable(monkeypatch):
     monkeypatch.setenv("KODIAK_DIRECTOR_GROUNDED", "true")
     monkeypatch.setenv("KODIAK_ARTDIRECTOR_ENABLED", "true")
-    monkeypatch.setattr(generate_mod, "_DIRECTOR_MEMO", {}, raising=False)
+    # The memo lives on director_voice (owner); generate re-exports the code.
+    monkeypatch.setattr(director_voice, "_DIRECTOR_MEMO", {}, raising=False)
 
 
 def _live_result(text):
@@ -82,7 +85,7 @@ def test_default_scene_prompt_unchanged_without_locale() -> None:
 def test_nova_scene_fallback_carries_locale(monkeypatch, tmp_path) -> None:
     # boto3 None -> deterministic default, which must still name market/season
     # as human place + produce, never the raw code.
-    monkeypatch.setattr(generate_mod, "boto3", None)
+    monkeypatch.setattr(bedrock_client, "boto3", None)
     seed = tmp_path / "seed.png"
     seed.write_bytes(b"fakepng")
     prompt = generate_mod._nova_pro_scene_prompt(
@@ -109,7 +112,7 @@ def test_nova_scene_postprocess_reattaches_locale(monkeypatch, tmp_path) -> None
         def converse(self, **kwargs):
             return {"output": {"message": {"content": [{"text": "Cozy fall kitchen."}]}}}
 
-    monkeypatch.setattr(generate_mod, "_bedrock_failfast_client", lambda **kwargs: _CannedConverseReply())
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **kwargs: _CannedConverseReply())
     prompt = generate_mod._nova_pro_scene_prompt(
         seed, "Power Cakes", "wild mornings", "us", "families", None, None, None,
         "US-OH-CINCINNATI", "october",

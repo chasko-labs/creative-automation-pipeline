@@ -97,6 +97,15 @@ BEAR_BROWN = (0x3B, 0x23, 0x16)
 BLAZE_ORANGE = (0xE8, 0x53, 0x0E)
 CARD_W, CARD_H = 1080, 1080  # 1x1 social card
 HERO_H = 560  # top region is the text-free image layer
+# Issue 307 merge gates: legibility floor for the layout layer. Tesseract is
+# not installed, so no pixel-OCR runs here — the gate pins the inputs OCR
+# needs instead: minimum type size plus WCAG contrast on the white panel
+# (4.5 normal, 3.0 large >= 24px, which covers the 30px ingredient line).
+MIN_TYPE_PX = 24
+MIN_CONTRAST = 4.5
+MIN_CONTRAST_LARGE = 3.0
+TITLE_PX, ING_PX, STEP_PX = 48, 30, 26
+STEP_FILL = (40, 40, 40)
 
 _STOP = frozenset(
     {"the", "and", "for", "with", "your", "kodiak", "cakes", "mix", "a", "of", "to",
@@ -867,9 +876,9 @@ def _compose_card(hero: Image.Image, text_blocks: dict, out_path: Path) -> Path:
     card.paste(hero, (0, 0))
 
     draw = ImageDraw.Draw(card)
-    title_font = _load_font(48)
-    ing_font = _load_font(30)
-    step_font = _load_font(26)
+    title_font = _load_font(TITLE_PX)
+    ing_font = _load_font(ING_PX)
+    step_font = _load_font(STEP_PX)
 
     y = HERO_H + 28
     pad = 48
@@ -878,7 +887,7 @@ def _compose_card(hero: Image.Image, text_blocks: dict, out_path: Path) -> Path:
     draw.text((pad, y), text_blocks["ingredient_line"][:60], fill=BLAZE_ORANGE, font=ing_font)
     y += 46
     for step in text_blocks["steps"]:
-        draw.text((pad, y), f"- {step[:64]}", fill=(40, 40, 40), font=step_font)
+        draw.text((pad, y), f"- {step[:64]}", fill=STEP_FILL, font=step_font)
         y += 38
 
     out_path.parent.mkdir(parents=True, exist_ok=True)

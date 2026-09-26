@@ -17,7 +17,9 @@ from pathlib import Path
 
 from PIL import Image
 
+from creative_automation import bedrock_client
 from creative_automation import generate
+from creative_automation import stability_rungs
 
 
 def _png_bytes(size: tuple[int, int] = (1080, 1080), color=(180, 90, 30)) -> bytes:
@@ -43,7 +45,8 @@ def test_native_ratio_frames_seed_to_ratio_dims(tmp_path: Path, monkeypatch) -> 
         Path(out_path).write_bytes(_png_bytes(seen["seed_size"], color=(10, 200, 120)))
         return Path(out_path)
 
-    monkeypatch.setattr(generate, "_stability_control_hero", _fake_control)
+    # native_ratio is owned by stability_rungs; patch the owner.
+    monkeypatch.setattr(stability_rungs, "_stability_control_hero", _fake_control)
     dest = tmp_path / "tile-9x16.png"
     got = generate._stability_native_ratio(
         seed, "spooky cats", "9x16", dest, seed_value=7, control_strength=0.4
@@ -59,7 +62,7 @@ def test_native_ratio_unknown_slug_and_missing_seed_are_none(
 ) -> None:
     seed = _make_seed(tmp_path / "seed.png")
     monkeypatch.setattr(
-        generate,
+        stability_rungs,
         "_stability_control_hero",
         lambda *a, **k: (_ for _ in ()).throw(AssertionError("must not invoke")),
     )
@@ -92,7 +95,7 @@ def _ladder_harness(monkeypatch, tmp_path: Path, seed: Path):
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: _Fake())
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Fake())
 
 
 def test_fanout_composes_all_five_frames_concurrently(
@@ -195,7 +198,7 @@ def test_generate_hero_stashes_seed_local(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(generate.boto3, "client", lambda *a, **k: _Fake())
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Fake())
 
     _result, _source, prov = generate.generate_hero(
         product_id="power-cakes",
