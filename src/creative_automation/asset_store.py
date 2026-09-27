@@ -866,7 +866,46 @@ def upload_recipe_art(local_png: Path, subject_slug: str, zone: str) -> str | No
         print(f"[asset-store] recipe-art upload failed s3://{bucket}/{full}: {e}")
         return None
     print(f"[asset-store] recipe-art uploaded s3://{bucket}/{full}")
+    mirror_recipe_art_to_sites(local_png, subject_slug, zone)
     return recipe_art_site_url(subject_slug, zone)
+
+
+def _site_buckets() -> list[str]:
+    """Website buckets that serve the site's recipe-art/ dir, from env.
+
+    Comma-separated KODIAK_SITE_BUCKETS. Empty (local runs, tests) means the
+    deploy-time mirror is the only site copy — no names are guessed here.
+    """
+    raw = os.getenv("KODIAK_SITE_BUCKETS", "")
+    return [b.strip() for b in raw.split(",") if b.strip()]
+
+
+def mirror_recipe_art_to_sites(local_png: Path, subject_slug: str, zone: str) -> int:
+    """Copy one art file to every configured website bucket at its site path.
+
+    Freshly generated art 404s on the site until a copy lands in the website
+    bucket — the deploy-time mirror only covers art that already exists. This
+    closes that race at publish time. Best-effort: returns the copy count,
+    never raises.
+    """
+    buckets = _site_buckets()
+    if not buckets:
+        return 0
+    client = _s3_client()
+    if client is None:
+        return 0
+    key = f"recipe-art/{subject_slug}/{zone}.png"
+    done = 0
+    for bucket in buckets:
+        try:
+            client.upload_file(
+                str(local_png), bucket, key, ExtraArgs={"ContentType": "image/png"}
+            )
+        except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — best-effort mirror
+            print(f"[asset-store] site mirror skipped s3://{bucket}/{key}: {e}")
+            continue
+        done += 1
+    return done
 
 
 def record_preview_attempt(record: dict[str, Any]) -> str | None:

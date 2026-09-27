@@ -53,3 +53,45 @@ def test_record_never_raises(monkeypatch) -> None:
 def test_record_skipped_when_store_offline(monkeypatch) -> None:
     monkeypatch.setattr(asset_store, "_s3_enabled", lambda: False)
     assert asset_store.record_preview_attempt({"brief": "x"}) is None
+
+
+class _FakeUploader:
+    def __init__(self, fail_on: str = "") -> None:
+        self.uploads: list[dict] = []
+        self.fail_on = fail_on
+
+    def upload_file(self, filename: str, bucket: str, key: str, ExtraArgs: dict | None = None) -> None:
+        if bucket == self.fail_on:
+            raise RuntimeError("denied")
+        self.uploads.append({"filename": filename, "bucket": bucket, "key": key, "ExtraArgs": ExtraArgs})
+
+
+def test_mirror_copies_to_each_site_bucket(monkeypatch, tmp_path) -> None:
+    fake = _FakeUploader()
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: fake)
+    monkeypatch.setenv("KODIAK_SITE_BUCKETS", "dev-bucket, prod-bucket")
+    art = tmp_path / "finished_plate.png"
+    art.write_bytes(b"png-bytes")
+    assert asset_store.mirror_recipe_art_to_sites(art, "sundae", "finished_plate") == 2
+    assert [(u["bucket"], u["key"]) for u in fake.uploads] == [
+        ("dev-bucket", "recipe-art/sundae/finished_plate.png"),
+        ("prod-bucket", "recipe-art/sundae/finished_plate.png"),
+    ]
+    assert all(u["ExtraArgs"] == {"ContentType": "image/png"} for u in fake.uploads)
+
+
+def test_mirror_no_buckets_configured_is_noop(monkeypatch, tmp_path) -> None:
+    monkeypatch.delenv("KODIAK_SITE_BUCKETS", raising=False)
+    art = tmp_path / "x.png"
+    art.write_bytes(b"x")
+    assert asset_store.mirror_recipe_art_to_sites(art, "sundae", "finished_plate") == 0
+
+
+def test_mirror_partial_failure_still_copies_rest(monkeypatch, tmp_path) -> None:
+    fake = _FakeUploader(fail_on="dev-bucket")
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: fake)
+    monkeypatch.setenv("KODIAK_SITE_BUCKETS", "dev-bucket, prod-bucket")
+    art = tmp_path / "x.png"
+    art.write_bytes(b"x")
+    assert asset_store.mirror_recipe_art_to_sites(art, "sundae", "finished_plate") == 1
+    assert [u["bucket"] for u in fake.uploads] == ["prod-bucket"]
