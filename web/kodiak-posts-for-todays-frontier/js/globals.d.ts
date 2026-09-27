@@ -353,6 +353,8 @@ interface Window {
   KODIAK_frontierMonthNum?: (monthKey: string) => number | null;
   /** Request body for one lazy art-zone generation (recipe-cards.js local signature, exact). */
   KODIAK_recipeArtBody?: (recipeId: string | null, artKey: string) => {mode: string, recipe_id: string, zone: string} | null;
+  /** Generates missing review-card art once per completed preview (recipe-cards.js). */
+  KODIAK_primeReviewArt?: () => void;
 }
 
 /**

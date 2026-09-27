@@ -527,8 +527,8 @@ let skuList = [
    * @returns {{text: string, cls: string}}
    */
   const tileEngineMark = (engine)=>{
-    if(engine==='stability-outpaint') return {text:' · composed', cls:'rt-live'};
-    if(engine==='pillow-outpaint-fallback') return {text:' · cover-pad', cls:'rt-pad'};
+    if(engine==='stability-outpaint') return {text:' · generated', cls:'rt-live'};
+    if(engine==='pillow-outpaint-fallback') return {text:' · cropped preview', cls:'rt-pad'};
     if(engine==='primary') return {text:'', cls:''};
     return {text:'', cls:''};
   };
@@ -1635,9 +1635,10 @@ let skuList = [
               });
             }catch(e){}
           };
-          // Every delivered state gets a mark: a live outpaint says composed, a
-          // server-side pad says cover-pad (distinct crop), and a failed extend
-          // (the server-side pad stays in place) says cover-pad too — a pad is
+          // Every delivered state gets a mark: a live outpaint says generated, a
+          // server-side pad says cropped preview (distinct crop), and a failed
+          // extend (the server-side pad stays in place) says cropped preview
+          // too — a pad is
           // never left bare. Supersedes the initial rt-eng mark, never dupes it.
           /**
            * @param {string} ratio
@@ -1691,7 +1692,7 @@ let skuList = [
                 }
               }catch(e){}
               const mark = tileEngineMark(engine);
-              setTileMark(ratio, mark.text || ' · cover-pad', mark.cls || 'rt-pad');
+              setTileMark(ratio, mark.text || ' · cropped preview', mark.cls || 'rt-pad');
             };
             try{
               const pre = new Image();
@@ -1715,15 +1716,15 @@ let skuList = [
             // Retries exhausted or a bad response: the server-side pad is the
             // delivered tile — label it instead of leaving it bare or stuck
             // on "composing".
-            setTileMark(ratio, ' · cover-pad', 'rt-pad');
+            setTileMark(ratio, ' · cropped preview', 'rt-pad');
           }));
           // End sweep: anything still reading composing (extend never ran for
-          // it, or the run bailed early) settles to cover-pad — no tile may
-          // promise generation that already ended.
+          // it, or the run bailed early) settles to cropped preview — no tile
+          // may promise generation that already ended.
           try{
             document.querySelectorAll('#preview .render-tile .rt-extend').forEach(function(s){
               if(s && s.textContent === ' · composing'){
-                s.textContent = ' · cover-pad';
+                s.textContent = ' · cropped preview';
                 s.classList.remove('rt-live');
                 s.classList.add('rt-pad');
               }
@@ -2168,14 +2169,19 @@ let skuList = [
           if(Array.isArray(json.renders) && json.renders.length){
             // backend renders[] carries all five sizes (1x1 + pillow pads) — render every labeled tile.
             showRenderSet(json.renders, {source: json.source, themeLabel: readyThemeLabel, provenance: json.provenance, extendsPending: true});
-            // tall/wide tiles upgrade from pads to composed pixels as extends land.
+            // tall/wide tiles upgrade from pads to generated pixels as extends land.
             try{ (window.KODIAK_extendTallTiles || extendTallTiles)(json.renders, {subject: brief, product: primarySlug, region: selectedLoc.market, theme: json.theme || activeTheme || null}); }catch(e){}
+            // review-card art generates once, now that the preview is done —
+            // never on load or scroll. primes missing zones; the busy gate
+            // holds fire until this run fully settles.
+            try{ if(typeof window.KODIAK_primeReviewArt==='function') window.KODIAK_primeReviewArt(); }catch(e){}
             const n = json.renders.length;
             if(status) status.textContent = 'Campaign preview ready — ' + n + ' sizes composed from ' + (json.source || 'Nova Pro') + readyTheme;
           } else {
             // OLDER backend (no renders array): fall back to the single-hero behavior.
             showRealImage(json.image_url, json.source, {theme: json.theme || activeTheme || null, themeLabel: json.theme ? (THEME_LABELS[json.theme] || json.theme) : themeLabel, provenance: json.provenance});
             if(status) status.textContent = 'Campaign preview ready — one real composed hero from ' + (json.source || 'Nova Pro') + readyTheme;
+            try{ if(typeof window.KODIAK_primeReviewArt==='function') window.KODIAK_primeReviewArt(); }catch(e){}
           }
           // provenance transparency panel — ALWAYS renders so every preview
           // narrates how it was built, in the same model-call-stats real estate.

@@ -57,8 +57,8 @@ describe('preview extend helpers', () => {
   });
 
   it('marks pad vs live engines so tiles never render identically', () => {
-    expect(window.KODIAK_tileEngineMark('stability-outpaint')).toEqual({ text: ' · composed', cls: 'rt-live' });
-    expect(window.KODIAK_tileEngineMark('pillow-outpaint-fallback')).toEqual({ text: ' · cover-pad', cls: 'rt-pad' });
+    expect(window.KODIAK_tileEngineMark('stability-outpaint')).toEqual({ text: ' · generated', cls: 'rt-live' });
+    expect(window.KODIAK_tileEngineMark('pillow-outpaint-fallback')).toEqual({ text: ' · cropped preview', cls: 'rt-pad' });
     expect(window.KODIAK_tileEngineMark('primary')).toEqual({ text: '', cls: '' });
     expect(window.KODIAK_tileEngineMark('unknown-engine')).toEqual({ text: '', cls: '' });
     expect(window.KODIAK_tileEngineMark(null)).toEqual({ text: '', cls: '' });
@@ -69,8 +69,9 @@ describe('preview extend helpers', () => {
     // initial paint marks pads composing only when the extend run follows.
     expect(gen).toMatch(/extendsPending && _engines\[r\.ratio\]===.pillow-outpaint-fallback/);
     expect(gen).toMatch(/extendsPending: true/);
-    // end sweep settles anything still composing to cover-pad — no stuck promises.
+    // end sweep settles anything still composing to cropped preview — no stuck promises.
     expect(gen).toMatch(/textContent === ' · composing'/);
+    expect(gen).toMatch(/s\.textContent = ' · cropped preview'/);
   });
 
   it('orders request themes primary-first, extras never dropped silently', () => {

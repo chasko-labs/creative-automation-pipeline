@@ -15,7 +15,10 @@ from __future__ import annotations
 
 import json
 import os
+from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
+from uuid import uuid4
 
 try:
     import boto3
@@ -864,6 +867,31 @@ def upload_recipe_art(local_png: Path, subject_slug: str, zone: str) -> str | No
         return None
     print(f"[asset-store] recipe-art uploaded s3://{bucket}/{full}")
     return recipe_art_site_url(subject_slug, zone)
+
+
+def record_preview_attempt(record: dict[str, Any]) -> str | None:
+    """Persist one preview-attempt record (brief, market, renders, engines).
+
+    One small JSON object per completed preview at
+    ``<prefix>preview-attempts/<date>/<uuid>.json`` — the reviewable ledger
+    of what the pipeline ran and produced. Best-effort by design: a ledger
+    write must never fail a preview, so any failure returns None.
+    """
+    try:
+        if not _s3_enabled():
+            return None
+        bucket, prefix = _s3_bucket_and_prefix()
+        client = _s3_client()
+        if not bucket or client is None:
+            return None
+        stamp = datetime.now(timezone.utc)
+        key = f"{prefix}preview-attempts/{stamp:%Y-%m-%d}/{uuid4().hex[:12]}.json"
+        body = json.dumps({"recorded_at": stamp.isoformat(), **record}, default=str).encode()
+        client.put_object(Bucket=bucket, Key=key, Body=body, ContentType="application/json")
+    except (ClientError, BotoCoreError, Exception) as e:  # noqa: BLE001 — ledger write is best-effort
+        print(f"[asset-store] preview-attempt record skipped: {e}")
+        return None
+    return f"s3://{bucket}/{key}"
 
 
 # ---- scenic backgrounds (text-to-image hero seeds).

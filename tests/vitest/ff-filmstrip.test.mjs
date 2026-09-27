@@ -148,8 +148,10 @@ describe('kodiak logo blend + composing tokens', () => {
 
   it('composing and honest fallback marks keep their copy', () => {
     expect(gen).toMatch(/· composing/);
-    expect(gen).toMatch(/· cover-pad/);
-    expect(gen).toMatch(/· composed/);
+    expect(gen).toMatch(/· cropped preview/);
+    expect(gen).toMatch(/· generated/);
+    expect(gen).not.toMatch(/· cover-pad/);
+    expect(gen).not.toMatch(/· composed/);
   });
 });
 

@@ -95,11 +95,15 @@ def test_tile_engine_mark_not_placeholder() -> None:
     """Frontend mark must not say placeholder for pillow fallback (user perceives as slop)."""
     js = Path("web/kodiak-posts-for-todays-frontier/js/generate.js").read_text()
     assert "pillow-outpaint-fallback" in js
-    # Tile engine mark for fallback must be cover-pad, not placeholder
-    assert "' · cover-pad'" in js or '" · cover-pad"' in js or "· cover-pad" in js
+    # Tile engine mark for fallback must be cropped preview, not placeholder;
+    # the live tile reads generated. Plain words, no engine jargon on the card.
+    assert "· cropped preview" in js
+    assert "· generated" in js
+    assert "· cover-pad" not in js
+    assert "· composed" not in js
     # The ENGINE_LABELS map may still describe Pillow pad (placeholder) for provenance panel - that's ok
     # but the per-tile mark must not be placeholder
     # Check specific function
     assert "tileEngineMark" in js
-    # Ensure the fallback branch returns cover-pad
-    assert "if(engine==='pillow-outpaint-fallback') return {text:' · cover-pad'" in js
+    # Ensure the fallback branch returns cropped preview
+    assert "if(engine==='pillow-outpaint-fallback') return {text:' · cropped preview'" in js

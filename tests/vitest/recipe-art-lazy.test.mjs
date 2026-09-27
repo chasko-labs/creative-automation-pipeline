@@ -53,4 +53,16 @@ describe('recipe art lazy-generate', () => {
     expect(cards).toMatch(/waited > 240000/);
     expect(cards).toMatch(/isConnected === false/);
   });
+
+  it('fires once per completed preview, never on load or scroll, and says so', () => {
+    const cards = readFileSync(resolve(APP, 'js/recipe-cards.js'), 'utf8');
+    const gen = readFileSync(resolve(APP, 'js/generate.js'), 'utf8');
+    // no scroll observer spends model calls; quiet placeholder until primed.
+    expect(cards).not.toMatch(/IntersectionObserver/);
+    expect(cards).toMatch(/KODIAK_primeReviewArt/);
+    // preview-complete kicks it; fresh generations are marked, seeded art stays quiet.
+    expect(gen).toMatch(/KODIAK_primeReviewArt/);
+    expect(cards).toMatch(/Generated on preview/);
+    expect(cards).toMatch(/json\.seeded === true/);
+  });
 });

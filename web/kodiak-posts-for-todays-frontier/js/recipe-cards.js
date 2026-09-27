@@ -164,10 +164,9 @@
   function previewBusy() { try { return !!window.__ffPreviewBusy; } catch (e) { return false; } }
   // swap a skeleton+status pair for the generated image. failure keeps the
   // placeholder: a missing drawing is never an error on the card face.
-  // never fires mid-preview: a generating campaign re-renders the card, which
-  // would flash status text and spend model calls under it. while busy the
-  // call waits (bounded); a node that left the document yields to the live
-  // one, which observes and fires for itself.
+  // runs only via primeReviewArt (preview-complete): while a preview is busy
+  // the call waits (bounded); a node that left the document yields to the
+  // live one, which primes and fires for itself.
   /**
    * @param {HTMLElement} wrap
    * @param {string} recipeId
@@ -206,7 +205,11 @@
       var skel = wrap.querySelector('.rc-artzone__skeleton');
       if (skel) { wrap.replaceChild(img, skel); }
       var st = wrap.querySelector('.rc-art-status');
-      if (st && st.parentNode) { st.parentNode.removeChild(st); }
+      // fresh generations say so; seeded art (already on the card) stays quiet.
+      if (st && st.parentNode) {
+        if (json && json.seeded === true) { st.parentNode.removeChild(st); }
+        else { st.textContent = 'Generated on preview'; }
+      }
     }).catch(function () {
       try { if (wrap && wrap.isConnected === false) { delete artGenFired[artGenKey(recipeId, artKey)]; return; } } catch (e) {}
       var skel = wrap.querySelector('.rc-artzone__skeleton');
@@ -215,27 +218,11 @@
       if (st && st.parentNode) { st.parentNode.removeChild(st); }
     });
   }
-  // observe one skeleton zone: generation fires only when it scrolls into
-  // view, so below-fold zones cost zero requests until seen. no
-  // IntersectionObserver (old browser, tests) degrades to immediate fetch.
-  /**
-   * @param {HTMLElement} wrap
-   * @param {string} recipeId
-   * @param {string} artKey
-   */
-  function observeArtZone(wrap, recipeId, artKey) {
-    if (typeof IntersectionObserver === 'undefined') { fireArtGen(wrap, recipeId, artKey); return; }
-    var seen = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { seen.disconnect(); fireArtGen(wrap, recipeId, artKey); }
-      });
-    }, { rootMargin: '200px' });
-    seen.observe(wrap);
-  }
-  // one art zone: white base coat + (real image OR lazy-generate skeleton OR
-  // placeholder svg). never empty. gen carries {recipeId} when the card names
-  // a catalog recipe and the zone has no URL yet — those zones generate on
-  // scroll instead of showing the pending mark.
+  // one art zone: white base coat + (real image OR quiet placeholder). never
+  // empty, never fetching on load or scroll. gen carries {recipeId} when the
+  // card names a catalog recipe and the zone has no URL yet — those zones
+  // record their recipe/zone and stay quiet until primeReviewArt (below) runs
+  // at preview-complete, then generate once and say so on the card.
   /**
    * @param {{css: string, dataZone: string, artKey: string}} zone
    * @param {string|null} artUrl
@@ -259,19 +246,44 @@
         if (img.parentNode) { img.parentNode.replaceChild(makePlaceholderArt(), img); }
       });
       wrap.appendChild(img);
-    } else if (gen && gen.recipeId) {
-      var skel = el('div', 'rc-artzone__art rc-artzone__skeleton');
-      skel.setAttribute('aria-hidden', 'true');
-      wrap.appendChild(skel);
-      var st = el('div', 'rc-art-status', ART_GEN_STATUS);
-      st.setAttribute('aria-hidden', 'true');
-      wrap.appendChild(st);
-      observeArtZone(wrap, gen.recipeId, zone.artKey);
     } else {
+      if (gen && gen.recipeId) {
+        wrap.setAttribute('data-gen-recipe', String(gen.recipeId));
+        wrap.setAttribute('data-gen-zone', String(zone.artKey));
+      }
       wrap.appendChild(makePlaceholderArt());
     }
     return wrap;
   }
+  // prime every still-quiet zone in the live review slot: swap the placeholder
+  // for the working state and generate once. called once per completed
+  // preview (generate.js); fireArtGen dedupes, waits out a running preview,
+  // and yields detached nodes, so repeat calls are harmless.
+  function primeReviewArt() {
+    var slot = null;
+    try { slot = document.getElementById('previewRecipe'); } catch (e) { slot = null; }
+    if (!slot) return;
+    var zones = null;
+    try { zones = slot.querySelectorAll('.rc-artzone[data-gen-recipe]'); } catch (e) { zones = null; }
+    if (!zones) return;
+    Array.prototype.forEach.call(zones, function (wrap) {
+      try {
+        if (wrap.querySelector('img')) return;
+        if (wrap.querySelector('.rc-artzone__skeleton')) return;
+        var rid = wrap.getAttribute('data-gen-recipe');
+        var zkey = wrap.getAttribute('data-gen-zone');
+        if (!rid || !zkey) return;
+        var ph = wrap.querySelector('.rc-artzone__art');
+        var skel = el('div', 'rc-artzone__art rc-artzone__skeleton');
+        skel.setAttribute('aria-hidden', 'true');
+        if (ph && ph.parentNode) { ph.parentNode.replaceChild(skel, ph); }
+        else { wrap.appendChild(skel); }
+        wrap.appendChild(el('div', 'rc-art-status', ART_GEN_STATUS));
+        fireArtGen(wrap, rid, zkey);
+      } catch (e) {}
+    });
+  }
+  try { window.KODIAK_primeReviewArt = primeReviewArt; } catch (e) {}
 
   // wrap the leading verb of a step in <b class="rc-step-verb">. if the step already starts with
   // an ALLCAPS token, wrap that token as-is; otherwise wrap the first word, uppercased.

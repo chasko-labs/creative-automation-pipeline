@@ -1711,6 +1711,31 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
         provenance["platforms"] = sorted(campaign["platform_copy"].keys())
         provenance["copy_owner"] = "backend-preview-fallback"
 
+    # Reviewable attempt ledger: one small JSON per completed preview so every
+    # run (brief, renders, engines) is browsable in the asset store instead of
+    # living only in logs. Best-effort — record_preview_attempt never raises.
+    try:
+        from . import asset_store as _ledger_store
+        _prov = provenance if isinstance(provenance, dict) else {}
+        _ledger_store.record_preview_attempt({
+            "brief": prompt,
+            "market": data.get("market") or data.get("region") or "us",
+            "product": product,
+            "theme": theme,
+            "themes": themes,
+            "season": _preview_season,
+            "source": source,
+            "renders": [
+                {"ratio": e.get("ratio"), "s3_uri": e.get("s3_uri")}
+                for e in (entries or []) if isinstance(e, dict)
+            ],
+            "engines": _prov.get("ratios"),
+            "languages": (campaign.get("languages") if isinstance(campaign, dict) else None),
+            "elapsed_ms": round((_preview_now() - _preview_start) * 1000.0, 1),
+        })
+    except Exception:
+        pass
+
     return {
         "ok": True,
         "image_url": entry["image_url"],
