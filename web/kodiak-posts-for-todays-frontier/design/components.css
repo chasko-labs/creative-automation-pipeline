@@ -228,7 +228,7 @@ section.xl{padding:var(--section-space-xl) 0}
 /* sticky shrink — the bare Park City wordmark rides a shorter frame, no
    cardboard (the ::before/::after sheets fade per the layers block below). */
 .kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:104px}
-@media(max-width:1279px){.kodiak-header__logos{position:relative;left:auto;width:72px;height:84px;flex:0 0 auto}.kodiak-header.is-sticky .kodiak-header__logos{height:56px;width:76px}}
+@media(max-width:1400px){.kodiak-header__logos{position:relative;left:auto;width:72px;height:84px;flex:0 0 auto}.kodiak-header.is-sticky .kodiak-header__logos{height:56px;width:76px}}
 @media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
 /* === Firefly-inspired prompt bar — "Create a Kodiak campaign" === */
@@ -895,10 +895,13 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 @media(min-width:2200px){.kodiak-header .header__inner{width:min(1680px,calc(100% - 36px))}}
 /* plate rides the bar row beside the badge with air above the blaze rule. */
 .kodiak-header .kodiak-headline-plate{flex:1 1 auto;min-width:0;margin-top:0;padding:6px 20px}
-@media(max-width:1279px){
+@media(max-width:1400px){
   /* Narrow: the bar itself becomes the flex row (logos + inner side by side).
      The inner keeps its own row behavior for the plate; both shrink, nothing
-     stacks. Desktop (absolute badge over a block bar) is untouched. */
+     stacks. The switch sits at 1400 (not 1280): between 1280-1400 the centered
+     row slides under the absolutely-positioned desktop badge, so the badge
+     joins the row before that overlap band. Above 1400 the badge floats over
+     the viewport margin, clear of the row. */
   header.kodiak-header{display:flex;align-items:center;gap:16px;padding:8px 0 8px 16px}
   .kodiak-header .header__inner{flex:1 1 auto;min-width:0;width:auto;margin:0;height:auto;min-height:60px;flex-wrap:nowrap;padding:0}
 }
@@ -1115,7 +1118,10 @@ section.ff-output[aria-labelledby="outputHeading"],#generateCampaignSection,#abo
 .ff-generate-campaign.is-gated>summary:focus-visible{outline:2px solid var(--colors-brand-frontier-green);outline-offset:2px}
 /* === Progress timeline — slim horizontal tracker + live heuristic line === */
 .ff-timeline{margin:0 0 var(--spacing-sm);padding:10px 14px 8px;border:1px solid var(--stone);border-radius:var(--radii-lg);background:var(--gradients-kraft\.surface);box-shadow:var(--shadows-md);display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
-.ff-timeline-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px;flex-wrap:wrap;flex:1 1 auto}
+.ff-timeline-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:10px 4px;flex-wrap:wrap;flex:1 1 auto}
+/* Narrow: the four steps settle into an even 2x2 instead of a 3+1 orphan row,
+   so the strip reads as two tidy rows rather than collapsing on itself. */
+@media(max-width:640px){.ff-timeline-steps li{flex:1 1 38%}}
 /* step 0: start over — prominent reset riding the timeline row. Timeline type
    voice (kodiak_sans caps) with a two-row label; custom circular-arrow mark;
    greyed until something differs from default. */

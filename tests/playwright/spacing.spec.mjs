@@ -142,30 +142,55 @@ test("timeline strip keeps the same bottom rhythm as cards", async ({
 	);
 });
 
-// the pipeline plate shares the logo row below 1280px: it shrinks beside the
-// badge, never drops to its own line under it. (The badge is absolutely
-// positioned over the bar on desktop; the narrow bar is the flex row.)
-test("headline plate shares the logo row below 1280px", async ({ page }) => {
-	await page.setViewportSize({ width: 900, height: 800 });
-	await gotoUnlocked(page);
-	const layout = await page.evaluate(() => {
-		const box = (selector) => {
-			const el = document.querySelector(selector);
-			if (!el) return null;
-			const b = el.getBoundingClientRect();
-			return { top: b.top, bottom: b.bottom, left: b.left, right: b.right };
-		};
-		return {
-			logos: box(".kodiak-header__logos"),
-			plate: box(".kodiak-header .kodiak-headline-plate"),
-		};
+// the pipeline plate shares the logo row at and below 1400px: it shrinks
+// beside the badge, never drops to its own line under it and never slides
+// under the absolutely-positioned desktop badge (the 1280-1400 overlap band
+// is why the switch sits at 1400). Above 1400 the badge floats over the
+// viewport margin, clear of the row.
+for (const narrowWidth of [1300, 900]) {
+	test(`headline plate shares the logo row at ${narrowWidth}px`, async ({
+		page,
+	}) => {
+		await page.setViewportSize({ width: narrowWidth, height: 800 });
+		await gotoUnlocked(page);
+		const layout = await page.evaluate(() => {
+			const box = (selector) => {
+				const el = document.querySelector(selector);
+				if (!el) return null;
+				const b = el.getBoundingClientRect();
+				return { top: b.top, bottom: b.bottom, left: b.left, right: b.right };
+			};
+			return {
+				logos: box(".kodiak-header__logos"),
+				plate: box(".kodiak-header .kodiak-headline-plate"),
+			};
+		});
+		expect(layout.logos && layout.plate).toBeTruthy();
+		// vertical overlap: beside the badge, not under it.
+		expect(layout.plate.top).toBeLessThan(layout.logos.bottom - 2);
+		expect(layout.plate.bottom).toBeGreaterThan(layout.logos.top + 2);
+		// horizontal order with no visual collision.
+		expect(layout.plate.left).toBeGreaterThanOrEqual(layout.logos.right - 1);
 	});
-	expect(layout.logos && layout.plate).toBeTruthy();
-	// vertical overlap: beside the badge, not under it.
-	expect(layout.plate.top).toBeLessThan(layout.logos.bottom - 2);
-	expect(layout.plate.bottom).toBeGreaterThan(layout.logos.top + 2);
-	// horizontal order with no visual collision.
-	expect(layout.plate.left).toBeGreaterThanOrEqual(layout.logos.right - 1);
+}
+
+// narrow timeline: the four steps settle into an even 2x2 — two tidy rows,
+// never a 3+1 orphan pileup.
+test("timeline steps form an even grid on phones", async ({ page }) => {
+	await page.setViewportSize({ width: 400, height: 800 });
+	await gotoUnlocked(page);
+	const rows = await page.evaluate(() =>
+		[...document.querySelectorAll("#progressTimeline .ff-timeline-steps > li")].map(
+			(step) => Math.round(step.getBoundingClientRect().top),
+		),
+	);
+	expect(rows).toHaveLength(4);
+	const firstRow = rows.filter((top) => Math.abs(top - rows[0]) <= 2);
+	const secondRow = rows.filter((top) => Math.abs(top - rows[0]) > 2);
+	expect(firstRow).toHaveLength(2);
+	expect(secondRow).toHaveLength(2);
+	// air between the rows: no crushed 4px pileup.
+	expect(Math.min(...secondRow) - Math.max(...firstRow)).toBeGreaterThanOrEqual(8);
 });
 
 // every top-level step summary paints the same inner padding.
