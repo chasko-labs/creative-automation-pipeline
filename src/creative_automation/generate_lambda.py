@@ -1725,8 +1725,13 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
             "themes": themes,
             "season": _preview_season,
             "source": source,
+            # Every freshly generated image ships labeled needs-review: a human
+            # confirms it before it becomes a trusted seed. Readers filter on
+            # this field; nothing else in the pipeline gates on it.
+            "review_status": "needs-review",
             "renders": [
-                {"ratio": e.get("ratio"), "s3_uri": e.get("s3_uri")}
+                {"ratio": e.get("ratio"), "s3_uri": e.get("s3_uri"),
+                 "review_status": "needs-review"}
                 for e in (entries or []) if isinstance(e, dict)
             ],
             "engines": _prov.get("ratios"),

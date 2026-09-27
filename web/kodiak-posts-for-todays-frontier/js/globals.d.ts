@@ -343,9 +343,7 @@ interface Window {
   KODIAK_extendBody?: (ratio: unknown, hero: unknown, fields: unknown) => {mode: string, ratio: unknown, hero_s3_uri: unknown, subject: unknown, product: unknown, region: unknown, theme: unknown};
   /** Primary theme first, then checked cards in DOM order, deduped (generate.js top level). */
   KODIAK_orderThemes?: (primary: unknown, list: unknown) => unknown[];
-  /** Per-tile engine mark {text, cls} (generate.js top level). */
-  KODIAK_tileEngineMark?: (engine: unknown) => {text: string, cls: string};
-  /** Rung badge {text, fallback} shared by click badge, render set, tests (generate.js top level). */
+  /** Rung {text, fallback} for the reveal gate (generate.js top level; never rendered). */
   KODIAK_rungBadge?: (source: unknown, prov: unknown) => {text: string, fallback: boolean};
   /** Checked theme slugs from the prompt chips (prompt-chips.js); missing -> []. */
   __activeThemes?: () => unknown;

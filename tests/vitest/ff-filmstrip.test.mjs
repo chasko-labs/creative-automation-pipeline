@@ -124,34 +124,31 @@ describe('kodiak logo blend + composing tokens', () => {
     expect(gen).not.toMatch(/genPulseKeyframes/);
   });
 
-  it('rung badge resolves through token classes, never inline hex', () => {
-    expect(css).toMatch(
-      /\.gen-badge\.is-live\{[^}]*var\(--colors-brand-frontier-green\)/,
-    );
-    expect(css).toMatch(
-      /\.gen-badge\.is-fallback\{[^}]*var\(--colors-brand-signal-red\)/,
-    );
-    expect(gen).toMatch(/badge\.className='badge gen-badge'/);
-    expect(gen).toMatch(/classList\.add\(rb\.fallback \? 'is-fallback' : 'is-live'\)/);
-    const paint =
-      gen.match(/const paintRungBadge = \(badge, rb\)=>\{[^}]*\}/)?.[0] || '';
-    expect(paint).not.toMatch(/#/);
+  it('no shopper-facing badge: rung internals never render, gate stays', () => {
+    // the badge element and its painter are gone from the UI; rungBadge
+    // survives only as the pure helper feeding the reveal gate.
+    expect(gen).not.toMatch(/genSourceBadge/);
+    expect(gen).not.toMatch(/paintRungBadge/);
+    expect(gen).toMatch(/const rb = rungBadge\(source, opts\.provenance\)/);
+    expect(gen).toMatch(/const rb2 = rungBadge\(opts\.source, opts\.provenance\)/);
+    expect(gen).toMatch(/window\.KODIAK_rungBadge = rungBadge/);
   });
 
   it('composing helpers carry JSDoc types and the extend entry is declared', () => {
     const params = gen.match(/@param \{string\} ratio/g) || [];
     expect(params.length).toBeGreaterThanOrEqual(3);
     expect(gen).toMatch(/@param \{boolean\} on/);
-    expect(gen).toMatch(/@param \{unknown\} engine/);
     expect(dts).toMatch(/KODIAK_extendTallTiles\?:/);
   });
 
-  it('composing and honest fallback marks keep their copy', () => {
-    expect(gen).toMatch(/· composing/);
-    expect(gen).toMatch(/· cropped preview/);
-    expect(gen).toMatch(/· generated/);
+  it('tiles carry no engine marks, only a transient preparing note', () => {
+    expect(gen).toMatch(/· preparing/);
+    expect(gen).not.toMatch(/· cropped preview/);
+    expect(gen).not.toMatch(/· generated/);
+    expect(gen).not.toMatch(/· composing/);
     expect(gen).not.toMatch(/· cover-pad/);
     expect(gen).not.toMatch(/· composed/);
+    expect(gen).not.toMatch(/tileEngineMark/);
   });
 });
 

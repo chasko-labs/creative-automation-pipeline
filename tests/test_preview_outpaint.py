@@ -185,3 +185,97 @@ def test_preview_outpaint_generic_error_degrades_to_pads(monkeypatch) -> None:
     assert body["provenance"]["ratios"]["blog"] == "pillow-outpaint-fallback"
     assert "4x5" not in body["provenance"]["outpaint_degraded"]
     assert "blog" not in body["provenance"]["outpaint_degraded"]
+
+
+def _fake_bedrock_throttle_then_ok(monkeypatch, failures: int,
+                                   code: str = "ThrottlingException") -> dict:
+    """Fake fail-fast client: throttle `failures` times, then a valid payload."""
+    import base64
+    import io
+
+    from PIL import Image
+
+    from creative_automation import bedrock_client, stability_rungs
+    from creative_automation.bedrock_client import ClientError
+
+    buf = io.BytesIO()
+    Image.new("RGB", (64, 64), (10, 20, 30)).save(buf, "PNG")
+    payload = {"images": [base64.b64encode(buf.getvalue()).decode("ascii")]}
+    calls: dict = {"n": 0, "sleeps": []}
+
+    class _Body:
+        def read(self) -> bytes:
+            return json.dumps(payload).encode()
+
+    class _FakeBedrock:
+        def invoke_model(self, **kwargs):
+            calls["n"] += 1
+            if calls["n"] <= failures:
+                raise ClientError({"Error": {"Code": code, "Message": "burst"}}, "InvokeModel")
+            return {"body": _Body()}
+
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _FakeBedrock())
+    monkeypatch.setattr(stability_rungs.time, "sleep", lambda s: calls["sleeps"].append(s))
+    return calls
+
+
+def _hero_base(tmp_path) -> Path:
+    from PIL import Image
+
+    base = tmp_path / "hero-1x1.png"
+    Image.new("RGB", (1080, 1080), (200, 120, 40)).save(base, "PNG")
+    return base
+
+
+def test_outpaint_throttle_retries_then_succeeds(monkeypatch, tmp_path) -> None:
+    """Two burst rejections then a model answer: one tile, no pad."""
+    from creative_automation import stability_rungs
+
+    calls = _fake_bedrock_throttle_then_ok(monkeypatch, failures=2)
+    out = tmp_path / "hero-9x16.png"
+    got = stability_rungs._stability_outpaint(_hero_base(tmp_path), 1080, 1350, "subject", out)
+    assert got == out
+    assert out.exists()
+    assert calls["n"] == 3
+    assert calls["sleeps"] == [1.5, 3.0]
+
+
+def test_outpaint_service_unavailable_retries(monkeypatch, tmp_path) -> None:
+    """'Too many connections' is the same transient class: retried, then served."""
+    from creative_automation import stability_rungs
+
+    calls = _fake_bedrock_throttle_then_ok(monkeypatch, failures=1,
+                                           code="ServiceUnavailableException")
+    out = tmp_path / "hero-16x9.png"
+    got = stability_rungs._stability_outpaint(_hero_base(tmp_path), 1350, 1080, "subject", out)
+    assert got == out
+    assert calls["n"] == 2
+
+
+def test_outpaint_throttle_exhausted_reraises_for_caller(monkeypatch, tmp_path) -> None:
+    """Persistent throttling still surfaces so the caller books the degrade reason."""
+    from creative_automation import stability_rungs
+    from creative_automation.bedrock_client import ClientError
+
+    calls = _fake_bedrock_throttle_then_ok(monkeypatch, failures=99)
+    out = tmp_path / "hero-9x16.png"
+    try:
+        stability_rungs._stability_outpaint(_hero_base(tmp_path), 1080, 1350, "subject", out)
+    except ClientError as e:
+        assert e.response["Error"]["Code"] == "ThrottlingException"
+    else:
+        raise AssertionError("expected ClientError to propagate")
+    assert calls["n"] == stability_rungs.OUTPAINT_MAX_ATTEMPTS
+    assert len(calls["sleeps"]) == stability_rungs.OUTPAINT_MAX_ATTEMPTS - 1
+
+
+def test_outpaint_non_throttle_error_does_not_retry(monkeypatch, tmp_path) -> None:
+    """A real rejection (bad request, denied) degrades at once: one call, no sleep."""
+    from creative_automation import stability_rungs
+
+    calls = _fake_bedrock_throttle_then_ok(monkeypatch, failures=99,
+                                           code="ValidationException")
+    out = tmp_path / "hero-9x16.png"
+    assert stability_rungs._stability_outpaint(_hero_base(tmp_path), 1080, 1350, "subject", out) is None
+    assert calls["n"] == 1
+    assert calls["sleeps"] == []

@@ -56,22 +56,22 @@ describe('preview extend helpers', () => {
     expect(window.KODIAK_extendHero([{ ratio: '9x16' }])).toBe(null);
   });
 
-  it('marks pad vs live engines so tiles never render identically', () => {
-    expect(window.KODIAK_tileEngineMark('stability-outpaint')).toEqual({ text: ' · generated', cls: 'rt-live' });
-    expect(window.KODIAK_tileEngineMark('pillow-outpaint-fallback')).toEqual({ text: ' · cropped preview', cls: 'rt-pad' });
-    expect(window.KODIAK_tileEngineMark('primary')).toEqual({ text: '', cls: '' });
-    expect(window.KODIAK_tileEngineMark('unknown-engine')).toEqual({ text: '', cls: '' });
-    expect(window.KODIAK_tileEngineMark(null)).toEqual({ text: '', cls: '' });
+  it('tiles carry no engine marks: helper and labels are gone', () => {
+    expect(window.KODIAK_tileEngineMark).toBe(undefined);
+    const gen = readFileSync(resolve(APP, 'js/generate.js'), 'utf8');
+    expect(gen).not.toMatch(/tileEngineMark/);
+    expect(gen).not.toMatch(/setTileMark/);
   });
 
-  it('no fallback wording while extends are pending: pads read composing, then settle', () => {
+  it('extends show a transient preparing note, then clear it — never a mark', () => {
     const gen = readFileSync(resolve(APP, 'js/generate.js'), 'utf8');
-    // initial paint marks pads composing only when the extend run follows.
+    // initial paint notes preparing only when the extend run follows.
     expect(gen).toMatch(/extendsPending && _engines\[r\.ratio\]===.pillow-outpaint-fallback/);
     expect(gen).toMatch(/extendsPending: true/);
-    // end sweep settles anything still composing to cropped preview — no stuck promises.
-    expect(gen).toMatch(/textContent === ' · composing'/);
-    expect(gen).toMatch(/s\.textContent = ' · cropped preview'/);
+    expect(gen).toMatch(/ · preparing/);
+    // settle paths clear the note; the end sweep removes strays — no stuck promises.
+    expect(gen).toMatch(/clearTileMark\(ratio\)/);
+    expect(gen).not.toMatch(/cropped preview/);
   });
 
   it('orders request themes primary-first, extras never dropped silently', () => {

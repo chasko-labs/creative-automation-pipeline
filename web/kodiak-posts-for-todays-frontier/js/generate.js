@@ -517,22 +517,6 @@ let skuList = [
     return out;
   };
   try{ window.KODIAK_orderThemes = orderThemes; }catch(e){}
-  // Per-tile engine mark (top level so tile render, extend swap, and tests
-  // share it): the preview ships per-ratio engines in provenance.ratios, and
-  // every tile must show which state it is in — a pillow pad and a live
-  // stability outpaint never render identically. Pure: engine in, mark out.
-  // Tested in preview-extend.test.mjs.
-  /**
-   * @param {unknown} engine per-ratio engine slug from provenance.ratios
-   * @returns {{text: string, cls: string}}
-   */
-  const tileEngineMark = (engine)=>{
-    if(engine==='stability-outpaint') return {text:' · generated', cls:'rt-live'};
-    if(engine==='pillow-outpaint-fallback') return {text:' · cropped preview', cls:'rt-pad'};
-    if(engine==='primary') return {text:'', cls:''};
-    return {text:'', cls:''};
-  };
-  try{ window.KODIAK_tileEngineMark = tileEngineMark; }catch(e){}
   // Hoisted to IIFE top-level alongside provenanceHeuristics so the
   // click-handler badge, the render-set badge, and tests share one source.
   // Pure: prov fields in, {text, fallback} out. "Rung X" stays verbatim —
@@ -977,13 +961,14 @@ let skuList = [
     const postTxt = clean(c.post!=null ? c.post : '');
     const tags = clean(Array.isArray(c.hashtags) ? c.hashtags.join(' ') : (c.hashtags!=null ? c.hashtags : ''));
     const src = String(c.source||'').toLowerCase()==='generated' ? 'generated' : 'fallback';
-    const srcTitle = src==='generated'
-      ? 'Written by a live Nova Micro model call'
-      : 'On-brand template (no model call) — deterministic copy retained as the honest fallback';
+    // Live copy carries no pill — only the template fallback is marked, so
+    // the card reads as finished copy instead of lab labeled output.
+    const srcPill = src==='fallback'
+      ? '<span class="pc-src fallback" title="On-brand template (no model call) — deterministic copy retained as the honest fallback">on-brand template</span>'
+      : '';
     const srcNote = src==='fallback'
       ? '<span class="pc-src-note">on-brand template (no model call) — live rewrite may be unavailable</span>'
       : '';
-    const srcPill = '<span class="pc-src '+src+'" title="'+escapeHtml(srcTitle)+'">source: '+escapeHtml(src)+'</span>';
     return '<summary>'+escapeHtml(name)+srcPill+'</summary>'+
       '<div class="pc-body">'+srcNote+
       (title? '<p class="pc-title">'+escapeHtml(title)+'</p>':'')+
@@ -1398,12 +1383,10 @@ let skuList = [
         meta.innerHTML = `<b>Kodiak Cakes composed hero</b><div class="small">${prodLine}source: ${label} · ${selectedLoc.market}${themeLine} · ${brief.slice(0,80)}</div>`;
         tile.appendChild(meta);
         preview.appendChild(tile);
-        // source badge above the preview — provenance-driven, fallbacks flagged (#173)
-        let badge = document.getElementById('genSourceBadge');
-        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge gen-badge'; preview.parentNode?.insertBefore(badge, preview); }
+        // No source badge: rung/engine internals stay out of the shopper UI
+        // (the attempt ledger keeps them). rungBadge still feeds the
+        // reveal gate below — misses never read "ready".
         const rb = rungBadge(source, opts.provenance);
-        paintRungBadge(badge, rb);
-        if(opts.themeLabel || opts.theme) badge.textContent += ' · theme: ' + (opts.themeLabel || opts.theme);
         revealDownloadActions();
         // reveal the full-campaign section only on REAL pixels — a brand-floor
         // miss must never ungate "Your preview is ready".
@@ -1422,24 +1405,6 @@ let skuList = [
         '16x9': {name:'Landscape', cls:'r-16x9'},
         '2x3': {name:'Story', cls:'r-2x3'},
         'blog': {name:'Blog', cls:'r-blog'}
-      };
-      // Unit 2 (#173) — honest rung badge. Provenance drives the label; any
-      // fallback rung (C/D or a fallthrough_reason) gets flagged, never silently
-      // relabeled "Nova Pro". Fallback sightings become counted facts.
-      /**
-       * @param {unknown} source
-       * @param {unknown} prov backend provenance envelope
-       * @returns {{text: string, fallback: boolean}}
-       */
-      /**
-       * @param {HTMLElement} badge
-       * @param {{text: string, fallback: boolean}} rb
-       * @returns {void}
-       */
-      const paintRungBadge = (badge, rb)=>{
-        badge.textContent = rb.text;
-        badge.classList.remove('is-live', 'is-fallback');
-        badge.classList.add(rb.fallback ? 'is-fallback' : 'is-live');
       };
       /** @param {unknown} s @returns {string} */
       const escapeHtml = (s)=> String(s==null?'':s).replace(/[&<>"']/g, (c)=>ESCAPES[c] || c);
@@ -1507,20 +1472,16 @@ let skuList = [
             const _m = (/** @type {HTMLInputElement|null} */ (document.getElementById('locality')))?.value || (selectedLoc && selectedLoc.market);
             if(_m && typeof window.KODIAK_locCaption==='function') locCap = window.KODIAK_locCaption(_m);
           }catch(e){}
-          // Per-tile engine mark: provenance.ratios names each tile's engine, so a
-          // pillow pad never renders identically to a live outpaint. The 1x1
-          // primary carries no mark — it is the real hero, not a derived tile.
-          // While extends are pending (extendsPending), pads read composing —
-          // never fallback: fallback wording appears only after every extend
-          // settles (see extendTallTiles' end sweep below).
+          // Tiles carry no engine marks: a tile is either the delivered image
+          // or a transient preparing state while its extend is in flight.
+          // The attempt ledger (not the tile) records which engine made it.
           let engMark = '';
           try{
             const _penv = /** @type {{ratios?: unknown}} */ ((opts.provenance && typeof opts.provenance==='object') ? opts.provenance : {});
             const _engines = /** @type {Record<string, unknown>} */ ((_penv.ratios && typeof _penv.ratios==='object') ? _penv.ratios : {});
-            const _mark = (opts.extendsPending && _engines[r.ratio]==='pillow-outpaint-fallback')
-              ? {text:' · composing', cls:'rt-extend'}
-              : tileEngineMark(_engines[r.ratio]);
-            if(_mark.text) engMark = '<span class="rt-eng ' + _mark.cls + '">' + escapeHtml(_mark.text) + '</span>';
+            if(opts.extendsPending && _engines[r.ratio]==='pillow-outpaint-fallback'){
+              engMark = '<span class="rt-extend"> · preparing</span>';
+            }
           }catch(e){}
           cap.innerHTML = '<b>' + escapeHtml(ratioColon + ' ' + meta.name) + '</b>' +
             '<span class="rt-spec"><span class="dims">' + escapeHtml((r.w||'') + '\u00D7' + (r.h||'')) + '</span></span>' + platLine + locCap + engMark;
@@ -1590,12 +1551,9 @@ let skuList = [
           const pack = (Array.isArray(renders)?renders:[]).filter(r=>r && r.s3_uri).map(r=>({s3_uri:r.s3_uri, ratio:r.ratio||'1x1'}));
           window.__lastPack = pack.length ? pack : null;
         }catch(e){ try{ window.__lastPack = null; }catch(_){} }
-        // source badge above the preview — provenance-driven, fallbacks flagged (#173)
-        let badge = document.getElementById('genSourceBadge');
-        if(!badge){ badge=document.createElement('span'); badge.id='genSourceBadge'; badge.className='badge gen-badge'; preview.parentNode?.insertBefore(badge, preview); }
+        // No source badge (see single-hero path): the gate below is the only
+        // reader of the rung — misses never read "ready".
         const rb2 = rungBadge(opts.source, opts.provenance);
-        paintRungBadge(badge, rb2);
-        if(opts.themeLabel) badge.textContent += ' · theme: ' + opts.themeLabel;
         revealDownloadActions();
         // same gate as the single-hero path: misses never read "ready".
         if(!rb2.fallback){ try{ if(typeof window.__kodiakRevealCampaign==='function') window.__kodiakRevealCampaign(); }catch(e){} }
@@ -1629,38 +1587,29 @@ let skuList = [
                 const b = t.querySelector('b');
                 if(b && b.textContent.indexOf(ratio.replace('x',':'))===0){
                   let s = t.querySelector('.rt-extend');
-                  if(on && !s){ s=document.createElement('span'); s.className='rt-extend'; s.textContent=' · composing'; t.querySelector('.render-cap')?.appendChild(s); }
+                  if(on && !s){ s=document.createElement('span'); s.className='rt-extend'; s.textContent=' · preparing'; t.querySelector('.render-cap')?.appendChild(s); }
                   if(!on && s) s.remove();
                 }
               });
             }catch(e){}
           };
-          // Every delivered state gets a mark: a live outpaint says generated, a
-          // server-side pad says cropped preview (distinct crop), and a failed
-          // extend (the server-side pad stays in place) says cropped preview
-          // too — a pad is
-          // never left bare. Supersedes the initial rt-eng mark, never dupes it.
+          // Tiles carry no engine marks: when an extend lands (or fails) the
+          // transient preparing note is cleared and the delivered pixels stand
+          // alone. Which engine made the tile lives in the attempt ledger,
+          // not on the tile.
           /**
            * @param {string} ratio
-           * @param {string} text
-           * @param {string} cls
            * @returns {void}
            */
-          const setTileMark = (ratio, text, cls)=>{
+          const clearTileMark = (ratio)=>{
             try{
+              markComposing(ratio, false);
               document.querySelectorAll('#preview .render-tile').forEach(t=>{
                 const b = t.querySelector('b');
                 if(b && b.textContent.indexOf(ratio.replace('x',':'))===0){
-                  markComposing(ratio, false);
                   const cap = t.querySelector('.render-cap');
                   const old = cap && cap.querySelector('.rt-eng');
                   if(old) old.remove();
-                  if(!cap) return;
-                  let s = cap.querySelector('.rt-extend');
-                  if(!s){ s=document.createElement('span'); s.className='rt-extend'; cap.appendChild(s); }
-                  s.textContent = text;
-                  s.classList.remove('rt-live', 'rt-pad');
-                  if(cls) s.classList.add(cls);
                 }
               });
             }catch(e){}
@@ -1668,13 +1617,13 @@ let skuList = [
           /**
            * @param {string} ratio
            * @param {string} url
-           * @param {unknown} engine
            * @returns {void}
            */
           // Preload off-DOM, then swap: tiles never flash empty while the
-          // new pixels load, and a failed load keeps the old pixels with
-          // the honest mark instead of a broken image.
-          const swapTile = (ratio, url, engine)=>{
+          // new pixels load, and a failed load keeps the old pixels instead
+          // of a broken image. Either way the transient note clears — tiles
+          // carry no engine marks.
+          const swapTile = (ratio, url)=>{
             /**
              * @param {boolean} swap
              * @returns {void}
@@ -1691,8 +1640,7 @@ let skuList = [
                   });
                 }
               }catch(e){}
-              const mark = tileEngineMark(engine);
-              setTileMark(ratio, mark.text || ' · cropped preview', mark.cls || 'rt-pad');
+              clearTileMark(ratio);
             };
             try{
               const pre = new Image();
@@ -1709,25 +1657,20 @@ let skuList = [
                 const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(extendBody(ratio, hero, fields))});
                 if(!resp.ok) break;
                 const tile = await resp.json();
-                if(tile && tile.ok && tile.image_url){ swapTile(ratio, tile.image_url, tile.engine); return; }
+                if(tile && tile.ok && tile.image_url){ swapTile(ratio, tile.image_url); return; }
                 break;
               }catch(e){}
             }
             // Retries exhausted or a bad response: the server-side pad is the
-            // delivered tile — label it instead of leaving it bare or stuck
-            // on "composing".
-            setTileMark(ratio, ' · cropped preview', 'rt-pad');
+            // delivered tile — clear the transient note and leave the pixels
+            // standing alone.
+            clearTileMark(ratio);
           }));
-          // End sweep: anything still reading composing (extend never ran for
-          // it, or the run bailed early) settles to cropped preview — no tile
-          // may promise generation that already ended.
+          // End sweep: anything still reading preparing (extend never ran for
+          // it, or the run bailed early) clears — no tile keeps a stale note.
           try{
             document.querySelectorAll('#preview .render-tile .rt-extend').forEach(function(s){
-              if(s && s.textContent === ' · composing'){
-                s.textContent = ' · cropped preview';
-                s.classList.remove('rt-live');
-                s.classList.add('rt-pad');
-              }
+              if(s) s.remove();
             });
           }catch(e){}
         }catch(e){}
@@ -1751,19 +1694,6 @@ let skuList = [
         // remove a prior panel so re-generate replaces cleanly
         const old = document.getElementById('provenancePanel');
         if(old) old.remove();
-        const engineLabel = String((typeof penv.engine === 'string' && ENGINE_LABELS[penv.engine]) || penv.engine || '—');
-        const ratios = /** @type {Object<string, unknown>} */ (penv.ratios || {});
-        // Pill class names the engine state: a pillow pad never shares a pill
-        // with a live stability outpaint.
-        const ratioPills = Object.keys(ratios).map(k=>{
-          const role = String(ratios[k]);
-          const cls = /primary/i.test(role) ? 'primary'
-            : role === 'stability-outpaint' ? 'live'
-            : role === 'pillow-outpaint-fallback' ? 'pad' : 'outpaint';
-          return '<span class="prov-pill ' + cls + '">' + escapeHtml(k.replace('x',':')) + ' ' + escapeHtml(role) + '</span>';
-        }).join(' ');
-        /** @param {unknown} v @returns {string} */
-        const onoff = (v)=> v ? '<span class="prov-pill on">applied</span>' : '<span class="prov-pill off">not applied</span>';
         /** @param {Array<[string, (string|null)]>} pairs @returns {string} */
         const rows = (pairs)=> pairs.filter(p=>p[1]!=null && p[1]!=='').map(p=>'<dt>' + escapeHtml(p[0]) + '</dt><dd>' + String(p[1]) + '</dd>').join('');
         const provided = rows([
@@ -1772,19 +1702,6 @@ let skuList = [
           ['Theme', escapeHtml(cctx.themeLabel || cctx.theme)],
           ['Market', escapeHtml(cctx.market)],
           ['Product', escapeHtml(cctx.product)]
-        ]);
-        const originLabel = (typeof penv.origin === 'string' && (ORIGIN_LABELS[penv.origin] || penv.origin)) || null;
-        const did = rows([
-          ['Engine', escapeHtml(engineLabel)],
-          ['Origin', originLabel ? escapeHtml(originLabel) : null],
-          ['Model', escapeHtml(penv.model)],
-          ['Seed source', escapeHtml(penv.seed_source)],
-          ['Seed selection', escapeHtml(penv.seed_selection)],
-          ['Art-director scene', escapeHtml(penv.scene_prompt)],
-          ['Control strength', penv.control_strength!=null ? escapeHtml(penv.control_strength) : null],
-          ['Ratios', ratioPills || null],
-          ['Brand overlay', onoff(penv.overlay_applied)],
-          ['Paper texture', onoff(penv.paper_overlay)]
         ]);
         const panel = document.createElement('details');
         panel.className = 'provenance';
@@ -1795,15 +1712,15 @@ let skuList = [
         // (rung/engine/seed/fallback); the panel then re-runs with the
         // platform_copy map to append the plainspoken build narrative so a
         // marketer reads WHAT the machine did, not just decision labels.
-        var decisionLines = /** @type {string[]} */ ([]), buildLines = /** @type {string[]} */ ([]);
+        // The panel shows only shopper-readable groups: what was provided and
+        // the plainspoken build narrative. Rung/engine/seed internals stay out
+        // of the UI — the attempt ledger keeps the full decision record.
+        var buildLines = /** @type {string[]} */ ([]);
         try{
-          decisionLines = provenanceHeuristics(prov);
+          var decisionCount = provenanceHeuristics(prov).length;
           var allLines = provenanceHeuristics(prov, cctx.platformCopy || {});
-          buildLines = allLines.slice(decisionLines.length);
-        }catch(e){ decisionLines = []; buildLines = []; }
-        var heurHtml = decisionLines.map(function(h){
-          return '<p class="prov-heur">' + escapeHtml(h) + '</p>';
-        }).join('');
+          buildLines = allLines.slice(decisionCount);
+        }catch(e){ buildLines = []; }
         var buildHtml = buildLines.map(function(h){
           return '<p class="prov-heur prov-heur--build">' + escapeHtml(h) + '</p>';
         }).join('');
@@ -1816,9 +1733,7 @@ let skuList = [
           '<summary>How this was made</summary>' +
           '<div class="prov-body">' +
             '<div class="prov-group"><h4>You provided</h4><dl>' + provided + '</dl></div>' +
-            '<div class="prov-group"><h4>What we did</h4><dl>' + did + '</dl></div>' +
             buildGroup +
-            '<div class="prov-group prov-heuristics"><h4>How it was decided</h4>' + heurHtml + '</div>' +
           '</div>';
         // Mount the panel: it was previously built but never inserted, so the
         // transparency section never appeared. Open by default — it is the
@@ -1839,7 +1754,8 @@ let skuList = [
       const finishCommon = ()=>{
         // Update local flavor with brief context (runs after either path)
         const lf = document.getElementById('localFlavorText');
-        if(lf) lf.innerHTML += `<br><span class="flag-pine"><b>Brief applied:</b> “${brief}” — fans to all formats</span>`;
+        // finishCommon runs on every generate path — append once, never dupe.
+        if(lf && lf.innerHTML.indexOf('Brief applied:')===-1) lf.innerHTML += `<br><span class="flag-pine"><b>Brief applied:</b> “${brief}” — fans to all formats</span>`;
         console.log('KODIAK generate — sample', {brief, products, primarySlug, audience, selectedLoc: selectedLoc.market, frontierHint});
         try{ if(window.ffLog) window.ffLog('create', {brief: brief, products: products, theme: primarySlug, market: selectedLoc.market}); }catch(e){}
       };
@@ -2027,8 +1943,6 @@ let skuList = [
         const p = document.getElementById('preview');
         if(!p) return;
         p.innerHTML = '';
-        // strip any stale real-result source badge so the offline notice is not mislabeled.
-        const staleBadge = document.getElementById('genSourceBadge'); if(staleBadge) staleBadge.remove();
         const sku = String(requestedSku || 'power-cakes');
         // resolve a real thumbnail for the requested product from the catalog/products list.
         // only a real http(s) url is loadable; input_assets/*.png stubs do not exist (404 to
@@ -2087,7 +2001,7 @@ let skuList = [
         if(willFanOut){
           preview.innerHTML = products.map((name,i)=>`<div class="tile genSkeletonTile"><div class="gen-pulse"><span class="gen-pulse-label">Composing…</span></div><div class="meta"><b>${name}</b><div class="small" id="genElapsed${i}">0s elapsed — warming the Bedrock models (up to ~90s first render)</div></div></div>`).join('');
         } else {
-          preview.innerHTML = `<div class="tile" id="genSkeleton"><div class="gen-pulse"><span class="gen-pulse-label gen-pulse-label--lg">Composing…</span></div><div class="meta"><b>Composing your campaign with Nova Pro${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — warming the Bedrock models (up to ~90s first render)</div></div></div>`;
+          preview.innerHTML = `<div class="tile" id="genSkeleton"><div class="gen-pulse"><span class="gen-pulse-label gen-pulse-label--lg">Preparing…</span></div><div class="meta"><b>Reviewing your campaign — preparing image generation${activeTheme ? ' — theme: ' + themeLabel : ''}</b><div class="small" id="genElapsed">0s elapsed — warming the Bedrock models (up to ~90s first render)</div></div></div>`;
         }
         tick = setInterval(()=>{ elapsed++; document.querySelectorAll('[id^="genElapsed"]').forEach(e=>{ e.textContent = elapsed+'s elapsed — warming the Bedrock models (up to ~90s first render)'; }); }, 1000);
       }

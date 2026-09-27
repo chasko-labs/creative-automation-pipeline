@@ -44,9 +44,12 @@ describe('provenance heuristics readout', () => {
     // single source: exactly one copy of each label table
     expect(src.match(/const RUNG_LABELS = \{/g)).toHaveLength(1);
     expect(src.match(/const ENGINE_LABELS = \{/g)).toHaveLength(1);
-    // the panel renders the readout group from the same prov object
+    // the panel renders only the shopper-readable groups from the same prov object
     expect(src).toMatch(/prov-heuristics/);
-    expect(src).toMatch(/How it was decided/);
+    expect(src).toMatch(/How this campaign was built/);
+    expect(src).toMatch(/How this was made/);
+    expect(src).not.toMatch(/How it was decided/);
+    expect(src).not.toMatch(/What we did/);
     expect(src).toMatch(/provenanceHeuristics\(prov\)/);
   });
 

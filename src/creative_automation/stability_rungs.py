@@ -13,6 +13,7 @@ import json
 import os
 import re
 import sys
+import time
 from pathlib import Path
 
 from PIL import Image, ImageOps
@@ -41,6 +42,23 @@ BEDROCK_OUTPAINT_READ_TIMEOUT_S = int(os.getenv("BEDROCK_OUTPAINT_READ_TIMEOUT_S
 STABILITY_CONTROL_MODEL = os.getenv(
     "BEDROCK_STABILITY_MODEL", "us.stability.stable-image-control-structure-v1:0"
 )
+
+# Throttle-class Bedrock rejections are transient burst responses (the preview
+# plus its extends fan out several concurrent outpaints against a low
+# Stability quota): retry with backoff instead of instantly degrading every
+# tall/wide tile to a pad. Bounded — attempts x backoff sleeps stay far inside
+# the extend Lambda window, and the in-preview caller still gates on its own
+# remaining wall. Timeouts are NOT retried (a slow model answering late must
+# not double the worst case); only the throttle class loops.
+_OUTPAINT_THROTTLE_CODES = (
+    "ThrottlingException",
+    "TooManyRequestsException",
+    "ServiceUnavailableException",
+    "Throttling",
+    "RequestLimitExceeded",
+)
+OUTPAINT_MAX_ATTEMPTS = max(1, int(os.getenv("KODIAK_OUTPAINT_MAX_ATTEMPTS", "3")))
+_OUTPAINT_RETRY_BASE_S = 1.5
 
 
 # How strongly the seed composition constrains the restyle (0..1). 0.6 lets the
@@ -431,12 +449,28 @@ def _stability_outpaint(
             "down": down,
             "output_format": "png",
         }
-        resp = client.invoke_model(
-            modelId=STABILITY_OUTPAINT_MODEL,
-            body=json.dumps(body),
-            contentType="application/json",
-            accept="application/json",
-        )
+        resp = None
+        for attempt in range(OUTPAINT_MAX_ATTEMPTS):
+            try:
+                resp = client.invoke_model(
+                    modelId=STABILITY_OUTPAINT_MODEL,
+                    body=json.dumps(body),
+                    contentType="application/json",
+                    accept="application/json",
+                )
+                break
+            except ClientError as e:
+                code = e.response.get("Error", {}).get("Code", "Unknown")
+                if code in _OUTPAINT_THROTTLE_CODES and attempt + 1 < OUTPAINT_MAX_ATTEMPTS:
+                    wait = _OUTPAINT_RETRY_BASE_S * (2**attempt)
+                    print(
+                        f"[generate] outpaint throttled ({code}), "
+                        f"retry {attempt + 1}/{OUTPAINT_MAX_ATTEMPTS} in {wait:.1f}s",
+                        file=sys.stderr,
+                    )
+                    time.sleep(wait)
+                    continue
+                raise
         payload = json.loads(resp["body"].read())
         images = payload.get("images") or []
         if not images:

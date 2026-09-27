@@ -74,16 +74,19 @@ _ZONE_PROMPT: dict[str, str] = {
         "white, minimal line drawing, printer-friendly"
     ),
     "finished_plate": (
-        "hand-drawn ink line-art illustration of a finished plated dish featuring "
-        "{subject} over pancakes, appetizing composition, loose contour lines and light "
-        "hatching, deep brown ink on white, minimal line drawing, printer-friendly"
+        "hand-drawn ink line-art illustration of one finished plated {subject} dish, "
+        "all ingredients cooked and served together as a single plated meal with "
+        "nothing placed whole or raw on top, appetizing composition, loose contour "
+        "lines and light hatching, deep brown ink on white, minimal line drawing, "
+        "printer-friendly"
     ),
 }
 
 _NEGATIVE_BASE = (
     "photograph, photorealistic, color photo, shading, gradient, solid fill, dark "
     "background, drop shadow, 3d render, watermark, text, words, lettering, "
-    "dense foliage, full bunch, pile, cluster, many leaves, overlapping"
+    "dense foliage, full bunch, pile, cluster, many leaves, overlapping, "
+    "raw egg yolk on top of cooked food, whole eggs sitting on a dish, deconstructed toppings"
 )
 # retry after a coverage rejection pushes harder against heavy ink / dark masses
 # and against density (the two failure modes: heavy ink and crowded subjects)

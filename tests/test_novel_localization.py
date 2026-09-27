@@ -92,18 +92,18 @@ def test_pillow_fallback_tiles_are_visually_distinct(tmp_path: Path) -> None:
 
 
 def test_tile_engine_mark_not_placeholder() -> None:
-    """Frontend mark must not say placeholder for pillow fallback (user perceives as slop)."""
+    """Tiles carry no engine marks at all (user perceives them as slop)."""
     js = Path("web/kodiak-posts-for-todays-frontier/js/generate.js").read_text()
     assert "pillow-outpaint-fallback" in js
-    # Tile engine mark for fallback must be cropped preview, not placeholder;
-    # the live tile reads generated. Plain words, no engine jargon on the card.
-    assert "· cropped preview" in js
-    assert "· generated" in js
+    # No per-tile engine marks: no generated/cropped-preview/cover-pad/composed
+    # labels on the card. The only tile note is the transient preparing state
+    # while an extend is in flight, cleared when it settles.
+    assert "· cropped preview" not in js
+    assert "· generated" not in js
     assert "· cover-pad" not in js
     assert "· composed" not in js
-    # The ENGINE_LABELS map may still describe Pillow pad (placeholder) for provenance panel - that's ok
-    # but the per-tile mark must not be placeholder
-    # Check specific function
-    assert "tileEngineMark" in js
-    # Ensure the fallback branch returns cropped preview
-    assert "if(engine==='pillow-outpaint-fallback') return {text:' · cropped preview'" in js
+    assert "· composing" not in js
+    assert "tileEngineMark" not in js
+    assert "setTileMark" not in js
+    # The transient extend note is the only tile text the UI may add.
+    assert "· preparing" in js

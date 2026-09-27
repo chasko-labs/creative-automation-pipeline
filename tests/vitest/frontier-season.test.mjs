@@ -72,6 +72,28 @@ describe('frontier season line', () => {
     expect(line('US-MW-BOISE', 'Spring').ingredient).toBeNull();
   });
 
+  it('names the chosen holiday when a market moment says it (Christmas, not Thanksgiving)', () => {
+    const stub = [
+      { market: 'US-NE-MANHATTAN',
+        frontier: { place: 'Warwick, NY', market: 'US-NY-WARWICK' },
+        monthly: { '2026-12': 'storage onions' },
+        moments: [
+          { moment: 'Thanksgiving + winter holiday baking (Nov-Dec)', status: 'confirmed', months: [11, 12],
+            favorite_flavors: ['turkey', 'thanksgiving'] },
+          { moment: 'Christmas — Christmas cheer (Christmas)', status: 'confirmed', months: [12],
+            favorite_flavors: ['peppermint', 'eggnog', 'christmas'] },
+        ] },
+    ];
+    const line = loadSeasonLine(stub);
+    const christmas = line('US-NE-MANHATTAN', 'Christmas');
+    expect(christmas.moment).toBe('Christmas — Christmas cheer (Christmas)');
+    expect(christmas.text).not.toContain('Thanksgiving');
+    // Thanksgiving still resolves to the thanksgiving-named moment.
+    expect(line('US-NE-MANHATTAN', 'Thanksgiving').moment).toContain('Thanksgiving');
+    // Plain month picks keep the first month match, unchanged.
+    expect(line('US-NE-MANHATTAN', 'December').moment).toBe('Thanksgiving + winter holiday baking (Nov-Dec)');
+  });
+
   it('never names a moment outside its months', () => {
     const line = loadSeasonLine(STUB);
     const r = line('US-MW-BOISE', '2026-10');

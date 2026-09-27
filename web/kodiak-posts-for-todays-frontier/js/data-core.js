@@ -400,6 +400,24 @@ function frontierSeasonLine(market, monthKey){
       if(!mo || !mo.months || mo.months.indexOf(month) === -1) continue;
       if(!pick || (pick.status !== 'confirmed' && mo.status === 'confirmed')) pick = mo;
     }
+    // Holiday picks name their moment: an explicit holiday choice (Christmas,
+    // Thanksgiving, ...) prefers a month-matching moment whose name says that
+    // holiday, so Christmas never briefs as Thanksgiving when a market's
+    // combined Nov-Dec moment sorts first. Falls back to the month pick above
+    // when no moment names the holiday. Plain seasons and month names keep
+    // the month pick — only the ten holiday labels get the preference.
+    // (inside the #frontier-season slice: the vitest suite evals this range.)
+    var holName = String(monthKey == null ? '' : monthKey).replace(/^Season:\s*/i, '').replace(/['’]/g, "'").trim().toLowerCase();
+    /** @type {Object<string, number>} */
+    var HOLIDAY_PREF = {'new year':1,"valentine's day":1,easter:1,'memorial day':1,'fourth of july':1,'labor day':1,halloween:1,thanksgiving:1,christmas:1,'holiday season':1};
+    if(HOLIDAY_PREF[holName]){
+      var holRe = new RegExp('\\b' + holName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b');
+      for(const mo2 of moments){
+        if(!mo2 || !mo2.months || mo2.months.indexOf(month) === -1) continue;
+        if(!holRe.test(String(mo2.moment || '').toLowerCase())) continue;
+        if(mo2.status === 'confirmed' || !pick || pick.status !== 'confirmed'){ pick = mo2; break; }
+      }
+    }
     var place = (entry.frontier && entry.frontier.place) || '';
     if(!place && !ingredient) return null;
     var text = place;

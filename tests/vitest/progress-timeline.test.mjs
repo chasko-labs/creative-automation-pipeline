@@ -38,14 +38,20 @@ describe('progress timeline', () => {
     expect(timeline).not.toMatch(/connecting to dynamodb|stable diffusion|dampack/i);
   });
 
-  it('header and timeline share the content width baseline, ultrawide tiers included', () => {
-    // .wrap baseline is 1100px (1440/1680 ultrawide): header and timeline
-    // ride the same caps so neither reads skinnier than the cards.
+  it('header, timeline, and cards stay equisize at every breakpoint', () => {
+    // .wrap baseline is 1100px with no ultrawide growth: header row and
+    // timeline ride the same 1100px cap so neither reads wider than the cards.
     expect(css).toMatch(/\.kodiak-header \.header__inner\{[^}]*width:min\(1100px/);
     expect(css).toMatch(/\.ff-timeline\.ff-timeline--under-header\{width:min\(1100px/);
-    expect(css).toMatch(/\.kodiak-header \.header__inner\{width:min\(1440px/);
-    expect(css).toMatch(/\.ff-timeline\.ff-timeline--under-header\{width:min\(1440px/);
+    expect(css).not.toMatch(/\.kodiak-header \.header__inner\{width:min\(1440px/);
+    expect(css).not.toMatch(/\.ff-timeline\.ff-timeline--under-header\{width:min\(1440px/);
     expect(css).not.toMatch(/min\(1064px/);
+  });
+
+  it('headline plate shares the logo row and shrinks, never its own line', () => {
+    // the plate is allowed to be smaller — no full-width wrap under the logo.
+    expect(css).not.toMatch(/\.kodiak-header \.kodiak-headline-plate\{flex:1 1 100%\}/);
+    expect(css).toMatch(/\.kodiak-header \.kodiak-headline-plate\{flex:1 1 auto;min-width:0/);
   });
 
   it('tracker styling reuses brand tokens', () => {
