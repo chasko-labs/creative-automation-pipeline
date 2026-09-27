@@ -138,6 +138,32 @@ test("timeline strip keeps the same bottom rhythm as cards", async ({
 	);
 });
 
+// the pipeline plate shares the logo row below 1280px: it shrinks beside the
+// badge, never drops to its own line under it. (The badge is absolutely
+// positioned over the bar on desktop; the narrow bar is the flex row.)
+test("headline plate shares the logo row below 1280px", async ({ page }) => {
+	await page.setViewportSize({ width: 900, height: 800 });
+	await gotoUnlocked(page);
+	const layout = await page.evaluate(() => {
+		const box = (s) => {
+			const el = document.querySelector(s);
+			if (!el) return null;
+			const b = el.getBoundingClientRect();
+			return { top: b.top, bottom: b.bottom, left: b.left, right: b.right };
+		};
+		return {
+			logos: box(".kodiak-header__logos"),
+			plate: box(".kodiak-header .kodiak-headline-plate"),
+		};
+	});
+	expect(layout.logos && layout.plate).toBeTruthy();
+	// vertical overlap: beside the badge, not under it.
+	expect(layout.plate.top).toBeLessThan(layout.logos.bottom - 2);
+	expect(layout.plate.bottom).toBeGreaterThan(layout.logos.top + 2);
+	// horizontal order with no visual collision.
+	expect(layout.plate.left).toBeGreaterThanOrEqual(layout.logos.right - 1);
+});
+
 // every top-level step summary paints the same inner padding.
 test("step summaries share one padding value", async ({ page }) => {
 	await gotoUnlocked(page);

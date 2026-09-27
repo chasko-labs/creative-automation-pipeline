@@ -228,7 +228,7 @@ section.xl{padding:var(--section-space-xl) 0}
 /* sticky shrink — the bare Park City wordmark rides a shorter frame, no
    cardboard (the ::before/::after sheets fade per the layers block below). */
 .kodiak-header.is-sticky .kodiak-header__logos{height:60px;width:104px}
-@media(max-width:1279px){.kodiak-header__logos{position:relative;width:72px;height:84px;flex:0 0 auto}.kodiak-header.is-sticky .kodiak-header__logos{height:56px;width:76px}}
+@media(max-width:1279px){.kodiak-header__logos{position:relative;left:auto;width:72px;height:84px;flex:0 0 auto}.kodiak-header.is-sticky .kodiak-header__logos{height:56px;width:76px}}
 @media(prefers-reduced-motion:reduce){.kodiak-header.is-sticky .kodiak-header__logo--primary{transition:none}}
 
 /* === Firefly-inspired prompt bar — "Create a Kodiak campaign" === */
@@ -893,7 +893,13 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 .kodiak-header .header__inner{position:relative;z-index:1;display:flex;align-items:center;gap:16px;box-sizing:border-box;width:min(1100px,calc(100% - 36px));height:60px;margin:0 auto;padding:0;background:transparent}
 /* plate rides the bar row beside the badge with air above the blaze rule. */
 .kodiak-header .kodiak-headline-plate{flex:1 1 auto;min-width:0;margin-top:0;padding:6px 20px}
-@media(max-width:1279px){.kodiak-header .header__inner{height:auto;min-height:60px;flex-wrap:nowrap;padding:8px 0 8px 16px}}
+@media(max-width:1279px){
+  /* Narrow: the bar itself becomes the flex row (logos + inner side by side).
+     The inner keeps its own row behavior for the plate; both shrink, nothing
+     stacks. Desktop (absolute badge over a block bar) is untouched. */
+  header.kodiak-header{display:flex;align-items:center;gap:16px;padding:8px 0 8px 16px}
+  .kodiak-header .header__inner{flex:1 1 auto;min-width:0;width:auto;margin:0;height:auto;min-height:60px;flex-wrap:nowrap;padding:0}
+}
 /* narrow phones: the plate stays on the logo row and the title wraps inside
    its own box instead of clipping to one line. */
 @media(max-width:700px){.kodiak-header .kodiak-headline-plate h1{white-space:normal;font-size:clamp(15px,5.2cqi,24px);line-height:1.08}}
