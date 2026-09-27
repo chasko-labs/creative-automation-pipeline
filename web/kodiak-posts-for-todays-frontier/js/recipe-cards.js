@@ -45,6 +45,64 @@
 
   var EM_DASH = '\u2014';
 
+  // Lazy recipe DATA (boot weight): the 16MB precomputed book + 4.6MB baked
+  // i18n no longer ride the boot script queue. The first gallery/preview
+  // render injects both as plain scripts — same global contract, no fetch,
+  // so file:// keeps working — paints the honest empty state meanwhile, and
+  // repaints on arrival. One shared promise: concurrent renders load once.
+  /** @type {Promise<boolean>|null} */
+  var recipeDataPromise = null;
+  // Once the load settles, later renders never chain another repaint: the
+  // data is either present (no empty branch) or the load failed (repainting
+  // would re-chain the settled promise forever with nothing left to arrive).
+  var recipeDataSettled = false;
+  /**
+   * @returns {boolean}
+   */
+  function hasRecipeData(){
+    try{
+      var d = (typeof window !== 'undefined') ? window.KODIAK_RECIPE_CARDS : null;
+      return !!(d && typeof d === 'object' && Object.keys(d).length);
+    }catch(e){ return false; }
+  }
+  /**
+   * @param {string} src
+   * @returns {string}
+   */
+  function recipeDataUrl(src){
+    try{
+      var v = (typeof window !== 'undefined' && window.KODIAK_VERSION) || '';
+      if(v && src.indexOf('?') === -1) return src + '?v=' + encodeURIComponent(v);
+    }catch(e){}
+    return src;
+  }
+  /**
+   * @returns {Promise<boolean>}
+   */
+  function ensureRecipeData(){
+    if(hasRecipeData()) return Promise.resolve(true);
+    if(recipeDataPromise) return recipeDataPromise;
+    recipeDataPromise = new Promise(function(resolve){
+      var files = ['js/recipe-cards-data.js', 'js/recipe-i18n-data.js'];
+      var pending = files.length;
+      var done = function(){
+        if(--pending === 0){ recipeDataSettled = true; resolve(hasRecipeData()); }
+      };
+      try{
+        files.forEach(function(src){
+          var s = document.createElement('script');
+          s.src = recipeDataUrl(src);
+          s.async = true;
+          s.onload = done;
+          s.onerror = done;
+          (document.head || document.documentElement).appendChild(s);
+        });
+      }catch(e){ recipeDataSettled = true; resolve(false); }
+    });
+    return recipeDataPromise;
+  }
+  try{ window.KODIAK_ensureRecipeData = ensureRecipeData; }catch(e){}
+
   /**
    * @param {string} tag
    * @param {string} [cls]
@@ -500,6 +558,9 @@
     if (!data || typeof data !== 'object' || !Object.keys(data).length) {
       var empty = el('p', 'rc-gallery-empty', 'Recipe cards will appear here once generated.');
       body.appendChild(empty);
+      // first genuine need: fetch the book in the background, repaint once on
+      // arrival (settled loads never re-chain — see recipeDataSettled).
+      if(!recipeDataSettled) ensureRecipeData().then(function(ok){ if(ok) renderGallery(); });
       return;
     }
 
@@ -671,6 +732,22 @@
       'december'][new Date().getMonth()]];
   }
 
+  // The preview recipe slot lives inside the collapsed preview card: no data
+  // fetch while it is hidden — bytes transfer on first genuine need (card
+  // opened, preview rendered), never for a glance at the boot page.
+  /**
+   * @returns {boolean}
+   */
+  function recipeSurfaceVisible(){
+    try{
+      var card = /** @type {HTMLDetailsElement|null} */ (document.getElementById('previewCard'));
+      if(card && card.tagName === 'DETAILS' && !card.open) return false;
+      var slot = document.getElementById('previewRecipe');
+      if(slot && slot.offsetParent === null) return false;
+    }catch(e){}
+    return true;
+  }
+
   function renderPreviewCard() {
     var slot = document.getElementById('previewRecipe');
     if (!slot) { renderGallery(); return; }   // old markup fallback
@@ -679,6 +756,9 @@
     var data = window.KODIAK_RECIPE_CARDS;
     if (!data || typeof data !== 'object' || !Object.keys(data).length) {
       slot.appendChild(el('p', 'rc-gallery-empty', 'Recipe card will appear here once generated.'));
+      // first genuine need: fetch the book in the background, repaint once on
+      // arrival (settled loads never re-chain — see recipeDataSettled).
+      if(recipeSurfaceVisible() && !recipeDataSettled) ensureRecipeData().then(function(ok){ if(ok) renderPreviewCard(); });
       return;
     }
 
@@ -763,12 +843,33 @@
   window.KODIAK_renderRecipeGallery = renderGallery;
   window.KODIAK_renderPreviewCard = renderPreviewCard;
 
+  // the preview card opens on generate and on manual toggle: repaint then, so
+  // the first open with missing data kicks the lazy load (toggle events do
+  // not bubble — capture at document level). The event fires before layout,
+  // so repaint on the next frame when the visibility read is truthful.
+  function repaintAfterOpen(){
+    try{
+      if(typeof requestAnimationFrame === 'function') requestAnimationFrame(function(){ renderPreviewCard(); });
+      else setTimeout(function(){ renderPreviewCard(); }, 0);
+    }catch(e){ renderPreviewCard(); }
+  }
+  function bindPreviewCardOpen(){
+    try{
+      document.addEventListener('toggle', function(e){
+        var t = /** @type {Element|null} */ ((e && e.target) || null);
+        var dt = /** @type {HTMLDetailsElement|null} */ (t);
+        if(t && t.id === 'previewCard' && dt && dt.open) repaintAfterOpen();
+      }, true);
+    }catch(e){}
+  }
+
   // bootstrap last: every declaration above (including the preview-language
   // toggle state) is initialized before the first render runs.
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { bindGalleryRefresh(); renderPreviewCard(); });
+    document.addEventListener('DOMContentLoaded', function () { bindGalleryRefresh(); bindPreviewCardOpen(); renderPreviewCard(); });
   } else {
     bindGalleryRefresh();
+    bindPreviewCardOpen();
     renderPreviewCard();
   }
 })();

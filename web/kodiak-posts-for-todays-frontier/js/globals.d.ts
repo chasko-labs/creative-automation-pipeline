@@ -138,6 +138,8 @@ interface Window {
   KODIAK_locCaption?: (market: string) => string;
   /** Returns the readout framing HTML for a market (data-core.js featuredHtml); missing -> callers keep their fallback. */
   KODIAK_featuredHtml?: (market: string, row?: { place?: string; market?: string; cue?: string } | null) => string;
+  /** Loads the recipe book + baked i18n on first need (recipe-cards.js); resolves true once KODIAK_RECIPE_CARDS is present. */
+  KODIAK_ensureRecipeData?: () => Promise<boolean>;
   /**
    * Tile class suffix ("r-1x1") -> TileSize. Validates a DOM class string
    * across a JSON/DOM boundary; unknown classes return null so callers keep

@@ -7,8 +7,8 @@
 // Usage:
 //   node scripts/frontier-measure-layout.mjs [--url URL] [--widths 1400,900,400]
 //     [--market US-NE-BROOKLYN] [--season October] [--preview]
-//     [--checks header,widths,timeline,gaps,empties,flavor] [--between #a,#b]
-//     [--flavor MARKET,SEASON]
+//     [--checks header,widths,timeline,gaps,empties,flavor,loads] [--between #a,#b]
+//     [--flavor MARKET,SEASON] [--opencard]
 import { chromium } from "playwright";
 
 const raw = process.argv.slice(2);
@@ -38,6 +38,13 @@ const report = {};
 const browser = await chromium.launch();
 for (const width of widths) {
   const page = await browser.newPage({ viewport: { width, height: 900 } });
+  const seenLoads = [];
+  page.on("request", (r) => {
+    const u = r.url();
+    if (u.includes("recipe-cards-data") || u.includes("recipe-i18n-data")) {
+      seenLoads.push(decodeURIComponent(u.split("/").pop().split("?")[0]));
+    }
+  });
   await page.goto(url, { waitUntil: "load", timeout: 60000 });
   try {
     await page.fill("#kodiak-gate input", "cakes", { timeout: 5000 });
@@ -134,6 +141,23 @@ for (const width of widths) {
       const feat = document.querySelector("#featuredFrontier");
       return { engine, readout: feat ? feat.textContent.trim().replace(/\s+/g, " ").slice(0, 300) : null };
     }, [flavorMarket, flavorSeason]);
+  }
+  if (checks.includes("loads")) {
+    row.loads = { boot: [...seenLoads] };
+    if (args.opencard) {
+      await page.evaluate(() => { const c = document.getElementById("previewCard"); if (c) c.open = true; });
+      try {
+        await page.waitForFunction(
+          () => document.getElementById("previewRecipe")?.querySelector(".rc-preview-wrap, .rc-gallery-empty"),
+          null, { timeout: 90000 },
+        );
+      } catch (_) {}
+      await page.waitForTimeout(2000);
+      row.loads.afterOpen = [...seenLoads];
+      row.loads.cardPainted = await page.evaluate(
+        () => !!document.getElementById("previewRecipe")?.querySelector(".rc-preview-wrap"),
+      );
+    }
   }
   if (checks.includes("empties") && between.length === 2) {
     row.empties = await page.evaluate(([fromSel, toSel]) => {

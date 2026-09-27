@@ -569,10 +569,10 @@
 <script defer src="js/frontier-contracts.js?v=0.1.027-7f918d7-20260926"></script>
 <script defer src="js/recipes-frontier-pairs.js?v=0.1.027-7f918d7-20260926"></script>
 <script defer src="js/season-flavors.js?v=0.1.027-7f918d7-20260926"></script>
-<!-- Recipes surface: DATA first, then the renderer. defer preserves document order, so
-     recipe-cards-data.js (defines window.KODIAK_RECIPE_CARDS) always runs before recipe-cards.js. -->
-<script defer src="js/recipe-cards-data.js?v=0.1.027-7f918d7-20260926"></script>
-<script defer src="js/recipe-i18n-data.js?v=0.1.027-7f918d7-20260926"></script>
+<!-- Recipes surface: the renderer lazy-loads its DATA (recipe-cards-data.js +
+     recipe-i18n-data.js, 20MB combined) on first genuine need via
+     KODIAK_ensureRecipeData — never in the boot queue. recipes.html keeps its
+     own static data tag for the full-book matrix. -->
 <script defer src="js/recipe-cards.js?v=0.1.027-7f918d7-20260926"></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"KODIAK Posts for Today's Frontier","version":"0.1.027-7f918d7-20260926","url":"index.html","applicationCategory":"CreativeAutomation","operatingSystem":"offline-first","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["74 language markets","English plus the top two languages per market","offline campaign workflow","Nova Pro creative direction plus Nova Micro language support","approved digital asset library","webmcp enabled"]}</script>
