@@ -44,16 +44,20 @@ async function gaps(page) {
 		]
 			.filter((el) => el.getBoundingClientRect().height > 0)
 			.sort(
-				(a, b) =>
-					a.getBoundingClientRect().top - b.getBoundingClientRect().top,
+				(firstEl, secondEl) =>
+					firstEl.getBoundingClientRect().top -
+					secondEl.getBoundingClientRect().top,
 			);
-		return kids.map((el) => ({
-			key:
-				(el.id ? `#${el.id}` : el.tagName.toLowerCase()) +
-				`.${String(el.className).split(" ")[0]}`,
-			top: Math.round(el.getBoundingClientRect().top + scrollY),
-			bottom: Math.round(el.getBoundingClientRect().bottom + scrollY),
-		}));
+		return kids.map((el) => {
+			const rect = el.getBoundingClientRect();
+			return {
+				key:
+					(el.id ? `#${el.id}` : el.tagName.toLowerCase()) +
+					`.${String(el.className).split(" ")[0]}`,
+				top: Math.round(rect.top + scrollY),
+				bottom: Math.round(rect.bottom + scrollY),
+			};
+		});
 	});
 }
 
@@ -145,8 +149,8 @@ test("headline plate shares the logo row below 1280px", async ({ page }) => {
 	await page.setViewportSize({ width: 900, height: 800 });
 	await gotoUnlocked(page);
 	const layout = await page.evaluate(() => {
-		const box = (s) => {
-			const el = document.querySelector(s);
+		const box = (selector) => {
+			const el = document.querySelector(selector);
 			if (!el) return null;
 			const b = el.getBoundingClientRect();
 			return { top: b.top, bottom: b.bottom, left: b.left, right: b.right };
