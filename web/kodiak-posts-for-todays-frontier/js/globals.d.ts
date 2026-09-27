@@ -140,6 +140,8 @@ interface Window {
   KODIAK_featuredHtml?: (market: string, row?: { place?: string; market?: string; cue?: string } | null) => string;
   /** Loads the recipe book + baked i18n on first need (recipe-cards.js); resolves true once KODIAK_RECIPE_CARDS is present. */
   KODIAK_ensureRecipeData?: () => Promise<boolean>;
+  /** Repoints hero + pack records at swapped extend pixels (generate.js); missing -> stale first-paint set ships. */
+  KODIAK_recordExtendedTile?: (ratio: string, tile: { image_url?: unknown; s3_uri?: unknown }) => void;
   /**
    * Tile class suffix ("r-1x1") -> TileSize. Validates a DOM class string
    * across a JSON/DOM boundary; unknown classes return null so callers keep

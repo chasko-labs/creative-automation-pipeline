@@ -155,4 +155,28 @@ describe('preview extend helpers', () => {
     expect(window.KODIAK_restingCopyFor('US-MW-PARKCITY-84098')).toBe(null);
     expect(window.KODIAK_restingCopyFor('US-XX-NOWHERE')).toBe(null);
   });
+
+  it('extend swaps repoint hero + pack at the fresh pixels', () => {
+    window.__lastHeroUrl = 'https://old/hero.png';
+    window.__lastPack = [
+      { s3_uri: 's3://b/hero.png', ratio: '1x1' },
+      { s3_uri: 's3://b/a.png', ratio: '9x16' },
+    ];
+    window.KODIAK_recordExtendedTile('9x16', { image_url: 'https://new/a.png', s3_uri: 's3://b/a2.png' });
+    expect(window.__lastHeroUrl).toBe('https://old/hero.png');
+    expect(window.__lastPack).toEqual([
+      { s3_uri: 's3://b/hero.png', ratio: '1x1' },
+      { s3_uri: 's3://b/a2.png', ratio: '9x16' },
+    ]);
+    window.KODIAK_recordExtendedTile('1x1', { image_url: 'https://new/hero.png', s3_uri: 's3://b/hero2.png' });
+    expect(window.__lastHeroUrl).toBe('https://new/hero.png');
+    expect(window.__lastPack[0]).toEqual({ s3_uri: 's3://b/hero2.png', ratio: '1x1' });
+    // new ratio appends; missing key or pack leaves records untouched.
+    window.KODIAK_recordExtendedTile('16x9', { image_url: 'https://new/w.png', s3_uri: 's3://b/w.png' });
+    expect(window.__lastPack).toHaveLength(3);
+    window.KODIAK_recordExtendedTile('4x5', { image_url: 'https://new/p.png' });
+    expect(window.__lastPack).toHaveLength(3);
+    delete window.__lastPack;
+    expect(() => window.KODIAK_recordExtendedTile('9x16', { image_url: 'u', s3_uri: 's3://b/z.png' })).not.toThrow();
+  });
 });

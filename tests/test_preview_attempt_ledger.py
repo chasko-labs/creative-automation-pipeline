@@ -95,3 +95,60 @@ def test_mirror_partial_failure_still_copies_rest(monkeypatch, tmp_path) -> None
     art.write_bytes(b"x")
     assert asset_store.mirror_recipe_art_to_sites(art, "sundae", "finished_plate") == 1
     assert [u["bucket"] for u in fake.uploads] == ["prod-bucket"]
+
+
+def test_full_mode_ledgers_its_render_set(tmp_path, monkeypatch) -> None:
+    """Full-mode renders hit renders/ too: the set gets one mode=full record."""
+    from PIL import Image
+
+    from creative_automation import generate_lambda as gl
+
+    hero = tmp_path / "hero.png"
+    Image.new("RGB", (1080, 1080), (200, 120, 60)).save(hero, "PNG")
+
+    class S3:
+        def __init__(self) -> None:
+            self.puts: list[dict] = []
+
+        def put_object(self, *a, **k):
+            if a:
+                k = {**dict(zip(("Bucket", "Key", "Body", "ContentType"), a)), **k}
+            self.puts.append(k)
+            return {}
+
+        def generate_presigned_url(self, op, Params=None, ExpiresIn=None):
+            return "https://example/signed.png"
+
+    s3 = S3()
+    monkeypatch.setattr(gl, "_s3_client", lambda: s3)
+    monkeypatch.setattr(
+        gl,
+        "generate_hero_set",
+        lambda **k: (
+            [
+                {"ratio": "1x1", "path": hero, "w": 1080, "h": 1080},
+                {"ratio": "4x5", "path": hero, "w": 864, "h": 1080},
+            ],
+            "mock-source",
+            {},
+        ),
+    )
+    fake = s3
+    _online(monkeypatch, fake)
+    monkeypatch.setattr(
+        "creative_automation.asset_store._s3_client", lambda: fake
+    )
+    resp = gl._handle_full(
+        {"market": "US-NE-BROOKLYN", "product": "power-cakes"}, "City frontier"
+    )
+    assert resp["ok"] is True
+    assert len(resp["renders"]) == 2
+    ledgers = [p for p in fake.puts if "preview-attempts/" in str(p.get("Key"))]
+    assert len(ledgers) == 1
+    body = json.loads(ledgers[0]["Body"].decode())
+    assert body["mode"] == "full"
+    assert body["review_status"] == "needs-review"
+    assert sorted(e["ratio"] for e in body["renders"]) == ["1x1", "4x5"]
+    assert {e["s3_uri"] for e in body["renders"]} == {
+        r["s3_uri"] for r in resp["renders"]
+    }

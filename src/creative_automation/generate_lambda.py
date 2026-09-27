@@ -1309,6 +1309,28 @@ def _handle_extend(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     )
     entry["engine"] = engine
     entry["ok"] = True
+    # Extended ratios are persisted renders too: ledger this one or it becomes
+    # an unfindable orphan in renders/ (the preview attempt only covers the
+    # first paint). Best-effort — never fails the extend.
+    try:
+        from . import asset_store as _extend_ledger
+        _extend_ledger.record_preview_attempt({
+            "mode": "extend",
+            "ratio": ratio,
+            "brief": subject,
+            "market": data.get("market") or data.get("region") or "us",
+            "product": str(data.get("product") or "power-cakes"),
+            "hero_s3_uri": hero_uri,
+            "review_status": "needs-review",
+            "renders": [{
+                "ratio": entry.get("ratio"),
+                "s3_uri": entry.get("s3_uri"),
+                "engine": engine,
+                "review_status": "needs-review",
+            }],
+        })
+    except Exception:
+        pass
     return entry
 
 
@@ -1870,6 +1892,27 @@ def _handle_full(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # back-compat: top-level image_url + s3_uri point at the 1x1 primary render.
     primary = next((rr for rr in response_renders if rr["ratio"] == "1x1"), response_renders[0])
     primary_url = primary["image_url"]
+    # Full-mode renders are persisted too: ledger the set or every ratio
+    # becomes an unfindable orphan in renders/ (preview attempts only cover
+    # the preview path). Best-effort — never fails the response.
+    try:
+        from . import asset_store as _full_ledger
+        _full_ledger.record_preview_attempt({
+            "mode": "full",
+            "brief": prompt,
+            "market": data.get("market") or data.get("region") or "us",
+            "product": product,
+            "theme": theme,
+            "dish": dish,
+            "review_status": "needs-review",
+            "renders": [
+                {"ratio": rr.get("ratio"), "s3_uri": rr.get("s3_uri"),
+                 "review_status": "needs-review"}
+                for rr in response_renders if isinstance(rr, dict)
+            ],
+        })
+    except Exception:
+        pass
 
     # Server-side campaign messaging (Atlanta H): the deterministic offline chain
     # (zero model calls) ships full platform copy + top-3 localizations + recipe

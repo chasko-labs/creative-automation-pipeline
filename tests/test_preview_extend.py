@@ -104,3 +104,62 @@ def test_extend_mode_routes_through_handler(monkeypatch) -> None:
     resp = gl.handler(event)
     assert resp["statusCode"] == 200
     assert seen["ratio"] == "9x16"
+
+
+def _ledger_online(monkeypatch, puts) -> None:
+    from creative_automation import asset_store
+
+    class S3:
+        def put_object(self, *a, **k):
+            if a:
+                keys = ("Bucket", "Key", "Body", "ContentType")
+                k = {**dict(zip(keys, a)), **k}
+            puts.append(k)
+            return {}
+
+        def generate_presigned_url(self, op, Params=None, ExpiresIn=None):
+            return "https://example/signed.png"
+
+    monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
+    monkeypatch.setattr(
+        asset_store, "_s3_bucket_and_prefix", lambda: ("bkt", "brands/kodiak/")
+    )
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: S3())
+    return S3()
+
+
+def _hero_s3(monkeypatch, hero, puts):
+    class S3(_ledger_online(monkeypatch, puts).__class__):
+        def get_object(self, **kw):
+            return {"Body": _Body(hero.read_bytes())}
+
+    class _Body:
+        def __init__(self, b: bytes):
+            self._b = b
+
+        def read(self) -> bytes:
+            return self._b
+
+    return S3()
+
+
+def test_extend_ledgers_its_render(tmp_path: Path, monkeypatch) -> None:
+    import json
+
+    hero = _hero(tmp_path)
+    puts: list = []
+    s3 = _hero_s3(monkeypatch, hero, puts)
+    monkeypatch.setattr(gl, "_s3_client", lambda: s3)
+    monkeypatch.setattr(gl, "_stability_outpaint", lambda *a: None)
+    resp = gl._handle_extend(
+        {"ratio": "9x16", "hero_s3_uri": f"s3://{gl.ASSET_STORE_S3_BUCKET}/hero.png"},
+        "prompt",
+    )
+    assert resp["ok"] is True
+    ledgers = [p for p in puts if "preview-attempts/" in str(p.get("Key"))]
+    assert len(ledgers) == 1
+    body = json.loads(ledgers[0]["Body"].decode())
+    assert body["mode"] == "extend"
+    assert body["ratio"] == "9x16"
+    assert body["review_status"] == "needs-review"
+    assert body["renders"][0]["s3_uri"] == resp["s3_uri"]

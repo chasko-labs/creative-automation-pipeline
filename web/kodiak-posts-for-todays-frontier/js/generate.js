@@ -500,6 +500,27 @@ let skuList = [
       region: f.region || 'us', theme: f.theme || null};
   };
   try{ window.KODIAK_extendTargets = extendTargets; window.KODIAK_extendHero = extendHero; window.KODIAK_extendBody = extendBody; }catch(e){}
+  /**
+   * Point the hero + pack records at freshly swapped extend pixels.
+   * @param {string} ratio
+   * @param {{image_url?: unknown, s3_uri?: unknown}} tile
+   * @returns {void}
+   */
+  const recordExtendedTile = (ratio, tile)=>{
+    // the swapped pixels are the delivered tile now: without this, later
+    // downloads ship the stale first-paint set. s3_uri is permanent.
+    try{
+      const url = (tile && typeof tile.image_url === 'string') ? tile.image_url : '';
+      const key = (tile && typeof tile.s3_uri === 'string') ? tile.s3_uri : '';
+      if(ratio === '1x1' && url) window.__lastHeroUrl = url;
+      if(key && Array.isArray(window.__lastPack)){
+        const at = window.__lastPack.findIndex(e=>e && e.ratio === ratio);
+        const rec = {s3_uri: key, ratio};
+        if(at >= 0) window.__lastPack[at] = rec; else window.__lastPack.push(rec);
+      }
+    }catch(e){}
+  };
+  try{ window.KODIAK_recordExtendedTile = recordExtendedTile; }catch(e){}
   // Request theme order (top level so tests share it): the primary theme
   // first — backend seed/scene behavior unchanged — then every other checked
   // card in DOM order, deduped. Extras ride as data.themes instead of
@@ -1661,7 +1682,11 @@ let skuList = [
                 const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(extendBody(ratio, hero, fields))});
                 if(!resp.ok) break;
                 const tile = await resp.json();
-                if(tile && tile.ok && tile.image_url){ swapTile(ratio, tile.image_url); return; }
+                if(tile && tile.ok && tile.image_url){
+                  swapTile(ratio, tile.image_url);
+                  recordExtendedTile(ratio, tile);
+                  return;
+                }
                 break;
               }catch(e){}
             }
