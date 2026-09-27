@@ -39,13 +39,19 @@ describe('progress timeline', () => {
   });
 
   it('header, timeline, and cards stay equisize at every breakpoint', () => {
-    // .wrap baseline is 1100px with no ultrawide growth: header row and
-    // timeline ride the same 1100px cap so neither reads wider than the cards.
+    // .wrap grows 1100 -> 1440 -> 1680 at 1600/2200px: header row and timeline
+    // ride the same three tiers so none reads wider or skinnier than the cards.
     expect(css).toMatch(/\.kodiak-header \.header__inner\{[^}]*width:min\(1100px/);
     expect(css).toMatch(/\.ff-timeline\.ff-timeline--under-header\{width:min\(1100px/);
-    expect(css).not.toMatch(/\.kodiak-header \.header__inner\{width:min\(1440px/);
-    expect(css).not.toMatch(/\.ff-timeline\.ff-timeline--under-header\{width:min\(1440px/);
+    expect(css).toMatch(/\.kodiak-header \.header__inner\{width:min\(1440px/);
+    expect(css).toMatch(/\.ff-timeline\.ff-timeline--under-header\{width:min\(1440px/);
+    expect(css).toMatch(/\.kodiak-header \.header__inner\{width:min\(1680px/);
+    expect(css).toMatch(/\.ff-timeline\.ff-timeline--under-header\{width:min\(1680px/);
     expect(css).not.toMatch(/min\(1064px/);
+    // exactly three width setters per element (base + two tiers): a later
+    // duplicate re-pins the width and silently kills the tiers by cascade.
+    const timelineWidths = css.match(/\.ff-timeline\.ff-timeline--under-header\{width:/g) || [];
+    expect(timelineWidths).toHaveLength(3);
   });
 
   it('headline plate shares the logo row and shrinks, never its own line', () => {
