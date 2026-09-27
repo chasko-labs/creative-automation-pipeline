@@ -1,31 +1,47 @@
 #!/usr/bin/env python3
-"""Queue one frontier ink-plate render on local ComfyUI (SDXL base 1.0).
+"""Queue one frontier ink ingredient render on local ComfyUI (SDXL base 1.0).
 
-Usage: python scripts/comfy_ink_plate.py <slug> <seed> <subject> [--prefix PREFIX]
+Usage: python scripts/comfy_ink_ingredient.py <slug> <seed> <subject> [--taxon TAXON]
+       [--ingredient NAME] [--prefix PREFIX]
 Writes the finished PNG into input_assets/sprint2-ingredients/<slug>.png
 (the pool), never /tmp. Prints one JSON manifest line for the batch manifest.
-Graph template: comfyui-workflows/kodiak-ink-plate-base.json (7 nodes).
+Graph template: comfyui-workflows/kodiak-ink-ingredient-base.json (7 nodes).
 Node 3 (negative) is LOCKED by the template — only nodes 2/5/7 are filled.
 
-Queue etiquette (shared box): refuses when the queue is busy or free VRAM is
-under 3GB, so other residents' loads are never evicted and the GPU is never
-crammed. Pass --force to override the queue check (still never overrides VRAM).
+Queue etiquette (shared box, docs/gpu-sharing-protocol.md): refuses when the
+queue is busy, /tmp/comfy_pause is present, the shared valkey gpu_lock is
+held, or free VRAM is under 2GB, so other residents' loads are never evicted
+and the GPU is never crammed. Pass --force to override the queue check only
+(never the lock, the pause file, or VRAM). Never sets the lock.
 
 Subject style (matches batches A/B): counts + geometry + white-face notes,
 ending "<ingredient> as the hero ingredient".
+RULE: the scientific (binomial) name is the primary identifier and leads the
+prompt (--taxon, e.g. "Cucurbita pepo"), linked back to the common ingredient
+/ recipe name. Never use a place or farm name as the subject: the model knows
+species, not locations. One species per ingredient, no compounds: two species
+in one prompt renders mutants, not reusable assets.
 """
 
 import json
+import socket
 import sys
 import time
 import urllib.request
 from pathlib import Path
 
 COMFY = "http://127.0.0.1:8188"
+VALKEY_HOST = "127.0.0.1"
+VALKEY_PORT = 16379
+LOCK_KEY = "gpu_lock"  # exact fc-pool key, shared per docs/gpu-sharing-protocol.md
+PAUSE_FILE = Path("/tmp/comfy_pause")
 ROOT = Path(__file__).resolve().parent.parent
 POOL = ROOT / "input_assets" / "sprint2-ingredients"
-WORKFLOW = ROOT / "comfyui-workflows" / "kodiak-ink-plate-base.json"
-MIN_FREE_VRAM = 3 * 1024**3
+WORKFLOW = ROOT / "comfyui-workflows" / "kodiak-ink-ingredient-base.json"
+# SDXL weights stay resident in the server; a render's working set fits in ~2GB.
+# Housemate inference servers (not trainers) share this box, so allocation
+# pressure fails our own job first rather than evicting theirs.
+MIN_FREE_VRAM = 2 * 1024**3
 
 STYLE_PREFIX = (
     "black ink illustration on a plain white background, frontier ink style, "
@@ -46,7 +62,32 @@ def api(path, payload=None, raw=False):
         return body if raw else json.loads(body)
 
 
+def lock_holder() -> str | None:
+    """Owner of the shared gpu_lock, or None when free/unreachable.
+
+    Raw-socket RESP so the driver needs no client lib. An unreachable
+    valkey warns (courtesy best-effort); the queue + VRAM gates below
+    still hold.
+    """
+    try:
+        s = socket.create_connection((VALKEY_HOST, VALKEY_PORT), timeout=10)
+        with s:
+            s.sendall(f"GET {LOCK_KEY}\r\n".encode())
+            raw = s.recv(4096)
+    except OSError as e:
+        print(f"warning: valkey unreachable ({e}); lock check best-effort", flush=True)
+        return None
+    if raw.startswith(b"$-1") or raw.startswith(b"*-0"):
+        return None
+    return raw.decode("utf-8", "replace").strip()
+
+
 def check_box(force: bool) -> None:
+    if PAUSE_FILE.exists():
+        raise SystemExit("refusing: /tmp/comfy_pause is present (holder asked us to wait)")
+    holder = lock_holder()
+    if holder is not None:
+        raise SystemExit(f"refusing: gpu_lock held by {holder!r} (never set it, never stomp it)")
     q = api("/queue")
     if (q.get("queue_running") or q.get("queue_pending")) and not force:
         raise SystemExit("refusing: ComfyUI queue is busy (use --force to override)")
@@ -66,18 +107,27 @@ def main() -> None:
     args = [a for a in sys.argv[1:] if a != "--force"]
     force = "--force" in sys.argv[1:]
     if len(args) < 3:
-        raise SystemExit("usage: comfy_ink_plate.py <slug> <seed> <subject> [--prefix P]")
+        raise SystemExit("usage: comfy_ink_ingredient.py <slug> <seed> <subject> [--prefix P]")
     slug, seed, subject = args[0], int(args[1]), args[2].strip()
-    prefix = "kodiak-ink-plate"
+    prefix = "kodiak-ink-ingredient"
     if "--prefix" in args:
         prefix = args[args.index("--prefix") + 1]
+    taxon = ""
+    if "--taxon" in args:
+        taxon = args[args.index("--taxon") + 1].strip()
+    ingredient = ""
+    if "--ingredient" in args:
+        ingredient = args[args.index("--ingredient") + 1].strip()
 
     check_box(force)
     wf = json.loads(WORKFLOW.read_text())
-    positive = f"{STYLE_PREFIX}, {subject}"
+    # Taxon leads: the model knows species, not places or farm names.
+    positive = f"{STYLE_PREFIX}, {taxon}, {subject}" if taxon else f"{STYLE_PREFIX}, {subject}"
     wf["2"]["inputs"]["text"] = positive
     wf["5"]["inputs"]["seed"] = seed
-    wf["7"]["inputs"]["filename_prefix"] = prefix
+    # Server-side output carries the slug: kodiak-ink-ingredient-<slug>_00001_.png,
+    # never a bare counter name.
+    wf["7"]["inputs"]["filename_prefix"] = f"{prefix}-{slug}"
     negative = wf["3"]["inputs"]["text"]
 
     pid = api("/prompt", {"prompt": wf})["prompt_id"]
@@ -111,7 +161,8 @@ def main() -> None:
         json.dumps(
             {
                 "slug": slug,
-                "ingredient": subject.split(",")[0].strip(),
+                "ingredient": ingredient or subject.split(",")[0].strip(),
+                "taxon": taxon,
                 "seed": seed,
                 "file": f"{slug}.png",
                 "bytes": len(raw),

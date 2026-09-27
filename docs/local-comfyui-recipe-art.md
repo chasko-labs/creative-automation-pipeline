@@ -355,5 +355,56 @@ copied into `input_assets/`; `morel-mushrooms.png` keeps the v1 file.
   botanical-diagram framing, or hand art — the manifest now points
   at hand art. No fourth shot taken.
 
+## taxon-first subjects (2026-09-26, batch C rule)
+
+The scientific (binomial) name is the primary identifier and leads every
+prompt, linked back to the common ingredient / recipe name. The model knows
+species, not places: "Half Moon Bay pumpkin" rendered a carved Halloween
+jack-o-lantern (rejected), while `Cucurbita pepo` + a biology-led subject
+(field pumpkin, ribbed, corky stem) renders the ingredient. Never use a
+place, farm, or event name as the subject (Half Moon Bay, Julian, corn
+maze, Queen Creek, Waialua). One species per plate, no compounds:
+two species in one prompt renders mutants (pecan-potato, pumpkin-pepper
+blends) instead of clean reusable assets. Every former compound is split
+into single-species plates (pecans AND sweet potatoes, olives AND pumpkins,
+red chile AND pumpkins); pairs whose components already have singles are
+dropped, not re-rendered (apples-winter-squash, pumpkins-winter-squash,
+the pecans/sweet-potatoes double). Carried in `scripts/comfy_ink_ingredient.py --taxon` / `--ingredient`,
+`scripts/comfy_batch.py` forwards both, manifests record both per item.
+
+## batch C singles endgame (2026-09-27, rounds 4-7)
+
+Third retries (710601-710603) all failed review: sweet-potato drew five
+daikon-like roots (count five, not three), piñon drew spiky soursop-like
+pods plus text numerals, a signature stamp and border bars, red chile drew
+a ~50-pod specimen chart with no ristra. Papaya retry 710362 approved
+(strict B&W, wash gone; provenance by byte size — no manifest line was
+recorded for it, reconstructed from the retry input + workflow negative).
+
+Round 4 (710701-710703): 0/3. Sweet-potato halved-cutaway prompt produced
+papaya mutants with seed rows + gray wash — cutaways on this subject glue
+to papaya. Round 5 (710801-710803): sweet-potato APPROVED (whole uncut
+tubers, exactly three, no cutaway). Piñon shelled-kernel framing still
+drew giant spiky cones + wash. Red chile drew a 20-pod heap + cucumber
+slices. Round 6 (710901-710902): piñon drew a pine branch with needles
+(sixth fail, every framing drifts to cones/pods/branches — PARKED as
+unshippable, batch-b morel precedent). Red chile drew cucumber-like
+cylinders (sixth single fail — the 710405 ristra remains the only geometry
+that ever rendered). Round 7 (710903, 710405-geometry clone + strict
+mono): seven hanging ribbed dotted pods reading as okra/cucumber —
+PARKED. Hanging + B&W are achievable; smooth tapered chile morphology is
+not on this rung.
+
+Published: ledger reconciled (62 rows: 20 approved, 42 rejected),
+20 approved singles into `batch-c-final-manifest.json` (existing singles
+seed manifest, same envelope, status `seeded`, stale round-1 rows
+resolved, compounds excluded). Remaining rejects: piñon + red chile
+(parked) plus all never-retried batch-C rejects.
+
+Driver courtesy fix this session: `comfy_ink_ingredient.py` and
+`comfy_batch.py` now honor the gpu_lock + /tmp/comfy_pause gates
+(raw-socket RESP, no new deps); batch runner uses `sys.executable`
+(bare `python` is absent on this box).
+
 ## reproducible graphs (2026-09-21)
-Frozen API graphs live in `comfyui-workflows/` with a README. `kodiak-blog-scene-turbo.json` is the blog-scene graph used for atl-sep-muscadine v1/v2; `kodiak-ink-plate-base.json` is the ink-plate graph. `scripts/comfy_blog_scene.py` now loads the blog graph file directly, so the file is the single source. placeholders: `__POSITIVE__`, `__NEGATIVE__`, seed, prefix.
+Frozen API graphs live in `comfyui-workflows/` with a README. `kodiak-blog-scene-turbo.json` is the blog-scene graph used for atl-sep-muscadine v1/v2; `kodiak-ink-ingredient-base.json` is the ink ingredient graph. `scripts/comfy_blog_scene.py` now loads the blog graph file directly, so the file is the single source. placeholders: `__POSITIVE__`, `__NEGATIVE__`, seed, prefix.

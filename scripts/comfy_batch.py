@@ -1,21 +1,25 @@
 #!/usr/bin/env python3
-"""Run a ComfyUI ink-plate batch sequentially with household courtesy.
+"""Run a ComfyUI ink ingredient batch sequentially with household courtesy.
 
 Usage: python scripts/comfy_batch.py <items.json> <manifest-out.json>
        [--batch LABEL] [--skip-existing]
 
-items.json: [{slug, seed, subject}] — subjects in batch A/B craft (counts +
-geometry, ending "<ingredient> as the hero ingredient").
+items.json: [{slug, seed, subject, taxon?, ingredient?}] — subjects in batch
+A/B craft (counts + geometry, ending "<ingredient> as the hero ingredient").
+taxon (binomial, leads the prompt) and ingredient (common name linked to the
+recipe) are forwarded when present; see the RULE in comfy_ink_ingredient.py.
 Manifest envelope mirrors batches A/B: {batch, stylePrefix, generated,
 failed, items:[manifest lines]}.
 
-Courtesy: waits (up to 30 min per item) while the shared queue is busy,
-15s breather between renders for GPU cooldown. --skip-existing resumes an
-interrupted batch: slugs already marked rendered in an existing manifest-out
-are skipped.
+Courtesy (docs/gpu-sharing-protocol.md): waits (up to 30 min per item) while
+the shared queue is busy, /tmp/comfy_pause is present, or the valkey
+gpu_lock is held (never sets it); 15s breather between renders for GPU
+cooldown. --skip-existing resumes an interrupted batch: slugs already marked
+rendered in an existing manifest-out are skipped.
 """
 
 import json
+import socket
 import subprocess
 import sys
 import time
@@ -23,8 +27,12 @@ import urllib.request
 from pathlib import Path
 
 COMFY = "http://127.0.0.1:8188"
+VALKEY_HOST = "127.0.0.1"
+VALKEY_PORT = 16379
+LOCK_KEY = "gpu_lock"  # exact fc-pool key, shared per docs/gpu-sharing-protocol.md
+PAUSE_FILE = Path("/tmp/comfy_pause")
 ROOT = Path(__file__).resolve().parent.parent
-DRIVER = ROOT / "scripts" / "comfy_ink_plate.py"
+DRIVER = ROOT / "scripts" / "comfy_ink_ingredient.py"
 STYLE_PREFIX = (
     "black ink illustration on a plain white background, frontier ink style, "
     "hand-drawn linework with dense crosshatching, stipple dots and fine "
@@ -43,13 +51,30 @@ def queue_busy() -> bool:
         return True
 
 
+def gpu_blocked_reason() -> str | None:
+    """Non-queue courtesy gates: pause file, then shared lock (raw RESP, no deps)."""
+    if PAUSE_FILE.exists():
+        return "/tmp/comfy_pause present"
+    try:
+        s = socket.create_connection((VALKEY_HOST, VALKEY_PORT), timeout=10)
+        with s:
+            s.sendall(f"GET {LOCK_KEY}\r\n".encode())
+            raw = s.recv(4096)
+    except OSError:
+        return None  # valkey down: queue + VRAM gates still hold; driver warns
+    if raw.startswith(b"$-1") or raw.startswith(b"*-0"):
+        return None
+    return f"gpu_lock held by {raw.decode('utf-8', 'replace').strip()!r}"
+
+
 def wait_for_idle(item: str) -> None:
     for _ in range(180):
-        if not queue_busy():
+        reason = gpu_blocked_reason()
+        if reason is None and not queue_busy():
             return
-        print(f"[{item}] queue busy, waiting…", flush=True)
+        print(f"[{item}] waiting ({reason or 'queue busy'})…", flush=True)
         time.sleep(10)
-    raise SystemExit(f"[{item}] queue stayed busy 30min, aborting batch")
+    raise SystemExit(f"[{item}] GPU stayed blocked 30min, aborting batch")
 
 
 def main() -> int:
@@ -82,8 +107,13 @@ def main() -> int:
         wait_for_idle(it["slug"])
         print(f"[{it['slug']}] rendering seed {it['seed']}…", flush=True)
         try:
+            cmd = [sys.executable, str(DRIVER), it["slug"], str(it["seed"]), it["subject"]]
+            if it.get("taxon"):
+                cmd += ["--taxon", it["taxon"]]
+            if it.get("ingredient"):
+                cmd += ["--ingredient", it["ingredient"]]
             proc = subprocess.run(
-                ["python", str(DRIVER), it["slug"], str(it["seed"]), it["subject"]],
+                cmd,
                 capture_output=True,
                 text=True,
                 timeout=900,
