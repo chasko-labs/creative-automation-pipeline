@@ -182,7 +182,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
   .wrap{max-width:1680px}
   .render-set,.preview{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 }
-.field label{display:block;font:700 11px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#6B5A53;margin:12px 0 6px}
+.field label{display:block;font:700 11px/1 "museo-sans","kodiak_sans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--colors-neutral-600);margin:12px 0 6px}
 .field input,.field select,.field textarea{width:100%;padding:10px 12px;border:1px solid var(--stone);border-radius:4px;background:var(--colors-neutral-50,#FFF8F0);font:500 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate)}
 .field textarea{min-height:72px;resize:vertical}
 .hint{color:#8C7A70;font:500 11px/1.5 "museo-sans",sans-serif;margin-top:6px}
@@ -203,7 +203,7 @@ header p{margin:8px 0 0;max-width:880px;color:#FFEDE0;font:500 13px/1.5 "museo-s
 .swatch{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .swatch span{width:48px;height:28px;border-radius:2px;border:1px solid var(--stone);display:inline-block}
 .badge{display:inline-block;padding:3px 8px;border-radius:2px;background:var(--chocolate);color:#FFDCC3;font:700 10px/1 "kodiak_sans","museo-sans",sans-serif;letter-spacing:.07em;text-transform:uppercase}
-.offline{padding:10px 12px;border-radius:2px;background:var(--gradients-kraft\.surface);border:1px dashed var(--stone);color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
+.offline{padding:10px 12px;border-radius:2px;background:var(--gradients-kraft\.surface);border:1px dashed var(--stone);color:var(--colors-neutral-600);font:500 12px/1.5 "museo-sans",sans-serif}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 /* spacing sections — use semantic vars */
 section{padding:var(--section-space-lg) 0}
@@ -239,14 +239,14 @@ section.xl{padding:var(--section-space-xl) 0}
 /* setup wrappers flattened: .card > .body > .ff-prompt exist only for legacy
    hooks, so they carry no chrome — the .ff-setup board is the single card and
    its edges sit exactly on the lower panels' edges (shared 1064 wrapper). */
-.wrap>.card[data-mcp="campaign-brief"]{margin:10px 0}
+.wrap>.card[data-mcp="campaign-brief"]{margin:0 0 var(--spacing-lg)}
 .wrap>.card[data-mcp="campaign-brief"]>.body{padding:0}
 .wrap>.card[data-mcp="campaign-brief"] .ff-prompt{background:transparent;border:none;border-radius:0;padding:0;box-shadow:none}
 .wrap>.card[data-mcp="campaign-brief"] .ff-setup{background:transparent;border:none;border-radius:0;box-shadow:none;padding:var(--spacing-md)}
 .wrap>.card[data-mcp="campaign-brief"] .ff-setup::after{content:none}
 /* lit kraft — the hero prompt surface is the flat top-light token wash; no stripes. */
 .ff-prompt h2{margin:0 0 4px;font:800 20px/1.1 gin,"kodiak_sans",Rockwell,Georgia,serif;letter-spacing:.03em;text-transform:none;color:var(--chocolate)}
-.ff-prompt .ff-sub{margin:0 0 14px;color:#6B5A53;font:500 12px/1.5 "museo-sans",sans-serif}
+.ff-prompt .ff-sub{margin:0 0 14px;color:var(--colors-neutral-600);font:500 12px/1.5 "museo-sans",sans-serif}
 /* === HERO CANVAS: the campaign input is the primary action, styled to dominate. ===
    Restructured from a crammed single row into a vertical canvas (label + textarea)
    over a hairline action bar (secondary pills left, Create isolated right). The wrap
@@ -487,7 +487,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .provenance .prov-pill.primary{background:var(--brown-kodiak);color:var(--parchment)}
 .provenance .prov-pill.outpaint{background:var(--oat);color:var(--brown-kodiak);border:1px solid var(--stone)}
 .provenance .prov-pill.live{background:#1A3C34;color:#EAF5F0}
-.provenance .prov-pill.pad{background:var(--oat);color:#6B5A53;border:1px dashed var(--stone)}
+.provenance .prov-pill.pad{background:var(--oat);color:var(--colors-neutral-600);border:1px dashed var(--stone)}
 .provenance .prov-heur{margin:0 0 var(--spacing-xs);padding-left:var(--spacing-sm);border-left:3px solid var(--colors-brand-frontier-green);font:500 12px/1.5 "museo-sans",sans-serif;color:var(--brown-kodiak)}
 .provenance .prov-heur:last-child{margin-bottom:0}
 /* build-narrative lines — same real estate + token styling as the decision
@@ -496,7 +496,7 @@ section.xl{padding:var(--section-space-xl) 0}
 .provenance .prov-build>h4{color:var(--colors-brand-bear-brown,var(--brown-kodiak))}
 .provenance .prov-heur--build{border-left-color:var(--colors-brand-bear-brown,var(--brown-kodiak))}
 .provenance .prov-pill.on{background:#1A3C34;color:#EAF5F0}
-.provenance .prov-pill.off{background:var(--oat);color:#6B5A53;border:1px solid var(--stone)}
+.provenance .prov-pill.off{background:var(--oat);color:var(--colors-neutral-600);border:1px solid var(--stone)}
 @media(max-width:520px){.provenance dl{grid-template-columns:1fr}.provenance dt{white-space:normal}}
 
 /* === Campaign copy + counsel — reuse preview/provenance component language === */
@@ -897,8 +897,10 @@ header.kodiak-header,.kodiak-header .header__inner{overflow:visible}
 /* narrow phones: the plate stays on the logo row and the title wraps inside
    its own box instead of clipping to one line. */
 @media(max-width:700px){.kodiak-header .kodiak-headline-plate h1{white-space:normal;font-size:clamp(15px,5.2cqi,24px);line-height:1.08}}
-/* timeline under the header on the same shared wrapper, never inside the header. */
-.ff-timeline.ff-timeline--under-header{width:min(1100px,calc(100% - 36px));margin:10px auto var(--spacing-sm)}
+/* timeline under the header on the same shared wrapper, never inside the header.
+   bottom rhythm matches the cards (24px): with the brief card's zero top
+   margin the strip-to-content gap reads exactly one spacing-lg. */
+.ff-timeline.ff-timeline--under-header{width:min(1100px,calc(100% - 36px));margin:10px auto var(--spacing-lg)}
 /* No headline or timeline motion: the header is back to its static weeks-old
    standard. The reduce block elsewhere already kills all animation. */
 /* partner mark — hidden until the US Ski & Snowboard card is checked (JS toggles .is-on); tokenized spacing */
@@ -1515,11 +1517,9 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
 .ff-scope-opt{transition:background .15s,border-color .15s,box-shadow .15s}
 @media(prefers-reduced-motion:reduce){details[open]>*:not(summary){animation:none}.btn:hover{transform:none}}
 /* preview figcaption (was an inline style) */
-/* === Example caption: lede sets the scene, hint hands off, CTA closes === */
-/* one voice, three jobs — lede carries the market story at a readable measure,
-   hint drops smaller and quieter, and the CTA is the identical star button
-   (same .ff-go, same hand) stretched full-bleed so it reads as the section's
-   front door, not an afterthought. */
+/* === Example caption: market-context disclosure only. The duplicate Create
+   CTA was deliberately removed (d0ce03f) — one Create lives on the page at
+   #generateCampaign, so no figcaption CTA styles remain. */
 .ff-figcap{font:600 13px/1.4 "museo-sans",sans-serif;color:var(--chocolate);margin-top:0}
 .ff-figcap-context{border:1px solid var(--colors-border-default);border-radius:var(--radii-md);
   background:var(--colors-brand-box-parchment);padding:8px 12px;box-shadow:var(--shadows-sm)}
@@ -1529,10 +1529,6 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    continuous canvas instead of a hard stacked-box cut */
 .ff-recipe-bridge{height:14px;margin:8px 0 2px;border-radius:var(--radii-pill);
   background:linear-gradient(180deg,rgba(0,0,0,0) 0%,var(--colors-brand-box-parchment) 78%,var(--colors-brand-box-parchment) 100%)}
-.ff-figcap .ff-figcap-cta:focus-visible{outline:2px solid var(--orange, #E8530E);outline-offset:2px}
-/* below 400px the identical 52px bar can't fit its label — tighten tracking and
-   padding instead of wrapping, so it stays one bar, not two */
-@media(max-width:400px){.ff-figcap .ff-figcap-cta{padding:0 16px;font-size:12.5px;letter-spacing:.05em}}
 
 /* 4.4 staging row: same control-box voice as the other rows, tray fills the rest */
 .ff-assetrow{display:flex;align-items:center;gap:var(--spacing-sm);flex-wrap:wrap;background:var(--colors-brand-box-parchment);border:1px solid var(--colors-border-strong);border-radius:var(--radii-md);padding:10px 12px}

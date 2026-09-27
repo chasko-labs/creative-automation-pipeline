@@ -20,9 +20,21 @@ export async function run(page, { baseUrl } = {}) {
   await page.waitForTimeout(1500);
 
   if (isLocal) {
-    const note = await page.evaluate(() =>
-      document.getElementById("generateCampaignStatus")?.textContent || "");
-    assert(/hosted backend/i.test(note), `offline shows honest note (got: ${note})`);
+    // Full campaign is disabled for demo: the button stays disabled and the
+    // section hint says so up front — that visible, pre-click honesty IS the
+    // offline note (clicking a disabled button is a no-op by design).
+    const demo = await page.evaluate(() => {
+      const btn = document.getElementById("genFullCampaign");
+      const hint = document.getElementById("generateCampaignHint")?.textContent || "";
+      return {
+        disabled: !!btn?.disabled,
+        title: btn?.title || "",
+        hint,
+      };
+    });
+    assert(demo.disabled, "demo keeps Generate full campaign disabled");
+    assert(/disabled for demo/i.test(demo.title + " " + demo.hint),
+      `demo disablement is stated (title: ${demo.title})`);
     return;
   }
 

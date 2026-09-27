@@ -100,12 +100,14 @@ describe('ff-filmstrip shared pattern', () => {
 // the header (no opaque fill, no edge) and vanish on scroll; the composing
 // pulse keyframes and rung-badge colors live in components.css, never in JS.
 describe('kodiak logo blend + composing tokens', () => {
-  it('logo board sheets blend — no border, no flat fill, multiply wash', () => {
+  it('logo board sheets blend — no border, no flat fill, no multiply on the dark bar', () => {
+    // brand call (31d1c39): the sheets dropped multiply so the kraft reads on
+    // the dark brown bar — multiply would muddy them. No opaque fill, no edge.
     const rule =
       css.match(/\.kodiak-header__logos::before,\.kodiak-header__logos::after\{[^}]*\}/)?.[0] || '';
     expect(rule).not.toMatch(/border:1px solid/);
-    expect(rule).toMatch(/mix-blend-mode:multiply/);
-    expect(rule).toMatch(/opacity:\.85/);
+    expect(rule).not.toMatch(/mix-blend-mode:multiply/);
+    expect(rule).toMatch(/opacity:\.95/);
     expect(rule).toMatch(/linear-gradient\(180deg,transparent/);
     expect(rule).not.toMatch(/background-color:/);
   });

@@ -37,16 +37,19 @@ describe('example tile captions', () => {
     expect(html).not.toMatch(/rt-shape">Vertical \/ Full-Screen</);
   });
 
-  it('the figcaption tail IS the click — same star CTA, wired to generate', () => {
+  it('the figcaption is disclosure only — one Create lives on the page', () => {
+    // the duplicate figcaption CTA was deliberately removed (d0ce03f): the
+    // caption carries the Market context disclosure, and exactly one Create
+    // Campaign Preview button exists, at #generateCampaign.
     const cap = html.match(/<figcaption class="ff-figcap">([\s\S]*?)<\/figcaption>/);
     expect(cap, 'missing .ff-figcap').not.toBeNull();
-    expect(cap[1]).toMatch(/<button class="ff-go ff-figcap-cta"[^>]*>/);
-    expect(cap[1]).toMatch(/>Create Campaign Preview</);
-    expect(cap[1]).toMatch(/getElementById\('generateCampaign'\)\.click\(\)/);
-    expect(cap[1]).toMatch(/Click the button to generate these five sizes/);
-    // caption + CTA share a 2-column figcaption: lede left, control cell right.
-    expect(css).toMatch(/\.ff-figcap\{[^}]*grid-template-columns:minmax\(0,1fr\) 300px/);
-    expect(cap[1]).toMatch(/<div class="ff-figcap-side">/);
+    expect(cap[1]).toMatch(/<summary>Market context<\/summary>/);
+    expect(cap[1]).toMatch(/ff-figcap-lede/);
+    expect(cap[1]).not.toMatch(/ff-figcap-cta/);
+    expect(cap[1]).not.toMatch(/ff-figcap-side/);
+    expect(css).not.toMatch(/ff-figcap-cta/);
+    const creates = html.match(/>Create Campaign Preview</g) || [];
+    expect(creates).toHaveLength(1);
     expect(html).toMatch(/id="generateCampaign"/);
   });
 });

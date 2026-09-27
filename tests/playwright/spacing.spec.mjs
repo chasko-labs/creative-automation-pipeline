@@ -37,9 +37,16 @@ async function gotoUnlocked(page) {
 
 async function gaps(page) {
 	return page.evaluate(() => {
-		const kids = [...document.querySelectorAll(".wrap > *")].filter(
-			(el) => el.getBoundingClientRect().height > 0,
-		);
+		// the timeline strip deliberately lives outside .wrap (under-header),
+		// so rhythm measurement includes it explicitly, sorted by paint order.
+		const kids = [
+			...document.querySelectorAll(".wrap > *, #progressTimeline"),
+		]
+			.filter((el) => el.getBoundingClientRect().height > 0)
+			.sort(
+				(a, b) =>
+					a.getBoundingClientRect().top - b.getBoundingClientRect().top,
+			);
 		return kids.map((el) => ({
 			key:
 				(el.id ? `#${el.id}` : el.tagName.toLowerCase()) +
@@ -53,6 +60,20 @@ async function gaps(page) {
 // dividers are extensions of the card tops below them: breathing room above
 // (one token, 24px), FLUSH below (0px), and inset horizontally so the square
 // art ends where the card's corner curve begins (--radii-lg, 16px each side).
+// Geometry reads through Math.round on fractional paint positions, so gap
+// assertions allow +-1px: a glued divider (0) or a doubled rhythm (48) still
+// goes red, subpixel rounding does not.
+/**
+ * @param {number} actual measured gap
+ * @param {number} want token gap
+ * @param {string} what assertion label
+ */
+function expectGap(actual, want, what) {
+	expect(
+		Math.abs(actual - want),
+		`${what} (got ${actual}, want ${want} +-1 subpixel)`,
+	).toBeLessThanOrEqual(1);
+}
 test("ridge/forest dividers integrate flush with the card top below", async ({
 	page,
 }) => {
@@ -86,23 +107,19 @@ test("ridge/forest dividers integrate flush with the card top below", async ({
 			continue;
 		const above = rows[i].top - rows[i - 1].bottom;
 		const below = rows[i + 1].top - rows[i].bottom;
-		expect(
-			above,
-			`${rows[i].key} gap above (${above}) must equal --spacing-lg (24)`,
-		).toBe(24);
-		expect(
-			below,
-			`${rows[i].key} must sit flush on its card (gap below ${below})`,
-		).toBe(0);
+		expectGap(above, 24, `${rows[i].key} gap above must equal --spacing-lg`);
+		expectGap(below, 0, `${rows[i].key} must sit flush on its card`);
 		const box = boxes[rows[i].key];
-		expect(
+		expectGap(
 			box.left - box.card_left,
+			16,
 			`${rows[i].key} art must end at the card curve (left inset)`,
-		).toBe(16);
-		expect(
+		);
+		expectGap(
 			box.card_right - box.right,
+			16,
 			`${rows[i].key} art must end at the card curve (right inset)`,
-		).toBe(16);
+		);
 	}
 });
 
@@ -114,7 +131,11 @@ test("timeline strip keeps the same bottom rhythm as cards", async ({
 	const rows = await gaps(page);
 	const strip = rows.findIndex((r) => r.key.includes("ff-timeline"));
 	expect(strip).toBeGreaterThan(-1);
-	expect(rows[strip + 1].top - rows[strip].bottom).toBe(24);
+	expectGap(
+		rows[strip + 1].top - rows[strip].bottom,
+		24,
+		"timeline strip keeps the same bottom rhythm as cards",
+	);
 });
 
 // every top-level step summary paints the same inner padding.
