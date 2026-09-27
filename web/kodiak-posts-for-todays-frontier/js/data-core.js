@@ -1134,26 +1134,54 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
     }
 
     // === S12 — #featuredFrontier: FRAMING CONTEXT ONLY ===
-    // featuredFrontier carries framing only: a tight contextual lead, the market/place + scene cue,
-    // and the localized-reach summary (language names, never translated copy — that lives only in
-    // the preview tile captions since the 2026-09-08 cleanup). aria-live=polite is preserved.
+    // featuredFrontier carries framing only (translated copy lives only in the preview
+    // tile captions since the 2026-09-08 cleanup; the language names live once in
+    // #marketLangLine above, never repeated here). aria-live=polite is preserved.
+    // One builder owns the markup: market-disclosure's reflectMarket paints through
+    // it too, so market-select and season-change never render rival shapes.
     if(featured){
-      const placeName = (p && (p.place || p.market)) ? (p.place || p.market) : market;
-      const scene = (p && p.cue) ? p.cue : '';
-      const names = langs.map(l=>l.lang_name).filter(Boolean);
-      const reach = esc(names.length ? names.join(', ') : 'English');
-      const sceneHtml = scene ? '<span class="ff-cue">'+esc(scene)+'</span>' : '';
       // Rural-counterpart display retired: the caption names this market only.
       // (featuredFrontierFor data still feeds the backend nearest-frontier hint.)
-      featured.innerHTML =
-        '<span class="ff-context-lead">This campaign, localized for</span> '+
-        '<span class="ff-place">'+esc(placeName)+'</span>'+
-        sceneHtml+
-        '<span class="ff-reach">localized reach: '+reach+'</span>';
+      featured.innerHTML = featuredHtml(market, p);
     }
 
     // (standalone rows retired — no live jobs; tile captions run their own.)
   }
+  // Single readout-framing builder for #featuredFrontier (see above): contextual lead,
+  // market/place, and one scene cue. The cue follows the active season down a tier
+  // ladder so the framing never names a stale month (e.g. September peaches in
+  // October): researched monthly pairs-file line first, month-aware engine line
+  // (curated research or frontier calendar only — generic archetype lines never
+  // displace market-specific copy) second, the market's static cue last.
+  /**
+   * @param {string} market
+   * @param {{place?: string, market?: string, cue?: string}|null} [row]
+   * @returns {string}
+   */
+  function featuredHtml(market, row){
+    const p = row || places.find(x=>x.market===market);
+    const placeName = (p && (p.place || p.market)) ? (p.place || p.market) : market;
+    let scene = (p && p.cue) ? p.cue : '';
+    try{
+      const seasonNow = (typeof window.__activeSeason==='string' && window.__activeSeason) ||
+        (/** @type {HTMLSelectElement|null} */ (document.getElementById('seasonalSelect'))?.value || null);
+      let rich = null;
+      if(seasonNow && typeof frontierSeasonLine==='function'){
+        const line = frontierSeasonLine(market, seasonNow);
+        if(line && line.text) rich = line.text;
+      }
+      if(!rich && typeof window.seasonFlavorFor==='function'){
+        const flavor = window.seasonFlavorFor(market, seasonNow);
+        if(flavor && (flavor.source==='curated' || flavor.source==='frontier') && flavor.text) rich = flavor.text;
+      }
+      if(rich) scene = rich;
+    }catch(e){}
+    const sceneHtml = scene ? '<span class="ff-cue">'+esc(scene)+'</span>' : '';
+    return '<span class="ff-context-lead">This campaign, localized for</span> '+
+      '<span class="ff-place">'+esc(placeName)+'</span>'+
+      sceneHtml;
+  }
+  try{ window.KODIAK_featuredHtml = featuredHtml; }catch(e){}
 
   // === S12 — compact localized tile caption (Task 3) ===
   // Returns compact .loc-line HTML for a tile caption: EN source + this market's top_languages[]. Reuses the

@@ -36,6 +36,7 @@ from .brand_copy import (
     HASHTAG_POOL,
     TAGLINE_EPIC,
     TAGLINE_FRONTIER,
+    season_display_label,
 )
 from .platforms import platform_label
 
@@ -149,12 +150,23 @@ def normalize_platform_copy_request(body: object) -> dict[str, object]:
     ):
         raise PlatformCopyValidationError("platforms must contain supported platform slugs")
 
+    season = body.get("season")
+    if season is None:
+        season = None
+    elif isinstance(season, str) and season.strip():
+        season = season.strip()
+    elif isinstance(season, str):
+        season = None
+    else:
+        raise PlatformCopyValidationError("season must be a non-empty string when provided")
+
     return {
         "base_message": raw_message.strip(),
         "product_name": product_name.strip(),
         "market": market.strip(),
         "languages": list(languages or []),
         "platforms": list(platforms) if platforms else list(PUBLISH_TARGETS),
+        "season": season,
     }
 
 
@@ -259,19 +271,31 @@ def _hashtags_for(platform: str, product_name: str, market: str | None, count: i
     return [f"#{t}" for t in tags[:count]]
 
 
-def _fallback_headline(base_message: str, product_name: str, kind: str) -> str:
+def _fallback_headline(
+    base_message: str,
+    product_name: str,
+    kind: str,
+    season_label: str | None = None,
+) -> str:
     """Deterministic on-brand headline per platform tone when no live rewrite is available.
 
     Frames come from brand_copy.FALLBACK_HEADLINE_FRAMES (structured source authored
     from voice-tone.json + iso-naming taglines); this stays a thin injection seam.
     Always ascii.
     """
-    return brand_copy.fallback_headline(kind, base_message, product_name)
+    return brand_copy.fallback_headline(kind, base_message, product_name, season_label)
 
 
-def _body_for(kind: str, headline: str, product_name: str, market: str | None) -> str:
+def _body_for(
+    kind: str,
+    headline: str,
+    product_name: str,
+    market: str | None,
+    season_label: str | None = None,
+    recipe_name: str | None = None,
+) -> str:
     """Deterministic body/description per tone, sourced from brand_copy frames."""
-    return brand_copy.fallback_body(kind, product_name, market)
+    return brand_copy.fallback_body(kind, product_name, market, season_label, recipe_name)
 
 
 def _assemble_x(headline: str, hashtags: list[str]) -> str:
@@ -304,6 +328,8 @@ def _generate_platform_entry(
     platform: str,
     *,
     region: str | None = None,
+    season_label: str | None = None,
+    recipe_name: str | None = None,
 ) -> dict:
     """Generate one platform entry, degrading only that platform on failure."""
     spec = PLATFORM_SPECS[platform]
@@ -323,11 +349,11 @@ def _generate_platform_entry(
             headline = rewritten.strip()
             source = "generated"
         else:
-            headline = _fallback_headline(base_message, product_name, kind)
+            headline = _fallback_headline(base_message, product_name, kind, season_label)
             source = "fallback"
     except Exception as e:  # noqa: BLE001 — one bad platform never sinks the set
         print(f"[platform_copy] fallback for {platform}: {e}", file=sys.stderr)
-        headline = _fallback_headline(base_message, product_name, kind)
+        headline = _fallback_headline(base_message, product_name, kind, season_label)
         source = "fallback"
 
     headline = clean_brand_copy(headline)
@@ -346,7 +372,8 @@ def _generate_platform_entry(
                 cut = cut[: cut.rfind(" ")]
             title = f"{cut}\u2026"
         entry["title"] = clean_brand_copy(title)
-        entry["description"] = clean_brand_copy(_body_for(kind, headline, product_name, market))
+        entry["description"] = clean_brand_copy(
+            _body_for(kind, headline, product_name, market, season_label, recipe_name))
         entry["hashtags"] = hashtags
     elif platform == "x":
         entry["headline"] = headline
@@ -355,7 +382,8 @@ def _generate_platform_entry(
         entry["post"] = clean_brand_copy(_assemble_x(headline, hashtags))
     else:
         entry["headline"] = headline
-        entry["body"] = clean_brand_copy(_body_for(kind, headline, product_name, market))
+        entry["body"] = clean_brand_copy(
+            _body_for(kind, headline, product_name, market, season_label, recipe_name))
         entry["hashtags"] = hashtags
 
     return entry
@@ -370,11 +398,16 @@ def _bounded_platform_copy(
     region: str | None,
     per_platform_timeout_s: float,
     overall_timeout_s: float,
+    season_label: str | None = None,
+    recipe_name: str | None = None,
 ) -> dict[str, dict]:
     """Fan out live rewrites with per-platform and whole-request deadlines."""
     if not platforms:
         return {}
-    fallback = fallback_platform_copy(base_message, product_name, market, platforms)
+    fallback = fallback_platform_copy(
+        base_message, product_name, market, platforms,
+        season_label=season_label, recipe_name=recipe_name,
+    )
     executor = concurrent.futures.ThreadPoolExecutor(max_workers=len(platforms))
     started = time.monotonic()
     futures: dict[str, concurrent.futures.Future] = {}
@@ -388,6 +421,8 @@ def _bounded_platform_copy(
             market,
             platform,
             region=region,
+            season_label=season_label,
+            recipe_name=recipe_name,
         )
     out: dict[str, dict] = {}
     overall_expired = False
@@ -430,11 +465,15 @@ def generate_platform_copy(
     region: str | None = None,
     per_platform_timeout_s: float | None = None,
     overall_timeout_s: float | None = None,
+    season_label: str | None = None,
+    recipe_name: str | None = None,
 ) -> dict:
     """Generate platform-tailored copy, optionally within explicit live deadlines.
 
     The default path preserves the original synchronous contract. Supplying either
     timeout enables parallel live rewrites with deterministic fallback entries.
+    A resolved season tails fallback headlines and names the seasonal bake in
+    fallback bodies; the live rewrite path keeps the base message untouched.
     """
     wanted = [p for p in (platforms or list(PUBLISH_TARGETS)) if p in PLATFORM_SPECS]
     if per_platform_timeout_s is not None or overall_timeout_s is not None:
@@ -446,6 +485,8 @@ def generate_platform_copy(
             region=region,
             per_platform_timeout_s=per_platform_timeout_s or PLATFORM_COPY_PER_PLATFORM_TIMEOUT_S,
             overall_timeout_s=overall_timeout_s or PLATFORM_COPY_OVERALL_TIMEOUT_S,
+            season_label=season_label,
+            recipe_name=recipe_name,
         )
 
     return {
@@ -455,14 +496,29 @@ def generate_platform_copy(
             market,
             platform,
             region=region,
+            season_label=season_label,
+            recipe_name=recipe_name,
         )
         for platform in wanted
     }
 
 
-def build_platform_copy_response(body: object) -> dict[str, dict[str, dict]]:
-    """Validate a request, run bounded copy generation, and always return its envelope."""
+def build_platform_copy_response(
+    body: object,
+    *,
+    season_label: str | None = None,
+    recipe_name: str | None = None,
+) -> dict[str, dict[str, dict]]:
+    """Validate a request, run bounded copy generation, and always return its envelope.
+
+    The caller may pass an already-resolved season label + paired recipe name
+    (the preview path resolves both from the season table); otherwise the label
+    derives from the request's own season value and bodies carry no bake line.
+    """
     request = normalize_platform_copy_request(body)
+    label = season_label
+    if label is None and request["season"]:
+        label = season_display_label(request["season"])
     try:
         copy = generate_platform_copy(
             request["base_message"],
@@ -471,6 +527,8 @@ def build_platform_copy_response(body: object) -> dict[str, dict[str, dict]]:
             platforms=request["platforms"],
             per_platform_timeout_s=PLATFORM_COPY_PER_PLATFORM_TIMEOUT_S,
             overall_timeout_s=PLATFORM_COPY_OVERALL_TIMEOUT_S,
+            season_label=label,
+            recipe_name=recipe_name,
         )
     except Exception as e:  # noqa: BLE001 — offline contract never raises
         print(f"[platform_copy] complete fallback set: {e}", file=sys.stderr)
@@ -479,6 +537,8 @@ def build_platform_copy_response(body: object) -> dict[str, dict[str, dict]]:
             request["product_name"],
             request["market"],
             request["platforms"],
+            season_label=label,
+            recipe_name=recipe_name,
         )
     return {"platform_copy": copy}
 
@@ -488,13 +548,16 @@ def fallback_platform_copy(
     product_name: str,
     market: str | None = None,
     platforms: list[str] | None = None,
+    season_label: str | None = None,
+    recipe_name: str | None = None,
 ) -> dict:
     """Deterministic offline platform copy with no model calls.
 
     Same shape as generate_platform_copy's fallback branch for every platform
     (headline/body/hashtags + X post + YouTube title/description, all
     standing-law cleaned), tagged source="fallback". Used by the preview/pack
-    response builders when live copy remains frontend-owned.
+    response builders when live copy remains frontend-owned. A resolved season
+    tails headlines ("· October") and names the seasonal bake in bodies.
     """
     cleaned = clean_brand_copy(base_message)
     wanted = [p for p in (platforms or list(PUBLISH_TARGETS)) if p in PLATFORM_SPECS]
@@ -502,7 +565,7 @@ def fallback_platform_copy(
     for platform in wanted:
         spec = PLATFORM_SPECS[platform]
         kind = spec["kind"]
-        headline = _fallback_headline(cleaned, product_name, kind)
+        headline = _fallback_headline(cleaned, product_name, kind, season_label)
         hashtags = _hashtags_for(platform, product_name, market, spec["hashtags"])
         entry: dict = {
             "platform": platform,
@@ -518,7 +581,7 @@ def fallback_platform_copy(
                 title = f"{cut}\u2026"
             entry["title"] = clean_brand_copy(title)
             entry["description"] = clean_brand_copy(
-                _body_for(kind, headline, product_name, market))
+                _body_for(kind, headline, product_name, market, season_label, recipe_name))
             entry["hashtags"] = hashtags
         elif platform == "x":
             entry["headline"] = headline
@@ -528,7 +591,7 @@ def fallback_platform_copy(
         else:
             entry["headline"] = headline
             entry["body"] = clean_brand_copy(
-                _body_for(kind, headline, product_name, market))
+                _body_for(kind, headline, product_name, market, season_label, recipe_name))
             entry["hashtags"] = hashtags
         out[platform] = entry
     return out

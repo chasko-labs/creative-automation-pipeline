@@ -47,6 +47,7 @@ from .platform_copy import (
     build_platform_copy_response,
     clean_brand_copy,
     fallback_platform_copy,
+    season_display_label,
 )
 
 # NOTE: full mode no longer calls platform_copy/localize in-request (frontend owns
@@ -363,7 +364,24 @@ def _handle_platform_copy(event: dict[str, Any]) -> dict[str, Any]:
     except (json.JSONDecodeError, ValueError, TypeError) as e:
         return _response(400, {"ok": False, "error": f"malformed request body: {e}"})
     try:
-        return _response(200, build_platform_copy_response(data))
+        # sharpen requests carry the campaign season: resolve the display label
+        # + season-table recipe once so the response names the month and the
+        # bake, matching the preview path's seasonal copy.
+        label = season_display_label(data.get("season")) if isinstance(data, dict) else None
+        recipe = None
+        if isinstance(data, dict):
+            rec, meta = _season_pairing(data.get("season"))
+            if (
+                rec is not None
+                and meta.get("source") == "season-table"
+                and isinstance(meta.get("name"), str)
+                and meta["name"].strip()
+            ):
+                recipe = meta["name"].strip()
+        return _response(
+            200,
+            build_platform_copy_response(data, season_label=label, recipe_name=recipe),
+        )
     except PlatformCopyValidationError as e:
         return _response(400, {"ok": False, "error": str(e)})
 
@@ -1050,7 +1068,24 @@ def _preview_campaign_data(
     # market template.
     base = clean_brand_copy(_blend_idea_base(base, prompt))
 
-    platform_copy = fallback_platform_copy(base, product_name, market)
+    # Seasonal copy: the request season resolves once here (label for headlines,
+    # season-table recipe name for the bake line) and the same rec/meta feeds
+    # the pairing display below — one lookup, not two.
+    season_label = season_display_label(data.get("season"))
+    season_rec, season_meta = _season_pairing(data.get("season"))
+    season_recipe = None
+    if (
+        season_rec is not None
+        and season_meta.get("source") == "season-table"
+        and isinstance(season_meta.get("name"), str)
+        and season_meta["name"].strip()
+    ):
+        season_recipe = season_meta["name"].strip()
+
+    platform_copy = fallback_platform_copy(
+        base, product_name, market,
+        season_label=season_label, recipe_name=season_recipe,
+    )
 
     targets = resolve_target_languages(market)
     languages = [t["lang_code"] for t in targets]
@@ -1093,8 +1128,9 @@ def _preview_campaign_data(
     # pairs the campaign with the real catalog record (name + traceability on
     # provenance). Static-default landings stay quiet — they add nothing over
     # the tease title. The tease shape above stays intact: full records are
-    # never truncated into it.
-    rec, meta = _season_pairing(data.get("season"))
+    # never truncated into it. rec/meta resolved once with the seasonal copy
+    # above — reused here, not recomputed.
+    rec, meta = season_rec, season_meta
     if (
         rec is not None
         and meta.get("source") == "season-table"

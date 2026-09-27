@@ -1051,7 +1051,7 @@ let skuList = [
     return Array.from(new Set(['en'].concat(codes)));
   }
   /**
-   * @param {{baseMessage?: unknown, productName?: unknown, market?: unknown, provenance?: unknown}} [options]
+   * @param {{baseMessage?: unknown, productName?: unknown, market?: unknown, provenance?: unknown, season?: unknown}} [options]
    * @returns {Promise<boolean>}
    */
   async function sharpenPlatformCopy(options){
@@ -1059,12 +1059,16 @@ let skuList = [
     if((location.protocol==='file:') || ['127.0.0.1','localhost'].includes(location.hostname)) return false;
     const generation = platformCopyGeneration;
     if(!generation || !document.getElementById('platformCopyPanel')) return false;
-    const body = {
+    const body = /** @type {{base_message: string, product_name: string, market: string, languages: string[], season?: string}} */ ({
       base_message: String(options.baseMessage || '').trim(),
       product_name: String(options.productName || '').trim(),
       market: String(options.market || '').trim(),
       languages: platformCopyLanguages(options.market, options.provenance)
-    };
+    });
+    // the campaign season rides along so sharpened copy names the month and
+    // the seasonal bake like the preview path does; absent stays absent.
+    const seasonOpt = String(options.season || '').trim();
+    if(seasonOpt) body.season = seasonOpt;
     if(!body.base_message || !body.product_name || !body.market) return false;
     setPlatformCopyStatus('sharpening copy...', true);
     const controller = new AbortController();
@@ -2120,7 +2124,8 @@ let skuList = [
               baseMessage: previewBaseMessage,
               productName: products[0] || primarySlug,
               market: selectedLoc.market,
-              provenance: previewProv
+              provenance: previewProv,
+              season: activeSeason || null
             });
           }catch(e){}
           // #281 — upgrade the driving panel to the copy actually used + divergence flags.

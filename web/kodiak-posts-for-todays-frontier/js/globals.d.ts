@@ -136,6 +136,8 @@ interface Window {
   KODIAK_renderPreviewCard?: () => void;
   /** Returns the localized caption line for a market (data-core.js); missing -> English source. */
   KODIAK_locCaption?: (market: string) => string;
+  /** Returns the readout framing HTML for a market (data-core.js featuredHtml); missing -> callers keep their fallback. */
+  KODIAK_featuredHtml?: (market: string, row?: { place?: string; market?: string; cue?: string } | null) => string;
   /**
    * Tile class suffix ("r-1x1") -> TileSize. Validates a DOM class string
    * across a JSON/DOM boundary; unknown classes return null so callers keep

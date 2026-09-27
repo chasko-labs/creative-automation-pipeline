@@ -134,3 +134,69 @@ def test_one_bad_platform_never_sinks_the_set(monkeypatch):
                                   platforms=["x", "youtube"])
     assert set(copy.keys()) == {"x", "youtube"}
     assert all(e["source"] == "fallback" for e in copy.values())
+
+
+def test_seasonal_request_tails_headlines_and_names_the_bake():
+    from creative_automation.platform_copy import build_platform_copy_response
+
+    resp = build_platform_copy_response(
+        {
+            "base_message": "City frontier",
+            "product_name": "Power Cakes",
+            "market": "US-NE-BROOKLYN",
+            "season": "October",
+            "platforms": ["instagram", "x"],
+        },
+        recipe_name="Pumpkin Oat Muffins",
+    )
+    entries = resp["platform_copy"]
+    assert set(entries) == {"instagram", "x"}
+    assert entries["instagram"]["headline"].endswith("· October")
+    assert "Bake Pumpkin Oat Muffins this October." in entries["instagram"]["body"]
+    assert entries["instagram"]["source"] == "fallback"
+    assert len(entries["x"]["post"]) <= X_MAX_CHARS
+
+
+def test_season_derives_from_request_when_not_passed():
+    from creative_automation.platform_copy import build_platform_copy_response
+
+    resp = build_platform_copy_response(
+        {
+            "base_message": "City frontier",
+            "product_name": "Power Cakes",
+            "market": "US-NE-BROOKLYN",
+            "season": "Thanksgiving",
+            "platforms": ["instagram"],
+        }
+    )
+    ig = resp["platform_copy"]["instagram"]
+    assert ig["headline"].endswith("· Thanksgiving")
+    # no paired recipe passed: the month is named, no dish is invented.
+    assert "Bake" not in ig["body"]
+
+
+def test_garbage_season_rejected_blank_season_ignored():
+    from creative_automation.platform_copy import (
+        PlatformCopyValidationError,
+        build_platform_copy_response,
+    )
+
+    with pytest.raises(PlatformCopyValidationError):
+        build_platform_copy_response(
+            {
+                "base_message": "City frontier",
+                "product_name": "Power Cakes",
+                "market": "US-NE-BROOKLYN",
+                "season": 10,
+            }
+        )
+    resp = build_platform_copy_response(
+        {
+            "base_message": "City frontier",
+            "product_name": "Power Cakes",
+            "market": "US-NE-BROOKLYN",
+            "season": "   ",
+            "platforms": ["instagram"],
+        }
+    )
+    assert "·" not in resp["platform_copy"]["instagram"]["headline"]

@@ -7,7 +7,8 @@
 // Usage:
 //   node scripts/frontier-measure-layout.mjs [--url URL] [--widths 1400,900,400]
 //     [--market US-NE-BROOKLYN] [--season October] [--preview]
-//     [--checks header,widths,timeline,gaps,empties] [--between #a,#b]
+//     [--checks header,widths,timeline,gaps,empties,flavor] [--between #a,#b]
+//     [--flavor MARKET,SEASON]
 import { chromium } from "playwright";
 
 const raw = process.argv.slice(2);
@@ -125,6 +126,14 @@ for (const width of widths) {
         return `${el.id ? `#${el.id}` : el.tagName.toLowerCase()}.${String(el.className).split(" ")[0]} top=${Math.round(b.top)} h=${Math.round(b.height)} mt=${style.marginTop} mb=${style.marginBottom} pt=${style.paddingTop}`;
       });
     });
+  }
+  if (checks.includes("flavor")) {
+    const [flavorMarket, flavorSeason] = String(args.flavor || "").split(",");
+    row.flavor = await page.evaluate(([market, season]) => {
+      const engine = typeof window.seasonFlavorFor === "function" ? window.seasonFlavorFor(market || undefined, season || "") : null;
+      const feat = document.querySelector("#featuredFrontier");
+      return { engine, readout: feat ? feat.textContent.trim().replace(/\s+/g, " ").slice(0, 300) : null };
+    }, [flavorMarket, flavorSeason]);
   }
   if (checks.includes("empties") && between.length === 2) {
     row.empties = await page.evaluate(([fromSel, toSel]) => {

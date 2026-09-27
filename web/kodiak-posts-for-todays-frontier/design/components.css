@@ -585,8 +585,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ff-featured .ff-context-lead{color:var(--colors-foreground-muted)}
 .ff-featured .ff-place{font-weight:700;color:var(--colors-foreground-default)}
 .ff-featured .ff-cue{color:var(--colors-foreground-muted)}
-.ff-featured .ff-cue::before,.ff-featured .ff-reach::before{content:" \00b7 ";color:var(--colors-foreground-muted)}
-.ff-featured .ff-reach{color:var(--colors-foreground-muted)}
+.ff-featured .ff-cue::before{content:" \00b7 ";color:var(--colors-foreground-muted)}
 
 /* C. market selector as a rizzy disclosure button (native <details> styled as a button) */
 .ff-market{position:relative;flex:0 0 auto}

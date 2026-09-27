@@ -1250,8 +1250,17 @@
     try{
       if(Array.isArray(window.__lastPack) && window.__lastPack.length){
         if(status) status.textContent = 'Building ISO asset-pack zip…';
+        // the preview records the backend copy_sidecar per response (recipe +
+        // platform copy as txt/csv): pack it alongside the images, same as the
+        // campaign pack does — an images-only zip drops the recipe.
+        var extras = [];
+        try{
+          var sc = window.__lastSidecar || {};
+          if(sc.txt) extras.push({name: 'copy.txt', text: String(sc.txt).slice(0, 65536)});
+          if(sc.csv) extras.push({name: 'copy.csv', text: String(sc.csv).slice(0, 65536)});
+        }catch(e){}
         fetch('/assets/pack', {method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({files: window.__lastPack, product: product, region: region, locality: locality, channel: channel})})
+          body: JSON.stringify({files: window.__lastPack, extras: extras, product: product, region: region, locality: locality, channel: channel})})
         .then(function(resp){ if(!resp.ok) throw new Error('pack HTTP '+resp.status); return resp.json(); })
         .then(function(json){
           if(!json || !json.ok || !json.zip_url) throw new Error('pack missing zip_url');

@@ -25,6 +25,8 @@ import os
 from functools import lru_cache
 from pathlib import Path
 
+from . import season_pairing as _seasons
+
 # Canonical approved taglines (iso-naming section 2 — fixed words/punctuation).
 TAGLINE_EPIC = "Feeding Epic Days & Wilder Lives"
 TAGLINE_FRONTIER = "Nourishment for Today's Frontier"
@@ -132,23 +134,74 @@ def load_voice_tone() -> dict:
         return {}
 
 
-def fallback_headline(kind: str, base_message: str, product_name: str) -> str:
-    """Render the fallback headline for a tone-kind from the structured frames."""
+# Display season for copy ("October", "Fall", "Thanksgiving") from any
+# dropdown-style request value (season key, month name/number, holiday).
+# None for garbage — seasonal lines simply stay off. Never raises.
+_HOLIDAY_DISPLAY = {"fourth of july": "Fourth of July"}
+
+
+def season_display_label(value: object) -> str | None:
+    """Display season label for deterministic copy, or None when unresolvable."""
+    try:
+        req = _seasons.resolve_request(value)
+    except Exception:  # noqa: BLE001 — labels never break copy
+        return None
+    kind, key = req.get("kind"), req.get("key")
+    if not isinstance(key, str) or not key:
+        return None
+    if kind == "holiday":
+        return _HOLIDAY_DISPLAY.get(key, " ".join(w.capitalize() for w in key.split()))
+    if kind in ("month", "season"):
+        return key.capitalize()
+    return None
+
+
+def fallback_headline(
+    kind: str, base_message: str, product_name: str, season_label: str | None = None
+) -> str:
+    """Render the fallback headline for a tone-kind from the structured frames.
+
+    A resolved season appends a middle-dot tail ("· October") so same-market
+    posts from different months read differently instead of echoing one static
+    line every post.
+    """
     frame = FALLBACK_HEADLINE_FRAMES.get(kind, "{brand} {product} \u2014 {base}")
-    return frame.format(
+    text = frame.format(
         brand=BRAND_NAME, product=product_name.strip(), base=base_message.strip()
     )
+    if isinstance(season_label, str) and season_label.strip():
+        text = f"{text} \u00b7 {season_label.strip()}"
+    return text
 
 
-def fallback_body(kind: str, product_name: str, market: str | None) -> str:
-    """Render the fallback body/description for a tone-kind from the structured frames."""
+def fallback_body(
+    kind: str,
+    product_name: str,
+    market: str | None,
+    season_label: str | None = None,
+    recipe_name: str | None = None,
+) -> str:
+    """Render the fallback body/description for a tone-kind from the structured frames.
+
+    A resolved season + paired recipe appends the seasonal bake line
+    ("Bake Pumpkin Oat Muffins this October.") so the feed description names
+    what is actually in season instead of repeating the static market line.
+    """
     frame = FALLBACK_BODY_FRAMES.get(kind, "")
     if not frame:
         return ""
     place = f" in {market}" if market else ""
-    return frame.format(
+    text = frame.format(
         product=product_name.strip(), place=place, epic=TAGLINE_EPIC, frontier=TAGLINE_FRONTIER
     )
+    if (
+        isinstance(season_label, str)
+        and season_label.strip()
+        and isinstance(recipe_name, str)
+        and recipe_name.strip()
+    ):
+        text = f"{text} Bake {recipe_name.strip()} this {season_label.strip()}."
+    return text
 
 
 def voice_summary() -> dict[str, str]:

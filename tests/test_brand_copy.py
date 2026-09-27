@@ -127,3 +127,58 @@ def test_clean_brand_copy_is_idempotent_and_mark_free():
     assert _BARE_RE.search(once) is None, once
     assert _MARK_RE.search(once) is None, once
     assert "#KodiakCakes" in once
+
+
+def test_season_display_label_resolves_request_styles():
+    assert brand_copy.season_display_label("October") == "October"
+    assert brand_copy.season_display_label("fall") == "Fall"
+    assert brand_copy.season_display_label("Thanksgiving") == "Thanksgiving"
+    assert brand_copy.season_display_label("2026-10") == "October"
+    assert brand_copy.season_display_label("nonsense") is None
+    assert brand_copy.season_display_label(None) is None
+    assert brand_copy.season_display_label("") is None
+
+
+def test_seasonal_headline_tails_the_month_and_body_names_the_bake():
+    head = brand_copy.fallback_headline(
+        "hooky", "City frontier", "Power Cakes", "October"
+    )
+    assert head.endswith("· October"), head
+    assert head.startswith("Fuel your frontier. Kodiak Cakes Power Cakes"), head
+    body = brand_copy.fallback_body(
+        "community", "Power Cakes", "US-NE-BROOKLYN",
+        "October", "Pumpkin Oat Muffins",
+    )
+    assert body.endswith("Bake Pumpkin Oat Muffins this October."), body
+    # no season: byte-identical to the unseasoned frames (existing pins hold).
+    assert brand_copy.fallback_headline("hooky", "City frontier", "Power Cakes") == (
+        "Fuel your frontier. Kodiak Cakes Power Cakes — City frontier"
+    )
+    assert "Bake" not in brand_copy.fallback_body("community", "Power Cakes", "US-UT")
+    # season without a paired recipe names the month but invents no dish.
+    assert brand_copy.fallback_body(
+        "community", "Power Cakes", "US-UT", "October", None
+    ).rstrip().endswith(".")
+
+
+def test_seasonal_fallback_copy_stays_within_brand_law():
+    copy = fallback_platform_copy(
+        "City frontier", "Power Cakes", "US-NE-BROOKLYN",
+        season_label="October", recipe_name="Pumpkin Oat Muffins",
+    )
+    blob = " ".join(
+        (e.get("headline", "") or "") + " " + (e.get("body", "") or "")
+        for e in copy.values()
+    )
+    assert "· October" in blob
+    assert "Bake Pumpkin Oat Muffins this October." in blob
+    for entry in copy.values():
+        for key in ("headline", "body", "title", "description", "post"):
+            text = entry.get(key, "")
+            if not text:
+                continue
+            assert _ALLCAPS_RE.search(text) is None, text
+            assert _BARE_RE.search(text) is None, text
+            assert _MARK_RE.search(text) is None, text
+            for hint in brand_copy.PROHIBITED_CLAIM_HINTS:
+                assert hint.lower() not in text.lower(), text

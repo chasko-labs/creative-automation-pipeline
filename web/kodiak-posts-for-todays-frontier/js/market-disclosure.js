@@ -68,20 +68,28 @@
     }
     if(summary && p) summary.setAttribute('aria-label', 'Choose market — currently ' + (p.place || market));
     if(featuredEl){
-      var cue = p && p.cue ? p.cue : '';
-      // Month-aware rich line first (frontier place + in-season ingredient +
-      // month-matching moment, all curated — never fabricated); the terse
-      // photo cue survives only as fallback when no month is selected or the
-      // pairs file has no entry.
-      var rich = null;
+      // one builder owns this element's markup (data-core KODIAK_featuredHtml):
+      // same spans as every other paint path, seasonal cue down the tier ladder.
+      // flat-text fallback survives only when data-core failed to load.
+      var painted = false;
       try{
-        var seaSel = document.getElementById('seasonalSelect');
-        var seaVal = seaSel ? seaSel.value : '';
-        if(typeof frontierSeasonLine === 'function' && seaVal) rich = frontierSeasonLine(market, seaVal);
-      }catch(e){ rich = null; }
-      featuredEl.textContent = (rich && rich.text)
-        ? ('Featured frontier: ' + rich.text)
-        : (cue ? ('Featured frontier: ' + cue) : '');
+        if(typeof window.KODIAK_featuredHtml === 'function'){
+          featuredEl.innerHTML = window.KODIAK_featuredHtml(market, p);
+          painted = true;
+        }
+      }catch(e){ painted = false; }
+      if(!painted){
+        var cue = p && p.cue ? p.cue : '';
+        var rich = null;
+        try{
+          var seaSel = document.getElementById('seasonalSelect');
+          var seaVal = seaSel ? seaSel.value : '';
+          if(typeof frontierSeasonLine === 'function' && seaVal) rich = frontierSeasonLine(market, seaVal);
+        }catch(e){ rich = null; }
+        featuredEl.textContent = (rich && rich.text)
+          ? ('Featured frontier: ' + rich.text)
+          : (cue ? ('Featured frontier: ' + cue) : '');
+      }
     }
     if(langLine){
       try{ renderLocalizedCopy(market); }
@@ -225,6 +233,12 @@
       // prune at read time too: an unpairable value degrades to null (quiet).
       window.__activeSeason = (seasonSel.value && PAIRED_VALUES[seasonSel.value]) ? seasonSel.value : null;
       paintSeasonLabel();
+      // the readout framing follows the season: repaint through the same writer
+      // the market path uses, so the markup never diverges by interaction.
+      try{
+        var loc = document.getElementById('locality');
+        reflectMarket((loc && loc.value) || 'US-MW-PARKCITY-84098');
+      }catch(e){}
     });
     paintSeasonLabel();
     // 1. default to the CURRENT calendar month by name (not "any"). "Season: any" stays selectable.
