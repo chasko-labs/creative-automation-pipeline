@@ -2030,6 +2030,12 @@ details[open]>*:not(summary){animation:ff-fadein .22s ease}
    must span every column, otherwise it squeezes into one 240px tile track
    and the tiles render as slivers. */
 #preview > .ff-filmstrip{grid-column:1/-1}
+/* after generate the resting hero is wiped, leaving the strip as #preview's
+   first child: drop its top margin so the gap under the readout is one rhythm
+   unit (the readout's own margin-bottom), matching the resting readout-to-hero
+   spacing instead of stacking both margins into a blank band. resting keeps
+   margin-top because the hero still precedes the strip there. */
+#preview > .ff-filmstrip:first-child{margin-top:0}
 /* track owns the center column; chunky labeled arrows live in dedicated
    flanking gutters (never overlaid on thumbnails, never orphaned below);
    dots stay centered underneath as pure position indicators */

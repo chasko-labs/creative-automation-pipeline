@@ -217,6 +217,48 @@ test("step summaries share one padding value", async ({ page }) => {
 	).toBe(1);
 });
 
+// after generate the resting hero is wiped and the strip becomes #preview's
+// first child: the gap under the readout must stay one rhythm unit (the
+// readout's own margin), not readout-margin + strip-margin stacked into a
+// blank band. resting keeps the strip's own 16px because the hero still
+// precedes it there.
+test("generated strip sits one rhythm unit under the readout", async ({
+	page,
+}) => {
+	await gotoUnlocked(page);
+	await page.evaluate(() => {
+		document.getElementById("previewCard")?.setAttribute("open", "");
+	});
+	const layout = await page.evaluate(() => {
+		const readout = document.querySelector(".ff-output-readout");
+		const preview = document.getElementById("preview");
+		if (!readout || !preview) return null;
+		// mirror showRenderSet: wipe #preview, mount the strip first.
+		preview.innerHTML = "";
+		const strip = document.createElement("div");
+		strip.className = "ff-filmstrip";
+		preview.appendChild(strip);
+		const gap = strip.getBoundingClientRect().top - readout.getBoundingClientRect().bottom;
+		const readoutMargin = Number.parseFloat(
+			getComputedStyle(readout).marginBottom,
+		);
+		const stripMargin = getComputedStyle(strip).marginTop;
+		// resting control: with the hero ahead of it the strip keeps its margin.
+		const hero = document.createElement("figure");
+		preview.insertBefore(hero, strip);
+		const restingMargin = getComputedStyle(strip).marginTop;
+		return { gap, readoutMargin, stripMargin, restingMargin };
+	});
+	expect(layout).toBeTruthy();
+	expect(layout.stripMargin).toBe("0px");
+	expect(layout.restingMargin).toBe("16px");
+	expectGap(
+		layout.gap,
+		layout.readoutMargin,
+		"post-generate strip must sit one readout-margin under the readout",
+	);
+});
+
 // section margins resolve to whole pixels — no rem-at-18px fractions.
 test("section block margins are whole pixels", async ({ page }) => {
 	await gotoUnlocked(page);
