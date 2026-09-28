@@ -226,6 +226,50 @@ def test_history_endpoint_projects_shared_ledger() -> None:
     assert "Bodega coffee" in entry["base"]
 
 
+def test_history_lists_by_recorded_time_not_key() -> None:
+    import json as _json
+
+    from creative_automation import asset_store as _store
+
+    real_client = _store._s3_client
+    real_enabled = _store._s3_enabled
+    real_prefix = _store._s3_bucket_and_prefix
+
+    class _Body:
+        def __init__(self, payload: bytes):
+            self._payload = payload
+
+        def read(self) -> bytes:
+            return self._payload
+
+    records = {
+        "prefix/preview-attempts/2026-09-28/zzz.json": {"recorded_at": "2026-09-28T10:00:00+00:00", "dish": "old"},
+        "prefix/preview-attempts/2026-09-28/aaa.json": {"recorded_at": "2026-09-28T14:00:00+00:00", "dish": "new"},
+    }
+
+    class _Client:
+        def get_paginator(self, _name: str):
+            class _P:
+                def paginate(self, Bucket: str, Prefix: str):
+                    return [{"Contents": [{"Key": k} for k in records]}]
+
+            return _P()
+
+        def get_object(self, Bucket: str, Key: str):
+            return {"Body": _Body(_json.dumps(records[Key]).encode())}
+
+    _store._s3_enabled = lambda: True
+    _store._s3_bucket_and_prefix = lambda: ("bucket", "prefix/")
+    _store._s3_client = lambda: _Client()
+    try:
+        got = _store.list_preview_attempts(10)
+    finally:
+        _store._s3_enabled = real_enabled
+        _store._s3_client = real_client
+        _store._s3_bucket_and_prefix = real_prefix
+    assert [r["dish"] for r in got] == ["new", "old"]
+
+
 def test_history_endpoint_never_breaks_the_page() -> None:
     import json as _json
 

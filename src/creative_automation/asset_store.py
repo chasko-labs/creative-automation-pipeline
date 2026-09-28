@@ -911,11 +911,12 @@ def mirror_recipe_art_to_sites(local_png: Path, subject_slug: str, zone: str) ->
 def list_preview_attempts(limit: int = 20) -> list[dict[str, Any]]:
     """Newest-first preview-attempt records (shared ledger behind /history).
 
-    Lists ``<prefix>preview-attempts/`` keys newest-first by key (date/uuid
-    keys sort chronologically), fetches the small JSON bodies (cap 40 keys
-    scanned for the newest `limit`), and returns each record with its
-    ``_key``. Best-effort: S3 disabled, empty ledgers, or any failure yields
-    [] — the history page renders its local entries instead. Never raises.
+    Lists ``<prefix>preview-attempts/`` keys (the uuid suffix is random, so
+    keys do NOT sort chronologically — records sort by their recorded_at),
+    fetches the small JSON bodies, and returns the newest `limit` records,
+    each with its ``_key``. Best-effort: S3 disabled, empty ledgers, or any
+    failure yields [] — the history page renders its local entries instead.
+    Never raises.
     """
     try:
         if not _s3_enabled():
@@ -938,7 +939,7 @@ def list_preview_attempts(limit: int = 20) -> list[dict[str, Any]]:
             if len(keys) >= limit * 2:
                 break
         out: list[dict[str, Any]] = []
-        for key in sorted(keys, reverse=True)[:limit]:
+        for key in sorted(set(keys), reverse=True)[: max(limit * 2, 40)]:
             try:
                 body = client.get_object(Bucket=bucket, Key=key)["Body"].read()
                 record = json.loads(body.decode("utf-8"))
@@ -946,7 +947,8 @@ def list_preview_attempts(limit: int = 20) -> list[dict[str, Any]]:
                     out.append({**record, "_key": key})
             except Exception:  # noqa: BLE001 — one bad record never sinks the list
                 continue
-        return out
+        out.sort(key=lambda r: str(r.get("recorded_at") or ""), reverse=True)
+        return out[:limit]
     except Exception:  # noqa: BLE001 — history never breaks the preview
         return []
 
