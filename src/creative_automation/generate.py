@@ -58,6 +58,7 @@ from .scene_prompts import (
     _nova_pro_caption,
     _nova_pro_scene_prompt,
     combine_themes,
+    copy_base_from_brief,
 )
 # Shared Bedrock data-plane client (extracted: owns the code, including the
 # fail-fast constructor — patch bedrock_client, never this module).
@@ -1325,6 +1326,7 @@ def build_copy_sidecar(
     headline = clean_brand_copy(
         provenance.get("copy_headline")
         or provenance.get("headline")
+        or copy_base_from_brief(prompt)
         or str(prompt or "")[:80]
     )
     brief = clean_brand_copy(str(prompt or ""))
@@ -1665,7 +1667,8 @@ def generate_hero(
                 return sanitized
             print(f"[director] caption military filtered ({normed[:60]!r}) -> brief fallback", file=sys.stderr)
             provenance["headline_source"] = "filtered:military"
-        return brief_msg[:48]
+        # Same scaffolding guard as _headline_for: humanize before truncating.
+        return copy_base_from_brief(brief_msg, 48) or brief_msg[:48]
 
     # Render-contract layers (#199/#200): normalize once; None = legacy ladder,
     # any dict = clean contract (no default box paste, no baked overlay text).
@@ -2432,7 +2435,11 @@ def generate_hero(
     provenance["engine"] = "brand-floor"
     provenance["rung"] = "D"
     provenance["model"] = "pillow:brand-floor"
-    provenance["copy_headline"] = provenance.get("copy_headline") or brief_msg[:48]
+    provenance["copy_headline"] = (
+        provenance.get("copy_headline")
+        or copy_base_from_brief(brief_msg, 48)
+        or brief_msg[:48]
+    )
     _finalize_render(floor, paper_overlay, provenance, layers)
     _seal()
     return floor, BRAND_FLOOR_SOURCE, provenance
@@ -2791,4 +2798,6 @@ def _headline_for(
         if sanitized is not None:
             return clean_brand_copy(sanitized), "bedrock:nova-pro-caption"
         print(f"[director] set-caption military filtered ({normed[:60]!r})", file=sys.stderr)
-    return clean_brand_copy(brief_msg[:48]), None
+    # Raw-scaffolding guard: the brief's marker suffix must never become the
+    # headline — humanize (idea, else ecology + ingredient) before truncating.
+    return clean_brand_copy(copy_base_from_brief(brief_msg, 48) or brief_msg[:48]), None

@@ -36,6 +36,37 @@ def test_brief_idea_strips_parenthetical_markers() -> None:
     assert generate._brief_idea(brief) == "wild mornings"
 
 
+def test_brief_idea_drops_moment_orphaned_in_frontier_value() -> None:
+    # Old wire shape: the moment rides inside the frontier VALUE after an
+    # em-dash. Dash-splitting orphans it as fake free text — it must drop
+    # with the metadata, never read as the user's idea.
+    brief = (
+        "\u2014 market: New York City \u00b7 season: September \u00b7 ecology: Bodega coffee "
+        "\u00b7 frontier: Warwick, NY (Hudson Valley) \u2014 Black-dirt onion season (Jul-Sep) "
+        "\u00b7 in-season: apples (savory onion cheddar bakes)"
+    )
+    assert generate._brief_idea(brief) == ""
+
+
+def test_brief_idea_drops_standalone_moment_marker() -> None:
+    # New wire shape: the moment is its own marker segment.
+    brief = (
+        "market: New York City \u00b7 season: September \u00b7 frontier: Warwick, NY "
+        "\u00b7 moment: Black-dirt onion season (Jul-Sep) \u00b7 in-season: apples"
+    )
+    assert generate._brief_idea(brief) == ""
+
+
+def test_blend_idea_base_never_leads_with_scaffolding_moment() -> None:
+    brief = (
+        "\u2014 market: New York City \u00b7 season: September \u00b7 ecology: Bodega coffee "
+        "\u00b7 frontier: Warwick, NY (Hudson Valley) \u2014 Black-dirt onion season (Jul-Sep) "
+        "\u00b7 in-season: apples (savory onion cheddar bakes)"
+    )
+    base = generate._blend_idea_base("Bodega coffee \u2014 apples in season", brief)
+    assert "Black-dirt onion season" not in base
+
+
 def test_subject_clause_names_idea() -> None:
     clause = scene_prompts._brief_subject_clause("sea otters — season: September")
     assert "sea otters" in clause

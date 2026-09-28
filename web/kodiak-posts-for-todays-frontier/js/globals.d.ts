@@ -266,6 +266,17 @@ interface Window {
   __lastCopyDriving?: unknown;
   /** Sharpens backend platform_copy heuristically; display-only. */
   KODIAK_sharpenPlatformCopy?: unknown;
+  /** Human copy base for a brief (generate.js); '' when nothing human is available. */
+  KODIAK_briefCopyBase?: (text: unknown) => string;
+  /**
+   * Semi-permanent prompt ledger (prompt-history.js): what each preview sent
+   * and what came back, newest first, capped. Missing -> record is a no-op.
+   */
+  KODIAK_promptHistory?: {
+    record: (entry: Record<string, unknown>) => Record<string, string> | null,
+    read: () => Record<string, string>[],
+    clear: () => void,
+  };
   /** Last resolved layer map; display-only. */
   __lastLayers?: unknown;
   /** Glimmer proxy bridge (local vs remote); `pickSkus()` is budget-aware. */

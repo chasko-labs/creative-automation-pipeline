@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="./">
+<link rel="stylesheet" href="https://use.typekit.net/zjt4wyq.css">
+<link rel="stylesheet" href="design/styles.css?v=0.1.028-5bca70a-20260928">
+<link rel="stylesheet" href="design/components.css?v=0.1.028-5bca70a-20260928">
+<title>Prompt History — Kodiak Creative Automation</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<style>
+/* prompt-history.html — preview ledger page. Layout-only rules; every color,
+   typeface, and radius resolves through the shared page tokens (alias layer
+   in design/components.css over Panda tokens in design/styles.css). No new
+   palette, no new type, no new radius. Entry chrome mirrors the aaliyah-review
+   ledger: one article per run, dt/dd rows for what was sent / what came back. */
+:root{
+  --chocolate:var(--colors-brand-bear-brown);
+  --brown-kodiak:var(--colors-brand-bear-brown);
+  --red:var(--colors-brand-signal-red);
+  --parchment:var(--colors-neutral-50);
+  --parch:var(--colors-neutral-50);
+  --stone:var(--colors-neutral-300);
+  --oat:var(--colors-neutral-100);
+  --ink:#1A1110CC;
+}
+*{box-sizing:border-box}
+body{display:block;min-height:auto}
+.wrap{display:block}
+html{background:var(--parchment)}
+body{margin:0;background:var(--parchment);color:var(--chocolate);font-family:"museo-sans",system-ui,sans-serif;font-size:15px;line-height:1.55}
+h1,h2,h3{font-family:"gin",Rockwell,Georgia,serif;font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.1;color:var(--chocolate)}
+a{color:var(--red)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--colors-brand-signal-red);outline-offset:2px;border-radius:2px}
+.kodiak-header{background:var(--brown-kodiak);color:#FFF8F0;padding:10px 18px}
+.header__inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.backlink{color:#FFF8F0}
+.header__inner h1{margin:0;font-size:clamp(18px,3.2vw,26px);color:#FFF8F0}
+.wrap{max-width:1280px;margin:0 auto;padding:18px}
+.lede{max-width:72ch}
+.siblings{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.siblings a{display:inline-block;padding:8px 14px;border:1px solid var(--colors-brand-frontier-green);border-radius:999px;color:var(--chocolate);text-decoration:none}
+.siblings a[aria-current]{background:var(--brown-kodiak);border-color:var(--brown-kodiak);color:#FFF8F0}
+.badge{display:inline-block;background:var(--oat);border:1px solid var(--stone);border-radius:999px;padding:1px 10px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-family:"museo-sans",sans-serif}
+.kbd{font-family:ui-monospace,monospace;background:var(--oat);border:1px solid var(--stone);border-radius:6px;padding:0 6px;font-size:12.5px}
+/* toolbar: one row, count left, action right, shared baseline */
+.ph-tools{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:10px 0 4px}
+.ph-tools .count{font-size:12.5px;color:#6B5A53}
+.ph-tools button{font:inherit;font-size:13px;line-height:1.4;padding:7px 16px;border:1px solid var(--colors-brand-frontier-green);border-radius:999px;background:var(--colors-neutral-0);color:var(--chocolate);cursor:pointer}
+article.ph-run{background:#FFFDF9;border:1px solid var(--stone);border-radius:16px;margin:14px 0;padding:14px 18px;box-shadow:var(--shadows-sm)}
+article.ph-run h2{margin:0 0 2px;font-size:16px}
+article.ph-run .ph-sub{margin:0 0 8px;font-size:12.5px;color:#6B5A53}
+article.ph-run .ph-thumbs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 0}
+article.ph-run .ph-thumbs a{display:inline-block;border:1px solid var(--stone);border-radius:8px;overflow:hidden;line-height:0}
+article.ph-run .ph-thumbs img{width:120px;height:120px;object-fit:cover;display:block}
+article.ph-run dl{margin:0}
+article.ph-run dt{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6B5A53;margin:10px 0 2px}
+article.ph-run dd{margin:0}
+article.ph-run pre{white-space:pre-wrap;word-break:break-word;font-size:12.5px;background:var(--oat);border:1px solid var(--stone);border-radius:6px;padding:8px 10px;margin:0}
+article.ph-run .ph-copy{margin-top:6px;font-size:12.5px;padding:4px 12px;border:1px solid var(--stone);border-radius:999px;background:var(--colors-neutral-0);color:var(--chocolate);cursor:pointer}
+.ph-empty,.ph-note{padding:18px;color:#6B5A53}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header class="kodiak-header"><div class="header__inner">
+<a class="backlink" href="index.html">&larr; Back to campaign</a>
+<h1>Prompt History</h1><span class="badge">preview ledger — internal working session</span>
+</div></header>
+<div class="wrap">
+<p class="lede">Every campaign preview, newest first: what was sent (the dish-first image prompt, the copy base, market / season / product) and what came back (headline, recipe, render thumbnails). Shared runs come from the pipeline ledger; this browser's own runs are mixed in below them.</p>
+<div class="siblings" role="group" aria-label="About pages">
+<a href="details.html" target="_blank" rel="noopener">Design System Inventory</a>
+<a href="pipeline.html" target="_blank" rel="noopener">Creative Generation, Localization &amp; Artificial Intelligence</a>
+<a href="infrastructure.html" target="_blank" rel="noopener">Secure hosting and delivery</a>
+<a href="recipes.html" target="_blank" rel="noopener">Recipes Brainstorm</a>
+<a href="prompt-history.html" aria-current="page">Prompt History</a>
+</div>
+<div class="ph-tools">
+<span class="count" id="phCount" role="status"></span>
+<button type="button" id="phExport">Download ledger (.json)</button>
+</div>
+<div id="phLedger"></div>
+</div>
+<script defer src="js/prompt-history.js?v=0.1.028-5bca70a-20260928"></script>
+<script>
+(function(){
+  'use strict';
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function localEntries(){
+    try{
+      if(window.KODIAK_promptHistory) return window.KODIAK_promptHistory.read() || [];
+    }catch(e){}
+    return [];
+  }
+  function sharedEntries(){
+    return fetch('history', {headers:{'Accept':'application/json'}})
+      .then(function(r){ return r.ok ? r.json() : {entries:[]}; })
+      .then(function(d){ return (d && Array.isArray(d.entries)) ? d.entries : []; })
+      .catch(function(){ return []; });
+  }
+  function stampOf(e){
+    return e.recorded_at || e.ts || '';
+  }
+  function row(label, value, copyable){
+    if(!value) return '';
+    var copy = copyable
+      ? '<br><button type="button" class="ph-copy" data-copy="'+esc(value)+'">Copy</button>' : '';
+    return '<dt>'+esc(label)+'</dt><dd><pre>'+esc(value)+'</pre>'+copy+'</dd>';
+  }
+  function thumbsFor(e){
+    var shots = [];
+    if(Array.isArray(e.renders)){
+      e.renders.forEach(function(r){
+        if(r && r.image_url) shots.push({url: r.image_url, label: r.ratio || 'render'});
+      });
+    } else if(e.image_url){
+      shots.push({url: e.image_url, label: 'render'});
+    }
+    if(!shots.length) return '';
+    return '<div class="ph-thumbs">' + shots.map(function(s){
+      return '<a href="'+esc(s.url)+'" target="_blank" rel="noopener" title="'+esc(s.label)+'">'
+        + '<img src="'+esc(s.url)+'" alt="'+esc(s.label)+' render" loading="lazy"></a>';
+    }).join('') + '</div>';
+  }
+  function titleFor(e){
+    return [e.dish || e.product || 'Preview', e.market || '', e.season || '']
+      .filter(Boolean).join(' — ');
+  }
+  function subFor(e){
+    var engines = (e.engines && typeof e.engines === 'object') ? JSON.stringify(e.engines) : (e.engines || '');
+    return [stampOf(e), e.recipe ? ('recipe: ' + e.recipe) : '',
+        e.source ? ('render: ' + e.source) : '', engines ? ('engines: ' + engines) : '']
+      .filter(Boolean).join(' · ');
+  }
+  function articleFor(e){
+    return '<article class="ph-run"><h2>'+esc(titleFor(e))+'</h2><p class="ph-sub">'+esc(subFor(e))+'</p>'
+      + thumbsFor(e) + '<dl>'
+      + row('dish', e.dish, false)
+      + row('prompt (sent to image model)', e.scene_prompt, true)
+      + row('copy base', e.base, true)
+      + row('headline', e.headline, false)
+      + row('recipe', e.recipe, false)
+      + '</dl></article>';
+  }
+  function currentEntries(){
+    return (window.__phMerged || []).slice();
+  }
+  function render(shared, local){
+    var merged = shared.concat(local).filter(function(e){
+      return e && (e.scene_prompt || e.base || e.headline);
+    });
+    merged.sort(function(a, b){
+      return String(stampOf(b)).localeCompare(String(stampOf(a)));
+    });
+    window.__phMerged = merged.slice(0, 60);
+    var mount = document.getElementById('phLedger');
+    var count = document.getElementById('phCount');
+    if(count) count.textContent = window.__phMerged.length
+      ? window.__phMerged.length + ' run' + (window.__phMerged.length === 1 ? '' : 's') : '';
+    if(!mount) return;
+    if(!window.__phMerged.length){
+      mount.innerHTML = '<p class="ph-empty">No previews recorded yet — run Create Campaign Preview and each run lands here.</p>';
+      return;
+    }
+    mount.innerHTML = window.__phMerged.map(articleFor).join('');
+  }
+  function load(){
+    var local = localEntries();
+    render([], local);
+    sharedEntries().then(function(shared){
+      render(shared, localEntries());
+    });
+  }
+  document.addEventListener('click', function(ev){
+    var btn = ev.target && ev.target.closest ? ev.target.closest('[data-copy]') : null;
+    if(btn){
+      var text = btn.getAttribute('data-copy') || '';
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text);
+          btn.textContent = 'Copied';
+          setTimeout(function(){ btn.textContent = 'Copy'; }, 1200);
+        }
+      }catch(e){}
+      return;
+    }
+    if(ev.target && ev.target.id === 'phExport'){
+      try{
+        var blob = new Blob([JSON.stringify(currentEntries(), null, 2)], {type: 'application/json'});
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'kodiak-prompt-history.json';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+      }catch(e){}
+    }
+  });
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', load);
+  else load();
+})();
+</script>
+</body></html>

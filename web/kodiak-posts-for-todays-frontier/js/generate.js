@@ -1071,6 +1071,56 @@ let skuList = [
     }).filter(Boolean).map(code=>String(code).toLowerCase());
     return Array.from(new Set(['en'].concat(codes)));
   }
+  // Brief marker vocabulary shared with the backend humanizer
+  // (scene_prompts.copy_base_from_brief): segments starting with one of these
+  // plus a colon are pipeline metadata, never marketing copy.
+  /** @type {Object<string, number>} */
+  var BRIEF_COPY_MARKERS = {market:1,season:1,month:1,ecology:1,frontier:1,moment:1,'in-season':1,products:1,product:1,directions:1,direction:1,audience:1,region:1,retailer:1,recipe:1};
+  /**
+   * Human copy base for a brief — never raw pipeline scaffolding.
+   * Mirrors the backend humanizer: user free text wins; else ecology +
+   * in-season ingredient composed from curated data; else ''. Segmentation is
+   * middot-only (the frontier value itself carries " — Moment (window)", and
+   * dash-splitting would orphan the moment as fake free text).
+   * @param {unknown} text
+   * @returns {string}
+   */
+  function briefCopyBase(text){
+    try{
+      var norm = String(text == null ? '' : text).replace(/◇/g, '·');
+      /** @type {string[]} */
+      var free = [];
+      var ecology = '', seasonal = '';
+      norm.split('·').forEach(function(seg){
+        var s = String(seg).replace(/^[\s—–\-,;.]+|[\s—–\-,;.]+$/g, '');
+        if(!s) return;
+        var head = s.indexOf(':') !== -1 ? s.slice(0, s.indexOf(':')).trim().toLowerCase() : '';
+        if(head && BRIEF_COPY_MARKERS[head]){
+          var low = s.toLowerCase();
+          if(low.indexOf('ecology:') === 0 && !ecology) ecology = s.slice(8).trim();
+          else if(low.indexOf('in-season:') === 0 && !seasonal) seasonal = s.slice(10).trim().replace(/\.+$/, '');
+          return;
+        }
+        free.push(s);
+      });
+      /** @param {string} t @param {number} n @returns {string} */
+      var clip = function(t, n){
+        t = String(t).replace(/\s+/g, ' ').trim();
+        if(t.length <= n) return t;
+        var c = t.slice(0, n);
+        if(c.indexOf(' ') !== -1) c = c.slice(0, c.lastIndexOf(' '));
+        return c.replace(/[ ,;—–-]+$/, '');
+      };
+      var idea = free.join(' ').replace(/\s+/g, ' ').trim();
+      if(idea) return clip(idea, 80);
+      var ingredient = seasonal.replace(/\s*\([^)]*\)/g, '').trim();
+      if(ecology && ingredient) return clip(ecology + ' — ' + ingredient + ' in season', 80);
+      if(ecology) return clip(ecology, 80);
+      if(ingredient) return clip(ingredient + ' in season', 80);
+      return '';
+    }catch(e){ return ''; }
+  }
+  try{ window.KODIAK_briefCopyBase = briefCopyBase; }catch(e){}
   /**
    * @param {{baseMessage?: unknown, productName?: unknown, market?: unknown, provenance?: unknown, season?: unknown}} [options]
    * @returns {Promise<boolean>}
@@ -1784,7 +1834,12 @@ let skuList = [
         // Update local flavor with brief context (runs after either path)
         const lf = document.getElementById('localFlavorText');
         // finishCommon runs on every generate path — append once, never dupe.
-        if(lf && lf.innerHTML.indexOf('Brief applied:')===-1) lf.innerHTML += `<br><span class="flag-pine"><b>Brief applied:</b> “${brief}” — fans to all formats</span>`;
+        if(lf && lf.innerHTML.indexOf('Brief applied:')===-1){
+          // Show the human copy base, not the raw marker suffix (the full
+          // brief stays visible in the provenance panel's Prompt row).
+          const appliedBase = (typeof briefCopyBase === 'function' && briefCopyBase(brief)) || brief;
+          lf.innerHTML += `<br><span class="flag-pine"><b>Brief applied:</b> “${escapeHtml(appliedBase)}” — fans to all formats</span>`;
+        }
         console.log('KODIAK generate — sample', {brief, products, primarySlug, audience, selectedLoc: selectedLoc.market, frontierHint});
         try{ if(window.ffLog) window.ffLog('create', {brief: brief, products: products, theme: primarySlug, market: selectedLoc.market}); }catch(e){}
       };
@@ -2144,7 +2199,13 @@ let skuList = [
           renderPlatformCopy(json.platform_copy);
           try{
             const previewProv = /** @type {{copy_headline?: unknown, incoming_prompt?: unknown}} */ ((json.provenance && typeof json.provenance==='object') ? json.provenance : {});
-            const previewBaseMessage = previewProv.copy_headline || previewProv.incoming_prompt || json.headline || json.message || brief;
+            // Scaffolding guard: the composed image headline leads; else the
+            // humanized brief (the backend sanitizes too, but the rewrite reads
+            // better from human input than from marker text). Raw scaffolding
+            // is the last resort, never the first.
+            const previewBaseMessage = previewProv.copy_headline
+              || briefCopyBase(brief)
+              || previewProv.incoming_prompt || json.headline || json.message || brief;
             void sharpenPlatformCopy({
               baseMessage: previewBaseMessage,
               productName: products[0] || primarySlug,
@@ -2167,6 +2228,33 @@ let skuList = [
                 'Render missed twice — no campaign pixels to show. The image model is slower than the render window allows right now.');
             }
           }catch(e){}
+          // Prompt-history ledger: one entry per preview — what was sent
+          // (dish-first scene prompt, copy base) and what came back. Offline
+          // localStorage, never a network call; a full ledger lives on
+          // prompt-history.html.
+          try{
+            var __hist = (typeof window !== 'undefined' && window.KODIAK_promptHistory) || null;
+            if(__hist && typeof __hist.record === 'function'){
+              var __hprov = ((json.provenance && typeof json.provenance === 'object') ? json.provenance : {});
+              // NOTE: previewBaseMessage is block-scoped to the sharpen try
+              // above — recompute the same precedence here from in-scope parts.
+              var __hbase = __hprov.copy_headline || __hprov.incoming_prompt || json.headline || json.message || '';
+              try{ __hbase = __hprov.copy_headline || briefCopyBase(brief) || __hbase; }catch(__be){}
+              __hist.record({
+                market: (selectedLoc && selectedLoc.market) || '',
+                season: activeSeason || '',
+                product: products[0] || primarySlug || '',
+                dish: __hprov.dish || '',
+                base: __hbase || '',
+                scene_prompt: __hprov.scene_prompt || '',
+                headline: __hprov.copy_headline || __hprov.headline || '',
+                recipe: ((json.recipe_fields && json.recipe_fields.title) || __hprov.recipe || ''),
+                source: json.source || '',
+                engines: __hprov.ratios || __hprov.engine || '',
+                image_url: json.image_url || ''
+              });
+            }
+          }catch(__he){}
           // auto-open the collapsed Preview card so the user sees the freshly-composed output
           openPreviewCard();
         } else {
