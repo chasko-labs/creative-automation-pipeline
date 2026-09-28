@@ -127,7 +127,11 @@ def test_market_scene_clause_names_produce_not_code() -> None:
     assert "US-MW-PARKCITY-84098" not in clause
     assert "the US-MW" not in clause
     assert "Park City" in clause
-    assert "Jensen Farms peaches" in clause
+    # Coherence contract: the scene stages what the panel pairs. September
+    # pairs winter squash (ingredient rotation), so the clause names winter
+    # squash even though the flavor registry also lists Jensen Farms peaches
+    # — pixels must match the dish, not a second produce line.
+    assert "winter squash in season" in clause
     assert "Farmers Market" in clause
 
 
