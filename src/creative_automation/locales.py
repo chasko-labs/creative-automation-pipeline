@@ -90,7 +90,9 @@ def resolve_this_month(
     local_flavor_for() and answers a different question (where to source
     it). The two layers may name different produce for the same month by
     design — e.g. Atlanta May cooks Vidalia onions while the sourcing line
-    lists Coweta peaches/butterbeans. Neither overrides the other.
+    lists Coweta peaches/butterbeans. Neither overrides the other, with one
+    scoped exception: scene prompts (pixels) follow the recipe ingredient
+    via monthly_ingredient_for so the image matches the dish.
     """
     pair = resolve_pair(market, path)
     if pair is None:
@@ -107,6 +109,45 @@ def resolve_this_month(
         "retailers": pair.retailers or [],
         "pair": pair,
     }
+
+
+def monthly_ingredient_for(
+    market: object, month_num: object, year: object = None, path: str | None = None
+) -> str | None:
+    """Month-exact in-season ingredient for a market, in any calendar year.
+
+    The registry keys pin a single calendar year but the produce calendar
+    repeats: resolve the exact year-month first, then fall back to any
+    same-month key (deterministic first). Unknown markets, out-of-range
+    months, unseeded months, and any error yield None — never raises, never
+    fabricates. Shared by the preview pairing chain and the scene clause so
+    the panel, the dish, and the pixels agree on one ingredient.
+    """
+    try:
+        code = str(market or "").strip()
+        num = int(str(month_num or "").strip())
+        if not code or not 1 <= num <= 12:
+            return None
+        from datetime import UTC, datetime
+
+        yr = int(str(year or "").strip()) if year is not None else datetime.now(UTC).year
+        resolved = resolve_this_month(code, ym=f"{yr}-{num:02d}", path=path)
+        ingredient = (resolved or {}).get("ingredient")
+        if isinstance(ingredient, str) and ingredient.strip():
+            return ingredient.strip()
+        pair = resolve_pair(code, path)
+        months = sorted(
+            k
+            for k in ((pair.monthly_ingredients if pair else {}) or {})
+            if isinstance(k, str) and k.endswith(f"-{num:02d}")
+        )
+        if months:
+            ingredient = pair.monthly_ingredients[months[0]]
+            if isinstance(ingredient, str) and ingredient.strip():
+                return ingredient.strip()
+    except Exception:  # noqa: BLE001 — ingredient never breaks the preview
+        pass
+    return None
 
 
 def resolve_seasonal_moments(market: str, path: str | None = None) -> list[dict]:

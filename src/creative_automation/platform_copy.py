@@ -519,9 +519,22 @@ def build_platform_copy_response(
     label = season_label
     if label is None and request["season"]:
         label = season_display_label(request["season"])
+    # Scaffolding guard (same contract as the preview path): the wire base may
+    # be the raw brief with its marker suffix — humanize before any rewrite or
+    # fallback frame, so no platform ships headlines about the scaffolding.
+    # Idempotent for already-human copy, which passes through clipped.
+    base_message = request["base_message"]
+    try:
+        from .scene_prompts import copy_base_from_brief as _human_base
+
+        human = _human_base(base_message)
+        if human:
+            base_message = human
+    except Exception:  # noqa: BLE001 — sanitizer never breaks copy
+        pass
     try:
         copy = generate_platform_copy(
-            request["base_message"],
+            base_message,
             request["product_name"],
             request["market"],
             platforms=request["platforms"],
@@ -533,7 +546,7 @@ def build_platform_copy_response(
     except Exception as e:  # noqa: BLE001 — offline contract never raises
         print(f"[platform_copy] complete fallback set: {e}", file=sys.stderr)
         copy = fallback_platform_copy(
-            request["base_message"],
+            base_message,
             request["product_name"],
             request["market"],
             request["platforms"],

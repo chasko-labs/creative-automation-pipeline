@@ -259,6 +259,25 @@ def resolve_request(value: object) -> dict:
     return {"kind": None, "key": None, "season": None}
 
 
+def month_number_for_request(value: object) -> int | None:
+    """Month number 1..12 for a dropdown-style month request, else None.
+
+    Month names, bare numbers, and ISO YYYY-MM[-DD] keys resolve through the
+    same classify path as pairing (gh #313); seasons, holidays, and garbage
+    yield None rather than raising so callers fall back to the season table.
+    """
+    try:
+        req = resolve_request(value)
+    except Exception:  # noqa: BLE001 — labels never break pairing
+        return None
+    if req.get("kind") != "month":
+        return None
+    key = req.get("key")
+    if isinstance(key, str) and key in MONTH_TO_SEASON:
+        return _MONTH_NAMES.index(key) + 1
+    return None
+
+
 def pairing_season_label(value: object) -> str | None:
     """Pairing label for a dropdown-style request: the season key for seasons
     and months (months map to season keys), the holiday key for holidays, None

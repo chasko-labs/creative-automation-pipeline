@@ -40,7 +40,7 @@ from .generate import (
     generate_hero_set,
     normalize_layers,
 )
-from .scene_prompts import _safe_prompt_text, _scenic_scene_text
+from .scene_prompts import _safe_prompt_text, _scenic_scene_text, copy_base_from_brief
 from .locales import resolve_target_languages
 from .platform_copy import (
     PlatformCopyValidationError,
@@ -370,10 +370,14 @@ def _handle_platform_copy(event: dict[str, Any]) -> dict[str, Any]:
         label = season_display_label(data.get("season")) if isinstance(data, dict) else None
         recipe = None
         if isinstance(data, dict):
-            rec, meta = _season_pairing(data.get("season"))
+            rec, meta = _season_pairing(
+                data.get("season"),
+                market=data.get("market"),
+                product_name=data.get("product_name"),
+            )
             if (
                 rec is not None
-                and meta.get("source") == "season-table"
+                and meta.get("source") in _PAIRED_SOURCES
                 and isinstance(meta.get("name"), str)
                 and meta["name"].strip()
             ):
@@ -946,22 +950,49 @@ _THEME_RETAILER = {
 _PUBLIX_DEFAULT_MARKETS = {"US-SE-ATL"}
 
 
-def _season_pairing(season: object) -> tuple[dict | None, dict]:
+# Pairing sources that name a real campaign recipe (season table or the
+# ingredient-aware picker). Static-default landings stay quiet — they add
+# nothing over the tease title.
+_PAIRED_SOURCES = frozenset(
+    {"season-table", "ingredient-featured", "ingredient-overlap", "ingredient-rotation"}
+)
+
+
+def _season_pairing(
+    season: object,
+    market: object = None,
+    month_ym: object = None,
+    product_name: object = None,
+) -> tuple[dict | None, dict]:
     """(record, meta) for a request season; (None, {}) when unpaired.
 
-    One chain: the season table resolves the record (static default as last
-    resort); meta names the season key, the record id/name, and whether the
-    pairing came from the season table or the static default. Dropdown-style
-    requests (season key, month name, holiday — gh #313) resolve through the
-    same pairing table the recipe card uses. Guarded: an absent season, an
-    unknown value, or any error means no pairing — never raises, never
-    fabricates."""
+    Two chains, ingredient-first: a month request in a paired market resolves
+    the month's in-season ingredient and runs the same ingredient-aware picker
+    the recipe card serves (_pick_recipe_detail), so the panel, the tease,
+    and the image dish agree on what is actually in season (September apples,
+    not the season-table pumpkin). Anything without a month/market/ingredient
+    — seasons, holidays, garbage, unpaired markets — falls through to the
+    legacy season-table chain (static default as last resort). Meta names the
+    season key, the record id/name, and the pairing source. Guarded: an
+    absent season, an unknown value, or any error means no pairing — never
+    raises, never fabricates."""
     try:
         from . import season_pairing as _seasons
         from .recipe_card import _season_fallback_recipe
         season_name = season if isinstance(season, str) and season.strip() else None
         if season_name is None:
             return None, {}
+        market_key = market if isinstance(market, str) and market.strip() else None
+        if market_key is not None:
+            month_num = _seasons.month_number_for_request(season_name)
+            if month_num is not None:
+                ingredient_rec = _ingredient_pairing(
+                    market_key, month_num, season_name,
+                    month_ym if isinstance(month_ym, str) and month_ym.strip() else None,
+                    product_name if isinstance(product_name, str) else None,
+                )
+                if ingredient_rec[0] is not None:
+                    return ingredient_rec
         rec = _season_fallback_recipe(season_name)
         if not isinstance(rec, dict):
             return None, {}
@@ -986,13 +1017,81 @@ def _season_pairing(season: object) -> tuple[dict | None, dict]:
         return None, {}
 
 
-def _seasonal_recipe_default(season: object, product_name: str) -> dict | None:
-    """Season-paired recipe default: the season table's record when the request
-    names a season and the record fits the tease shape, else None (caller keeps
-    the static default). Full catalog records carry 10 ingredients and long
-    steps — those stay on the pairing display, never truncated into the tease.
-    Never raises, never fabricates."""
-    rec, _meta = _season_pairing(season)
+def _ingredient_pairing(
+    market: str, month_num: int, season_name: str,
+    month_ym: str | None, product_name: str | None,
+) -> tuple[dict | None, dict]:
+    """Ingredient-aware pairing for a market + month; (None, {}) on any miss.
+
+    Resolves the month's in-season ingredient from the retailer-frontier
+    registry (never fabricated: unseeded months yield None) and runs the
+    card's own picker. Only ingredient-grounded hits (featured / overlap /
+    rotation) are returned — an ingredient with no real recipe match falls
+    through to the season-table chain instead of serving the static default
+    under an ingredient label. Never raises.
+    """
+    try:
+        from datetime import UTC, datetime
+
+        from .locales import monthly_ingredient_for, resolve_this_month
+        from .recipe_card import _pick_recipe_detail
+
+        ingredient = None
+        if month_ym:
+            # Explicit month wins when seeded; otherwise the shared
+            # month-exact helper (exact year-month, then same-month rollover).
+            resolved = resolve_this_month(market, ym=month_ym)
+            candidate = (resolved or {}).get("ingredient")
+            if isinstance(candidate, str) and candidate.strip():
+                ingredient = candidate.strip()
+        if ingredient is None:
+            year = None
+            try:
+                year = int(str(month_ym).split("-")[0]) if month_ym else None
+            except Exception:  # noqa: BLE001 — unparsable ym uses current year
+                year = None
+            ingredient = monthly_ingredient_for(market, month_num, year=year)
+        ym = month_ym or f"{datetime.now(UTC).year}-{month_num:02d}"
+        if not ingredient or not isinstance(ingredient, str):
+            return None, {}
+        recipe, pairing = _pick_recipe_detail(
+            ingredient, product_name, market, ym, season_name
+        )
+        if not isinstance(recipe, dict):
+            return None, {}
+        source = str(pairing.get("source") or "")
+        if source not in _PAIRED_SOURCES or source == "season-table":
+            # Season-table landings belong to the legacy chain below (which
+            # labels them honestly); static-default/legacy fallbacks stay
+            # quiet here so the caller keeps its own chain.
+            return None, {}
+        if str(pairing.get("recipe_id") or "") != str(recipe.get("id") or ""):
+            return None, {}
+        name = recipe.get("name") or recipe.get("title")
+        if not isinstance(name, str) or not name.strip():
+            return None, {}
+        return recipe, {
+            "season": pairing.get("season"),
+            "recipe_id": recipe.get("id"),
+            "name": name.strip(),
+            "source": source,
+            "reason": pairing.get("reason"),
+        }
+    except Exception:  # noqa: BLE001 — ingredient never breaks the preview
+        return None, {}
+
+
+def _seasonal_recipe_default(
+    season: object, product_name: str, market: object = None
+) -> dict | None:
+    """Season-paired recipe default: the ingredient-aware pairing when the
+    request names a month in a paired market (same pick the card serves),
+    else the season table's record when the request names a season and the
+    record fits the tease shape, else None (caller keeps the static default).
+    Full catalog records carry 10 ingredients and long steps — those stay on
+    the pairing display, never truncated into the tease. Never raises, never
+    fabricates."""
+    rec, _meta = _season_pairing(season, market=market, product_name=product_name)
     if rec is None:
         return None
     try:
@@ -1025,7 +1124,9 @@ def _preview_dish_name(data: dict[str, Any], product_name: str) -> str | None:
             name = _dish_title(validated)
             if name:
                 return name
-        rec, meta = _season_pairing(data.get("season"))
+        rec, meta = _season_pairing(
+            data.get("season"), market=data.get("market"), product_name=product_name
+        )
         if rec is not None and isinstance(meta.get("name"), str) and meta["name"].strip():
             return meta["name"].strip()
         fallback = _recipe_card_defaults(product_name)
@@ -1059,9 +1160,14 @@ def _preview_campaign_data(
     # Identity matters: an empty-but-real dict still receives the pairing, so
     # `or {}` (which silently drops writes on falsy input) is wrong here.
     prov = provenance if isinstance(provenance, dict) else {}
-    base = clean_brand_copy(
-        str(prov.get("copy_headline") or prov.get("headline") or prompt or "")[:80]
-    ) or clean_brand_copy(str(prompt or ""))
+    # Scaffolding guard: the composed image headline leads when present; else
+    # the humanized brief (idea, else ecology + ingredient) — raw marker text
+    # truncated to N chars is never a copy base (it reads as headlines about
+    # the scaffolding, fanned to every platform and language).
+    raw_head = str(prov.get("copy_headline") or prov.get("headline") or "").strip()
+    base = clean_brand_copy(raw_head[:80] if raw_head else copy_base_from_brief(prompt))
+    if not base:
+        base = clean_brand_copy(str(prompt or "")[:80])
     # Brief grounding: the image caption knows the seed, not the idea — lead
     # the base with the user's free-text subject so platform posts and
     # localizations carry what was asked for ("sea otters"), not just the
@@ -1072,11 +1178,13 @@ def _preview_campaign_data(
     # season-table recipe name for the bake line) and the same rec/meta feeds
     # the pairing display below — one lookup, not two.
     season_label = season_display_label(data.get("season"))
-    season_rec, season_meta = _season_pairing(data.get("season"))
+    season_rec, season_meta = _season_pairing(
+        data.get("season"), market=market, product_name=product_name
+    )
     season_recipe = None
     if (
         season_rec is not None
-        and season_meta.get("source") == "season-table"
+        and season_meta.get("source") in _PAIRED_SOURCES
         and isinstance(season_meta.get("name"), str)
         and season_meta["name"].strip()
     ):
@@ -1121,7 +1229,9 @@ def _preview_campaign_data(
     raw_recipe = data.get("recipe_fields")
     recipe_fields = _validate_recipe_fields(raw_recipe, product_name)
     if recipe_fields is None:
-        recipe_fields = _seasonal_recipe_default(data.get("season"), product_name)
+        recipe_fields = _seasonal_recipe_default(
+            data.get("season"), product_name, market=market
+        )
         if recipe_fields is None:
             recipe_fields = _recipe_card_defaults(product_name)
     # Season pairing display: a season that resolves through the season table
@@ -1133,7 +1243,7 @@ def _preview_campaign_data(
     rec, meta = season_rec, season_meta
     if (
         rec is not None
-        and meta.get("source") == "season-table"
+        and meta.get("source") in _PAIRED_SOURCES
         and isinstance(meta.get("name"), str)
         and meta["name"].strip()
     ):
@@ -1783,6 +1893,12 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
             "themes": themes,
             "season": _preview_season,
             "source": source,
+            # Shared history page (GET /history) renders these — the
+            # ledger entry is what the run sent and what came back.
+            "dish": _prov.get("dish"),
+            "scene_prompt": _prov.get("scene_prompt"),
+            "headline": _prov.get("copy_headline") or _prov.get("headline"),
+            "recipe": _prov.get("recipe"),
             # Every freshly generated image ships labeled needs-review: a human
             # confirms it before it becomes a trusted seed. Readers filter on
             # this field; nothing else in the pipeline gates on it.
@@ -2121,6 +2237,65 @@ def _handle_jobs_start(event: dict[str, Any]) -> dict[str, Any]:
     return {"statusCode": 202, "headers": CORS_HEADERS, "body": json.dumps({"ok": True, "job_id": job_id})}
 
 
+def _handle_history(event: dict[str, Any]) -> dict[str, Any]:
+    """GET /history — newest-first shared preview ledger for the history page.
+
+    Projects the asset-store attempt records (brief, dish, scene, headline,
+    recipe, renders) into page-ready entries with presigned thumbnails and a
+    human copy base. Best-effort: any failure yields {ok: True, entries: []}
+    and the page falls back to its local entries. Never raises.
+    """
+    try:
+        from . import asset_store as _history_store
+        from .scene_prompts import copy_base_from_brief as _human_base
+
+        params = event.get("queryStringParameters") or {}
+        try:
+            limit = max(1, min(int(params.get("limit") or 20), 50))
+        except Exception:  # noqa: BLE001 — garbage limit means default
+            limit = 20
+        entries: list[dict[str, Any]] = []
+        for record in _history_store.list_preview_attempts(limit):
+            if not isinstance(record, dict):
+                continue
+            brief = record.get("brief") if isinstance(record.get("brief"), str) else ""
+            renders: list[dict[str, Any]] = []
+            raw_renders = record.get("renders")
+            if isinstance(raw_renders, list):
+                for entry in raw_renders[:6]:
+                    if not isinstance(entry, dict):
+                        continue
+                    renders.append({
+                        "ratio": entry.get("ratio"),
+                        "image_url": _history_store.presign_s3_uri(
+                            entry.get("s3_uri") or ""
+                        ),
+                        "review_status": entry.get("review_status"),
+                    })
+            try:
+                base = _human_base(brief) or ""
+            except Exception:  # noqa: BLE001 — base never sinks history
+                base = ""
+            entries.append({
+                "recorded_at": record.get("recorded_at"),
+                "market": record.get("market"),
+                "season": record.get("season"),
+                "product": record.get("product"),
+                "dish": record.get("dish"),
+                "base": base,
+                "brief": brief,
+                "scene_prompt": record.get("scene_prompt"),
+                "headline": record.get("headline"),
+                "recipe": record.get("recipe"),
+                "source": record.get("source"),
+                "engines": record.get("engines"),
+                "renders": renders,
+            })
+        return _response(200, {"ok": True, "entries": entries})
+    except Exception:  # noqa: BLE001 — history never breaks anything
+        return _response(200, {"ok": True, "entries": []})
+
+
 def _handle_jobs_status(event: dict[str, Any]) -> dict[str, Any]:
     """GET /jobs?id= — instant read of the job status doc."""
     params = event.get("queryStringParameters") or {}
@@ -2222,6 +2397,8 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
         if str(_method).upper() == "GET":
             return _handle_jobs_status(event)
         return _handle_jobs_start(event)
+    if _p == "/history":
+        return _handle_history(event)
     # TOP-LEVEL VALIDATION (before the ladder): a genuinely malformed request — an
     # unparseable JSON body — is the ONLY non-200 (a 400). A well-formed POST always
     # reaches the never-fail ladder in generate_hero, which returns 200 real pixels

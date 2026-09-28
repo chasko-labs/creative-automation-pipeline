@@ -908,6 +908,83 @@ def mirror_recipe_art_to_sites(local_png: Path, subject_slug: str, zone: str) ->
     return done
 
 
+def list_preview_attempts(limit: int = 20) -> list[dict[str, Any]]:
+    """Newest-first preview-attempt records (shared ledger behind /history).
+
+    Lists ``<prefix>preview-attempts/`` keys (the uuid suffix is random, so
+    keys do NOT sort chronologically — records sort by their recorded_at),
+    fetches the small JSON bodies, and returns the newest `limit` records,
+    each with its ``_key``. Best-effort: S3 disabled, empty ledgers, or any
+    failure yields [] — the history page renders its local entries instead.
+    Never raises.
+    """
+    try:
+        if not _s3_enabled():
+            return []
+        bucket, prefix = _s3_bucket_and_prefix()
+        client = _s3_client()
+        if not bucket or client is None:
+            return []
+        try:
+            limit = max(1, min(int(limit), 50))
+        except Exception:  # noqa: BLE001 — garbage limit means default
+            limit = 20
+        keys: list[str] = []
+        paginator = client.get_paginator("list_objects_v2")
+        for page in paginator.paginate(Bucket=bucket, Prefix=f"{prefix}preview-attempts/"):
+            for obj in page.get("Contents", []) or []:
+                key = obj.get("Key") or ""
+                if key.endswith(".json"):
+                    keys.append(key)
+            if len(keys) >= limit * 2:
+                break
+        out: list[dict[str, Any]] = []
+        for key in sorted(set(keys), reverse=True)[: max(limit * 2, 40)]:
+            try:
+                body = client.get_object(Bucket=bucket, Key=key)["Body"].read()
+                record = json.loads(body.decode("utf-8"))
+                if isinstance(record, dict):
+                    out.append({**record, "_key": key})
+            except Exception:  # noqa: BLE001 — one bad record never sinks the list
+                continue
+        out.sort(key=lambda r: str(r.get("recorded_at") or ""), reverse=True)
+        return out[:limit]
+    except Exception:  # noqa: BLE001 — history never breaks the preview
+        return []
+
+
+def presign_s3_uri(s3_uri: str, expires_s: int = 604800) -> str | None:
+    """Presigned GET URL for an s3:// URI (history-page thumbnails).
+
+    Seven-day expiry (the IAM maximum) so ledger thumbnails survive the
+    working week. Unparseable URIs, disabled S3, or any failure yields None.
+    Never raises.
+    """
+    try:
+        from urllib.parse import urlparse
+
+        uri = str(s3_uri or "").strip()
+        if not uri.startswith("s3://"):
+            return None
+        parts = urlparse(uri)
+        bucket = parts.netloc
+        key = parts.path.lstrip("/")
+        if not bucket or not key:
+            return None
+        client = _s3_client()
+        if client is None:
+            return None
+        try:
+            expires = max(60, min(int(expires_s), 604800))
+        except Exception:  # noqa: BLE001 — garbage expiry means default
+            expires = 604800
+        return client.generate_presigned_url(
+            "get_object", Params={"Bucket": bucket, "Key": key}, ExpiresIn=expires
+        )
+    except Exception:  # noqa: BLE001 — thumbnails never break history
+        return None
+
+
 def record_preview_attempt(record: dict[str, Any]) -> str | None:
     """Persist one preview-attempt record (brief, market, renders, engines).
 

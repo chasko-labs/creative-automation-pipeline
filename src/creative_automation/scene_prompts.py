@@ -360,7 +360,7 @@ def _brief_setting_clause(brief_msg: str | None) -> str:
 
 #: Brief segments that are pipeline metadata, never the user's idea.
 _IDEA_MARKERS = (
-    "market:", "season:", "month:", "ecology:", "frontier:", "in-season:",
+    "market:", "season:", "month:", "ecology:", "frontier:", "moment:", "in-season:",
     "products:", "product:", "directions:", "direction:", "audience:",
     "region:", "retailer:", "recipe:",
 )
@@ -376,7 +376,7 @@ def _brief_idea(brief_msg: str | None) -> str:
     """
     if not brief_msg:
         return ""
-    text = str(brief_msg).replace("◇", "·").replace("—", "·").replace("–", "·")
+    text = str(brief_msg).replace("◇", "·")
     # Parenthetical marker payloads ("wild mornings (frontier: Lebanon, OH -
     # US-OH-CINCINNATI market, september picks)") are metadata, not idea —
     # strip paren groups carrying a colon; plain parens ("pancakes (fluffy)")
@@ -384,14 +384,90 @@ def _brief_idea(brief_msg: str | None) -> str:
     text = re.sub(r"\([^()]*:[^()]*\)", "", text)
     bits = []
     for seg in text.split("·"):
-        s = seg.strip().strip(",;").strip()
+        s = seg.strip().strip("—–-,; ").strip()
         if not s:
             continue
-        if s.lower().split(":", 1)[0].strip() + ":" in _IDEA_MARKERS and ":" in s:
+        head = s.split(":", 1)[0].strip().lower() + ":" if ":" in s else ""
+        if head and head in _IDEA_MARKERS:
+            # Metadata segment is atomic: its VALUE may itself carry
+            # " — Moment (window)" (the frontier value), and dash-splitting
+            # it would orphan the moment as fake free text. Drop it whole.
             continue
-        bits.append(s)
+        # Free-text segment: a trailing marker tail ("sea otters — season:
+        # September") still splits off; the surviving head stays the idea.
+        for part in re.split(r"\s*[—–]\s*", s):
+            p = part.strip().strip(",;").strip()
+            if not p:
+                continue
+            phead = p.split(":", 1)[0].strip().lower() + ":" if ":" in p else ""
+            if phead and phead in _IDEA_MARKERS:
+                continue
+            bits.append(p)
     idea = " ".join(bits).strip()
     return idea[:80]
+
+
+def _clip_words(text: str, max_chars: int) -> str:
+    """Clip to max_chars on a word boundary (no mid-word cut), stripped."""
+    s = str(text or "").strip()
+    if len(s) <= max_chars:
+        return s
+    cut = s[:max_chars]
+    if " " in cut:
+        cut = cut[: cut.rfind(" ")]
+    return cut.strip(" ,;—–-")
+
+
+def copy_base_from_brief(brief_msg: str | None, max_chars: int = 80) -> str:
+    """Human copy base for a brief — never raw pipeline scaffolding.
+
+    The frontend brief is user free text plus a curated metadata suffix
+    (market:/season:/ecology:/frontier:/in-season:/products: ...). Feeding
+    that suffix verbatim to a rewrite model (or truncating it to N chars)
+    produces headlines ABOUT the scaffolding ("City frontier — ...") fanned
+    to every platform and language. This returns the idea when the brief
+    carries one; otherwise a human line composed from the curated ecology +
+    in-season ingredient (both grounded data, never fabricated); otherwise ""
+    so the caller falls back to its generic brand line.
+
+    Idempotent for already-human text: a base with no marker segments comes
+    back unchanged (clipped), so sharpen requests carrying real copy pass
+    through untouched.
+    """
+    # Segmentation is middot-only (never em-dash): the frontier value itself
+    # carries " — Moment (window)" ("frontier: Warwick, NY (...) — Black-dirt
+    # onion season (Jul-Sep)"), and dash-splitting would orphan the moment as
+    # fake free text. Middot-only keeps that whole segment marker-prefixed so
+    # it drops with the other metadata.
+    ecology = seasonal = ""
+    free: list[str] = []
+    for seg in str(brief_msg or "").replace("◇", "·").split("·"):
+        s = seg.strip().strip("—–-,; \n\t").strip()
+        if not s:
+            continue
+        head = s.split(":", 1)[0].strip().lower() + ":" if ":" in s else ""
+        if head and head in _IDEA_MARKERS:
+            low = s.lower()
+            if low.startswith("ecology:") and not ecology:
+                ecology = s[len("ecology:"):].strip()
+            elif low.startswith("in-season:") and not seasonal:
+                seasonal = s[len("in-season:"):].strip().rstrip(".")
+            continue
+        free.append(s)
+    idea = " ".join(free).strip()
+    if idea:
+        return _clip_words(idea, max_chars)
+    # The in-season value carries a parenthetical flavor payload
+    # ("apples (savory onion cheddar bakes, sweet corn)") — the ingredient
+    # is copy; the payload belongs in the brief, not the headline.
+    ingredient = re.sub(r"\s*\([^)]*\)", "", seasonal).strip()
+    if ecology and ingredient:
+        return _clip_words(f"{ecology} — {ingredient} in season", max_chars)
+    if ecology:
+        return _clip_words(ecology, max_chars)
+    if ingredient:
+        return _clip_words(f"{ingredient} in season", max_chars)
+    return ""
 
 
 def _brief_subject_clause(brief_msg: str | None) -> str:
@@ -459,15 +535,23 @@ def _default_scene_prompt(
         subject = _brief_subject_clause(brief_msg)
         if subject and subject.lower() not in str(direction or "").lower():
             direction = f"{direction} {subject}"
-    if dish and str(dish).strip() and str(dish).strip().lower() not in str(direction or "").lower():
-        # The campaign recipe names the dish — without it the restyle keeps the
-        # seed's generic composition and the image disconnects from the recipe.
-        direction = f"{direction} Featuring a serving of {str(dish).strip()}."
     direction = _with_locale_and_bear(
         direction, theme, brief_msg, market, season,
     )
+    icons = _holiday_icon_clause(season)
+    if icons and icons.lower() not in str(direction or "").lower():
+        direction = f"{direction} {icons}"
+    # Front-load playbook: image models drift after the first ~20 words, so
+    # the finished dish (what we cook) opens the prompt and the setting
+    # follows — never the reverse. The campaign recipe names the dish;
+    # without the lead the restyle keeps the seed's generic composition and
+    # the image disconnects from the recipe.
+    dish_lead = ""
+    clean_dish = str(dish or "").strip()
+    if clean_dish and clean_dish.lower() not in str(direction or "").lower():
+        dish_lead = f"A serving of {clean_dish}. "
     base = (
-        f"{product_name} product photo restyled for "
+        f"{dish_lead}{product_name} product photo restyled for "
         f"{direction}, "
         f"{region} {audience}, frontier morning light, natural grain texture, high detail, lifestyle and natural world visible"
     ).strip()
@@ -510,6 +594,19 @@ def _market_scene_clause(market: str | None, season: str | None) -> str:
         if not place:
             return ""
         produce = [str(p).strip() for p in (info.get("produce") or []) if str(p).strip()][:2]
+        # Pixel coherence: the month-exact recipe ingredient (what the panel
+        # pairs and the dish names) leads produce when it resolves, so the
+        # scene, the dish, and the panel agree on one ingredient. The flavor
+        # registry stays the fallback for unpaired markets/months.
+        try:
+            from .locales import monthly_ingredient_for
+            from .season_pairing import month_number_for_request
+
+            _ingredient = monthly_ingredient_for(code, month_number_for_request(season))
+            if _ingredient:
+                produce = [_ingredient]
+        except Exception:  # noqa: BLE001 — produce preference never breaks scenes
+            pass
         source = str(info.get("source") or "").strip()
         month_name = str(season).strip() if _season_month(season) else ""
         head = f"Setting: {place}" + (f" in {month_name}" if month_name else "")
@@ -562,15 +659,21 @@ def _scenic_scene_text(
     idea = _brief_idea(brief_msg)
     setting = _brief_setting_clause(brief_msg)
     market_clause = _market_scene_clause(market, season)
+    icons = _holiday_icon_clause(season)
+    # Front-load order: the finished dish first, then the idea, then the
+    # setting (+ holiday icons), then the market clause — same playbook as
+    # the restyle prompt.
     bits = []
+    if dish and str(dish).strip():
+        bits.append(f"a serving of {str(dish).strip()}")
     if idea:
         bits.append(_safe_prompt_text(idea) or idea)
     if setting and setting.lower() not in " ".join(bits).lower():
         bits.append(setting)
+    if icons and icons.lower() not in " ".join(bits).lower():
+        bits.append(icons)
     if market_clause and market_clause.lower() not in " ".join(bits).lower():
         bits.append(market_clause)
-    if dish and str(dish).strip():
-        bits.append(f"a serving of {str(dish).strip()} nearby")
     scene = " ".join(bits).strip()
     if not scene:
         return ""
@@ -578,6 +681,42 @@ def _scenic_scene_text(
         f"Photorealistic advertising photograph: {scene}. "
         "golden natural light, rich color, sharp focus, high detail"
     )
+
+
+#: Holiday -> image-icon words for the scene prompt. Keyed by the canonical
+#: holiday key (normalize_holiday); driven ONLY by the structured season
+#: request, never free brief text. A holiday request earns its icons
+#: (pumpkins, santa, cupid) right behind the setting so the pixels read as
+#: the occasion, not a generic harvest.
+_HOLIDAY_ICONS: dict[str, str] = {
+    "christmas": "holiday icons: santa, stockings, evergreen, snow",
+    "holiday season": "holiday icons: evergreen, snow, warm lights",
+    "halloween": "holiday icons: pumpkins, jack-o-lanterns, autumn leaves",
+    "thanksgiving": "holiday icons: pumpkins, autumn harvest, cornucopia",
+    "easter": "holiday icons: spring flowers, easter eggs, pastel morning",
+    "valentine's day": "holiday icons: hearts, roses, warm red accents",
+    "fourth of july": "holiday icons: stars-and-stripes bunting, summer picnic",
+    "new year": "holiday icons: fireworks sparkle, midnight toast",
+    "memorial day": "holiday icons: summer picnic, stars-and-stripes",
+    "labor day": "holiday icons: harvest picnic, late-summer light",
+}
+
+
+def _holiday_icon_clause(season: str | None) -> str:
+    """Icon words for a structured holiday request, or "" otherwise.
+
+    Never raises; seasons, months, and garbage yield "" (the setting clause
+    already carries the season). Free brief text is never an input.
+    """
+    try:
+        from .season_pairing import normalize_holiday
+
+        key = normalize_holiday(season)
+        if key and key in _HOLIDAY_ICONS:
+            return _HOLIDAY_ICONS[key]
+    except Exception:  # noqa: BLE001 — icons never break the preview
+        pass
+    return ""
 
 
 def _nova_pro_scene_prompt(
@@ -609,17 +748,22 @@ def _nova_pro_scene_prompt(
         return default_prompt
     try:
         client = bedrock_client._bedrock_failfast_client(read_timeout=BEDROCK_NOVA_READ_TIMEOUT_S)
-        # Locality + dish survive the 40-word compression: the brief's curated
-        # place/season markers are restated as hard requirements, and the
-        # campaign dish is named so the pixels match the paired recipe.
+        # Dish + locality survive the 40-word compression, front-loaded in
+        # that order: the campaign dish opens (what we cook — models drift
+        # after the first ~20 words) and the brief's curated place/season
+        # markers follow as hard requirements, so the pixels match both the
+        # paired recipe and the market.
         keep_clause = ""
-        setting = _brief_setting_clause(brief_msg)
-        if setting:
-            keep_clause += f" You MUST keep this setting: {setting}"
-        keep_clause += _brief_subject_clause(brief_msg)
         clean_dish = str(dish or "").strip()
         if clean_dish:
-            keep_clause += f" The image MUST show a serving of {clean_dish}."
+            keep_clause += f" The image MUST open on a serving of {clean_dish}."
+        setting = _brief_setting_clause(brief_msg)
+        if setting:
+            keep_clause += f" Then keep this setting: {setting}"
+        keep_clause += _brief_subject_clause(brief_msg)
+        icons = _holiday_icon_clause(season)
+        if icons:
+            keep_clause += f" Include {icons}."
         locale_ask = ""
         market_clause = _market_scene_clause(market, season)
         if market_clause:

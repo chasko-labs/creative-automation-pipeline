@@ -94,6 +94,44 @@ describe('frontier season line', () => {
     expect(line('US-NE-MANHATTAN', 'December').moment).toBe('Thanksgiving + winter holiday baking (Nov-Dec)');
   });
 
+  it('prefers the moment whose available list names the monthly ingredient', () => {
+    const stub = [
+      { market: 'US-NE-NYC',
+        frontier: { place: 'Warwick, NY (Hudson Valley, apples/onions/black dirt)', market: 'US-NY-WARWICK' },
+        monthly: { '2026-09': 'apples', '2026-08': 'peaches' },
+        moments: [
+          { moment: 'Black-dirt onion season (Jul-Sep)', status: 'confirmed', months: [7, 8, 9],
+            available: ['black-dirt onions', 'sweet corn'],
+            favorite_flavors: ['savory onion cheddar bakes', 'sweet corn'] },
+          { moment: 'Warwick Applefest + Hudson Valley apple harvest (Sep-Oct)', status: 'confirmed', months: [9, 10],
+            available: ['apples', 'apple cider', 'pears', 'pumpkins'],
+            favorite_flavors: ['apple cinnamon', 'cider', 'caramel apple'] },
+        ] },
+    ];
+    const line = loadSeasonLine(stub);
+    // September apples resolve to the harvest, not the overlapping savory arc.
+    const sept = line('US-NE-NYC', 'September');
+    expect(sept.ingredient).toBe('apples');
+    expect(sept.moment).toContain('Applefest');
+    expect(sept.favorite_flavors).toContain('apple cinnamon');
+    expect(sept.text).not.toContain('onion season');
+  });
+
+  it('keeps the legacy pick when no moment names the ingredient', () => {
+    const stub = [
+      { market: 'US-NE-NYC',
+        frontier: { place: 'Warwick, NY', market: 'US-NY-WARWICK' },
+        monthly: { '2026-09': 'apples' },
+        moments: [
+          { moment: 'Black-dirt onion season (Jul-Sep)', status: 'confirmed', months: [7, 8, 9] },
+          { moment: 'Warwick Applefest (Sep-Oct)', status: 'confirmed', months: [9, 10] },
+        ] },
+    ];
+    const line = loadSeasonLine(stub);
+    // Moments without an available list never score — first match stands.
+    expect(line('US-NE-NYC', 'September').moment).toBe('Black-dirt onion season (Jul-Sep)');
+  });
+
   it('never names a moment outside its months', () => {
     const line = loadSeasonLine(STUB);
     const r = line('US-MW-BOISE', '2026-10');

@@ -71,7 +71,13 @@
       var rich = (typeof frontierSeasonLine === 'function' && code && s)
         ? frontierSeasonLine(code, s) : null;
       if(rich){
-        if(rich.place) parts.push('frontier: ' + rich.place + (rich.moment ? ' — ' + rich.moment : ''));
+        // The moment is its own marker segment — never dash-joined into the
+        // frontier value. A ' — Moment (window)' inside the frontier value
+        // splits back out downstream as fake free text (idea/copy/subject
+        // all read the moment as the campaign), which is exactly the
+        // scaffolding leak this suffix must not produce.
+        if(rich.place) parts.push('frontier: ' + rich.place);
+        if(rich.moment) parts.push('moment: ' + rich.moment);
         if(rich.ingredient){
           var flav = (rich.favorite_flavors && rich.favorite_flavors.length) ? ' (' + rich.favorite_flavors.join(', ') + ')' : '';
           parts.push('in-season: ' + rich.ingredient + flav);

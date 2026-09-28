@@ -400,6 +400,39 @@ function frontierSeasonLine(market, monthKey){
       if(!mo || !mo.months || mo.months.indexOf(month) === -1) continue;
       if(!pick || (pick.status !== 'confirmed' && mo.status === 'confirmed')) pick = mo;
     }
+    // Ingredient-overlap preference (generic, every market): when several
+    // moments match the month, prefer one whose available list names the
+    // monthly ingredient — September apples resolve to the Applefest harvest,
+    // not a Jul-Sep savory arc that merely overlaps the month. Order-stable:
+    // the first confirmed hit wins, else the first proposed hit; no hit keeps
+    // the legacy pick above. Moments without an available list never score.
+    if(ingredient){
+      var ingNorm = String(ingredient).toLowerCase().replace(/\s*\([^)]*\)/g, '').trim();
+      var bestOverlap = null, bestOverlapConf = false;
+      /** @param {any} mo @returns {any[]} */
+      var availOf = function(mo){
+        if(mo && Array.isArray(mo.available)) return mo.available;
+        if(mo && Array.isArray(mo.available_ingredients)) return mo.available_ingredients;
+        return [];
+      };
+      /** @param {any[]} avail @returns {boolean} */
+      var namesIngredient = function(avail){
+        if(!ingNorm) return false;
+        for(var ai = 0; ai < avail.length; ai++){
+          var a = String(avail[ai] == null ? '' : avail[ai]).toLowerCase().replace(/\s*\([^)]*\)/g, '').trim();
+          if(!a) continue;
+          if(ingNorm.indexOf(a) !== -1 || a.indexOf(ingNorm) !== -1) return true;
+        }
+        return false;
+      };
+      for(const cand of moments){
+        if(!cand || !cand.months || cand.months.indexOf(month) === -1) continue;
+        if(!namesIngredient(availOf(cand))) continue;
+        var conf2 = cand.status === 'confirmed';
+        if(bestOverlap === null || (conf2 && !bestOverlapConf)){ bestOverlap = cand; bestOverlapConf = conf2; if(conf2) break; }
+      }
+      if(bestOverlap) pick = bestOverlap;
+    }
     // Holiday picks name their moment: an explicit holiday choice (Christmas,
     // Thanksgiving, ...) prefers a month-matching moment whose name says that
     // holiday, so Christmas never briefs as Thanksgiving when a market's
@@ -1176,7 +1209,7 @@ try{ if(!document.getElementById('previewHero') && typeof render==='function') r
       }
       if(rich) scene = rich;
     }catch(e){}
-    const sceneHtml = scene ? '<span class="ff-cue">'+esc(scene)+'</span>' : '';
+    const sceneHtml = scene ? ' <span class="ff-cue">'+esc(scene)+'</span>' : '';
     return '<span class="ff-context-lead">This campaign, localized for</span> '+
       '<span class="ff-place">'+esc(placeName)+'</span>'+
       sceneHtml;
