@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Secure Hosting and Delivery — Kodiak Creative Automation Pipeline</title>
-<meta name="kodiak-version" content="0.1.028-5bca70a-20260928">
+<meta name="kodiak-version" content="0.1.029-1de6a73-20260928">
 <style>
 :root{--brown-kodiak:#3B2316;--frontier:#1A3C34;--blaze:#E8530E;--stone:#D9CFC6;--cream:#FFF8F0;--parch:#F4EDE6}
 body{margin:0;background:var(--cream);color:var(--brown-kodiak);font-family:"museo-sans",system-ui,sans-serif}
@@ -43,6 +43,7 @@ a{color:var(--frontier)}
 <a href="details.html" target="_blank" rel="noopener">Design System Inventory</a>
 <a href="pipeline.html" target="_blank" rel="noopener">Creative Generation, Localization &amp; Artificial Intelligence</a>
 <a href="infrastructure.html" aria-current="page" target="_blank" rel="noopener">Secure Hosting and Delivery</a>
+<a href="prompt-history.html" target="_blank" rel="noopener">Prompt History</a>
 </div>
 
 <div class="card"><div class="hd"><h2>How the three card sketches get drawn <span class="badge">contract</span></h2><p>Each printed card carries three hand-drawn sketches (raw ingredient, kitchen technique, finished plate). They render through two bulk paths with the same style contract: the Bedrock batch (Stable Image Core from a prompts file, same model, region, and request contract as <span class="kbd">generate_recipe_art</span> in <span class="kbd">src/creative_automation/recipe_art.py</span>) and the local-graphics-card batch for seeding volume. Finished drawings are cut to transparent, stored in the asset store, and embedded into the offline card data by the emit step, so the page never waits on generation at view time.</p></div><div class="body">
