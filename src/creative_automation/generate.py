@@ -2105,7 +2105,14 @@ def generate_hero(
         # is not a concern here (seed is not None), so the budget gate is the sole B gate.
         # _STABILITY_RUNG_ON gates the whole generative rung: dev (flag off) skips B entirely
         # and falls to rung C (Nova-Pro-art-directed Pillow compose) with a distinct reason.
-        if _STABILITY_RUNG_ON and remaining_ms() >= _B_BUDGET_MS + _C_RESERVATION_MS:
+        # Generated-original seeds already ARE the floor (pads of the original are
+        # secured pixels), so rung B needs only its own worst case, not the C
+        # reservation — otherwise the original could never be restyled per ratio
+        # in legacy timer mode and B0 would be pointless there.
+        _b_need = _B_BUDGET_MS + _C_RESERVATION_MS
+        if provenance.get("seed_selection") == "generated-original":
+            _b_need = _B_STABILITY_MS
+        if _STABILITY_RUNG_ON and remaining_ms() >= _b_need:
             try:
                 # Caption overlap: fire the Nova caption NOW so it runs inside
                 # the scene + stability calls; _headline collects it after the
@@ -2124,17 +2131,19 @@ def generate_hero(
                 # fit, skip the rest of B and drop to C. The scene call itself also
                 # degrades to a deterministic default on timeout, but this gate keeps the
                 # WALL-CLOCK bounded even before the timeout fires.
-                if provenance.get("seed_selection") == "theme-photo":
-                    # Theme-photo fast path: the seed photo already carries the
-                    # theme, so the Nova scene vision call buys nothing — skip
-                    # it outright (up to ~12s) and protect rung C's reservation.
-                    scene_prompt = _default_scene_prompt(
+                if provenance.get("seed_selection") in ("theme-photo", "generated-original"):
+                    # Theme-photo / generated-original fast path: the seed
+                    # photo already carries the scene (for an original, B0
+                    # recorded the exact subject it composed), so the Nova
+                    # scene vision call buys nothing — skip it outright (up
+                    # to ~12s) and protect rung C's reservation.
+                    scene_prompt = provenance.get("scene_prompt") or _default_scene_prompt(
                         product_name, brief_msg, region, audience, theme,
                         combo_extras or None, dish, market, season,
                     )
                     print(
                         "[generate] rung B scene-prompt fast-pathed "
-                        "(theme-photo seed, deterministic default)",
+                        f"({provenance.get('seed_selection')} seed, no vision call)",
                         file=sys.stderr,
                     )
                 else:

@@ -487,6 +487,62 @@ def test_no_seed_generates_original_instead_of_floor(tmp_path, monkeypatch):
     assert stability_calls["n"] == 1
     assert prov["rung"] == "B"
     assert source == generate_mod.STABILITY_SOURCE
+
+
+def test_original_seed_restyles_even_on_spent_legacy_clock(tmp_path, monkeypatch):
+    # Legacy timer mode: the original cost wall time, so the plain B gate
+    # (20s + reservation) would skip the restyle and pad the original.
+    # Generated originals already ARE the floor, so rung B needs only its own
+    # worst case — the original gets restyled per ratio instead of padded.
+    monkeypatch.setenv("GENERATE_RUN_TO_COMPLETION", "0")
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda *a, **k: None)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: None)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
+    monkeypatch.setattr(generate_mod, "_similarity_gate_enabled", lambda: False)
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: "trail fuel caption")
+    monkeypatch.setattr(
+        generate_mod, "_nova_pro_scene_prompt",
+        lambda *a, **k: "wild frontier restyle",
+    )
+    clock = {"t": 1000.0}
+    monkeypatch.setattr(
+        generate_mod.time, "monotonic", lambda: clock["t"], raising=False,
+    )
+
+    def _slow_original(scene, out_path, request_seed=0):
+        clock["t"] += 7.0  # the original costs 7s of the 24s legacy wall
+        Image.new("RGB", (1024, 1024), (30, 90, 180)).save(out_path, "PNG")
+        return out_path
+
+    monkeypatch.setattr(generate_mod, "_scenic_background", _slow_original)
+    stability_calls = {"n": 0}
+
+    def _fake_restyle(seed_p, scene_prompt, out_path, **kwargs):
+        stability_calls["n"] += 1
+        Image.open(seed_p).save(out_path, "PNG")
+        return out_path
+
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", _fake_restyle)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="totally-made-up-sku-xyz",
+        product_name="Made Up",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        layers={},
+    )
+
+    assert result.exists()
+    assert prov["seed_selection"] == "generated-original"
+    # 17s left: plain gate (22s) would skip, original gate (13s) attempts.
+    assert stability_calls["n"] == 1
+    assert prov["rung"] == "B"
     # elapsed is honest wall time even in completion mode
     assert prov["elapsed_ms"] >= 0
 
