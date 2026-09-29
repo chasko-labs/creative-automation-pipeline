@@ -95,6 +95,9 @@ def test_preview_outpaint_success_marks_live_engines(monkeypatch) -> None:
 
 
 def test_preview_outpaint_budget_exhausted_falls_back_to_pads(monkeypatch) -> None:
+    # legacy timer mode: run-to-completion is the default, this test pins the
+    # old wallclock behavior explicitly.
+    monkeypatch.setenv("GENERATE_RUN_TO_COMPLETION", "0")
     # A slow hero (all but ~1s of the soft wall spent) leaves ~1s: the gate
     # fails, NO extend is attempted, both tiles ship pads with honest degrade
     # reasons — still 200. Remaining is the soft budget minus elapsed, so the
@@ -121,6 +124,31 @@ def test_preview_outpaint_budget_exhausted_falls_back_to_pads(monkeypatch) -> No
     for ratio in ("9x16", "16x9"):
         assert body["provenance"]["outpaint_remaining_ms"][ratio] < 6000.0
     assert body["provenance"]["outpaint_latency_ms"] == {}
+
+
+def test_preview_outpaint_completion_attempts_extend_despite_spent_clock(monkeypatch) -> None:
+    # run-to-completion (the default): the same spent clock that gates out the
+    # extends in legacy mode must NOT gate them here — both tiles attempt the
+    # live extend and land live engines when it succeeds.
+    monkeypatch.setenv("GENERATE_RUN_TO_COMPLETION", "1")
+    soft = generate_lambda.GENERATE_SOFT_BUDGET_MS
+    ticks = iter([1000.0, 1000.0 + soft - 1000.0, 1000.0 + soft - 1000.0, 1000.0 + soft - 1000.0])
+    monkeypatch.setattr(generate_lambda, "_preview_now", lambda: next(ticks, 1000.0 + soft - 1000.0))
+    calls: list = []
+
+    def _spy(base_png, w, h, prompt, out_path):
+        calls.append((w, h))
+        return _fake_extend_ok(base_png, w, h, prompt, out_path)
+
+    monkeypatch.setattr(generate_lambda, "_stability_outpaint", _spy)
+    body = _run_preview(monkeypatch)
+    assert len(calls) == 2
+    assert body["provenance"]["ratios"]["9x16"] == "stability-outpaint"
+    assert body["provenance"]["ratios"]["16x9"] == "stability-outpaint"
+    assert body["provenance"]["outpaint_degraded"] == {}
+    # the report still records the REAL (spent) remaining, not the gate value
+    for ratio in ("9x16", "16x9"):
+        assert body["provenance"]["outpaint_remaining_ms"][ratio] < 6000.0
 
 
 def test_preview_outpaint_rung_disabled_falls_back_to_pads(monkeypatch) -> None:

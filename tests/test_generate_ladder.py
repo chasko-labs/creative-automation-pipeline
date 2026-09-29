@@ -340,6 +340,9 @@ def test_rung_b_overlaps_caption_with_scene(tmp_path, monkeypatch):
 
 
 def test_budget_wall_skips_rung_b_lands_rung_c(tmp_path, monkeypatch):
+    # legacy timer mode: run-to-completion is the default, this test pins the
+    # old wallclock behavior explicitly.
+    monkeypatch.setenv("GENERATE_RUN_TO_COMPLETION", "0")
     # a real seed resolves via the (cheap, single-key) sku-mapped path so rung C has a
     # seed to compose; the seed path is NOT probe-gated, so a seed exists regardless.
     seed = tmp_path / "seed.png"
@@ -387,6 +390,56 @@ def test_budget_wall_skips_rung_b_lands_rung_c(tmp_path, monkeypatch):
     assert prov["elapsed_ms"] <= generate_mod.GENERATE_SOFT_BUDGET_MS
 
 
+def test_run_to_completion_attempts_rung_b_despite_exhausted_clock(tmp_path, monkeypatch):
+    # run-to-completion (the default): the same exhausted 5s clock that skips
+    # rung B in legacy mode must NOT skip it here — no button press dies on a
+    # wallclock. Fallback happens only on real model errors.
+    monkeypatch.setenv("GENERATE_RUN_TO_COMPLETION", "1")
+    seed = tmp_path / "seed.png"
+    seed.parent.mkdir(parents=True, exist_ok=True)
+    Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: "seed-key")
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
+    monkeypatch.setattr(generate_mod, "_similarity_gate_enabled", lambda: False)
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: "trail fuel caption")
+    monkeypatch.setattr(
+        generate_mod, "_nova_pro_scene_prompt",
+        lambda *a, **k: "wild frontier restyle",
+    )
+    stability_calls = {"n": 0}
+
+    def _fake_restyle(seed_p, scene_prompt, out_path, **kwargs):
+        stability_calls["n"] += 1
+        Image.open(seed).save(out_path, "PNG")
+        return out_path
+
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", _fake_restyle)
+    # exhausted clock: legacy mode would skip rung B outright.
+    monkeypatch.setattr(generate_mod, "GENERATE_SOFT_BUDGET_MS", 5000)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="totally-made-up-sku-xyz",
+        product_name="Made Up",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        layers={},  # no product-image layer: packshot probe stays out of the picture
+    )
+
+    assert result.exists()
+    assert stability_calls["n"] == 1
+    assert prov["rung"] == "B"
+    assert source == generate_mod.STABILITY_SOURCE
+    assert prov["fallthrough_reason"] != "budget-exhausted"
+    # elapsed is honest wall time even in completion mode
+    assert prov["elapsed_ms"] >= 0
+
+
 
 # --------------------------------------------------------------------------- #
 # (e) NOVA PRO FAIL-FAST + per-subcall budget gate (the 33s-silent-gap repair):
@@ -399,6 +452,9 @@ def test_budget_wall_skips_rung_b_lands_rung_c(tmp_path, monkeypatch):
 # and no network / real sleep is touched.
 # --------------------------------------------------------------------------- #
 def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypatch):
+    # legacy timer mode: run-to-completion is the default, this test pins the
+    # old wallclock behavior explicitly.
+    monkeypatch.setenv("GENERATE_RUN_TO_COMPLETION", "0")
     seed = tmp_path / "seed.png"
     seed.parent.mkdir(parents=True, exist_ok=True)
     Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")

@@ -24,8 +24,10 @@ from .generate import (
     GENERATE_SOFT_BUDGET_MS,
     KEEP_IT_WILD_THEME,
     LAYER_COBADGE,
+    _COMPLETION_REMAINING_MS,
     _apply_brand_overlay,
     _brand_floor,
+    _completion_on,
     _finalize_render,
     _OUTPAINT_BUDGET_MS,
     _OUTPAINT_RESERVE_MS,
@@ -57,14 +59,15 @@ from .platforms import PLATFORMS, RATIO_DIMS
 # NEVER-503 CONTRACT: a well-formed POST /generate returns 200 with REAL Kodiak pixels
 # 100% of the time. generate_hero runs a never-fail degradation ladder A->B->C->D whose
 # floor (rung D, brand-floor) does zero network I/O and cannot fail, so the old "38s then
-# 503" path is gone — a slow/absent Bedrock is a fall-through to rung C (pillow-compose),
-# not an error. The interactive PREVIEW mode runs ONE 1x1 hero plus four derived
-# tiles (9x16/16x9 attempt a live outpaint behind the preview budget gate, every
-# gated-out tile ships its Pillow pad) under the 24s internal soft budget (well
-# inside API Gateway's hard 30s cap); FULL mode keeps the complete GenAI-composed
-# set + localization + platform copy for the async pack builder. Default is
-# preview so the interactive endpoint stays fast. The ONLY non-200 is a 400 for
-# a malformed request body.
+# 503" path is gone — an unreachable Bedrock is a fall-through to rung C (pillow-compose),
+# not an error. Run-to-completion is the default (GENERATE_RUN_TO_COMPLETION=1):
+# no time-gate skips any live call on any button path — the interactive PREVIEW
+# mode runs ONE live 1x1 hero plus four sibling tiles (each its own live restyle;
+# 9x16/16x9 attempt a live outpaint when a sibling is lost) and FULL mode keeps
+# the complete GenAI-composed set + localization + platform copy for the async
+# pack builder. Fallback happens only on real model errors, never on elapsed
+# time. Default is preview so the interactive endpoint stays focused. The ONLY
+# non-200 is a 400 for a malformed request body.
 # PREVIEW mode returns FIVE tiles: the ONE 1x1 hero plus the derived tiles —
 # still well inside the soft budget; pads stay the fallback for every gated-out
 # ratio, so the wall guarantee holds with or without a live extend.
@@ -1720,8 +1723,15 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
     # The per-ratio gates below reuse the request-epoch _preview_start taken at
     # preview entry, so remaining covers one outpaint PLUS the reserve for
     # pads/overlays against the TRUE wall-clock remainder.
-    def _preview_remaining_ms() -> float:
+    def _preview_real_remaining_ms() -> float:
         return GENERATE_SOFT_BUDGET_MS - (_preview_now() - _preview_start) * 1000.0
+
+    def _preview_remaining_ms() -> float:
+        # run-to-completion (default): gates always pass; the report below
+        # still records the REAL remaining so provenance stays honest.
+        if _completion_on():
+            return float(_COMPLETION_REMAINING_MS)
+        return _preview_real_remaining_ms()
 
     brand_overlay = bool(layers.get("overlay_text"))
     headline = provenance.get("headline") if isinstance(provenance, dict) else ""
@@ -1768,7 +1778,7 @@ def _handle_preview(data: dict[str, Any], prompt: str) -> dict[str, Any]:
             elif pad_ratio in _PREVIEW_OUTPAINT_RATIOS:
                 _remaining = _preview_remaining_ms()
                 if isinstance(provenance, dict):
-                    provenance["outpaint_remaining_ms"][pad_ratio] = round(_remaining, 1)
+                    provenance["outpaint_remaining_ms"][pad_ratio] = round(_preview_real_remaining_ms(), 1)
                 if not _STABILITY_RUNG_ON:
                     if isinstance(provenance, dict):
                         provenance["outpaint_degraded"][pad_ratio] = "stability-rung-disabled"

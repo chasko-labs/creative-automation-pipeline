@@ -95,14 +95,29 @@ from .bedrock_client import (
 # malformed request (validated in the handler, before the ladder) is a 4xx; 503 is
 # structurally unreachable from a well-formed POST.
 #
-# TIME BUDGET: the Lambda timeout is 300s but the app calls through API Gateway
-# (29s integration cap), so the 24s internal soft budget
-# (NOT context.get_remaining_time_in_millis) is the real authority. Each rung
-# checks remaining_ms() against its worst-case cost BEFORE starting and skips a
-# rung that will not fit, so the ladder always reserves time to reach a
-# real-pixel floor. time.monotonic (never time.time) so a wall-clock step never
-# corrupts the deadline.
+# TIME BUDGET: run-to-completion is the default (GENERATE_RUN_TO_COMPLETION=1),
+# so remaining_ms() reports a large constant and every time-gate passes — no
+# button press ever dies on a wallclock. Live calls stay bounded by their own
+# fail-fast read timeouts; fallback happens only on real model errors. The 24s
+# soft budget below only applies when GENERATE_RUN_TO_COMPLETION=0 (legacy mode
+# for the 29s API Gateway cap). Each rung checks remaining_ms() against its
+# worst-case cost BEFORE starting and skips a rung that will not fit, so the
+# ladder always reserves time to reach a real-pixel floor. time.monotonic
+# (never time.time) so a wall-clock step never corrupts the deadline.
 GENERATE_SOFT_BUDGET_MS = int(os.getenv("GENERATE_SOFT_BUDGET_MS", "24000"))
+# RUN-TO-COMPLETION (default ON): no button press ever dies on a wallclock.
+# When on, every remaining_ms() clock below reports _COMPLETION_REMAINING_MS,
+# so every time-gate passes and every budget-shaped wait takes its full read
+# timeout. Live Bedrock calls stay bounded by their own fail-fast read
+# timeouts (BEDROCK_READ_TIMEOUT_S / NOVA / NATIVE), so fallback still happens
+# — only on real model errors, never on elapsed time. The preview path makes
+# one live hero and derives siblings from it; the full/set path composes every
+# ratio; both run until the work is done. Set GENERATE_RUN_TO_COMPLETION=0 to
+# restore the legacy 24s timer behavior (only needed behind the 29s API
+# Gateway cap, where a slow run returns 503 instead of pads).
+_COMPLETION_REMAINING_MS = 3_600_000
+def _completion_on() -> bool:
+    return os.getenv("GENERATE_RUN_TO_COMPLETION", "1").strip().lower() not in ("0", "false", "no", "")
 # Rung B (Bedrock stability-restyle) worst-case cost estimate: scene (7s) +
 # stability (13s) worst case = 20s. B is attempted only if remaining_ms covers
 # this AND the C reservation, so a slow Bedrock call can never starve the C
@@ -1540,8 +1555,16 @@ def generate_hero(
     # rung gates on remaining_ms() so the ladder always reserves time to reach a floor.
     start = time.monotonic()
 
-    def remaining_ms() -> float:
+    def _real_remaining_ms() -> float:
+        # TRUE wall math, never completion-inflated: S3 probe fan-outs stay
+        # bounded (the 503 repair) even in run-to-completion mode. Only
+        # Bedrock model-call gates run to completion; network retries do not.
         return GENERATE_SOFT_BUDGET_MS - (time.monotonic() - start) * 1000.0
+
+    def remaining_ms() -> float:
+        if _completion_on():
+            return float(_COMPLETION_REMAINING_MS)
+        return _real_remaining_ms()
 
     def _probe_ok() -> bool:
         """HARD WALL gate for a pre-ladder S3 probe.
@@ -1550,8 +1573,9 @@ def generate_hero(
         (_PROBE_BUDGET_MS) PLUS the rung-C reservation. Once false, the caller abandons
         the probe (no-seed / no-packshot) so a slow S3 fan-out can never starve the
         guaranteed-real rung C or D — the ladder still returns real pixels by ~24s.
+        Always on the real clock, even in run-to-completion mode.
         """
-        return remaining_ms() >= _PROBE_BUDGET_MS + _C_RESERVATION_MS
+        return _real_remaining_ms() >= _PROBE_BUDGET_MS + _C_RESERVATION_MS
 
     if ratio not in _CANVAS:
         ratio = "1x1"
@@ -1851,7 +1875,7 @@ def generate_hero(
         # real-pixel floor by ~24s.
         if _probe_ok():
             disk = _call_with_optional_deadline(
-                _find_source_asset, product_id, product_name, deadline_ms=remaining_ms
+                _find_source_asset, product_id, product_name, deadline_ms=_real_remaining_ms
             )
             if disk is not None and disk.exists():
                 seed = disk
@@ -1859,7 +1883,7 @@ def generate_hero(
                 provenance["seed_source"] = disk.stem
         else:
             print(
-                f"[generate] seed probe skipped (budget {remaining_ms():.0f}ms < "
+                f"[generate] seed probe skipped (budget {_real_remaining_ms():.0f}ms < "
                 f"{_PROBE_BUDGET_MS + _C_RESERVATION_MS}ms) -> no-seed",
                 file=sys.stderr,
             )
@@ -1897,13 +1921,13 @@ def generate_hero(
     # Clean contract (#199): no probe at all unless the product_image layer is selected —
     # default Create never center-pastes a box it went looking for.
     packshot = (
-        _call_with_optional_deadline(resolve_packshot, product_id, deadline_ms=remaining_ms)
+        _call_with_optional_deadline(resolve_packshot, product_id, deadline_ms=_real_remaining_ms)
         if (want_box and _probe_ok())
         else None
     )
     if packshot is None and want_box and not _probe_ok():
         print(
-            f"[generate] packshot probe skipped (budget {remaining_ms():.0f}ms < "
+            f"[generate] packshot probe skipped (budget {_real_remaining_ms():.0f}ms < "
             f"{_PROBE_BUDGET_MS + _C_RESERVATION_MS}ms) -> generative ladder",
             file=sys.stderr,
         )
@@ -2514,6 +2538,8 @@ def generate_hero_set(
     _request_start = time.monotonic()
 
     def _set_remaining_ms() -> float:
+        if _completion_on():
+            return float(_COMPLETION_REMAINING_MS)
         return GENERATE_SOFT_BUDGET_MS - (time.monotonic() - _request_start) * 1000.0
 
     # Unwritable out_dir degrades to a recorded tmp fallback (same ladder contract

@@ -72,7 +72,7 @@ Those colors live as design tokens at `design/tokens/kodiak.json`, photo directi
 - **Seasonal: trail and holiday** — Oatmeal cup on a rocky overlook at sunrise (`kodiak-trail.yaml`), cast-iron stack for holidays (`kodiak-holiday.yaml`), both with Kodiak prompts kodiak-04/05/07.
 - **On the Go** — students and commuters, 5 grams of protein that travels (`kodiak-on-the-go.yaml`).
 - **Diner Flip** — local diners within 5 miles of any Kodiak store that agree to flip cakes, printable table tent and menu board from the same three sizes (`kodiak-diner.yaml`).
-- **Subscribe and Save home delivery** — direct channel, 15 percent off plus free shipping over 45, "real food for real adventures" (`kodiak-subscription.yaml`).
+- **Subscribe and Save home delivery** — direct channel, 15 percent off plus free shipping over 45, "food for adventures" (`kodiak-subscription.yaml`).
 - **Small grocers and the Alamogordo–Las Cruces cluster** — Walmart and Albertsons kodiakcakes.com/store-locator already shows plus independents added by zip, all in the same phone book at `data/localization/` and the retail network table.
 
 See the 18-place starter memory with green chile at the top: [`docs/regional-cultural-database.md`](docs/regional-cultural-database.md) — from Las Cruces to Chicago to Brooklyn.
