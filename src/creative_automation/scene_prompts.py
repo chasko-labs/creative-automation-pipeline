@@ -691,7 +691,9 @@ def _scenic_scene_text(
         return ""
     return (
         f"Photorealistic advertising photograph: {scene}. "
-        "golden natural light, rich color, sharp focus, high detail"
+        "golden natural light, rich color, sharp focus, high detail, "
+        "plain unbranded cups and packaging, no logos, no brand marks, "
+        "no legible text"
     )
 
 

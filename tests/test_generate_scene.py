@@ -270,3 +270,17 @@ def test_market_scene_clause_strips_research_provenance() -> None:
     assert "unconfirmed" not in brooklyn
     assert "Warwick farm stands" in brooklyn  # stand name survives
     assert "apples in season" in brooklyn  # produce clause intact
+
+
+def test_scenic_scene_text_unbranded_and_clean() -> None:
+    from creative_automation.scene_prompts import _scenic_scene_text as text
+
+    s = text(
+        "Bodega coffee, oatmeal cup on the Brooklyn-bound platform — apples in season",
+        "US-NE-BROOKLYN",
+        "September",
+        None,
+    )
+    assert "no logos" in s
+    assert "research dispatch" not in s
+    assert "unconfirmed" not in s
