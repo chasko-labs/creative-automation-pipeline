@@ -703,5 +703,54 @@ def main() -> None:
     print(f"wrote {path} across {len(markets)} markets")
 
 
+def main_i18n(argv: list[str] | None = None) -> None:
+    """Bake offline recipe translations (window.KODIAK_RECIPE_I18N).
+
+    Full universe x MONTHS_2026 by default. --markets limits to a
+    comma-separated subset for gap-fills (e.g. newly added markets); a
+    subset bake REQUIRES --out so a partial book can never overwrite the
+    full live file — merge the subset output into the live book instead.
+    """
+    import argparse
+
+    p = argparse.ArgumentParser(
+        prog="creative_automation.recipe_cards_emit i18n",
+        description="Bake offline recipe-card translations for the preview toggle.",
+    )
+    p.add_argument(
+        "--markets",
+        default=None,
+        help="comma-separated market subset (default: full seeded universe)",
+    )
+    p.add_argument(
+        "--months",
+        default=None,
+        help="comma-separated months (default: all of MONTHS_2026)",
+    )
+    p.add_argument(
+        "--out",
+        default=None,
+        help="output JS path (default: live recipe-i18n-data.js; required when --markets is a subset)",
+    )
+    args = p.parse_args(argv)
+    universe = all_seeded_markets()
+    markets: tuple[str, ...] | list[str] = universe
+    if args.markets:
+        markets = [m.strip() for m in str(args.markets).split(",") if m.strip()]
+    months = MONTHS_2026
+    if args.months:
+        months = tuple(m.strip() for m in str(args.months).split(",") if m.strip())
+    out = args.out
+    if set(markets) != set(universe) and out is None:
+        p.error("--out is required when --markets is a subset (refusing to overwrite the full book with a partial bake)")
+    path = bake_recipe_i18n_js(markets, months, out_path=out)
+    print(f"baked {path} across {len(markets)} markets")
+
+
 if __name__ == "__main__":
-    main()
+    import sys as _sys
+
+    if len(_sys.argv) > 1 and _sys.argv[1] == "i18n":
+        main_i18n(_sys.argv[2:])
+    else:
+        main()

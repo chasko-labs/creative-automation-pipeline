@@ -130,3 +130,62 @@ def test_bake_writes_offline_toggle_file(monkeypatch, tmp_path):
     assert all(v.startswith("T-") for v in labels["es"].values())
     # stub is restored after the bake so later tests hit the real chain entry
     assert i18n_mod.translate_with_provenance is _stub_provider
+
+
+def _book_markets(src: str) -> set[str]:
+    import re
+
+    return set(re.findall(r'"(US-[A-Z0-9-]+)"', src))
+
+
+def test_book_covers_every_card_market():
+    # Regression: the NYC borough split added card markets (BRONX/BROOKLYN/
+    # MANHATTAN) without baking translations, so the preview language toggle
+    # rendered disabled and clicks did nothing. Every market in the cards
+    # matrix must exist in the baked book.
+    from pathlib import Path
+
+    js_dir = (
+        Path(__file__).parents[1]
+        / "web"
+        / "kodiak-posts-for-todays-frontier"
+        / "js"
+    )
+    cards_src = (js_dir / "recipe-cards-data.js").read_text(encoding="utf-8")
+    book_src = (js_dir / "recipe-i18n-data.js").read_text(encoding="utf-8")
+    # market keys open a brace; month keys ("2026-09") never match the pattern.
+    import re
+
+    card_markets = set(re.findall(r'"(US-[A-Z0-9-]+)": \{', cards_src))
+    assert card_markets, "cards matrix has no markets"
+    assert card_markets <= _book_markets(book_src), (
+        "markets with cards but no translations: "
+        f"{sorted(card_markets - _book_markets(book_src))}"
+    )
+
+
+def test_brooklyn_september_has_es_and_zh_toggle_text():
+    # The reported case: Brooklyn September must carry both dock languages
+    # with swappable title/ingredients/steps, or the toggle is dead.
+    import json
+    from pathlib import Path
+
+    js_dir = (
+        Path(__file__).parents[1]
+        / "web"
+        / "kodiak-posts-for-todays-frontier"
+        / "js"
+    )
+    body = (js_dir / "recipe-i18n-data.js").read_text(encoding="utf-8")
+    book_src = body.split("window.KODIAK_RECIPE_I18N = ", 1)[1].split(
+        "window.KODIAK_RECIPE_META_LABELS", 1
+    )[0]
+    book_src = "\n".join(
+        line for line in book_src.splitlines() if not line.strip().startswith("//")
+    ).rstrip().rstrip(";")
+    book = json.loads(book_src)
+    cell = book["US-NE-BROOKLYN"]["2026-09"]
+    assert set(cell.keys()) >= {"es", "zh"}
+    for lang in ("es", "zh"):
+        assert cell[lang]["title"]
+        assert cell[lang]["ingredients"] and cell[lang]["steps"]

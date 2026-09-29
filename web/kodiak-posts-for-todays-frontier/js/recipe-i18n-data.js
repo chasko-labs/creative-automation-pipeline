@@ -37164,6 +37164,3496 @@ window.KODIAK_RECIPE_I18N = {
       }
     }
   },
+  "US-NE-BRONX": {
+    "2026-01": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Corteza:"
+          },
+          {
+            "price": null,
+            "qty_name": "2-1⁄2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 de taza de manteca"
+          },
+          {
+            "price": null,
+            "qty_name": "12 cucharadas (1 1⁄2 barras) de mantequilla fría y cortada en cubos pequeños"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 de taza de agua helada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo batido (opcional, usado para decorar la masa)"
+          },
+          {
+            "price": null,
+            "qty_name": "Relleno:"
+          },
+          {
+            "price": null,
+            "qty_name": "5 manzanas Granny Smith, peladas, sin corazón y en rodajas"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 taza de azúcar moreno, empacada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de maicena"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 de cucharadita de clavo molido"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 cucharadita de pimienta gorda molida"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharaditas de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de salsa de caramelo (en tarros)"
+          },
+          {
+            "price": null,
+            "qty_name": "Desmenuzar:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 taza de azúcar moreno, empacada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄3 taza de mantequilla derretida"
+          }
+        ],
+        "meta": {
+          "cook": "60",
+          "prep": "60",
+          "serves": "12"
+        },
+        "steps": [
+          "CORTEZA:",
+          "COLOCA la mezcla de Kodiak Cakes en el bol del procesador de alimentos equipado con una cuchilla en forma de «s».",
+          "AGREGA la manteca al procesador de alimentos y pulsa una vez. Agregue los cubos de mantequilla, uno a la vez, pulsando varias veces después de agregar cada cubo.",
+          "CON el procesador en marcha, rocíe el agua helada hasta que la mezcla comience a formar grumos grandes. No añada demasiada agua. La masa no debe quedar pegajosa ni húmeda, sino que debe unirse para formar una masa consistente.",
+          "DIVIDA la masa en porciones de 3⁄4» y 1⁄4». Envuelva el cuarto de porción y póngalo a un lado.",
+          "ENROLLE la otra mitad de la masa en forma de bola y colóquela entre dos hojas de papel pergamino. Enróllala formando un círculo que tenga una circunferencia de 1,5 a 2 pulgadas más grande que la del molde para tartas.",
+          "COLOQUE la lámina de masa sobre la parte superior del molde para pastel y retire el papel pergamino. Presiona la masa para que quepa en el fondo y los lados del molde. Debe quedar un poco de masa colgando por los bordes. Recorta la masa para que cuelgue uniformemente sobre el borde, alrededor de 1⁄2».",
+          "CORTA la masa aproximadamente a 1⁄2 pulgadas del borde.",
+          "RESERVA y prepara el relleno de la tarta.",
+          "RELLENO:",
+          "AGREGUE las manzanas en rodajas, el azúcar moreno, la maicena, la canela, el clavo, la pimienta de Jamaica y la vainilla a un tazón grande y mezcle hasta que las manzanas estén cubiertas. Agregue la salsa de caramelo y revuelva hasta que esté bien distribuida.",
+          "COLOCA el relleno en el molde para tarta relleno de masa y empácalo de manera que no queden grandes espacios entre las rodajas de manzana.",
+          "PONGA a un lado.",
+          "DESMORONARSE:",
+          "PRECALIENTA el horno a 375 °F.",
+          "COLOQUE la mezcla de Kodiak Cakes, el azúcar moreno y la canela en un tazón pequeño y mezcle con un tenedor. Vierte la mantequilla derretida y mézclala con el tenedor hasta que la mezcla se forme grumos.",
+          "ESPOLVOREA las migas de manera uniforme sobre la parte superior de las manzanas.",
+          "SI lo deseas, usa la masa de masa de tarta que reservó para extenderla y corta formas para colocarlas alrededor del borde de la masa. Unte la masa con un huevo batido.",
+          "COLOQUE una carpa de aluminio sobre la parte superior de la tarta.",
+          "HORNEA en el horno precalentado durante 45 minutos. Retira el papel de aluminio y hornea durante 15-20 minutos más, o hasta que el relleno esté burbujeando.",
+          "RETIRAR y dejar enfriar. Sirva caliente con más salsa de caramelo, si lo desea."
+        ],
+        "title": "Tarta de manzana con caramelo",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Croûte :"
+          },
+          {
+            "price": null,
+            "qty_name": "2-1⁄2 tasses de mélange à flapjack et à gaufres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 tasse de shortening"
+          },
+          {
+            "price": null,
+            "qty_name": "12 cuillères à soupe (1 ½ bâtonnets) de beurre, froid et coupé en petits cubes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 tasse d'eau glacée"
+          },
+          {
+            "price": null,
+            "qty_name": "1 œuf battu (facultatif, utilisé par-dessus pour la décoration de la croûte)"
+          },
+          {
+            "price": null,
+            "qty_name": "Remplissage :"
+          },
+          {
+            "price": null,
+            "qty_name": "5 pommes Granny Smith, pelées, épépinées et tranchées"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 tasse de cassonade, tassée"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à soupe de fécule de maïs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à café de cannelle"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 cuillère à café de clous de girofle moulus"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 cuillère à café de piment de la Jamaïque moulu"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cuillères à café de vanille"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tasse de sauce au caramel (en pot)"
+          },
+          {
+            "price": null,
+            "qty_name": "Crumble :"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tasse de mélange à flapjack et à gaufres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 tasse de cassonade, tassée"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à café de cannelle"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄3 tasse de beurre fondu"
+          }
+        ],
+        "meta": {
+          "cook": "60",
+          "prep": "60",
+          "serves": "12"
+        },
+        "steps": [
+          "CROÛTE :",
+          "PLACER le mélange Kodiak Cakes dans le bol du robot culinaire équipé d'une lame en « S ».",
+          "AJOUTER le shortening au robot culinaire et mélanger une fois. Ajouter les cubes de beurre, un à la fois, en pulsant plusieurs fois après l'ajout de chaque cube.",
+          "AVEC le robot en marche, verser un filet d'eau glacée jusqu'à ce que le mélange commence à former de gros grumeaux. N'ajoutez pas trop d'eau. La pâte ne doit pas être collante ni humide, mais doit s'assembler pour former une pâte homogène.",
+          "DIVISEZ la pâte en portions de 3⁄4 po et 1⁄4 po. Enveloppez le quart de portion et réservez.",
+          "ROULER l'autre moitié de la pâte en boule et la placer entre deux feuilles de papier sulfurisé. Roulez jusqu'à obtenir un cercle de 1,5 à 2 pouces de plus de circonférence que votre moule à tarte.",
+          "PLACEZ la feuille de pâte sur le dessus de votre moule à tarte et retirez le papier sulfurisé. Pressez la pâte pour l'adapter au fond et aux côtés du plat. Il devrait rester un peu de pâte sur les bords. Coupez la pâte de manière à ce qu'elle dépasse uniformément du bord d'environ 1⁄2 po.",
+          "COUPER la pâte à environ 1⁄2 po du bord.",
+          "METTRE de côté et préparer la garniture à tarte.",
+          "REMPLISSAGE :",
+          "AJOUTER les pommes tranchées, la cassonade, la fécule de maïs, la cannelle, les clous de girofle, le piment de la Jamaïque et la vanille dans un grand bol et mélanger jusqu'à ce que les pommes soient enrobées. Ajouter la sauce au caramel et mélanger jusqu'à ce que le tout soit bien réparti.",
+          "DÉPOSER la garniture dans le moule à tarte rempli de pâte et tasser de manière à ce qu'il n'y ait pas de grands espaces entre les tranches de pomme.",
+          "METTRE de côté.",
+          "ÉMIETTER :",
+          "PRÉCHAUFFER le four à 375 °F.",
+          "PLACER le mélange Kodiak Cakes, la cassonade et la cannelle dans un petit bol et fouetter le tout avec une fourchette. Versez le beurre fondu et mélangez-le à la fourchette jusqu'à ce que le mélange s'agglutine.",
+          "SAUPOUDRER les miettes uniformément sur le dessus des pommes.",
+          "SI vous le souhaitez, utilisez la pâte à tarte réservée pour l'étaler et découpez des formes à placer sur le bord de la croûte. Badigeonner la croûte d'une dorure à l'œuf.",
+          "PLACER une tente en aluminium sur le dessus de la tarte.",
+          "CUIRE au four préchauffé pendant 45 minutes. Retirer le papier aluminium et cuire au four pendant 15 à 20 minutes supplémentaires, ou jusqu'à ce que la garniture bouillonne.",
+          "RETIRER et laisser refroidir. Servir chaud avec une sauce au caramel supplémentaire, si vous le souhaitez."
+        ],
+        "title": "Tarte aux pommes et au caramel",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-02": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de avena Kodiak con arce y azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de Power Cakes de suero de leche Kodiak"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 de cucharadita de polvo de hornear"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de aceite de aguacate"
+          },
+          {
+            "price": null,
+            "qty_name": "5 cucharadas de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de nueces picadas (reserve unas cuantas para cubrir el panecillo)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de mantequilla derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de sirope de arce"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de azúcar en polvo"
+          }
+        ],
+        "meta": {
+          "cook": "2 minutos",
+          "prep": "8 minutos",
+          "serves": "1"
+        },
+        "steps": [
+          "RETIRA la tapa de la taza de avena.",
+          "AGREGA la mezcla para bizcochos y el polvo de hornear a la taza y revuelve con un tenedor para combinar.",
+          "AGREGUE el huevo, el aceite y 2 cucharadas de leche a la taza y revuelva hasta que se forme una masa suave.",
+          "AGREGA las 3 cucharadas restantes de leche y revuelve hasta que estén completamente combinadas. Deje reposar durante 5 minutos.",
+          "REVUELVE nuevamente y espolvorea la parte superior con nueces picadas. Calienta en el microondas durante 90 segundos.",
+          "DEJAR enfriar un poco. Prepara glaseado con mantequilla de arce:",
+          "COLOQUE la mantequilla derretida, el jarabe de arce y el azúcar en polvo en un tazón pequeño y mezcle hasta que se forme un glaseado suave.",
+          "ROCÍE el glaseado sobre la parte superior del panecillo y espolvoree con algunos trozos de nuez. ¡Disfruta!"
+        ],
+        "title": "Single-Serve Maple Pecan Muffin",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "title"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 tasse de flocons d'avoine Kodiak à l'érable et à la cassonade"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cuillères à soupe de Power Cakes au babeurre Kodiak"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cuillère à café de poudre à pâte"
+          },
+          {
+            "price": null,
+            "qty_name": "1 œuf"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à soupe d'huile d'avocat"
+          },
+          {
+            "price": null,
+            "qty_name": "5 cuillères à soupe de lait"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à soupe de pacanes, hachées (réservez-en quelques-unes pour garnir le muffin)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à café de beurre fondu"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à café de sirop d'érable"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cuillères à soupe de sucre en poudre"
+          }
+        ],
+        "meta": {
+          "cook": "2 minutes",
+          "prep": "8 minutes",
+          "serves": "1"
+        },
+        "steps": [
+          "RETIREZ le couvercle de la tasse à flocons d'avoine.",
+          "AJOUTER le mélange Power Cakes et la poudre à pâte dans la tasse et mélanger à l'aide d'une fourchette pour bien mélanger.",
+          "AJOUTER l'œuf, l'huile et 2 cuillères à soupe de lait dans la tasse et remuer jusqu'à l'obtention d'une pâte lisse.",
+          "AJOUTER les 3 cuillères à soupe de lait restantes et remuer jusqu'à ce que le tout soit bien mélangé. Laisser reposer 5 minutes.",
+          "REMUEZ à nouveau et saupoudrez le dessus de pacanes hachées. Cuire au micro-ondes pendant 90 secondes.",
+          "LAISSER refroidir légèrement. Préparez un glaçage au beurre d'érable :",
+          "PLACER le beurre fondu, le sirop d'érable et le sucre en poudre dans un petit bol et fouetter jusqu'à l'obtention d'un glaçage lisse.",
+          "VERSER le glaçage sur le dessus du muffin et parsemer de quelques morceaux de pacanes. Profitez-en !"
+        ],
+        "title": "Muffin à l'érable et aux pacanes en portion individuelle",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-03": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tazas de verduras abundantes y picadas para cocinar (verduras de primavera, verduras de invierno, berza o col rizada)"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de parmesano rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cucharadas de aceite neutro, para freír"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de microvegetales frescos, para servir"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "25 minutos",
+          "serves": "10 buñuelos"
+        },
+        "steps": [
+          "BLANQUEE las verduras durante 2 minutos en agua hirviendo con sal, enfríelas en agua helada y luego séquelas completamente con una toalla.",
+          "PICA bien las verduras exprimidas y bate con la mezcla, los huevos, el parmesano, la sal y la pimienta hasta obtener una masa firme.",
+          "CALIENTA el aceite a fuego medio; saca 1/4 de taza de montículos, aplánalos y fríe de 3 a 4 minutos por lado hasta que estén crujientes y dorados.",
+          "SIRVA caliente cubierto con microvegetales frescos."
+        ],
+        "title": "Buñuelos de verduras saladas",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 tasse de mélange à flapjack et à gaufres Power Cakes au babeurre"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tasses de légumes verts à cuire copieux hachés (légumes verts de printemps, légumes verts d'hiver, chou vert ou chou frisé)"
+          },
+          {
+            "price": null,
+            "qty_name": "2 gros œufs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 tasse de parmesan râpé"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à café de sel"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cuillère à café de poivre noir"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cuillères à soupe d'huile neutre, pour la friture"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tasse de micropousses fraîches, pour servir"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutes",
+          "prep": "25 minutes",
+          "serves": "10 beignets"
+        },
+        "steps": [
+          "BLANCHISSEZ les légumes verts 2 minutes dans de l'eau bouillante salée, laissez-les refroidir dans de l'eau glacée, puis pressez-les complètement dans une serviette.",
+          "HACHEZ finement les légumes verts pressés et fouettez avec le mélange, les œufs, le parmesan, le sel et le poivre pour obtenir une pâte ferme.",
+          "CHAUFFER l'huile à feu moyen ; prélever 1/4 tasse de monticules, aplatir et faire frire 3 à 4 minutes de chaque côté jusqu'à ce qu'ils soient croustillants et dorés.",
+          "SERVIR chaud garni de micropousses fraîches."
+        ],
+        "title": "Beignets de légumes verts salés",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-04": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de mezcla para flapjack y waffle Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de mantequilla"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 de taza de agua helada. Relleno:"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tazas de queso ricotta"
+          },
+          {
+            "price": null,
+            "qty_name": "3 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de ajo en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de cobertura de pimienta:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de aceite de oliva"
+          },
+          {
+            "price": null,
+            "qty_name": "1 puñado de espárragos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1 manojo de rábanos cortados por la mitad"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de berros o rúcula"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "AGREGA la mezcla de Kodiak Cakes a un tazón grande. Corta la mantequilla en cubos y mézclala con la mezcla a mano. Agrega agua helada. Mezcle hasta que se forme una masa. Aplana la masa en forma de disco y refrigera durante 1 hora.",
+          "MIENTRAS TANTO, mezcle la ricota, los huevos, la leche, la sal y la pimienta en un tazón grande.",
+          "PRECALIENTA el horno a 375 grados. Cubra los espárragos y los rábanos con aceite de oliva y sal. Colóquelos en una bandeja para hornear y ase durante 15-20 minutos.",
+          "SOBRE una superficie enharinada, enrolle el disco de masa para tarta de 1/4 pulgada de grosor y colóquelo en un molde para tartas.",
+          "RELLENE con el relleno de ricota preparado y hornee durante 25-30 minutos. Retirar del horno y dejar enfriar un poco antes de cubrir con verduras asadas y berros o rúcula."
+        ],
+        "title": "Tarta de verduras y queso",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 1/2 tasse de mélange à flapjack et à gaufres Kodiak au babeurre Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 tasse de beurre"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 tasse d'eau glacée. Remplissage :"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cups ricotta cheese"
+          },
+          {
+            "price": null,
+            "qty_name": "3 œufs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 tasse de lait"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à café d'ail en poudre"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cuillère à café de sel"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cuillère à café de poivre. Garniture :"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à soupe d'huile d'olive"
+          },
+          {
+            "price": null,
+            "qty_name": "1 botte d'asperges"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cuillère à café de sel"
+          },
+          {
+            "price": null,
+            "qty_name": "1 bouquet de radis, coupé en deux"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 tasse de cresson ou de roquette"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "AJOUTER le mélange à gâteaux Kodiak dans un grand bol. Coupez le beurre en cubes et incorporez-le au mélange à la main. Ajoutez de l'eau glacée. Mélangez jusqu'à ce qu'une pâte soit formée. Aplatir la pâte en un disque et réfrigérer pendant 1 heure.",
+          "PENDANT CE TEMPS, fouetter la ricotta, les œufs, le lait, le sel et le poivre dans un grand bol.",
+          "PRÉCHAUFFER le four à 375 degrés. Enrober les asperges et les radis d'huile d'olive et de sel. Déposer sur un plat allant au four et rôtir pendant 15 à 20 minutes.",
+          "SUR une surface farinée, rouler le disque de pâte à tarte de 1/4 po d'épaisseur et le déposer dans un moule à tarte.",
+          "REMPLIR avec la garniture à la ricotta préparée et cuire au four pendant 25 à 30 minutes. Retirer du four et laisser refroidir légèrement avant de garnir de légumes rôtis et de cresson ou de roquette."
+        ],
+        "title": "Tarte aux légumes et au fromage",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4"
+          ],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-05": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1/2 taza de mezcla para flapjack y waffle Kodiak Frontier Cakes con mantequilla y miel"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 de taza de agua"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de mantequilla de cacahuete"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de mermelada de fresa"
+          },
+          {
+            "price": null,
+            "qty_name": "4 fresas, sin tallos, cortadas en rodajas"
+          }
+        ],
+        "meta": {
+          "cook": "5 minutos",
+          "prep": "5 minutos",
+          "serves": "1"
+        },
+        "steps": [
+          "COLOQUE la mezcla para gofres, el huevo y el agua en un tazón y mezcle hasta que quede suave. Deje reposar unos minutos para que los líquidos se absorban.",
+          "CALIENTA una sartén a fuego medio-alto y engrasa con mantequilla. Vierte la masa en la sartén caliente y extiende la masa con el dorso de una cuchara formando un círculo grande de aproximadamente 6 pulgadas de diámetro.",
+          "COCINE hasta que se formen burbujas en la parte superior de la masa, de 60 a 90 segundos. Dale la vuelta al panqueque y cocina 30 segundos más.",
+          "RETIRA el panqueque de la sartén y colócalo en un plato y déjalo enfriar.",
+          "UNTE la mantequilla de maní y la mermelada sobre el panqueque y coloque las fresas en una línea en el centro del panqueque.",
+          "ENROLLE el panqueque, colóquelo en el plato y cúbralo con más mantequilla de maní y fresas, si lo desea."
+        ],
+        "title": "Paquete acumulativo PB&J",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1/2 tasse de mélange à flapjack et gaufres Kodiak Frontier Cakes au babeurre et au miel"
+          },
+          {
+            "price": null,
+            "qty_name": "1 œuf"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 tasse d'eau"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tablespoons peanut butter"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cuillères à soupe de confiture de fraises"
+          },
+          {
+            "price": null,
+            "qty_name": "4 fraises, équeutées, tranchées"
+          }
+        ],
+        "meta": {
+          "cook": "5 minutes",
+          "prep": "5 minutes",
+          "serves": "1"
+        },
+        "steps": [
+          "PLACER le mélange à gaufres, l'œuf et l'eau dans un bol et fouetter jusqu'à consistance lisse. Laisser reposer quelques minutes pour que les liquides soient absorbés.",
+          "CHAUFFER une poêle à feu moyen-vif et la graisser avec du beurre. Versez la pâte dans la poêle chaude et étalez-la avec le dos d'une cuillère en un grand cercle d'environ 6 pouces de diamètre.",
+          "CUIRE jusqu'à ce que des bulles se forment sur le dessus de la pâte, de 60 à 90 secondes. Retourner la crêpe et cuire encore 30 secondes.",
+          "RETIRER la crêpe de la poêle sur une assiette et laisser refroidir.",
+          "ÉTALEZ le beurre de cacahuète et la gelée sur la crêpe et placez les fraises en ligne au centre de la crêpe.",
+          "ROULER la crêpe, la déposer sur l'assiette et garnir de beurre de cacahuète et de fraises supplémentaires, si vous le souhaitez."
+        ],
+        "title": "PB&J Rollup",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:4"
+          ],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-06": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "12 cucharadas (3/4 de taza) de mantequilla ablandada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "3 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cucharadita de extracto de almendras"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cucharaditas de vainilla, divididas"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tazas de cerezas congeladas, partidas por la mitad"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de maicena"
+          },
+          {
+            "price": null,
+            "qty_name": "Zumo de 1/2 limón"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de sirope de arce"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "2-3 cucharadas de agua"
+          }
+        ],
+        "meta": {
+          "cook": "35 minutos",
+          "prep": "20 minutos",
+          "serves": "15"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° Fahrenheit. Cubra un molde para hornear de 9 x 13 pulgadas con papel pergamino.",
+          "COLOCA la mantequilla y el azúcar moreno en un bol. Bata con una batidora eléctrica hasta que esté suave y esponjoso, de 2 a 3 minutos.",
+          "INCORPORA los huevos, uno a la vez.",
+          "AGREGA la mezcla de Kodiak Cakes y bate hasta que se combinen. Deje reposar durante cinco minutos.",
+          "ESPARZA 2/3 de la mezcla de masa de manera uniforme en el molde para hornear forrado con papel pergamino. Hornea en el horno precalentado durante 15 minutos.",
+          "MIENTRAS se hornea la masa, prepare la salsa de cerezas agregando las cerezas, la maicena, el jugo de limón y el jarabe de arce a una cacerola y revuelva para combinar. Calienta a fuego medio-alto, revolviendo de vez en cuando, hasta que las cerezas y la salsa estén brillantes y espesas, aproximadamente de 3 a 5 minutos. Retirar del fuego.",
+          "RETIRA la masa del horno después de 15 minutos y vierte la salsa de cerezas sobre la masa, extendiéndola uniformemente.",
+          "COLOQUE los grumos de la masa restante sobre la parte superior de las cerezas y extiéndalos uniformemente por la parte superior.",
+          "VUELVE A COLOCAR la sartén en el horno y hornea durante 15 a 20 minutos más, o hasta que las migajas de la parte superior estén ligeramente doradas.",
+          "RETIRAR del horno y dejar enfriar.",
+          "COLOQUE el azúcar en polvo, la vainilla y el agua en un tazón pequeño y mezcle para formar un glaseado suave.",
+          "ROCÍE el glaseado sobre las barras de tarta de cerezas enfriadas. Córtalas en 15 rebanadas.",
+          "ALMACENE en un recipiente hermético."
+        ],
+        "title": "Barras de tarta de cereza",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "12 cuillères à soupe (3/4 tasse) de beurre, ramolli"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tasse de cassonade"
+          },
+          {
+            "price": null,
+            "qty_name": "3 œufs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cuillère à café d'extrait d'amande"
+          },
+          {
+            "price": null,
+            "qty_name": "1 1/2 cuillère à café de vanille, divisée"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tasses de mélange à flapjack et à gaufres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tasses de cerises surgelées, coupées en deux"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cuillères à soupe de fécule de maïs"
+          },
+          {
+            "price": null,
+            "qty_name": "Jus d'1/2 citron"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 tasse de sirop d'érable"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tasse de sucre en poudre"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cuillère à café d'extrait de vanille"
+          },
+          {
+            "price": null,
+            "qty_name": "2-3 cuillères à soupe d'eau"
+          }
+        ],
+        "meta": {
+          "cook": "35 minutes",
+          "prep": "20 minutes",
+          "serves": "15"
+        },
+        "steps": [
+          "PRÉCHAUFFEZ le four à 350 degrés Fahrenheit. Tapisser un plat de cuisson de 9 x 13 pouces de papier parchemin.",
+          "PLACER le beurre et la cassonade dans un saladier. Battre au batteur électrique jusqu'à consistance légère et mousseuse, de 2 à 3 minutes.",
+          "Ajouter les œufs en fouettant, un à la fois.",
+          "AJOUTER le mélange à gâteaux Kodiak et incorporer jusqu'à ce que le tout soit bien mélangé. Laisser reposer pendant cinq minutes.",
+          "ÉTALER les 2/3 du mélange de pâte uniformément sur le plat de cuisson tapissé de papier parchemin. Cuire au four préchauffé pendant 15 minutes.",
+          "PENDANT que la croûte cuit, préparez la sauce aux cerises en ajoutant les cerises, la fécule de maïs, le jus de citron et le sirop d'érable dans une casserole et mélangez bien. Chauffer à feu moyen-vif, en remuant de temps en temps, jusqu'à ce que les cerises et la sauce soient brillantes et épaisses, environ 3 à 5 minutes. Retirer du feu.",
+          "RETIRER la croûte du four au bout de 15 minutes et verser la sauce aux cerises sur le dessus en l'étalant uniformément.",
+          "PLACER les mottes du reste de la pâte sur le dessus des cerises et les répartir uniformément sur le dessus.",
+          "REMETTRE le moule au four et cuire encore 15 à 20 minutes, ou jusqu'à ce que les miettes soient légèrement dorées sur le dessus.",
+          "RETIRER du four et laisser tiédir.",
+          "PLACER le sucre en poudre, la vanille et l'eau dans un petit bol et fouetter pour former un glaçage lisse.",
+          "VERSER le glaçage sur le dessus des barres à tarte aux cerises refroidies. Couper en 15 tranches.",
+          "CONSERVER dans un contenant hermétique."
+        ],
+        "title": "Barres à tarte aux cerises",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-07": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "6 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de cebolletas en rodajas finas (verdes y blancas)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de queso cheddar rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "15 minutos",
+          "serves": "12 magdalenas"
+        },
+        "steps": [
+          "CALIENTA el horno a 350 °F y engrasa un molde para magdalenas de 12 tazas.",
+          "BATE los huevos, la leche, la sal y la pimienta; incorpora la mezcla hasta que quede suave, luego agrega las cebolletas y el queso cheddar.",
+          "DIVIDA entre las tazas y hornee de 18 a 20 minutos, hasta que se hinche y cuaje.",
+          "DEJAR ENFRIAR 5 minutos antes de desmoldar."
+        ],
+        "title": "Muffins de huevo y cebolla tierna",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 tasse de mélange à flapjack et à gaufres Power Cakes au babeurre"
+          },
+          {
+            "price": null,
+            "qty_name": "6 gros œufs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tasse d'oignons de printemps émincés (verts et blancs)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 tasse de cheddar râpé"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 tasse de lait"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cuillère à café de sel"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cuillère à café de poivre noir"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutes",
+          "prep": "15 minutes",
+          "serves": "12 muffins"
+        },
+        "steps": [
+          "CHAUFFER le four à 350 °F et graisser un moule à muffins de 12 tasses.",
+          "FOUETTER les œufs, le lait, le sel et le poivre ; incorporer le mélange en fouettant jusqu'à l'obtention d'une consistance lisse, puis incorporer les oignons nouveaux et le cheddar.",
+          "RÉPARTIR dans les tasses et cuire au four de 18 à 20 minutes, jusqu'à ce que le tout soit gonflé et durci.",
+          "LAISSER REFROIDIR 5 minutes avant de démouler."
+        ],
+        "title": "Muffins aux œufs et aux oignons nouveaux",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-08": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "3 waffles poderosos de mantequilla y vainilla de Kodiak"
+          },
+          {
+            "price": null,
+            "qty_name": "4 cucharadas de queso crema"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de yogur griego"
+          },
+          {
+            "price": null,
+            "qty_name": "2 duraznos o ciruelas en rodajas"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de miel"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "USA una batidora eléctrica para batir el queso crema. Agregue el yogur griego y mezcle hasta que quede suave.",
+          "TOSTA los waffles a la temperatura más baja.",
+          "CORTA cada gofre por la mitad.",
+          "CUBRA con la mezcla de queso crema y duraznos o ciruelas en rodajas. Rocíe con miel."
+        ],
+        "title": "Bruschetta de frutas de verano",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "3 gaufres Kodiak au babeurre et à la vanille"
+          },
+          {
+            "price": null,
+            "qty_name": "4 cuillères à soupe de fromage à la crème"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 tasse de yogourt grec"
+          },
+          {
+            "price": null,
+            "qty_name": "2 pêches ou prunes, tranchées"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cuillères à soupe de miel"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "UTILISEZ un batteur électrique pour fouetter le fromage à la crème. Ajouter le yogourt grec et mélanger jusqu'à l'obtention d'une consistance lisse.",
+          "Faites griller les gaufres au réglage le plus bas.",
+          "COUPER chaque gaufre en deux.",
+          "GARNIR du mélange de fromage à la crème et de pêches ou de prunes tranchées. Arrosez de miel."
+        ],
+        "title": "Bruschetta aux fruits d'été",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-09": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Compota de manzana y canela"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 libras de manzanas"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/4 taza de agua"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza más 1 cucharada de miel"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de zumo de limón\r\n\r\n\r\n \r\n\r\nTortitas de suero de leche y miel"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 1/2 taza de agua"
+          },
+          {
+            "price": null,
+            "qty_name": "4 cucharaditas de miel"
+          },
+          {
+            "price": null,
+            "qty_name": "4 cucharadas de mantequilla sin sal"
+          },
+          {
+            "price": null,
+            "qty_name": "Sirope de arce, para servir (opcional)"
+          }
+        ],
+        "meta": {
+          "cook": "35 minutos",
+          "prep": "20 minutos",
+          "serves": "4"
+        },
+        "steps": [
+          "Compota de manzana y canela Pela y quita el corazón de las manzanas y córtalas en octavos. Colóquelas en una cacerola ancha y poco profunda con ¼ de taza de agua, azúcar moreno, 1 cucharada de miel y canela a fuego medio. Lleve a ebullición y luego reduzca el fuego a bajo. Cocine a fuego lento y revuelva hasta que las manzanas estén suaves y fragantes (unos 10 minutos). Agregue la 1 taza de agua restante y ½ taza de miel, suba a fuego medio y revuelva para que se mezclen. Lleve la mezcla a ebullición y continúe cocinando durante 20-25 minutos o hasta que las manzanas se doren y el almíbar espese. Agrega el jugo de limón y revuelve. Los flapjacks de mantequilla y miel combinan la mezcla Kodiak Cakes Power Cakes con agua, miel y canela. Calienta una plancha o sartén a fuego medio-alto con ½ cucharada de mantequilla. Agregue ¼ de taza de la masa para flapjack a la sartén y cocine hasta que se formen burbujas en la parte superior y la parte inferior esté dorada. Luego voltea y cocina por el otro lado hasta que estén doradas. Ponga a un lado los panqueques cocidos y agregue otra ½ cucharada de mantequilla a la sartén. Una vez que la sartén esté caliente, agrega otro ¼ de taza de la masa para flapjack a la sartén y repite el proceso hasta que hayas hecho 8 flapjacks (usando toda la masa). Sirve los flapjacks con compota de manzana en la punta y sirope de arce para rociarlos."
+        ],
+        "title": "Compota de manzana y canela",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Compote aux pommes et à"
+          },
+          {
+            "price": null,
+            "qty_name": "1 1/2 livre de pommes"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/4 tasse d'eau"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à soupe de cassonade"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 tasse plus 1 cuillère à soupe de miel"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à café de cannelle"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à soupe de jus de citron\r\n\r\n\r\n \r\n\r\nFlapjacks au babeurre et au miel"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tasses de mélange à flapjack et à gaufres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 1/2 tasse d'eau"
+          },
+          {
+            "price": null,
+            "qty_name": "4 cuillères à café de miel"
+          },
+          {
+            "price": null,
+            "qty_name": "4 cuillères à soupe de beurre non salé"
+          },
+          {
+            "price": null,
+            "qty_name": "Sirop d'érable, pour servir (facultatif)"
+          }
+        ],
+        "meta": {
+          "cook": "35 minutes",
+          "prep": "20 minutes",
+          "serves": "4"
+        },
+        "steps": [
+          "Compote de pommes et de cannelle Épluchez et évidez les pommes, puis coupez-les en huit. Placez-les dans une grande casserole peu profonde avec ¼ tasse d'eau, de cassonade, 1 cuillère à soupe de miel et de cannelle à feu moyen. Porter à ébullition puis réduire le feu à doux. Laisser mijoter en remuant jusqu'à ce que les pommes soient tendres et parfumées (environ 10 minutes). Ajouter le reste de 1 tasse d'eau et ½ tasse de miel, porter à feu moyen et bien mélanger. Porter le mélange à ébullition et poursuivre la cuisson de 20 à 25 minutes ou jusqu'à ce que les pommes soient dorées et que le sirop épaississe. Ajoutez le jus de citron en remuant. Les flapjacks au babeurre et au miel combinent le mélange Kodiak Cakes Power Cakes au babeurre, de l'eau, du miel et de la cannelle. Faites chauffer une plaque chauffante ou une poêle à feu moyen-vif avec ½ cuillère à soupe de beurre. Ajouter ¼ tasse de pâte à flapjack dans la poêle et cuire jusqu'à ce que des bulles se forment sur le dessus et que le fond soit doré. Retournez ensuite et faites cuire de l'autre côté jusqu'à ce qu'il soit doré. Mettez de côté les flapjacks cuits et ajoutez encore ½ cuillère à soupe de beurre dans la poêle. Une fois que la poêle est chaude, ajoutez encore ¼ tasse de pâte à flapjack dans la poêle et répétez le processus jusqu'à obtenir 8 flapjacks (en utilisant toute la pâte). Servez les flapjacks avec de la compote de pommes sur le dessus et du sirop d'érable pour les arroser."
+        ],
+        "title": "Compote aux pommes et à",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-10": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Rosquillas:"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 taza de mezcla Kodiak, canela y avena Power Cakes para flapjack y gofres"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de polvo de hornear"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de sidra de manzana"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de aceite de coco derretido"
+          },
+          {
+            "price": null,
+            "qty_name": "Esmalte:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de sidra de manzana"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "10 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "EN un tazón, combine la mezcla de Kodiak Cakes, el azúcar moreno y el polvo de hornear y mezcle.",
+          "AGREGUE la sidra de manzana, el huevo, el extracto de vainilla y el aceite de coco derretido.",
+          "MEZCLE hasta que esté combinado.",
+          "DIVIDA la masa en moldes para rosquillas engrasados y hornee a 350 durante 12 a 15 minutos o hasta que el palillo quede limpio.",
+          "DEJA que las rosquillas se enfríen mientras preparas el glaseado.",
+          "EN un bol pequeño, mezcla el azúcar en polvo, la vainilla y la sidra de manzana.",
+          "MEZCLE hasta que quede suave.",
+          "ROCÍE el glaseado sobre las rosquillas enfriadas y sirva."
+        ],
+        "title": "Donuts de sidra de manzana",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Beignets :"
+          },
+          {
+            "price": null,
+            "qty_name": "1 1/2 tasse de mélange à flapjack et à gaufres Kodiak Cinnamon Oat Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 tasse de cassonade"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à café de poudre à pâte"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 tasse de cidre de pomme"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cuillère à café d'extrait de vanille"
+          },
+          {
+            "price": null,
+            "qty_name": "1 œuf"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 tasse d'huile de noix de coco, fondue"
+          },
+          {
+            "price": null,
+            "qty_name": "Glaçure :"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tasse de sucre en poudre"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cuillère à café de vanille"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cuillères à soupe de cidre"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutes",
+          "prep": "10 minutes",
+          "serves": "12"
+        },
+        "steps": [
+          "DANS un bol, mélanger le mélange Kodiak Cakes, la cassonade et la poudre à pâte et mélanger.",
+          "AJOUTER le cidre de pomme, l'œuf, l'extrait de vanille et l'huile de noix de coco fondue.",
+          "MÉLANGER jusqu'à ce que le tout soit bien mélangé.",
+          "RÉPARTIR la pâte dans des moules à beignets graissés et cuire au four à 350 pendant 12 à 15 minutes ou jusqu'à ce qu'un cure-dent soit propre.",
+          "LAISSEZ les beignets refroidir pendant que vous préparez le glaçage.",
+          "DANS un petit bol, mélanger le sucre en poudre, la vanille et le cidre de pomme.",
+          "MÉLANGER jusqu'à consistance lisse.",
+          "VERSER le glaçage sur les beignets refroidis et servir."
+        ],
+        "title": "Beignets au cidre de pomme",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-11": {
+      "es": {
+        "ingredients": [
+          {
+            "price": "$2.75",
+            "qty_name": "2 tazas de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": "$2.00",
+            "qty_name": "1 taza de puré de calabaza de invierno asada (nuez moscada o bellota)"
+          },
+          {
+            "price": "$0.70",
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": "$0.30",
+            "qty_name": "1/2 taza de leche"
+          },
+          {
+            "price": "$1.65",
+            "qty_name": "1/3 taza de miel o azúcar"
+          },
+          {
+            "price": "$0.75",
+            "qty_name": "1/4 taza de mantequilla derretida"
+          },
+          {
+            "price": "$0.20",
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": "$0.05",
+            "qty_name": "1/2 cucharadita de sal"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "15 minutos",
+          "serves": "12 magdalenas"
+        },
+        "steps": [
+          "CALIENTA el horno a 400 °F y forra un molde para magdalenas de 12 tazas.",
+          "BATE la calabaza, los huevos, la leche, la miel y la mantequilla hasta que estén suaves, luego agrega la mezcla, la canela y la sal hasta que se combinen.",
+          "DIVIDA entre las tazas y hornee de 18 a 20 minutos, hasta que un probador salga limpio.",
+          "DEJAR ENFRIAR 5 minutos en la lata antes de desmoldar."
+        ],
+        "title": "Muffins matutinos de calabaza de invierno",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": "$2.75",
+            "qty_name": "2 tasses de mélange à flapjack et à gaufres Power Cakes au babeurre"
+          },
+          {
+            "price": "$2.00",
+            "qty_name": "1 tasse de purée de courge d'hiver rôtie (butternut ou gland)"
+          },
+          {
+            "price": "$0.70",
+            "qty_name": "2 gros œufs"
+          },
+          {
+            "price": "$0.30",
+            "qty_name": "1/2 tasse de lait"
+          },
+          {
+            "price": "$1.65",
+            "qty_name": "1/3 tasse de miel ou de sucre"
+          },
+          {
+            "price": "$0.75",
+            "qty_name": "1/4 tasse de beurre fondu"
+          },
+          {
+            "price": "$0.20",
+            "qty_name": "1 cuillère à café de cannelle"
+          },
+          {
+            "price": "$0.05",
+            "qty_name": "1/2 cuillère à café de sel"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutes",
+          "prep": "15 minutes",
+          "serves": "12 muffins"
+        },
+        "steps": [
+          "CHAUFFER le four à 400 °F et tapisser un moule à muffins de 12 tasses.",
+          "FOUETTER la courge, les œufs, le lait, le miel et le beurre jusqu'à consistance lisse, puis incorporer le mélange, la cannelle et le sel jusqu'à ce que le tout soit homogène.",
+          "RÉPARTIR dans les tasses et cuire au four de 18 à 20 minutes, jusqu'à ce qu'un cure-dent en ressorte propre.",
+          "LAISSER REFROIDIR 5 minutes dans le moule avant de démouler."
+        ],
+        "title": "Muffins matinaux à la courge",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-12": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "6 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de cebolletas en rodajas finas (verdes y blancas)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de queso cheddar rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "15 minutos",
+          "serves": "12 magdalenas"
+        },
+        "steps": [
+          "CALIENTA el horno a 350 °F y engrasa un molde para magdalenas de 12 tazas.",
+          "BATE los huevos, la leche, la sal y la pimienta; incorpora la mezcla hasta que quede suave, luego agrega las cebolletas y el queso cheddar.",
+          "DIVIDA entre las tazas y hornee de 18 a 20 minutos, hasta que se hinche y cuaje.",
+          "DEJAR ENFRIAR 5 minutos antes de desmoldar."
+        ],
+        "title": "Muffins de huevo y cebolla tierna",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "fr": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 tasse de mélange à flapjack et à gaufres Power Cakes au babeurre"
+          },
+          {
+            "price": null,
+            "qty_name": "6 gros œufs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tasse d'oignons de printemps émincés (verts et blancs)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 tasse de cheddar râpé"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 tasse de lait"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cuillère à café de sel"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cuillère à café de poivre noir"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutes",
+          "prep": "15 minutes",
+          "serves": "12 muffins"
+        },
+        "steps": [
+          "CHAUFFER le four à 350 °F et graisser un moule à muffins de 12 tasses.",
+          "FOUETTER les œufs, le lait, le sel et le poivre ; incorporer le mélange en fouettant jusqu'à l'obtention d'une consistance lisse, puis incorporer les oignons nouveaux et le cheddar.",
+          "RÉPARTIR dans les tasses et cuire au four de 18 à 20 minutes, jusqu'à ce que le tout soit gonflé et durci.",
+          "LAISSER REFROIDIR 5 minutes avant de démouler."
+        ],
+        "title": "Muffins aux œufs et aux oignons nouveaux",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "fr",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    }
+  },
+  "US-NE-BROOKLYN": {
+    "2026-01": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Corteza:"
+          },
+          {
+            "price": null,
+            "qty_name": "2-1⁄2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 de taza de manteca"
+          },
+          {
+            "price": null,
+            "qty_name": "12 cucharadas (1 1⁄2 barras) de mantequilla fría y cortada en cubos pequeños"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 de taza de agua helada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo batido (opcional, usado para decorar la masa)"
+          },
+          {
+            "price": null,
+            "qty_name": "Relleno:"
+          },
+          {
+            "price": null,
+            "qty_name": "5 manzanas Granny Smith, peladas, sin corazón y en rodajas"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 taza de azúcar moreno, empacada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de maicena"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 de cucharadita de clavo molido"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 cucharadita de pimienta gorda molida"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharaditas de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de salsa de caramelo (en tarros)"
+          },
+          {
+            "price": null,
+            "qty_name": "Desmenuzar:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 taza de azúcar moreno, empacada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄3 taza de mantequilla derretida"
+          }
+        ],
+        "meta": {
+          "cook": "60",
+          "prep": "60",
+          "serves": "12"
+        },
+        "steps": [
+          "CORTEZA:",
+          "COLOCA la mezcla de Kodiak Cakes en el bol del procesador de alimentos equipado con una cuchilla en forma de «s».",
+          "AGREGA la manteca al procesador de alimentos y pulsa una vez. Agregue los cubos de mantequilla, uno a la vez, pulsando varias veces después de agregar cada cubo.",
+          "CON el procesador en marcha, rocíe el agua helada hasta que la mezcla comience a formar grumos grandes. No añada demasiada agua. La masa no debe quedar pegajosa ni húmeda, sino que debe unirse para formar una masa consistente.",
+          "DIVIDA la masa en porciones de 3⁄4» y 1⁄4». Envuelva el cuarto de porción y póngalo a un lado.",
+          "ENROLLE la otra mitad de la masa en forma de bola y colóquela entre dos hojas de papel pergamino. Enróllala formando un círculo que tenga una circunferencia de 1,5 a 2 pulgadas más grande que la del molde para tartas.",
+          "COLOQUE la lámina de masa sobre la parte superior del molde para pastel y retire el papel pergamino. Presiona la masa para que quepa en el fondo y los lados del molde. Debe quedar un poco de masa colgando por los bordes. Recorta la masa para que cuelgue uniformemente sobre el borde, alrededor de 1⁄2».",
+          "CORTA la masa aproximadamente a 1⁄2 pulgadas del borde.",
+          "RESERVA y prepara el relleno de la tarta.",
+          "RELLENO:",
+          "AGREGUE las manzanas en rodajas, el azúcar moreno, la maicena, la canela, el clavo, la pimienta de Jamaica y la vainilla a un tazón grande y mezcle hasta que las manzanas estén cubiertas. Agregue la salsa de caramelo y revuelva hasta que esté bien distribuida.",
+          "COLOCA el relleno en el molde para tarta relleno de masa y empácalo de manera que no queden grandes espacios entre las rodajas de manzana.",
+          "PONGA a un lado.",
+          "DESMORONARSE:",
+          "PRECALIENTA el horno a 375 °F.",
+          "COLOQUE la mezcla de Kodiak Cakes, el azúcar moreno y la canela en un tazón pequeño y mezcle con un tenedor. Vierte la mantequilla derretida y mézclala con el tenedor hasta que la mezcla se forme grumos.",
+          "ESPOLVOREA las migas de manera uniforme sobre la parte superior de las manzanas.",
+          "SI lo deseas, usa la masa de masa de tarta que reservó para extenderla y corta formas para colocarlas alrededor del borde de la masa. Unte la masa con un huevo batido.",
+          "COLOQUE una carpa de aluminio sobre la parte superior de la tarta.",
+          "HORNEA en el horno precalentado durante 45 minutos. Retira el papel de aluminio y hornea durante 15-20 minutos más, o hasta que el relleno esté burbujeando.",
+          "RETIRAR y dejar enfriar. Sirva caliente con más salsa de caramelo, si lo desea."
+        ],
+        "title": "Tarta de manzana con caramelo",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "地壳："
+          },
+          {
+            "price": null,
+            "qty_name": "2-1⁄2 杯 Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 杯起酥油"
+          },
+          {
+            "price": null,
+            "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 杯冰水"
+          },
+          {
+            "price": null,
+            "qty_name": "1 egg, beaten (optional, used over for crust decor)"
+          },
+          {
+            "price": null,
+            "qty_name": "填充："
+          },
+          {
+            "price": null,
+            "qty_name": "5 个 Granny Smith 苹果，去皮、去核、切成薄片"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 杯红糖，已包装"
+          },
+          {
+            "price": null,
+            "qty_name": "1 汤匙玉米淀粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙肉桂"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 茶匙丁香粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 茶匙磨碎的五香粉"
+          },
+          {
+            "price": null,
+            "qty_name": "2 茶匙香草"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯焦糖酱（罐装）"
+          },
+          {
+            "price": null,
+            "qty_name": "Crumble："
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯 Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 杯红糖，已包装"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙肉桂"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄3 cup butter, melted"
+          }
+        ],
+        "meta": {
+          "cook": "60",
+          "prep": "60",
+          "serves": "12"
+        },
+        "steps": [
+          "地壳：",
+          "将科迪亚克蛋糕混合物放入装有 “s” 刀片的食物处理器碗中。",
+          "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+          "处理器运行时，在冰水中淋上毛毛雨，直到混合物开始形成大团块。不要加太多水。面团不应粘稠或潮湿，但应聚在一起以形成均匀的面团。",
+          "将面团分成 3⁄4 英寸和 1⁄4” 的部分。把四分之一的部分包起来，放在一边。",
+          "将面团的另一半卷成一个球，然后将其放在两张羊皮纸之间。卷成一个周长比馅饼盘大 1.5-2 英寸的圆圈。",
+          "将面团放在馅饼盘的顶部，然后取出羊皮纸。将面团压入以适合盘子的底部和侧面。边缘上应该还有一点面团。修剪面团，使其均匀地悬挂在边缘大约 1⁄2 英寸。",
+          "将面团从边缘切成大约 1⁄2 英寸。",
+          "放在一边，做馅饼馅料。",
+          "填充：",
+          "将切成薄片的苹果、红糖、玉米淀粉、肉桂、丁香、五香粉和香草加入一个大碗中，搅拌在一起直到苹果涂上涂层。加入焦糖酱，搅拌直至均匀分布。",
+          "用勺子将馅料倒入装满面团的馅饼盘里然后打包，这样苹果片之间就不会有很大的空间。",
+          "搁置一边。",
+          "崩溃：",
+          "将烤箱预热至 375 华氏度。",
+          "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+          "将碎屑均匀地撒在苹果的顶部。",
+          "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+          "在馅饼的顶部放一个锡纸帐篷。",
+          "在预热的烤箱中烘烤 45 分钟。取出锡纸再烘烤 15-20 分钟，或直到馅料冒泡。",
+          "取出并冷却。如果需要，可加其他焦糖酱加热。"
+        ],
+        "title": "焦糖苹果派",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:6",
+            "ingredient:20",
+            "step:3",
+            "step:16",
+            "step:18"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-02": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 caja de Kodiak Blueberry Muffin Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de yogur griego"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 de taza de leche de elección"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de bayas mixtas frescas (o congeladas)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de sirope de arce"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          }
+        ],
+        "meta": {
+          "cook": "18 minutos",
+          "prep": "10 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350 °F. Cubre un molde para magdalenas con papel de aluminio.",
+          "EN un bol, mezcle los huevos, el yogur griego, la leche, el sirope de arce y la vainilla hasta que quede suave.",
+          "AGREGUE la mezcla de Kodiak Cakes y revuelva suavemente hasta que se combinen.",
+          "INCORPORA las bayas frescas con cuidado. Si usa fresas, córtelas primero en trozos pequeños.",
+          "COLOCA la masa de manera uniforme en el molde para muffins preparado (12).",
+          "HORNEA durante 14-19 minutos, o hasta que un palillo salga limpio y la parte superior esté ligeramente dorada.",
+          "DEJAR enfriar unos minutos antes de servir."
+        ],
+        "title": "Muffins de bayas mixtas",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 盒科迪亚克蓝莓松饼混合物"
+          },
+          {
+            "price": null,
+            "qty_name": "2 eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 杯希腊酸奶"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup milk of choice"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯新鲜（或冷冻）混合浆果"
+          },
+          {
+            "price": null,
+            "qty_name": "1 汤匙枫糖浆"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙香草精"
+          }
+        ],
+        "meta": {
+          "cook": "18 分钟",
+          "prep": "10 分钟",
+          "serves": "12"
+        },
+        "steps": [
+          "将烤箱预热至 350°F。在松饼罐上铺上纸衬里。",
+          "IN a bowl, whisk together the eggs, Greek yogurt, milk, maple syrup, and vanilla until smooth.",
+          "加入科迪亚克蛋糕混合物，轻轻搅拌直至混合均匀。",
+          "轻轻地折入新鲜浆果。如果使用草莓，请先将它们切成小块。",
+          "将面糊均匀地倒入准备好的松饼罐中 (12)。",
+          "烘烤 14-19 分钟，或者直到牙签出来干净，顶部呈浅金色。",
+          "冷却几分钟后再食用。"
+        ],
+        "title": "混合浆果松饼",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:2",
+            "ingredient:4",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-03": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tazas de verduras abundantes y picadas para cocinar (verduras de primavera, verduras de invierno, berza o col rizada)"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de parmesano rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cucharadas de aceite neutro, para freír"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de microvegetales frescos, para servir"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "25 minutos",
+          "serves": "10 buñuelos"
+        },
+        "steps": [
+          "BLANQUEE las verduras durante 2 minutos en agua hirviendo con sal, enfríelas en agua helada y luego séquelas completamente con una toalla.",
+          "PICA bien las verduras exprimidas y bate con la mezcla, los huevos, el parmesano, la sal y la pimienta hasta obtener una masa firme.",
+          "CALIENTA el aceite a fuego medio; saca 1/4 de taza de montículos, aplánalos y fríe de 3 a 4 minutos por lado hasta que estén crujientes y dorados.",
+          "SIRVA caliente cubierto con microvegetales frescos."
+        ],
+        "title": "Buñuelos de verduras saladas",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 杯酪乳强力蛋糕 Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "3 杯切碎的丰盛烹饪蔬菜（春菜、冬青菜、羽衣甘蓝或羽衣甘蓝）"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯磨碎的帕尔马干酪"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙盐"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙黑胡椒"
+          },
+          {
+            "price": null,
+            "qty_name": "3 汤匙中性油，用于油炸"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯新鲜的微型蔬菜，可供食用"
+          }
+        ],
+        "meta": {
+          "cook": "15 分钟",
+          "prep": "25 分钟",
+          "serves": "10 个油条"
+        },
+        "steps": [
+          "将青菜在盐开水中漂白 2 分钟，在冰水中冷却，然后用毛巾完全挤干。",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "用中火加热油；挖出 1/4 杯土堆，压平，每面煎炸 3-4 分钟，直到变脆呈金黄色。",
+          "趁热食用，上面放上新鲜的微型蔬菜。"
+        ],
+        "title": "美味的绿色油条",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-04": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1-1/2 tazas de mezcla para flapjack y waffle Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de mantequilla"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 de taza de agua helada. Relleno:"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tazas de queso ricotta"
+          },
+          {
+            "price": null,
+            "qty_name": "3 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de ajo en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de cobertura de pimienta:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de aceite de oliva"
+          },
+          {
+            "price": null,
+            "qty_name": "1 puñado de espárragos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1 manojo de rábanos cortados por la mitad"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de berros o rúcula"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "AGREGA la mezcla de Kodiak Cakes a un tazón grande. Corta la mantequilla en cubos y mézclala con la mezcla a mano. Agrega agua helada. Mezcle hasta que se forme una masa. Aplana la masa en forma de disco y refrigera durante 1 hora.",
+          "MIENTRAS TANTO, mezcle la ricota, los huevos, la leche, la sal y la pimienta en un tazón grande.",
+          "PRECALIENTA el horno a 375 grados. Cubra los espárragos y los rábanos con aceite de oliva y sal. Colóquelos en una bandeja para hornear y ase durante 15-20 minutos.",
+          "SOBRE una superficie enharinada, enrolle el disco de masa para tarta de 1/4 pulgada de grosor y colóquelo en un molde para tartas.",
+          "RELLENE con el relleno de ricota preparado y hornee durante 25-30 minutos. Retirar del horno y dejar enfriar un poco antes de cubrir con verduras asadas y berros o rúcula."
+        ],
+        "title": "Tarta de verduras y queso",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1-1/2 杯 Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup butter"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 杯冰水填充物："
+          },
+          {
+            "price": null,
+            "qty_name": "2 cups ricotta cheese"
+          },
+          {
+            "price": null,
+            "qty_name": "3 eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙大蒜粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙盐"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙胡椒馅料："
+          },
+          {
+            "price": null,
+            "qty_name": "1 汤匙橄榄油"
+          },
+          {
+            "price": null,
+            "qty_name": "1 束芦笋"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙盐"
+          },
+          {
+            "price": null,
+            "qty_name": "1 束萝卜，切成两半"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯水芹或芝麻菜"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "ADD Kodiak Cakes mix to a large bowl. Cut the butter into cubes and work into the mix by hand. Add ice water. Mix until a dough is formed. Flatten the dough into a disc and refrigerate for 1 hour.",
+          "MEANWHILE, whisk the ricotta, eggs, milk, salt, and pepper together in a large bowl.",
+          "将烤箱预热至 375 度。在芦笋和萝卜上涂上橄榄油和盐。放在烤盘上烤 15-20 分钟。",
+          "在撒了面粉的表面上，卷起 1/4 英寸厚的馅饼面团，然后放入蛋挞盘中。",
+          "装满准备好的意大利乳清干酪馅料，然后烘烤 25-30 分钟。从烤箱中取出，稍微冷却，然后在上面放上烤过的蔬菜和豆瓣菜或芝麻菜。"
+        ],
+        "title": "Veggie & Cheese Tart",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:2",
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "step:1",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-05": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1/3 cup cottage cheese"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de leche de elección"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 taza de mezcla para flapjack y waffle de chocolate negro Kodiak Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 taza de yogur griego"
+          },
+          {
+            "price": null,
+            "qty_name": "cucharada de mantequilla de cacahuete suave (opcional)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de sirope de arce (opcional)\r\n\r\n\r\n \r\n\r\nIdeas para decorar:"
+          },
+          {
+            "price": null,
+            "qty_name": "Fruta en rodajas (plátanos o fresas)"
+          },
+          {
+            "price": null,
+            "qty_name": "Sirope de arce"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "10 minutos",
+          "serves": "1"
+        },
+        "steps": [
+          "IN a blender, combine cottage cheese, eggs, and milk. Blend until smooth.",
+          "IN a medium bowl, mix the cottage cheese mixture with the Kodiak Cakes mix until well combined.",
+          "PON aproximadamente 1/4 de taza de masa en una sartén precalentada y engrasada para hacer 3 tortitas.",
+          "DEJE que se cocine hasta que se formen burbujas, luego voltee y termine de cocinar.",
+          "MIENTRAS TANTO, combine el yogur griego, la mantequilla de maní y el sirope de arce en un bol hasta que quede suave.",
+          "CUBRE los flapjacks con la mezcla de yogur y mantequilla de maní y agrega los ingredientes deseados. ¡Disfruta!"
+        ],
+        "title": "Pila de proteínas de chocolate negro",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "step:1",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1/3 cup cottage cheese"
+          },
+          {
+            "price": null,
+            "qty_name": "2 eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 tablespoon milk of choice"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 杯 Kodiak 黑巧克力蛋糕 Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1/3 杯希腊酸奶"
+          },
+          {
+            "price": null,
+            "qty_name": "dollop of smooth peanut butter (optional)"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙枫糖浆（可选）\r\n\r\n\r\n \r\n\r\n热门创意："
+          },
+          {
+            "price": null,
+            "qty_name": "切成薄片的水果（香蕉或草莓）"
+          },
+          {
+            "price": null,
+            "qty_name": "枫糖浆"
+          }
+        ],
+        "meta": {
+          "cook": "15 分钟",
+          "prep": "10 分钟",
+          "serves": "1"
+        },
+        "steps": [
+          "IN a blender, combine cottage cheese, eggs, and milk. Blend until smooth.",
+          "IN a medium bowl, mix the cottage cheese mixture with the Kodiak Cakes mix until well combined.",
+          "将大约 1/4 杯面糊倒在预热并涂了油脂的煎锅上，制作 3 个煎饼。",
+          "允许烹饪直到形成气泡，然后翻转并完成烹饪。",
+          "MEANWHILE, combine Greek yogurt, peanut butter, and maple syrup in a bowl until smooth.",
+          "LAYER the flapjacks with the peanut butter yogurt mixture and add desired toppings. Enjoy!"
+        ],
+        "title": "黑巧克力蛋白堆栈",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "ingredient:2",
+            "ingredient:3",
+            "ingredient:6",
+            "step:1",
+            "step:2",
+            "step:5",
+            "step:6"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-06": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "12 cucharadas (3/4 de taza) de mantequilla ablandada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "3 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cucharadita de extracto de almendras"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cucharaditas de vainilla, divididas"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tazas de cerezas congeladas, partidas por la mitad"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de maicena"
+          },
+          {
+            "price": null,
+            "qty_name": "Zumo de 1/2 limón"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de sirope de arce"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "2-3 cucharadas de agua"
+          }
+        ],
+        "meta": {
+          "cook": "35 minutos",
+          "prep": "20 minutos",
+          "serves": "15"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° Fahrenheit. Cubra un molde para hornear de 9 x 13 pulgadas con papel pergamino.",
+          "COLOCA la mantequilla y el azúcar moreno en un bol. Bata con una batidora eléctrica hasta que esté suave y esponjoso, de 2 a 3 minutos.",
+          "INCORPORA los huevos, uno a la vez.",
+          "AGREGA la mezcla de Kodiak Cakes y bate hasta que se combinen. Deje reposar durante cinco minutos.",
+          "ESPARZA 2/3 de la mezcla de masa de manera uniforme en el molde para hornear forrado con papel pergamino. Hornea en el horno precalentado durante 15 minutos.",
+          "MIENTRAS se hornea la masa, prepare la salsa de cerezas agregando las cerezas, la maicena, el jugo de limón y el jarabe de arce a una cacerola y revuelva para combinar. Calienta a fuego medio-alto, revolviendo de vez en cuando, hasta que las cerezas y la salsa estén brillantes y espesas, aproximadamente de 3 a 5 minutos. Retirar del fuego.",
+          "RETIRA la masa del horno después de 15 minutos y vierte la salsa de cerezas sobre la masa, extendiéndola uniformemente.",
+          "COLOQUE los grumos de la masa restante sobre la parte superior de las cerezas y extiéndalos uniformemente por la parte superior.",
+          "VUELVE A COLOCAR la sartén en el horno y hornea durante 15 a 20 minutos más, o hasta que las migajas de la parte superior estén ligeramente doradas.",
+          "RETIRAR del horno y dejar enfriar.",
+          "COLOQUE el azúcar en polvo, la vainilla y el agua en un tazón pequeño y mezcle para formar un glaseado suave.",
+          "ROCÍE el glaseado sobre las barras de tarta de cerezas enfriadas. Córtalas en 15 rebanadas.",
+          "ALMACENE en un recipiente hermético."
+        ],
+        "title": "Barras de tarta de cereza",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯红糖"
+          },
+          {
+            "price": null,
+            "qty_name": "3 eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 teaspoon almond extract"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 茶匙香草，分开"
+          },
+          {
+            "price": null,
+            "qty_name": "2 杯 Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "3 杯冷冻樱桃，减半"
+          },
+          {
+            "price": null,
+            "qty_name": "2 汤匙玉米淀粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 个柠檬汁"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 杯枫糖浆"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯糖粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 茶匙香草精"
+          },
+          {
+            "price": null,
+            "qty_name": "2-3 汤匙水"
+          }
+        ],
+        "meta": {
+          "cook": "35 分钟",
+          "prep": "20 分钟",
+          "serves": "15"
+        },
+        "steps": [
+          "将烤箱预热至 350 华氏度。在 9x13 英寸的烤盘上铺上羊皮纸。",
+          "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+          "BEAT in the eggs, one at a time.",
+          "加入科迪亚克蛋糕混合搅拌直至混合均匀。休息五分钟。",
+          "将2/3的外壳混合物均匀地撒在衬有羊皮纸的烤盘上。在预热的烤箱中烘烤 15 分钟。",
+          "当外壳烘烤时，将樱桃、玉米淀粉、柠檬汁和枫糖浆加入锅中并搅拌均匀，准备樱桃酱。用中火加热，不时搅拌，直到樱桃和酱汁变得光滑变稠，大约 3 到 5 分钟。从火上移开。",
+          "15 分钟后将外壳从烤箱中取出，然后将樱桃酱倒在外壳的顶部，均匀地摊开。",
+          "将剩余的硬皮面团块放在樱桃的顶部，并均匀地分布在上面。",
+          "将平底锅放回烤箱再烘烤 15 到 20 分钟，或者直到上面的碎屑略呈金黄色。",
+          "从烤箱中取出并冷却。",
+          "将糖粉、香草和水放入一个小碗中，搅拌在一起形成光滑的糖霜。",
+          "将糖霜淋在冷却后的樱桃派棒的顶部。切成 15 片。",
+          "存放在密封的容器中。"
+        ],
+        "title": "樱桃派棒",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "ingredient:3",
+            "ingredient:4",
+            "step:2",
+            "step:3"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-07": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "6 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de cebolletas en rodajas finas (verdes y blancas)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de queso cheddar rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "15 minutos",
+          "serves": "12 magdalenas"
+        },
+        "steps": [
+          "CALIENTA el horno a 350 °F y engrasa un molde para magdalenas de 12 tazas.",
+          "BATE los huevos, la leche, la sal y la pimienta; incorpora la mezcla hasta que quede suave, luego agrega las cebolletas y el queso cheddar.",
+          "DIVIDA entre las tazas y hornee de 18 a 20 minutos, hasta que se hinche y cuaje.",
+          "DEJAR ENFRIAR 5 minutos antes de desmoldar."
+        ],
+        "title": "Muffins de huevo y cebolla tierna",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 杯酪乳强力蛋糕 Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "6 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯切成薄片的葱（青葱和白洋葱）"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 杯切达干酪丝"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙盐"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙黑胡椒"
+          }
+        ],
+        "meta": {
+          "cook": "20 分钟",
+          "prep": "15 分钟",
+          "serves": "12 个松饼"
+        },
+        "steps": [
+          "将烤箱加热至 350 华氏度，然后在 12 杯松饼罐上涂油脂。",
+          "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+          "在杯子之间分开，烘烤 18-20 分钟，直到膨化并凝固。",
+          "在出炉前冷却 5 分钟。"
+        ],
+        "title": "Spring Onion Egg Muffins",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:2",
+            "ingredient:5",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-08": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de melocotón y avena durante la noche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de leche entera"
+          },
+          {
+            "price": null,
+            "qty_name": "1 melocotón maduro, cortado en cubitos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de yogur natural"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "MEZCLE la leche en la taza de avena, cubra y refrigere durante la noche.",
+          "POR LA mañana, cubra la avena remojada con yogur y duraznos cortados en cubitos en un vaso.",
+          "SIRVA fría."
+        ],
+        "title": "Parfait de avena y melocotón durante la noche",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 杯桃子隔夜燕麦片"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup whole milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1 个成熟的桃子，切成丁"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯纯酸奶"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "STIR the milk into the oats cup, cover, and refrigerate overnight.",
+          "早晨，将浸泡过的燕麦与酸奶和切成丁的桃子放入玻璃杯中。",
+          "冷藏后食用。"
+        ],
+        "title": "桃子隔夜燕麦冻糕",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:2",
+            "step:1"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-09": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela molida"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de leche entera, a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de mantequilla derretida"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo a temperatura ambiente"
+          },
+          {
+            "price": null,
+            "qty_name": "2 plátanos maduros, machacados"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "4 oz de puré de manzana"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de puré de calabaza"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de harina para todo uso, si es necesario"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de chispas de chocolate, divididas \r\n\r\n\r\n \r\n\r\nIdeas para aderezar:"
+          },
+          {
+            "price": null,
+            "qty_name": "Chispas de chocolate"
+          },
+          {
+            "price": null,
+            "qty_name": "Bayas frescas"
+          },
+          {
+            "price": null,
+            "qty_name": "Manzanas en rodajas"
+          }
+        ],
+        "meta": {
+          "cook": "30 minutos",
+          "prep": "15 minutos",
+          "serves": "8"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° Fahrenheit y prepara una fuente para hornear de 9x13 pulgadas con aceite en aerosol antiadherente.",
+          "EN un tazón mediano, mezcle la mezcla de Kodiak Cakes, el azúcar moreno y la canela",
+          "MEZCLE la leche, la mantequilla, el huevo, los plátanos, la vainilla, el puré de manzana y el puré de calabaza. Esto hace una masa húmeda, pero no debe quedar líquida. Si la masa parece demasiado húmeda, añada la harina restante de 1 a 2 cucharadas a la vez hasta que alcance la consistencia deseada",
+          "INCORPORA 1/4 de taza de chispas de chocolate. Guarda el resto para cubrir el pastel",
+          "VIERTE la masa en la fuente para hornear preparada y agrega las chispas de chocolate restantes con cualquier otra combinación de ingredientes que desees.",
+          "HORNEA durante 25-30 minutos hasta que un palillo salga limpio y los bordes del bizcocho estén ligeramente dorados.",
+          "DEJE enfriar de 10 a 15 minutos en la fuente para hornear antes de cortarlo.",
+          "¡DISFRUTA para el desayuno, el almuerzo o la cena! *Guarde las sobras en un recipiente hermético en el refrigerador durante 5 a 7 días. ¡Recaliéntalas en el microondas durante 15 a 30 segundos antes de comerlas! *Consejo profesional: Para obtener aún más sabor a calabaza, sustituya los Power Cakes de mantequilla de Kodiak Cakes por los Pumpkin Power Cakes."
+        ],
+        "title": "Tarta de desayuno",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "2 杯 Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯红糖"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙肉桂粉"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 cup whole milk, room temperature"
+          },
+          {
+            "price": null,
+            "qty_name": "1 Tablespoon butter, melted"
+          },
+          {
+            "price": null,
+            "qty_name": "1 egg, room temperature"
+          },
+          {
+            "price": null,
+            "qty_name": "2 根成熟的香蕉，捣碎"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙香草精"
+          },
+          {
+            "price": null,
+            "qty_name": "4 盎司苹果酱"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 杯南瓜泥"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup all-purpose flour, if needed"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯巧克力片，分开 \r\n\r\n\r\n \r\n\r\n热门创意："
+          },
+          {
+            "price": null,
+            "qty_name": "巧克力片"
+          },
+          {
+            "price": null,
+            "qty_name": "新鲜浆果"
+          },
+          {
+            "price": null,
+            "qty_name": "苹果切成薄片"
+          }
+        ],
+        "meta": {
+          "cook": "30 分钟",
+          "prep": "15 分钟",
+          "serves": "8"
+        },
+        "steps": [
+          "将烤箱预热至 350 华氏度，用不粘烹饪喷雾准备一个 9x13 英寸的烤盘。",
+          "在中等大小的搅拌碗中，将 Kodiak Cakes 混合物、红糖和肉桂混合在一起",
+          "MIX in the milk, butter, egg, bananas, vanilla, applesauce, and pumpkin purée. This makes a wet batter, but it should not be runny. If your batter seems too wet, whisk in the remaining flour 1-2 tablespoons at a time until you reach desired consistency",
+          "折入 1/4 杯巧克力片。剩下的留在蛋糕上面",
+          "将面糊倒入准备好的烤盘中，然后将剩余的巧克力片与您想要的任何其他浇头组合一起加入。",
+          "烘烤 25-30 分钟，直到牙签干净并且蛋糕的边缘呈略带金黄色。",
+          "在切片之前，在烤盘中冷却 10-15 分钟。",
+          "享用早餐、午餐或晚餐！*将剩菜存放在冰箱的密封容器中5-7天。在微波炉中重新加热 15-30 秒，然后再挖出来！*专业提示：要想获得更多南瓜味，可以将科迪亚克蛋糕的酪乳强力蛋糕换成南瓜粉饼。"
+        ],
+        "title": "早餐蛋糕",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "ingredient:11",
+            "step:3"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-10": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Rosquillas:"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 taza de mezcla Kodiak, canela y avena Power Cakes para flapjack y gofres"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de polvo de hornear"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de sidra de manzana"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de aceite de coco derretido"
+          },
+          {
+            "price": null,
+            "qty_name": "Esmalte:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de sidra de manzana"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "10 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "EN un tazón, combine la mezcla de Kodiak Cakes, el azúcar moreno y el polvo de hornear y mezcle.",
+          "AGREGUE la sidra de manzana, el huevo, el extracto de vainilla y el aceite de coco derretido.",
+          "MEZCLE hasta que esté combinado.",
+          "DIVIDA la masa en moldes para rosquillas engrasados y hornee a 350 durante 12 a 15 minutos o hasta que el palillo quede limpio.",
+          "DEJA que las rosquillas se enfríen mientras preparas el glaseado.",
+          "EN un bol pequeño, mezcla el azúcar en polvo, la vainilla y la sidra de manzana.",
+          "MEZCLE hasta que quede suave.",
+          "ROCÍE el glaseado sobre las rosquillas enfriadas y sirva."
+        ],
+        "title": "Donuts de sidra de manzana",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "甜甜圈："
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 杯 Kodiak Cinnamon Oat Power Cakes Flapjack 和华夫饼混合物"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 杯红糖"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙发酵粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯苹果酒"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙香草精"
+          },
+          {
+            "price": null,
+            "qty_name": "1 egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup coconut oil, melted"
+          },
+          {
+            "price": null,
+            "qty_name": "釉面："
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯糖粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙香草"
+          },
+          {
+            "price": null,
+            "qty_name": "2 汤匙苹果酒"
+          }
+        ],
+        "meta": {
+          "cook": "12 分钟",
+          "prep": "10 分钟",
+          "serves": "12"
+        },
+        "steps": [
+          "在碗中，将科迪亚克蛋糕混合物、红糖和发酵粉混合均匀。",
+          "ADD apple cider, egg, vanilla extract, and melted coconut oil.",
+          "混合直至混合。",
+          "将面糊分成涂有油脂的甜甜圈盘，在 350 度下烘烤 12-15 分钟或直到牙签变干净。",
+          "在制作釉料的同时让甜甜圈冷却。",
+          "在一个小碗里，将糖粉、香草和苹果酒混合在一起。",
+          "混合直至光滑。",
+          "在冷却的甜甜圈上淋上釉料即可食用。"
+        ],
+        "title": "苹果酒甜甜圈",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:7",
+            "ingredient:8",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-11": {
+      "es": {
+        "ingredients": [
+          {
+            "price": "$2.75",
+            "qty_name": "2 tazas de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": "$2.00",
+            "qty_name": "1 taza de puré de calabaza de invierno asada (nuez moscada o bellota)"
+          },
+          {
+            "price": "$0.70",
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": "$0.30",
+            "qty_name": "1/2 taza de leche"
+          },
+          {
+            "price": "$1.65",
+            "qty_name": "1/3 taza de miel o azúcar"
+          },
+          {
+            "price": "$0.75",
+            "qty_name": "1/4 taza de mantequilla derretida"
+          },
+          {
+            "price": "$0.20",
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": "$0.05",
+            "qty_name": "1/2 cucharadita de sal"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "15 minutos",
+          "serves": "12 magdalenas"
+        },
+        "steps": [
+          "CALIENTA el horno a 400 °F y forra un molde para magdalenas de 12 tazas.",
+          "BATE la calabaza, los huevos, la leche, la miel y la mantequilla hasta que estén suaves, luego agrega la mezcla, la canela y la sal hasta que se combinen.",
+          "DIVIDA entre las tazas y hornee de 18 a 20 minutos, hasta que un probador salga limpio.",
+          "DEJAR ENFRIAR 5 minutos en la lata antes de desmoldar."
+        ],
+        "title": "Muffins matutinos de calabaza de invierno",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": "$2.75",
+            "qty_name": "2 杯酪乳强力蛋糕 Flapjack & Waffle Mix"
+          },
+          {
+            "price": "$2.00",
+            "qty_name": "1 杯捣碎的烤冬南瓜（胡桃或橡子）"
+          },
+          {
+            "price": "$0.70",
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": "$0.30",
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": "$1.65",
+            "qty_name": "1/3 cup honey or sugar"
+          },
+          {
+            "price": "$0.75",
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": "$0.20",
+            "qty_name": "1 茶匙肉桂"
+          },
+          {
+            "price": "$0.05",
+            "qty_name": "1/2 茶匙盐"
+          }
+        ],
+        "meta": {
+          "cook": "20 分钟",
+          "prep": "15 分钟",
+          "serves": "12 个松饼"
+        },
+        "steps": [
+          "将烤箱加热到 400 华氏度，然后放一个 12 杯的松饼罐。",
+          "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+          "在杯子之间分开，烘烤 18-20 分钟，直到测试仪出来干净。",
+          "在罐子里冷却 5 分钟，然后再出来。"
+        ],
+        "title": "冬南瓜晨间松饼",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-12": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "6 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de cebolletas en rodajas finas (verdes y blancas)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de queso cheddar rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "15 minutos",
+          "serves": "12 magdalenas"
+        },
+        "steps": [
+          "CALIENTA el horno a 350 °F y engrasa un molde para magdalenas de 12 tazas.",
+          "BATE los huevos, la leche, la sal y la pimienta; incorpora la mezcla hasta que quede suave, luego agrega las cebolletas y el queso cheddar.",
+          "DIVIDA entre las tazas y hornee de 18 a 20 minutos, hasta que se hinche y cuaje.",
+          "DEJAR ENFRIAR 5 minutos antes de desmoldar."
+        ],
+        "title": "Muffins de huevo y cebolla tierna",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 杯酪乳强力蛋糕 Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "6 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯切成薄片的葱（青葱和白洋葱）"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 杯切达干酪丝"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙盐"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙黑胡椒"
+          }
+        ],
+        "meta": {
+          "cook": "20 分钟",
+          "prep": "15 分钟",
+          "serves": "12 个松饼"
+        },
+        "steps": [
+          "将烤箱加热至 350 华氏度，然后在 12 杯松饼罐上涂油脂。",
+          "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+          "在杯子之间分开，烘烤 18-20 分钟，直到膨化并凝固。",
+          "在出炉前冷却 5 分钟。"
+        ],
+        "title": "Spring Onion Egg Muffins",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:2",
+            "ingredient:5",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    }
+  },
   "US-NE-BURLINGTON": {
     "2026-01": {
       "es": {
@@ -41743,6 +45233,1577 @@ window.KODIAK_RECIPE_I18N = {
           "machine_translated": true,
           "providers": [
             "mock:passthrough:nova_glossary"
+          ]
+        }
+      }
+    }
+  },
+  "US-NE-MANHATTAN": {
+    "2026-01": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Corteza:"
+          },
+          {
+            "price": null,
+            "qty_name": "2-1⁄2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 de taza de manteca"
+          },
+          {
+            "price": null,
+            "qty_name": "12 cucharadas (1 1⁄2 barras) de mantequilla fría y cortada en cubos pequeños"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 de taza de agua helada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo batido (opcional, usado para decorar la masa)"
+          },
+          {
+            "price": null,
+            "qty_name": "Relleno:"
+          },
+          {
+            "price": null,
+            "qty_name": "5 manzanas Granny Smith, peladas, sin corazón y en rodajas"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 taza de azúcar moreno, empacada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de maicena"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 de cucharadita de clavo molido"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 cucharadita de pimienta gorda molida"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharaditas de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de salsa de caramelo (en tarros)"
+          },
+          {
+            "price": null,
+            "qty_name": "Desmenuzar:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 taza de azúcar moreno, empacada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄3 taza de mantequilla derretida"
+          }
+        ],
+        "meta": {
+          "cook": "60",
+          "prep": "60",
+          "serves": "12"
+        },
+        "steps": [
+          "CORTEZA:",
+          "COLOCA la mezcla de Kodiak Cakes en el bol del procesador de alimentos equipado con una cuchilla en forma de «s».",
+          "AGREGA la manteca al procesador de alimentos y pulsa una vez. Agregue los cubos de mantequilla, uno a la vez, pulsando varias veces después de agregar cada cubo.",
+          "CON el procesador en marcha, rocíe el agua helada hasta que la mezcla comience a formar grumos grandes. No añada demasiada agua. La masa no debe quedar pegajosa ni húmeda, sino que debe unirse para formar una masa consistente.",
+          "DIVIDA la masa en porciones de 3⁄4» y 1⁄4». Envuelva el cuarto de porción y póngalo a un lado.",
+          "ENROLLE la otra mitad de la masa en forma de bola y colóquela entre dos hojas de papel pergamino. Enróllala formando un círculo que tenga una circunferencia de 1,5 a 2 pulgadas más grande que la del molde para tartas.",
+          "COLOQUE la lámina de masa sobre la parte superior del molde para pastel y retire el papel pergamino. Presiona la masa para que quepa en el fondo y los lados del molde. Debe quedar un poco de masa colgando por los bordes. Recorta la masa para que cuelgue uniformemente sobre el borde, alrededor de 1⁄2».",
+          "CORTA la masa aproximadamente a 1⁄2 pulgadas del borde.",
+          "RESERVA y prepara el relleno de la tarta.",
+          "RELLENO:",
+          "AGREGUE las manzanas en rodajas, el azúcar moreno, la maicena, la canela, el clavo, la pimienta de Jamaica y la vainilla a un tazón grande y mezcle hasta que las manzanas estén cubiertas. Agregue la salsa de caramelo y revuelva hasta que esté bien distribuida.",
+          "COLOCA el relleno en el molde para tarta relleno de masa y empácalo de manera que no queden grandes espacios entre las rodajas de manzana.",
+          "PONGA a un lado.",
+          "DESMORONARSE:",
+          "PRECALIENTA el horno a 375 °F.",
+          "COLOQUE la mezcla de Kodiak Cakes, el azúcar moreno y la canela en un tazón pequeño y mezcle con un tenedor. Vierte la mantequilla derretida y mézclala con el tenedor hasta que la mezcla se forme grumos.",
+          "ESPOLVOREA las migas de manera uniforme sobre la parte superior de las manzanas.",
+          "SI lo deseas, usa la masa de masa de tarta que reservó para extenderla y corta formas para colocarlas alrededor del borde de la masa. Unte la masa con un huevo batido.",
+          "COLOQUE una carpa de aluminio sobre la parte superior de la tarta.",
+          "HORNEA en el horno precalentado durante 45 minutos. Retira el papel de aluminio y hornea durante 15-20 minutos más, o hasta que el relleno esté burbujeando.",
+          "RETIRAR y dejar enfriar. Sirva caliente con más salsa de caramelo, si lo desea."
+        ],
+        "title": "Tarta de manzana con caramelo",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "地壳："
+          },
+          {
+            "price": null,
+            "qty_name": "2-1⁄2 杯 Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 杯起酥油"
+          },
+          {
+            "price": null,
+            "qty_name": "12 tablespoons (1 1⁄2 sticks) butter, cold and cut into small cubes"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 杯冰水"
+          },
+          {
+            "price": null,
+            "qty_name": "1 egg, beaten (optional, used over for crust decor)"
+          },
+          {
+            "price": null,
+            "qty_name": "填充："
+          },
+          {
+            "price": null,
+            "qty_name": "5 个 Granny Smith 苹果，去皮、去核、切成薄片"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 杯红糖，已包装"
+          },
+          {
+            "price": null,
+            "qty_name": "1 汤匙玉米淀粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙肉桂"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 茶匙丁香粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄4 茶匙磨碎的五香粉"
+          },
+          {
+            "price": null,
+            "qty_name": "2 茶匙香草"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯焦糖酱（罐装）"
+          },
+          {
+            "price": null,
+            "qty_name": "Crumble："
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯 Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄2 杯红糖，已包装"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙肉桂"
+          },
+          {
+            "price": null,
+            "qty_name": "1⁄3 cup butter, melted"
+          }
+        ],
+        "meta": {
+          "cook": "60",
+          "prep": "60",
+          "serves": "12"
+        },
+        "steps": [
+          "地壳：",
+          "将科迪亚克蛋糕混合物放入装有 “s” 刀片的食物处理器碗中。",
+          "ADD the shortening to the food processor and pulse once. Add the cubes of butter, one at a time, pulsing a few times after the addition of each cube.",
+          "处理器运行时，在冰水中淋上毛毛雨，直到混合物开始形成大团块。不要加太多水。面团不应粘稠或潮湿，但应聚在一起以形成均匀的面团。",
+          "将面团分成 3⁄4 英寸和 1⁄4” 的部分。把四分之一的部分包起来，放在一边。",
+          "将面团的另一半卷成一个球，然后将其放在两张羊皮纸之间。卷成一个周长比馅饼盘大 1.5-2 英寸的圆圈。",
+          "将面团放在馅饼盘的顶部，然后取出羊皮纸。将面团压入以适合盘子的底部和侧面。边缘上应该还有一点面团。修剪面团，使其均匀地悬挂在边缘大约 1⁄2 英寸。",
+          "将面团从边缘切成大约 1⁄2 英寸。",
+          "放在一边，做馅饼馅料。",
+          "填充：",
+          "将切成薄片的苹果、红糖、玉米淀粉、肉桂、丁香、五香粉和香草加入一个大碗中，搅拌在一起直到苹果涂上涂层。加入焦糖酱，搅拌直至均匀分布。",
+          "用勺子将馅料倒入装满面团的馅饼盘里然后打包，这样苹果片之间就不会有很大的空间。",
+          "搁置一边。",
+          "崩溃：",
+          "将烤箱预热至 375 华氏度。",
+          "PLACE the Kodiak Cakes mix, brown sugar, and cinnamon in a small bowl and whisk together with a fork. Pour in the melted butter and mix in with the fork until the mixture clumps together.",
+          "将碎屑均匀地撒在苹果的顶部。",
+          "IF desired, use the pie crust dough that was set aside to roll out and cut shapes to place around the edge of the crust. Brush crust with an egg wash.",
+          "在馅饼的顶部放一个锡纸帐篷。",
+          "在预热的烤箱中烘烤 45 分钟。取出锡纸再烘烤 15-20 分钟，或直到馅料冒泡。",
+          "取出并冷却。如果需要，可加其他焦糖酱加热。"
+        ],
+        "title": "焦糖苹果派",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:4",
+            "ingredient:6",
+            "ingredient:20",
+            "step:3",
+            "step:16",
+            "step:18"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-02": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "8 waffles Kodiak Blueberry Power"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de yogur griego sin grasa"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de sirope de arce"
+          },
+          {
+            "price": null,
+            "qty_name": "Zumo de 1 limón"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de arándanos"
+          },
+          {
+            "price": null,
+            "qty_name": "Ralladura de 1 limón"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "TUESTA los waffles hasta que estén ligeramente dorados. Colócalos en una fuente.",
+          "AGREGUE el yogur, el jarabe de arce y el jugo de limón a un tazón y bata hasta que quede suave.",
+          "COLOCA cucharadas del batidor proteico de limón encima de los waffles tostados.",
+          "CUBRE los waffles con la ralladura de limón y los arándanos frescos.",
+          "ROCÍE sirope de arce sobre los waffles, si lo desea."
+        ],
+        "title": "Waffles de arándanos y limón llenos de proteínas",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "8 个柯迪亚克蓝莓强力华夫饼"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 杯纯全脂希腊酸奶"
+          },
+          {
+            "price": null,
+            "qty_name": "2 汤匙枫糖浆"
+          },
+          {
+            "price": null,
+            "qty_name": "1 个柠檬的果汁"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯蓝莓"
+          },
+          {
+            "price": null,
+            "qty_name": "1 个柠檬的皮"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "将华夫饼烤至浅金黄色。放在盘子上。",
+          "将酸奶、枫糖浆和柠檬汁加入搅拌碗中，搅拌至光滑。",
+          "在烤过的华夫饼上放一小团柠檬蛋白鞭子。",
+          "在华夫饼上放上柠檬皮和新鲜蓝莓。",
+          "如果需要，在华夫饼上淋上枫糖浆。"
+        ],
+        "title": "富含蛋白质的蓝莓柠檬华夫饼",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-03": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tazas de verduras abundantes y picadas para cocinar (verduras de primavera, verduras de invierno, berza o col rizada)"
+          },
+          {
+            "price": null,
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de parmesano rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cucharadas de aceite neutro, para freír"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de microvegetales frescos, para servir"
+          }
+        ],
+        "meta": {
+          "cook": "15 minutos",
+          "prep": "25 minutos",
+          "serves": "10 buñuelos"
+        },
+        "steps": [
+          "BLANQUEE las verduras durante 2 minutos en agua hirviendo con sal, enfríelas en agua helada y luego séquelas completamente con una toalla.",
+          "PICA bien las verduras exprimidas y bate con la mezcla, los huevos, el parmesano, la sal y la pimienta hasta obtener una masa firme.",
+          "CALIENTA el aceite a fuego medio; saca 1/4 de taza de montículos, aplánalos y fríe de 3 a 4 minutos por lado hasta que estén crujientes y dorados.",
+          "SIRVA caliente cubierto con microvegetales frescos."
+        ],
+        "title": "Buñuelos de verduras saladas",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 杯酪乳强力蛋糕 Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "3 杯切碎的丰盛烹饪蔬菜（春菜、冬青菜、羽衣甘蓝或羽衣甘蓝）"
+          },
+          {
+            "price": null,
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯磨碎的帕尔马干酪"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙盐"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙黑胡椒"
+          },
+          {
+            "price": null,
+            "qty_name": "3 汤匙中性油，用于油炸"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯新鲜的微型蔬菜，可供食用"
+          }
+        ],
+        "meta": {
+          "cook": "15 分钟",
+          "prep": "25 分钟",
+          "serves": "10 个油条"
+        },
+        "steps": [
+          "将青菜在盐开水中漂白 2 分钟，在冰水中冷却，然后用毛巾完全挤干。",
+          "CHOP the squeezed greens fine and whisk with the mix, eggs, parmesan, salt, and pepper into a stiff batter.",
+          "用中火加热油；挖出 1/4 杯土堆，压平，每面煎炸 3-4 分钟，直到变脆呈金黄色。",
+          "趁热食用，上面放上新鲜的微型蔬菜。"
+        ],
+        "title": "美味的绿色油条",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-04": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1/4 taza de aceite de oliva"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cebolla morada pequeña, cortada en rodajas"
+          },
+          {
+            "price": null,
+            "qty_name": "12 tallos de espárragos, con la parte inferior recortada"
+          },
+          {
+            "price": null,
+            "qty_name": "10 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "3 cucharadas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de polvo de hornear"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cucharadita de pimienta negra molida"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharada de cebollino fresco picado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de queso de cabra desmenuzado"
+          }
+        ],
+        "meta": {
+          "cook": "40 minutos",
+          "prep": "15 minutos",
+          "serves": "4"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° F y cubre un molde para pastel estándar con mantequilla o aerosol para hornear.",
+          "EN una sartén a fuego medio, saltea la cebolla morada en el aceite de oliva hasta que esté suave, luego retírala del fuego.",
+          "EN la misma sartén, saltea los espárragos a fuego medio durante unos 2 minutos, hasta que estén de color verde brillante, luego retíralos del fuego.",
+          "COLOCA las cebollas y los espárragos salteados en la fuente para hornear preparada y esparce uniformemente.",
+          "AGREGUE los huevos, la mezcla para pasteles Kodiak, el polvo de hornear, la sal, la pimienta y las cebolletas a una licuadora y mezcle a fuego lento hasta que quede suave.",
+          "VIERTE la mezcla de huevo sobre las verduras y espolvorea el queso de cabra uniformemente por encima.",
+          "HORNEA de 35 a 40 minutos, o hasta que el centro esté firme y bien cocido."
+        ],
+        "title": "Frittata de espárragos y queso de cabra",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1/4 杯橄榄油"
+          },
+          {
+            "price": null,
+            "qty_name": "1 个小红洋葱，切成薄片"
+          },
+          {
+            "price": null,
+            "qty_name": "12 根芦笋茎，底部修剪"
+          },
+          {
+            "price": null,
+            "qty_name": "10 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "3 汤匙 Kodiak Buttermilk Power Cakes Flapjack & Waffle 混合物"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙发酵粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 茶匙盐"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 茶匙碎黑胡椒"
+          },
+          {
+            "price": null,
+            "qty_name": "1 汤匙新鲜细香葱，切碎"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup goat cheese crumbles"
+          }
+        ],
+        "meta": {
+          "cook": "40 分钟",
+          "prep": "15 分钟",
+          "serves": "4"
+        },
+        "steps": [
+          "PREHEAT the oven to 350° F and coat a standard pie dish with butter or baking spray.",
+          "在平底锅中用中火加热，将橄榄油中的红洋葱炒至变软，然后从火上移开。",
+          "在同一个平底锅中，用中火炒芦笋大约 2 分钟，直到呈亮绿色，然后从火上移开。",
+          "将炒好的洋葱和芦笋放入准备好的烤盘中，均匀地摊开。",
+          "ADD the eggs, Kodiak Cakes mix, baking powder, salt, pepper, and chives to a blender and blend on low until smooth.",
+          "POUR the egg mixture over the vegetables and sprinkle the goat cheese evenly over the top.",
+          "烘烤 35—40 分钟，或直到中心凝固并煮熟。"
+        ],
+        "title": "Asparagus And Goat Cheese Frittata",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:4",
+            "ingredient:10",
+            "step:1",
+            "step:5",
+            "step:6"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-05": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 paquete de flapjack de mantequilla y vainilla Kodiak"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tazas de crema batida espesa"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tazas de fresas sin tallos y cortadas en rodajas"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de azúcar, dividida"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "COLOCA el paquete de flapjack puffs en el refrigerador durante la noche para descongelarlo.",
+          "COLOCA la crema espesa y el extracto de vainilla en un bol junto con 1/4 de taza de azúcar. Bate con una batidora eléctrica hasta que se formen picos rígidos.",
+          "COLOCA las fresas en rodajas en un bol y espolvorea el 1/4 de taza de azúcar restante sobre ellas. Revuelva para cubrirlas. Deja reposar la fresa durante 10 minutos mientras el azúcar forma un almíbar.",
+          "Divida UNIFORMEMENTE los bollos de flapjack, la crema batida y las fresas con almíbar en ocho tazas pequeñas, colocando los ingredientes uno encima del otro en varias capas.",
+          "¡ENFRÍE hasta que esté listo para servir!"
+        ],
+        "title": "Parfait de tarta de fresas",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 包柯迪亚克酪乳和香草夹心泡芙"
+          },
+          {
+            "price": null,
+            "qty_name": "2 杯浓淡奶油"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙香草精"
+          },
+          {
+            "price": null,
+            "qty_name": "2 杯草莓，去掉茎，切成薄片"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯糖，分开"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "将包装 flapjack 泡芙放入冰箱过夜解冻。",
+          "将浓奶油和香草精与 1/4 杯糖一起放入搅拌碗中。用电动搅拌器搅拌直到形成坚硬的峰值。",
+          "将切成薄片的草莓放入碗中，然后将剩余的 1/4 杯糖撒在上面。扔到外套上。让草莓静置 10 分钟，然后糖形成糖浆。",
+          "将夹心泡芙、鲜奶油和草莓加糖浆均匀地分成八个小杯，将食材分层叠在一起分成几层。",
+          "冷藏直到准备好上菜！"
+        ],
+        "title": "草莓脆饼冻糕",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-06": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "12 cucharadas (3/4 de taza) de mantequilla ablandada"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "3 huevos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cucharadita de extracto de almendras"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 cucharaditas de vainilla, divididas"
+          },
+          {
+            "price": null,
+            "qty_name": "2 tazas de mezcla para flapjack y gofres Kodiak Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "3 tazas de cerezas congeladas, partidas por la mitad"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de maicena"
+          },
+          {
+            "price": null,
+            "qty_name": "Zumo de 1/2 limón"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de sirope de arce"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "2-3 cucharadas de agua"
+          }
+        ],
+        "meta": {
+          "cook": "35 minutos",
+          "prep": "20 minutos",
+          "serves": "15"
+        },
+        "steps": [
+          "PRECALIENTA el horno a 350° Fahrenheit. Cubra un molde para hornear de 9 x 13 pulgadas con papel pergamino.",
+          "COLOCA la mantequilla y el azúcar moreno en un bol. Bata con una batidora eléctrica hasta que esté suave y esponjoso, de 2 a 3 minutos.",
+          "INCORPORA los huevos, uno a la vez.",
+          "AGREGA la mezcla de Kodiak Cakes y bate hasta que se combinen. Deje reposar durante cinco minutos.",
+          "ESPARZA 2/3 de la mezcla de masa de manera uniforme en el molde para hornear forrado con papel pergamino. Hornea en el horno precalentado durante 15 minutos.",
+          "MIENTRAS se hornea la masa, prepare la salsa de cerezas agregando las cerezas, la maicena, el jugo de limón y el jarabe de arce a una cacerola y revuelva para combinar. Calienta a fuego medio-alto, revolviendo de vez en cuando, hasta que las cerezas y la salsa estén brillantes y espesas, aproximadamente de 3 a 5 minutos. Retirar del fuego.",
+          "RETIRA la masa del horno después de 15 minutos y vierte la salsa de cerezas sobre la masa, extendiéndola uniformemente.",
+          "COLOQUE los grumos de la masa restante sobre la parte superior de las cerezas y extiéndalos uniformemente por la parte superior.",
+          "VUELVE A COLOCAR la sartén en el horno y hornea durante 15 a 20 minutos más, o hasta que las migajas de la parte superior estén ligeramente doradas.",
+          "RETIRAR del horno y dejar enfriar.",
+          "COLOQUE el azúcar en polvo, la vainilla y el agua en un tazón pequeño y mezcle para formar un glaseado suave.",
+          "ROCÍE el glaseado sobre las barras de tarta de cerezas enfriadas. Córtalas en 15 rebanadas.",
+          "ALMACENE en un recipiente hermético."
+        ],
+        "title": "Barras de tarta de cereza",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "12 tablespoons (3/4 cup) butter, softened"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯红糖"
+          },
+          {
+            "price": null,
+            "qty_name": "3 eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 teaspoon almond extract"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 茶匙香草，分开"
+          },
+          {
+            "price": null,
+            "qty_name": "2 杯 Kodiak Buttermilk Power Cakes Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "3 杯冷冻樱桃，减半"
+          },
+          {
+            "price": null,
+            "qty_name": "2 汤匙玉米淀粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 个柠檬汁"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 杯枫糖浆"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯糖粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 茶匙香草精"
+          },
+          {
+            "price": null,
+            "qty_name": "2-3 汤匙水"
+          }
+        ],
+        "meta": {
+          "cook": "35 分钟",
+          "prep": "20 分钟",
+          "serves": "15"
+        },
+        "steps": [
+          "将烤箱预热至 350 华氏度。在 9x13 英寸的烤盘上铺上羊皮纸。",
+          "PLACE the butter and brown sugar in a mixing bowl. Beat with an electric mixer until light and fluffy, 2 to 3 minutes.",
+          "BEAT in the eggs, one at a time.",
+          "加入科迪亚克蛋糕混合搅拌直至混合均匀。休息五分钟。",
+          "将2/3的外壳混合物均匀地撒在衬有羊皮纸的烤盘上。在预热的烤箱中烘烤 15 分钟。",
+          "当外壳烘烤时，将樱桃、玉米淀粉、柠檬汁和枫糖浆加入锅中并搅拌均匀，准备樱桃酱。用中火加热，不时搅拌，直到樱桃和酱汁变得光滑变稠，大约 3 到 5 分钟。从火上移开。",
+          "15 分钟后将外壳从烤箱中取出，然后将樱桃酱倒在外壳的顶部，均匀地摊开。",
+          "将剩余的硬皮面团块放在樱桃的顶部，并均匀地分布在上面。",
+          "将平底锅放回烤箱再烘烤 15 到 20 分钟，或者直到上面的碎屑略呈金黄色。",
+          "从烤箱中取出并冷却。",
+          "将糖粉、香草和水放入一个小碗中，搅拌在一起形成光滑的糖霜。",
+          "将糖霜淋在冷却后的樱桃派棒的顶部。切成 15 片。",
+          "存放在密封的容器中。"
+        ],
+        "title": "樱桃派棒",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:1",
+            "ingredient:3",
+            "ingredient:4",
+            "step:2",
+            "step:3"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-07": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "6 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de cebolletas en rodajas finas (verdes y blancas)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de queso cheddar rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "15 minutos",
+          "serves": "12 magdalenas"
+        },
+        "steps": [
+          "CALIENTA el horno a 350 °F y engrasa un molde para magdalenas de 12 tazas.",
+          "BATE los huevos, la leche, la sal y la pimienta; incorpora la mezcla hasta que quede suave, luego agrega las cebolletas y el queso cheddar.",
+          "DIVIDA entre las tazas y hornee de 18 a 20 minutos, hasta que se hinche y cuaje.",
+          "DEJAR ENFRIAR 5 minutos antes de desmoldar."
+        ],
+        "title": "Muffins de huevo y cebolla tierna",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 杯酪乳强力蛋糕 Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "6 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯切成薄片的葱（青葱和白洋葱）"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 杯切达干酪丝"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙盐"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙黑胡椒"
+          }
+        ],
+        "meta": {
+          "cook": "20 分钟",
+          "prep": "15 分钟",
+          "serves": "12 个松饼"
+        },
+        "steps": [
+          "将烤箱加热至 350 华氏度，然后在 12 杯松饼罐上涂油脂。",
+          "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+          "在杯子之间分开，烘烤 18-20 分钟，直到膨化并凝固。",
+          "在出炉前冷却 5 分钟。"
+        ],
+        "title": "Spring Onion Egg Muffins",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:2",
+            "ingredient:5",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-08": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de flapjack puffs de mantequilla y vainilla, calentados"
+          },
+          {
+            "price": null,
+            "qty_name": "1 melocotón cortado en cubitos"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de yogur natural"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "CALIENTA las bocanadas según las instrucciones del paquete.",
+          "COLOQUE CAPAS con yogur y duraznos en un vaso y sirva de una vez."
+        ],
+        "title": "Parfait Flapjack Puff",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 杯加热过的酪乳和香草夹心泡芙"
+          },
+          {
+            "price": null,
+            "qty_name": "1 个桃子，切成丁"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯纯酸奶"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "按照包装说明加热泡芙。",
+          "在玻璃杯中加入酸奶和桃子，然后立即食用。"
+        ],
+        "title": "Flapjack 泡芙冻糕",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-09": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "3 bolas de proteína Snickerdoodle, desmenuzadas"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de yogur natural"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 manzana cortada en cubitos"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "COLOQUE CAPAS de yogur, manzana cortada en cubitos y bolitas desmenuzadas en dos vasos.",
+          "SIRVA de una vez."
+        ],
+        "title": "Helado Snickerdoodle Ball",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "3 个 Snickerdoodle 蛋白球，碎了"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯纯酸奶"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 个苹果，切成丁"
+          }
+        ],
+        "meta": {
+          "cook": null,
+          "prep": null,
+          "serves": null
+        },
+        "steps": [
+          "将酸奶、苹果丁和碎球分层放入两杯中。",
+          "立即食用。"
+        ],
+        "title": "Snickerdoodle Ball Sundae",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-10": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "Rosquillas:"
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 taza de mezcla Kodiak, canela y avena Power Cakes para flapjack y gofres"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de azúcar moreno"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de polvo de hornear"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de sidra de manzana"
+          },
+          {
+            "price": null,
+            "qty_name": "1 cucharadita de extracto de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "1 huevo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 taza de aceite de coco derretido"
+          },
+          {
+            "price": null,
+            "qty_name": "Esmalte:"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de azúcar en polvo"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de vainilla"
+          },
+          {
+            "price": null,
+            "qty_name": "2 cucharadas de sidra de manzana"
+          }
+        ],
+        "meta": {
+          "cook": "12 minutos",
+          "prep": "10 minutos",
+          "serves": "12"
+        },
+        "steps": [
+          "EN un tazón, combine la mezcla de Kodiak Cakes, el azúcar moreno y el polvo de hornear y mezcle.",
+          "AGREGUE la sidra de manzana, el huevo, el extracto de vainilla y el aceite de coco derretido.",
+          "MEZCLE hasta que esté combinado.",
+          "DIVIDA la masa en moldes para rosquillas engrasados y hornee a 350 durante 12 a 15 minutos o hasta que el palillo quede limpio.",
+          "DEJA que las rosquillas se enfríen mientras preparas el glaseado.",
+          "EN un bol pequeño, mezcla el azúcar en polvo, la vainilla y la sidra de manzana.",
+          "MEZCLE hasta que quede suave.",
+          "ROCÍE el glaseado sobre las rosquillas enfriadas y sirva."
+        ],
+        "title": "Donuts de sidra de manzana",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "甜甜圈："
+          },
+          {
+            "price": null,
+            "qty_name": "1-1/2 杯 Kodiak Cinnamon Oat Power Cakes Flapjack 和华夫饼混合物"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 杯红糖"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙发酵粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 杯苹果酒"
+          },
+          {
+            "price": null,
+            "qty_name": "1 茶匙香草精"
+          },
+          {
+            "price": null,
+            "qty_name": "1 egg"
+          },
+          {
+            "price": null,
+            "qty_name": "1/4 cup coconut oil, melted"
+          },
+          {
+            "price": null,
+            "qty_name": "釉面："
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯糖粉"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙香草"
+          },
+          {
+            "price": null,
+            "qty_name": "2 汤匙苹果酒"
+          }
+        ],
+        "meta": {
+          "cook": "12 分钟",
+          "prep": "10 分钟",
+          "serves": "12"
+        },
+        "steps": [
+          "在碗中，将科迪亚克蛋糕混合物、红糖和发酵粉混合均匀。",
+          "ADD apple cider, egg, vanilla extract, and melted coconut oil.",
+          "混合直至混合。",
+          "将面糊分成涂有油脂的甜甜圈盘，在 350 度下烘烤 12-15 分钟或直到牙签变干净。",
+          "在制作釉料的同时让甜甜圈冷却。",
+          "在一个小碗里，将糖粉、香草和苹果酒混合在一起。",
+          "混合直至光滑。",
+          "在冷却的甜甜圈上淋上釉料即可食用。"
+        ],
+        "title": "苹果酒甜甜圈",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:7",
+            "ingredient:8",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-11": {
+      "es": {
+        "ingredients": [
+          {
+            "price": "$2.75",
+            "qty_name": "2 tazas de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": "$2.00",
+            "qty_name": "1 taza de puré de calabaza de invierno asada (nuez moscada o bellota)"
+          },
+          {
+            "price": "$0.70",
+            "qty_name": "2 huevos grandes"
+          },
+          {
+            "price": "$0.30",
+            "qty_name": "1/2 taza de leche"
+          },
+          {
+            "price": "$1.65",
+            "qty_name": "1/3 taza de miel o azúcar"
+          },
+          {
+            "price": "$0.75",
+            "qty_name": "1/4 taza de mantequilla derretida"
+          },
+          {
+            "price": "$0.20",
+            "qty_name": "1 cucharadita de canela"
+          },
+          {
+            "price": "$0.05",
+            "qty_name": "1/2 cucharadita de sal"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "15 minutos",
+          "serves": "12 magdalenas"
+        },
+        "steps": [
+          "CALIENTA el horno a 400 °F y forra un molde para magdalenas de 12 tazas.",
+          "BATE la calabaza, los huevos, la leche, la miel y la mantequilla hasta que estén suaves, luego agrega la mezcla, la canela y la sal hasta que se combinen.",
+          "DIVIDA entre las tazas y hornee de 18 a 20 minutos, hasta que un probador salga limpio.",
+          "DEJAR ENFRIAR 5 minutos en la lata antes de desmoldar."
+        ],
+        "title": "Muffins matutinos de calabaza de invierno",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": "$2.75",
+            "qty_name": "2 杯酪乳强力蛋糕 Flapjack & Waffle Mix"
+          },
+          {
+            "price": "$2.00",
+            "qty_name": "1 杯捣碎的烤冬南瓜（胡桃或橡子）"
+          },
+          {
+            "price": "$0.70",
+            "qty_name": "2 large eggs"
+          },
+          {
+            "price": "$0.30",
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": "$1.65",
+            "qty_name": "1/3 cup honey or sugar"
+          },
+          {
+            "price": "$0.75",
+            "qty_name": "1/4 cup melted butter"
+          },
+          {
+            "price": "$0.20",
+            "qty_name": "1 茶匙肉桂"
+          },
+          {
+            "price": "$0.05",
+            "qty_name": "1/2 茶匙盐"
+          }
+        ],
+        "meta": {
+          "cook": "20 分钟",
+          "prep": "15 分钟",
+          "serves": "12 个松饼"
+        },
+        "steps": [
+          "将烤箱加热到 400 华氏度，然后放一个 12 杯的松饼罐。",
+          "WHISK the squash, eggs, milk, honey, and butter until smooth, then stir in the mix, cinnamon, and salt just until combined.",
+          "在杯子之间分开，烘烤 18-20 分钟，直到测试仪出来干净。",
+          "在罐子里冷却 5 分钟，然后再出来。"
+        ],
+        "title": "冬南瓜晨间松饼",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "ingredient:3",
+            "ingredient:4",
+            "ingredient:5",
+            "ingredient:6",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      }
+    },
+    "2026-12": {
+      "es": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 taza de mezcla para flapjack y waffle de Buttermilk Power Cakes"
+          },
+          {
+            "price": null,
+            "qty_name": "6 huevos grandes"
+          },
+          {
+            "price": null,
+            "qty_name": "1 taza de cebolletas en rodajas finas (verdes y blancas)"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 de taza de queso cheddar rallado"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 taza de leche"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de sal"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cucharadita de pimienta negra"
+          }
+        ],
+        "meta": {
+          "cook": "20 minutos",
+          "prep": "15 minutos",
+          "serves": "12 magdalenas"
+        },
+        "steps": [
+          "CALIENTA el horno a 350 °F y engrasa un molde para magdalenas de 12 tazas.",
+          "BATE los huevos, la leche, la sal y la pimienta; incorpora la mezcla hasta que quede suave, luego agrega las cebolletas y el queso cheddar.",
+          "DIVIDA entre las tazas y hornee de 18 a 20 minutos, hasta que se hinche y cuaje.",
+          "DEJAR ENFRIAR 5 minutos antes de desmoldar."
+        ],
+        "title": "Muffins de huevo y cebolla tierna",
+        "translation": {
+          "allergen_check": "glossary",
+          "allergen_fallback_lines": [],
+          "human_reviewed": false,
+          "lang": "es",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
+          ]
+        }
+      },
+      "zh": {
+        "ingredients": [
+          {
+            "price": null,
+            "qty_name": "1 杯酪乳强力蛋糕 Flapjack & Waffle Mix"
+          },
+          {
+            "price": null,
+            "qty_name": "6 large eggs"
+          },
+          {
+            "price": null,
+            "qty_name": "1 杯切成薄片的葱（青葱和白洋葱）"
+          },
+          {
+            "price": null,
+            "qty_name": "3/4 杯切达干酪丝"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 cup milk"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙盐"
+          },
+          {
+            "price": null,
+            "qty_name": "1/2 茶匙黑胡椒"
+          }
+        ],
+        "meta": {
+          "cook": "20 分钟",
+          "prep": "15 分钟",
+          "serves": "12 个松饼"
+        },
+        "steps": [
+          "将烤箱加热至 350 华氏度，然后在 12 杯松饼罐上涂油脂。",
+          "WHISK the eggs, milk, salt, and pepper; whisk in the mix until smooth, then fold in the spring onions and cheddar.",
+          "在杯子之间分开，烘烤 18-20 分钟，直到膨化并凝固。",
+          "在出炉前冷却 5 分钟。"
+        ],
+        "title": "Spring Onion Egg Muffins",
+        "translation": {
+          "allergen_check": "unsupported-lang",
+          "allergen_fallback_lines": [
+            "title",
+            "ingredient:2",
+            "ingredient:5",
+            "step:2"
+          ],
+          "human_reviewed": false,
+          "lang": "zh",
+          "machine_translated": true,
+          "providers": [
+            "aws_translate"
           ]
         }
       }
@@ -120281,7 +125342,6 @@ window.KODIAK_RECIPE_I18N = {
     }
   }
 };
-// Meta-bar labels per language (est_cost value itself is universal).
 window.KODIAK_RECIPE_META_LABELS = {
   "am": {
     "cook": "Cook time — ፕሮቲን ለድንበርዎ",
