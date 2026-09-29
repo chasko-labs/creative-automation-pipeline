@@ -1990,7 +1990,7 @@ def generate_hero(
                     # and falls to the deterministic packshot composite (unrestyled seed).
                     if _STABILITY_RUNG_ON and remaining_ms() >= _B_STABILITY_MS + _C_RESERVATION_MS:
                         restyled = out_path.parent / f"{out_path.stem}-restyle.png"
-                        if _stability_control_hero(seed, a_scene, restyled, seed_value=request_seed) is not None and restyled.exists():
+                        if _stability_control_hero(seed, a_scene, restyled, seed_value=request_seed, retry_once=False, read_timeout=_NATIVE_READ_TIMEOUT_S) is not None and restyled.exists():
                             seed = restyled
                             bg_restyle = True
                             provenance["bg_restyle_source"] = "fresh"
@@ -2283,7 +2283,9 @@ def generate_hero(
                         provenance["native_ratios"] = _native_outcomes
                     if not _siblings or stylized is None and not provenance.get("native_ratios"):
                         try:
-                            stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength, seed_value=request_seed)
+                            # Single attempt: a retry doubles a doomed call
+                            # inside the shared wall (seen live: 66s stage).
+                            stylized = _stability_control_hero(seed, scene_prompt, out_path, control_strength=rung_b_strength, seed_value=request_seed, retry_once=False, read_timeout=_NATIVE_READ_TIMEOUT_S)
                         except TypeError:
                             stylized = _stability_control_hero(seed, scene_prompt, out_path)
                             rung_b_strength = None  # unparametrized fallback: record no strength

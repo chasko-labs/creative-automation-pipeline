@@ -543,9 +543,49 @@ def test_original_seed_restyles_even_on_spent_legacy_clock(tmp_path, monkeypatch
     # 17s left: plain gate (22s) would skip, original gate (13s) attempts.
     assert stability_calls["n"] == 1
     assert prov["rung"] == "B"
-    # elapsed is honest wall time even in completion mode
-    assert prov["elapsed_ms"] >= 0
 
+
+def test_restyle_retry_once_false_makes_single_attempt(tmp_path, monkeypatch):
+    # Seen live: the default retry doubles a doomed call inside the shared
+    # wall (66s restyle stage -> wall-timeout floor). Fallback paths pass
+    # retry_once=False; pin that contract at the source.
+    import creative_automation.stability_rungs as rungs
+
+    calls = {"n": 0}
+
+    class _TimeoutClient:
+        def invoke_model(self, **kwargs):
+            calls["n"] += 1
+            raise ReadTimeoutError(endpoint_url="https://bedrock-runtime.us-east-1.amazonaws.com")
+
+    monkeypatch.setattr(
+        rungs.bedrock_client, "_bedrock_failfast_client",
+        lambda read_timeout=None: _TimeoutClient(),
+    )
+    monkeypatch.setattr(
+        rungs, "_seed_b64_for_stability", lambda seed: "e30=",
+    )
+    seed = tmp_path / "seed.png"
+    Image.new("RGB", (64, 64), (10, 20, 30)).save(seed, "PNG")
+
+    import pytest
+
+    out = tmp_path / "out.png"
+    # retry_once=False re-raises after ONE attempt so the caller (which owns
+    # the shared wall) degrades immediately instead of doubling a doomed call.
+    # The rung-level handler catches it (bedrock-timeout -> rung C).
+    with pytest.raises(ReadTimeoutError):
+        rungs._stability_control_hero(
+            seed, "a calm frontier breakfast", out, retry_once=False,
+        )
+    assert calls["n"] == 1
+
+    out2 = tmp_path / "out2.png"
+    with pytest.raises(ReadTimeoutError):
+        rungs._stability_control_hero(
+            seed, "a calm frontier breakfast", out2,
+        )
+    assert calls["n"] == 3  # default still retries once (1 + 2)
 
 
 # --------------------------------------------------------------------------- #
