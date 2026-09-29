@@ -205,24 +205,31 @@ def _restyle_cache_key(seed_bytes: bytes, product_name: str, brief_msg: str,
 
 
 def _restyle_cache_get(key: str, dest: Path) -> bool:
-    """Fetch a cached restyle to dest. False on ANY failure (miss, creds, network)."""
+    """Fetch a cached restyle to dest. False on ANY failure (miss, creds, network).
+
+    Uses the bounded asset-store client (connect 1s / read 2s / 1 attempt, plain
+    GET, no Transfer manager) — a bare boto3.client here hung warm containers
+    for minutes (seen live inside a 299s restyle stage) on the default 60s
+    timeouts + retries, breaching the shared wall the cache exists to protect.
+    """
     try:
-        if bedrock_client.boto3 is None:
-            return False
-        s3 = bedrock_client.boto3.client("s3")
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        s3.download_file(_RESTYLE_CACHE_BUCKET, key, str(dest))
-        return dest.exists() and dest.stat().st_size > 0
+        from .asset_store import _s3_download  # local import — keeps offline path import-light
+        return _s3_download(_RESTYLE_CACHE_BUCKET, key, dest)
     except Exception:  # noqa: BLE001 — cache miss on ANY failure per contract
         return False
 
 
 def _restyle_cache_put(key: str, src: Path) -> None:
-    """Store a fresh restyle. Never raises — cache misses just cost a future restyle."""
+    """Store a fresh restyle. Never raises — cache misses just cost a future restyle.
+
+    Same bounded client as _restyle_cache_get: a bare put_object with default
+    retries can stall a warm-container connection past the handler wall.
+    """
     try:
-        if bedrock_client.boto3 is None:
+        from .asset_store import _s3_client  # local import — keeps offline path import-light
+        s3 = _s3_client()
+        if s3 is None:
             return
-        s3 = bedrock_client.boto3.client("s3")
         s3.put_object(Bucket=_RESTYLE_CACHE_BUCKET, Key=key,
                       Body=src.read_bytes(), ContentType="image/png")
     except Exception as e:  # noqa: BLE001 — cache write never breaks the render

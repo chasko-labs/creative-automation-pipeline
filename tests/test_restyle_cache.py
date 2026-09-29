@@ -6,7 +6,6 @@ from pathlib import Path
 
 from PIL import Image
 
-from creative_automation import bedrock_client
 from creative_automation import asset_store, generate
 
 
@@ -46,20 +45,17 @@ def test_cache_hit_skips_bedrock(tmp_path: Path, monkeypatch) -> None:
 
     calls: list[str] = []
 
-    class _S3:
-        def download_file(self, bucket, key, dest):
-            assert key.startswith(generate._RESTYLE_CACHE_PREFIX)
-            Path(dest).write_bytes(cached_bytes)
+    def _fake_download(bucket, key, dest):
+        assert key.startswith(generate._RESTYLE_CACHE_PREFIX)
+        Path(dest).write_bytes(cached_bytes)
+        return True
 
+    class _S3:
         def put_object(self, **kwargs):
             calls.append("put")
 
-    class _Boto:
-        def client(self, name):
-            assert name == "s3"
-            return _S3()
-
-    monkeypatch.setattr(bedrock_client, "boto3", _Boto())
+    monkeypatch.setattr(asset_store, "_s3_download", _fake_download)
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: _S3())
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
@@ -94,18 +90,15 @@ def test_set_base_miss_uses_raw_seed(tmp_path: Path, monkeypatch) -> None:
     seed = tmp_path / "seed.png"
     seed.write_bytes(_png_bytes())
 
-    class _S3:
-        def download_file(self, bucket, key, dest):
-            raise _StubS3Error("NoSuchKey")
+    def _fake_download(bucket, key, dest):
+        raise _StubS3Error("NoSuchKey")
 
+    class _S3:
         def put_object(self, **kwargs):
             raise AssertionError("set base must not upload")
 
-    class _Boto:
-        def client(self, name):
-            return _S3()
-
-    monkeypatch.setattr(bedrock_client, "boto3", _Boto())
+    monkeypatch.setattr(asset_store, "_s3_download", _fake_download)
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: _S3())
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
@@ -141,22 +134,19 @@ def test_preview_fresh_restyle_counts_miss_and_writes_through(tmp_path: Path, mo
     seed.write_bytes(_png_bytes())
     puts: list[str] = []
 
-    class _S3:
-        def download_file(self, bucket, key, dest):
-            raise _StubS3Error("NoSuchKey")
+    def _fake_download(bucket, key, dest):
+        raise _StubS3Error("NoSuchKey")
 
+    class _S3:
         def put_object(self, **kwargs):
             puts.append(kwargs.get("Key", ""))
-
-    class _Boto:
-        def client(self, name):
-            return _S3()
 
     def _fake_stability(seed_path, scene, dest, **kwargs):
         Path(dest).write_bytes(_png_bytes(color=(1, 2, 3)))
         return Path(dest)
 
-    monkeypatch.setattr(bedrock_client, "boto3", _Boto())
+    monkeypatch.setattr(asset_store, "_s3_download", _fake_download)
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: _S3())
     monkeypatch.setattr(generate, "_STABILITY_RUNG_ON", True)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
