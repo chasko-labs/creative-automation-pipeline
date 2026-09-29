@@ -608,6 +608,18 @@ def _market_scene_clause(market: str | None, season: str | None) -> str:
         except Exception:  # noqa: BLE001 — produce preference never breaks scenes
             pass
         source = str(info.get("source") or "").strip()
+        # Research provenance is curator metadata, not pixels: the source
+        # field carries notes like "(standalone URL unconfirmed — research
+        # dispatch)" that must never reach the image model. Strip any
+        # parenthetical holding unconfirmed/research-dispatch/schedule
+        # language; the stand name outside the parens survives.
+        import re as _re
+
+        source = _re.sub(
+            r"\s*\([^)]*(?:unconfirmed|research dispatch|no confirmed)[^)]*\)",
+            "",
+            source,
+        ).strip()
         month_name = str(season).strip() if _season_month(season) else ""
         head = f"Setting: {place}" + (f" in {month_name}" if month_name else "")
         tail_bits = []

@@ -260,3 +260,13 @@ def test_default_scene_prompt_deterministic_and_themed() -> None:
     assert "on-brand Kodiak" not in a
     c = generate._default_scene_prompt("Power Cakes", "brief", "us", "families", None)
     assert "brief" in c
+
+
+def test_market_scene_clause_strips_research_provenance() -> None:
+    from creative_automation.scene_prompts import _market_scene_clause as clause
+
+    brooklyn = clause("US-NE-BROOKLYN", "September")
+    assert "research dispatch" not in brooklyn
+    assert "unconfirmed" not in brooklyn
+    assert "Warwick farm stands" in brooklyn  # stand name survives
+    assert "apples in season" in brooklyn  # produce clause intact
