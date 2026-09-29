@@ -1,9 +1,9 @@
 {
-  "generated_utc": "2026-09-28T00:45:41.726224+00:00",
-  "ledger_rows": 63,
-  "approved_rows": 20,
-  "rejected_rows": 43,
-  "unique_slugs": 43,
-  "approved_latest": 20,
+  "generated_utc": "2026-09-28T03:18:20.868065+00:00",
+  "ledger_rows": 67,
+  "approved_rows": 22,
+  "rejected_rows": 45,
+  "unique_slugs": 44,
+  "approved_latest": 22,
   "seed_manifest": 20
 }

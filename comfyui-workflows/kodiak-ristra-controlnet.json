@@ -1,0 +1,85 @@
+{
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["1", 1],
+      "text": "black ink illustration on a plain white background, frontier ink style, hand-drawn linework, Capsicum annuum var. annuum, single vertical ristra of 6 smooth elongated tapered red chile pods on one string with top knot, star calyx, fine leather micro-wrinkles, single hero ingredient study centered with wide spacing, strictly black ink only, plain white background, no color, no leaves, no branches, no foliage"
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["1", 1],
+      "text": "people, human face, hands, text, signature, watermark, color, red, burgundy, green, plate, bowl, fork, spoon, table setting, photograph, photorealistic, color wash, leaves, branch, branches, foliage, plant, shading, gradient, solid fill, dark background, drop shadow, 3d render, dense foliage, pile, cluster, overlapping, ribbed, warty, dotted, grooved, bitter melon, cucumber, okra, flower"
+    }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "red-chile-controlnet-lineart.png",
+      "upload": "image"
+    }
+  },
+  "5": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "control_lora_rank128_v11p_sd15_lineart.pth"
+    }
+  },
+  "6": {
+    "class_type": "ControlNetApplyAdvanced",
+    "inputs": {
+      "positive": ["2", 0],
+      "negative": ["3", 0],
+      "control_net": ["5", 0],
+      "image": ["4", 0],
+      "strength": 0.85,
+      "start_percent": 0.0,
+      "end_percent": 1.0
+    }
+  },
+  "7": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "batch_size": 1,
+      "height": 768,
+      "width": 1344
+    }
+  },
+  "8": {
+    "class_type": "KSampler",
+    "inputs": {
+      "cfg": 5.5,
+      "denoise": 1.0,
+      "latent_image": ["7", 0],
+      "model": ["1", 0],
+      "positive": ["6", 0],
+      "negative": ["6", 1],
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "seed": 711020,
+      "steps": 25
+    }
+  },
+  "9": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": ["8", 0],
+      "vae": ["1", 2]
+    }
+  },
+  "10": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "kodiak-ristra-controlnet",
+      "images": ["9", 0]
+    }
+  },
+  "_comment": "SDXL ControlNet lineart path for ristra — drop red-chile-controlnet-lineart.png OR red-chile-controlnet-depth.png into ComfyUI input/ and use matching ControlNet (lineart vs depth). For depth map, swap control_net_name to control_v11f1p_sd15_depth.pth and Loader image to red-chile-controlnet-depth.png. IP-Adapter alt: replace 4-6 with IPAdapterLoader + IPAdapterApply (reference: red-chile.png 710405 geometry winner). 30-sec sketch was Pillow-generated; see scripts/generate_ristra_controlnet.py"
+}

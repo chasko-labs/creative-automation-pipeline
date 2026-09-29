@@ -1,0 +1,156 @@
+{
+  "dataset": "new-mexico-red-chile-ristra-ink-lora",
+  "version": "v1-draft",
+  "purpose": "LoRA training set to fix SDXL base failure on dried New Mexico chile ristras (parked after 9+ single retries: 710405 geometry winner but red wash, 710503-711017 morphology/branch/color failures). Base SDXL 1.0 cannot render a single vertical strand of 5-7 smooth tapered Capsicum annuum var. annuum pods on a string with top knot \u2014 it drifts to piled heaps, ribbed/bitter-melon pods, branched plants, or red fill. LoRA teaches the ristra concept in frontier ink style.",
+  "style_lock": {
+    "base_checkpoint": "sd_xl_base_1.0.safetensors",
+    "render_spec": "black ink illustration on a plain white background, frontier ink style, hand-drawn linework with dense crosshatching, stipple dots and fine parallel shading, shapes and counts only, faces left white with one small white highlight gap per piece, single hero ingredient study centered with wide spacing, no plate, no fork, no hand",
+    "resolution": "1024x1024 square (LoRA training) \u2192 inference at 1344x768 (pipeline) via aspect crop; square avoids distortion of vertical strand",
+    "background": "pure white, no shadow, no gradient, no wash",
+    "ink": "pure black ink only, no color, no red/burgundy fill, no yellow wash",
+    "trigger_token": "nm-ristra",
+    "taxon": "Capsicum annuum var. annuum (New Mexico chile \u2014 Hatch/Sandia/Chimayo landrace, dried)",
+    "negative_locked": "people, human face, hands, text, signature, watermark, color, green, red, photograph, photorealistic, shading, gradient, solid fill, dark background, drop shadow, 3d render, dense foliage, pile, cluster, overlapping, ribbed, warty, dotted skin, bitter melon, cucumber, okra, flower, leaves, branch, foliage, plant, pinecone, soursop, heap, pile of peppers, scattered, diagonal fan"
+  },
+  "sourcing": {
+    "principle": "Actual dried New Mexico chile ristras \u2014 physical specimens, not synthetic renders. Conditioning bucket = own captures (first-party) + CC0/public-domain only per docs/reference-image-sourcing.md two-bucket control. No consumer-stock (Unsplash/Pexels/Pixabay) in conditioning.",
+    "capture_plan": "Buy 3 real ristras (Hatch, NM): 1x small 5-pod, 1x medium 7-pod, 1x large 10-pod spiral. Hang on white seamless + single north window. Shoot each from 5-6 angles/distances. Supplement with 2 CC0 archival ristra photos (Wikimedia Commons filtered CC0/PD, Smithsonian Open Access) for context variety. Total raw captures ~20, curated to 17 inks.",
+    "ink_conversion": "Each raw photo \u2192 hand-traced or manually cleaned B&W ink in frontier style (crosshatch + stipple + parallel lines, white highlight gaps). Do NOT use auto-threshold alone \u2014 it preserves ribbing artifacts. Trace smooth tapered sub-cylindrical pods, star calyx attached, fine leather micro-wrinkles (not ribs/dots). Top knot + single vertical string always visible. Export 1024x1024 PNG, 300dpi, pure 1-bit black/white with antialiased edges."
+  },
+  "count": 17,
+  "images": [
+    {
+      "id": "01",
+      "file": "01_ristra_5pod_front.png",
+      "caption": "nm-ristra, Capsicum annuum var. annuum, single vertical ristra of 5 smooth elongated tapered dried New Mexico chile pods hanging on one string with top knot, front view, dense crosshatch shading, stipple dots, fine parallel lines, black ink on white background, frontier ink style, star calyx attached at stem, fine leather micro-wrinkles, no ribs, no leaves, no branches",
+      "spec": "5 pods, vertical center, front, 5-pod small ristra reference, 1024x1024, white bg",
+      "source": "own capture: small 5-pod Hatch ristra, front"
+    },
+    {
+      "id": "02",
+      "file": "02_ristra_7pod_front.png",
+      "caption": "nm-ristra, Capsicum annuum var. annuum, single vertical ristra of 7 smooth tapered New Mexico chile pods on one string with top knot, front view, overlapping spiral, black ink illustration, frontier ink style, white background",
+      "spec": "7 pods, front, medium ristra, the canonical recipe-card asset",
+      "source": "own capture: medium 7-pod Hatch ristra, front"
+    },
+    {
+      "id": "03",
+      "file": "03_ristra_7pod_threequarter.png",
+      "caption": "nm-ristra, Capsicum annuum var. annuum, single vertical ristra of 7 dried chile pods on one string with top knot, three-quarter angle, showing pod curvature and star calyx side view, black ink on white, frontier style",
+      "spec": "7 pods, 30-degree three-quarter, depth cue without branch",
+      "source": "own capture: medium 7-pod, 30deg rotation"
+    },
+    {
+      "id": "04",
+      "file": "04_ristra_5pod_close_calyx.png",
+      "caption": "nm-ristra, close-up of top knot and upper 3 pods of a New Mexico chile ristra, star calyx attached, twine knot detail, smooth leather texture with fine micro-wrinkles, black ink on white",
+      "spec": "crop: top knot + 3 pods, calyx detail learning",
+      "source": "own capture: small ristra, macro top"
+    },
+    {
+      "id": "05",
+      "file": "05_ristra_10pod_spiral.png",
+      "caption": "nm-ristra, Capsicum annuum var. annuum, dense vertical spiral ristra of 10 smooth tapered dried chile pods wound around one central string, top knot, spiral overlap, black ink illustration, frontier style, white background",
+      "spec": "10 pods, dense spiral, large ristra variant, teaches overlap without pile",
+      "source": "own capture: large 10-pod Chimayo ristra, front"
+    },
+    {
+      "id": "06",
+      "file": "06_ristra_6pod_slight_sway.png",
+      "caption": "nm-ristra, single vertical ristra of 6 New Mexico chile pods on one string with slight natural sway, side profile of tapered pods, black ink on white, frontier ink style, no leaves",
+      "spec": "6 pods, subtle S-curve sway, not straight ruler",
+      "source": "own capture: medium ristra, gentle push to show natural hang"
+    },
+    {
+      "id": "07",
+      "file": "07_ristra_5pod_back.png",
+      "caption": "nm-ristra, back view of single vertical 5-pod New Mexico chile ristra on one string, pods seen from behind, string visible between pods, black ink on white",
+      "spec": "5 pods, back view, teaches string continuity",
+      "source": "own capture: small ristra, back side"
+    },
+    {
+      "id": "08",
+      "file": "08_ristra_double_strand.png",
+      "caption": "nm-ristra, pair of two small vertical ristras hanging side by side, each 5 smooth tapered pods on its own string with top knot, spaced apart on white background, black ink illustration, frontier style",
+      "spec": "2x 5-pod strands, paired composition for 'one or two ristras' flexibility",
+      "source": "own capture: two small ristras hung together"
+    },
+    {
+      "id": "09",
+      "file": "09_ristra_adobe_portal_context.png",
+      "caption": "nm-ristra, single vertical 7-pod New Mexico chile ristra hanging on adobe portal with viga beam hint, ristra is hero centered, minimal adobe line suggesting portal (not full scene), black ink on white, frontier style",
+      "spec": "7 pods + minimal portal linework, Albuquerque/Santa Fe context cue, keep ristra 80% of frame",
+      "source": "own capture: medium ristra hung on portal prop, then traced with minimal background"
+    },
+    {
+      "id": "10",
+      "file": "10_ristra_dried_texture_study.png",
+      "caption": "nm-ristra, single dried New Mexico chile pod isolated enlarged study showing smooth tapered sub-cylindrical form, star calyx, fine leather micro-wrinkles, stem, black ink detailed botanical linework on white",
+      "spec": "1 pod enlarged, morphology anchor \u2014 prevents cucumber/okra drift",
+      "source": "own capture: single dried pod macro, traced"
+    },
+    {
+      "id": "11",
+      "file": "11_ristra_three_pods_detached.png",
+      "caption": "nm-ristra, three detached dried New Mexico chile pods laid parallel showing tapered smooth form and star calyx, not hanging, black ink on white, botanical specimen view",
+      "spec": "3 pods detached, flat lay, teaches pod shape independent of string",
+      "source": "own capture: 3 pods removed from ristra, flat lay"
+    },
+    {
+      "id": "12",
+      "file": "12_ristra_7pod_low_angle.png",
+      "caption": "nm-ristra, single vertical 7-pod New Mexico chile ristra viewed from low angle looking up, foreshortened taper, top knot above, black ink on white, frontier style",
+      "spec": "7 pods, low angle, perspective variation",
+      "source": "own capture: medium ristra, low camera"
+    },
+    {
+      "id": "13",
+      "file": "13_ristra_5pod_high_angle.png",
+      "caption": "nm-ristra, single vertical 5-pod New Mexico chile ristra viewed from high angle looking down, string and knot foreground, black ink on white",
+      "spec": "5 pods, high angle, second perspective variant",
+      "source": "own capture: small ristra, high camera"
+    },
+    {
+      "id": "14",
+      "file": "14_ristra_seed_packet_reference.png",
+      "caption": "nm-ristra, single vertical ristra of 8 smooth New Mexico chile pods on one string, archival CC0 style, slight vintage hatch density, black ink on white, frontier ink style",
+      "spec": "8 pods, CC0 archival style variant, adds historical linework texture",
+      "source": "CC0: Wikimedia Commons \u2014 dried chile ristra (filtered PD), traced to ink"
+    },
+    {
+      "id": "15",
+      "file": "15_ristra_winter_holiday_pair.png",
+      "caption": "nm-ristra, single vertical 7-pod New Mexico chile ristra with small pinon sprig accent at top knot, ristra remains hero, pinon secondary, black ink on white, frontier style",
+      "spec": "7 pods + tiny pinon accent, holiday variant for Albuquerque winter-holidays seasonal card",
+      "source": "own capture: medium ristra + pinon sprig, accent not competing"
+    },
+    {
+      "id": "16",
+      "file": "16_ristra_shadow_shape_ablation.png",
+      "caption": "nm-ristra, single vertical 6-pod New Mexico chile ristra, extra stipple-heavy shading on pod curves to teach highlight gaps, stark white background, black ink, frontier style with strong crosshatch",
+      "spec": "6 pods, heavy stipple/crosshatch variant, teaches highlight-gap preservation under dense ink",
+      "source": "own capture: medium ristra, traced with heavier shading pass"
+    },
+    {
+      "id": "17",
+      "file": "17_ristra_minimal_outline.png",
+      "caption": "nm-ristra, single vertical 5-pod New Mexico chile ristra, minimal thin contour lines only, sparse open linework, airy negative space, black ink on white, frontier minimal style",
+      "spec": "5 pods, minimal outline variant, teaches sparse vs dense trade-off, matches recipe_art coverage gate",
+      "source": "own capture: small ristra, traced with minimal stroke pass"
+    }
+  ],
+  "captioning_rules": {
+    "trigger": "Every caption starts with nm-ristra trigger token, then taxon Capsicum annuum var. annuum, then count + geometry (5/7/10 smooth tapered pods, single vertical string, top knot). Always include 'black ink on white, frontier ink style' and deny list terms.",
+    "instance_token": "nm-ristra",
+    "class_token": "dried New Mexico red chile ristra",
+    "keep_counts_exact": "Caption counts must match image pod counts exactly \u2014 model learns counting from this.",
+    "no_color_words": "Never include red, green, or color in any caption \u2014 reinforces B&W LoRA."
+  },
+  "preprocessing": {
+    "resolution": "1024x1024, center-cropped, ristra occupies 60-75% of vertical frame, 25-35% horizontal, centered",
+    "format": "PNG, pure black (0,0,0) ink on pure white (255,255,255) background, no alpha, no EXIF rotation",
+    "repeats": "Repeat heavier variants (02,05,10) x2 in training to weight canonical and morphology; minimal variants x1",
+    "regularization": "Add 5 regularization images of generic SDXL frontier ink style without ristra (e.g., existing apples/pumpkins inks) captioned without trigger token, to preserve base style on non-ristra subjects"
+  },
+  "license_bucket": "Own captures = first-party brand tooling, safe for conditioning. CC0 images (ids 14) verified per-item on Wikimedia/Smithsonian rights line. No Unsplash/Pexels/Pixabay in this dataset."
+}

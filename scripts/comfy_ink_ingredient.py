@@ -121,13 +121,23 @@ def main() -> None:
 
     check_box(force)
     wf = json.loads(WORKFLOW.read_text())
-    # Taxon leads: the model knows species, not places or farm names.
-    positive = f"{STYLE_PREFIX}, {taxon}, {subject}" if taxon else f"{STYLE_PREFIX}, {subject}"
+    # Stripped-prompt mode: if subject already starts with stripped frontier prefix, bypass STYLE_PREFIX
+    # to avoid crosshatch/smooth-leather ribbing clash per ristra critique (711015).
+    if subject.lower().startswith("black ink illustration"):
+        positive = f"{taxon}, {subject}" if taxon else subject
+    else:
+        # Taxon leads: the model knows species, not places or farm names.
+        positive = f"{STYLE_PREFIX}, {taxon}, {subject}" if taxon else f"{STYLE_PREFIX}, {subject}"
     wf["2"]["inputs"]["text"] = positive
     wf["5"]["inputs"]["seed"] = seed
     # Server-side output carries the slug: kodiak-ink-ingredient-<slug>_00001_.png,
     # never a bare counter name.
     wf["7"]["inputs"]["filename_prefix"] = f"{prefix}-{slug}"
+    # Allow stripped negative override via --negative (for ristra stripped test)
+    custom_negative = ""
+    if "--negative" in args:
+        custom_negative = args[args.index("--negative") + 1].strip()
+        wf["3"]["inputs"]["text"] = custom_negative
     negative = wf["3"]["inputs"]["text"]
 
     pid = api("/prompt", {"prompt": wf})["prompt_id"]
