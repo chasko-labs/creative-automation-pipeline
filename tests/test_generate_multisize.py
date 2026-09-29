@@ -42,7 +42,7 @@ def test_provenance_shape_and_json_serializable(tmp_path: Path, monkeypatch) -> 
     seed = _make_seed(tmp_path / "seed.png")
     canned = base64.b64encode(_png_bytes(color=(10, 200, 120))).decode("ascii")
 
-    class _Fake:
+    class _Canned:
         def invoke_model(self, **kwargs):
             payload = json.dumps({"images": [canned]}).encode("utf-8")
             return {"body": io.BytesIO(payload)}
@@ -53,7 +53,7 @@ def test_provenance_shape_and_json_serializable(tmp_path: Path, monkeypatch) -> 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Fake())
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Canned())
 
     out = tmp_path / "hero.png"
     _result, source, prov = generate.generate_hero(
@@ -122,13 +122,13 @@ def test_provenance_pillow_path_records_headline_and_engine(tmp_path: Path, monk
 def test_generate_hero_set_three_ratios_via_outpaint(tmp_path: Path, monkeypatch) -> None:
     # one control-structure hero + composed outpaint extends (9x16, 16x9) + 4x5 pad
     # -> 4 renders with correct dims. Each extend is budget-gated; with budget
-    # available the faked Bedrock extends succeed and dims still match the canvas.
+    # available the canned Bedrock extends succeed and dims still match the canvas.
     seed = _make_seed(tmp_path / "seed.png")
     hero_b64 = base64.b64encode(_png_bytes((1080, 1080), color=(30, 60, 200))).decode("ascii")
 
     invoked: list[str] = []
 
-    class _Fake:
+    class _Canned:
         def invoke_model(self, **kwargs):
             invoked.append(kwargs["modelId"])
             # both control-structure and outpaint return a single base64 image
@@ -141,7 +141,7 @@ def test_generate_hero_set_three_ratios_via_outpaint(tmp_path: Path, monkeypatch
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Fake())
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Canned())
 
     renders, source, prov = generate.generate_hero_set(
         product_id="power-cakes",
@@ -181,11 +181,11 @@ def test_generate_hero_set_pillow_outpaint_fallback(tmp_path: Path, monkeypatch)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     # primary hero via stability succeeds; outpaint fails -> pillow fallback
-    def _fake_control(seed_path, prompt, out, **_k):
+    def _canned_control(seed_path, prompt, out, **_k):
         out.write_bytes(_png_bytes())
         return out
 
-    monkeypatch.setattr(generate, "_stability_control_hero", _fake_control)
+    monkeypatch.setattr(generate, "_stability_control_hero", _canned_control)
     monkeypatch.setattr(generate, "_stability_outpaint", lambda *a, **k: None)
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
@@ -219,14 +219,14 @@ def test_generate_hero_set_outpaint_sabotage_degrades_to_pad(tmp_path: Path, mon
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
 
-    def _fake_control(seed_path, prompt, out, **_k):
+    def _canned_control(seed_path, prompt, out, **_k):
         out.write_bytes(_png_bytes())
         return out
 
     def _sabotaged(*a, **k):
         raise RuntimeError("bedrock poisoned")
 
-    monkeypatch.setattr(generate, "_stability_control_hero", _fake_control)
+    monkeypatch.setattr(generate, "_stability_control_hero", _canned_control)
     monkeypatch.setattr(generate, "_stability_outpaint", _sabotaged)
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
@@ -259,12 +259,12 @@ def test_generate_hero_set_outpaint_budget_gate_skips_without_call(tmp_path: Pat
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
 
-    def _fake_control(seed_path, prompt, out, **_k):
+    def _canned_control(seed_path, prompt, out, **_k):
         out.write_bytes(_png_bytes())
         return out
 
     calls: list = []
-    monkeypatch.setattr(generate, "_stability_control_hero", _fake_control)
+    monkeypatch.setattr(generate, "_stability_control_hero", _canned_control)
     monkeypatch.setattr(generate, "_stability_outpaint", lambda *a, **k: calls.append(a) or None)
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: None)
@@ -297,7 +297,7 @@ def test_stability_outpaint_uses_failfast_client_and_style_sandwich(tmp_path: Pa
     seed = _make_seed(tmp_path / "seed.png")
     seen: dict = {}
 
-    class _FakeClient:
+    class _CannedClient:
         def invoke_model(self, **kwargs):
             seen["modelId"] = kwargs["modelId"]
             body = json.loads(kwargs["body"])
@@ -306,15 +306,15 @@ def test_stability_outpaint_uses_failfast_client_and_style_sandwich(tmp_path: Pa
             payload = json.dumps({"images": [base64.b64encode(_png_bytes()).decode("ascii")]}).encode()
             return {"body": io.BytesIO(payload)}
 
-    def _fake_failfast(read_timeout=None):
+    def _canned_failfast(read_timeout=None):
         seen["failfast"] = True
         seen["read_timeout"] = read_timeout
-        return _FakeClient()
+        return _CannedClient()
 
     def _no_bare(*a, **k):
         raise AssertionError("bare boto3.client must not be used by outpaint")
 
-    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", _fake_failfast)
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", _canned_failfast)
     monkeypatch.setattr(bedrock_client.boto3, "client", _no_bare)
     out = tmp_path / "wide.png"
     result = generate._stability_outpaint(seed, 1920, 1080, "campfire morning", out)
@@ -448,11 +448,11 @@ def _seeded_hero_set(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
 
-    def _fake_control(seed_path, prompt, out, **_k):
+    def _canned_control(seed_path, prompt, out, **_k):
         out.write_bytes(_png_bytes())
         return out
 
-    monkeypatch.setattr(generate, "_stability_control_hero", _fake_control)
+    monkeypatch.setattr(generate, "_stability_control_hero", _canned_control)
     monkeypatch.setattr(generate, "_stability_outpaint", lambda *a, **k: None)
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate, "_nova_pro_caption", lambda *a, **k: "Keep It Wild\nLAYOUT: center")

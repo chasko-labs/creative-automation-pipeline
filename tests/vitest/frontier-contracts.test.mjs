@@ -8,11 +8,11 @@ const web = (...parts) =>
   resolve(root, 'web/kodiak-posts-for-todays-frontier', ...parts);
 
 // frontier-contracts.js is a classic browser script (IIFE, no exports), so
-// eval it with a fake window and read the validators back off that object.
+// eval it with a canned window and read the validators back off that object.
 // Fast, no browser: guards the contract source itself.
 const src = readFileSync(web('js/frontier-contracts.js'), 'utf8');
-const fakeWindow = {};
-new Function('window', src)(fakeWindow);
+const cannedWindow = {};
+new Function('window', src)(cannedWindow);
 const {
   KODIAK_tileSizeFromClass: tileSizeFromClass,
   KODIAK_tileSizeFromString: tileSizeFromString,
@@ -20,7 +20,7 @@ const {
   KODIAK_localeFromLang: localeFromLang,
   KODIAK_parseBuildId: parseBuildId,
   KODIAK_TILE_ORDER: TILE_ORDER,
-} = fakeWindow;
+} = cannedWindow;
 
 describe('frontier contracts surface', () => {
   it('exposes every validator the renderers consume', () => {

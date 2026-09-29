@@ -32,7 +32,7 @@ def _has_creds(monkeypatch, value: bool):
 
 
 def _hostile(seg: str) -> str:
-    """Fake MT that mangles everything it touches (uppercases)."""
+    """Canned MT that mangles everything it touches (uppercases)."""
     return seg.upper()
 
 

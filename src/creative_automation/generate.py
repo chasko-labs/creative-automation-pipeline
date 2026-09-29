@@ -1852,7 +1852,14 @@ def generate_hero(
         # are meant to be varied. Recipe stays deterministic via market|month|ingredient
         # rotation (recipe_card.py), so ingredients remain stable while campaigns vary.
         # Deterministic mode (KODIAK_DETERMINISTIC=1) keeps hash-based pick for tests.
-        if photo_key is None and candidates:
+        # BUT: variety only among MATCHING photos. When the brief carries an idea
+        # and no pool photo matches it, a random photo + restyle structurally
+        # cannot show the idea (restyle preserves the seed's composition) — seen
+        # live: a Halloween pumpkins brief restyled a random kitchen frame and
+        # came back a woman plating greens. Leave the seed empty so rung B0
+        # paints the idea from words; the fallthrough record below says so.
+        # Empty-idea briefs keep the old rotation (generic vibe, any frame).
+        if photo_key is None and candidates and not _idea:
             if os.getenv("KODIAK_DETERMINISTIC") == "1":
                 h = _stable_hash_int((brief_msg or "") + product_id)
                 photo_key = candidates[h % len(candidates)]

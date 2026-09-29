@@ -60,7 +60,7 @@ def test_fetch_product_asset_writes_under_tmp_cache_not_asset_store_root(monkeyp
     monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
     monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
 
-    def fake_download(bucket: str, key: str, dest: Path) -> bool:
+    def canned_download(bucket: str, key: str, dest: Path) -> bool:
         # mirror the real _s3_download mkdir so we prove the dest parent is writable
         dest.parent.mkdir(parents=True, exist_ok=True)
         if key.endswith("hero.png"):
@@ -68,7 +68,7 @@ def test_fetch_product_asset_writes_under_tmp_cache_not_asset_store_root(monkeyp
             return True
         return False
 
-    monkeypatch.setattr(asset_store, "_s3_download", fake_download)
+    monkeypatch.setattr(asset_store, "_s3_download", canned_download)
 
     asset_root = tmp_path / "input_assets"  # caller's read root (would be read-only on Lambda)
     hit = asset_store._s3_try_fetch_product_asset("power-cakes", asset_root)
@@ -88,14 +88,14 @@ def test_fetch_survives_readonly_input_assets(monkeypatch, tmp_path: Path) -> No
     monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
     monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
 
-    def fake_download(bucket: str, key: str, dest: Path) -> bool:
+    def canned_download(bucket: str, key: str, dest: Path) -> bool:
         dest.parent.mkdir(parents=True, exist_ok=True)
         if key.endswith("hero.png"):
             _write_png(dest)
             return True
         return False
 
-    monkeypatch.setattr(asset_store, "_s3_download", fake_download)
+    monkeypatch.setattr(asset_store, "_s3_download", canned_download)
     try:
         hit = asset_store._s3_try_fetch_product_asset("power-cakes", readonly_root)
         assert hit is not None and hit.exists(), "fetch broke on read-only input_assets"

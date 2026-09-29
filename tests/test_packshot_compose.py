@@ -96,7 +96,7 @@ def test_mapped_sku_takes_packshot_path_and_skips_generate_hero(tmp_path, monkey
     # to paint the BACKGROUND scene, so we stub it to a plain background and record calls.
     calls = {"generate_hero": 0}
 
-    def _fake_generate_hero(*, product_id, product_name, brief_msg, region, audience, out_path, idx):
+    def _canned_generate_hero(*, product_id, product_name, brief_msg, region, audience, out_path, idx):
         calls["generate_hero"] += 1
         Path(out_path).parent.mkdir(parents=True, exist_ok=True)
         Image.new("RGB", (800, 800), (30, 60, 30)).save(out_path, "PNG")
@@ -110,7 +110,7 @@ def test_mapped_sku_takes_packshot_path_and_skips_generate_hero(tmp_path, monkey
         seen["product_layer"] = kwargs.get("product_layer")
         return real_compose(*args, **kwargs)
 
-    monkeypatch.setattr(campaign_mod, "generate_hero", _fake_generate_hero)
+    monkeypatch.setattr(campaign_mod, "generate_hero", _canned_generate_hero)
     monkeypatch.setattr(campaign_mod, "compose_creative", _spy_compose)
 
     out_root = tmp_path / "out"
@@ -135,12 +135,12 @@ def test_flagship_skus_all_take_packshot_path(tmp_path, monkeypatch):
     # Banana Muffin, Chocolate Fudge Brownie, Blueberry Muffin — the three retro exemplars
     monkeypatch.setattr(asset_store, "fetch_asset_key", _local_box_fetch(tmp_path))
 
-    def _fake_generate_hero(*, product_id, product_name, brief_msg, region, audience, out_path, idx):
+    def _canned_generate_hero(*, product_id, product_name, brief_msg, region, audience, out_path, idx):
         Path(out_path).parent.mkdir(parents=True, exist_ok=True)
         Image.new("RGB", (800, 800), (30, 60, 30)).save(out_path, "PNG")
         return Path(out_path), "mock", {}
 
-    monkeypatch.setattr(campaign_mod, "generate_hero", _fake_generate_hero)
+    monkeypatch.setattr(campaign_mod, "generate_hero", _canned_generate_hero)
 
     flagship = [
         ("banana-muffin-quick-bread-mix", "Banana Muffin and Quick Bread Mix"),
@@ -164,7 +164,7 @@ def test_unmapped_sku_falls_through_to_generation(tmp_path, monkeypatch):
 
     calls = {"generate_hero": 0}
 
-    def _fake_generate_hero(*, product_id, product_name, brief_msg, region, audience, out_path, idx):
+    def _canned_generate_hero(*, product_id, product_name, brief_msg, region, audience, out_path, idx):
         calls["generate_hero"] += 1
         Path(out_path).parent.mkdir(parents=True, exist_ok=True)
         Image.new("RGB", (800, 800), (30, 60, 30)).save(out_path, "PNG")
@@ -177,7 +177,7 @@ def test_unmapped_sku_falls_through_to_generation(tmp_path, monkeypatch):
         seen["product_layer"] = kwargs.get("product_layer")
         return real_compose(*args, **kwargs)
 
-    monkeypatch.setattr(campaign_mod, "generate_hero", _fake_generate_hero)
+    monkeypatch.setattr(campaign_mod, "generate_hero", _canned_generate_hero)
     monkeypatch.setattr(campaign_mod, "compose_creative", _spy_compose)
 
     out_root = tmp_path / "out"

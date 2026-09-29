@@ -1,7 +1,7 @@
 """ingest_asset / embed_and_store — embed-on-ingest wiring, OFFLINE + cred-free.
 
 add_asset stays authoritative for classify/dedup/persist; ingest adds a best-effort embed to
-S3 Vectors after the object + sidecar are committed. Every case here injects a FakeS3 (same stub
+S3 Vectors after the object + sidecar are committed. Every case here injects a CannedS3 (same stub
 shape as test_asset_library.py) and monkeypatches the embeddings module, so no Bedrock and no
 S3 Vectors are ever touched. The invariant under test: an embed failure NEVER loses the asset and
 NEVER raises — it degrades to embed_status="embed_pending".
@@ -15,7 +15,7 @@ from creative_automation.asset_library import AssetKind, AssetLibrary
 from creative_automation.observability import Observer
 
 
-class FakeS3:
+class CannedS3:
     """In-memory S3 stub: key -> bytes, supporting put/get/list_objects_v2 with Delimiter."""
 
     def __init__(self) -> None:
@@ -85,10 +85,10 @@ class RecordingEmbed:
         return self.put_ok
 
 
-def _lib() -> tuple[AssetLibrary, FakeS3]:
-    fake = FakeS3()
+def _lib() -> tuple[AssetLibrary, CannedS3]:
+    canned = CannedS3()
     obs = Observer("test", xray_enabled=False)
-    return AssetLibrary(bucket="test-bucket", s3_client=fake, obs=obs), fake
+    return AssetLibrary(bucket="test-bucket", s3_client=canned, obs=obs), canned
 
 
 def _patch_embed(monkeypatch, rec: RecordingEmbed) -> None:
@@ -98,7 +98,7 @@ def _patch_embed(monkeypatch, rec: RecordingEmbed) -> None:
 
 
 def test_ingest_raster_calls_put_vector_with_key_equals_asset_id(monkeypatch):
-    lib, fake = _lib()
+    lib, canned = _lib()
     rec = RecordingEmbed(put_ok=True, exists=False)
     _patch_embed(monkeypatch, rec)
 
@@ -115,8 +115,8 @@ def test_ingest_raster_calls_put_vector_with_key_equals_asset_id(monkeypatch):
     assert meta["kind"] == "raster"
     assert meta["sha256"] == ref.sha256
     # the asset itself is persisted (object + sidecar)
-    assert ref.s3_key in fake.store
-    assert f"brands/kodiak/library/{ref.asset_id}/asset.json" in fake.store
+    assert ref.s3_key in canned.store
+    assert f"brands/kodiak/library/{ref.asset_id}/asset.json" in canned.store
 
 
 def test_ingest_vector_exists_skips_put_vector(monkeypatch):
@@ -133,7 +133,7 @@ def test_ingest_vector_exists_skips_put_vector(monkeypatch):
 
 
 def test_ingest_put_vector_false_degrades_to_embed_pending(monkeypatch):
-    lib, fake = _lib()
+    lib, canned = _lib()
     rec = RecordingEmbed(put_ok=False, exists=False)  # write to S3 Vectors fails
     _patch_embed(monkeypatch, rec)
 
@@ -141,12 +141,12 @@ def test_ingest_put_vector_false_degrades_to_embed_pending(monkeypatch):
 
     assert status == ingest.EMBED_PENDING
     # asset still fully persisted despite the embed miss
-    assert ref.s3_key in fake.store
-    assert f"brands/kodiak/library/{ref.asset_id}/asset.json" in fake.store
+    assert ref.s3_key in canned.store
+    assert f"brands/kodiak/library/{ref.asset_id}/asset.json" in canned.store
 
 
 def test_ingest_embed_raise_degrades_to_embed_pending_no_exception(monkeypatch):
-    lib, fake = _lib()
+    lib, canned = _lib()
     rec = RecordingEmbed(raise_on_embed=True, exists=False)  # embed_image raises
     _patch_embed(monkeypatch, rec)
 
@@ -155,7 +155,7 @@ def test_ingest_embed_raise_degrades_to_embed_pending_no_exception(monkeypatch):
 
     assert status == ingest.EMBED_PENDING
     assert rec.put_calls == []  # never reached put after the embed raise
-    assert ref.s3_key in fake.store
+    assert ref.s3_key in canned.store
 
 
 def test_ingest_sha256_dedup_returns_existing_ref_no_second_embed(monkeypatch):

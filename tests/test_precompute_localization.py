@@ -3,12 +3,12 @@
 The writer (scripts/precompute-localization.py) is the WRITE side of the same contract
 localize_memory.get_precomputed reads. These tests monkeypatch every transport boundary so
 nothing touches AWS:
-  - _amazon_translate / _bedrock_translate -> deterministic fakes
-  - the DynamoDB client -> a fake capturing put_item / get_item calls
+  - _amazon_translate / _bedrock_translate -> deterministic canned stand-ins
+  - the DynamoDB client -> a canned capturing put_item / get_item calls
 
 Highest-value assertions:
   - keys are built via localize_memory.build_key (hashing the SOURCE message)
-  - nv / zip are SKIPPED entirely (ethics guard — no fake MT ever written)
+  - nv / zip are SKIPPED entirely (ethics guard — no canned MT ever written)
   - amazon vs bedrock routing is chosen by language, matching live MT
   - written items carry text / provider / source="dynamodb"
   - --dry-run writes nothing
@@ -44,7 +44,7 @@ MARKET = "US-SW-LASCRUCES"
 MESSAGE = "Nourishment for Today's Frontier"
 
 
-class FakeDynamo:
+class CannedDynamo:
     """Captures put_item / get_item calls; get_item returns preseeded items only."""
 
     def __init__(self, present: dict | None = None):
@@ -77,18 +77,18 @@ def _patch_markets(monkeypatch, langs):
 
 
 def _patch_translate(monkeypatch, amazon=None, bedrock=None):
-    def amazon_fake(text, lang, source_lang="en"):
+    def amazon_canned(text, lang, source_lang="en"):
         return amazon(text, lang) if amazon else f"AMZ:{lang}:{text}"
 
-    def bedrock_fake(text, lang, market):
+    def bedrock_canned(text, lang, market):
         return bedrock(text, lang, market) if bedrock else f"BED:{lang}:{text}"
 
-    monkeypatch.setattr(pc, "_amazon_translate", amazon_fake)
-    monkeypatch.setattr(pc, "_bedrock_translate", bedrock_fake)
+    monkeypatch.setattr(pc, "_amazon_translate", amazon_canned)
+    monkeypatch.setattr(pc, "_bedrock_translate", bedrock_canned)
 
 
-def _run_with_fake_dynamo(monkeypatch, args, fake):
-    monkeypatch.setattr(pc, "_client", lambda region: fake)
+def _run_with_canned_dynamo(monkeypatch, args, canned):
+    monkeypatch.setattr(pc, "_client", lambda region: canned)
     return pc.run(args)
 
 
@@ -97,13 +97,13 @@ def test_keys_built_via_build_key_on_source_message(monkeypatch):
     # translated text, so the reader (which passes the source) lands on the same item.
     _patch_markets(monkeypatch, ["es"])
     _patch_translate(monkeypatch)
-    fake = FakeDynamo()
-    rc = _run_with_fake_dynamo(monkeypatch, _args(), fake)
+    canned = CannedDynamo()
+    rc = _run_with_canned_dynamo(monkeypatch, _args(), canned)
     assert rc == 0
 
     expected_en = localize_memory.build_key(MARKET, "en", MESSAGE)
     expected_es = localize_memory.build_key(MARKET, "es", MESSAGE)
-    written = {(p["Item"]["pk"]["S"], p["Item"]["sk"]["S"]) for p in fake.puts}
+    written = {(p["Item"]["pk"]["S"], p["Item"]["sk"]["S"]) for p in canned.puts}
     assert (expected_en["pk"], expected_en["sk"]) in written
     assert (expected_es["pk"], expected_es["sk"]) in written
 
@@ -111,10 +111,10 @@ def test_keys_built_via_build_key_on_source_message(monkeypatch):
 def test_en_source_stored_verbatim_provider_precomputed(monkeypatch):
     _patch_markets(monkeypatch, ["es"])
     _patch_translate(monkeypatch)
-    fake = FakeDynamo()
-    _run_with_fake_dynamo(monkeypatch, _args(), fake)
+    canned = CannedDynamo()
+    _run_with_canned_dynamo(monkeypatch, _args(), canned)
 
-    en_items = [p["Item"] for p in fake.puts if p["Item"]["lang"]["S"] == "en"]
+    en_items = [p["Item"] for p in canned.puts if p["Item"]["lang"]["S"] == "en"]
     assert len(en_items) == 1
     it = en_items[0]
     assert it["text"]["S"] == MESSAGE  # verbatim source
@@ -131,10 +131,10 @@ def test_amazon_routing_for_supported_lang(monkeypatch):
         "_bedrock_translate",
         lambda *a, **k: (_ for _ in ()).throw(AssertionError("bedrock called for amazon lang")),
     )
-    fake = FakeDynamo()
-    _run_with_fake_dynamo(monkeypatch, _args(), fake)
+    canned = CannedDynamo()
+    _run_with_canned_dynamo(monkeypatch, _args(), canned)
 
-    es = [p["Item"] for p in fake.puts if p["Item"]["lang"]["S"] == "es"]
+    es = [p["Item"] for p in canned.puts if p["Item"]["lang"]["S"] == "es"]
     assert len(es) == 1
     assert es[0]["provider"]["S"] == "amazon-translate"
     assert es[0]["source"]["S"] == "dynamodb"
@@ -150,10 +150,10 @@ def test_bedrock_routing_for_gap_lang(monkeypatch):
         "_amazon_translate",
         lambda *a, **k: (_ for _ in ()).throw(AssertionError("amazon called for gap lang")),
     )
-    fake = FakeDynamo()
-    _run_with_fake_dynamo(monkeypatch, _args(), fake)
+    canned = CannedDynamo()
+    _run_with_canned_dynamo(monkeypatch, _args(), canned)
 
-    ilo = [p["Item"] for p in fake.puts if p["Item"]["lang"]["S"] == "ilo"]
+    ilo = [p["Item"] for p in canned.puts if p["Item"]["lang"]["S"] == "ilo"]
     assert len(ilo) == 1
     assert ilo[0]["provider"]["S"] == "bedrock"
     assert ilo[0]["source"]["S"] == "dynamodb"
@@ -174,10 +174,10 @@ def test_human_required_langs_skipped(monkeypatch):
         "_bedrock_translate",
         lambda *a, **k: (_ for _ in ()).throw(AssertionError("bedrock called for human-required")),
     )
-    fake = FakeDynamo()
-    _run_with_fake_dynamo(monkeypatch, _args(), fake)
+    canned = CannedDynamo()
+    _run_with_canned_dynamo(monkeypatch, _args(), canned)
 
-    langs_written = {p["Item"]["lang"]["S"] for p in fake.puts}
+    langs_written = {p["Item"]["lang"]["S"] for p in canned.puts}
     assert langs_written == {"en"}  # nv, zip, hmn never written
     assert "nv" not in langs_written
     assert "zip" not in langs_written
@@ -187,14 +187,14 @@ def test_human_required_langs_skipped(monkeypatch):
 def test_dry_run_writes_nothing(monkeypatch):
     _patch_markets(monkeypatch, ["es", "ilo"])
     _patch_translate(monkeypatch)
-    fake = FakeDynamo()
+    canned = CannedDynamo()
     # _client must not even be constructed on a dry run; make it explode if called
     monkeypatch.setattr(
         pc, "_client", lambda region: (_ for _ in ()).throw(AssertionError("client built on dry-run"))
     )
     rc = pc.run(_args(dry_run=True))
     assert rc == 0
-    assert fake.puts == []  # untouched fake, and no client was built
+    assert canned.puts == []  # untouched canned, and no client was built
 
 
 def test_only_missing_skips_present_items(monkeypatch):
@@ -205,10 +205,10 @@ def test_only_missing_skips_present_items(monkeypatch):
     present = {
         (es_key["pk"], es_key["sk"]): {"pk": {"S": es_key["pk"]}, "sk": {"S": es_key["sk"]}}
     }
-    fake = FakeDynamo(present=present)
-    _run_with_fake_dynamo(monkeypatch, _args(only_missing=True), fake)
+    canned = CannedDynamo(present=present)
+    _run_with_canned_dynamo(monkeypatch, _args(only_missing=True), canned)
 
-    langs_written = {p["Item"]["lang"]["S"] for p in fake.puts}
+    langs_written = {p["Item"]["lang"]["S"] for p in canned.puts}
     assert "es" not in langs_written  # present -> skipped
     assert "en" in langs_written  # en not preseeded -> still written
 
@@ -222,11 +222,11 @@ def test_one_translate_failure_does_not_stop_others(monkeypatch):
 
     monkeypatch.setattr(pc, "_amazon_translate", amazon_boom)
     monkeypatch.setattr(pc, "_bedrock_translate", lambda t, lang, m: f"BED:{lang}")
-    fake = FakeDynamo()
-    rc = _run_with_fake_dynamo(monkeypatch, _args(), fake)
+    canned = CannedDynamo()
+    rc = _run_with_canned_dynamo(monkeypatch, _args(), canned)
     assert rc == 0  # partial success is not a batch abort
 
-    langs_written = {p["Item"]["lang"]["S"] for p in fake.puts}
+    langs_written = {p["Item"]["lang"]["S"] for p in canned.puts}
     assert "en" in langs_written
     assert "ilo" in langs_written
     assert "es" not in langs_written  # the failing lang was skipped, not fatal
@@ -236,10 +236,10 @@ def test_translate_miss_empty_text_not_written(monkeypatch):
     # a transport miss returns None/"" — must not write an empty item
     _patch_markets(monkeypatch, ["fr"])
     monkeypatch.setattr(pc, "_amazon_translate", lambda t, lang, source_lang="en": None)
-    fake = FakeDynamo()
-    _run_with_fake_dynamo(monkeypatch, _args(), fake)
+    canned = CannedDynamo()
+    _run_with_canned_dynamo(monkeypatch, _args(), canned)
 
-    langs_written = {p["Item"]["lang"]["S"] for p in fake.puts}
+    langs_written = {p["Item"]["lang"]["S"] for p in canned.puts}
     assert "fr" not in langs_written
     assert "en" in langs_written
 
@@ -254,10 +254,10 @@ def test_limit_slices_markets(monkeypatch):
         ],
     )
     _patch_translate(monkeypatch)
-    fake = FakeDynamo()
-    _run_with_fake_dynamo(monkeypatch, _args(limit=1), fake)
+    canned = CannedDynamo()
+    _run_with_canned_dynamo(monkeypatch, _args(limit=1), canned)
 
-    markets_written = {p["Item"]["market"]["S"] for p in fake.puts}
+    markets_written = {p["Item"]["market"]["S"] for p in canned.puts}
     assert markets_written == {"M1"}
 
 

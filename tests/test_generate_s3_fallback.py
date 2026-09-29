@@ -30,7 +30,7 @@ def test_fetch_hero_to_tmp_offline_returns_none(monkeypatch, tmp_path: Path) -> 
     assert called["n"] == 0
 
 
-class _FakeListClient:
+class _CannedListClient:
     """List-first S3: one list_objects_v2 resolves the product dir, then GETs."""
 
     def __init__(self, keys: list[str]) -> None:
@@ -48,18 +48,18 @@ def test_fetch_hero_to_tmp_prefers_hero_real(monkeypatch, tmp_path: Path) -> Non
     monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
     monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
     prefix = "brands/kodiak/heroes/power-cakes/"
-    client = _FakeListClient([prefix + "hero.png", prefix + "hero-real.png", prefix + "notes.txt"])
+    client = _CannedListClient([prefix + "hero.png", prefix + "hero-real.png", prefix + "notes.txt"])
     monkeypatch.setattr(asset_store, "_s3_client", lambda: client)
     requested: list[str] = []
 
-    def fake_download(bucket: str, key: str, dest: Path) -> bool:
+    def canned_download(bucket: str, key: str, dest: Path) -> bool:
         requested.append(key)
         if key.endswith("hero-real.png"):
             _write_png(dest)
             return True
         return False
 
-    monkeypatch.setattr(asset_store, "_s3_download", fake_download)
+    monkeypatch.setattr(asset_store, "_s3_download", canned_download)
     hit = asset_store.fetch_hero_to_tmp("power-cakes", cache_root=tmp_path)
     assert hit is not None and hit.exists()
     assert hit == tmp_path / "power-cakes" / "hero-real.png"
@@ -74,15 +74,15 @@ def test_fetch_hero_to_tmp_falls_back_to_hero(monkeypatch, tmp_path: Path) -> No
     monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
     monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
     prefix = "brands/kodiak/heroes/bear-bites/"
-    monkeypatch.setattr(asset_store, "_s3_client", lambda: _FakeListClient([prefix + "hero.png"]))
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: _CannedListClient([prefix + "hero.png"]))
 
-    def fake_download(bucket: str, key: str, dest: Path) -> bool:
+    def canned_download(bucket: str, key: str, dest: Path) -> bool:
         if key.endswith("hero.png"):
             _write_png(dest)
             return True
         return False
 
-    monkeypatch.setattr(asset_store, "_s3_download", fake_download)
+    monkeypatch.setattr(asset_store, "_s3_download", canned_download)
     hit = asset_store.fetch_hero_to_tmp("bear-bites", cache_root=tmp_path)
     assert hit is not None and hit.name == "hero.png"
 
@@ -91,7 +91,7 @@ def test_fetch_hero_to_tmp_miss_costs_one_list_zero_gets(monkeypatch, tmp_path: 
     """Empty product dir -> None with exactly 1 LIST and 0 GETs (the wall repair)."""
     monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
     monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
-    client = _FakeListClient([])
+    client = _CannedListClient([])
     monkeypatch.setattr(asset_store, "_s3_client", lambda: client)
     gets = {"n": 0}
     monkeypatch.setattr(asset_store, "_s3_download", lambda *a, **k: gets.__setitem__("n", gets["n"] + 1) or False)
@@ -111,13 +111,13 @@ def test_fetch_hero_to_tmp_list_denied_uses_serial_fallback(monkeypatch, tmp_pat
 
     monkeypatch.setattr(asset_store, "_s3_client", lambda: _DenyList())
 
-    def fake_download(bucket: str, key: str, dest: Path) -> bool:
+    def canned_download(bucket: str, key: str, dest: Path) -> bool:
         if key.endswith("hero-real.png"):
             _write_png(dest)
             return True
         return False
 
-    monkeypatch.setattr(asset_store, "_s3_download", fake_download)
+    monkeypatch.setattr(asset_store, "_s3_download", canned_download)
     hit = asset_store.fetch_hero_to_tmp("power-cakes", cache_root=tmp_path)
     assert hit is not None and hit.name == "hero-real.png"
 

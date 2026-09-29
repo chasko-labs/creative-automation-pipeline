@@ -22,16 +22,16 @@ def test_seasonal_default_garbage_season_keeps_static_default() -> None:
 
 
 def test_seasonal_default_uses_valid_season_record(monkeypatch) -> None:
-    fake = {
+    canned = {
         "title": "Fall Harvest Stack",
         "ingredients": ["2 cups mix", "1 cup cider", "1 tbsp maple"],
         "steps": ["Whisk it", "Cook it", "Stack it"],
     }
     monkeypatch.setattr(
         "creative_automation.recipe_card._season_fallback_recipe",
-        lambda season, month="": fake,
+        lambda season, month="": canned,
     )
-    assert gl._seasonal_recipe_default("Fall", "Power Cakes") == fake
+    assert gl._seasonal_recipe_default("Fall", "Power Cakes") == canned
 
 
 def test_seasonal_default_rejects_invalid_record(monkeypatch) -> None:
@@ -43,14 +43,14 @@ def test_seasonal_default_rejects_invalid_record(monkeypatch) -> None:
 
 
 def test_preview_campaign_data_prefers_season_over_static(monkeypatch) -> None:
-    fake = {
+    canned = {
         "title": "Summer Berry Stack",
         "ingredients": ["2 cups mix", "1 cup berries", "1 tbsp honey"],
         "steps": ["Whisk it", "Cook it", "Top it"],
     }
     monkeypatch.setattr(
         "creative_automation.recipe_card._season_fallback_recipe",
-        lambda season, month="": fake,
+        lambda season, month="": canned,
     )
     data = {"product": "power-cakes", "market": "us", "season": "Summer"}
     campaign = gl._preview_campaign_data(data, "summer brief", {})

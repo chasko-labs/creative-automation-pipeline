@@ -12,17 +12,17 @@ def test_s3_client_forces_sigv4(monkeypatch) -> None:
     monkeypatch.setenv("ASSET_STORE_S3_BUCKET", "test-asset_store-bucket")
     captured: dict = {}
 
-    class _FakeConfig:
+    class _CannedConfig:
         def __init__(self, **kwargs):
             captured.update(kwargs)
 
-    monkeypatch.setattr(asset_store, "_BotoConfig", _FakeConfig)
+    monkeypatch.setattr(asset_store, "_BotoConfig", _CannedConfig)
 
-    def _fake_client(service, region_name=None, config=None):
+    def _canned_client(service, region_name=None, config=None):
         assert service == "s3"
         return ("ok", region_name, config)
 
-    monkeypatch.setattr(asset_store.boto3, "client", _fake_client)
+    monkeypatch.setattr(asset_store.boto3, "client", _canned_client)
     result = asset_store._s3_client()
     assert result[0] == "ok"
     assert captured.get("signature_version") == "s3v4", (

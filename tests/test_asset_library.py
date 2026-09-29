@@ -1,4 +1,4 @@
-"""AssetLibrary tests — fake in-memory S3, add/dedup/list/select, offline degrade. No AWS."""
+"""AssetLibrary tests — canned in-memory S3, add/dedup/list/select, offline degrade. No AWS."""
 from __future__ import annotations
 
 import io
@@ -16,7 +16,7 @@ from creative_automation.asset_library import (
 from creative_automation.observability import Observer
 
 
-class FakeS3:
+class CannedS3:
     """In-memory S3 stub: key -> bytes, supporting put/get/list_objects_v2 with Delimiter."""
 
     def __init__(self) -> None:
@@ -55,10 +55,10 @@ class FakeS3:
         return {"Contents": [{"Key": k} for k in keys], "IsTruncated": False}
 
 
-def _lib() -> tuple[AssetLibrary, FakeS3]:
-    fake = FakeS3()
+def _lib() -> tuple[AssetLibrary, CannedS3]:
+    canned = CannedS3()
     obs = Observer("test", xray_enabled=False)
-    return AssetLibrary(bucket="test-bucket", s3_client=fake, obs=obs), fake
+    return AssetLibrary(bucket="test-bucket", s3_client=canned, obs=obs), canned
 
 
 def test_classify_maps_each_extension() -> None:
@@ -73,23 +73,23 @@ def test_classify_maps_each_extension() -> None:
 
 
 def test_add_asset_stores_object_and_sidecar() -> None:
-    lib, fake = _lib()
+    lib, canned = _lib()
     ref = lib.add_asset(data=b"hello", filename="brief.md", tags=["Brand Voice", "kodiak"])
     assert ref.kind == AssetKind.COPY
     assert ref.s3_key == f"brands/kodiak/library/{ref.asset_id}/brief.md"
     assert ref.sha256 == __import__("hashlib").sha256(b"hello").hexdigest()
     assert ref.tags == ["brand-voice", "kodiak"]
     # object + sidecar both written
-    assert ref.s3_key in fake.store
-    assert f"brands/kodiak/library/{ref.asset_id}/asset.json" in fake.store
+    assert ref.s3_key in canned.store
+    assert f"brands/kodiak/library/{ref.asset_id}/asset.json" in canned.store
 
 
 def test_add_asset_dedup_returns_same_id() -> None:
-    lib, fake = _lib()
+    lib, canned = _lib()
     first = lib.add_asset(data=b"same-bytes", filename="a.png")
-    dirs_after_first = {k.split("/")[3] for k in fake.store if k.startswith("brands/kodiak/library/")}
+    dirs_after_first = {k.split("/")[3] for k in canned.store if k.startswith("brands/kodiak/library/")}
     second = lib.add_asset(data=b"same-bytes", filename="a-again.png")
-    dirs_after_second = {k.split("/")[3] for k in fake.store if k.startswith("brands/kodiak/library/")}
+    dirs_after_second = {k.split("/")[3] for k in canned.store if k.startswith("brands/kodiak/library/")}
     assert first.asset_id == second.asset_id
     assert dirs_after_first == dirs_after_second  # no new object dir
 

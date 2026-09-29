@@ -157,19 +157,19 @@ def test_build_localizations_live_translate_path(monkeypatch):
     # US-SE-ATL top-2 is es + ko: the stub answers per target language, proving
     # the seam translates whatever the market resolves (not just es/pt).
 
-    class _FakeTranslate:
+    class _CannedTranslate:
         def translate_text(self, Text, SourceLanguageCode, TargetLanguageCode):
             assert SourceLanguageCode == "en"
             return {"TranslatedText": f"TR-{TargetLanguageCode}: {Text}"}
 
-    def _fake_client(service, region_name=None):
+    def _canned_client(service, region_name=None):
         if service == "translate":
-            return _FakeTranslate()
+            return _CannedTranslate()
         raise RuntimeError(f"no live {service} in unit tests")
 
     import boto3
 
-    monkeypatch.setattr(boto3, "client", _fake_client)
+    monkeypatch.setattr(boto3, "client", _canned_client)
     monkeypatch.setattr(text_rewriter, "_has_creds", lambda: True)
     headline = "Some fresh headline."
     localizations, langs = _build_localizations(headline, "US-SE-ATL")

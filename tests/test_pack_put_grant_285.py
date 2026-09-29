@@ -17,11 +17,11 @@ import zipfile
 from creative_automation import generate_lambda
 
 
-class _FakeS3Error(Exception):
-    """Module-local stub error so fakes never raise vanilla Exception (TRY002)."""
+class _CannedS3Error(Exception):
+    """Module-local stub error so canned stand-ins never raise vanilla Exception (TRY002)."""
 
 
-class _FakeS3:
+class _CannedS3:
     def __init__(self, objects=None, deny_put=False):
         self.objects = objects or {}
         self.deny_put = deny_put
@@ -29,12 +29,12 @@ class _FakeS3:
 
     def get_object(self, Bucket, Key):
         if Key not in self.objects:
-            raise _FakeS3Error(f"NoSuchKey: {Key}")
+            raise _CannedS3Error(f"NoSuchKey: {Key}")
         return {"Body": _io.BytesIO(self.objects[Key])}
 
     def put_object(self, **kwargs):
         if self.deny_put:
-            raise _FakeS3Error("AccessDenied: not authorized for brands/kodiak/packs/*")
+            raise _CannedS3Error("AccessDenied: not authorized for brands/kodiak/packs/*")
         self.puts.append(kwargs)
         return {}
 
@@ -52,8 +52,8 @@ def _pack_event(files, extras=None):
 
 def test_handle_pack_puts_zip_under_packs_prefix(monkeypatch):
     key = "brands/kodiak/renders/abc123.png"
-    fake = _FakeS3(objects={key: b"\x89PNG\r\n\x1a\nfake"})
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: fake)
+    canned = _CannedS3(objects={key: b"\x89PNG\r\n\x1a\ncanned"})
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: canned)
     resp = generate_lambda.handler(
         _pack_event([{"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/{key}", "ratio": "1x1"}],
                     extras=[{"name": "copy.txt", "text": "headline"}]),
@@ -63,8 +63,8 @@ def test_handle_pack_puts_zip_under_packs_prefix(monkeypatch):
     body = json.loads(resp["body"])
     assert body["ok"] is True
     assert body["zip_url"].startswith("https://asset_store.example/")
-    assert len(fake.puts) == 1
-    put = fake.puts[0]
+    assert len(canned.puts) == 1
+    put = canned.puts[0]
     assert put["Key"].startswith("brands/kodiak/packs/")
     assert put["Key"].endswith(".zip")
     assert put["ContentType"] == "application/zip"
@@ -77,8 +77,8 @@ def test_handle_pack_puts_zip_under_packs_prefix(monkeypatch):
 def test_handle_pack_put_denied_surfaces_500(monkeypatch):
     # the live #285 fault: role lacks packs/* so the put raises AccessDenied.
     key = "brands/kodiak/renders/abc123.png"
-    fake = _FakeS3(objects={key: b"\x89PNG\r\n\x1a\nfake"}, deny_put=True)
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: fake)
+    canned = _CannedS3(objects={key: b"\x89PNG\r\n\x1a\ncanned"}, deny_put=True)
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: canned)
     resp = generate_lambda.handler(
         _pack_event([{"s3_uri": f"s3://{generate_lambda.ASSET_STORE_S3_BUCKET}/{key}"}]),
         None,

@@ -40,7 +40,7 @@ describe('render-miss auto-retry and honest error', () => {
     expect(killIdx).toBeGreaterThan(pulseIdx);
   });
 
-  it('miss card has its own honest styling, no fake-pixel presentation', () => {
+  it('miss card has its own honest styling, no canned-pixel presentation', () => {
     expect(css).toMatch(/\.ff-render-miss\{[^}]*grid-column:1\/-1/);
   });
 });

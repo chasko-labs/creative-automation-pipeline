@@ -110,7 +110,7 @@ def test_build_asset_pack_zip_writes_manifest_and_records_missing(tmp_path):
 def test_build_asset_pack_zip_includes_present_files(tmp_path):
     # a rendered creative that exists on disk (explicit path) must land in the zip
     rendered = tmp_path / "rendered.png"
-    rendered.write_bytes(b"\x89PNG\r\n\x1a\n fake")
+    rendered.write_bytes(b"\x89PNG\r\n\x1a\n canned")
     fname = "KODIAK-CAKES-savory-waffles-us-mw-target-1x1-20260903-v01.png"
     assets = [{"filename": fname, "path": str(rendered)}]
     pack_name = build_pack_name("savory-waffles", "US-UT", "park-city-84098", date="20260903")
@@ -135,7 +135,7 @@ def test_s3_upload_and_presign_returns_none_when_disabled(tmp_path, monkeypatch)
     monkeypatch.delenv("ASSET_STORE_S3_BUCKET", raising=False)
     monkeypatch.delenv("ASSET_STORE_S3_URI", raising=False)
     artifact = tmp_path / "pack.zip"
-    artifact.write_bytes(b"PK\x03\x04 fake zip")
+    artifact.write_bytes(b"PK\x03\x04 canned zip")
     assert asset_store.s3_upload_and_presign(artifact, "packs/pack.zip") is None
 
 

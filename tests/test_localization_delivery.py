@@ -47,13 +47,13 @@ def test_none_market_defaults_to_en_es_pt() -> None:
 # ------------------------------------------------------- _build_localizations seam
 def test_build_localizations_marks_translated_on_live_backend(monkeypatch) -> None:
     # a live rewrite (source bedrock:nova-micro) surfaces as source="translated".
-    def _fake_rewrite_all(base, market, langs, **kwargs):
+    def _canned_rewrite_all(base, market, langs, **kwargs):
         return [
             {"lang_code": c, "text": f"{base} [{c}]", "source": "bedrock:nova-micro"}
             for c in langs
         ]
 
-    monkeypatch.setattr(text_rewriter, "rewrite_all", _fake_rewrite_all)
+    monkeypatch.setattr(text_rewriter, "rewrite_all", _canned_rewrite_all)
     locs, languages = generate_lambda._build_localizations("Keep It Wild", "US-MW-PARKCITY-84098")
     assert languages == ["en", "es", "pt"]
     assert [lo["lang_code"] for lo in locs] == ["en", "es", "pt"]
@@ -96,7 +96,7 @@ def test_build_localizations_backend_raises_degrades_without_crashing(monkeypatc
 
 
 # ------------------------------------------------------- handler additive fields
-class _FakeS3:
+class _CannedS3:
     def put_object(self, **kwargs) -> dict:
         return {}
 
@@ -104,7 +104,7 @@ class _FakeS3:
         return f"https://presigned.example/{Params['Key']}?exp={ExpiresIn}"
 
 
-def _fake_renders(out_dir: Path) -> list[dict]:
+def _canned_renders(out_dir: Path) -> list[dict]:
     from PIL import Image
 
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -122,17 +122,17 @@ def test_handler_surfaces_localizations_and_provenance_languages(monkeypatch, tm
 
     def _stub(**kwargs):
         out_dir = kwargs.get("out_dir") or (tmp_path / "renders")
-        return _fake_renders(Path(out_dir)), "bedrock:nova-pro", dict(prov)
+        return _canned_renders(Path(out_dir)), "bedrock:nova-pro", dict(prov)
 
-    def _fake_rewrite_all(base, market, langs, **kwargs):
+    def _canned_rewrite_all(base, market, langs, **kwargs):
         return [
             {"lang_code": c, "text": f"{base} [{c}]", "source": "bedrock:nova-micro"}
             for c in langs
         ]
 
     monkeypatch.setattr(generate_lambda, "generate_hero_set", _stub)
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
-    monkeypatch.setattr(text_rewriter, "rewrite_all", _fake_rewrite_all)
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
+    monkeypatch.setattr(text_rewriter, "rewrite_all", _canned_rewrite_all)
 
     event = {"body": json.dumps({"mode": "full", "prompt": "wild", "market": "US-MW-PARKCITY-84098"})}
     resp = generate_lambda.handler(event, None)
@@ -155,10 +155,10 @@ def test_handler_localization_offline_never_crashes(monkeypatch, tmp_path) -> No
     # degrade to rewrite-fallback rather than 500 the generate call.
     def _stub(**kwargs):
         out_dir = kwargs.get("out_dir") or (tmp_path / "renders")
-        return _fake_renders(Path(out_dir)), "bedrock:nova-pro", {"headline": "Keep It Wild"}
+        return _canned_renders(Path(out_dir)), "bedrock:nova-pro", {"headline": "Keep It Wild"}
 
     monkeypatch.setattr(generate_lambda, "generate_hero_set", _stub)
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
     # ensure the offline gate: no creds env vars leak into the seam
     for var in ("AWS_ACCESS_KEY_ID", "AWS_PROFILE", "AWS_SESSION_TOKEN",
                 "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"):

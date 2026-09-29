@@ -232,7 +232,7 @@ def test_unresolved_retailer_ships_clean(tmp_path):
 # --------------------------------------------------------------------------- #
 # lambda surfaces layers + sidecars (#199)
 # --------------------------------------------------------------------------- #
-class _FakeS3:
+class _CannedS3:
     def put_object(self, **kwargs) -> dict:
         return {}
 
@@ -260,7 +260,7 @@ def _stub_preview_hero(**kwargs):
 
 def test_preview_defaults_to_clean_with_sidecars(monkeypatch, tmp_path) -> None:
     monkeypatch.setattr(generate_lambda, "generate_hero", _stub_preview_hero)
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     import json as _json
 

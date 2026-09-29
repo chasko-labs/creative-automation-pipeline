@@ -13,7 +13,7 @@ from pathlib import Path
 from creative_automation import generate_lambda
 
 
-class _FakeS3:
+class _CannedS3:
     """Stub s3 client capturing put_object and returning a canned presigned url."""
 
     def put_object(self, **kwargs) -> dict:
@@ -23,7 +23,7 @@ class _FakeS3:
         return f"https://presigned.example/{Params['Key']}?exp={ExpiresIn}"
 
 
-def _fake_single_render(out_path: Path) -> None:
+def _canned_single_render(out_path: Path) -> None:
     from PIL import Image
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -34,7 +34,7 @@ def _capture_hero(captured: dict, provenance: dict):
     def _stub(**kwargs):
         captured.update(kwargs)
         out_path = Path(kwargs["out_path"])
-        _fake_single_render(out_path)
+        _canned_single_render(out_path)
         return out_path, "bedrock:stability-control-structure", dict(provenance)
 
     return _stub
@@ -44,7 +44,7 @@ def test_preview_forwards_seed_key_to_generate_hero(monkeypatch) -> None:
     captured: dict = {}
     prov = {"seed_source": "past-hero", "seed_selection": "staged-asset", "engine": "x"}
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured, prov))
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     event = {"body": json.dumps({"prompt": "wild mornings", "seed_key": "brands/kodiak/renders/past-hero.png"})}
     resp = generate_lambda.handler(event, None)
@@ -61,7 +61,7 @@ def test_preview_without_seed_key_sends_none(monkeypatch) -> None:
     captured: dict = {}
     prov = {"seed_source": "power-cakes-hero", "seed_selection": "disk-asset", "engine": "x"}
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured, prov))
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     resp = generate_lambda.handler({"body": json.dumps({"prompt": "wild mornings"})}, None)
 
@@ -87,7 +87,7 @@ def test_full_forwards_seed_key_to_generate_hero_set(monkeypatch, tmp_path: Path
         return renders, "bedrock:nova-pro", prov
 
     monkeypatch.setattr(generate_lambda, "generate_hero_set", _spy)
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     event = {
         "body": json.dumps(

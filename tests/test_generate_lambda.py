@@ -7,11 +7,11 @@ from pathlib import Path
 from creative_automation import generate_lambda
 
 
-class _FakeS3Error(Exception):
-    """Module-local stub error so fakes never raise vanilla Exception (TRY002)."""
+class _CannedS3Error(Exception):
+    """Module-local stub error so canned stand-ins never raise vanilla Exception (TRY002)."""
 
 
-class _FakeS3:
+class _CannedS3:
     """Stub s3 client capturing put_object and returning a canned presigned url."""
 
     def __init__(self, objects: dict | None = None) -> None:
@@ -28,7 +28,7 @@ class _FakeS3:
         import io as _io
 
         if Key not in self.objects:
-            raise _FakeS3Error(f"NoSuchKey: {Key}")
+            raise _CannedS3Error(f"NoSuchKey: {Key}")
         return {"Body": _io.BytesIO(self.objects[Key])}
 
     def generate_presigned_url(self, op, Params, ExpiresIn) -> str:
@@ -37,7 +37,7 @@ class _FakeS3:
         return f"https://presigned.example/{Params['Key']}?exp={ExpiresIn}"
 
 
-def _fake_renders(out_dir: Path) -> list[dict]:
+def _canned_renders(out_dir: Path) -> list[dict]:
     """Build a 4-ratio renders[] list with real tiny PNGs on disk (handler reads bytes)."""
     from PIL import Image
 
@@ -52,7 +52,7 @@ def _fake_renders(out_dir: Path) -> list[dict]:
 
 
 def _stub_hero_set(source: str, tmp_path: Path, provenance: dict | None = None):
-    """Return a generate_hero_set stub that yields 4 fake renders + source + provenance."""
+    """Return a generate_hero_set stub that yields 4 canned renders + source + provenance."""
 
     def _stub(**kwargs):
         out_dir = kwargs.get("out_dir") or (tmp_path / "renders")
@@ -69,7 +69,7 @@ def _stub_hero_set(source: str, tmp_path: Path, provenance: dict | None = None):
             "paper_overlay": True,
             "ratios": {"1x1": "primary", "4x5": "pillow-outpaint-fallback", "9x16": "pillow-outpaint-fallback", "16x9": "pillow-outpaint-fallback"},
         }
-        return _fake_renders(Path(out_dir)), source, prov
+        return _canned_renders(Path(out_dir)), source, prov
 
     return _stub
 
@@ -78,7 +78,7 @@ def test_handler_returns_200_with_image_url(monkeypatch, tmp_path: Path) -> None
     monkeypatch.setattr(
         generate_lambda, "generate_hero_set", _stub_hero_set("bedrock:nova-pro", tmp_path)
     )
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     event = {"body": json.dumps({"mode": "full", "prompt": "a bear eating pancakes"})}
     resp = generate_lambda.handler(event, None)
@@ -106,7 +106,7 @@ def test_handler_empty_prompt_defaults_to_brand_tagline(monkeypatch, tmp_path: P
     monkeypatch.setattr(
         generate_lambda, "generate_hero_set", _stub_hero_set("bedrock:nova-pro", tmp_path)
     )
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     # missing prompt entirely (full mode exercises the stubbed generate_hero_set source)
     resp = generate_lambda.handler({"body": json.dumps({"mode": "full"})}, None)
@@ -132,7 +132,7 @@ def test_handler_falls_back_to_default_hero_label(monkeypatch, tmp_path: Path) -
         "generate_hero_set",
         _stub_hero_set("bedrock:nova-pro-fallback", tmp_path),
     )
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     resp = generate_lambda.handler({"mode": "full", "prompt": "x"}, None)
     body = json.loads(resp["body"])
@@ -158,10 +158,10 @@ def test_handler_sanitizes_celebrity_name_before_brief_msg(monkeypatch, tmp_path
     def _capture(**kwargs):
         captured.update(kwargs)
         out_dir = kwargs.get("out_dir") or (tmp_path / "renders")
-        return _fake_renders(Path(out_dir)), "bedrock:nova-pro", {"engine": "pillow-compose"}
+        return _canned_renders(Path(out_dir)), "bedrock:nova-pro", {"engine": "pillow-compose"}
 
     monkeypatch.setattr(generate_lambda, "generate_hero_set", _capture)
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     event = {
         "body": json.dumps(
@@ -185,19 +185,19 @@ def test_presigned_url_signed_with_attachment_disposition(monkeypatch, tmp_path:
     # cross-origin presigned GET must be signed with Content-Disposition: attachment
     # so the browser saves (not inline-opens) with a sensible .png filename. Every one
     # of the three renders is signed this way.
-    fake_s3 = _FakeS3()
+    canned_s3 = _CannedS3()
     monkeypatch.setattr(
         generate_lambda, "generate_hero_set", _stub_hero_set("bedrock:nova-pro", tmp_path)
     )
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: fake_s3)
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: canned_s3)
 
     event = {"body": json.dumps({"mode": "full", "product": "power-cakes", "region": "us"})}
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
 
     # all three renders were uploaded + presigned with an attachment .png disposition
-    assert len(fake_s3.presign_calls) == 4
-    for params in fake_s3.presign_calls:
+    assert len(canned_s3.presign_calls) == 4
+    for params in canned_s3.presign_calls:
         disposition = params["ResponseContentDisposition"]
         assert disposition.startswith("attachment; filename=")
         assert disposition.endswith('.png"')
@@ -231,7 +231,7 @@ def test_download_filename_sanitizes_and_falls_back() -> None:
 # --------------------------------------------------------------------------- #
 
 
-def _fake_single_render(out_path: Path):
+def _canned_single_render(out_path: Path):
     """Write a real tiny PNG at out_path (the handler reads bytes + size from it)."""
     from PIL import Image
 
@@ -245,7 +245,7 @@ def _stub_generate_hero(source: str, provenance: dict | None = None):
 
     def _stub(**kwargs):
         out_path = Path(kwargs["out_path"])
-        _fake_single_render(out_path)
+        _canned_single_render(out_path)
         prov = provenance or {
             "seed_source": "power-cakes-hero",
             "seed_selection": "disk-asset",
@@ -277,7 +277,7 @@ def test_preview_mode_is_default_five_tiles_gated_outpaint_pads_fallback(
     monkeypatch.setattr(
         generate_lambda, "generate_hero", _stub_generate_hero("bedrock:stability-control-structure")
     )
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     # the outpaint gate runs on the preview path (item 11): the instant stub hero
     # leaves budget, so both extends are attempted and degrade honestly when the
@@ -367,17 +367,17 @@ def test_preview_pads_upload_real_pngs_at_matrix_dims(monkeypatch, tmp_path: Pat
     monkeypatch.setattr(
         generate_lambda, "generate_hero", _stub_generate_hero("bedrock:stability-control-structure")
     )
-    fake_s3 = _FakeS3()
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: fake_s3)
+    canned_s3 = _CannedS3()
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: canned_s3)
 
     event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
 
-    assert len(fake_s3.puts) == 5
-    keys = [p["Key"] for p in fake_s3.puts]
+    assert len(canned_s3.puts) == 5
+    keys = [p["Key"] for p in canned_s3.puts]
     assert len(set(keys)) == 5  # every tile persists under its own asset key
-    for put in fake_s3.puts:
+    for put in canned_s3.puts:
         assert put["ContentType"] == "image/png"
         with Image.open(io.BytesIO(put["Body"])) as im:
             real_w, real_h = im.size
@@ -386,7 +386,7 @@ def test_preview_pads_upload_real_pngs_at_matrix_dims(monkeypatch, tmp_path: Pat
     assert set(by_ratio) == set(RATIO_DIMS)
     # each response entry's claimed dims match the uploaded bytes; pads match the
     # matrix (the stubbed 1x1 is 16x16 native, prod 1080x1080)
-    png_by_size = sorted(Image.open(io.BytesIO(p["Body"])).size for p in fake_s3.puts)
+    png_by_size = sorted(Image.open(io.BytesIO(p["Body"])).size for p in canned_s3.puts)
     claimed = sorted((r["w"], r["h"]) for r in body["renders"])
     assert png_by_size == claimed
     for ratio, dims in RATIO_DIMS.items():
@@ -402,11 +402,11 @@ def test_preview_mode_sanitizes_celebrity_name_before_brief_msg(monkeypatch, tmp
 
     def _capture(**kwargs):
         captured.update(kwargs)
-        _fake_single_render(Path(kwargs["out_path"]))
+        _canned_single_render(Path(kwargs["out_path"]))
         return Path(kwargs["out_path"]), "bedrock:stability-control-structure", {"engine": "x"}
 
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture)
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     event = {
         "body": json.dumps(
@@ -429,7 +429,7 @@ def test_full_mode_still_produces_3size_set_localization_platform_copy(
     monkeypatch.setattr(
         generate_lambda, "generate_hero_set", _stub_hero_set("bedrock:stability-control-structure", tmp_path)
     )
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     event = {"body": json.dumps({"mode": "full", "prompt": "a bear eating pancakes"})}
     resp = generate_lambda.handler(event, None)
@@ -487,7 +487,7 @@ def test_wall_fires_returns_200_rungD_wall_timeout_real_pixels(monkeypatch, tmp_
     # both mode paths call through generate_hero / generate_hero_set; stub both to hang
     monkeypatch.setattr(generate_lambda, "generate_hero", _hang)
     monkeypatch.setattr(generate_lambda, "generate_hero_set", _hang)
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
     resp = generate_lambda.handler(event, None)
@@ -512,7 +512,7 @@ def test_wall_does_not_fire_when_work_completes_in_time(monkeypatch, tmp_path: P
     monkeypatch.setattr(
         generate_lambda, "generate_hero", _stub_generate_hero("bedrock:stability-control-structure")
     )
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
     resp = generate_lambda.handler(event, None)
@@ -538,7 +538,7 @@ def _capture_hero(captured: dict, source: str = "bedrock:stability-control-struc
 
     def _stub(**kwargs):
         captured.update(kwargs)
-        _fake_single_render(Path(kwargs["out_path"]))
+        _canned_single_render(Path(kwargs["out_path"]))
         return Path(kwargs["out_path"]), source, {"engine": "stability-control-structure"}
 
     return _stub
@@ -555,7 +555,7 @@ def test_art_director_inner_timeout_degrades_voice_off_not_wall_floor(
 
     captured: dict = {}
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     # turn the voice step on and shrink the inner timeout so the test is fast; behavior is
     # identical at the 6s default. The outer wall stays at its default so we prove the INNER
@@ -589,7 +589,7 @@ def test_art_director_flag_off_by_default_never_invokes(monkeypatch, tmp_path: P
     # and the prompt flows through byte-for-byte as the brief_msg.
     captured: dict = {}
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     # do NOT set ART_DIRECTOR_ENABLED — assert it is off by default in this env
     assert generate_lambda.ART_DIRECTOR_ENABLED is False
@@ -617,7 +617,7 @@ def test_art_director_flag_on_fast_return_uses_art_director_line(
     # brief (post-render upgrade, Unit 1) while the voice line lands in provenance.
     captured: dict = {}
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
     monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
 
     from creative_automation import art_director as _ad
@@ -648,7 +648,7 @@ def test_art_director_flag_on_fast_return_uses_art_director_line(
 
 # --------------------------------------------------------------------------- #
 # PUBLISH-TIME PLATFORM TAGS: renders ship x-amz-meta-platforms so the asset store
-# browser can filter by platform. No real AWS — _FakeS3 captures put_object.
+# browser can filter by platform. No real AWS — _CannedS3 captures put_object.
 # --------------------------------------------------------------------------- #
 
 
@@ -661,7 +661,7 @@ def _tiny_render(tmp_path: Path) -> dict:
 
 
 def test_upload_render_writes_platform_metadata(tmp_path: Path) -> None:
-    s3 = _FakeS3()
+    s3 = _CannedS3()
     entry = generate_lambda._upload_render(
         s3, _tiny_render(tmp_path), "KODIAK-CAKES-X.png", ["facebook", "Insta", "x"]
     )
@@ -673,7 +673,7 @@ def test_upload_render_writes_platform_metadata(tmp_path: Path) -> None:
 
 
 def test_upload_render_omits_metadata_when_untagged(tmp_path: Path) -> None:
-    s3 = _FakeS3()
+    s3 = _CannedS3()
     entry = generate_lambda._upload_render(s3, _tiny_render(tmp_path), "KODIAK-CAKES-X.png")
     assert "Metadata" not in s3.last_put
     assert entry["platforms"] == []
@@ -693,8 +693,8 @@ def _pack_event(payload: dict) -> dict:
     return {"rawPath": "/assets/pack", "body": json.dumps(payload)}
 
 
-def _pack_s3() -> _FakeS3:
-    return _FakeS3(objects={
+def _pack_s3() -> _CannedS3:
+    return _CannedS3(objects={
         "brands/kodiak/renders/a1.png": b"PNG-A",
         "brands/kodiak/renders/b2.png": b"PNG-B",
     })
@@ -815,7 +815,7 @@ def test_art_upgrade_records_headline_post_render_without_rewriting_brief(
     # voice line lands in provenance + sidecar (post-render upgrade, never gating).
     captured: dict = {}
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
     monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
 
     from creative_automation import art_director as _ad
@@ -847,7 +847,7 @@ def test_art_upgrade_records_nothing_when_voice_off(monkeypatch, tmp_path: Path)
     # flag off: no art_headline key at all, brief byte-identical.
     captured: dict = {}
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
     assert generate_lambda.ART_DIRECTOR_ENABLED is False
 
     event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
@@ -964,7 +964,7 @@ def test_concurrent_voice_hang_costs_no_wall(monkeypatch, tmp_path: Path) -> Non
 
     captured: dict = {}
     monkeypatch.setattr(generate_lambda, "generate_hero", _capture_hero(captured))
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
     monkeypatch.setattr(generate_lambda, "ART_DIRECTOR_ENABLED", True)
     assert generate_lambda.ART_DIRECTOR_TIMEOUT_S == 6  # default, not squeezed
 

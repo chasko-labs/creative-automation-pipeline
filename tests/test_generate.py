@@ -1,6 +1,6 @@
 """Bedrock Stability control-structure seam for mode-3 hero generation.
 
-No real AWS: the bedrock-runtime client is a fake that captures invoke_model kwargs
+No real AWS: the bedrock-runtime client is a canned that captures invoke_model kwargs
 and returns a canned base64 image. Asserts the Stability request schema (NOT Nova's
 taskType), the inference-profile modelId, base64 decode-to-out_path, the
 bedrock:stability-control-structure source tag, and the full fallback chain
@@ -36,7 +36,7 @@ def _make_seed(path: Path, size: tuple[int, int] = (1024, 1024)) -> Path:
     return path
 
 
-class _FakeBedrockBody:
+class _CannedBedrockBody:
     def __init__(self, payload: bytes) -> None:
         self._payload = payload
 
@@ -44,7 +44,7 @@ class _FakeBedrockBody:
         return self._payload
 
 
-class _FakeBedrockClient:
+class _CannedBedrockClient:
     """Captures invoke_model kwargs; returns a canned Stability images[0] payload."""
 
     def __init__(self, image_b64: str) -> None:
@@ -54,7 +54,7 @@ class _FakeBedrockClient:
     def invoke_model(self, **kwargs) -> dict:
         self.last_invoke = kwargs
         payload = json.dumps({"images": [self.image_b64]}).encode("utf-8")
-        return {"body": _FakeBedrockBody(payload)}
+        return {"body": _CannedBedrockBody(payload)}
 
     # generate_hero's scene-prompt art-director ask goes through converse; keep it
     # deterministic and network-free here.
@@ -65,23 +65,23 @@ class _FakeBedrockClient:
 # --------------------------------------------------------------- Stability invoke schema
 def test_stability_control_hero_request_shape_and_write(tmp_path: Path, monkeypatch) -> None:
     seed = _make_seed(tmp_path / "seed.png")
-    canned = base64.b64encode(_png_bytes(color=(10, 200, 120))).decode("ascii")
-    fake = _FakeBedrockClient(canned)
-    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: fake)
+    canned_b64 = base64.b64encode(_png_bytes(color=(10, 200, 120))).decode("ascii")
+    canned = _CannedBedrockClient(canned_b64)
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: canned)
 
     out = tmp_path / "styled.png"
     result = generate._stability_control_hero(seed, "restyle to wild frontier", out)
 
     assert result is not None and result.exists()
     # the written file is the DECODED canned image, not the seed
-    assert out.read_bytes() == base64.b64decode(canned)
+    assert out.read_bytes() == base64.b64decode(canned_b64)
 
     # modelId is the inference-profile id, never the bare stability.* id
-    assert fake.last_invoke["modelId"] == "us.stability.stable-image-control-structure-v1:0"
-    assert fake.last_invoke["modelId"].startswith("us.stability.")
-    assert fake.last_invoke["contentType"] == "application/json"
+    assert canned.last_invoke["modelId"] == "us.stability.stable-image-control-structure-v1:0"
+    assert canned.last_invoke["modelId"].startswith("us.stability.")
+    assert canned.last_invoke["contentType"] == "application/json"
 
-    body = json.loads(fake.last_invoke["body"])
+    body = json.loads(canned.last_invoke["body"])
     # Stability schema — NOT Nova's taskType/textToImageParams
     assert set(body) == {"prompt", "image", "control_strength", "seed", "output_format"}
     assert "taskType" not in body
@@ -167,13 +167,13 @@ def test_generate_hero_stability_primary_on_disk_seed(tmp_path: Path, monkeypatc
     # a real disk seed + Stability success -> source is the stability tag, and the
     # written hero is the decoded Stability image.
     seed = _make_seed(tmp_path / "disk-seed.png")
-    canned = base64.b64encode(_png_bytes(color=(5, 5, 200))).decode("ascii")
-    fake = _FakeBedrockClient(canned)
+    canned_b64 = base64.b64encode(_png_bytes(color=(5, 5, 200))).decode("ascii")
+    canned = _CannedBedrockClient(canned_b64)
 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: fake)
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: canned)
 
     out = tmp_path / "hero.png"
     # overlays OFF here so the written hero is the decoded Stability image framed
@@ -195,13 +195,13 @@ def test_generate_hero_stability_primary_on_disk_seed(tmp_path: Path, monkeypatc
     assert source == "bedrock:stability-control-structure"
     _framed = io.BytesIO()
     _ImageOps.fit(
-        Image.open(io.BytesIO(base64.b64decode(canned))).convert("RGB"),
+        Image.open(io.BytesIO(base64.b64decode(canned_b64))).convert("RGB"),
         generate._CANVAS["1x1"],
         method=Image.BICUBIC,
     ).save(_framed, "PNG")
     assert out.read_bytes() == _framed.getvalue()
     # seed carried into the invoke body
-    body = json.loads(fake.last_invoke["body"])
+    body = json.loads(canned.last_invoke["body"])
     assert set(body) == {"prompt", "image", "control_strength", "seed", "output_format"}
 
 
@@ -319,13 +319,13 @@ def test_generate_hero_theme_seed_wins_and_conditions(tmp_path: Path, monkeypatc
     # theme resolves to a asset key, fetch returns a real seed -> Stability conditions
     # that thematic seed -> stability tag. Theme drives the pixels.
     seed = _make_seed(tmp_path / "theme-seed.png")
-    canned = base64.b64encode(_png_bytes(color=(120, 30, 200))).decode("ascii")
-    fake = _FakeBedrockClient(canned)
+    canned_b64 = base64.b64encode(_png_bytes(color=(120, 30, 200))).decode("ascii")
+    canned = _CannedBedrockClient(canned_b64)
     from creative_automation import asset_store
 
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: "brands/kodiak/raw-ingest/theme.jpg")
     monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
-    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: fake)
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: canned)
 
     out = tmp_path / "hero.png"
     result, source, _prov = generate.generate_hero(

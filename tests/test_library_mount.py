@@ -2,7 +2,7 @@
 
 The frontend POSTs to the main-API origin (port 8182), not the standalone asset_api (8183). These
 tests prove mount_library_routes wired the same routes onto the main app and that a POST returns 201
-with the AssetRef dict plus an embed_status. All offline: a FakeS3 is injected into the shared
+with the AssetRef dict plus an embed_status. All offline: a CannedS3 is injected into the shared
 AssetLibrary instance so add_asset commits in-memory, and the embeddings module is stubbed so no
 Bedrock / S3 Vectors is touched. TestClient cases skip cleanly under bare python (no fastapi).
 """
@@ -26,8 +26,8 @@ except ImportError:  # pragma: no cover - import guard
 _SKIP_REASON = "needs fastapi (bare-python run skips by design)"
 
 
-class FakeS3:
-    """In-memory S3 stub mirroring test_asset_library.py's FakeS3."""
+class CannedS3:
+    """In-memory S3 stub mirroring test_asset_library.py's CannedS3."""
 
     def __init__(self) -> None:
         self.store: dict[str, bytes] = {}
@@ -90,9 +90,9 @@ def test_mounted_post_returns_201_and_asset_ref(monkeypatch):
         pytest.skip(_SKIP_REASON)
     from fastapi.testclient import TestClient
 
-    # inject FakeS3 into the shared library instance the main app mounted, so add_asset commits
-    fake = FakeS3()
-    monkeypatch.setattr(asset_api.library, "_s3", fake)
+    # inject CannedS3 into the shared library instance the main app mounted, so add_asset commits
+    canned = CannedS3()
+    monkeypatch.setattr(asset_api.library, "_s3", canned)
     _stub_embed_offline(monkeypatch)
 
     client = TestClient(app)
@@ -112,8 +112,8 @@ def test_mounted_post_returns_201_and_asset_ref(monkeypatch):
     assert body["tags"] == ["brand", "mark"]
     # embed-on-ingest indicator travels back
     assert body["embed_status"] == ingest.EMBED_EMBEDDED
-    # the object + sidecar landed in the injected FakeS3
-    assert body["s3_key"] in fake.store
+    # the object + sidecar landed in the injected CannedS3
+    assert body["s3_key"] in canned.store
 
 
 def test_mounted_post_embed_pending_still_201(monkeypatch):
@@ -122,8 +122,8 @@ def test_mounted_post_embed_pending_still_201(monkeypatch):
         pytest.skip(_SKIP_REASON)
     from fastapi.testclient import TestClient
 
-    fake = FakeS3()
-    monkeypatch.setattr(asset_api.library, "_s3", fake)
+    canned = CannedS3()
+    monkeypatch.setattr(asset_api.library, "_s3", canned)
     monkeypatch.setattr(ingest.embeddings, "vector_exists", lambda key, **kw: False)
     monkeypatch.setattr(
         ingest.embeddings, "embed_image", lambda p, text_hint=None, dim=1024: ([0.1], "mock")
@@ -140,7 +140,7 @@ def test_mounted_post_embed_pending_still_201(monkeypatch):
     assert resp.status_code == 201, resp.text
     body = resp.json()
     assert body["embed_status"] == ingest.EMBED_PENDING
-    assert body["s3_key"] in fake.store
+    assert body["s3_key"] in canned.store
 
 
 def test_mounted_post_unsupported_kind_415(monkeypatch):
@@ -148,8 +148,8 @@ def test_mounted_post_unsupported_kind_415(monkeypatch):
         pytest.skip(_SKIP_REASON)
     from fastapi.testclient import TestClient
 
-    fake = FakeS3()
-    monkeypatch.setattr(asset_api.library, "_s3", fake)
+    canned = CannedS3()
+    monkeypatch.setattr(asset_api.library, "_s3", canned)
     _stub_embed_offline(monkeypatch)
 
     client = TestClient(app)

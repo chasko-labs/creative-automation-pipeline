@@ -95,11 +95,11 @@ def test_extend_falls_back_to_pad(tmp_path: Path, monkeypatch) -> None:
 def test_extend_mode_routes_through_handler(monkeypatch) -> None:
     seen: dict = {}
 
-    def fake_extend(data, prompt):
+    def canned_extend(data, prompt):
         seen.update(data)
         return {"ok": True, "ratio": "9x16"}
 
-    monkeypatch.setattr(gl, "_handle_extend", fake_extend)
+    monkeypatch.setattr(gl, "_handle_extend", canned_extend)
     event = {"body": '{"mode": "extend", "ratio": "9x16"}'}
     resp = gl.handler(event)
     assert resp["statusCode"] == 200

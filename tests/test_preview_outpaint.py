@@ -7,11 +7,11 @@ from pathlib import Path
 from creative_automation import generate_lambda
 
 
-class _FakeS3Error(Exception):
-    """Module-local stub error so fakes never raise vanilla Exception (TRY002)."""
+class _CannedS3Error(Exception):
+    """Module-local stub error so canned stand-ins never raise vanilla Exception (TRY002)."""
 
 
-class _FakeS3:
+class _CannedS3:
     """Stub s3 client capturing put_object and returning a canned presigned url."""
 
     def __init__(self) -> None:
@@ -41,7 +41,7 @@ def _stub_hero(**kwargs):
     return out_path, "bedrock:stability-control-structure", dict(prov)
 
 
-def _fake_extend_ok(base_png: Path, target_w: int, target_h: int,
+def _canned_extend_ok(base_png: Path, target_w: int, target_h: int,
                     prompt: str, out_path: Path) -> Path:
     """Successful live extend: writes a real PNG at the TARGET dims."""
     from PIL import Image
@@ -53,7 +53,7 @@ def _fake_extend_ok(base_png: Path, target_w: int, target_h: int,
 
 def _run_preview(monkeypatch) -> dict:
     monkeypatch.setattr(generate_lambda, "generate_hero", _stub_hero)
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
     event = {"body": json.dumps({"prompt": "a bear eating pancakes", "product": "power-cakes"})}
     resp = generate_lambda.handler(event, None)
     assert resp["statusCode"] == 200
@@ -68,7 +68,7 @@ def test_preview_outpaint_success_marks_live_engines(monkeypatch) -> None:
 
     def _spy(base_png, w, h, prompt, out_path):
         calls.append((w, h, prompt))
-        return _fake_extend_ok(base_png, w, h, prompt, out_path)
+        return _canned_extend_ok(base_png, w, h, prompt, out_path)
 
     monkeypatch.setattr(generate_lambda, "_stability_outpaint", _spy)
     body = _run_preview(monkeypatch)
@@ -138,7 +138,7 @@ def test_preview_outpaint_completion_attempts_extend_despite_spent_clock(monkeyp
 
     def _spy(base_png, w, h, prompt, out_path):
         calls.append((w, h))
-        return _fake_extend_ok(base_png, w, h, prompt, out_path)
+        return _canned_extend_ok(base_png, w, h, prompt, out_path)
 
     monkeypatch.setattr(generate_lambda, "_stability_outpaint", _spy)
     body = _run_preview(monkeypatch)
@@ -215,9 +215,9 @@ def test_preview_outpaint_generic_error_degrades_to_pads(monkeypatch) -> None:
     assert "blog" not in body["provenance"]["outpaint_degraded"]
 
 
-def _fake_bedrock_throttle_then_ok(monkeypatch, failures: int,
+def _canned_bedrock_throttle_then_ok(monkeypatch, failures: int,
                                    code: str = "ThrottlingException") -> dict:
-    """Fake fail-fast client: throttle `failures` times, then a valid payload."""
+    """Canned fail-fast client: throttle `failures` times, then a valid payload."""
     import base64
     import io
 
@@ -235,14 +235,14 @@ def _fake_bedrock_throttle_then_ok(monkeypatch, failures: int,
         def read(self) -> bytes:
             return json.dumps(payload).encode()
 
-    class _FakeBedrock:
+    class _CannedBedrock:
         def invoke_model(self, **kwargs):
             calls["n"] += 1
             if calls["n"] <= failures:
                 raise ClientError({"Error": {"Code": code, "Message": "burst"}}, "InvokeModel")
             return {"body": _Body()}
 
-    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _FakeBedrock())
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _CannedBedrock())
     monkeypatch.setattr(stability_rungs.time, "sleep", lambda s: calls["sleeps"].append(s))
     return calls
 
@@ -259,7 +259,7 @@ def test_outpaint_throttle_retries_then_succeeds(monkeypatch, tmp_path) -> None:
     """Two burst rejections then a model answer: one tile, no pad."""
     from creative_automation import stability_rungs
 
-    calls = _fake_bedrock_throttle_then_ok(monkeypatch, failures=2)
+    calls = _canned_bedrock_throttle_then_ok(monkeypatch, failures=2)
     out = tmp_path / "hero-9x16.png"
     got = stability_rungs._stability_outpaint(_hero_base(tmp_path), 1080, 1350, "subject", out)
     assert got == out
@@ -272,7 +272,7 @@ def test_outpaint_service_unavailable_retries(monkeypatch, tmp_path) -> None:
     """'Too many connections' is the same transient class: retried, then served."""
     from creative_automation import stability_rungs
 
-    calls = _fake_bedrock_throttle_then_ok(monkeypatch, failures=1,
+    calls = _canned_bedrock_throttle_then_ok(monkeypatch, failures=1,
                                            code="ServiceUnavailableException")
     out = tmp_path / "hero-16x9.png"
     got = stability_rungs._stability_outpaint(_hero_base(tmp_path), 1350, 1080, "subject", out)
@@ -285,7 +285,7 @@ def test_outpaint_throttle_exhausted_reraises_for_caller(monkeypatch, tmp_path) 
     from creative_automation import stability_rungs
     from creative_automation.bedrock_client import ClientError
 
-    calls = _fake_bedrock_throttle_then_ok(monkeypatch, failures=99)
+    calls = _canned_bedrock_throttle_then_ok(monkeypatch, failures=99)
     out = tmp_path / "hero-9x16.png"
     try:
         stability_rungs._stability_outpaint(_hero_base(tmp_path), 1080, 1350, "subject", out)
@@ -301,7 +301,7 @@ def test_outpaint_non_throttle_error_does_not_retry(monkeypatch, tmp_path) -> No
     """A real rejection (bad request, denied) degrades at once: one call, no sleep."""
     from creative_automation import stability_rungs
 
-    calls = _fake_bedrock_throttle_then_ok(monkeypatch, failures=99,
+    calls = _canned_bedrock_throttle_then_ok(monkeypatch, failures=99,
                                            code="ValidationException")
     out = tmp_path / "hero-9x16.png"
     assert stability_rungs._stability_outpaint(_hero_base(tmp_path), 1080, 1350, "subject", out) is None

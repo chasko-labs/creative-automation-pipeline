@@ -391,7 +391,16 @@ def _brief_idea(brief_msg: str | None) -> str:
         if head and head in _IDEA_MARKERS:
             # Metadata segment is atomic: its VALUE may itself carry
             # " — Moment (window)" (the frontier value), and dash-splitting
-            # it would orphan the moment as fake free text. Drop it whole.
+            # it would orphan the moment as fake free text. Drop it whole —
+            # EXCEPT ecology:, whose value is prose (the user's idea or the
+            # market's plant cue). The copy path already harvests it; the
+            # image path dropped it, so campaigns came back generic while
+            # the copy named the idea. Seen live: Brooklyn "Bodega coffee,
+            # oatmeal cup..." reached headlines but never pixels.
+            if head == "ecology:":
+                value = s.split(":", 1)[1].strip()
+                if value:
+                    bits.append(value)
             continue
         # Free-text segment: a trailing marker tail ("sea otters — season:
         # September") still splits off; the surviving head stays the idea.

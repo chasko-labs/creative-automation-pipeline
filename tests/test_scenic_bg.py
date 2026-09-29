@@ -25,7 +25,7 @@ def _tiny_png_b64() -> str:
     return base64.b64encode(buf.getvalue()).decode()
 
 
-class _FakeBody:
+class _CannedBody:
     def __init__(self, payload: dict):
         self._payload = payload
 
@@ -33,14 +33,14 @@ class _FakeBody:
         return json.dumps(self._payload).encode()
 
 
-class _FakeClient:
+class _CannedClient:
     def __init__(self, payload: dict):
         self._payload = payload
         self.calls: list[dict] = []
 
     def invoke_model(self, modelId: str, body: str) -> dict:
         self.calls.append({"modelId": modelId, "body": json.loads(body)})
-        return {"body": _FakeBody(self._payload)}
+        return {"body": _CannedBody(self._payload)}
 
 
 def test_scenic_scene_text_leads_with_idea() -> None:
@@ -65,7 +65,7 @@ def test_scenic_background_success(monkeypatch, tmp_path: Path) -> None:
     payload = {"finish_reasons": [None], "images": [_tiny_png_b64()]}
     monkeypatch.setattr(
         "creative_automation.spin._bedrock_client",
-        lambda *a, **k: _FakeClient(payload),
+        lambda *a, **k: _CannedClient(payload),
     )
     out = tmp_path / "hero.png"
     got = generate._scenic_background("sea otters at dawn", out, request_seed=7)
@@ -78,7 +78,7 @@ def test_scenic_background_blocked_is_none(monkeypatch, tmp_path: Path) -> None:
     payload = {"finish_reasons": ["CONTENT_FILTERED"], "images": []}
     monkeypatch.setattr(
         "creative_automation.spin._bedrock_client",
-        lambda *a, **k: _FakeClient(payload),
+        lambda *a, **k: _CannedClient(payload),
     )
     assert generate._scenic_background("sea otters", tmp_path / "h.png") is None
 

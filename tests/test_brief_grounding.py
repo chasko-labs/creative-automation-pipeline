@@ -28,7 +28,7 @@ def test_brief_idea_markers_only_is_empty() -> None:
 
 def test_brief_idea_keeps_free_text_with_ecology() -> None:
     brief = "surfboard at sunset · ecology: coastal stack · in-season: apple cider (apple, cider)"
-    assert generate._brief_idea(brief) == "surfboard at sunset"
+    assert generate._brief_idea(brief) == "surfboard at sunset coastal stack"
 
 
 def test_brief_idea_strips_parenthetical_markers() -> None:
@@ -38,14 +38,15 @@ def test_brief_idea_strips_parenthetical_markers() -> None:
 
 def test_brief_idea_drops_moment_orphaned_in_frontier_value() -> None:
     # Old wire shape: the moment rides inside the frontier VALUE after an
-    # em-dash. Dash-splitting orphans it as fake free text — it must drop
+    # em-dash. Dash-splitting orphans it as canned free text — it must drop
     # with the metadata, never read as the user's idea.
     brief = (
         "\u2014 market: New York City \u00b7 season: September \u00b7 ecology: Bodega coffee "
         "\u00b7 frontier: Warwick, NY (Hudson Valley) \u2014 Black-dirt onion season (Jul-Sep) "
         "\u00b7 in-season: apples (savory onion cheddar bakes)"
     )
-    assert generate._brief_idea(brief) == ""
+    # the frontier moment still drops; the ecology prose harvests as the idea.
+    assert generate._brief_idea(brief) == "Bodega coffee"
 
 
 def test_brief_idea_drops_standalone_moment_marker() -> None:
@@ -138,14 +139,14 @@ def test_staged_dest_unique_per_key() -> None:
 
 def test_nova_output_reattaches_dropped_idea(monkeypatch, tmp_path: Path) -> None:
     # Nova returns a scene without the idea -> deterministic re-attach.
-    class _FakeNova:
+    class _CannedNova:
         def converse(self, **kwargs):
             return {"output": {"message": {"content": [{"text": "Rustic wood table, warm glow"}]}}}
 
-    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **kwargs: _FakeNova()
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **kwargs: _CannedNova()
     )
     seed = tmp_path / "seed.png"
-    seed.write_bytes(b"fakepng")
+    seed.write_bytes(b"cannedpng")
     # _seed_small_for_nova lives on scene_prompts (owner).
     monkeypatch.setattr(scene_prompts, "_seed_small_for_nova", lambda src: (b"x", "png"))
     scene = generate._nova_pro_scene_prompt(
@@ -156,14 +157,14 @@ def test_nova_output_reattaches_dropped_idea(monkeypatch, tmp_path: Path) -> Non
 
 
 def test_nova_output_keeps_idea_without_dup(monkeypatch, tmp_path: Path) -> None:
-    class _FakeNova:
+    class _CannedNova:
         def converse(self, **kwargs):
             return {"output": {"message": {"content": [{"text": "Christmas cats in snow"}]}}}
 
-    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **kwargs: _FakeNova()
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **kwargs: _CannedNova()
     )
     seed = tmp_path / "seed.png"
-    seed.write_bytes(b"fakepng")
+    seed.write_bytes(b"cannedpng")
     # _seed_small_for_nova lives on scene_prompts (owner).
     monkeypatch.setattr(scene_prompts, "_seed_small_for_nova", lambda src: (b"x", "png"))
     scene = generate._nova_pro_scene_prompt(

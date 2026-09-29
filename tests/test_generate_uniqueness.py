@@ -87,7 +87,7 @@ def test_nova_scene_fallback_carries_locale(monkeypatch, tmp_path) -> None:
     # as human place + produce, never the raw code.
     monkeypatch.setattr(bedrock_client, "boto3", None)
     seed = tmp_path / "seed.png"
-    seed.write_bytes(b"fakepng")
+    seed.write_bytes(b"cannedpng")
     prompt = generate_mod._nova_pro_scene_prompt(
         seed, "P", "wild mornings", "us", "f", None, None, None,
         "US-OH-CINCINNATI", "september",

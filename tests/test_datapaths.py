@@ -33,13 +33,13 @@ def test_retailer_frontier_pairs_resolves_and_loads() -> None:
 
 def test_env_override_wins(monkeypatch, tmp_path: Path) -> None:
     # CAP_DATA_ROOT (the Lambda points this at /var/task/data) is the first candidate.
-    fake = tmp_path / "shipped-data"
-    (fake / "localization").mkdir(parents=True)
-    (fake / "localization" / "retailer-frontier-pairs.json").write_text('{"pairs": []}')
-    monkeypatch.setenv("CAP_DATA_ROOT", str(fake))
-    assert _datapaths.data_root() == fake
+    canned = tmp_path / "shipped-data"
+    (canned / "localization").mkdir(parents=True)
+    (canned / "localization" / "retailer-frontier-pairs.json").write_text('{"pairs": []}')
+    monkeypatch.setenv("CAP_DATA_ROOT", str(canned))
+    assert _datapaths.data_root() == canned
     resolved = _datapaths.data_path("localization", "retailer-frontier-pairs.json")
-    assert resolved == fake / "localization" / "retailer-frontier-pairs.json"
+    assert resolved == canned / "localization" / "retailer-frontier-pairs.json"
     assert resolved.exists()
 
 

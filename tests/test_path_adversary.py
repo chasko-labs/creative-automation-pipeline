@@ -29,12 +29,12 @@ def _seed_offline(tmp_path, monkeypatch, captured: dict) -> None:
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
     monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: _png(dest))
 
-    def _fake_control(seed_path, prompt, out, **_k):
+    def _canned_control(seed_path, prompt, out, **_k):
         captured["stability_prompt"] = prompt
         _png(out)
         return out
 
-    monkeypatch.setattr(generate, "_stability_control_hero", _fake_control)
+    monkeypatch.setattr(generate, "_stability_control_hero", _canned_control)
     monkeypatch.setattr(generate, "_stability_outpaint", lambda *a, **k: None)
     monkeypatch.setattr(generate, "_nova_pro_scene_prompt",
                          lambda *a, **k: generate._default_scene_prompt(*a[1:6]))

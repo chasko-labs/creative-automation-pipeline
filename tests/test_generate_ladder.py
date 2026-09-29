@@ -218,8 +218,8 @@ def test_rung_d_survives_missing_bundled_asset(tmp_path, monkeypatch):
 # --------------------------------------------------------------------------- #
 # (d) malformed request is the ONLY 4xx; a well-formed POST is 200 real pixels
 # --------------------------------------------------------------------------- #
-class _FakeS3:
-    """Captures put_object and hands back a fake presigned URL — no AWS."""
+class _CannedS3:
+    """Captures put_object and hands back a canned presigned URL — no AWS."""
 
     def put_object(self, **kwargs):
         return {}
@@ -231,7 +231,7 @@ class _FakeS3:
 def _install_handler_stubs(monkeypatch, tmp_path):
     from creative_automation import generate_lambda
 
-    monkeypatch.setattr(generate_lambda, "_s3_client", lambda: _FakeS3())
+    monkeypatch.setattr(generate_lambda, "_s3_client", lambda: _CannedS3())
     # keep the handler fast + offline: stub generate_hero to a real on-disk floor render.
     def _stub_hero(*, product_id, product_name, brief_msg, region, audience, out_path,
                    idx=0, ratio="1x1", theme=None, brand_overlay=True, paper_overlay=True,
@@ -295,6 +295,13 @@ def test_rung_b_overlaps_caption_with_scene(tmp_path, monkeypatch):
     Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: "seed-key")
+    # matched-seed setup: the pool caption overlaps the brief, so the
+    # brief-aware pick resolves (these tests pin post-pick behavior,
+    # not the unmatched-idea original path).
+    monkeypatch.setattr(
+        generate_mod, "_load_sku_photo_map",
+        lambda: {"totally-made-up-sku-xyz": {"caption": "frontier morning camp cook", "fallbacks": []}},
+    )
     monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
     monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
     monkeypatch.setattr(generate_mod, "_similarity_gate_enabled", lambda: False)
@@ -302,24 +309,24 @@ def test_rung_b_overlaps_caption_with_scene(tmp_path, monkeypatch):
     caption_started = threading.Event()
     restyle_started = threading.Event()
 
-    def fake_caption(src, product_name, brief_msg, region, audience, remaining_ms=None):
+    def canned_caption(src, product_name, brief_msg, region, audience, remaining_ms=None):
         caption_started.set()
         assert restyle_started.wait(timeout=10), "caption never overlapped the restyle"
         return "trail fuel caption"
 
-    def fake_scene(seed_p, product_name, brief_msg, region, audience, theme,
+    def canned_scene(seed_p, product_name, brief_msg, region, audience, theme,
                    combo_extras=None, dish=None, market=None, season=None):
         return "wild frontier restyle"
 
-    def fake_restyle(seed_p, scene_prompt, out_path, **kwargs):
+    def canned_restyle(seed_p, scene_prompt, out_path, **kwargs):
         restyle_started.set()
         assert caption_started.wait(timeout=10), "restyle ran with no overlapped caption"
         Image.open(seed).save(out_path, "PNG")
         return out_path
 
-    monkeypatch.setattr(generate_mod, "_caption_with_budget", fake_caption)
-    monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", fake_scene)
-    monkeypatch.setattr(generate_mod, "_stability_control_hero", fake_restyle)
+    monkeypatch.setattr(generate_mod, "_caption_with_budget", canned_caption)
+    monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", canned_scene)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", canned_restyle)
 
     out = tmp_path / "hero.png"
     result, source, prov = generate_mod.generate_hero(
@@ -350,6 +357,13 @@ def test_budget_wall_skips_rung_b_lands_rung_c(tmp_path, monkeypatch):
     Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: "seed-key")
+    # matched-seed setup: the pool caption overlaps the brief, so the
+    # brief-aware pick resolves (these tests pin post-pick behavior,
+    # not the unmatched-idea original path).
+    monkeypatch.setattr(
+        generate_mod, "_load_sku_photo_map",
+        lambda: {"totally-made-up-sku-xyz": {"caption": "frontier morning camp cook", "fallbacks": []}},
+    )
     monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
     monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
@@ -400,6 +414,13 @@ def test_run_to_completion_attempts_rung_b_despite_exhausted_clock(tmp_path, mon
     Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: "seed-key")
+    # matched-seed setup: the pool caption overlaps the brief, so the
+    # brief-aware pick resolves (these tests pin post-pick behavior,
+    # not the unmatched-idea original path).
+    monkeypatch.setattr(
+        generate_mod, "_load_sku_photo_map",
+        lambda: {"totally-made-up-sku-xyz": {"caption": "frontier morning camp cook", "fallbacks": []}},
+    )
     monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
     monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
     monkeypatch.setattr(generate_mod, "_similarity_gate_enabled", lambda: False)
@@ -410,12 +431,12 @@ def test_run_to_completion_attempts_rung_b_despite_exhausted_clock(tmp_path, mon
     )
     stability_calls = {"n": 0}
 
-    def _fake_restyle(seed_p, scene_prompt, out_path, **kwargs):
+    def _canned_restyle(seed_p, scene_prompt, out_path, **kwargs):
         stability_calls["n"] += 1
         Image.open(seed).save(out_path, "PNG")
         return out_path
 
-    monkeypatch.setattr(generate_mod, "_stability_control_hero", _fake_restyle)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", _canned_restyle)
     # exhausted clock: legacy mode would skip rung B outright.
     monkeypatch.setattr(generate_mod, "GENERATE_SOFT_BUDGET_MS", 5000)
 
@@ -455,19 +476,19 @@ def test_no_seed_generates_original_instead_of_floor(tmp_path, monkeypatch):
         lambda *a, **k: "wild frontier restyle",
     )
 
-    def _fake_original(scene, out_path, request_seed=0):
+    def _canned_original(scene, out_path, request_seed=0):
         Image.new("RGB", (1024, 1024), (30, 90, 180)).save(out_path, "PNG")
         return out_path
 
-    monkeypatch.setattr(generate_mod, "_scenic_background", _fake_original)
+    monkeypatch.setattr(generate_mod, "_scenic_background", _canned_original)
     stability_calls = {"n": 0}
 
-    def _fake_restyle(seed_p, scene_prompt, out_path, **kwargs):
+    def _canned_restyle(seed_p, scene_prompt, out_path, **kwargs):
         stability_calls["n"] += 1
         Image.open(seed_p).save(out_path, "PNG")
         return out_path
 
-    monkeypatch.setattr(generate_mod, "_stability_control_hero", _fake_restyle)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", _canned_restyle)
 
     out = tmp_path / "hero.png"
     result, source, prov = generate_mod.generate_hero(
@@ -519,12 +540,12 @@ def test_original_seed_restyles_even_on_spent_legacy_clock(tmp_path, monkeypatch
     monkeypatch.setattr(generate_mod, "_scenic_background", _slow_original)
     stability_calls = {"n": 0}
 
-    def _fake_restyle(seed_p, scene_prompt, out_path, **kwargs):
+    def _canned_restyle(seed_p, scene_prompt, out_path, **kwargs):
         stability_calls["n"] += 1
         Image.open(seed_p).save(out_path, "PNG")
         return out_path
 
-    monkeypatch.setattr(generate_mod, "_stability_control_hero", _fake_restyle)
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", _canned_restyle)
 
     out = tmp_path / "hero.png"
     result, source, prov = generate_mod.generate_hero(
@@ -595,7 +616,7 @@ def test_restyle_retry_once_false_makes_single_attempt(tmp_path, monkeypatch):
 #      Converse call can never hang past the gateway cap
 #   2. a slow Nova Pro scene-prompt that eats the budget makes the STABILITY sub-call
 #      gate abandon rung B to rung C with real pixels, still under the soft budget
-# One test, driven by a fake monotonic clock so the "slow scene-prompt" is deterministic
+# One test, driven by a canned monotonic clock so the "slow scene-prompt" is deterministic
 # and no network / real sleep is touched.
 # --------------------------------------------------------------------------- #
 def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypatch):
@@ -607,6 +628,13 @@ def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypa
     Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: "seed-key")
+    # matched-seed setup: the pool caption overlaps the brief, so the
+    # brief-aware pick resolves (these tests pin post-pick behavior,
+    # not the unmatched-idea original path).
+    monkeypatch.setattr(
+        generate_mod, "_load_sku_photo_map",
+        lambda: {"totally-made-up-sku-xyz": {"caption": "frontier morning camp cook", "fallbacks": []}},
+    )
     monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
     monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
@@ -622,7 +650,7 @@ def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypa
 
     monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", _spy_factory)
 
-    # a scene-prompt that is SLOW: it advances the fake clock past the stability sub-call
+    # a scene-prompt that is SLOW: it advances the canned clock past the stability sub-call
     # gate, then returns the deterministic default (mirrors the real graceful degrade).
     # It first touches the fail-fast factory so the spy records the Nova read timeout.
     NOVA_T = generate_mod.BEDROCK_NOVA_READ_TIMEOUT_S
@@ -648,7 +676,7 @@ def test_slow_nova_scene_prompt_abandons_rung_b_to_c_failfast(tmp_path, monkeypa
     # scene gate math is exercised, not the new 25s/28s.
     monkeypatch.setattr(generate_mod, "_B_BUDGET_MS", 16000)
     monkeypatch.setattr(generate_mod, "_C_RESERVATION_MS", 3000)
-    # fake monotonic clock: start at 0; the outer B gate + scene gate pass at t=0, then the
+    # canned monotonic clock: start at 0; the outer B gate + scene gate pass at t=0, then the
     # slow scene advances t so the stability gate (t2) fails -> abandon B to C.
     clock = {"t": 0.0}
     monkeypatch.setattr(generate_mod.time, "monotonic", lambda: clock["t"])
@@ -722,6 +750,10 @@ def test_mapped_sku_with_seed_restyles_bg_before_verbatim_paste(tmp_path, monkey
     monkeypatch.setattr(asset_store, "fetch_asset_key", _seed_and_box_fetch(seed_src))
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: "scene/waffle.png")
+    monkeypatch.setattr(
+        generate_mod, "_load_sku_photo_map",
+        lambda: {"banana-muffin-quick-bread-mix": {"caption": "frontier morning waffle stack", "fallbacks": []}},
+    )
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
     monkeypatch.setattr(
         generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "wild frontier restyle"
@@ -766,6 +798,10 @@ def test_mapped_sku_restyle_failure_keeps_unstyled_rung_a(tmp_path, monkeypatch)
     monkeypatch.setattr(asset_store, "fetch_asset_key", _seed_and_box_fetch(seed_src))
     monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: "scene/waffle.png")
+    monkeypatch.setattr(
+        generate_mod, "_load_sku_photo_map",
+        lambda: {"banana-muffin-quick-bread-mix": {"caption": "frontier morning waffle stack", "fallbacks": []}},
+    )
     monkeypatch.setattr(generate_mod, "_find_source_asset", lambda pid, name: None)
     monkeypatch.setattr(generate_mod, "_nova_pro_scene_prompt", lambda *a, **k: "scene")
     monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: None)
@@ -939,3 +975,58 @@ def test_staged_seed_fetch_failure_falls_through(tmp_path, monkeypatch):
     assert prov["seed_selection"] == "disk-asset"
     assert "riff_on" not in prov
     assert source == "bedrock:nova-pro"
+
+
+def test_unmatched_idea_paints_original_instead_of_random_restyle(tmp_path, monkeypatch):
+    # The Brooklyn/Halloween contract: when the brief carries an idea and no
+    # pool photo matches it, the ladder must NOT restyle a random pool frame
+    # (restyle preserves the seed, burying the idea) — rung B0 paints the
+    # idea from words. Empty-idea briefs keep the old rotation.
+    monkeypatch.setenv("GENERATE_RUN_TO_COMPLETION", "1")
+    seed = tmp_path / "seed.png"
+    Image.new("RGB", (1024, 1024), (180, 90, 30)).save(seed, "PNG")
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: "kitchen-frame.png")
+    monkeypatch.setattr(generate_mod, "_load_sku_photo_map", lambda: {})
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: seed)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda *a, **k: None)
+    monkeypatch.setattr(generate_mod, "_similarity_gate_enabled", lambda: False)
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: "trail fuel caption")
+    monkeypatch.setattr(
+        generate_mod, "_nova_pro_scene_prompt",
+        lambda *a, **k: "wild frontier restyle",
+    )
+
+    seen_subjects = []
+
+    def _canned_original(scene, out_path, request_seed=0):
+        seen_subjects.append(scene)
+        Image.new("RGB", (1024, 1024), (30, 90, 180)).save(out_path, "PNG")
+        return out_path
+
+    monkeypatch.setattr(generate_mod, "_scenic_background", _canned_original)
+
+    def _canned_restyle(seed_p, scene_prompt, out_path, **kwargs):
+        Image.open(seed_p).save(out_path, "PNG")
+        return out_path
+
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", _canned_restyle)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="totally-made-up-sku-xyz",
+        product_name="Made Up",
+        brief_msg="Halloween-themed farmstand scene with pumpkins and jack-o-lanterns",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        layers={},
+    )
+
+    assert result.exists()
+    assert prov["seed_selection"] == "generated-original"
+    assert prov["original_source"] == "bedrock:stable-image-core"
+    assert "pumpkins" in (seen_subjects[0] if seen_subjects else "").lower()
+    assert "idea-beyond-photo-pool" in (prov.get("fallthrough_reason") or "")

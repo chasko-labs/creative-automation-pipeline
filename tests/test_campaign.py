@@ -408,7 +408,7 @@ def test_render_true_png_has_expected_ratio_dimensions(tmp_path):
     assert img.size == (1080, 1080), f"{a['iso_name']} wrong size {img.size}"
 
 
-def test_render_true_cohesion_check_skipped_offline_not_faked(tmp_path):
+def test_render_true_cohesion_check_skipped_offline_not_canned(tmp_path):
     # cr-3 cohesion re-embed needs bedrock; offline it must be skipped-with-a-reason,
     # never a fabricated similarity verdict
     result = run_campaign(
@@ -424,7 +424,7 @@ def test_render_true_cohesion_check_skipped_offline_not_faked(tmp_path):
         assert cohesion["checked"] is False
         assert cohesion["skipped"] is True
         assert cohesion.get("reason")
-        # no faked score
+        # no canned score
         assert "embed_norm" not in cohesion
 
 

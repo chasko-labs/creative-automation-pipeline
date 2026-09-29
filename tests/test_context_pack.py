@@ -61,7 +61,7 @@ def test_atlanta_has_dialect_consideration_for_non_english_langs():
     codes = {d["lang_code"] for d in pack["dialect_considerations"]}
     assert len(pack["dialect_considerations"]) >= 1
     assert "es" in codes
-    # Atlanta (US-SE) has no seeded dialect KB — the pack must say so, not fake traps
+    # Atlanta (US-SE) has no seeded dialect KB — the pack must say so, not canned traps
     for d in pack["dialect_considerations"]:
         if not d["has_kb"]:
             assert "no dialect trap KB seeded" in d["note"]

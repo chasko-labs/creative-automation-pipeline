@@ -39,14 +39,14 @@ def test_native_ratio_frames_seed_to_ratio_dims(tmp_path: Path, monkeypatch) -> 
     seed = _make_seed(tmp_path / "seed.png")
     seen: dict = {}
 
-    def _fake_control(seed_path, prompt, out_path, **kwargs):
+    def _canned_control(seed_path, prompt, out_path, **kwargs):
         seen["seed_size"] = Image.open(seed_path).size
         seen["kwargs"] = kwargs
         Path(out_path).write_bytes(_png_bytes(seen["seed_size"], color=(10, 200, 120)))
         return Path(out_path)
 
     # native_ratio is owned by stability_rungs; patch the owner.
-    monkeypatch.setattr(stability_rungs, "_stability_control_hero", _fake_control)
+    monkeypatch.setattr(stability_rungs, "_stability_control_hero", _canned_control)
     dest = tmp_path / "tile-9x16.png"
     got = generate._stability_native_ratio(
         seed, "spooky cats", "9x16", dest, seed_value=7, control_strength=0.4
@@ -84,7 +84,7 @@ def _ladder_harness(monkeypatch, tmp_path: Path, seed: Path):
     monkeypatch.setenv("KODIAK_DETERMINISTIC", "1")
     canned = base64.b64encode(_png_bytes(color=(10, 200, 120))).decode("ascii")
 
-    class _Fake:
+    class _Canned:
         def invoke_model(self, **kwargs):
             payload = json.dumps({"images": [canned]}).encode("utf-8")
             return {"body": io.BytesIO(payload)}
@@ -95,7 +95,7 @@ def _ladder_harness(monkeypatch, tmp_path: Path, seed: Path):
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Fake())
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Canned())
 
 
 def test_fanout_composes_all_five_frames_concurrently(
@@ -105,12 +105,12 @@ def test_fanout_composes_all_five_frames_concurrently(
     _ladder_harness(monkeypatch, tmp_path, seed)
     calls: list = []
 
-    def _fake_native(seed_local, scene, ratio, dest, **kwargs):
+    def _canned_native(seed_local, scene, ratio, dest, **kwargs):
         calls.append((ratio, kwargs.get("seed_value")))
         Path(dest).write_bytes(_png_bytes(stability_rungs._NATIVE_RATIO_DIMS[ratio]))
         return Path(dest)
 
-    monkeypatch.setattr(generate, "_stability_native_ratio", _fake_native)
+    monkeypatch.setattr(generate, "_stability_native_ratio", _canned_native)
     siblings = {r: tmp_path / f"sib-{r}.png" for r in ("4x5", "9x16", "16x9", "blog")}
     out = tmp_path / "hero.png"
     _result, _source, prov = generate.generate_hero(
@@ -187,7 +187,7 @@ def test_generate_hero_stashes_seed_local(tmp_path: Path, monkeypatch) -> None:
     # canned restyle arrives off-frame (1200x1000): rung B must ship 1080x1080.
     canned = base64.b64encode(_png_bytes((1200, 1000), color=(10, 200, 120))).decode("ascii")
 
-    class _Fake:
+    class _Canned:
         def invoke_model(self, **kwargs):
             payload = json.dumps({"images": [canned]}).encode("utf-8")
             return {"body": io.BytesIO(payload)}
@@ -198,7 +198,7 @@ def test_generate_hero_stashes_seed_local(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(generate, "_resolve_theme_photo", lambda slug: None)
     monkeypatch.setattr(generate, "_resolve_asset_photo", lambda pid: None)
     monkeypatch.setattr(generate, "_find_source_asset", lambda pid, name: seed)
-    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Fake())
+    monkeypatch.setattr(bedrock_client.boto3, "client", lambda *a, **k: _Canned())
 
     _result, _source, prov = generate.generate_hero(
         product_id="power-cakes",

@@ -2,7 +2,7 @@
 
 Covers asset_browser's catalog join (sku-photo-map photo_key/fallbacks -> catalog
 category), the always-present item keys, the x-amz-meta-platforms parse, and
-asset_store.head_metadata's degrade-to-{} contract. No real AWS — S3 is faked.
+asset_store.head_metadata's degrade-to-{} contract. No real AWS — S3 is canned.
 """
 from __future__ import annotations
 
@@ -130,7 +130,7 @@ def test_platforms_from_meta_parses_and_degrades() -> None:
     assert asset_browser._platforms_from_meta({"other": "x"}) == []
 
 
-class _FakeHeadClient:
+class _CannedHeadClient:
     def __init__(self, meta: dict | None = None, fail: bool = False) -> None:
         self.meta = meta or {}
         self.fail = fail
@@ -144,12 +144,12 @@ class _FakeHeadClient:
 
 
 def test_head_metadata_returns_lowercased_tags(monkeypatch) -> None:
-    fake = _FakeHeadClient({"Platforms": "facebook,blog"})
+    canned = _CannedHeadClient({"Platforms": "facebook,blog"})
     monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
     monkeypatch.setattr(asset_store, "_s3_bucket_and_prefix", lambda: ("bkt", ""))
-    monkeypatch.setattr(asset_store, "_s3_client", lambda: fake)
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: canned)
     assert asset_store.head_metadata("brands/kodiak/renders/a.png") == {"platforms": "facebook,blog"}
-    assert fake.calls[0]["Key"] == "brands/kodiak/renders/a.png"
+    assert canned.calls[0]["Key"] == "brands/kodiak/renders/a.png"
 
 
 def test_head_metadata_degrades_to_empty(monkeypatch) -> None:
@@ -159,7 +159,7 @@ def test_head_metadata_degrades_to_empty(monkeypatch) -> None:
     # head failure
     monkeypatch.setattr(asset_store, "_s3_enabled", lambda: True)
     monkeypatch.setattr(asset_store, "_s3_bucket_and_prefix", lambda: ("bkt", ""))
-    monkeypatch.setattr(asset_store, "_s3_client", lambda: _FakeHeadClient(fail=True))
+    monkeypatch.setattr(asset_store, "_s3_client", lambda: _CannedHeadClient(fail=True))
     assert asset_store.head_metadata("k") == {}
     # empty key never calls
     assert asset_store.head_metadata("") == {}

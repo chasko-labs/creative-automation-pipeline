@@ -1,7 +1,7 @@
 """LLM-authored recipe fields + card legibility floor.
 
 No network. Covers _validate_recipe_fields (strict shape, never fabricates),
-_author_recipe_fields (None offline, parses a faked Converse reply, None on
+_author_recipe_fields (None offline, parses a canned Converse reply, None on
 garbage), and the _compose_recipe_card overflow guard (worst-case long lists
 stay above the accent bar at every delivery ratio, with body ink present).
 """
@@ -47,7 +47,7 @@ def test_author_returns_none_offline(monkeypatch) -> None:
     assert generate._author_recipe_fields("Power Cakes", "wild", "us") is None
 
 
-class _FakeConverse:
+class _CannedConverse:
     def __init__(self, text: str):
         self._text = text
 
@@ -59,7 +59,7 @@ class _FakeConverse:
 
 
 def test_author_parses_valid_json(monkeypatch) -> None:
-    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _FakeConverse(
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _CannedConverse(
         '{"title": "Wild Stack", "ingredients": ["2 cups mix", "1 cup milk"], '
         '"steps": ["whisk well", "cook golden"]}'
     ))
@@ -68,11 +68,11 @@ def test_author_parses_valid_json(monkeypatch) -> None:
 
 
 def test_author_returns_none_on_garbage(monkeypatch) -> None:
-    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _FakeConverse(
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _CannedConverse(
         "just some prose, no json at all"
     ))
     assert generate._author_recipe_fields("Power Cakes", "wild", "us") is None
-    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _FakeConverse(
+    monkeypatch.setattr(bedrock_client, "_bedrock_failfast_client", lambda **k: _CannedConverse(
         '{"title": "", "ingredients": [], "steps": []}'
     ))
     assert generate._author_recipe_fields("Power Cakes", "wild", "us") is None

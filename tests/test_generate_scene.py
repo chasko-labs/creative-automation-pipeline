@@ -284,3 +284,18 @@ def test_scenic_scene_text_unbranded_and_clean() -> None:
     assert "no logos" in s
     assert "research dispatch" not in s
     assert "unconfirmed" not in s
+
+
+def test_brief_idea_harvests_ecology_value() -> None:
+    from creative_automation.scene_prompts import _brief_idea as idea
+
+    brief = (
+        "— market: Brooklyn, New York · season: September · "
+        "ecology: Bodega coffee, oatmeal cup on the Brooklyn-bound platform · "
+        "frontier: Warwick, NY (Hudson Valley, apples/onions/black dirt) · "
+        "moment: Warwick Applefest + Hudson Valley apple harvest (Sep-Oct) · "
+        "in-season: apples (apple cinnamon, cider, caramel apple)"
+    )
+    assert idea(brief) == "Bodega coffee, oatmeal cup on the Brooklyn-bound platform"
+    # pure-metadata briefs still yield no idea
+    assert idea("— market: Brooklyn, New York · season: September") == ""

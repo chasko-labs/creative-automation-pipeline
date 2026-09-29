@@ -4,7 +4,7 @@ These tests verify that generation pipelines produce *distinct* localized output
 per market/season, not the same camo placeholder or military recruit copy. They
 fail when the implementation falls back to slop.
 
-No AWS - all Bedrock calls are faked or offline.
+No AWS - all Bedrock calls are canned or offline.
 """
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ from creative_automation import generate, stability_rungs, text_rewriter
 from creative_automation.context_pack import build_context_pack
 
 
-def _fake_png(size=(1080, 1080), color=(180, 90, 30)) -> bytes:
+def _canned_png(size=(1080, 1080), color=(180, 90, 30)) -> bytes:
     buf = io.BytesIO()
     Image.new("RGB", size, color).save(buf, "PNG")
     return buf.getvalue()
@@ -25,7 +25,7 @@ def _fake_png(size=(1080, 1080), color=(180, 90, 30)) -> bytes:
 
 def _make_seed(path: Path) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(_fake_png((1024, 1024), (30, 90, 160)))
+    path.write_bytes(_canned_png((1024, 1024), (30, 90, 160)))
     return path
 
 

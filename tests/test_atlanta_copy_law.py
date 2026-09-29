@@ -171,7 +171,7 @@ def test_atlanta_preview_scenario_es_ko_publix_recipe_no_spend(monkeypatch, tmp_
             "copy_headline": "Warm Up Your Winter Nights With Kodiak",
         }
 
-    class _FakeS3:
+    class _CannedS3:
         def put_object(self, **kwargs):
             return {}
 
@@ -179,7 +179,7 @@ def test_atlanta_preview_scenario_es_ko_publix_recipe_no_spend(monkeypatch, tmp_
             return f"https://presigned.example/{Params['Key']}?exp={ExpiresIn}"
 
     monkeypatch.setattr(generate_lambda, "generate_hero", _stub_hero)
-    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _FakeS3())
+    monkeypatch.setattr(generate_lambda.boto3, "client", lambda *a, **k: _CannedS3())
 
     event = {"body": json.dumps({
         "prompt": "Warm Up Your Winter Nights With Kodiak",

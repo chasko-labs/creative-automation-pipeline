@@ -6,7 +6,7 @@ from __future__ import annotations
 from creative_automation import localize_memory
 
 
-class _FakeTable:
+class _CannedTable:
     def __init__(self, fail: bool = False) -> None:
         self.items: list[dict] = []
         self.fail = fail
@@ -20,14 +20,14 @@ class _FakeTable:
 
 
 def test_record_persists_event(monkeypatch) -> None:
-    fake = _FakeTable()
-    monkeypatch.setattr(localize_memory, "_client", lambda: fake)
+    canned = _CannedTable()
+    monkeypatch.setattr(localize_memory, "_client", lambda: canned)
     out = localize_memory.record_nielsen_event(
         "US-SE-ATL", "30301", {"market": "US-SE-ATL", "sales": 7}
     )
     assert out is not None and out["persisted"] is True
-    assert len(fake.items) == 1
-    item = fake.items[0]
+    assert len(canned.items) == 1
+    item = canned.items[0]
     assert item["pk"] == {"S": "MARKET#US-SE-ATL"}
     assert item["zip"] == {"S": "30301"}
     assert item["source"] == {"S": "nielsen-ingest"}
@@ -42,7 +42,7 @@ def test_record_none_when_table_disabled(monkeypatch) -> None:
 
 
 def test_record_raises_on_transport_failure(monkeypatch) -> None:
-    monkeypatch.setattr(localize_memory, "_client", lambda: _FakeTable(fail=True))
+    monkeypatch.setattr(localize_memory, "_client", lambda: _CannedTable(fail=True))
     try:
         localize_memory.record_nielsen_event("US-SE-ATL", "30301", {"x": 1})
     except RuntimeError:

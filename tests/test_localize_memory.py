@@ -29,7 +29,7 @@ def test_get_precomputed_offline_returns_none(monkeypatch):
 
 def test_get_precomputed_hit_maps_item(monkeypatch):
     # simulate a live client returning a DynamoDB item; assert it maps to the response shape
-    class _FakeClient:
+    class _CannedClient:
         def get_item(self, TableName, Key):
             return {
                 "Item": {
@@ -39,7 +39,7 @@ def test_get_precomputed_hit_maps_item(monkeypatch):
                 }
             }
 
-    monkeypatch.setattr(localize_memory, "_client", lambda: _FakeClient())
+    monkeypatch.setattr(localize_memory, "_client", lambda: _CannedClient())
     res = get_precomputed("Nourishment for Today's Frontier", "US-SW-LASCRUCES", "es")
     assert res == {
         "text": "Nutrición para la Frontera de Hoy",
@@ -49,9 +49,9 @@ def test_get_precomputed_hit_maps_item(monkeypatch):
 
 
 def test_get_precomputed_miss_returns_none(monkeypatch):
-    class _FakeClient:
+    class _CannedClient:
         def get_item(self, TableName, Key):
             return {}  # no Item
 
-    monkeypatch.setattr(localize_memory, "_client", lambda: _FakeClient())
+    monkeypatch.setattr(localize_memory, "_client", lambda: _CannedClient())
     assert get_precomputed("missing", "US-SW-LASCRUCES", "es") is None

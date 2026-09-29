@@ -3,7 +3,7 @@
 The HTTP API caps every response at 30s while the image model needs 20s+ per
 restyle, so jobs split the wait: start validates + self-invokes async (202),
 the worker runs the same preview ladder with relaxed walls, and the frontend
-polls the S3 status doc. All AWS clients are faked here.
+polls the S3 status doc. All AWS clients are canned here.
 """
 from __future__ import annotations
 
@@ -14,11 +14,11 @@ from creative_automation import generate as generate_mod
 from creative_automation import generate_lambda
 
 
-class _FakeS3Error(Exception):
-    """Module-local stub error so fakes never raise vanilla Exception (TRY002)."""
+class _CannedS3Error(Exception):
+    """Module-local stub error so canned stand-ins never raise vanilla Exception (TRY002)."""
 
 
-class _FakeS3:
+class _CannedS3:
     def __init__(self, objects: dict | None = None) -> None:
         self.puts: list[dict] = []
         self.objects = dict(objects or {})
@@ -30,13 +30,13 @@ class _FakeS3:
 
     def get_object(self, Bucket, Key) -> dict:
         if Key not in self.objects:
-            raise _FakeS3Error(f"NoSuchKey: {Key}")
+            raise _CannedS3Error(f"NoSuchKey: {Key}")
         body = self.objects[Key]
         raw = body.encode("utf-8") if isinstance(body, str) else body
         return {"Body": io.BytesIO(raw)}
 
 
-class _FakeLambda:
+class _CannedLambda:
     def __init__(self) -> None:
         self.invokes: list[dict] = []
 
@@ -45,8 +45,8 @@ class _FakeLambda:
         return {"StatusCode": 202}
 
 
-def _clients(monkeypatch, s3: _FakeS3, lam: _FakeLambda | None = None):
-    lam = lam if lam is not None else _FakeLambda()
+def _clients(monkeypatch, s3: _CannedS3, lam: _CannedLambda | None = None):
+    lam = lam if lam is not None else _CannedLambda()
 
     def _client(name: str, *a, **k):
         if name == "s3":
@@ -68,7 +68,7 @@ def _jobs_event(body: dict, method: str = "POST") -> dict:
 
 
 def test_jobs_start_returns_202_and_queues(monkeypatch) -> None:
-    s3, lam = _FakeS3(), _FakeLambda()
+    s3, lam = _CannedS3(), _CannedLambda()
     _clients(monkeypatch, s3, lam)
     monkeypatch.setenv("AWS_LAMBDA_FUNCTION_NAME", "fn")
     resp = generate_lambda.handler(_jobs_event({"prompt": "x", "market": "us"}), None)
@@ -88,7 +88,7 @@ def test_jobs_start_returns_202_and_queues(monkeypatch) -> None:
 
 
 def test_jobs_start_malformed_body_is_400(monkeypatch) -> None:
-    _clients(monkeypatch, _FakeS3())
+    _clients(monkeypatch, _CannedS3())
     monkeypatch.setenv("AWS_LAMBDA_FUNCTION_NAME", "fn")
     event = _jobs_event({})
     event["body"] = "{nope"
@@ -97,7 +97,7 @@ def test_jobs_start_malformed_body_is_400(monkeypatch) -> None:
 
 
 def test_jobs_start_without_function_name_is_500(monkeypatch) -> None:
-    _clients(monkeypatch, _FakeS3())
+    _clients(monkeypatch, _CannedS3())
     monkeypatch.delenv("AWS_LAMBDA_FUNCTION_NAME", raising=False)
     resp = generate_lambda.handler(_jobs_event({"prompt": "x"}), None)
     assert resp["statusCode"] == 500
@@ -105,7 +105,7 @@ def test_jobs_start_without_function_name_is_500(monkeypatch) -> None:
 
 def test_jobs_status_round_trip(monkeypatch) -> None:
     doc = {"job_id": "abcdef012345", "state": "working"}
-    s3 = _FakeS3({"brands/kodiak/jobs/abcdef012345.json": json.dumps(doc)})
+    s3 = _CannedS3({"brands/kodiak/jobs/abcdef012345.json": json.dumps(doc)})
     _clients(monkeypatch, s3)
     event = {
         "requestContext": {"http": {"method": "GET", "path": "/jobs"}},
@@ -118,7 +118,7 @@ def test_jobs_status_round_trip(monkeypatch) -> None:
 
 
 def test_jobs_status_unknown_and_malformed(monkeypatch) -> None:
-    _clients(monkeypatch, _FakeS3())
+    _clients(monkeypatch, _CannedS3())
     for params, want in (({"id": "abcdef012345"}, 404), ({"id": "nope"}, 400), ({}, 400)):
         event = {
             "requestContext": {"http": {"method": "GET", "path": "/jobs"}},
@@ -129,15 +129,15 @@ def test_jobs_status_unknown_and_malformed(monkeypatch) -> None:
 
 
 def test_job_worker_runs_preview_and_stores_done(monkeypatch) -> None:
-    s3 = _FakeS3()
+    s3 = _CannedS3()
     _clients(monkeypatch, s3)
     calls: list[dict] = []
 
-    def _fake_preview(data, prompt):
+    def _canned_preview(data, prompt):
         calls.append({"data": data, "prompt": prompt})
         return {"ok": True, "image_url": "https://x/y.png", "source": "test", "renders": []}
 
-    monkeypatch.setattr(generate_lambda, "_handle_preview", _fake_preview)
+    monkeypatch.setattr(generate_lambda, "_handle_preview", _canned_preview)
     soft_before = generate_mod.GENERATE_SOFT_BUDGET_MS
     native_before = generate_mod._NATIVE_READ_TIMEOUT_S
     outpaint_before = generate_mod._OUTPAINT_BUDGET_MS
@@ -154,7 +154,7 @@ def test_job_worker_runs_preview_and_stores_done(monkeypatch) -> None:
 
 
 def test_job_worker_fault_lands_in_doc(monkeypatch) -> None:
-    s3 = _FakeS3()
+    s3 = _CannedS3()
     _clients(monkeypatch, s3)
 
     def _boom(data, prompt):

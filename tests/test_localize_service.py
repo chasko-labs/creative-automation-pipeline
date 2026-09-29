@@ -29,11 +29,11 @@ def _has_creds(monkeypatch, value: bool):
 
 def test_precomputed_hit_returns_provider_precomputed(monkeypatch):
     # a DynamoDB hit short-circuits before any live call
-    def fake_get(text, market, lang):
+    def canned_get(text, market, lang):
         assert (text, market, lang) == (BASE, MARKET, "es")
         return {"text": "Proteína para la prisa matutina", "provider": "precomputed", "source": "dynamodb"}
 
-    monkeypatch.setattr(localize_service.localize_memory, "get_precomputed", fake_get)
+    monkeypatch.setattr(localize_service.localize_memory, "get_precomputed", canned_get)
     # guard: no live path may fire on a precompute hit
     monkeypatch.setattr(localize_service, "_amazon_translate", lambda *a, **k: (_ for _ in ()).throw(AssertionError("translate called on precompute hit")))
     monkeypatch.setattr(localize_service, "_bedrock_translate", lambda *a, **k: (_ for _ in ()).throw(AssertionError("bedrock called on precompute hit")))
@@ -50,11 +50,11 @@ def test_supported_lang_miss_routes_to_amazon_translate(monkeypatch):
     _has_creds(monkeypatch, True)
     called = {}
 
-    def fake_translate(text, lang, source_lang="en"):
+    def canned_translate(text, lang, source_lang="en"):
         called["lang"] = lang
         return "Proteína para la prisa matutina"
 
-    monkeypatch.setattr(localize_service, "_amazon_translate", fake_translate)
+    monkeypatch.setattr(localize_service, "_amazon_translate", canned_translate)
     # bedrock must NOT be called for an Amazon-Translate-supported lang
     monkeypatch.setattr(localize_service, "_bedrock_translate", lambda *a, **k: (_ for _ in ()).throw(AssertionError("bedrock called for supported lang")))
 
@@ -70,11 +70,11 @@ def test_gap_lang_routes_to_bedrock_low_confidence(monkeypatch):
     _has_creds(monkeypatch, True)
     called = {}
 
-    def fake_bedrock(text, lang, market):
+    def canned_bedrock(text, lang, market):
         called["lang"] = lang
         return "protina para iti frontier"  # ilo (Ilocano) — a machine-able gap
 
-    monkeypatch.setattr(localize_service, "_bedrock_translate", fake_bedrock)
+    monkeypatch.setattr(localize_service, "_bedrock_translate", canned_bedrock)
     # amazon translate must NOT be called for a gap lang
     monkeypatch.setattr(localize_service, "_amazon_translate", lambda *a, **k: (_ for _ in ()).throw(AssertionError("amazon-translate called for gap lang")))
 

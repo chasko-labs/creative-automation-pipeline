@@ -57,7 +57,7 @@ def test_model_not_ready_retries_then_succeeds(monkeypatch):
     )
     calls = {"n": 0}
 
-    class FakeModel:
+    class CannedModel:
         def __init__(self, *a, **k):
             pass
 
@@ -67,7 +67,7 @@ def test_model_not_ready_retries_then_succeeds(monkeypatch):
                 raise not_ready
             yield {"contentBlockDelta": {"delta": {"text": "Lace up. Keep it wild."}}}
 
-    monkeypatch.setattr(art_director, "BedrockModel", FakeModel)
+    monkeypatch.setattr(art_director, "BedrockModel", CannedModel)
     sleeps: list[int] = []
     prompt = art_director._build_ask("summit at dawn", "adventurous")
     out = art_director._try_art_direct(

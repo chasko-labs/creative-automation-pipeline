@@ -65,14 +65,14 @@ def test_all_attempts_over_ceiling_returns_best_not_none(monkeypatch, tmp_path: 
     # the closest drawing instead of the SVG placeholder.
     calls: list = []
 
-    def fake_invoke(client, subject, zone, *, seed, negative, extra_clause=""):
+    def canned_invoke(client, subject, zone, *, seed, negative, extra_clause=""):
         calls.append(seed)
         # all over the ceiling; the middle attempt is closest to it.
         frac = {0: 0.90, 1: 0.45, 2: 0.70}[len(calls) - 1]
         return _mixed(frac)
 
     monkeypatch.setattr(recipe_art, "_bedrock_client", lambda *a, **k: object())
-    monkeypatch.setattr(recipe_art, "_invoke_image", fake_invoke)
+    monkeypatch.setattr(recipe_art, "_invoke_image", canned_invoke)
     out = recipe_art.generate_recipe_art(
         "Apple Cider Donuts", "finished_plate", seed=7, out_dir=tmp_path
     )

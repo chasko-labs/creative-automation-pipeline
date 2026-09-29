@@ -1,7 +1,7 @@
 """Unit tests for the param_sweep harness — matrix logic + JSON sidecar only.
 
 No live render, no live judge. generate._stability_control_hero is mocked to write a
-stub PNG, and a fake in-process judge returns scripted verdicts. This proves the sweep
+stub PNG, and a canned in-process judge returns scripted verdicts. This proves the sweep
 wiring (per-value invoke, per-assertion judge dispatch, matrix, sidecar) without spending
 a single billable Bedrock render.
 """
@@ -14,7 +14,7 @@ from pathlib import Path
 from creative_automation import generate, param_sweep
 
 
-def _fake_render(seed, prompt, out_path, *, control_strength=None, seed_value=None):
+def _canned_render(seed, prompt, out_path, *, control_strength=None, seed_value=None):
     """Stand in for the production invoke: write a stub PNG, echo control_strength."""
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_bytes(b"\x89PNG\r\n\x1a\n" + str(control_strength).encode())
@@ -22,10 +22,10 @@ def _fake_render(seed, prompt, out_path, *, control_strength=None, seed_value=No
 
 
 def test_sweep_matrix_and_sidecar(monkeypatch, tmp_path: Path) -> None:
-    monkeypatch.setattr(generate, "_stability_control_hero", _fake_render)
+    monkeypatch.setattr(generate, "_stability_control_hero", _canned_render)
 
-    # Fake judge: no_text passes only at the lowest strength; product always recognizable.
-    def fake_judge(image_path: Path, question: str) -> tuple[bool, str]:
+    # Canned judge: no_text passes only at the lowest strength; product always recognizable.
+    def canned_judge(image_path: Path, question: str) -> tuple[bool, str]:
         value_tag = image_path.stem.split("-")[-1]
         if "text" in question.lower():
             return (float(value_tag) <= 0.4, f"text-check at cs={value_tag}")
@@ -40,7 +40,7 @@ def test_sweep_matrix_and_sidecar(monkeypatch, tmp_path: Path) -> None:
             "no_text": "Is there any text or lettering in this image?",
             "product_recognizable": "Is the product clearly visible and undistorted?",
         },
-        judge=fake_judge,
+        judge=canned_judge,
     )
 
     assert [r.value for r in results] == [0.7, 0.55, 0.4]
@@ -92,8 +92,8 @@ def test_sweep_seed_value_dispatch_and_int_coercion(monkeypatch, tmp_path: Path)
 
     monkeypatch.setattr(generate, "_stability_control_hero", capture_render)
 
-    # Fake judge keyed off the seed encoded in the filename: hallucination on odd seeds.
-    def fake_judge(image_path: Path, question: str) -> tuple[bool, str]:
+    # Canned judge keyed off the seed encoded in the filename: hallucination on odd seeds.
+    def canned_judge(image_path: Path, question: str) -> tuple[bool, str]:
         seed_tag = int(image_path.stem.split("-")[-1])
         # "has_text" true when the signpost hallucinated (odd seeds in this fixture)
         return (seed_tag % 2 == 1, f"seed={seed_tag}")
@@ -106,7 +106,7 @@ def test_sweep_seed_value_dispatch_and_int_coercion(monkeypatch, tmp_path: Path)
         values=["1", "2", "3"],
         out_dir=tmp_path / "seedsweep",
         assertions={"has_text": "Is there a ROSITAR signpost or any text?"},
-        judge=fake_judge,
+        judge=canned_judge,
     )
 
     # values coerced to int, in order
@@ -203,7 +203,7 @@ def test_sweep_survives_raising_render(monkeypatch, tmp_path: Path, capsys) -> N
 
     monkeypatch.setattr(generate, "_stability_control_hero", flaky_render)
 
-    def fake_judge(image_path: Path, question: str) -> tuple[bool, str]:
+    def canned_judge(image_path: Path, question: str) -> tuple[bool, str]:
         return (True, f"ok {image_path.stem}")
 
     values = [104, 105, 106]
@@ -214,7 +214,7 @@ def test_sweep_survives_raising_render(monkeypatch, tmp_path: Path, capsys) -> N
         values=values,
         out_dir=tmp_path / "seedsweep",
         assertions={"has_text": "Any text?"},
-        judge=fake_judge,
+        judge=canned_judge,
     )
 
     # loop completed all M values

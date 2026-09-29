@@ -1729,15 +1729,17 @@ let skuList = [
             markComposing(ratio, true);
             for(let attempt=0; attempt<2; attempt++){
               try{
+                // A 503 mid-deploy (or any gateway blip) must not strand the
+                // tile: wait, then use the second attempt. Seen live.
+                if(attempt) await new Promise(function(res){ setTimeout(res, 1500); });
                 const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(extendBody(ratio, hero, fields))});
-                if(!resp.ok) break;
+                if(!resp.ok) continue;
                 const tile = await resp.json();
                 if(tile && tile.ok && tile.image_url){
                   swapTile(ratio, tile.image_url);
                   recordExtendedTile(ratio, tile);
                   return;
                 }
-                break;
               }catch(e){}
             }
             // Retries exhausted or a bad response: the server-side pad is the
@@ -1929,7 +1931,13 @@ let skuList = [
        */
       const oneGenerate = async (productSlug, wantTheme)=>{
         const body = buildGenerateBody(productSlug, wantTheme);
-        const resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
+        // Gateway blips (502/503/504 — e.g. a Lambda code update mid-click)
+        // get one retry; anything else fails fast with the real status.
+        let resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
+        if(!resp.ok && (resp.status === 502 || resp.status === 503 || resp.status === 504)){
+          try{ await new Promise(function(res){ setTimeout(res, 1500); }); }catch(e){}
+          resp = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: controller.signal});
+        }
         if(!resp.ok) throw new Error('backend returned HTTP ' + resp.status);
         // isolate the parse so a malformed 200 body surfaces as a clear error (outer catch -> visible status)
         let json;
