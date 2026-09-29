@@ -2045,6 +2045,46 @@ def generate_hero(
         except Exception as e:  # noqa: BLE001 — a composite failure falls through to generation
             print(f"[generate] packshot composite failed, falling through to generation: {e}", file=sys.stderr)
 
+    # ---- RUNG B0 (text-to-image original): the bar. No pool photo, no
+    # packshot, no disk asset resolved — compose the scene from WORDS via
+    # Stable Image Core (granted; the same model recipe art + scenic use)
+    # instead of serving a floor. The original becomes the seed below, so
+    # rung B restyles natively from it and every ratio is generated pixels.
+    # Gated like rung B in legacy timer mode; always attempted in
+    # run-to-completion. Any failure (no creds, filter block, timeout) falls
+    # through to the ladder below with a named reason, never a raise.
+    if seed is None and _STABILITY_RUNG_ON and remaining_ms() >= _B_STABILITY_MS + _C_RESERVATION_MS:
+        try:
+            _b0_subject = _default_scene_prompt(
+                product_name, brief_msg, region, audience, theme,
+                combo_extras or None, dish, market, season,
+            )
+            provenance["scene_prompt"] = _b0_subject
+            provenance["scene_prompt_source"] = _scene_prompt_source(
+                _b0_subject, product_name, brief_msg, region, audience, theme, dish,
+                market, season,
+            )
+            _b0_path = out_path.parent / f"{out_path.stem}-original.png"
+            _b0_path.parent.mkdir(parents=True, exist_ok=True)
+            print(f"[generate] stage original start (budget {remaining_ms():.0f}ms)", file=sys.stderr)
+            _b0_t0 = time.monotonic()
+            _b0_made = _scenic_background(_b0_subject, _b0_path, request_seed=request_seed)
+            provenance["original_latency_ms"] = round((time.monotonic() - _b0_t0) * 1000.0, 1)
+            if _b0_made is not None and _b0_made.exists():
+                seed = _b0_made
+                provenance["seed_selection"] = "generated-original"
+                provenance["seed_source"] = "stable-image-core"
+                provenance["original_source"] = "bedrock:stable-image-core"
+                print(
+                    f"[generate] stage original done in {provenance['original_latency_ms'] / 1000.0:.1f}s",
+                    file=sys.stderr,
+                )
+            else:
+                provenance["original_degraded"] = "original-unavailable"
+        except Exception as e:  # noqa: BLE001 — no original: ladder below handles it
+            print(f"[generate] rung B0 original failed: {e}", file=sys.stderr)
+            provenance["original_degraded"] = f"original-error: {type(e).__name__}"
+
     # ---- RUNG B (stability-restyle) -> RUNG C (pillow-compose) -> RUNG D (brand-floor).
     # Never-503 contract: every attempt below is wrapped so a caught failure logs
     # cause+rung and CONTINUES down the ladder. Rung D cannot fail, so the ladder always

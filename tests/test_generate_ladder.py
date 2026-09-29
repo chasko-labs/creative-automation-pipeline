@@ -436,6 +436,57 @@ def test_run_to_completion_attempts_rung_b_despite_exhausted_clock(tmp_path, mon
     assert prov["rung"] == "B"
     assert source == generate_mod.STABILITY_SOURCE
     assert prov["fallthrough_reason"] != "budget-exhausted"
+
+
+def test_no_seed_generates_original_instead_of_floor(tmp_path, monkeypatch):
+    # The bar: when no pool photo, packshot, or disk asset resolves, the
+    # ladder composes an ORIGINAL via text-to-image (Stable Image Core) and
+    # restyles from it — every ratio is generated pixels, never a floor.
+    monkeypatch.setenv("GENERATE_RUN_TO_COMPLETION", "1")
+    monkeypatch.setattr(generate_mod, "_resolve_theme_photo", lambda slug: None)
+    monkeypatch.setattr(generate_mod, "_resolve_asset_photo", lambda pid: None)
+    monkeypatch.setattr(generate_mod, "_find_source_asset", lambda *a, **k: None)
+    monkeypatch.setattr(asset_store, "fetch_asset_key", lambda key, dest: None)
+    monkeypatch.setattr(asset_store, "resolve_packshot", lambda pid, asset_root=None: None)
+    monkeypatch.setattr(generate_mod, "_similarity_gate_enabled", lambda: False)
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: "trail fuel caption")
+    monkeypatch.setattr(
+        generate_mod, "_nova_pro_scene_prompt",
+        lambda *a, **k: "wild frontier restyle",
+    )
+
+    def _fake_original(scene, out_path, request_seed=0):
+        Image.new("RGB", (1024, 1024), (30, 90, 180)).save(out_path, "PNG")
+        return out_path
+
+    monkeypatch.setattr(generate_mod, "_scenic_background", _fake_original)
+    stability_calls = {"n": 0}
+
+    def _fake_restyle(seed_p, scene_prompt, out_path, **kwargs):
+        stability_calls["n"] += 1
+        Image.open(seed_p).save(out_path, "PNG")
+        return out_path
+
+    monkeypatch.setattr(generate_mod, "_stability_control_hero", _fake_restyle)
+
+    out = tmp_path / "hero.png"
+    result, source, prov = generate_mod.generate_hero(
+        product_id="totally-made-up-sku-xyz",
+        product_name="Made Up",
+        brief_msg="Fuel your frontier morning",
+        region="us",
+        audience="active families",
+        out_path=out,
+        idx=0,
+        layers={},  # no product-image layer: packshot probe stays out of the picture
+    )
+
+    assert result.exists()
+    assert prov["seed_selection"] == "generated-original"
+    assert prov["original_source"] == "bedrock:stable-image-core"
+    assert stability_calls["n"] == 1
+    assert prov["rung"] == "B"
+    assert source == generate_mod.STABILITY_SOURCE
     # elapsed is honest wall time even in completion mode
     assert prov["elapsed_ms"] >= 0
 
