@@ -9,7 +9,7 @@ const marketLangsOffline = {
   "US-CA-CASTROVILLE": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":20},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":1}],
   "US-CA-PESCADERO": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":12},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":6}],
   "US-WA-NEAHBAY": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":8},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":1.5}],
-  "US-MW-PARKCITY-84098": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":9},{"lang_code":"de","lang_name":"German","translate_code":"de","pct_home":0.6}],
+  "US-MW-PARKCITY-84098": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":9},{"lang_code":"pt","lang_name":"Portuguese","translate_code":"pt","pct_home":2.5}],
   "US-NE-NYC": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":14.2},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":4.1}],
   "US-NE-BROOKLYN": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":14.2},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":4.1}],
   "US-NE-MANHATTAN": [{"lang_code":"es","lang_name":"Spanish","translate_code":"es","pct_home":17.8},{"lang_code":"zh","lang_name":"Chinese","translate_code":"zh","pct_home":5.5}],
