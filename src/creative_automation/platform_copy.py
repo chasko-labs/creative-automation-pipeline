@@ -553,6 +553,11 @@ def build_platform_copy_response(
             season_label=label,
             recipe_name=recipe_name,
         )
+        # Set-level marker (issue #317): the per-entry source="fallback" tags
+        # cannot distinguish "one platform degraded" from "the whole live set
+        # failed", and the stderr line is invisible to API callers — flag the
+        # envelope so callers can tell a complete fallback from live copy.
+        return {"platform_copy": copy, "complete_fallback": True}
     return {"platform_copy": copy}
 
 

@@ -129,8 +129,8 @@ _THEME_SCENE_HINT: dict[str, str] = {
     # the composited logo mark (costco/publix/target/walmart via the retailer
     # layer, asset store brands/retailers/logos/) + the copy-sidecar retailer-framing
     # line (_THEME_COPY_HINT, which keeps every retailer incl. copy-only
-    # kroger/heb/whole-foods). Retailer themes fall through to the generic
-    # persona/brief prompt below.
+    # kroger/heb/whole-foods/albertsons). Retailer themes fall through to the
+    # generic persona/brief prompt below.
 }
 
 
@@ -149,6 +149,7 @@ _THEME_COPY_HINT: dict[str, str] = {
     "publix": "neighborhood warmth — southern family table",
     "kroger": "family grocery run — fresh everyday value",
     "heb": "texas family table — bold local flavor value",
+    "albertsons": "neighborhood grocery run — fresh weekly value",
 }
 
 
