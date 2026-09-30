@@ -160,8 +160,37 @@ class Observer:
         """Return the last N events from the ring buffer — powers the /report endpoint + webmcp."""
 ```
 
-- **structured log schema** (stable, documented so frontend/api can parse): `ts` (ISO8601 UTC), `service`, `event`, `level`, plus event-specific fields. asset-library events: `asset.add`, `asset.dedup_hit`, `asset.list`, `asset.select`, `asset.reject`. each carries `asset_id`, `kind`, `size_bytes`, `sha256` where relevant.
+- **structured log schema** (stable, documented so frontend/api can parse): `ts` (ISO8601 UTC), `service`, `event`, `level`, plus event-specific fields. asset-library events: `asset.add`, `asset.dedup_hit`, `asset.list`, `asset.select`, `asset.reject`. each carries `asset_id`, `kind`, `size_bytes`, `sha256` where relevant. the full vocabulary lives in `EVENT_VOCABULARY` (`src/creative_automation/observability.py`) — see the event vocabulary table below.
 - **X-Ray**: subsegments named `asset.add`, `s3.put_object`, `asset.select`. annotations: `kind`, `asset_id`, `source`. this makes the console service map show the S3 dependency and let you filter traces by asset kind.
+- **annotation-vs-metadata rule**: span attrs that are scalars (`bool`/`int`/`float`, strings <= 250 chars) go to X-Ray **annotations** (indexed, filterable in the console). everything else (`dict`, `list`, long strings, `bytes`, `None`) goes to X-Ray **metadata** under the subsegment's namespace (unindexed, untruncated). `Observer.trace` applies this split automatically (`split_annotations`); pass `metadata={...}` to force the metadata path explicitly. never squeeze a blob into an annotation — X-Ray truncates it and it is not filterable anyway.
+- **`@traced` decorator**: wraps a function so each call opens a span named for the event (`@traced("pipeline.build")`), records `duration_ms` + `status` (`ok`/`error`) on the emitted log record, records exceptions on the subsegment and re-raises, and optionally merges returned attrs (`result_attrs=True` merges a Mapping result, a str key merges `result[key]`, a callable merges what it returns). every call emits a log record even when X-Ray is disabled, so offline runs still get a span-shaped record.
+
+### event vocabulary
+
+canonical event names (`EVENT_VOCABULARY` is documentary, not enforced — `log_event` stays permissive). `duration_ms` + `status` ride on every `@traced` span:
+
+| event             | producer              | key fields                                              |
+| ----------------- | --------------------- | ------------------------------------------------------- |
+| `asset.add`       | asset_library         | `asset_id`, `kind`, `size_bytes`, `sha256`              |
+| `asset.dedup_hit` | asset_library         | `asset_id`, `sha256`, `filename`                        |
+| `asset.list`      | asset_library         | `count`, `s3_enabled`                                   |
+| `asset.select`    | asset_library         | `asset_id`, `kind`                                      |
+| `asset.reject`    | asset_library         | `filename`, `reason`                                    |
+| `asset.embed`     | asset_ingest          | `asset_id`, `kind`, `model`                             |
+| `asset.embed_skip`| asset_ingest          | `asset_id`, `reason`                                    |
+| `asset.embed_pending` | asset_ingest      | `asset_id`, `reason`                                    |
+| `pipeline.build`  | pipeline              | `brief_id`, `market`, `status`, `duration_ms`           |
+| `generate.image`  | generate              | `prompt_hash`, `model`, `asset_id`, `duration_ms`       |
+| `embeddings.embed`| embeddings            | `model`, `count`, `duration_ms`                         |
+| `rag.query`       | context_pack / rag    | `query_hash`, `top_k`, `duration_ms`                    |
+| `rag.context_pack`| context_pack          | `brief_id`, `sources`, `duration_ms`                    |
+| `compose.render`  | compose               | `layout`, `aspect`, `duration_ms`                       |
+| `enhance.hero`    | enhance               | `asset_id`, `preset`, `duration_ms`                     |
+| `spin.edit`       | spin                  | `asset_id`, `edit_kind`, `duration_ms`                  |
+| `translate.text`  | localize              | `locale`, `chars`, `duration_ms`                        |
+| `localize.message`| localize_service      | `locale`, `message_key`, `duration_ms`                  |
+| `compliance.check`| compliance            | `check`, `passed`, `duration_ms`                        |
+| `scorecards.score`| scorecards            | `card_id`, `pass_rate`, `duration_ms`                   |
 - **ring buffer**: an in-process deque(maxlen=500) of recent LogRecords so a `/report` endpoint + webmcp island can show "what just happened" without a CloudWatch Logs Insights round-trip. CloudWatch remains the durable store; the buffer is a live tail.
 
 ### reporting surface exposed to frontend/api + webmcp

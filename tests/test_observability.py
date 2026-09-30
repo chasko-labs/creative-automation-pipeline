@@ -2,9 +2,20 @@
 from __future__ import annotations
 
 import json
+import sys
+import types
+
+import pytest
 
 from creative_automation import observability
-from creative_automation.observability import LogRecord, Observer, get_observer
+from creative_automation.observability import (
+    EVENT_VOCABULARY,
+    LogRecord,
+    Observer,
+    get_observer,
+    split_annotations,
+    traced,
+)
 
 
 def test_log_event_returns_record_with_flat_json() -> None:
@@ -82,3 +93,181 @@ def test_get_observer_is_singleton() -> None:
     b = get_observer("svc-b")
     assert a is b
     assert a.service == "svc-a"
+
+
+def test_event_vocabulary_covers_pipeline_spans() -> None:
+    for event in (
+        "pipeline.build",
+        "generate.image",
+        "embeddings.embed",
+        "rag.query",
+        "rag.context_pack",
+        "compose.render",
+        "enhance.hero",
+        "spin.edit",
+        "translate.text",
+        "localize.message",
+        "compliance.check",
+        "scorecards.score",
+    ):
+        assert event in EVENT_VOCABULARY
+
+
+def test_split_annotations_routes_blobs_to_metadata() -> None:
+    annotations, metadata = split_annotations(
+        {
+            "kind": "raster",
+            "count": 3,
+            "ratio": 0.5,
+            "ok": True,
+            "params": {"steps": 30},
+            "tags": ["a", "b"],
+            "long": "x" * 251,
+            "missing": None,
+        }
+    )
+    assert annotations == {"kind": "raster", "count": 3, "ratio": 0.5, "ok": True}
+    assert set(metadata) == {"params", "tags", "long", "missing"}
+
+
+class _FakeSegment:
+    def __init__(self) -> None:
+        self.annotations: dict[str, object] = {}
+        self.metadata: dict[str, dict[str, object]] = {}
+        self.exceptions: list[BaseException] = []
+
+    def put_annotation(self, key: str, value: object) -> None:
+        self.annotations[key] = value
+
+    def put_metadata(self, key: str, value: object, namespace: str) -> None:
+        self.metadata.setdefault(namespace, {})[key] = value
+
+    def add_exception(self, exc: BaseException) -> None:
+        self.exceptions.append(exc)
+
+
+class _FakeRecorder:
+    def __init__(self) -> None:
+        self.segments: list[_FakeSegment] = []
+        self.begun: list[str] = []
+        self.ended = 0
+
+    def begin_subsegment(self, name: str) -> _FakeSegment:
+        self.begun.append(name)
+        seg = _FakeSegment()
+        self.segments.append(seg)
+        return seg
+
+    def end_subsegment(self) -> None:
+        self.ended += 1
+
+
+@pytest.fixture
+def fake_xray(monkeypatch: pytest.MonkeyPatch) -> _FakeRecorder:
+    """Install a fake aws_xray_sdk.core.xray_recorder; teardown restores sys.modules."""
+    recorder = _FakeRecorder()
+    core = types.ModuleType("aws_xray_sdk.core")
+    core.xray_recorder = recorder  # type: ignore[attr-defined]
+    pkg = types.ModuleType("aws_xray_sdk")
+    monkeypatch.setitem(sys.modules, "aws_xray_sdk", pkg)
+    monkeypatch.setitem(sys.modules, "aws_xray_sdk.core", core)
+    return recorder
+
+
+def test_traced_emits_span_with_duration_offline() -> None:
+    obs = Observer("svc", xray_enabled=False)
+
+    @traced("pipeline.build", attrs={"market": "atlanta"}, observer=obs)
+    def build() -> str:
+        return "done"
+
+    assert build() == "done"
+    rec = obs.recent(limit=1)[0]
+    assert rec.event == "pipeline.build"
+    assert rec.fields["status"] == "ok"
+    assert rec.fields["market"] == "atlanta"
+    assert isinstance(rec.fields["duration_ms"], float)
+    assert rec.fields["duration_ms"] > 0
+
+
+def test_traced_scalars_are_annotations_blobs_are_metadata(
+    fake_xray: _FakeRecorder,
+) -> None:
+    obs = Observer("svc", xray_enabled=True)
+
+    @traced(
+        "generate.image",
+        attrs={"model": "nova", "params": {"steps": 30}, "prompt": "y" * 300},
+        result_attrs=True,
+        observer=obs,
+    )
+    def render() -> dict:
+        return {"asset_id": "abc", "blob": {"w": 1}}
+
+    assert render()["asset_id"] == "abc"
+    assert fake_xray.begun == ["generate.image"]
+    assert fake_xray.ended == 1
+    seg = fake_xray.segments[0]
+    # scalars -> annotations
+    assert seg.annotations["model"] == "nova"
+    assert seg.annotations["asset_id"] == "abc"
+    # nested/long values -> metadata under the span namespace, never annotations
+    assert seg.metadata["generate.image"]["params"] == {"steps": 30}
+    assert seg.metadata["generate.image"]["prompt"] == "y" * 300
+    assert seg.metadata["generate.image"]["blob"] == {"w": 1}
+    assert "params" not in seg.annotations
+    # emitted record carries both, plus a non-zero duration
+    rec = obs.recent(limit=1)[0]
+    assert rec.fields["duration_ms"] > 0
+    assert rec.fields["asset_id"] == "abc"
+    assert rec.fields["params"] == {"steps": 30}
+
+
+def test_traced_records_exceptions_and_reraises(fake_xray: _FakeRecorder) -> None:
+    obs = Observer("svc", xray_enabled=True)
+
+    @traced("rag.query", observer=obs)
+    def boom() -> None:
+        raise ValueError("kaput")
+
+    with pytest.raises(ValueError, match="kaput"):
+        boom()
+    seg = fake_xray.segments[0]
+    assert len(seg.exceptions) == 1
+    assert isinstance(seg.exceptions[0], ValueError)
+    rec = obs.recent(limit=1)[0]
+    assert rec.event == "rag.query"
+    assert rec.level == "error"
+    assert rec.fields["status"] == "error"
+    assert rec.fields["error_type"] == "ValueError"
+    assert rec.fields["error"] == "kaput"
+    assert rec.fields["duration_ms"] > 0
+
+
+def test_traced_result_attrs_callable_and_bare_form() -> None:
+    obs = Observer("svc", xray_enabled=False)
+
+    @traced(event="compose.render", result_attrs=lambda r: {"layout": r[0]}, observer=obs)
+    def render() -> tuple[str, dict]:
+        return ("grid", {"ignored": True})
+
+    assert render() == ("grid", {"ignored": True})
+    assert obs.recent(limit=1)[0].fields["layout"] == "grid"
+
+    @traced(observer=obs)
+    def bare() -> int:
+        return 1
+
+    assert bare() == 1
+    rec = obs.recent(limit=1)[0]
+    assert rec.fields["status"] == "ok"
+    assert rec.fields["duration_ms"] > 0
+
+
+def test_trace_explicit_metadata_path(fake_xray: _FakeRecorder) -> None:
+    obs = Observer("svc", xray_enabled=True)
+    with obs.trace("rag.context_pack", brief_id="b1", metadata={"sources": ["s1", "s2"]}):
+        pass
+    seg = fake_xray.segments[0]
+    assert seg.annotations == {"brief_id": "b1"}
+    assert seg.metadata["rag.context_pack"] == {"sources": ["s1", "s2"]}
