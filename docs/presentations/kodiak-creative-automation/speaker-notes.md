@@ -8,11 +8,12 @@ backlog inventory, 34 open, every item numbered.
 
 ## Slide 1 — One brief in, hundreds of local ads out (contract)
 
-Open with the contract: a single campaign brief fans out to every market,
-ratio, and language. Say plainly: the pipeline never invents brand truth,
-it stages it. Definitions: a campaign is one brief plus products plus
-markets; launch-ready means composed, compliance-passed, packed per
-persona. Provenance: weekly loop in `docs/ux-persona-kodiak.md:59-63`,
+Open with the 30-second contract: what it is (one brief fans out to
+every market, ratio, and language), who it is for (Maya, Diego, Priya),
+what good looks like (launch-ready in 10 minutes; the pipeline never
+invents brand truth, it stages it). Definitions: a campaign is one brief
+plus products plus markets; launch-ready means composed,
+compliance-passed, packed per persona. Provenance: weekly loop in `docs/ux-persona-kodiak.md:59-63`,
 brief contract in `briefs/kodiak.yaml:2-12` (brand KODIAK, Keep-It-Wild
 campaign, three 14g-protein products). Talk it through: Maya writes the
 Las Cruces brief Monday morning; by mid-morning Diego has a 9x16 with his
@@ -30,7 +31,9 @@ security), resting showcase at `index.html:431-469` (five ratios, baked
 EN/ES/PT copy), 8 islands and flow string in `webmcp.json:59`. Talk it
 through: load the page, dismiss the gate once per tab, pick products, hit
 generate, read the preview. Note the resting state renders with zero
-network — baked art index, relative JSON, no fetch on load. Serve it with
+network — baked art index, relative JSON, no fetch on load. Fallback per
+demo: if generate dies, the resting render still proves offline-first;
+the reviewer ZIP is the dead-venue equivalent (slide 12). Serve it with
 the static server on `:8099`; dev API lives at `127.0.0.1:8182/docs`.
 Transition: who is each pixel for? Run: show the Park City default market.
 
@@ -61,8 +64,10 @@ localization memory seeds plus 22-row training JSONL; deterministic seeds
 in `data/seeding/matrix-oh-oc.json`. Talk it through: Park City is the
 tastes-like-home demo, Las Cruces green chile is the localization proof.
 Caveat on stage: persona docs say 23 baselines but the file holds 503 —
-reframe as 23 heroes plus hundreds of localized drafts. Transition: data
-is honest, so pixels must be too. Run: open `design/tokens/kodiak.json`.
+reframe as 23 heroes plus hundreds of localized drafts. The scale card
+stays flagged pending, single-sourced, until docs are fixed. Transition:
+data is honest, so pixels must be too. Run: open
+`design/tokens/kodiak.json`.
 
 ## Slide 5 — Brand fidelity: tokens to pixels (bear stays bear)
 
@@ -78,7 +83,18 @@ combined verdict); voice in `src/creative_automation/brand_copy.py:30-60`;
 footer stamp `KODIAK(R) - kodiakcakes.com - Keep It Wild` per
 `persona_pack.py:156`. Talk it through: S3-first token load with local
 fallback (`token_loader.py:9-52`); the model supplies hero pixels ONLY.
-Transition: where does this chain run? Run: open `pipeline.py:64`.
+Efron beat (gh#251, Sep 4-8): ingested `partner-libraries.json` with a
+licensed-only DAM photo policy, two approved shoot keys, and two
+shot-list gaps; the refusal had two faces, a silent generic stack while
+the receipt claimed the theme, and a hard filter trip on raw real-person
+names (`scene_prompts.py:85-95`, `generate_lambda.py:2433`); removal
+landed Sep 8 (`3505de8`, 16 files, +177/-553) after 4-5 days of
+build-then-remove plus hardening passes (`02ada6b`, `0d79c5d`); no
+per-theme dollar ledger exists, so no dollar figure is claimed. What
+survived as law: no named-person themes, the retired-name scrub,
+match-or-abstain with the theme-mismatch flag, bear law, and the
+mascot-lock identity pattern. Transition: where does this chain run?
+Run: open `pipeline.py:64`.
 
 ## Slide 6 — Seven stages, never-fail hero ladder (pipeline)
 
@@ -123,7 +139,10 @@ vs FULL, 26s wall, 280s worker); `gateway.py:53-367` (6 AgentCore C2
 tools, ok/result contract). Talk it through: CloudFront behaviors proxy
 `/generate`, `/localize`, `/jobs`, `/assets/pack`, `/campaigns/*` to the
 ApiGw origin; dev Function URL goes direct unsigned; DAM reads only via
-presigned URLs. Same JSON in CLI, API, and MCP. Transition: the first
+presigned URLs. Same JSON in CLI, API, and MCP. Scar: bespoke art
+surfaces rotted and were cut — art band retired (`ed785f1`), frontier
+collapsed to one screen plus a gated 3d marquee (`3f71087`); shared
+forest cap and static fallback remain. Transition: the first
 hard tradeoff. Run: submit PREVIEW, watch the wall.
 
 ## Slide 9 — Decision: async jobs (sync preview, queue the real)
@@ -135,9 +154,12 @@ tiles; FULL is the complete set plus pack builder; 202-queue-poll is POST
 `src/creative_automation/generate_lambda.py:92-119` (26s structural wall,
 ThreadPoolExecutor plus rung-D floor) and `:2180-2247` (280s worker).
 Talk it through: 9x16/16x9 live outpaint only when budget passes;
-otherwise derived tiles. Sync only for brand floors; everything real goes
-through the queue. Never hold a sync call past the wall. Transition: each
-tile costs money. Run: show a cached re-render at 0 invokes.
+otherwise derived tiles. Scar: prod fell through to the brand floor on a
+cold-model serial chain past the 22s wall, so the wall went
+gateway-correct 26s (`0147071`). Sync only for brand floors; everything
+real goes through the queue. Never hold a sync call past the wall.
+Transition: each tile costs money. Run: show a cached re-render at 0
+invokes.
 
 ## Slide 10 — Decision: cost gate (every tile is a Bedrock invoke)
 
@@ -152,7 +174,11 @@ pay-per-token, Stability control-structure plus outpaint plus Core,
 multimodal embeddings, Titan fallback; idle qwen import deleted 9-30,
 art-director Llama missing since 9-23 with re-import TBD).
 Talk it through: Nova Pro plus Stability plus Micro per live tile;
-voice-flag-off and cache absorb repeats. Nova Canvas proof still open
+voice-flag-off and cache absorb repeats. Dollar anatomy: about $0.07 per tile (Stability restyle), about $1.18 per full 13-tile set; September warm-time $245 dwarfed about $17 of image spend; a public full-campaign gate would bill $1.18 per run times traffic. The $38/day lesson cost a full
+incident day 2026-09-23 and six hardening commits (`4575cfd` cost stop,
+`ac62017` voice gate, `0172e2d` hardening, `351f6c2` prewarm deleted,
+`6c25386` IAM narrow, `bdfa2e3` inference profile); everything expensive
+is off by default with per-request opt-in. Nova Canvas proof still open
 (#51). Transition: what the static host cannot do. Run: open issue #318.
 
 ## Slide 11 — Decision: static limits (dumb host, thinking API)
@@ -168,7 +194,11 @@ marks versus copy-only in `src/creative_automation/retailers.py:28-51,64-115,168
 (costco/publix/target/walmart marks via asset-store PNGs, never
 fabricated; kroger/heb/whole-foods/albertsons plus banners copy-only).
 Talk it through: a missing translation degrades loudly with a tagged
-fallback; a missing logo stays missing. Demo graceful degradation live.
+fallback; a missing logo stays missing. Scar: brooklyn idea-honesty
+night (`5839df7`) — campaign copy named the brief idea while pixels went
+generic, with 1 suite failure unidentified at ship; now `_brief_idea`
+harvests ecology and unmatched ideas paint a B0 original instead of a
+restyle. Demo graceful degradation live, never silent invention.
 Transition: hand them the box. Run: open START-HERE.html.
 
 ## Slide 12 — Reviewer package: offline, fail-closed (trust)
@@ -206,14 +236,17 @@ Transition: what landed this week. Run: `git log --oneline -5`.
 Say: repeat renders stop paying twice. Definitions: restyle cache hit
 means seed plus prompt already rendered; shipped means merged to main, with
 the live hit-rate check still to come so the claim stays honest.
+Baseline beside the win: before, every repeat render paid Bedrock again;
+after, cache-hit repeats pay 0 invokes, live hit-rate pending (#308).
 Provenance: version stamp in
 `web/kodiak-posts-for-todays-frontier/index.html:10`
 (`v0.1.033-401301d-20260930`); restyle counter #308 code-done 9-30, live rate pending; upload live
 PR#48; idle qwen import deleted, art-director Llama missing since 9-23 (TBD);
 RUM app monitor live, client snippet pending (#28). Talk it through: name
-what is live versus pending so the room trusts the board. Canvas proof
-(#51) stays open and stated. Transition: what remains. Run: open the
-backlog inventory.
+what is live versus pending so the room trusts the board. Production-today
+close: cache counter code-done in main, RUM monitor live; Canvas proof
+(#51) stays open and stated, not promised. Transition: what remains.
+Run: open the backlog inventory.
 
 ## Slide 15 — What is next (34 open, 4 lanes)
 
@@ -236,6 +269,8 @@ plus `START-HERE.html`; dev `:8099` and `:8182/docs`; closer line from
 `src/creative_automation/persona_pack.py:117-159` ("Keep It Wild.
 Nourishment for Today's Frontier."). Talk it through: run brief to preview
 tonight; read `pipeline.py:64-310`, then `compose.py:1-62`, then the
-inventory. Thank them and take questions. Run: questions.
+inventory. The reviewer ZIP START-HERE.html is the one-pager: live URL,
+one runnable command, reading path, and the dead-venue fallback. Thank
+them and take questions. Run: questions.
 
 
