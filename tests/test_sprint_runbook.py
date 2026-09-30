@@ -45,7 +45,7 @@ def test_runbook_covers_every_shipped_item():
 
 def test_runbook_records_copy_only_toolkit_pointers():
     body = _text()
-    assert set(retailers.COPY_ONLY_RETAILERS) == {"kroger", "heb", "whole-foods"}
+    assert set(retailers.COPY_ONLY_RETAILERS) == {"kroger", "heb", "whole-foods", "albertsons"}
     for slug in retailers.COPY_ONLY_RETAILERS:
         asset_key = retailers.asset_key_for_retailer(slug)
         assert slug in body, f"runbook never names copy-only retailer: {slug}"

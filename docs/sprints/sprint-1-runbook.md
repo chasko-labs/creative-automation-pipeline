@@ -101,9 +101,9 @@ tests named per item, not this file.
   (defect 1); a missing mark on an overlay retailer = check asset key, then
   local fallback, then `RETAILER_LOGO_CACHE_DIR` (`/tmp/kodiak-assets/retailer-logos`).
 
-## 8b. copy-only retailers — kroger / heb / whole-foods (TOOLKIT POINTERS)
+## 8b. copy-only retailers — kroger / heb / whole-foods / albertsons (TOOLKIT POINTERS)
 
-These three stay COPY-ONLY: direction ships as the copy-sidecar
+These four stay COPY-ONLY: direction ships as the copy-sidecar
 retailer-framing line only, never as pixels. `resolve_retailer_logo`
 returns `None` for them even when a file is present (pinned by
 `test_resolve_logo_copy_only_never_resolves_even_with_file`).
@@ -113,6 +113,9 @@ returns `None` for them even when a file is present (pinned by
   - kroger → `brands/retailers/logos/kroger.png` (mono: `kroger-mono.png`)
   - heb → `brands/retailers/logos/heb.png` (mono: `heb-mono.png`)
   - whole-foods → `brands/retailers/logos/whole-foods.png` (mono: `whole-foods-mono.png`)
+  - albertsons → `brands/retailers/logos/albertsons.png` (mono: `albertsons-mono.png`)
+Banner-family aliases inherit copy-only (gh#316): king-soopers / smiths /
+frys ride kroger; jewel-osco / safeway / vons ride albertsons.
   - offline-dev fallback mirrors: `input_assets/retailer-logos/<slug>.png`
 - Enablement (only with per-retailer co-marketing permission on file):
   drop the transparent PNG (lossless, ≥512px longest edge) at the asset key
