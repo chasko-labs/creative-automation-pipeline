@@ -369,9 +369,10 @@ section.xl{padding:var(--section-space-xl) 0}
   color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
 .render-tile .render-cap .dims{display:inline;margin:0;white-space:nowrap;color:var(--colors-neutral-700);font:600 11px/1.4 "museo-sans",sans-serif;position:relative}
 .render-tile .render-cap .dims::before{content:"· ";color:var(--colors-neutral-500)}
-/* per-tile platform legend — retired from resting caps (platforms live once in
-   the asset-pack exports matrix); the rule stays for generated tiles that keep it */
-.render-tile .render-cap .rt-platforms{display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif;letter-spacing:.02em;position:relative}
+/* per-tile platform legend (#246) — platforms live once per tile cap (the side
+   exports matrix was retired), so the line never wraps mid-word: single
+   unbreakable ellipsis line at 1440px and 375px, resting and generated tiles */
+.render-tile .render-cap .rt-platforms{display:block;margin-top:4px;white-space:nowrap;word-break:normal;overflow-wrap:normal;overflow:hidden;text-overflow:ellipsis;min-width:0;color:var(--colors-neutral-600);font:500 10px/1.4 "museo-sans",sans-serif;letter-spacing:.02em;position:relative}
 /* market-language line woven under its tile — small, quiet, same tokens */
 .render-tile .render-cap .loc-line{display:block;margin-top:6px;font-size:11px;line-height:1.45;color:var(--colors-neutral-700)}
 .render-tile .render-cap .loc-langtag{font-weight:700;margin-right:6px;text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:var(--chocolate)}
