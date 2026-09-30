@@ -88,6 +88,7 @@ def test_same_brief_differs_by_retailer():
         ("heb", "texas family table"),
         ("whole-foods", "whole-ingredient shelf"),
         ("walmart", "everyday low price"),
+        ("albertsons", "neighborhood grocery run"),
     ],
 )
 def test_copy_only_and_walmart_framing_in_sidecar(slug, framing):

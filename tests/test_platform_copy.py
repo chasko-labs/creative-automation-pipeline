@@ -175,6 +175,44 @@ def test_season_derives_from_request_when_not_passed():
     assert "Bake" not in ig["body"]
 
 
+def test_complete_fallback_set_carries_set_level_marker(monkeypatch):
+    # issue #317: when the whole live set fails, the envelope flags it — the
+    # stderr line alone is invisible to API callers.
+    import creative_automation.platform_copy as _pc
+
+    def _boom(*args, **kwargs):
+        raise RuntimeError("live set exploded")
+
+    monkeypatch.setattr(_pc, "generate_platform_copy", _boom)
+    resp = _pc.build_platform_copy_response(
+        {
+            "base_message": "City frontier",
+            "product_name": "Power Cakes",
+            "market": "US-NE-BROOKLYN",
+            "platforms": ["instagram", "x"],
+        }
+    )
+    assert resp["complete_fallback"] is True
+    entries = resp["platform_copy"]
+    assert set(entries) == {"instagram", "x"}
+    assert all(e["source"] == "fallback" for e in entries.values())
+
+
+def test_live_path_carries_no_complete_fallback_marker():
+    from creative_automation.platform_copy import build_platform_copy_response
+
+    resp = build_platform_copy_response(
+        {
+            "base_message": "City frontier",
+            "product_name": "Power Cakes",
+            "market": "US-NE-BROOKLYN",
+            "platforms": ["instagram"],
+        }
+    )
+    assert resp.get("complete_fallback") is None
+    assert resp["platform_copy"]["instagram"]["source"] == "fallback"
+
+
 def test_garbage_season_rejected_blank_season_ignored():
     from creative_automation.platform_copy import (
         PlatformCopyValidationError,

@@ -66,14 +66,17 @@ OVERLAY_RETAILERS: tuple[str, ...] = ("costco", "publix", "target", "walmart")
 
 # Retailers with NO composable mark: direction ships as the copy-sidecar
 # retailer-framing line only (scene_prompts._THEME_COPY_HINT), never as pixels.
-COPY_ONLY_RETAILERS: tuple[str, ...] = ("kroger", "heb", "whole-foods")
+# "albertsons" is the canonical key for the Albertsons Companies banners
+# (issue #316: albertsons, jewel-osco, safeway, vons) — same copy-only
+# contract as kroger, never a mark.
+COPY_ONLY_RETAILERS: tuple[str, ...] = ("kroger", "heb", "whole-foods", "albertsons")
 
 # Overlay-path aliases. Deliberately SEPARATE from _RETAILER_ALIASES: the
 # chooser contract (surface_retailers, _CHAIN_ORDER, issue #198) only knows
 # costco/publix/target/subscription, and normalize_retailer must keep
-# returning None for walmart/kroger/heb/whole-foods so that contract —
-# and its tests — do not shift. Overlay/copy code uses
-# normalize_overlay_retailer instead.
+# returning None for walmart/kroger/heb/whole-foods/albertsons (and their
+# banners) so that contract — and its tests — do not shift. Overlay/copy
+# code uses normalize_overlay_retailer instead.
 _OVERLAY_ALIASES: dict[str, str] = {
     "walmart": "walmart",
     "wal-mart": "walmart",
@@ -81,6 +84,28 @@ _OVERLAY_ALIASES: dict[str, str] = {
     "walmart supercenter": "walmart",
     "kroger": "kroger",
     "the kroger co": "kroger",
+    # Kroger banners (issue #316) — copy-only via the kroger canonical key.
+    "king-soopers": "kroger",
+    "king soopers": "kroger",
+    "king sooper": "kroger",
+    "smith's": "kroger",
+    "smiths": "kroger",
+    "smith's food & drug": "kroger",
+    "smiths food & drug": "kroger",
+    "fry's": "kroger",
+    "frys": "kroger",
+    "fry's food stores": "kroger",
+    "frys food stores": "kroger",
+    # Albertsons Companies banners (issue #316) — copy-only via the
+    # albertsons canonical key. No mark exists for any of these; none is
+    # fabricated — resolve_retailer_logo returns None for copy-only keys.
+    "albertsons": "albertsons",
+    "albertson": "albertsons",
+    "jewel-osco": "albertsons",
+    "jewel osco": "albertsons",
+    "jewel": "albertsons",
+    "safeway": "albertsons",
+    "vons": "albertsons",
     "heb": "heb",
     "h-e-b": "heb",
     "h e b": "heb",
@@ -94,8 +119,10 @@ def normalize_overlay_retailer(name: str) -> str | None:
     """Map a free-form retailer name to the overlay/copy canonical key.
 
     Covers the chooser keys (costco/publix/target) plus walmart (mark) and
-    kroger/heb/whole-foods (copy-only). Returns None for unknown names AND
-    for the subscription retailer-equivalent (fulfillment, never a mark).
+    kroger/heb/whole-foods/albertsons (copy-only, including the Kroger and
+    Albertsons Companies banners in _OVERLAY_ALIASES). Returns None for
+    unknown names AND for the subscription retailer-equivalent (fulfillment,
+    never a mark).
     """
     key = normalize_retailer(name)
     if key is not None:
@@ -149,8 +176,9 @@ def resolve_retailer_logo(
     Order: asset store fetch (brands/retailers/logos/<slug>[-mono].png via
     asset_store.fetch_asset_key into the tmp cache) -> repo-local
     input_assets/retailer-logos/<slug>[-mono].png fallback. Copy-only
-    retailers (kroger/heb/whole-foods), subscription, and unknown names all
-    resolve to None — their direction ships as the copy-sidecar line only.
+    retailers (kroger/heb/whole-foods/albertsons), subscription, and unknown
+    names all resolve to None — their direction ships as the copy-sidecar
+    line only.
 
     Offline-safe and never fatal: S3-disabled, missing objects, unreadable files,
     and garbage bytes (Pillow-verified on BOTH the tmp-cache hit and the local

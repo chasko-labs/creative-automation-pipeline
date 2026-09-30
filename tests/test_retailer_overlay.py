@@ -16,7 +16,7 @@ from creative_automation import asset_store, generate, retailers
 
 def test_overlay_sets():
     assert set(retailers.OVERLAY_RETAILERS) == {"costco", "publix", "target", "walmart"}
-    assert set(retailers.COPY_ONLY_RETAILERS) == {"kroger", "heb", "whole-foods"}
+    assert set(retailers.COPY_ONLY_RETAILERS) == {"kroger", "heb", "whole-foods", "albertsons"}
 
 
 def test_normalize_overlay_retailer():
@@ -30,10 +30,67 @@ def test_normalize_overlay_retailer():
     assert retailers.normalize_overlay_retailer("Whole Foods Market") == "whole-foods"
     # subscription is fulfillment, never a mark; unknown names stay unknown.
     assert retailers.normalize_overlay_retailer("subscription") is None
-    assert retailers.normalize_overlay_retailer("Safeway") is None
+    assert retailers.normalize_overlay_retailer("Safeway") == "albertsons"
+    assert retailers.normalize_overlay_retailer("no-such-mart") is None
     # chooser contract untouched: walmart/kroger still unknown to normalize_retailer.
     assert retailers.normalize_retailer("walmart") is None
     assert retailers.normalize_retailer("kroger") is None
+
+
+# ------------------------------------------------- issue #316: market-data banners
+# Market scoreboards name Kroger-banner (King Soopers, Smith's, Fry's) and
+# Albertsons-banner (Albertsons, Jewel-Osco, Safeway, Vons) chains. None has
+# a composable mark, so none is an overlay retailer — they classify copy-only
+# (Kroger banners via the existing kroger key, Albertsons banners via the new
+# albertsons key) and follow the Kroger campaign path: known to the
+# overlay/copy seam, warn-and-skip in the SVG-lockup plan. The chooser
+# contract (normalize_retailer, surface_retailers) does not shift.
+_KROGER_BANNERS = [
+    "King Soopers",
+    "king-soopers",
+    "Smith's",
+    "Smith's Food & Drug",
+    "Fry's Food Stores",
+    "frys",
+]
+
+_ALBERTSONS_BANNERS = [
+    "Albertsons",
+    "Jewel-Osco",
+    "jewel osco",
+    "Jewel",
+    "Safeway",
+    "Vons",
+]
+
+
+def test_issue_316_kroger_banners_are_copy_only_kroger():
+    for name in _KROGER_BANNERS:
+        assert retailers.normalize_overlay_retailer(name) == "kroger", name
+        assert retailers.resolve_retailer_logo(name) is None, name
+        assert retailers.normalize_retailer(name) is None, name
+
+
+def test_issue_316_albertsons_banners_are_copy_only_albertsons():
+    for name in _ALBERTSONS_BANNERS:
+        assert retailers.normalize_overlay_retailer(name) == "albertsons", name
+        assert retailers.resolve_retailer_logo(name) is None, name
+        assert retailers.normalize_retailer(name) is None, name
+
+
+def test_issue_316_banners_warn_and_skip_lockup_plan_like_kroger():
+    from creative_automation import campaign as _campaign
+
+    pack = {"retailers": {"frontier_sister": None}, "market": "US-MW-DEN"}
+    lockups, warnings = _campaign._plan_lockups(
+        ["King Soopers", "Safeway", "Jewel-Osco", "Albertsons", "Smith's", "Frys", "Vons"],
+        "US-MW-DEN",
+        pack,
+    )
+    assert lockups == []
+    assert len(warnings) == 7
+    assert any("King Soopers" in w for w in warnings)
+    assert any("Safeway" in w for w in warnings)
 
 
 def test_asset_store_keys():
