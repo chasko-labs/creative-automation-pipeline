@@ -21,7 +21,7 @@ fetch('data/localization/market-languages.json').then(r=>r.json()).then(d=>conso
 
 ## Pipeline (local, operator-driven)
 brief (JSON/YAML) -> DAM reuse or Nova Canvas hero -> enhance -> compose 1:1/9:16/16:9 -> compliance -> report.json + preview.html
-translate: Nova Micro -> Amazon Translate -> offline dict -> tagged — auto per market, featured auto-produce (Atlanta ES+KO via frontier sister Senoia, San Francisco ES+ZH via frontier sister Bolinas — top-2 per data/localization/market-languages.json)
+translate: Nova Micro -> Amazon Translate -> offline dict -> tagged — auto per market, top-2 non-English per data/localization/market-languages.json (each market pairs with its featured frontier; default preview is Park City, Utah)
 storage: DAM bucket s3://chasko-creative-dam-946179428633-us-east-1/brands/kodiak/ is private (CLI/SDK only via `aws s3`, not browser-fetchable); public playground https://d37333alc7ojpl.cloudfront.net/
 
 ## Links

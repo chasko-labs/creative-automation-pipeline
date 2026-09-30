@@ -10,7 +10,7 @@
     {
       "id": "places",
       "selector": "[data-mcp='places']",
-      "description": "73 places (places[] table) — featured auto-produce: Atlanta ES+KO (frontier sister Senoia), San Francisco ES+ZH (frontier sister Bolinas) — top-2 per market-languages.json — haversine Use my location",
+      "description": "73 places (places[] table) — per-market top-2 from market-languages.json, each market with its featured frontier (default preview: Park City, Utah) — haversine Use my location",
       "source": "data/localization/store-finder-markets.json"
     },
     {
