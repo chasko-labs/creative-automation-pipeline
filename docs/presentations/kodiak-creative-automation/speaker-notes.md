@@ -1,4 +1,4 @@
-# Kodiak creative-automation walkthrough — speaker notes (~24 min, 15 slides)
+# Kodiak creative-automation walkthrough — speaker notes (~24 min, 14 slides)
 
 Cheat sheet: one brief fans out to hundreds of local ads; brand floor is
 deterministic; offline reviewer box is fail-closed. Punchlines: (1) model
@@ -9,20 +9,21 @@ backlog inventory, 39 open, every item numbered.
 ## Slide 1 — One brief in, hundreds of local ads out (contract)
 
 Open with the 30-second contract: what it is (one brief fans out to
-every market, ratio, and language), who it is for (the brand manager, the field ambassador, the performance lead),
-what good looks like (launch-ready in 10 minutes; the pipeline never
-invents brand truth, it stages it). Definitions: a campaign is one brief
-plus products plus markets; launch-ready means composed,
-compliance-passed, packed per persona. Provenance: weekly loop in `docs/ux-persona-kodiak.md:59-63`,
-brief contract in `briefs/kodiak.yaml:2-12` (brand KODIAK, Keep-It-Wild
+every market, ratio, and language), what good looks like (launch-ready in
+10 minutes; the pipeline never invents brand truth, it stages it).
+Definitions: a campaign is one brief plus products plus markets;
+launch-ready means composed, compliance-passed, packed per persona.
+Provenance: weekly loop in `docs/ux-persona-kodiak.md:59-63`, brief
+contract in `briefs/kodiak.yaml:2-12` (brand KODIAK, Keep-It-Wild
 campaign, three 14g-protein products). Talk it through: the brand manager writes the
 Park City brief Monday morning; by mid-morning the field ambassador has a
 vertical story with their town in it and the performance lead has one
 report row per region. Friday the win becomes
-a training-data row the next run suggests first. Transition: but what does
+a training-data row the next run suggests first. Roles preview cut from
+the slide; S03 introduces the three roles. Transition: but what does
 the reviewer actually touch? Run: open the live page resting state.
 
-## Slide 2 — What the app does: brief to preview (live flow)
+## Slide 2 — Brief to preview, live on one page (live flow)
 
 Say: four steps, no build, no login. Definitions: brief is the YAML intent;
 generate is the Amazon Bedrock hero ladder (the hero photo is the
@@ -38,7 +39,7 @@ the reviewer ZIP is the dead-venue equivalent covered later in the talk. Serve i
 the static server on `:8099`; dev API lives at `127.0.0.1:8182/docs`.
 Transition: who is each pixel for? Run: show the Park City default market.
 
-## Slide 3 — Built for three roles (persona tour)
+## Slide 3 — Three roles, one shared build (persona tour)
 
 Say: one zip, three doors. Definitions: a pack is the persona's slice
 (ratios plus copy plus rollup); the win bar is idea sheet to launch-ready
@@ -72,7 +73,7 @@ originals plus hundreds of localized drafts. Transition:
 data is honest, so pixels must be too. Run: open
 `design/tokens/kodiak.json`.
 
-## Slide 5 — Brand fidelity: tokens to pixels (bear stays bear)
+## Slide 5 — The bear always looks the same (brand fidelity)
 
 Say: three links, no shortcuts. Definitions: tokens are the JSON source of
 truth; compose is deterministic Pillow assembly; compliance is the
@@ -101,7 +102,7 @@ theme-mismatch flag, bear law, and the
 mascot-lock identity pattern. Transition: where does this chain run?
 Run: open `pipeline.py:64`.
 
-## Slide 6 — Seven stages, always returns a finished tile (pipeline)
+## Slide 6 — Seven stages, one finished tile (pipeline)
 
 Say: brief to report in seven hops. Definitions: hero is the model-drawn
 backdrop; ladder A-D is restyle, Amazon Nova art-direction, Pillow image
@@ -119,7 +120,7 @@ language times each ratio through compose and checks; auto-translations
 attach best-effort. Nova Canvas is legacy-flagged; the proof run stays open (#51).
 Transition: what metal does it run on? Run: open `infra-cdk/config.ts`.
 
-## Slide 7 — Infrastructure map (DAM, Lambda, hosting, data)
+## Slide 7 — CDK map: art bucket, compute, data (infrastructure)
 
 Say: read left to right. Definitions: DAM is the Digital Asset
 Management private art bucket; adopt-in-place means prod hosting was
@@ -136,13 +137,13 @@ imported-model incident — the lower of two unreconciled repo figures
 (range $38-82/day) — (`generate-stack.ts:343-348`). Transition: how do
 the surfaces meet? Run: `curl` the dev `/docs`.
 
-## Slide 8 — Integration points (one impl, every surface)
+## Slide 8 — One shared function serves every surface (integration)
 
 Say: callable or not shippable. Definitions: Living Swagger is the FastAPI
 dev server with browseable docs; the ONE impl rule means Lambda and API
 share `asset_browser.list_library` (the one shared function both surfaces
-call); AgentCore C2 is command-and-control, 6 thin tools over finished
-units; Scar is the cut-after-rot incident note. Provenance:
+call, named on the slide because it earns the title); AgentCore C2 is
+command-and-control, 6 thin tools over finished units. Provenance:
 `src/creative_automation/api.py:80-647` (`/pipeline/run`, `/search`,
 `/localize`, `/assets/pack`, `/assets/upload` jpeg/png <=15MB,
 `/campaigns/run-fanned`); `generate_lambda.py:92-119,2180-2247` (PREVIEW
@@ -150,10 +151,11 @@ vs FULL, 26s wall, 280s worker); `gateway.py:53-367` (6 AgentCore C2
 tools, ok/result contract). Talk it through: CloudFront behaviors proxy
 `/generate`, `/localize`, `/jobs`, `/assets/pack`, `/campaigns/*` to the
 ApiGw origin; dev Function URL goes direct unsigned; DAM reads only via
-presigned URLs. Same JSON in CLI, API, and MCP. Scar: bespoke art
-surfaces rotted and were cut — art band retired (`ed785f1`), frontier
-collapsed to one screen plus a gated 3d marquee with static fallback
-(`3f71087`); shared forest cap and static fallback remain. Transition: the first
+presigned URLs. Same JSON in CLI, API, and MCP. Removed-feature lesson
+(Sep 29, cut-after-rot note): bespoke art surfaces rotted and were cut —
+art band retired (`ed785f1`), frontier collapsed to one screen plus a
+gated 3d marquee with static fallback (`3f71087`); shared forest cap and
+static fallback remain. Transition: the first
 hard tradeoff. Run: submit PREVIEW, watch the wall.
 
 ## Slide 9 — Decision: async jobs (sync preview, queue the real)
@@ -165,10 +167,11 @@ tiles; FULL is the complete set plus pack builder; 202-queue-poll is POST
 `src/creative_automation/generate_lambda.py:92-119` (26s structural wall,
 ThreadPoolExecutor plus rung-D floor) and `:2180-2247` (280s worker).
 Talk it through: 9x16/16x9 live outpaint only when budget passes;
-otherwise derived tiles. Scar: prod fell through to the brand floor on a
-cold-model serial chain past the 22s wall, so the wall went
-gateway-correct 26s (`0147071`). Sync only for brand floors; everything
-real goes through the queue. Never hold a sync call past the wall.
+otherwise derived tiles. Past incident: prod fell through to the
+guaranteed fallback tile on a cold-model serial chain past the 22s wall,
+so the wall went gateway-correct 26s (`0147071`). Sync only serves
+guaranteed fallback tiles; everything real goes through the queue. Never
+hold a sync call past the wall.
 Transition: each tile costs money. Run: show a cached re-render at 0
 invokes.
 
@@ -207,13 +210,13 @@ marks versus copy-only in `src/creative_automation/retailers.py:28-51,64-115,168
 (costco/publix/target/walmart marks via asset-store PNGs, never
 fabricated; kroger/heb/whole-foods/albertsons plus banners copy-only).
 Talk it through: a missing translation degrades loudly with a tagged
-fallback; a missing logo stays missing. Scar: idea-honesty night
-(`5839df7`) — campaign copy named the brief idea while pixels went
-generic, with 1 suite failure unidentified at ship; now `_brief_idea`
-harvests ecology and unmatched ideas paint a B0 original (the
-text-to-image original rung for no-seed briefs, never a fallback
-restyle). Demo graceful degradation live, never silent invention.
-Transition: hand them the box. Run: open START-HERE.html.
+fallback; a missing logo stays missing. Lesson from Sep 29
+(idea-honesty night, `5839df7`): campaign copy named the brief idea
+while pixels went generic, with 1 suite failure unidentified at ship;
+now `_brief_idea` harvests ecology and unmatched ideas paint a B0
+original (the text-to-image original rung for no-seed briefs, never a
+fallback restyle). Demo graceful degradation live, never silent
+invention. Transition: hand them the box. Run: open START-HERE.html.
 
 ## Slide 12 — Reviewer package: offline, fail-closed (trust)
 
@@ -229,23 +232,10 @@ Provenance: `scripts/build-reviewer-package.sh:1-244` (archive at
 `preview/kodiak-review/ledger.json:1-9` (67 attempts, 22 approved, 45
 rejected-retry, 44 slugs). Talk it through: launcher, rendered docs, full
 source, verified MP4. Full packager run intentionally never executed here
-(no DRY_RUN mode). Transition: where to read in the source. Run: open the
+(no DRY_RUN mode). Transition: what landed this week. Run: open the
 review ledger.
 
-## Slide 13 — Code tour (reading order, not the tree)
-
-Say: five files, in this order. Definitions: doc-as-code means the
-contract lives in the module header. Provenance:
-`src/creative_automation/pipeline.py:64-310` (stages),
-`generate.py:1-118` (ladder plus cache), `compose.py:1-62,338-366`
-(contract plus overlay), `retailers.py:28-51` (chooser),
-`token_loader.py:9-52` plus `compliance.py:39-74` (tokens plus gates);
-`briefs/kodiak.yaml:2-12` as the entry ticket. Talk it through: pipeline
-first, then generate, compose, localize, retailers. The compose header
-states the model-supplies-pixels-only law where nobody can miss it.
-Transition: what landed this week. Run: `git log --oneline -5`.
-
-## Slide 14 — Just shipped: v0.1.033 (cache proven in main)
+## Slide 13 — Just shipped: v0.1.033 (cache proven in main)
 
 Say: repeat renders stop paying twice. Definitions: restyle cache hit
 means seed plus prompt already rendered; shipped means merged to main, with
@@ -264,16 +254,34 @@ what is live versus pending so the room trusts the board. Production-today
 close: cache counter code-done in main, RUM monitor live; Canvas proof
 (#51) stays open and stated, not promised. Transition: the invitation. Run: questions.
 
-## Slide 15 — Close: try it, read it, question it
+## Slide 14 — Close: run brief-to-preview tonight (one ask)
 
-Say: one runnable command, one reading path, one question back. Definitions:
-the reading path is pipeline, compose, backlog. Provenance: live site
-plus `START-HERE.html`; dev `:8099` and `:8182/docs`; closer line from
+Say: one ask, promise kept. The S01 promise (one brief in the morning
+becomes local ads everywhere by mid-morning) is now the closing line, so
+the talk ends where it opened. Provenance: live site plus
+`START-HERE.html`; closer line from
 `src/creative_automation/persona_pack.py:117-159` ("Keep It Wild.
-Nourishment for Today's Frontier."). Talk it through: run brief to preview
-tonight; read `pipeline.py:64-310`, then `compose.py:1-62`, then the
-inventory. The reviewer ZIP START-HERE.html is the one-pager: live URL,
-one runnable command, reading path, and the dead-venue fallback. Thank
+Nourishment for Today's Frontier."). Talk it through: run
+brief-to-preview tonight on the ZIP in your hands. The reviewer ZIP
+START-HERE.html is the one-pager: live URL, one runnable command,
+reading path, and the dead-venue fallback. Ports, file paths, and the
+reading path live on the handout only, not in the spoken close. Thank
 them and take questions. Run: questions.
+
+## Handout (not spoken — was slide 13, cut round two)
+
+Cut because the file:line reading list asked nothing of the room, told no
+story, and duplicated the close's reading path; both adversarial readers
+agreed it was the weakest slide. Five files, in this order:
+`src/creative_automation/pipeline.py:64-310` (stages),
+`generate.py:1-118` (ladder plus cache), `compose.py:1-62,338-366`
+(contract plus overlay), `retailers.py:28-51` (chooser),
+`token_loader.py:9-52` plus `compliance.py:39-74` (tokens plus gates);
+`briefs/kodiak.yaml:2-12` as the entry ticket. Doc-as-code means the
+contract lives in the module header. Same page carries the S07 spec block
+(container Lambda 300s/3008MB, DAM lifecycle to DEEP_ARCHIVE, S3 Vectors
+1024-dimension index), the S14 issue ledger (cache counter #308,
+upload PR#48, Qwen #309, Llama re-import To Be Decided, Canvas proof #51,
+RUM snippet pending), and per-slide source lines.
 
 
