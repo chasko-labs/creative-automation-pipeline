@@ -599,9 +599,12 @@ def test_concurrent_director_slow_voice_bounded_wait(monkeypatch, tmp_path):
         return "Too Late To Matter"
 
     monkeypatch.setattr(generate_mod, "_director_headline_text", _slow)
-    monkeypatch.setattr(
-        generate_mod, "_nova_pro_caption", lambda *a, **k: "fuel wild mornings."
-    )
+    # Empty caption: the rung-B overlapped caption (submitted before the voice
+    # wait, outside the clock) collects whatever caption exists — a good mock
+    # caption would become the headline and the voice-stall bottom under test
+    # would never execute. Empty pins the stalled-voice -> brief-verbatim
+    # degrade deterministically in any env.
+    monkeypatch.setattr(generate_mod, "_nova_pro_caption", lambda *a, **k: "")
     out = tmp_path / "hero.png"
     start = _time.monotonic()
     result, _source, prov = generate_mod.generate_hero(
