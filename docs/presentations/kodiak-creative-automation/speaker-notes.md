@@ -1,4 +1,4 @@
-# Kodiak creative-automation walkthrough — speaker notes (~25 min, 16 slides)
+# Kodiak creative-automation walkthrough — speaker notes (~24 min, 15 slides)
 
 Cheat sheet: one brief fans out to hundreds of local ads; brand floor is
 deterministic; offline reviewer box is fail-closed. Punchlines: (1) model
@@ -245,23 +245,9 @@ PR#48; idle qwen import deleted, art-director Llama missing since 9-23 (TBD);
 RUM app monitor live, client snippet pending (#28). Talk it through: name
 what is live versus pending so the room trusts the board. Production-today
 close: cache counter code-done in main, RUM monitor live; Canvas proof
-(#51) stays open and stated, not promised. Transition: what remains.
-Run: open the backlog inventory.
+(#51) stays open and stated, not promised. Transition: the invitation. Run: questions.
 
-## Slide 15 — What is next (34 open, 4 lanes)
-
-Say: every next item names its number. Definitions: declutter umbrella
-(#2) is the cut list before new surface; the trace ladder (#41, #42,
-#44-46) turns the flat skeleton into nested spans. Provenance:
-`session-work/2026-09-30-backlog/inventory.md` (34 open after 5 shipped
-9-30) and `decomposition.md` (4 lanes; shipped: #32, #246, #316, #317,
-#41; in motion: #310, #318, #319, #7, #28); recipe cards #303/#306/#307;
-retailer rights blocked #314/#315; C1 runtime deferred #49.
-Talk it through: frontend, observability, pipeline/cost/RAG,
-content/data/docs. Blocked means blocked, with the rights reason stated.
-Transition: the invitation. Run: none — talk.
-
-## Slide 16 — Close: try it, read it, question it
+## Slide 15 — Close: try it, read it, question it
 
 Say: one runnable command, one reading path, one question back. Definitions:
 the reading path is pipeline, compose, backlog. Provenance: live site
