@@ -216,7 +216,7 @@
    * @param {unknown} artKey
    */
   function artGenKey(recipeId, artKey) { return String(recipeId) + '|' + String(artKey); }
-  /** @type {Object<string, boolean>} */
+  /** @type {Object<string, Promise>} in-flight art fetch per cell; deleted on settle. */
   var artGenFired = {};
   // true while a campaign preview run is in flight (generate.js sets it).
   function previewBusy() { try { return !!window.__ffPreviewBusy; } catch (e) { return false; } }
@@ -240,17 +240,15 @@
       return;
     }
     var key = artGenKey(recipeId, artKey);
-    if (artGenFired[key]) return;
-    artGenFired[key] = true;
+    var artGenPromise = null;
+    try { artGenPromise = artGenFired[key] || null; } catch (e) { artGenPromise = null; }
     var body = recipeArtBody(recipeId, artKey);
     if (!body) return;
-    fetch('/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    }).then(function (resp) { return resp.json(); }).then(function (json) {
-      try { if (wrap && wrap.isConnected === false) { delete artGenFired[key]; return; } } catch (e) {}
-      if (!json || json.ok !== true || !json.url) throw new Error('no-url');
+    function paintArtOk(json) {
+      var gone = false;
+      try { gone = (wrap && wrap.isConnected === false); } catch (e) { gone = true; }
+      if (gone) return;
+      if (!json || json.ok !== true || !json.url) { paintArtFail(); return; }
       var img = document.createElement('img');
       img.setAttribute('class', 'rc-artzone__art');
       img.setAttribute('src', String(json.url));
@@ -263,18 +261,32 @@
       var skel = wrap.querySelector('.rc-artzone__skeleton');
       if (skel) { wrap.replaceChild(img, skel); }
       var st = wrap.querySelector('.rc-art-status');
-      // fresh generations say so; seeded art (already on the card) stays quiet.
       if (st && st.parentNode) {
         if (json && json.seeded === true) { st.parentNode.removeChild(st); }
         else { st.textContent = 'Generated on preview'; }
       }
-    }).catch(function () {
-      try { if (wrap && wrap.isConnected === false) { delete artGenFired[artGenKey(recipeId, artKey)]; return; } } catch (e) {}
+    }
+    function paintArtFail() {
+      var gone = false;
+      try { gone = (wrap && wrap.isConnected === false); } catch (e) { gone = true; }
+      if (gone) return;
       var skel = wrap.querySelector('.rc-artzone__skeleton');
       if (skel) { wrap.replaceChild(makePlaceholderArt(), skel); }
       var st = wrap.querySelector('.rc-art-status');
       if (st && st.parentNode) { st.parentNode.removeChild(st); }
-    });
+    }
+    function dropArtPending(req) { try { if (artGenFired[key] === req) delete artGenFired[key]; } catch (e) {} }
+    if (artGenPromise && typeof artGenPromise.then === 'function') {
+      artGenPromise.then(function (json) { paintArtOk(json); }, function () { paintArtFail(); });
+      return;
+    }
+    var artGenReq = fetch('/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    }).then(function (resp) { return resp.json(); });
+    try { artGenFired[key] = artGenReq; } catch (e) {}
+    artGenReq.then(function (json) { dropArtPending(artGenReq); paintArtOk(json); }, function () { dropArtPending(artGenReq); paintArtFail(); });
   }
   // one art zone: white base coat + (real image OR quiet placeholder). never
   // empty, never fetching on load or scroll. gen carries {recipeId} when the

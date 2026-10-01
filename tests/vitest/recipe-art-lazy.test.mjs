@@ -54,6 +54,15 @@ describe('recipe art lazy-generate', () => {
     expect(cards).toMatch(/isConnected === false/);
   });
 
+  it('shares the in-flight fetch on re-prime so no skeleton strands, and retries after settle', () => {
+    const cards = readFileSync(resolve(APP, 'js/recipe-cards.js'), 'utf8');
+    // no silent early return: a re-primed wrap joins the pending promise.
+    expect(cards).not.toMatch(/if \(artGenFired\[key\]\) return;/);
+    expect(cards).toMatch(/artGenPromise\.then/);
+    // settle clears the cell so a later prime retries down the seeded path.
+    expect(cards).toMatch(/delete artGenFired\[key\]/);
+  });
+
   it('fires once per completed preview, never on load or scroll, and says so', () => {
     const cards = readFileSync(resolve(APP, 'js/recipe-cards.js'), 'utf8');
     const gen = readFileSync(resolve(APP, 'js/generate.js'), 'utf8');

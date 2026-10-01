@@ -191,6 +191,34 @@ export class GenerateStack extends cdk.Stack {
                 Action: ["s3:PutObject", "s3:GetObject"],
                 Resource: `arn:aws:s3:::${damBucketName}/brands/kodiak/packs/*`,
               },
+              // Site recipe-art mirror + run ledger (hotfix 2026-10-01, live
+              // as KodiakHotfix20261001): mirror_recipe_art_to_sites PUTs
+              // freshly generated art to both website buckets (KODIAK_SITE_BUCKETS),
+              // and the preview-attempts ledger behind GET /history needs
+              // PutObject/GetObject plus a prefix-scoped ListBucket. Without
+              // these the mirror fails AccessDenied and history is unwritable.
+              {
+                Sid: "SiteRecipeArtMirror",
+                Effect: "Allow",
+                Action: ["s3:PutObject"],
+                Resource: [
+                  "arn:aws:s3:::frontier-bryanchasko-com/recipe-art/*",
+                  "arn:aws:s3:::kodiak-dev-bryanchasko-com/recipe-art/*",
+                ],
+              },
+              {
+                Sid: "DamPreviewAttemptsReadWrite",
+                Effect: "Allow",
+                Action: ["s3:PutObject", "s3:GetObject"],
+                Resource: `arn:aws:s3:::${damBucketName}/dam/preview-attempts/*`,
+              },
+              {
+                Sid: "DamPreviewAttemptsList",
+                Effect: "Allow",
+                Action: ["s3:ListBucket"],
+                Resource: `arn:aws:s3:::${damBucketName}`,
+                Condition: { StringLike: { "s3:prefix": ["dam/preview-attempts/*"] } },
+              },
               // Async render jobs (POST /jobs start, GET /jobs status): the
               // worker branch self-invokes with InvocationType Event and the
               // status docs live under brands/kodiak/jobs/*. The function-name
