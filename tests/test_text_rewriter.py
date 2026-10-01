@@ -63,6 +63,24 @@ def test_fr_vt_rewrite_swaps_myrtilles_to_bleuets():
     assert result["safety"]["clean"] is True
 
 
+def test_gate_recognizes_lambda_full_uri(monkeypatch):
+    # Lambda exposes FULL_URI, not static keys/profile/relative-uri: the gate
+    # must still pass, else prod silently mock-falls-back every headline.
+    for var in ("AWS_ACCESS_KEY_ID", "AWS_PROFILE", "AWS_SESSION_TOKEN",
+                "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"):
+        monkeypatch.delenv(var, raising=False)
+    monkeypatch.setenv("AWS_CONTAINER_CREDENTIALS_FULL_URI", "http://169.254.170.2/creds")
+    assert text_rewriter._has_creds() is True
+
+
+def test_gate_closed_with_no_credential_env(monkeypatch):
+    for var in ("AWS_ACCESS_KEY_ID", "AWS_PROFILE", "AWS_SESSION_TOKEN",
+                "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI",
+                "AWS_CONTAINER_CREDENTIALS_FULL_URI"):
+        monkeypatch.delenv(var, raising=False)
+    assert text_rewriter._has_creds() is False
+
+
 def test_offline_fallback_with_no_creds(monkeypatch):
     # simulate a no-credentials environment: the chain must still return the base text
     monkeypatch.setattr(text_rewriter, "_has_creds", lambda: False)

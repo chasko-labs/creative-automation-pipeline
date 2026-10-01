@@ -56,6 +56,10 @@ def _has_creds() -> bool:
         or os.getenv("AWS_PROFILE")
         or os.getenv("AWS_SESSION_TOKEN")
         or os.getenv("AWS_CONTAINER_CREDENTIALS_RELATIVE_URI")
+        # Lambda sets the FULL uri, not the relative one — without this the
+        # rewrite self-gates to mock even in prod where the execution role has
+        # full access (same fix as art_director._has_creds).
+        or os.getenv("AWS_CONTAINER_CREDENTIALS_FULL_URI")
     )
 
 
